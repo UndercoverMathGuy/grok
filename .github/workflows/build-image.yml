@@ -16,6 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Docker tags must be lowercase; github.repository keeps the owner's caps.
+      - name: Lowercase image name
+        run: echo "IMAGE=ghcr.io/${REPO,,}/semifinal-trainer" >> "$GITHUB_ENV"
+        env:
+          REPO: ${{ github.repository }}
+
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
@@ -29,11 +35,11 @@ jobs:
           context: cloud
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/semifinal-trainer:latest
-            ghcr.io/${{ github.repository }}/semifinal-trainer:${{ github.sha }}
+            ${{ env.IMAGE }}:latest
+            ${{ env.IMAGE }}:${{ github.sha }}
 
       - name: Smoke test (CPU) inside the built image
         run: |
           docker run --rm --entrypoint python \
-            ghcr.io/${{ github.repository }}/semifinal-trainer:${{ github.sha }} \
+            "$IMAGE:${{ github.sha }}" \
             -u train_semifinal_torch.py --smoke --compile off
