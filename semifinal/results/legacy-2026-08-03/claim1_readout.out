@@ -1,0 +1,153 @@
+collisionfarm/seed21245_t27                [surgical      ] emb 0.83 T_k 0.85 al 0.52 fwd 0.82/0.90
+collisionfarm/seed33428_t55                [surgical      ] emb 0.80 T_k 0.82 al 0.55 fwd 0.74/0.85
+collisionfarm/seed51376_t35                [surgical      ] emb 0.86 T_k 0.76 al 0.54 fwd 0.62/0.75
+collisionfarm/seed63523_t56                [surgical      ] emb 0.97 T_k 0.96 al 0.78 fwd 0.88/0.82
+combined/p-113/seed2034/seed11285          [orth-flat     ] emb 0.38 T_k 0.78 al 0.78 fwd 0.49/0.59
+combined/p-113/seed2034/seed33428          [orth-flat     ] emb 0.42 T_k 0.81 al 0.81 fwd 0.55/0.65
+dosefarm/seed21245/dose_100                [surgical      ] emb 0.73 T_k 0.73 al 0.56 fwd 0.78/0.86
+dosefarm/seed21245/dose_105                [surgical      ] emb 0.72 T_k 0.73 al 0.56 fwd 0.77/0.86
+dosefarm/seed21245/dose_110                [surgical      ] emb 0.67 T_k 0.62 al 0.50 fwd 0.73/0.78
+dosefarm/seed21245/dose_120                [surgical      ] emb 0.71 T_k 0.72 al 0.56 fwd 0.76/0.86
+dosefarm/seed21245/dose_150                [surgical      ] emb 0.70 T_k 0.69 al 0.58 fwd 0.75/0.74
+dosefarm/seed21245/dose_225                [surgical      ] emb 0.72 T_k 0.66 al 0.36 fwd 0.74/0.86
+dosefarm/seed27058/dose_150                [surgical      ] emb 0.97 T_k 1.00 al 0.66 fwd 0.84/0.69
+dosefarm/seed33428/dose_100                [surgical      ] emb 0.79 T_k 0.66 al 0.41 fwd 0.56/0.67
+dosefarm/seed33428/dose_105                [surgical      ] emb 0.79 T_k 0.66 al 0.41 fwd 0.56/0.67
+dosefarm/seed33428/dose_110                [surgical      ] emb 0.79 T_k 0.66 al 0.41 fwd 0.55/0.66
+dosefarm/seed33428/dose_120                [surgical      ] emb 0.80 T_k 0.56 al 0.32 fwd 0.49/0.55
+dosefarm/seed33428/dose_150                [surgical      ] emb 0.77 T_k 0.65 al 0.41 fwd 0.54/0.65
+dosefarm/seed33428/dose_225                [surgical      ] emb 0.96 T_k 0.80 al 0.43 fwd 0.70/0.76
+dosefarm/seed51376/dose_100                [surgical      ] emb 0.76 T_k 0.72 al 0.55 fwd 0.56/0.68
+dosefarm/seed51376/dose_105                [surgical      ] emb 0.71 T_k 0.63 al 0.47 fwd 0.37/0.46
+dosefarm/seed51376/dose_110                [surgical      ] emb 0.74 T_k 0.71 al 0.55 fwd 0.56/0.68
+dosefarm/seed51376/dose_120                [surgical      ] emb 0.70 T_k 0.62 al 0.47 fwd 0.36/0.46
+dosefarm/seed51376/dose_150                [surgical      ] emb 0.71 T_k 0.70 al 0.55 fwd 0.48/0.59
+dosefarm/seed51376/dose_225                [surgical      ] emb 0.62 T_k 0.67 al 0.62 fwd 0.53/0.66
+doubleflat/p-113/seed2034/seed1001         [double-flat   ] emb 0.65 T_k 0.47 al 0.37 fwd 0.54/0.58
+doubleflat/p-113/seed2034/seed1002         [double-flat   ] emb 0.51 T_k 0.69 al 0.68 fwd 0.46/0.59
+doubleflat/p-113/seed2034/seed1003         [double-flat   ] emb 0.60 T_k 0.77 al 0.82 fwd 0.35/0.60
+doubleflat/p-113/seed2034/seed1004         [double-flat   ] emb 0.57 T_k 0.53 al 0.42 fwd 0.36/0.08
+doubleflat/p-113/seed2034/seed11285        [double-flat   ] emb 0.22 T_k 0.47 al 0.67 fwd 0.94/0.96
+doubleflat/p-113/seed2034/seed2001         [double-flat   ] emb 0.69 T_k 0.75 al 0.59 fwd 0.60/0.73
+doubleflat/p-113/seed2034/seed2002         [double-flat   ] emb 0.55 T_k 0.56 al 0.55 fwd 0.63/0.63
+doubleflat/p-113/seed2034/seed2003         [double-flat   ] emb 0.37 T_k 0.35 al 0.42 fwd 0.66/0.74
+doubleflat/p-113/seed2034/seed2004         [double-flat   ] emb 0.51 T_k 0.35 al 0.27 fwd 0.30/0.31
+doubleflat/p-113/seed2034/seed2005         [double-flat   ] emb 0.77 T_k 0.56 al 0.39 fwd 0.31/0.46
+doubleflat/p-113/seed2034/seed2006         [double-flat   ] emb 0.46 T_k 0.35 al 0.39 fwd 0.66/0.68
+doubleflat/p-113/seed2034/seed2007         [double-flat   ] emb 0.45 T_k 0.46 al 0.51 fwd 0.42/0.56
+doubleflat/p-113/seed2034/seed2008         [double-flat   ] emb 0.46 T_k 0.56 al 0.58 fwd 0.55/0.53
+doubleflat/p-113/seed2034/seed33428        [double-flat   ] emb 0.56 T_k 0.63 al 0.59 fwd 0.63/0.59
+doubleflat/p-113/seed2034/seed4242         [double-flat   ] emb 0.39 T_k 0.38 al 0.41 fwd 0.47/0.36
+doubleflat/p-113/seed2034/seed777          [double-flat   ] emb 0.44 T_k 0.28 al 0.24 fwd 0.28/0.64
+eff-A/p-113/seed2034/seed11285             [orth-flat     ] emb 0.59 T_k 0.62 al 0.62 fwd 0.61/0.71
+eff-A/p-113/seed2034/seed33428             [orth-flat     ] emb 0.36 T_k 0.70 al 0.70 fwd 0.60/0.70
+eff-A/p-113/seed2034/seed4242              [orth-flat     ] emb 0.46 T_k 0.70 al 0.70 fwd 0.86/0.77
+eff-A/p-113/seed2034/seed777               [orth-flat     ] emb 0.72 T_k 0.67 al 0.67 fwd 0.69/0.79
+eff-B/p-113/seed2034/seed11285             [orth-flat     ] emb 0.60 T_k 0.84 al 0.84 fwd 0.71/0.62
+eff-B/p-113/seed2034/seed33428             [orth-flat     ] emb 0.42 T_k 0.81 al 0.81 fwd 0.55/0.65
+eff-B/p-113/seed2034/seed4242              [orth-flat     ] emb 0.23 T_k 0.33 al 0.33 fwd 0.62/0.74
+eff-B/p-113/seed2034/seed777               [orth-flat     ] emb 0.60 T_k 0.62 al 0.62 fwd 0.62/0.67
+eff-D/p-113/seed2034/seed11285             [orth-flat     ] emb 0.38 T_k 0.78 al 0.78 fwd 0.49/0.59
+eff-D/p-113/seed2034/seed33428             [orth-flat     ] emb 0.35 T_k 0.83 al 0.83 fwd 0.60/0.65
+eff-D/p-113/seed2034/seed777               [orth-flat     ] emb 0.45 T_k 0.58 al 0.58 fwd 0.71/0.76
+eff-E/p-113/seed2034/seed11285             [orth-flat     ] emb 0.53 T_k 0.79 al 0.79 fwd 0.74/0.74
+eff-E/p-113/seed2034/seed33428             [orth-flat     ] emb 0.57 T_k 0.82 al 0.82 fwd 0.57/0.77
+eff-E/p-113/seed2034/seed4242              [orth-flat     ] emb 0.60 T_k 0.70 al 0.70 fwd 0.37/0.70
+eff-E/p-113/seed2034/seed777               [orth-flat     ] emb 0.60 T_k 0.62 al 0.62 fwd 0.62/0.67
+eff-G/p-113/seed2034/seed11285             [orth-flat     ] emb 0.33 T_k 0.79 al 0.79 fwd 0.71/0.84
+eff-G/p-113/seed2034/seed33428             [orth-flat     ] emb 0.34 T_k 0.71 al 0.71 fwd 0.47/0.54
+eff-G/p-113/seed2034/seed4242              [orth-flat     ] emb 0.60 T_k 0.53 al 0.53 fwd 0.54/0.61
+eff-G/p-113/seed2034/seed777               [orth-flat     ] emb 0.58 T_k 0.61 al 0.61 fwd 0.72/0.58
+gkrotate/gain_105                          [surgical      ] emb 0.96 T_k 0.99 al 0.85 fwd 0.83/0.81
+gkrotate/gain_120                          [surgical      ] emb 0.85 T_k 0.90 al 0.81 fwd 0.76/0.63
+gkrotate/gain_225                          [surgical      ] emb 0.75 T_k 0.89 al 0.78 fwd 0.82/0.87
+og_seed0/seed1                             [natural-normal] emb 0.62 T_k 0.84 al 0.67 fwd 0.68/0.64
+og_seed0/seed27058                         [natural-normal] emb 0.96 T_k 0.99 al 0.85 fwd 0.84/0.82
+og_seed0/seed51224                         [natural-normal] emb 0.73 T_k 0.71 al 0.49 fwd 0.76/0.76
+og_seed0/seed55794                         [natural-normal] emb 0.50 T_k 0.83 al 0.90 fwd 0.82/0.89
+og_seed0/seed63523                         [natural-normal] emb 0.72 T_k 0.72 al 0.62 fwd 0.69/0.68
+og_seed0/seed71539                         [natural-normal] emb 0.55 T_k 0.69 al 0.68 fwd 0.65/0.60
+og_seed0/seed84679                         [natural-normal] emb 0.79 T_k 0.89 al 0.83 fwd 0.77/0.74
+orthWE/p-113/seed2034/seed11285            [orth-flat     ] emb 0.44 T_k 0.59 al 0.59 fwd 0.60/0.70
+orthWE/p-113/seed2034/seed33428            [orth-flat     ] emb 0.48 T_k 0.62 al 0.62 fwd 0.63/0.63
+orthWE/p-113/seed2034/seed4242             [orth-flat     ] emb 0.39 T_k 0.39 al 0.39 fwd 0.58/0.72
+orthWE/p-113/seed2034/seed777              [orth-flat     ] emb 0.57 T_k 0.56 al 0.56 fwd 0.75/0.66
+orthWE/p-113/seed3604/seed4242             [orth-flat     ] emb 0.31 T_k 0.74 al 0.74 fwd 0.66/0.58
+orthWE/p-113/seed3604/seed54735            [orth-flat     ] emb 0.50 T_k 0.75 al 0.75 fwd 0.70/0.57
+orthWE/p-113/seed3604/seed66433            [orth-flat     ] emb 0.64 T_k 0.48 al 0.48 fwd 0.54/0.72
+orthWE/p-113/seed3604/seed777              [orth-flat     ] emb 0.48 T_k 0.42 al 0.42 fwd 0.23/0.21
+p-113/seed2034/seed11285                   [natural-normal] emb 0.70 T_k 0.70 al 0.52 fwd 0.71/0.68
+p-113/seed2034/seed33428                   [natural-normal] emb 0.79 T_k 0.66 al 0.41 fwd 0.56/0.67
+p-113/seed3604/seed54735                   [natural-normal] emb 0.58 T_k 0.73 al 0.71 fwd 0.82/0.84
+p-113/seed3604/seed66433                   [natural-normal] emb 0.70 T_k 0.80 al 0.74 fwd 0.76/0.59
+p-127/seed2034/seed49631                   [natural-normal] emb 0.87 T_k 0.94 al 0.83 fwd 0.79/0.78
+p-127/seed3604/seed31429                   [natural-normal] emb 0.75 T_k 0.63 al 0.48 fwd 0.60/0.64
+p-157/seed2034/seed33301                   [natural-normal] emb 0.67 T_k 0.69 al 0.62 fwd 0.71/0.70
+p-157/seed3604/seed56947                   [natural-normal] emb 0.87 T_k 0.97 al 0.89 fwd 0.93/0.77
+phase2-noise/p-113/seed2034/seed11285      [orth-flat     ] emb 0.33 T_k 0.56 al 0.56 fwd 0.62/0.65
+phase2-noise/p-113/seed2034/seed33428      [orth-flat     ] emb 0.49 T_k 0.82 al 0.82 fwd 0.68/0.71
+phase2-noise/p-113/seed2034/seed4242       [orth-flat     ] emb 0.35 T_k 0.36 al 0.36 fwd 0.64/0.70
+phase2-noise/p-113/seed2034/seed777        [orth-flat     ] emb 0.77 T_k 0.54 al 0.54 fwd 0.67/0.71
+phase2-noise2/p-113/seed2034/seed11285     [orth-flat     ] emb 0.43 T_k 0.62 al 0.62 fwd 0.65/0.69
+phase2-noise2/p-113/seed2034/seed33428     [orth-flat     ] emb 0.52 T_k 0.91 al 0.91 fwd 0.74/0.76
+phase2-noise2/p-113/seed2034/seed4242      [orth-flat     ] emb 0.46 T_k 0.55 al 0.55 fwd 0.64/0.62
+phase2-noise2/p-113/seed2034/seed777       [orth-flat     ] emb 0.65 T_k 0.63 al 0.63 fwd 0.67/0.62
+phase2-tilt/p-113/seed2034/seed11285       [orth-flat     ] emb 0.38 T_k 0.78 al 0.78 fwd 0.49/0.59
+phase2-tilt/p-113/seed2034/seed33428       [orth-flat     ] emb 0.42 T_k 0.81 al 0.81 fwd 0.55/0.65
+phase2-tilt/p-113/seed2034/seed4242        [orth-flat     ] emb 0.38 T_k 0.67 al 0.67 fwd 0.60/0.71
+phase2-tilt/p-113/seed2034/seed777         [orth-flat     ] emb 0.64 T_k 0.65 al 0.65 fwd 0.48/0.49
+seed0/seed37099                            [natural-normal] emb 0.50 T_k 0.62 al 0.64 fwd 0.71/0.84
+seed0/seed55327                            [natural-normal] emb 0.69 T_k 0.73 al 0.72 fwd 0.72/0.69
+seed0/seed93077                            [natural-normal] emb 0.55 T_k 0.49 al 0.39 fwd 0.52/0.49
+seed1/seed21245                            [natural-normal] emb 0.72 T_k 0.71 al 0.58 fwd 0.76/0.75
+seed1/seed57434                            [natural-normal] emb 0.41 T_k 0.52 al 0.59 fwd 0.66/0.69
+seed1/seed81860                            [natural-normal] emb 0.60 T_k 0.56 al 0.48 fwd 0.67/0.73
+seed2/seed35467                            [natural-normal] emb 0.45 T_k 0.67 al 0.83 fwd 0.60/0.71
+seed2/seed51376                            [natural-normal] emb 0.72 T_k 0.69 al 0.57 fwd 0.62/0.68
+seed2/seed66903                            [natural-normal] emb 0.50 T_k 0.58 al 0.59 fwd 0.51/0.50
+surgery/boost_strong                       [surgical      ] emb 0.88 T_k 0.89 al 0.56 fwd 0.82/0.82
+surgery/boost_subtle                       [surgical      ] emb 0.96 T_k 0.90 al 0.66 fwd 0.73/0.62
+surgery/collision                          [surgical      ] emb 0.86 T_k 0.89 al 0.77 fwd 0.74/0.78
+surgery/control                            [surgical      ] emb 0.96 T_k 0.99 al 0.85 fwd 0.84/0.82
+surgery/suppress                           [surgical      ] emb 0.80 T_k 0.75 al 0.66 fwd 0.60/0.64
+surgery2/dose_105                          [surgical      ] emb 0.96 T_k 0.99 al 0.85 fwd 0.84/0.82
+surgery2/dose_110                          [surgical      ] emb 0.94 T_k 0.86 al 0.66 fwd 0.67/0.62
+surgery2/triple_clean                      [surgical      ] emb 0.85 T_k 0.87 al 0.62 fwd 0.81/0.85
+surgery2/triple_deg                        [surgical      ] emb 0.95 T_k 0.96 al 0.56 fwd 0.85/0.82
+transplant/seed37099_from_seed55327        [surgical      ] emb 0.67 T_k 0.63 al 0.55 fwd 0.76/0.73
+transplant/seed37099_from_seed93077        [surgical      ] emb 0.87 T_k 0.83 al 0.58 fwd 0.87/0.93
+transplant/seed55327_from_seed37099        [surgical      ] emb 0.67 T_k 0.71 al 0.75 fwd 0.71/0.72
+transplant/seed55327_from_seed93077        [surgical      ] emb 0.77 T_k 0.75 al 0.60 fwd 0.75/0.74
+transplant/seed93077_from_seed37099        [surgical      ] emb 0.64 T_k 0.65 al 0.52 fwd 0.58/0.65
+transplant/seed93077_from_seed55327        [surgical      ] emb 0.76 T_k 0.69 al 0.46 fwd 0.62/0.69
+
+=== CLAIM 1a: epoch-0 readout AUC by cohort ===
+natural-normal n=24 runs, 9 independent inits/masks
+   emb       run-level 0.664 (p=8.4e-06)  cluster-level 0.705 (p=6.4e-04)
+   T_k       run-level 0.724 (p=3.2e-08)  cluster-level 0.742 (p=6.2e-04)
+   align     run-level 0.651 (p=5.4e-05)  cluster-level 0.655 (p=1.2e-02)
+   fwd_mlp   run-level 0.704 (p=1.3e-09)  cluster-level 0.717 (p=3.5e-04)
+   fwd_align run-level 0.702 (p=9.8e-10)  cluster-level 0.704 (p=2.7e-06)
+surgical n=41 runs, 8 independent inits/masks
+   emb       run-level 0.802 (p=1.9e-21)  cluster-level 0.791 (p=6.3e-05)
+   T_k       run-level 0.774 (p=5.0e-17)  cluster-level 0.762 (p=2.9e-04)
+   align     run-level 0.582 (p=5.0e-04)  cluster-level 0.588 (p=8.5e-02)
+   fwd_mlp   run-level 0.690 (p=5.4e-11)  cluster-level 0.707 (p=2.7e-03)
+   fwd_align run-level 0.732 (p=5.0e-16)  cluster-level 0.743 (p=7.0e-05)
+orth-flat n=41 runs, 8 independent inits/masks
+   emb       run-level 0.480 (p=3.1e-01)  cluster-level 0.482 (p=6.4e-01)
+   T_k       run-level 0.661 (p=5.8e-09)  cluster-level 0.629 (p=3.5e-02)
+   align     run-level 0.661 (p=5.8e-09)  cluster-level 0.629 (p=3.5e-02)
+   fwd_mlp   run-level 0.609 (p=1.9e-07)  cluster-level 0.576 (p=1.9e-01)
+   fwd_align run-level 0.659 (p=2.4e-12)  cluster-level 0.598 (p=1.4e-01)
+double-flat n=16 runs, 16 independent inits/masks
+   emb       run-level 0.513 (p=7.1e-01)  cluster-level 0.513 (p=7.1e-01)
+   T_k       run-level 0.510 (p=8.0e-01)  cluster-level 0.510 (p=8.0e-01)
+   align     run-level 0.493 (p=8.6e-01)  cluster-level 0.493 (p=8.6e-01)
+   fwd_mlp   run-level 0.511 (p=8.1e-01)  cluster-level 0.511 (p=8.1e-01)
+   fwd_align run-level 0.564 (p=2.1e-01)  cluster-level 0.564 (p=2.1e-01)
+
+Backs SEMIFINAL claim 1. Cluster-level numbers are primary: dynamics
+variants / surgical arms sharing one epoch-0 init are one unit of evidence.
+'align' is ingredient 2 measured in untouched natural runs — the in-place
+counterpart of the orth-flat erasure argument.
