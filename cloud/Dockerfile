@@ -1,6 +1,7 @@
 # SEMIFINAL v2 trainer for cloud CUDA boxes. (rebuild: repo now public)
 # RTX 5090 is Blackwell (sm_120): needs torch >= 2.7 built against CUDA 12.8.
-FROM pytorch/pytorch:2.7.1-cuda12.8-cudnn9-runtime
+# -devel (not -runtime): torch.compile's Inductor needs the C++ toolchain.
+FROM pytorch/pytorch:2.7.1-cuda12.8-cudnn9-devel
 
 RUN pip install --no-cache-dir wandb safetensors numpy
 
