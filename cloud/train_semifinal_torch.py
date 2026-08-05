@@ -2,7 +2,7 @@
 the train_semifinal_v2.py protocol. Imports NOTHING from the MLX codebase.
 
 Same experiments as semifinal/training/train_semifinal_v2.py: 44 runs,
-p=113, 20k epochs, spectra every 100, checkpoints every 1000 (epoch 0 saved
+p=113, 50k epochs, spectra every 100, checkpoints every 1000 (epoch 0 saved
 pre-update), idempotent (spectra.npz marks done), priority order preserved:
 24 from-scratch (nat/orthWE/doubleflat, cells A+B) then 2 steering suites
 (dose/suppress/gkrotate/chaospair/collision) on bases seed61001/seed61002.
@@ -23,9 +23,25 @@ Checkpoint/artifact formats are byte-compatible with the MLX pipeline:
 safetensors with MLX key names (embed.W_E, blocks.0.attn.W_K, ...),
 config.json with the full Config schema, spectra.npz, metrics.json.
 
-wandb: set WANDB_API_KEY (and optionally WANDB_PROJECT / WANDB_ENTITY).
-Metrics stream per batch; each finished run's directory is uploaded as an
-artifact (type "grok-run"). No key -> wandb disabled, training unaffected.
+EPOCHS is 50k here vs 20k in the MLX script — the only protocol difference,
+taken because cloud compute is cheap and committees still drift late in a
+few percent of runs. Everything else is identical (verified numerically).
+
+wandb: set WANDB_API_KEY (and optionally WANDB_PROJECT / WANDB_ENTITY /
+WANDB_NAME). NOTHING is left to wandb's animal-name generator. The dashboard
+gets 45 entries with readable, greppable names:
+
+  semifinal-v2-p113-50k-<timestamp>   one "driver" run: live run-eps/s and
+                                      per-batch aggregates while training
+  p-113/seed4811/seed61001            one run PER training run, named for
+  orthWE/p-113/seed4811/seed61001     its path, grouped by family, carrying
+  doubleflat/p-113/seed7207/seed72003 its own Config, train/test CE + acc
+  dosefarm/seed61001/dose_110         curves, committee + grok epoch in the
+  gkrotate/seed61002/gain_225         summary, and its own "grok-run"
+  collisionfarm/seed61001_t37         artifact (config/metrics/spectra/ckpts)
+
+Per-run entries are published by report() as each lockstep batch finishes.
+No key -> wandb disabled entirely, training unaffected.
 
 Run:   python -u train_semifinal_torch.py            (the full 44)
        python -u train_semifinal_torch.py --dry-run
@@ -55,7 +71,7 @@ CKPT_DIR = RUNS / "_surgical_ckpt"
 
 P = 113
 NF = P // 2
-EPOCHS = 20000
+EPOCHS = 50000
 CELLS = {4811: [61001, 61002, 61003, 61004],
          7207: [72001, 72002, 72003, 72004]}
 STEER_BASES = ["p-113/seed4811/seed61001", "p-113/seed4811/seed61002"]
@@ -255,7 +271,7 @@ def save_ckpts(pr, run_dirs, epoch):
 
 def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
                   spectra_every=100, loss="f32stable", compile_mode="default",
-                  device=None, wb=None):
+                  device=None, wb=None, wb_tag=None):
     M = len(cfgs)
     c0 = cfgs[0]
     for c in cfgs:
@@ -268,6 +284,18 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         assert c.loss_tilt == 0 and c.loss_cvar == 0 and c.grad_noise == 0
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
     run_dirs = [Path(rd) for rd in run_dirs]
+
+    def _rel(rd):   # run path relative to RUNS: the wandb scalar key prefix
+        try:
+            return str(rd.relative_to(RUNS))
+        except ValueError:
+            return rd.name
+
+    rel_names = [_rel(rd) for rd in run_dirs]
+    # Label the batch aggregates by what the batch IS, not by whichever run
+    # happened to sort first (that read as "seed61001/train_mean" for a mean
+    # over all 24 runs).
+    tag = wb_tag or f"batch/{rel_names[0]}"
     for cfg, rd in zip(cfgs, run_dirs):
         (rd / "checkpoints").mkdir(parents=True, exist_ok=True)
         cfg.save(rd / "config.json")
@@ -366,16 +394,24 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
             test_hist.append(te)
             tr = train_hist[-1].cpu().numpy()
             eps_s = (epoch + 1) / (time.time() - t0)
+            # median as well as mean: the test distribution is heavy-tailed
+            # (one late-grokking straggler can be 100x the median and then
+            # owns most of the mean) — see the 16-run MLX cohort.
             print(f"epoch {epoch + 1:6d}  train {tr.mean():.4e}  "
-                  f"test mean {te.mean():.4e} max {te.max():.4e}  "
+                  f"test med {np.median(te):.4e} mean {te.mean():.4e} "
+                  f"max {te.max():.4e}  "
                   f"({eps_s:.1f} eps/s x {M} = {eps_s * M:.0f} run-eps/s)",
                   flush=True)
             if wb:
-                tag = Path(run_dirs[0]).name
-                wb.log({"epoch": epoch + 1, f"{tag}/train_mean": float(tr.mean()),
-                        f"{tag}/test_mean": float(te.mean()),
-                        f"{tag}/test_max": float(te.max()),
-                        "run_eps_per_s": eps_s * M})
+                d = {"epoch": epoch + 1, "run_eps_per_s": eps_s * M,
+                     f"{tag}/train_mean": float(tr.mean()),
+                     f"{tag}/test_mean": float(te.mean()),
+                     f"{tag}/test_median": float(np.median(te)),
+                     f"{tag}/test_max": float(te.max())}
+                for i, n in enumerate(rel_names):   # per-run curves, named
+                    d[f"{n}/train"] = float(tr[i])
+                    d[f"{n}/test"] = float(te[i])
+                wb.log(d)
             if te.max() < c0.stopping_thresh:
                 break
 
@@ -420,22 +456,64 @@ def grok_epoch(z):
 
 
 def report(run_dir, wb=None):
+    """Print the run summary and, if wandb is on, publish the run as its OWN
+    wandb run named for its path (e.g. orthWE/p-113/seed4811/seed61001).
+
+    One wandb run per training run is the whole point: the dashboard list is
+    then a list of real run names you can read and grep, instead of 44 runs
+    hidden inside one 'nosy-aardvark'. Each carries its own Config, its own
+    train/test/test_acc curves, its committee in the summary, and its
+    artifact — so filtering by cohort or sorting by grok epoch works in the
+    UI with no decoding.
+    """
     z = np.load(run_dir / "spectra.npz")
     final = committee_from_coeffs(z["coeffs"][-1])
     name = str(run_dir.relative_to(RUNS))
-    print(f"RESULT {name}: grok@{grok_epoch(z)}  committee {final}  "
+    ge = grok_epoch(z)
+    print(f"RESULT {name}: grok@{ge}  committee {final}  "
           f"acc {z['test_acc'][-1]:.4f}", flush=True)
-    if wb:
+    if not wb:
+        return
+    cfg = Config.load(run_dir / "config.json")
+    conf = asdict(cfg)
+    conf["betas"] = list(conf["betas"])
+    fam = name.split("/")[0]
+    cohort = ("double-flat" if cfg.embed_init == "orthogonal"
+              and cfg.attn_init == "isometric" else
+              "orth-flat" if cfg.embed_init == "orthogonal" else "normal")
+    r = wandb.init(
+        project=os.environ.get("WANDB_PROJECT", "grok-semifinal-v2"),
+        name=name, group=fam, job_type=cohort, reinit="create_new",
+        tags=[fam, cohort, f"p{cfg.p}", f"{cfg.num_epochs // 1000}k"],
+        config={**conf, "run": name, "family": fam, "cohort": cohort})
+    try:
+        m = json.loads((run_dir / "metrics.json").read_text())
+        tr, te, every = m["train_losses"], m["test_losses"], m["test_every"]
+        acc = {int(e): (float(a), float(b)) for e, a, b in
+               zip(z["epochs"], z["train_acc"], z["test_acc"])}
+        for j, t in enumerate(te):          # train subsampled to test cadence
+            ep = (j + 1) * every
+            row = {"epoch": ep, "test_ce": t}
+            if ep - 1 < len(tr):            # short if stopping_thresh fired
+                row["train_ce"] = tr[ep - 1]
+            if ep in acc:
+                row["train_acc"], row["test_acc"] = acc[ep]
+            r.log(row)
+        r.summary.update({
+            "grok_epoch": ge, "committee": final, "committee_size": len(final),
+            "final_train_ce": tr[-1], "final_test_ce": te[-1] if te else None,
+            "final_test_acc": float(z["test_acc"][-1])})
         art = wandb.Artifact(name.replace("/", "__"), type="grok-run")
         art.add_dir(str(run_dir))
         # wait() makes the upload synchronous: a run only counts as done
         # once its artifact is committed, so a dead box can't strand a
         # finished-locally-but-never-uploaded run (resume would skip it).
-        handle = wb.log_artifact(art)
         try:
-            handle.wait()
+            r.log_artifact(art).wait()
         except Exception as e:  # offline mode / transient — don't kill training
             print(f"    (artifact upload not confirmed for {name}: {e})", flush=True)
+    finally:
+        r.finish()
 
 
 def freq_energy_F(Fm, nf):
@@ -527,7 +605,7 @@ def T_k_spread(p):
 # the plan (identical runs/order to train_semifinal_v2.py)
 # --------------------------------------------------------------------------
 
-def batch_train(jobs, width, args, wb):
+def batch_train(jobs, width, args, wb, label="batch"):
     todo = []
     for name, cfg, ckpt in jobs:
         if (RUNS / name / "spectra.npz").exists():
@@ -542,7 +620,8 @@ def batch_train(jobs, width, args, wb):
               flush=True)
         train_batched([c for _, c, _ in chunk], [RUNS / n for n, _, _ in chunk],
                       init_from=[ck for _, _, ck in chunk], loss=args.loss,
-                      compile_mode=args.compile, wb=wb)
+                      compile_mode=args.compile, wb=wb,
+                      wb_tag=f"_batch/{label}_{i // width:02d}_x{len(chunk)}")
         for n, _, _ in chunk:
             report(RUNS / n, wb)
 
@@ -607,7 +686,7 @@ def steering_suite(base_rel, args, wb):
     assert trio_t, f"no collision target on {base_rel}"
     add(f"collisionfarm/{bname}_t{trio_t}",
         scales={trio_t: 2.25}, tag=f"v2col_{bname}")
-    batch_train(jobs, args.width_steer, args, wb)
+    batch_train(jobs, args.width_steer, args, wb, label=f"steer_{bname}")
 
 
 def smoke(args, wb):
@@ -650,8 +729,32 @@ if __name__ == "__main__":
 
     wb = None
     if wandb and os.environ.get("WANDB_API_KEY") and not args.dry_run:
-        wb = wandb.init(project=os.environ.get("WANDB_PROJECT", "grok-semifinal-v2"),
-                        config={"loss": args.loss, "tf32": args.tf32})
+        # Name the run ourselves. wandb's auto-generated "nosy-aardvark" tells
+        # you nothing about which sweep it was; this is greppable and sorts
+        # chronologically. WANDB_NAME overrides.
+        stamp = time.strftime("%Y%m%d-%H%M%S")
+        kind = "smoke" if args.smoke else "semifinal-v2"
+        dsA_ = sorted(CELLS)[0]
+        ref = asdict(base_cfg(dsA_, CELLS[dsA_][0]))
+        ref["betas"] = list(ref["betas"])
+        ref.update(
+            n_runs=len(STEER_BASES) * (len(DOSES) + len(GAINS) + 4)
+                   + 3 * sum(len(v) for v in CELLS.values()),
+            epochs=EPOCHS, spectra_every=100, cells={str(k): v for k, v in CELLS.items()},
+            steer_bases=STEER_BASES, doses=DOSES, gains=GAINS,
+            width_scratch=args.width_scratch, width_steer=args.width_steer,
+            loss=args.loss, tf32=args.tf32, compile=args.compile,
+            torch_version=torch.__version__,
+            gpu=torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu",
+            runs_dir=str(RUNS),
+        )
+        wb = wandb.init(
+            project=os.environ.get("WANDB_PROJECT", "grok-semifinal-v2"),
+            name=os.environ.get("WANDB_NAME")
+                 or f"{kind}-p{P}-{EPOCHS // 1000}k-{stamp}",
+            tags=["driver", kind, f"p{P}", f"{EPOCHS // 1000}k", args.loss]
+                 + (["tf32"] if args.tf32 else []),
+            config=ref)
 
     if args.smoke:
         smoke(args, wb)
@@ -669,7 +772,7 @@ if __name__ == "__main__":
                  for s in CELLS[dsB]]
         jobs += [(f"doubleflat/p-113/seed{dsB}/seed{s}",
                   doubleflat_cfg(dsB, s, args.dry_run), None) for s in CELLS[dsB]]
-        batch_train(jobs, args.width_scratch, args, wb)
+        batch_train(jobs, args.width_scratch, args, wb, label="scratch")
         for b in STEER_BASES:
             steering_suite(b, args, wb)
         print("SEMIFINAL V2 DATASET DONE", flush=True)
