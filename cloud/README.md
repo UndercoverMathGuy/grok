@@ -58,7 +58,11 @@ same pre-registered rules.
 ## Options
 
 ```
---dry-run            print the 44-run plan
+--dry-run            print the 98-run plan
+--only REGEX         train only matching run names; the 54 claim-2A/3E arms
+                     added after the first 44 are
+                     --only 'dyn-|phase2-tilt|eff-G|transplant/'
+--skip REGEX         never train matching run names
 --smoke              tiny CPU sanity check (used by CI)
 --loss f64           original f64 CE instead of stable-f32 (default f32stable)
 --compile reduce-overhead|max-autotune|off   (default: torch.compile default)

@@ -15,3 +15,5 @@ wheels/
 /legacy
 /large_files
 random.pdf
+/runs_torch50k
+.DS_Store

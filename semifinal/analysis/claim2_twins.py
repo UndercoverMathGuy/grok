@@ -106,38 +106,57 @@ for cell, rs in sorted(by_cell.items()):
               f"({valid} valid perms)")
 
 # --- B: cross-flattening same-seed table ------------------------------------
-print("\n=== B. same seed across flattening levels (cell p=113 ds=2034) ===")
-levels = {"normal": {}, "orth-flat": {}, "double-flat": {}}
+# Every cell that HAS the same init seeds at >=2 flattening levels is used
+# (this was pinned to the legacy cell p=113 ds=2034, which no longer exists in
+# the v2 dataset — the v2 cells carry all three levels on the same seeds).
+cells_b = {}
 for r in runs:
-    if (r["cfg"].p, r["cfg"].data_seed) != (113, 2034):
-        continue
     lv = ("normal" if r["cohort"] == "natural-normal" else
           r["cohort"] if r["cohort"] in ("orth-flat", "double-flat") else None)
+    if lv is None:
+        continue
     if lv == "orth-flat" and r["fam"] != "orthWE":
         continue          # one representative per level: plain dynamics only
-    if lv:
-        seed = r["cfg"].init_seed
-        if seed in levels[lv]:
-            print(f"WARNING: duplicate {lv} run for init_seed {seed} "
-                  f"({r['rel']}) — keeping the first discovered")
-            continue
-        levels[lv][seed] = sorted(r["committee"])
-pairs = []
-for seed in sorted(set().union(*[set(v) for v in levels.values()])):
-    row = {lv: levels[lv].get(seed) for lv in levels}
-    present = [lv for lv in levels if row[lv]]
-    if len(present) < 2:
+    lvls = cells_b.setdefault((r["cfg"].p, r["cfg"].data_seed),
+                              {"normal": {}, "orth-flat": {}, "double-flat": {}})
+    seed = r["cfg"].init_seed
+    if seed in lvls[lv]:
+        print(f"WARNING: duplicate {lv} run for init_seed {seed} "
+              f"({r['rel']}) — keeping the first discovered")
         continue
-    line = f"seed {seed}: " + "  ".join(f"{lv}={row[lv]}" for lv in present)
-    js = []
-    for i in range(len(present)):
-        for j in range(i + 1, len(present)):
-            js.append(jaccard(row[present[i]], row[present[j]]))
-            pairs.append(js[-1])
-    print(line + f"   J {['%.2f' % x for x in js]}")
+    lvls[lv][seed] = sorted(r["committee"])
+
+usable_b = sorted(c for c, lv in cells_b.items()
+                  if any(sum(s in v for v in lv.values()) >= 2
+                         for s in set().union(*(set(v) for v in lv.values()))))
+print(f"\n=== B. same seed across flattening levels "
+      f"(cells {usable_b if usable_b else 'NONE — no cell has one seed at 2+ levels'}) ===")
+pairs = []
+for cell in usable_b:
+    levels = cells_b[cell]
+    print(f"  cell {cell}:")
+    # "Stranger baseline" measured in THIS cell: different init seeds at the
+    # same flattening level (was a hardcoded ~0.11 for the legacy cell).
+    strangers = [jaccard(m[a], m[b]) for m in levels.values()
+                 for i, a in enumerate(sorted(m)) for b in sorted(m)[i + 1:]]
+    for seed in sorted(set().union(*(set(v) for v in levels.values()))):
+        row = {lv: levels[lv].get(seed) for lv in levels}
+        present = [lv for lv in levels if row[lv]]
+        if len(present) < 2:
+            continue
+        line = f"   seed {seed}: " + "  ".join(f"{lv}={row[lv]}" for lv in present)
+        js = []
+        for i in range(len(present)):
+            for j in range(i + 1, len(present)):
+                js.append(jaccard(row[present[i]], row[present[j]]))
+                pairs.append(js[-1])
+        print(line + f"   J {['%.2f' % x for x in js]}")
+    if strangers:
+        print(f"   stranger baseline (different seeds, same level) = "
+              f"{np.mean(strangers):.3f} over {len(strangers)} pairs")
 if pairs:
     print(f"mean same-seed cross-level J = {np.mean(pairs):.3f} "
-          f"(stranger baseline in this cell ~0.11)")
+          f"over {len(pairs)} pairs")
 
 # --- C: paired normal-vs-orth (descriptive) ---------------------------------
 print("\n=== C. paired normal vs orth twins (descriptive) ===")

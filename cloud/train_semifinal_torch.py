@@ -1,11 +1,12 @@
 """SEMIFINAL v2 on CUDA — self-contained torch port of grok/batched.py plus
 the train_semifinal_v2.py protocol. Imports NOTHING from the MLX codebase.
 
-Same experiments as semifinal/training/train_semifinal_v2.py: 44 runs,
-p=113, 50k epochs, spectra every 100, checkpoints every 1000 (epoch 0 saved
-pre-update), idempotent (spectra.npz marks done), priority order preserved:
-24 from-scratch (nat/orthWE/doubleflat, cells A+B) then 2 steering suites
-(dose/suppress/gkrotate/chaospair/collision) on bases seed61001/seed61002.
+Same experiments as semifinal/training/train_semifinal_v2.py, p=113, 50k
+epochs, spectra every 100, checkpoints every 1000 (epoch 0 saved pre-update),
+idempotent (spectra.npz marks done), priority order preserved: 24
+from-scratch (nat/orthWE/doubleflat, cells A+B) then 2 steering suites
+(dose/suppress/gkrotate/chaospair/collision) on the first two cell-A
+naturals. Seeds are drawn from SEED_DRAW and printed at startup.
 
 Lockstep batched training, exactly as the MLX version: weights stacked on a
 leading run axis, loss = sum of per-run mean CEs (separable -> exact per-run
@@ -29,21 +30,37 @@ few percent of runs. Everything else is identical (verified numerically).
 
 wandb: set WANDB_API_KEY (and optionally WANDB_PROJECT / WANDB_ENTITY /
 WANDB_NAME). NOTHING is left to wandb's animal-name generator. The dashboard
-gets 45 entries with readable, greppable names:
+gets one entry per run plus a driver, all readable and greppable:
 
   semifinal-v2-p113-50k-<timestamp>   one "driver" run: live run-eps/s and
                                       per-batch aggregates while training
-  p-113/seed4811/seed61001            one run PER training run, named for
-  orthWE/p-113/seed4811/seed61001     its path, grouped by family, carrying
-  doubleflat/p-113/seed7207/seed72003 its own Config, train/test CE + acc
-  dosefarm/seed61001/dose_110         curves, committee + grok epoch in the
-  gkrotate/seed61002/gain_225         summary, and its own "grok-run"
-  collisionfarm/seed61001_t37         artifact (config/metrics/spectra/ckpts)
+  p-113/seed<ds>/seed<is>             one run PER training run, named for
+  orthWE/p-113/seed<ds>/seed<is>      its path, grouped by family, carrying
+  doubleflat/p-113/seed<ds>/seed<is>  its own Config, train/test CE + acc
+  dosefarm/seed<is>/dose_110          curves, committee + grok epoch in the
+  gkrotate/seed<is>/gain_225          summary, and its own "grok-run"
+  collisionfarm/seed<is>_t<k>         artifact (config/metrics/spectra/ckpts)
 
 Per-run entries are published by report() as each lockstep batch finishes.
 No key -> wandb disabled entirely, training unaffected.
 
-Run:   python -u train_semifinal_torch.py            (the full 44)
+Beyond the original 44 the plan also trains (98 runs total):
+  claim 2A  6 orth-flat dynamics families x 8 (both cells): dyn-wd25/wd04
+            (wd 2.5/0.4), dyn-lr3/lrlo (lr 3e-3/3e-4), phase2-tilt (tilted
+            ERM t=5), eff-G (CVaR 0.05). Family names are the ones
+            claim2_twins.GROUPS maps, giving 5 recipe groups with orthWE.
+            tilt/CVaR are validated against grok.train.cross_entropy_f64 to
+            1.3e-7. SAM-lite grad_noise is NOT ported.
+  claim 3E  6 transplants, all ordered pairs of three cell-A naturals: the
+            recipient's epoch-0 W_E with every frequency's energy rescaled
+            to the donor's.
+
+Resume: runs with spectra.npz are skipped, so pointing RUNS_DIR at a volume
+that already holds finished runs trains only what is missing. --only/--skip
+REGEX filter by run name on top of that (--only 'dyn-|phase2-tilt|eff-G|
+transplant/' is exactly the 54 arms added after the first 44).
+
+Run:   python -u train_semifinal_torch.py            (all 98)
        python -u train_semifinal_torch.py --dry-run
        python -u train_semifinal_torch.py --smoke    (tiny CPU sanity check)
 """
@@ -52,6 +69,7 @@ import json
 import math
 import os
 import random
+import re
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -72,11 +90,50 @@ CKPT_DIR = RUNS / "_surgical_ckpt"
 P = 113
 NF = P // 2
 EPOCHS = 50000
-CELLS = {4811: [61001, 61002, 61003, 61004],
-         7207: [72001, 72002, 72003, 72004]}
-STEER_BASES = ["p-113/seed4811/seed61001", "p-113/seed4811/seed61002"]
+# Cohort seeds are DRAWN, not hand-picked: an arbitrary sample from one fixed
+# meta-seed, so they carry no author preference yet stay fully reproducible
+# (the same SEED_DRAW always yields the same cohort — required for the
+# spectra.npz resume to match, and for anyone to rebuild this dataset).
+#
+# PRE-REGISTERED: SEED_DRAW is set before the runs exist and the cohort is
+# kept whatever comes out. The previous set was retired WHOLESALE (not
+# filtered) after one orth-flat run landed on a partial generalizer. Retiring
+# a whole set is legitimate; dropping individual runs by outcome — or bumping
+# SEED_DRAW again because a re-draw also produced one — is survivorship
+# selection. Changing this number is a visible one-line commit, which is the
+# point: re-rolling after seeing results should be hard to do silently.
+# Expect partial generalizers (~1/8 of orth-flat in the last cohort); their
+# RATE is a finding to report, not contamination to remove.
+SEED_DRAW = 20260805
+_rng = random.Random(SEED_DRAW)
+# data_seeds fix the train/test masks, so keep them off every mask already
+# spent in runs/, runs_torch50k/ and legacy/runs/ — that is what makes this
+# cohort independent. init_seed collisions are harmless: a run is identified
+# by the (data_seed, init_seed) pair, and the data_seeds here are all fresh.
+_SPENT_MASKS = {0, 1, 2, 2034, 3604, 4811, 7207}
+CELLS = {ds: sorted(_rng.sample(range(10_000, 100_000), 4))
+         for ds in sorted(_rng.sample(
+             [s for s in range(1000, 10_000) if s not in _SPENT_MASKS], 2))}
+# Derived, so refreshing seeds means editing CELLS and nothing else.
+_DSA = sorted(CELLS)[0]
+STEER_BASES = [f"p-113/seed{_DSA}/seed{s}" for s in CELLS[_DSA][:2]]
 DOSES = [1.10, 1.20, 1.50, 2.25]
 GAINS = [1.20, 2.25]
+
+# claim-2A across-dynamics twins: orth-flat runs under qualitatively distinct
+# dynamics. Family names are the ones claim2_twins.GROUPS already maps, so the
+# recipe-group collapse works with no analysis edit: plain(orthWE) / wd / lr /
+# tilt / cvar = 5 groups. tilt and cvar values are the legacy ones
+# (phase2-tilt t=5.0, eff-G alpha=0.05). SAM-lite noise is deliberately absent
+# — grad_noise is not ported to the batched trainer.
+DYNAMICS = [("dyn-wd25", dict(weight_decay=2.5)),
+            ("dyn-wd04", dict(weight_decay=0.4)),
+            ("dyn-lr3", dict(lr=3e-3)),
+            ("dyn-lrlo", dict(lr=3e-4)),
+            ("phase2-tilt", dict(loss_tilt=5.0)),
+            ("eff-G", dict(loss_cvar=0.05))]
+# claim-3E transplants: all ordered pairs of the first three cell-A naturals.
+TRANSPLANT_SEEDS = CELLS[_DSA][:3]
 
 
 # --------------------------------------------------------------------------
@@ -243,20 +300,73 @@ def batched_final_logits(pr, tokens, cfg):
     return xf @ pr["unembed.W_U"]
 
 
-def ce_stable_f32(logits, labels):
-    """(M,) mean CE per run: softplus(lse_{j!=y} - z_y). Full f32 relative
+def per_ex_stable_f32(logits, labels):
+    """(M, N) per-example CE: softplus(lse_{j!=y} - z_y). Full f32 relative
     precision down to ~1e-38 (naive f32 log_softmax dies at ~1e-7)."""
     z_y = logits.gather(-1, labels.unsqueeze(-1))
     others = logits.masked_fill(
         F.one_hot(labels, logits.shape[-1]).bool(), float("-inf"))
     u = torch.logsumexp(others, dim=-1, keepdim=True) - z_y
-    return F.softplus(u).mean(dim=(1, 2))
+    return F.softplus(u).squeeze(-1)
 
 
-def ce_f64(logits, labels):
+def per_ex_f64(logits, labels):
     z = logits.double()
     lp = z - torch.logsumexp(z, dim=-1, keepdim=True)
-    return -lp.gather(-1, labels.unsqueeze(-1)).mean(dim=(1, 2)).float()
+    return -lp.gather(-1, labels.unsqueeze(-1)).squeeze(-1)
+
+
+def aggregate(per_ex, tilt=0.0, cvar=0.0):
+    """(M, N) per-example CE -> (M,) per-run objective.
+
+    Branch-for-branch the same as grok.train.cross_entropy_f64:
+      cvar > 0  mean over the worst round(cvar*N) examples (MLX sorts
+                ascending and takes the last k; topk(k) is the same set)
+      tilt > 0  (1/t)(logsumexp(t*ce_i) - log N) = (1/t) log mean exp(t*ce_i)
+      else      plain mean
+    """
+    if cvar > 0.0:
+        n = per_ex.shape[1]
+        k = max(1, int(round(cvar * n)))
+        return per_ex.topk(k, dim=1).values.mean(dim=1)
+    if tilt > 0.0:
+        return (torch.logsumexp(per_ex * tilt, dim=1)
+                - math.log(per_ex.shape[1])) / tilt
+    return per_ex.mean(dim=1)
+
+
+def make_ce(loss, cfgs):
+    """Per-run objective, allowing DIFFERENT tilt/CVaR within one batch.
+
+    The batch loss is a sum of independent per-run terms, so runs are
+    partitioned by their (tilt, cvar) recipe, each group is aggregated on its
+    own slice, and the results are scattered back into run order. With a
+    single recipe this is exactly aggregate() on the whole batch.
+
+    NOTE: as in grok.train, the SAME objective is used for the reported test
+    loss — so metrics.json test_losses of a tilt/CVaR family are tilt/CVaR
+    values, NOT comparable to a plain family's. test_acc in spectra.npz is
+    argmax-based and unaffected.
+    """
+    base = per_ex_stable_f32 if loss == "f32stable" else per_ex_f64
+    groups = {}
+    for i, c in enumerate(cfgs):
+        groups.setdefault((c.loss_tilt, c.loss_cvar), []).append(i)
+
+    if len(groups) == 1:
+        (tilt, cvar), _ = next(iter(groups.items()))
+        return lambda lg, lb: aggregate(base(lg, lb), tilt, cvar).float()
+
+    def ce(lg, lb):
+        per_ex = base(lg, lb)
+        idx, vals = [], []
+        for (tilt, cvar), ii in groups.items():
+            t = torch.as_tensor(ii, device=per_ex.device)
+            idx.append(t)
+            vals.append(aggregate(per_ex.index_select(0, t), tilt, cvar))
+        order = torch.argsort(torch.cat(idx))
+        return torch.cat(vals)[order].float()
+    return ce
 
 
 # --------------------------------------------------------------------------
@@ -274,14 +384,22 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
                   device=None, wb=None, wb_tag=None):
     M = len(cfgs)
     c0 = cfgs[0]
+    # lr, weight_decay, loss_tilt and loss_cvar are PER-RUN (broadcast vectors
+    # in the optimizer / grouped in the aggregator), so dynamics families can
+    # share one lockstep batch. Everything below still has to agree: it either
+    # changes tensor shapes or the epoch grid.
     for c in cfgs:
         for f in ("p", "fn_name", "frac_train", "d_model", "num_heads", "d_mlp",
-                  "n_ctx", "act_type", "lr", "warmup_steps", "weight_decay",
+                  "n_ctx", "act_type", "warmup_steps",
                   "betas", "adam_eps", "num_epochs", "save_every",
                   "stopping_thresh"):
             assert getattr(c, f) == getattr(c0, f), f"batch must agree on {f}"
         assert c.num_layers == 1
-        assert c.loss_tilt == 0 and c.loss_cvar == 0 and c.grad_noise == 0
+        # tilt/CVaR are supported (they only reshape the per-example
+        # aggregation); SAM-lite grad_noise is NOT ported — it needs a second
+        # perturbed forward per step.
+        assert c.grad_noise == 0, "grad_noise (SAM-lite) is not implemented here"
+        assert not (c.loss_tilt > 0 and c.loss_cvar > 0), "pick one of tilt/cvar"
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
     run_dirs = [Path(rd) for rd in run_dirs]
 
@@ -313,8 +431,15 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
     m_st = [torch.zeros_like(p) for p in params]
     v_st = [torch.zeros_like(p) for p in params]
     b1, b2 = c0.betas
-    eps, wd = c0.adam_eps, c0.weight_decay
-    lr_t = torch.zeros((), device=device)   # in-place updated: no recompiles
+    eps = c0.adam_eps
+    # Per-run lr / weight decay as (M,) vectors, broadcast against each
+    # stacked param's trailing dims. With one distinct value this is
+    # arithmetically identical to the old scalar form.
+    lr_base = torch.tensor([c.lr for c in cfgs], dtype=torch.float32, device=device)
+    wd_v = torch.tensor([c.weight_decay for c in cfgs], dtype=torch.float32,
+                        device=device)
+    lr_t = torch.zeros(M, device=device)    # in-place updated: no recompiles
+    bshape = {id(p): (-1,) + (1,) * (p.dim() - 1) for p in params}
 
     tokens_np, labels_np = make_dataset(c0)
     masks = [train_test_split(c) for c in cfgs]
@@ -323,9 +448,12 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
     te_tok = torch.from_numpy(np.stack([tokens_np[~m] for m in masks])).to(device)
     te_lab = torch.from_numpy(np.stack([labels_np[~m] for m in masks])).to(device)
     grid = torch.from_numpy(tokens_np).to(device)
-    ce = ce_stable_f32 if loss == "f32stable" else ce_f64
-    print(f"batch {M} on {device}:  train {tr_tok.shape[1]}  test {te_tok.shape[1]}",
-          flush=True)
+    ce = make_ce(loss, cfgs)
+    recipes = sorted({(c.lr, c.weight_decay, c.loss_tilt, c.loss_cvar)
+                      for c in cfgs})
+    print(f"batch {M} on {device}:  train {tr_tok.shape[1]}  "
+          f"test {te_tok.shape[1]}  {len(recipes)} recipe(s) "
+          f"(lr, wd, tilt, cvar): {recipes}", flush=True)
 
     # spectra machinery (GPU f64; tiny matmuls)
     basis = fourier_basis(c0.p)
@@ -370,8 +498,10 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
             for p, g, m_, v_ in zip(params, grads, m_st, v_st):
                 m_.mul_(b1).add_(g, alpha=1 - b1)
                 v_.mul_(b2).addcmul_(g, g, value=1 - b2)
-                p.mul_(1 - lr_t * wd)
-                p.sub_(lr_t * m_ / (v_.sqrt() + eps))
+                sh = bshape[id(p)]
+                lr_, wd_ = lr_t.view(sh), wd_v.view(sh)
+                p.mul_(1 - lr_ * wd_)
+                p.sub_(lr_ * m_ / (v_.sqrt() + eps))
         return per.detach()
 
     if compile_mode != "off":
@@ -385,7 +515,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
             save_ckpts(pr, run_dirs, epoch)
         if spectra_every and epoch % spectra_every == 0:
             take_snapshot(epoch)
-        lr_t.fill_(c0.lr * min(epoch / c0.warmup_steps, 1.0))
+        lr_t.copy_(lr_base * min(epoch / c0.warmup_steps, 1.0))
         train_hist.append(step())
 
         if (epoch + 1) % log_every == 0:
@@ -587,6 +717,23 @@ def surgical_ckpt(base, scales=None, gk=None, tag=""):
     return path, cfg
 
 
+def e0_freq_energy(run_dir):
+    """Per-frequency energy of a run's epoch-0 W_E."""
+    W = load_file(str(run_dir / "checkpoints" / "epoch_00000.safetensors"))
+    return freq_energy_F(W["embed.W_E"].double().numpy()[:, :P]
+                         @ fourier_basis(P).T, NF)
+
+
+def transplant_ckpt(recip, donor, tag):
+    """Claim 3E: the recipient's epoch-0 W_E with EVERY frequency's energy
+    rescaled to the donor's — a full-spectrum energy copy that keeps the
+    recipient's direction geometry. If identity travelled with energy alone,
+    the recipient would adopt the donor's committee."""
+    eR, eD = e0_freq_energy(recip), e0_freq_energy(donor)
+    return surgical_ckpt(recip, scales={k: float(eD[k - 1] / eR[k - 1])
+                                        for k in range(1, NF + 1)}, tag=tag)
+
+
 def T_k_spread(p):
     """Doubleflat sanity: per-frequency OV-transmitted energy spread at init."""
     basis = fourier_basis(P)
@@ -605,15 +752,30 @@ def T_k_spread(p):
 # the plan (identical runs/order to train_semifinal_v2.py)
 # --------------------------------------------------------------------------
 
+def wanted(name, args):
+    """--only / --skip run-name filters (regex, re.search). Independent of the
+    spectra.npz resume check: --only picks what to CONSIDER, spectra.npz still
+    skips whatever is already finished on disk."""
+    if args.only and not re.search(args.only, name):
+        return False
+    if args.skip and re.search(args.skip, name):
+        return False
+    return True
+
+
 def batch_train(jobs, width, args, wb, label="batch"):
-    todo = []
+    todo, filtered = [], 0
     for name, cfg, ckpt in jobs:
-        if (RUNS / name / "spectra.npz").exists():
+        if not wanted(name, args):
+            filtered += 1
+        elif (RUNS / name / "spectra.npz").exists():
             print(f"skip {name} (exists)", flush=True)
         elif args.dry_run:
             print(f"WOULD TRAIN {name} ({cfg.num_epochs} epochs)", flush=True)
         else:
             todo.append((name, cfg, ckpt))
+    if filtered:
+        print(f"({filtered} filtered out by --only/--skip)", flush=True)
     for i in range(0, len(todo), width):
         chunk = todo[i:i + width]
         print(f"=== batch x{len(chunk)}: {', '.join(n for n, _, _ in chunk)} ===",
@@ -640,12 +802,22 @@ def doubleflat_cfg(ds, iseed, dry):
     return cfg
 
 
-def steering_suite(base_rel, args, wb):
+def steering_jobs(base_rel, args, wb):
+    """Build (not train) this base's 10 steering arms, so both suites and the
+    transplants — which all share lr/wd/no-tilt and depend only on the
+    from-scratch runs — can go into ONE lockstep batch."""
     base = RUNS / base_rel
     bname = base.name
+    # Bail before touching the base's spectra if every arm is filtered out —
+    # otherwise --only 'dyn-' would still demand a grokked base on a box that
+    # has never trained one.
+    if not any(wanted(f"{f}/{bname}", args) for f in
+               ("dosefarm", "suppress", "gkrotate", "chaospair", "collisionfarm")):
+        print(f"steering suite on {base_rel}: all arms filtered out", flush=True)
+        return []
     if args.dry_run:
         print(f"WOULD TRAIN steering suite on {base_rel} (10 arms)", flush=True)
-        return
+        return []
     z = np.load(base / "spectra.npz")
     assert float(z["test_acc"][-1]) >= 0.99, f"base {base_rel} never grokked"
     zfin = z["coeffs"][-1]
@@ -686,7 +858,7 @@ def steering_suite(base_rel, args, wb):
     assert trio_t, f"no collision target on {base_rel}"
     add(f"collisionfarm/{bname}_t{trio_t}",
         scales={trio_t: 2.25}, tag=f"v2col_{bname}")
-    batch_train(jobs, args.width_steer, args, wb, label=f"steer_{bname}")
+    return jobs
 
 
 def smoke(args, wb):
@@ -717,8 +889,17 @@ if __name__ == "__main__":
     ap.add_argument("--loss", choices=["f32stable", "f64"], default="f32stable")
     ap.add_argument("--compile", default="default",
                     choices=["default", "reduce-overhead", "max-autotune", "off"])
-    ap.add_argument("--width-scratch", type=int, default=24)
-    ap.add_argument("--width-steer", type=int, default=10)
+    ap.add_argument("--only", default=None, metavar="REGEX",
+                    help="train only runs whose name matches. The claim-2A/3E "
+                         "arms added after the first 44-run dataset are: "
+                         "--only 'dyn-|phase2-tilt|eff-G|transplant/'")
+    ap.add_argument("--skip", default=None, metavar="REGEX",
+                    help="never train runs whose name matches")
+    # Two batches is the floor: phase 1 is every independent run (72), phase 2
+    # is everything whose epoch-0 ckpt is derived from a finished phase-1 run
+    # (26). Lower these if a box OOMs — activations scale linearly in M.
+    ap.add_argument("--width-scratch", type=int, default=72)
+    ap.add_argument("--width-steer", type=int, default=26)
     ap.add_argument("--tf32", action="store_true",
                     help="~2x matmul speed, NOT numerically faithful")
     args = ap.parse_args()
@@ -760,6 +941,9 @@ if __name__ == "__main__":
         smoke(args, wb)
     else:
         print(__doc__, flush=True)
+        print(f"cohort seeds (SEED_DRAW={SEED_DRAW}): "
+              + "   ".join(f"cell {ds} -> {CELLS[ds]}" for ds in sorted(CELLS)),
+              flush=True)
         dsA, dsB = sorted(CELLS)
         jobs = [(f"p-113/seed{dsA}/seed{s}", base_cfg(dsA, s), None)
                 for s in CELLS[dsA]]
@@ -772,9 +956,41 @@ if __name__ == "__main__":
                  for s in CELLS[dsB]]
         jobs += [(f"doubleflat/p-113/seed{dsB}/seed{s}",
                   doubleflat_cfg(dsB, s, args.dry_run), None) for s in CELLS[dsB]]
+        # 9. claim-2A dynamics variants ride in the SAME batch as the
+        #    from-scratch runs: lr/wd/tilt/cvar are per-run now, so all 72
+        #    independent runs are one lockstep batch.
+        for fam, kw in DYNAMICS:
+            jobs += [(f"{fam}/p-113/seed{ds}/seed{s}",
+                      base_cfg(ds, s, embed_init="orthogonal", **kw), None)
+                     for ds in sorted(CELLS) for s in CELLS[ds]]
         batch_train(jobs, args.width_scratch, args, wb, label="scratch")
+
+        # Phase 2 — everything that needs a FINISHED from-scratch run to build
+        # its epoch-0 checkpoint: both steering suites plus the transplants.
+        # No config constraint binds them, only this dependency.
+        jobs2 = []
         for b in STEER_BASES:
-            steering_suite(b, args, wb)
+            jobs2 += steering_jobs(b, args, wb)
+
+        # 10. claim-3E transplants: all ordered pairs of three cell-A naturals.
+        tp_jobs = []
+        for rcp in TRANSPLANT_SEEDS:
+            for dnr in TRANSPLANT_SEEDS:
+                if rcp == dnr:
+                    continue
+                name = f"transplant/seed{rcp}_from_seed{dnr}"
+                if not wanted(name, args):
+                    continue
+                if (RUNS / name / "spectra.npz").exists():
+                    print(f"skip {name} (exists)", flush=True)
+                elif args.dry_run:
+                    print(f"WOULD TRAIN {name} ({EPOCHS} epochs)", flush=True)
+                else:
+                    ck, c = transplant_ckpt(RUNS / f"p-113/seed{dsA}/seed{rcp}",
+                                            RUNS / f"p-113/seed{dsA}/seed{dnr}",
+                                            f"v2tp_{rcp}_from_{dnr}")
+                    tp_jobs.append((name, c, ck))
+        batch_train(jobs2 + tp_jobs, args.width_steer, args, wb, label="derived")
         print("SEMIFINAL V2 DATASET DONE", flush=True)
     if wb:
         wb.finish()
