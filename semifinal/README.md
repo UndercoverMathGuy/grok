@@ -4,9 +4,9 @@ Companion to `../SEMIFINAL.md` (the plain-language claims document).
 Layout:
 
 - `analysis/` — analysis-only scripts that back every claim in that
-  document. Each auto-discovers every compatible run under `runs/` (by
-  config + artifacts, not hardcoded lists), so newly trained runs are
-  picked up automatically on re-run.
+  document. Each auto-discovers every compatible run under `runs_torch/`
+  (by config + artifacts, not hardcoded lists), so newly trained runs
+  are picked up automatically on re-run.
 - `training/` — cleaned training scripts that regenerate the underlying
   runs (see `training/README.md` for order and dependencies).
 - `results/` — captured outputs of the analysis scripts.
@@ -21,8 +21,27 @@ uv run python semifinal/analysis/claim3_steering.py    # ~1 min
 uv run python semifinal/analysis/claim4_floor_repair.py# ~5 min (LP nulls)
 ```
 
-Fresh captures land in `results/` once the v2 dataset (below) is trained;
-the pre-v2 captures are archived in `results/legacy-2026-08-03/`.
+The current captures in `results/` (2026-08-06) are from the realized v2
+dataset in `runs_torch/`; the pre-v2 captures are archived in
+`results/legacy-2026-08-03/`.
+
+## The v2 dataset (realized)
+
+98 runs trained on a cloud 4090 by `cloud/train_semifinal_torch.py`
+(torch port verified numerically equivalent to the MLX trainer; 50k
+epochs each, p=113), landing in `runs_torch/`. Two mask cells
+(data_seed 3148 with init seeds 31831/47904/69089/81412; data_seed 9415
+with 19078/32610/68549/85697), each cell trained under NINE recipes:
+natural (`p-113/`), `orthWE/`, `doubleflat/`, and six orth-flat
+dynamics variants (`dyn-lr3`, `dyn-lrlo`, `dyn-wd04`, `dyn-wd25`,
+`eff-G` = CVaR, `phase2-tilt`) — 72 runs — plus the steering suite on
+two natural bases (seed31831, seed47904): dose x4 each, suppress,
+gk-rotate x2, chaos pair, collision trio, and 6 transplants — 26 runs.
+
+Two runs pass the accuracy gate but never consolidated (final test CE
+3.8e-2 / 5.5e-3, more than 10x above every other run):
+`dyn-lr3/p-113/seed9415/seed85697` and `eff-G/p-113/seed9415/seed19078`.
+They are excluded by `analysis/common.py` (`BAD_RUNS`), leaving n=96.
 
 IMPORTANT: run these sequentially, never concurrently — MLX/Metal on this
 machine crashes under concurrent GPU processes.
@@ -49,21 +68,65 @@ numbers are archived in `results/legacy-2026-08-03/`.
 | 3. Steering by hand | `analysis/claim3_steering.py` | dose-response on two fresh bases (control = the base run; targets auto-identified), suppression x2, alignment-knob arms x2, chaos pairs x2 | per base: target peak monotone in dose, adoption by 2.25x; suppression evicts the strongest winner; gk arms match energy arms at matched gain; chaos pairs differ (bystander chaos); thresholds may vary by base |
 | 4. Floor + repair | `analysis/claim4_floor_repair.py` | LP-margin percentile floor, additive-relation depletion (mask-cluster bootstrap), menu closure (fixed e3000 + half-grok), engineered-trio census — no per-run committee overrides | no freely-trained run below the 25th pctile (forced 2.25x arms are allowed to dip); depletion: final violations well under chance expectation; closure ≈ all runs; collision trios broken 2/2 |
 
+## Realized v2 outcomes (2026-08-06 captures) vs the predictions
+
+- **Claim 1 readout** — natural (n=8): T_k 0.758 (pred 0.72), emb 0.737
+  (pred 0.70), align 0.644 (pred 0.65). Orth-flat (n=54 runs, 8
+  independent inits — the decisive test): T_k = align 0.620
+  cluster-level, p=0.044 (run-level p=6.8e-6) vs pred 0.66, while emb
+  collapses to 0.527 ≈ chance exactly as the erasure argument demands.
+  Double-flat (n=8): every predictor 0.53–0.60, none significant. All
+  three predictions land. Caveat: natural cluster-level p's are weak
+  (only 2 mask clusters); run-level carries that cohort.
+- **Claim 1 knockouts** — natural: W_E scramble kills agg (0.74→0.48),
+  attn partial (−0.11), W_in nothing (+0.004); neur reads the committee
+  at baseline (0.68), W_in scramble leaves it intact (−0.007), W_E kills
+  it. Orth-flat: W_E, fresh-frame, and attn scrambles ALL kill (→~0.50)
+  — the relational carrier. Double-flat: baseline already ≈ chance,
+  nothing to kill. Matches the prediction row exactly.
+- **Claim 2** — A now runs on FRESH data (6 dynamics families x same 4
+  inits per cell, not the legacy capture): within-seed J 0.35–0.37 vs
+  across-seed 0.09–0.13, perm p < 1e-4 in both cells at both family and
+  recipe-group level. B: same-seed cross-level J 0.139 vs stranger
+  baselines 0.090/0.141 — every flattening re-rolls the lottery, both
+  cells. Stronger than predicted.
+- **Claim 3** — dose-response: seed47904 adopts from 1.20x, seed31831
+  from 1.50x (thresholds vary by base, as pre-registered; adoption by
+  2.25x in both). Suppression evicts the strongest incumbent 2/2.
+  gk-rotate at 2.25x adopts on both bases (energy-free knob works); at
+  1.20x neither base adopts while the 1.20x ENERGY arm on seed47904
+  does — knob equivalence holds at high gain but is not exact at
+  threshold. Transplants: donor-unique kept 1 vs recipient-unique 11 —
+  energy copy does not transfer identity. Chaos pairs: seed47904 arms
+  diverge ([5,10,11,14,43,45] vs [5,11,14,35]); seed31831 arms land on
+  the same committee as each other, both differing from their base
+  (+f6) — bystander chaos in one of two pairs.
+- **Claim 4** — floor headline is freely-trained runs only (surgical
+  arms are init-edited on purpose): 0/70 below the 25th percentile,
+  min 43.2. Depletion, run-level on the same 70: 3 runs with >=1
+  violation vs 23.5 expected by chance, MC p < 1e-5 (5 total final
+  violations vs 72.5 expected over all 96; blind mid-training leaders
+  carry 34). The legacy mask-cluster bootstrap was dropped — this
+  dataset has 2 mask cells, too few for mask-level inference. Closure:
+  93/96 at fixed e3000, 95/96 at half-grok. Engineered collision trios
+  broken 2/2. All predictions land.
+
 ## Training (regenerating the runs)
 
 **The dataset is built by ONE script:**
 
-- `training/train_semifinal_v2.py` — one script → the full 44-run dataset
-  in `runs/`, all-new seeds and masks: two identical cells of 4 natural +
-  4 orthWE + 4 double-flat matched triples (masks 4811 and 7207), plus
-  the complete steering suite (dose / suppress / gk-rotate / chaos pair /
-  collision) duplicated over two fresh bases. Sized so every section of
-  every analysis script is answered from these runs alone. Idempotent,
-  sequential, ~10 h; kill/resume freely — any prefix is a usable dataset.
+- `cloud/train_semifinal_torch.py` — the torch port of the MLX trainer
+  (verified numerically equivalent), run on a cloud GPU → the full
+  98-run dataset in `runs_torch/` described above, all-new seeds and
+  masks. Sized so every section of every analysis script is answered
+  from these runs alone.
 
-The other `training/train_*.py` scripts regenerate the archived pre-v2
-cohorts and exist for provenance only — running them would mix legacy-era
-runs into `runs/`, so don't, unless that's what you want. Everything is
+`training/train_semifinal_v2.py` is the local MLX equivalent of a
+44-run subset (kept for provenance / local reproduction). The other
+`training/train_*.py` scripts regenerate the archived pre-v2 cohorts
+and exist for provenance only — running any local trainer would mix
+new runs into the discovered tree, so don't, unless that's what you
+want. Everything is
 deterministic given the run data; the epoch-0 checkpoints in each run
 directory are the exact pre-update inits.
 

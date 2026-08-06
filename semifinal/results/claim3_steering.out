@@ -1,0 +1,60 @@
+=== A. energy dose-response curves ===
+
+  base seed31831:
+   x1.00 [p-113/seed3148/seed31831] control (the base run): committee [5, 35, 52] grok@5100
+   x1.10 [dosefarm/seed31831/dose_110]
+    target f37: final         0  peak        97  adopted=False  committee [5, 6, 35, 52]  grok@4800
+   x1.20 [dosefarm/seed31831/dose_120]
+    target f37: final         0  peak       145  adopted=False  committee [5, 6, 35, 52]  grok@4700
+   x1.50 [dosefarm/seed31831/dose_150]
+    target f37: final      6900  peak      7116  adopted=True  committee [5, 35, 37, 52]  grok@3600
+   x2.25 [dosefarm/seed31831/dose_225]
+    target f37: final      7027  peak     14567  adopted=True  committee [5, 35, 37, 52]  grok@3400
+
+  base seed47904:
+   x1.00 [p-113/seed3148/seed47904] control (the base run): committee [10, 11, 14, 43] grok@8500
+   x1.10 [dosefarm/seed47904/dose_110]
+    target f52: final         0  peak       259  adopted=False  committee [10, 11, 14, 43]  grok@10200
+   x1.20 [dosefarm/seed47904/dose_120]
+    target f52: final      5628  peak      5955  adopted=True  committee [11, 14, 31, 43, 52]  grok@11600
+   x1.50 [dosefarm/seed47904/dose_150]
+    target f52: final      6336  peak     11368  adopted=True  committee [10, 14, 43, 45, 52]  grok@7900
+   x2.25 [dosefarm/seed47904/dose_225]
+    target f52: final     18885  peak     43205  adopted=True  committee [11, 14, 31, 52]  grok@9100
+
+=== C. suppression (0.5x the strongest incumbent) ===
+   x0.50 on f5 [base seed31831]:
+    target f5: final         0  peak       122  adopted=False  committee [35, 40, 52]  grok@5700
+   x0.50 on f43 [base seed47904]:
+    target f43: final         0  peak       120  adopted=False  committee [10, 11, 14, 45]  grok@9200
+
+=== D. alignment-knob arms (gkrotate, energy fixed) ===
+   T-gain x1.20 [gkrotate/seed31831/gain_120] (target f37)
+    target f37: final         0  peak       101  adopted=False  committee [35, 40, 52]  grok@6500
+   T-gain x2.25 [gkrotate/seed31831/gain_225] (target f37)
+    target f37: final     10387  peak     11360  adopted=True  committee [35, 37, 40, 52]  grok@3600
+   T-gain x1.20 [gkrotate/seed47904/gain_120] (target f52)
+    target f52: final         0  peak       292  adopted=False  committee [5, 14, 43, 45]  grok@9500
+   T-gain x2.25 [gkrotate/seed47904/gain_225] (target f52)
+    target f52: final      6319  peak     15904  adopted=True  committee [10, 11, 14, 45, 52]  grok@7400
+   (compare with the energy rows above at the same factor: matched loudness, matched outcome)
+
+=== E. transplant tally (full energy-spectrum copy) ===
+   transplant/seed31831_from_seed47904: final [5, 35, 43, 52]  donor-unique kept [43]  recipient-unique kept [5, 35, 52]
+   transplant/seed31831_from_seed69089: final [32, 35, 40, 52]  donor-unique kept []  recipient-unique kept [35, 52]
+   transplant/seed47904_from_seed31831: final [15, 31, 40, 45]  donor-unique kept []  recipient-unique kept []
+   transplant/seed47904_from_seed69089: final [8, 14, 15, 40]  donor-unique kept []  recipient-unique kept [14]
+   transplant/seed69089_from_seed31831: final [2, 28, 29, 45]  donor-unique kept []  recipient-unique kept [28, 29, 45]
+   transplant/seed69089_from_seed47904: final [2, 29, 34, 49]  donor-unique kept []  recipient-unique kept [29, 49]
+   TALLY: donor-unique 1 vs recipient-unique 11 (energy copy does not transfer identity)
+
+=== F. chaos exhibit (energy-matched sub-threshold swap) ===
+   chaospair/seed31831/armA: committee [5, 6, 35, 52] grok@5300
+   chaospair/seed31831/armB: committee [5, 6, 35, 52] grok@5100
+   chaospair/seed47904/armA: committee [5, 10, 11, 14, 43, 45] grok@10800
+   chaospair/seed47904/armB: committee [5, 11, 14, 35] grok@11300
+
+Backs SEMIFINAL claim 3: dose-monotone targeted control (A, C), knob
+interchangeability at matched loudness (D vs A), no identity transfer from
+energy alone (E), and bystander chaos (F). Note the context-dependent
+adoption thresholds across bases in A — reported as a scope limit.

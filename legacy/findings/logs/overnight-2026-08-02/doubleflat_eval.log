@@ -1,0 +1,57 @@
+=== stage doubleflat_eval started Mon Aug  3 01:30:18 IST 2026 ===
+seed 777: comm [6, 29, 46, 53] K=4 grok@8300 fwd_mlp 0.28 he_margin 0.29
+seed 1001: comm [2, 12, 46, 51] K=4 grok@5400 fwd_mlp 0.54 he_margin 0.62
+seed 1002: comm [6, 16, 21, 35] K=4 grok@5600 fwd_mlp 0.46 he_margin 0.75
+seed 1003: comm [25, 30, 37, 54] K=4 grok@6200 fwd_mlp 0.35 he_margin 0.45
+seed 1004: comm [4, 25, 36] K=3 grok@5500 fwd_mlp 0.36 he_margin 0.63
+seed 2001: comm [6, 14, 21, 25] K=4 grok@5100 fwd_mlp 0.60 he_margin 0.50
+seed 2002: comm [4, 12, 25, 54, 56] K=5 grok@6600 fwd_mlp 0.63 he_margin 0.46
+seed 2003: comm [2, 4, 9, 21] K=4 grok@8300 fwd_mlp 0.66 he_margin 0.72
+seed 2004: comm [6, 29, 50, 53] K=4 grok@5400 fwd_mlp 0.30 he_margin 0.48
+seed 2005: comm [9, 21, 46] K=3 grok@6300 fwd_mlp 0.31 he_margin 0.56
+seed 2006: comm [6, 21, 25, 30] K=4 grok@7000 fwd_mlp 0.66 he_margin 0.71
+seed 2007: comm [10, 24, 37, 46] K=4 grok@7000 fwd_mlp 0.42 he_margin 0.75
+seed 2008: comm [14, 16, 19, 24] K=4 grok@7400 fwd_mlp 0.55 he_margin 0.60
+seed 4242: comm [4, 21, 22, 37, 53] K=5 grok@7000 fwd_mlp 0.47 he_margin 0.60
+seed 11285: comm [22, 35, 37] K=3 grok@8700 fwd_mlp 0.94 he_margin 0.62
+seed 33428: comm [4, 6, 29, 38, 55] K=5 grok@5500 fwd_mlp 0.63 he_margin 0.57
+
+=== double-flat cohort (n=8): epoch-0 readouts ===
+  emb        mean 0.513 sd 0.129 t-vs-0.5 p=0.712  per-seed [0.44 0.65 0.51 0.6  0.57 0.69 0.55 0.37 0.51 0.77 0.46 0.45 0.46 0.39
+ 0.22 0.56]
+  T_k        mean 0.510 sd 0.145 t-vs-0.5 p=0.803  per-seed [0.28 0.47 0.69 0.77 0.53 0.75 0.56 0.35 0.35 0.56 0.35 0.46 0.56 0.38
+ 0.47 0.63]
+  fwd_mlp    mean 0.511 sd 0.170 t-vs-0.5 p=0.812  per-seed [0.28 0.54 0.46 0.35 0.36 0.6  0.63 0.66 0.3  0.31 0.66 0.42 0.55 0.47
+ 0.94 0.63]
+  fwd_align  mean 0.564 sd 0.192 t-vs-0.5 p=0.215  per-seed [0.64 0.58 0.59 0.6  0.08 0.73 0.63 0.74 0.31 0.46 0.68 0.56 0.53 0.36
+ 0.96 0.59]
+  he_count   mean 0.565 sd 0.121 t-vs-0.5 p=0.057  per-seed [0.51 0.69 0.59 0.27 0.73 0.65 0.39 0.54 0.59 0.62 0.49 0.54 0.52 0.68
+ 0.48 0.75]
+  he_margin  mean 0.581 sd 0.120 t-vs-0.5 p=0.020  per-seed [0.29 0.62 0.75 0.45 0.63 0.5  0.46 0.72 0.48 0.56 0.71 0.75 0.6  0.6
+ 0.62 0.57]
+
+=== knockouts of the forward-mlp readout (paired vs baseline) ===
+  baseline   mean 0.511
+  W_QK         mean 0.511  d=+0.001 p=0.589
+  attn_uniform mean 0.512  d=+0.001 p=0.456
+  W_pos        mean 0.525  d=+0.015 p=0.608
+  W_in         mean 0.518  d=+0.007 p=0.881
+
+=== run stats ===
+  seed 777: acc 1.000 grok@8300 [6, 29, 46, 53] relM 0.341 menu-closed True
+  seed 1001: acc 1.000 grok@5400 [2, 12, 46, 51] relM 0.336 menu-closed True
+  seed 1002: acc 1.000 grok@5600 [6, 16, 21, 35] relM 0.379 menu-closed True
+  seed 1003: acc 1.000 grok@6200 [25, 30, 37, 54] relM 0.291 menu-closed True
+  seed 1004: acc 1.000 grok@5500 [4, 25, 36] relM 0.261 menu-closed True
+  seed 2001: acc 1.000 grok@5100 [6, 14, 21, 25] relM 0.379 menu-closed True
+  seed 2002: acc 1.000 grok@6600 [4, 12, 25, 54, 56] relM 0.459 menu-closed True
+  seed 2003: acc 1.000 grok@8300 [2, 4, 9, 21] relM 0.190 menu-closed True
+  seed 2004: acc 1.000 grok@5400 [6, 29, 50, 53] relM 0.357 menu-closed True
+  seed 2005: acc 1.000 grok@6300 [9, 21, 46] relM 0.139 menu-closed True
+  seed 2006: acc 1.000 grok@7000 [6, 21, 25, 30] relM 0.362 menu-closed True
+  seed 2007: acc 1.000 grok@7000 [10, 24, 37, 46] relM 0.403 menu-closed True
+  seed 2008: acc 1.000 grok@7400 [14, 16, 19, 24] relM 0.241 menu-closed True
+  seed 4242: acc 1.000 grok@7000 [4, 21, 22, 37, 53] relM 0.415 menu-closed True
+  seed 11285: acc 1.000 grok@8700 [22, 35, 37] relM 0.172 menu-closed True
+  seed 33428: acc 1.000 grok@5500 [4, 6, 29, 38, 55] relM 0.417 menu-closed True
+=== stage doubleflat_eval exit 0 Mon Aug  3 01:30:36 IST 2026 ===

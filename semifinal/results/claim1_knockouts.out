@@ -1,0 +1,118 @@
+doubleflat/p-113/seed3148/seed31831        [double-flat] baseline 0.80/0.63 W_E 0.30/0.44 W_E_qr 0.45/0.44 attn 0.68/0.71 W_in 0.50/0.58
+doubleflat/p-113/seed3148/seed47904        [double-flat] baseline 0.58/0.74 W_E 0.62/0.51 W_E_qr 0.61/0.49 attn 0.42/0.37 W_in 0.49/0.51
+doubleflat/p-113/seed3148/seed69089        [double-flat] baseline 0.46/0.64 W_E 0.46/0.45 W_E_qr 0.62/0.45 attn 0.30/0.35 W_in 0.59/0.58
+doubleflat/p-113/seed3148/seed81412        [double-flat] baseline 0.59/0.36 W_E 0.46/0.35 W_E_qr 0.59/0.52 attn 0.50/0.54 W_in 0.38/0.39
+doubleflat/p-113/seed9415/seed19078        [double-flat] baseline 0.81/0.41 W_E 0.53/0.60 W_E_qr 0.45/0.65 attn 0.50/0.52 W_in 0.60/0.38
+doubleflat/p-113/seed9415/seed32610        [double-flat] baseline 0.36/0.26 W_E 0.43/0.43 W_E_qr 0.52/0.50 attn 0.48/0.56 W_in 0.49/0.45
+doubleflat/p-113/seed9415/seed68549        [double-flat] baseline 0.50/0.35 W_E 0.62/0.53 W_E_qr 0.54/0.55 attn 0.42/0.53 W_in 0.61/0.55
+doubleflat/p-113/seed9415/seed85697        [double-flat] baseline 0.54/0.62 W_E 0.62/0.60 W_E_qr 0.45/0.62 attn 0.47/0.48 W_in 0.33/0.57
+dyn-lr3/p-113/seed3148/seed31831           [orth-flat] baseline 0.87/0.49 W_E 0.46/0.52 W_E_qr 0.31/0.27 attn 0.36/0.52 W_in 0.90/0.81
+dyn-lr3/p-113/seed3148/seed47904           [orth-flat] baseline 0.71/0.66 W_E 0.40/0.39 W_E_qr 0.55/0.44 attn 0.48/0.60 W_in 0.67/0.60
+dyn-lr3/p-113/seed3148/seed69089           [orth-flat] baseline 0.85/0.85 W_E 0.58/0.59 W_E_qr 0.43/0.40 attn 0.58/0.48 W_in 0.89/0.75
+dyn-lr3/p-113/seed3148/seed81412           [orth-flat] baseline 0.81/0.78 W_E 0.44/0.44 W_E_qr 0.41/0.46 attn 0.60/0.48 W_in 0.67/0.60
+dyn-lr3/p-113/seed9415/seed19078           [orth-flat] baseline 0.47/0.37 W_E 0.64/0.49 W_E_qr 0.57/0.58 attn 0.45/0.57 W_in 0.47/0.55
+dyn-lr3/p-113/seed9415/seed32610           [orth-flat] baseline 0.82/0.70 W_E 0.34/0.56 W_E_qr 0.57/0.43 attn 0.55/0.57 W_in 0.86/0.80
+dyn-lr3/p-113/seed9415/seed68549           [orth-flat] baseline 0.42/0.37 W_E 0.54/0.59 W_E_qr 0.59/0.55 attn 0.57/0.54 W_in 0.58/0.49
+dyn-lrlo/p-113/seed3148/seed31831          [orth-flat] baseline 0.87/0.49 W_E 0.44/0.56 W_E_qr 0.48/0.44 attn 0.47/0.44 W_in 0.87/0.81
+dyn-lrlo/p-113/seed3148/seed47904          [orth-flat] baseline 0.65/0.60 W_E 0.56/0.54 W_E_qr 0.55/0.50 attn 0.66/0.60 W_in 0.61/0.53
+dyn-lrlo/p-113/seed3148/seed69089          [orth-flat] baseline 0.65/0.84 W_E 0.68/0.61 W_E_qr 0.62/0.62 attn 0.42/0.43 W_in 0.69/0.75
+dyn-lrlo/p-113/seed3148/seed81412          [orth-flat] baseline 0.38/0.31 W_E 0.37/0.32 W_E_qr 0.56/0.61 attn 0.46/0.51 W_in 0.47/0.37
+dyn-lrlo/p-113/seed9415/seed19078          [orth-flat] baseline 0.67/0.59 W_E 0.61/0.52 W_E_qr 0.48/0.46 attn 0.54/0.62 W_in 0.67/0.58
+dyn-lrlo/p-113/seed9415/seed32610          [orth-flat] baseline 0.88/0.78 W_E 0.45/0.48 W_E_qr 0.74/0.64 attn 0.48/0.50 W_in 0.80/0.77
+dyn-lrlo/p-113/seed9415/seed68549          [orth-flat] baseline 0.61/0.65 W_E 0.53/0.47 W_E_qr 0.43/0.40 attn 0.39/0.39 W_in 0.67/0.57
+dyn-lrlo/p-113/seed9415/seed85697          [orth-flat] baseline 0.60/0.55 W_E 0.47/0.45 W_E_qr 0.26/0.32 attn 0.57/0.36 W_in 0.48/0.57
+dyn-wd04/p-113/seed3148/seed31831          [orth-flat] baseline 0.87/0.49 W_E 0.43/0.39 W_E_qr 0.43/0.47 attn 0.59/0.49 W_in 0.89/0.79
+dyn-wd04/p-113/seed3148/seed47904          [orth-flat] baseline 0.65/0.60 W_E 0.49/0.43 W_E_qr 0.46/0.46 attn 0.39/0.43 W_in 0.59/0.55
+dyn-wd04/p-113/seed3148/seed69089          [orth-flat] baseline 0.70/0.84 W_E 0.31/0.34 W_E_qr 0.56/0.66 attn 0.62/0.51 W_in 0.79/0.76
+dyn-wd04/p-113/seed3148/seed81412          [orth-flat] baseline 0.42/0.36 W_E 0.66/0.57 W_E_qr 0.56/0.63 attn 0.51/0.54 W_in 0.47/0.44
+dyn-wd04/p-113/seed9415/seed19078          [orth-flat] baseline 0.62/0.54 W_E 0.45/0.37 W_E_qr 0.40/0.42 attn 0.53/0.43 W_in 0.62/0.60
+dyn-wd04/p-113/seed9415/seed32610          [orth-flat] baseline 0.73/0.54 W_E 0.44/0.30 W_E_qr 0.51/0.47 attn 0.46/0.41 W_in 0.71/0.72
+dyn-wd04/p-113/seed9415/seed68549          [orth-flat] baseline 0.64/0.64 W_E 0.47/0.52 W_E_qr 0.54/0.39 attn 0.62/0.59 W_in 0.66/0.66
+dyn-wd04/p-113/seed9415/seed85697          [orth-flat] baseline 0.67/0.53 W_E 0.62/0.46 W_E_qr 0.42/0.38 attn 0.62/0.57 W_in 0.57/0.59
+dyn-wd25/p-113/seed3148/seed31831          [orth-flat] baseline 0.87/0.49 W_E 0.37/0.45 W_E_qr 0.46/0.52 attn 0.56/0.41 W_in 0.87/0.82
+dyn-wd25/p-113/seed3148/seed47904          [orth-flat] baseline 0.56/0.50 W_E 0.58/0.51 W_E_qr 0.66/0.67 attn 0.35/0.42 W_in 0.50/0.52
+dyn-wd25/p-113/seed3148/seed69089          [orth-flat] baseline 0.33/0.60 W_E 0.60/0.60 W_E_qr 0.31/0.30 attn 0.40/0.41 W_in 0.41/0.51
+dyn-wd25/p-113/seed3148/seed81412          [orth-flat] baseline 0.58/0.57 W_E 0.46/0.51 W_E_qr 0.55/0.52 attn 0.42/0.32 W_in 0.59/0.48
+dyn-wd25/p-113/seed9415/seed19078          [orth-flat] baseline 0.61/0.52 W_E 0.56/0.60 W_E_qr 0.48/0.47 attn 0.56/0.61 W_in 0.51/0.54
+dyn-wd25/p-113/seed9415/seed32610          [orth-flat] baseline 0.82/0.70 W_E 0.38/0.39 W_E_qr 0.23/0.39 attn 0.46/0.32 W_in 0.84/0.76
+dyn-wd25/p-113/seed9415/seed68549          [orth-flat] baseline 0.69/0.73 W_E 0.38/0.45 W_E_qr 0.62/0.54 attn 0.62/0.58 W_in 0.61/0.59
+dyn-wd25/p-113/seed9415/seed85697          [orth-flat] baseline 0.36/0.34 W_E 0.33/0.29 W_E_qr 0.49/0.49 attn 0.47/0.50 W_in 0.42/0.38
+eff-G/p-113/seed3148/seed31831             [orth-flat] baseline 0.71/0.44 W_E 0.47/0.49 W_E_qr 0.40/0.43 attn 0.51/0.51 W_in 0.64/0.58
+eff-G/p-113/seed3148/seed47904             [orth-flat] baseline 0.85/0.80 W_E 0.61/0.55 W_E_qr 0.48/0.34 attn 0.42/0.41 W_in 0.79/0.74
+eff-G/p-113/seed3148/seed69089             [orth-flat] baseline 0.58/0.49 W_E 0.51/0.48 W_E_qr 0.40/0.49 attn 0.50/0.41 W_in 0.51/0.46
+eff-G/p-113/seed3148/seed81412             [orth-flat] baseline 0.76/0.68 W_E 0.30/0.25 W_E_qr 0.52/0.47 attn 0.64/0.64 W_in 0.60/0.61
+eff-G/p-113/seed9415/seed32610             [orth-flat] baseline 0.46/0.66 W_E 0.46/0.56 W_E_qr 0.53/0.56 attn 0.49/0.46 W_in 0.52/0.54
+eff-G/p-113/seed9415/seed68549             [orth-flat] baseline 0.38/0.47 W_E 0.55/0.52 W_E_qr 0.40/0.49 attn 0.40/0.47 W_in 0.35/0.38
+eff-G/p-113/seed9415/seed85697             [orth-flat] baseline 0.68/0.36 W_E 0.58/0.62 W_E_qr 0.55/0.52 attn 0.51/0.51 W_in 0.52/0.66
+orthWE/p-113/seed3148/seed31831            [orth-flat] baseline 0.87/0.49 W_E 0.56/0.59 W_E_qr 0.56/0.50 attn 0.49/0.39 W_in 0.89/0.78
+orthWE/p-113/seed3148/seed47904            [orth-flat] baseline 0.56/0.50 W_E 0.54/0.50 W_E_qr 0.50/0.48 attn 0.31/0.38 W_in 0.54/0.61
+orthWE/p-113/seed3148/seed69089            [orth-flat] baseline 0.50/0.71 W_E 0.47/0.43 W_E_qr 0.58/0.54 attn 0.52/0.48 W_in 0.54/0.54
+orthWE/p-113/seed3148/seed81412            [orth-flat] baseline 0.61/0.64 W_E 0.36/0.42 W_E_qr 0.45/0.47 attn 0.41/0.51 W_in 0.58/0.59
+orthWE/p-113/seed9415/seed19078            [orth-flat] baseline 0.72/0.64 W_E 0.63/0.56 W_E_qr 0.42/0.46 attn 0.66/0.58 W_in 0.67/0.62
+orthWE/p-113/seed9415/seed32610            [orth-flat] baseline 0.73/0.54 W_E 0.68/0.60 W_E_qr 0.48/0.31 attn 0.61/0.63 W_in 0.73/0.63
+orthWE/p-113/seed9415/seed68549            [orth-flat] baseline 0.64/0.64 W_E 0.56/0.48 W_E_qr 0.46/0.44 attn 0.57/0.47 W_in 0.73/0.64
+orthWE/p-113/seed9415/seed85697            [orth-flat] baseline 0.56/0.48 W_E 0.48/0.43 W_E_qr 0.63/0.56 attn 0.50/0.55 W_in 0.52/0.44
+p-113/seed3148/seed31831                   [natural-normal] baseline 0.61/0.48 W_E 0.46/0.49 W_E_qr 0.49/0.54 attn 0.61/0.43 W_in 0.61/0.54
+p-113/seed3148/seed47904                   [natural-normal] baseline 0.76/0.80 W_E 0.54/0.52 W_E_qr 0.46/0.55 attn 0.87/0.82 W_in 0.82/0.73
+p-113/seed3148/seed69089                   [natural-normal] baseline 0.73/0.49 W_E 0.55/0.48 W_E_qr 0.63/0.64 attn 0.58/0.49 W_in 0.71/0.71
+p-113/seed3148/seed81412                   [natural-normal] baseline 0.73/0.61 W_E 0.41/0.37 W_E_qr 0.48/0.52 attn 0.52/0.48 W_in 0.64/0.58
+p-113/seed9415/seed19078                   [natural-normal] baseline 0.72/0.66 W_E 0.43/0.45 W_E_qr 0.48/0.41 attn 0.65/0.66 W_in 0.71/0.70
+p-113/seed9415/seed32610                   [natural-normal] baseline 0.75/0.70 W_E 0.42/0.45 W_E_qr 0.44/0.39 attn 0.61/0.56 W_in 0.79/0.72
+p-113/seed9415/seed68549                   [natural-normal] baseline 0.71/0.81 W_E 0.57/0.56 W_E_qr 0.61/0.53 attn 0.60/0.57 W_in 0.75/0.66
+p-113/seed9415/seed85697                   [natural-normal] baseline 0.92/0.92 W_E 0.47/0.45 W_E_qr 0.60/0.59 attn 0.64/0.66 W_in 0.94/0.79
+phase2-tilt/p-113/seed3148/seed31831       [orth-flat] baseline 0.85/0.66 W_E 0.49/0.56 W_E_qr 0.57/0.59 attn 0.43/0.48 W_in 0.77/0.68
+phase2-tilt/p-113/seed3148/seed47904       [orth-flat] baseline 0.85/0.81 W_E 0.32/0.42 W_E_qr 0.51/0.47 attn 0.35/0.43 W_in 0.79/0.76
+phase2-tilt/p-113/seed3148/seed69089       [orth-flat] baseline 0.69/0.84 W_E 0.43/0.45 W_E_qr 0.41/0.33 attn 0.44/0.45 W_in 0.73/0.70
+phase2-tilt/p-113/seed3148/seed81412       [orth-flat] baseline 0.66/0.48 W_E 0.53/0.53 W_E_qr 0.56/0.52 attn 0.66/0.53 W_in 0.59/0.54
+phase2-tilt/p-113/seed9415/seed19078       [orth-flat] baseline 0.57/0.34 W_E 0.62/0.48 W_E_qr 0.42/0.52 attn 0.62/0.76 W_in 0.50/0.42
+phase2-tilt/p-113/seed9415/seed32610       [orth-flat] baseline 0.67/0.66 W_E 0.60/0.61 W_E_qr 0.46/0.53 attn 0.53/0.52 W_in 0.60/0.59
+phase2-tilt/p-113/seed9415/seed68549       [orth-flat] baseline 0.34/0.42 W_E 0.58/0.61 W_E_qr 0.55/0.47 attn 0.56/0.57 W_in 0.41/0.43
+phase2-tilt/p-113/seed9415/seed85697       [orth-flat] baseline 0.57/0.43 W_E 0.52/0.50 W_E_qr 0.58/0.50 attn 0.39/0.30 W_in 0.63/0.57
+
+=== CLAIM 1b: knockouts by cohort (mean AUC, agg | neur) ===
+
+double-flat (n=8), agg: baseline 0.579
+  W_E     0.504  d=-0.075 (paired p=3.6e-01, n=8)
+  W_E_qr  0.527  d=-0.052 (paired p=4.9e-01, n=8)
+  attn    0.471  d=-0.108 (paired p=3.7e-02, n=8)
+  W_in    0.499  d=-0.080 (paired p=2.4e-01, n=8)
+
+double-flat (n=8), neur: baseline 0.502
+  W_E     0.489  d=-0.012 (paired p=8.5e-01, n=8)
+  W_E_qr  0.527  d=+0.025 (paired p=7.5e-01, n=8)
+  attn    0.508  d=+0.006 (paired p=9.5e-01, n=8)
+  W_in    0.503  d=+0.001 (paired p=9.9e-01, n=8)
+
+orth-flat (n=54), agg: baseline 0.652
+  W_E     0.498  d=-0.154 (paired p=9.3e-07, n=54)
+  W_E_qr  0.493  d=-0.159 (paired p=1.0e-07, n=54)
+  attn    0.505  d=-0.147 (paired p=5.0e-08, n=54)
+  W_in    0.639  d=-0.014 (paired p=1.6e-01, n=54)
+
+orth-flat (n=54), neur: baseline 0.578
+  W_E     0.488  d=-0.090 (paired p=3.9e-04, n=54)
+  W_E_qr  0.479  d=-0.099 (paired p=2.2e-04, n=54)
+  attn    0.492  d=-0.086 (paired p=1.1e-03, n=54)
+  W_in    0.606  d=+0.028 (paired p=1.2e-01, n=54)
+
+natural-normal (n=8), agg: baseline 0.741
+  W_E     0.480  d=-0.260 (paired p=2.6e-04, n=8)
+  W_E_qr  0.524  d=-0.217 (paired p=4.5e-04, n=8)
+  attn    0.635  d=-0.106 (paired p=4.2e-02, n=8)
+  W_in    0.745  d=+0.004 (paired p=8.0e-01, n=8)
+
+natural-normal (n=8), neur: baseline 0.684
+  W_E     0.472  d=-0.211 (paired p=5.6e-03, n=8)
+  W_E_qr  0.521  d=-0.162 (paired p=3.9e-02, n=8)
+  attn    0.584  d=-0.100 (paired p=3.9e-02, n=8)
+  W_in    0.677  d=-0.007 (paired p=8.8e-01, n=8)
+
+Consistency check on SEMIFINAL claim 1: the agg readout depends on the
+embedding x attention pathway exactly as the T_k formula demands (W_E
+kills, attn partial; in flat cohorts either side's scramble kills the
+relational carrier). The agg W_in row is a readout sanity check only. The
+fair MLP-carrier test is the neur readout (W_in-sensitive by construction):
+it reads the committee at baseline, but scrambling W_in leaves it intact
+while scrambling W_E kills it — the per-neuron signal is inherited from
+the stream, and W_in itself carries none. The causal 'nothing else picks
+up the slack' statement rests on the trained double-flat cohort.

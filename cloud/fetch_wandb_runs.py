@@ -9,9 +9,11 @@ run's config.json, metrics.json, spectra.npz and checkpoints/ — the exact
 layout semifinal/analysis/ expects. Artifact names are the run path with
 "/" -> "__" (orthWE__p-113__seed4811__seed61001); this reverses that.
 
-Idempotent: a destination that already has spectra.npz is skipped, so an
-interrupted pull resumes. Every download is verified for the three required
-files before it counts as complete.
+Idempotent AND self-healing: a run dir is skipped only if it passes
+complete() — required files parse and every checkpoint header reads. A dir
+left truncated by an interrupted or out-of-disk pull fails that check, is
+deleted, and is fetched again. Mere presence is never enough: ENOSPC leaves
+zero-length files that an existence check would skip forever.
 
 DO NOT pull into a --dest that already holds runs from another backend.
 Cloud run paths collide exactly with the MLX ones (runs/p-113/seed4811/
@@ -25,10 +27,45 @@ Run:  uv run --with wandb python cloud/fetch_wandb_runs.py
 """
 import argparse
 import os
+import shutil
 import sys
 from pathlib import Path
 
 REQUIRED = ("config.json", "metrics.json", "spectra.npz")
+
+
+def complete(dest):
+    """Is this run dir fully and validly downloaded?
+
+    Presence is NOT enough: a download killed by ENOSPC leaves zero-length or
+    truncated files behind, and a bare `spectra.npz exists` check would skip
+    them forever — a silently corrupt cohort. Every required file must parse
+    and every checkpoint's header must read.
+    """
+    import json as _json
+    if not all((dest / f).is_file() and (dest / f).stat().st_size > 0
+               for f in REQUIRED):
+        return False
+    try:
+        import numpy as _np
+        from safetensors import safe_open
+        with _np.load(dest / "spectra.npz") as z:
+            if len(z["epochs"]) == 0:
+                return False
+        _json.loads((dest / "metrics.json").read_text())
+        _json.loads((dest / "config.json").read_text())
+        cks = sorted((dest / "checkpoints").glob("*.safetensors"))
+        if not cks:
+            return False
+        for ck in cks:                      # header read catches truncation
+            if ck.stat().st_size == 0:
+                return False
+            with safe_open(str(ck), framework="pt") as f:
+                if not f.keys():
+                    return False
+    except Exception:
+        return False
+    return True
 
 
 def resolve_credentials():
@@ -104,30 +141,35 @@ def main():
               f"in this project, e.g. {stray[:3]} — if those came from another "
               f"backend, pull into a fresh --dest instead.\n", flush=True)
 
-    done = skipped = failed = 0
+    done = skipped = failed = repaired = 0
     for name, art in jobs:
         dest = args.dest / name
-        if (dest / "spectra.npz").exists():
+        if complete(dest):
             print(f"  skip {name} (have it)", flush=True)
             skipped += 1
             continue
+        if dest.exists():
+            # Partial from a previous interrupted/ENOSPC pull: wipe it rather
+            # than downloading over the wreckage.
+            shutil.rmtree(dest)
+            repaired += 1
         try:
             art.download(root=str(dest))
         except Exception as e:
             print(f"  FAIL {name}: {e}", flush=True)
             failed += 1
             continue
-        missing = [f for f in REQUIRED if not (dest / f).exists()]
-        if missing:
-            print(f"  FAIL {name}: missing {missing}", flush=True)
+        if not complete(dest):
+            print(f"  FAIL {name}: incomplete after download "
+                  f"(disk full?)", flush=True)
             failed += 1
             continue
         n_ck = len(list((dest / "checkpoints").glob("*.safetensors")))
         print(f"  ok   {name}  ({n_ck} checkpoints)", flush=True)
         done += 1
 
-    print(f"\ndownloaded {done}, already had {skipped}, failed {failed}"
-          f"  ->  {args.dest}/", flush=True)
+    print(f"\ndownloaded {done}, already had {skipped}, re-fetched {repaired} "
+          f"partial, failed {failed}  ->  {args.dest}/", flush=True)
     if failed:
         sys.exit(1)
     print("re-run to retry anything missing; semifinal/analysis/ reads "

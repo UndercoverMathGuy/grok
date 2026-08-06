@@ -1,0 +1,54 @@
+15 grokked runs
+
+run            p    K  A_tot   relM   minGap  norm   CEsym_te   phase_te
+------------------------------------------------------------------------
+seed1          113  4    42.1  0.431   18.12    893 5.27e-08     3.7
+seed27058      113  3    72.9  0.246   17.89    827 4.19e-08     4.3
+seed51224      113  6    35.0  0.560   19.61   1024 2.85e-08    27.1
+seed55794      113  3   101.2  0.182   18.42    892 5.11e-08     3.6
+seed63523      113  4    60.2  0.302   18.20    944 5.57e-08     3.6
+seed71539      113  4    44.9  0.416   18.68    901 5.33e-08     3.3
+seed84679      113  4    57.3  0.324   18.55    909 4.25e-08     4.7
+seed11285      113  4    52.3  0.356   18.64    908 2.23e-08    36.8
+seed33428      113  4    48.2  0.378   18.21    902 4.95e-08     3.5
+seed54735      113  5    44.4  0.424   18.85    980 3.77e-08    36.1
+seed66433      113  5    42.2  0.490   20.69    981 8.31e-09   539.9
+seed49631      127  4    67.2  0.277   18.62    938 2.32e-08     9.7
+seed31429      127  4    50.6  0.365   18.50    957 5.12e-08     3.3
+seed33301      157  4    50.7  0.366   18.54   1038 5.39e-08     3.1
+seed56947      157  4    62.8  0.298   18.70   1349 4.80e-08     5.1
+
+[H1] HOMEOSTAT  minGap = A_tot*relM
+     mean 18.68  sd 0.66  CV 3.5%  range [17.89,20.69]
+     factor spreads: A_tot CV 28%, relM CV 26%; corr(A,relM) -0.92
+     TRIVIALITY CONTROL — is minGap more than 'all models reach the same loss'?
+       sd(minGap) 0.66 nats vs sd(-log CEsym_te) 0.50 nats; corr +0.82
+       (if these match, H1 largely restates constant symmetric loss; the non-trivial content is the 27% factor compensation + H2/H4/H5.)
+
+[H2] p-INDEPENDENCE (optimizer constant, not task)
+     corr(minGap, p) = -0.06
+       p=113: minGap mean 18.71 (n=11)
+       p=127: minGap mean 18.56 (n=2)
+       p=157: minGap mean 18.62 (n=2)
+
+[H3] K-SLOPE and PHASE NOISE
+     minGap = 16.0 + 0.66*K   corr(minGap,K)=+0.72
+       K=3: minGap 18.15, phase_te median 3.9
+       K=4: minGap 18.48, phase_te median 3.6
+       K=5: minGap 19.77, phase_te median 288.0
+       K=6: minGap 19.61, phase_te median 27.1
+     corr(log phase_te, K) = +0.62
+     phase is a TEST effect: median phase_train 2.1 vs phase_test 4.3
+
+[H4] LOSS LAW  actual CE = phase * symmetric CE
+     phase_te median 4.3; clean (K<=4) runs 3.1-36.8 (claim: ~3-5x)
+
+[H5] AMPLITUDE CHEAP, NORM PRICES K
+     slope d log(norm)/d log(A_tot) = -0.05 (claim ~0)
+       p113 K=3: norm 859
+       p113 K=4: norm 909
+       p113 K=5: norm 980
+       p113 K=6: norm 1024
+
+[H6] UNTESTED PREDICTION: minGap ~ C - log(lr*wd).
+     Needs a weight-decay sweep. Prediction: -log(2)=-0.69 nats per wd doubling.

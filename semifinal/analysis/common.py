@@ -20,6 +20,7 @@ import numpy as np
 from scipy.stats import rankdata
 
 ROOT = Path("/Users/ruhaanrajadhyaksha/projects/grok")
+RUNS = ROOT / "runs_torch"          # the v2 dataset (cloud torch trainer)
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
@@ -60,6 +61,11 @@ SURGICAL_FAMS = {"surgery", "surgery2", "transplant", "dosefarm", "gkrotate",
                  "collisionfarm", "suppress", "chaospair"}
 EXCLUDED_FAMS = {"eviction", "naive_distill", "linear_interp",
                  "ce_from_onehot_t80_e390", "ce_from_onehot_t80_e390_lr1e4"}
+# Runs that pass the acc>=0.99 gate but never consolidated: final test CE
+# 3.8e-2 / 5.5e-3, >10x above every other run (next worst 2.8e-4). Their
+# final spectra are still moving, so the committee readout is unreliable.
+BAD_RUNS = {"dyn-lr3/p-113/seed9415/seed85697",
+            "eff-G/p-113/seed9415/seed19078"}
 
 _FOURIER = {}
 def fourier(p):
@@ -69,10 +75,12 @@ def fourier(p):
 
 def discover(require_e0=False):
     """Yield dicts for every compatible grokked run under runs/."""
-    for cj in sorted(ROOT.joinpath("runs").rglob("config.json")):
+    for cj in sorted(RUNS.rglob("config.json")):
         d = cj.parent
-        fam = str(d.relative_to(ROOT / "runs")).split("/")[0]
-        if fam in EXCLUDED_FAMS or not (d / "spectra.npz").exists():
+        rel = str(d.relative_to(RUNS))
+        fam = rel.split("/")[0]
+        if (fam in EXCLUDED_FAMS or rel in BAD_RUNS
+                or not (d / "spectra.npz").exists()):
             continue
         cfg = Config.load(cj)
         e0 = d / "checkpoints" / "epoch_00000.safetensors"
@@ -93,7 +101,7 @@ def discover(require_e0=False):
             cohort = "natural-normal"
         else:
             cohort = "other-normal"
-        yield dict(dir=d, rel=str(d.relative_to(ROOT / "runs")), fam=fam,
+        yield dict(dir=d, rel=str(d.relative_to(RUNS)), fam=fam,
                    cfg=cfg, spectra=z, e0=e0 if e0.exists() else None,
                    cohort=cohort,
                    committee=committee_from_coeffs(z["coeffs"][-1]))
@@ -199,8 +207,8 @@ def find_base_run(name):
     family): silently picking one would attribute arms to the wrong base.
     """
     hits = [cj.parent
-            for cj in ROOT.joinpath("runs").rglob(f"{name}/config.json")
-            if str(cj.parent.relative_to(ROOT / "runs")).split("/")[0]
+            for cj in RUNS.rglob(f"{name}/config.json")
+            if str(cj.parent.relative_to(RUNS)).split("/")[0]
             in NATURAL_FAMS]
     if len(hits) > 1:
         raise ValueError(f"base name {name!r} is ambiguous across natural "

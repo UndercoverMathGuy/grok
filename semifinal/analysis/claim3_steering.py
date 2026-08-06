@@ -24,7 +24,7 @@ can never disagree.
 import re
 import numpy as np
 
-from common import (ROOT, discover, freq_energy, find_base_run, jaccard,
+from common import (RUNS, discover, freq_energy, find_base_run, jaccard,
                     grok_epoch, COMMITTEE_FLOOR)
 from grok.model import Transformer
 from grok.config import Config
@@ -88,7 +88,7 @@ for base, arms in sorted(curves.items()):
     print(f"\n  base {base}:")
     if not any(d == 1.0 for d, _ in arms):
         b = find_base_run(base)       # v2 suites: base natural IS the control
-        r = runs.get(str(b.relative_to(ROOT / "runs"))) if b else None
+        r = runs.get(str(b.relative_to(RUNS))) if b else None
         if r is not None:
             print(f"   x1.00 [{r['rel']}] control (the base run): committee "
                   f"{sorted(r['committee'])} grok@{grok_epoch(r['spectra'])}")

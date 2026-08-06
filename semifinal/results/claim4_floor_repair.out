@@ -1,0 +1,121 @@
+chaospair/seed31831/armA                   pct  78.5 viol 0 (blind 0) closed True/True
+chaospair/seed31831/armB                   pct  78.5 viol 0 (blind 0) closed True/True
+chaospair/seed47904/armA                   pct  79.9 viol 1 (blind 3) closed True/True
+chaospair/seed47904/armB                   pct  90.0 viol 0 (blind 3) closed False/True
+collisionfarm/seed31831_t40                pct  65.1 viol 0 (blind 0) closed True/True
+collisionfarm/seed47904_t53                pct  26.9 viol 0 (blind 0) closed True/True
+dosefarm/seed31831/dose_110                pct  78.5 viol 0 (blind 0) closed True/True
+dosefarm/seed31831/dose_120                pct  78.5 viol 0 (blind 0) closed True/True
+dosefarm/seed31831/dose_150                pct  95.4 viol 0 (blind 0) closed True/True
+dosefarm/seed31831/dose_225                pct  95.4 viol 0 (blind 0) closed True/True
+dosefarm/seed47904/dose_110                pct  86.5 viol 0 (blind 0) closed True/True
+dosefarm/seed47904/dose_120                pct  97.8 viol 0 (blind 0) closed True/True
+dosefarm/seed47904/dose_150                pct  96.2 viol 0 (blind 0) closed True/True
+dosefarm/seed47904/dose_225                pct  84.9 viol 0 (blind 0) closed True/True
+doubleflat/p-113/seed3148/seed31831        pct  60.0 viol 0 (blind 0) closed True/True
+doubleflat/p-113/seed3148/seed47904        pct  74.9 viol 0 (blind 0) closed False/True
+doubleflat/p-113/seed3148/seed69089        pct  95.7 viol 0 (blind 3) closed True/True
+doubleflat/p-113/seed3148/seed81412        pct  92.8 viol 0 (blind 0) closed True/True
+doubleflat/p-113/seed9415/seed19078        pct  90.0 viol 0 (blind 0) closed True/True
+doubleflat/p-113/seed9415/seed32610        pct  88.5 viol 0 (blind 0) closed True/True
+doubleflat/p-113/seed9415/seed68549        pct  56.4 viol 1 (blind 0) closed True/True
+doubleflat/p-113/seed9415/seed85697        pct  69.7 viol 0 (blind 2) closed True/True
+dyn-lr3/p-113/seed3148/seed31831           pct  98.2 viol 0 (blind 0) closed True/True
+dyn-lr3/p-113/seed3148/seed47904           pct  99.5 viol 0 (blind 0) closed True/True
+dyn-lr3/p-113/seed3148/seed69089           pct  99.8 viol 0 (blind 0) closed True/True
+dyn-lr3/p-113/seed3148/seed81412           pct  74.3 viol 1 (blind 0) closed True/True
+dyn-lr3/p-113/seed9415/seed19078           pct  84.9 viol 0 (blind 0) closed True/True
+dyn-lr3/p-113/seed9415/seed32610           pct  76.8 viol 0 (blind 0) closed True/True
+dyn-lr3/p-113/seed9415/seed68549           pct  92.1 viol 0 (blind 0) closed True/True
+dyn-lrlo/p-113/seed3148/seed31831          pct  98.2 viol 0 (blind 0) closed True/True
+dyn-lrlo/p-113/seed3148/seed47904          pct  89.7 viol 0 (blind 0) closed True/True
+dyn-lrlo/p-113/seed3148/seed69089          pct  95.5 viol 0 (blind 0) closed True/True
+dyn-lrlo/p-113/seed3148/seed81412          pct  98.1 viol 0 (blind 3) closed True/True
+dyn-lrlo/p-113/seed9415/seed19078          pct  83.5 viol 0 (blind 0) closed True/True
+dyn-lrlo/p-113/seed9415/seed32610          pct  49.6 viol 0 (blind 0) closed True/True
+dyn-lrlo/p-113/seed9415/seed68549          pct  88.0 viol 0 (blind 3) closed True/True
+dyn-lrlo/p-113/seed9415/seed85697          pct  78.5 viol 0 (blind 0) closed True/True
+dyn-wd04/p-113/seed3148/seed31831          pct  98.2 viol 0 (blind 0) closed True/True
+dyn-wd04/p-113/seed3148/seed47904          pct  89.7 viol 0 (blind 0) closed True/True
+dyn-wd04/p-113/seed3148/seed69089          pct  43.2 viol 0 (blind 0) closed True/True
+dyn-wd04/p-113/seed3148/seed81412          pct  95.5 viol 0 (blind 0) closed True/True
+dyn-wd04/p-113/seed9415/seed19078          pct  98.8 viol 0 (blind 3) closed True/True
+dyn-wd04/p-113/seed9415/seed32610          pct  82.2 viol 0 (blind 0) closed True/True
+dyn-wd04/p-113/seed9415/seed68549          pct  54.0 viol 0 (blind 0) closed True/True
+dyn-wd04/p-113/seed9415/seed85697          pct  91.7 viol 0 (blind 0) closed True/True
+dyn-wd25/p-113/seed3148/seed31831          pct  98.2 viol 0 (blind 0) closed True/True
+dyn-wd25/p-113/seed3148/seed47904          pct  84.2 viol 0 (blind 0) closed True/True
+dyn-wd25/p-113/seed3148/seed69089          pct  88.8 viol 0 (blind 0) closed True/True
+dyn-wd25/p-113/seed3148/seed81412          pct  94.8 viol 0 (blind 0) closed True/True
+dyn-wd25/p-113/seed9415/seed19078          pct  84.5 viol 0 (blind 0) closed True/True
+dyn-wd25/p-113/seed9415/seed32610          pct  76.8 viol 0 (blind 0) closed True/True
+dyn-wd25/p-113/seed9415/seed68549          pct  94.2 viol 0 (blind 0) closed True/True
+dyn-wd25/p-113/seed9415/seed85697          pct  88.6 viol 0 (blind 0) closed True/True
+eff-G/p-113/seed3148/seed31831             pct  88.3 viol 0 (blind 1) closed True/True
+eff-G/p-113/seed3148/seed47904             pct  86.0 viol 0 (blind 0) closed True/True
+eff-G/p-113/seed3148/seed69089             pct  81.5 viol 0 (blind 0) closed True/True
+eff-G/p-113/seed3148/seed81412             pct  97.5 viol 0 (blind 1) closed True/True
+eff-G/p-113/seed9415/seed32610             pct  97.7 viol 0 (blind 0) closed True/True
+eff-G/p-113/seed9415/seed68549             pct  97.1 viol 0 (blind 0) closed True/True
+eff-G/p-113/seed9415/seed85697             pct  91.7 viol 0 (blind 0) closed True/True
+gkrotate/seed31831/gain_120                pct  65.1 viol 0 (blind 0) closed True/True
+gkrotate/seed31831/gain_225                pct  95.5 viol 0 (blind 0) closed True/True
+gkrotate/seed47904/gain_120                pct  97.7 viol 0 (blind 0) closed True/True
+gkrotate/seed47904/gain_225                pct  88.8 viol 0 (blind 0) closed True/True
+orthWE/p-113/seed3148/seed31831            pct  98.2 viol 0 (blind 0) closed True/True
+orthWE/p-113/seed3148/seed47904            pct  84.2 viol 0 (blind 0) closed True/True
+orthWE/p-113/seed3148/seed69089            pct  53.6 viol 0 (blind 0) closed True/True
+orthWE/p-113/seed3148/seed81412            pct  69.0 viol 0 (blind 0) closed True/True
+orthWE/p-113/seed9415/seed19078            pct  97.0 viol 0 (blind 0) closed True/True
+orthWE/p-113/seed9415/seed32610            pct  82.2 viol 0 (blind 0) closed True/True
+orthWE/p-113/seed9415/seed68549            pct  54.0 viol 0 (blind 0) closed True/True
+orthWE/p-113/seed9415/seed85697            pct  77.7 viol 0 (blind 0) closed True/True
+p-113/seed3148/seed31831                   pct  76.7 viol 0 (blind 0) closed True/True
+p-113/seed3148/seed47904                   pct  86.5 viol 0 (blind 0) closed True/True
+p-113/seed3148/seed69089                   pct  90.5 viol 0 (blind 0) closed True/True
+p-113/seed3148/seed81412                   pct  98.7 viol 0 (blind 3) closed True/True
+p-113/seed9415/seed19078                   pct  99.7 viol 0 (blind 3) closed True/True
+p-113/seed9415/seed32610                   pct  74.9 viol 0 (blind 0) closed True/True
+p-113/seed9415/seed68549                   pct  99.0 viol 0 (blind 0) closed True/True
+p-113/seed9415/seed85697                   pct  79.2 viol 0 (blind 0) closed True/True
+phase2-tilt/p-113/seed3148/seed31831       pct  94.6 viol 0 (blind 0) closed True/True
+phase2-tilt/p-113/seed3148/seed47904       pct  93.1 viol 0 (blind 0) closed True/True
+phase2-tilt/p-113/seed3148/seed69089       pct  98.5 viol 0 (blind 0) closed True/True
+phase2-tilt/p-113/seed3148/seed81412       pct  59.5 viol 1 (blind 4) closed True/True
+phase2-tilt/p-113/seed9415/seed19078       pct  80.1 viol 0 (blind 1) closed True/True
+phase2-tilt/p-113/seed9415/seed32610       pct  50.6 viol 0 (blind 0) closed True/True
+phase2-tilt/p-113/seed9415/seed68549       pct  98.5 viol 0 (blind 0) closed True/True
+phase2-tilt/p-113/seed9415/seed85697       pct  85.4 viol 0 (blind 0) closed True/True
+suppress/seed31831                         pct  65.1 viol 0 (blind 0) closed True/True
+suppress/seed47904                         pct  71.3 viol 0 (blind 0) closed True/True
+transplant/seed31831_from_seed47904        pct  27.8 viol 1 (blind 1) closed True/True
+transplant/seed31831_from_seed69089        pct  73.5 viol 0 (blind 0) closed True/True
+transplant/seed47904_from_seed31831        pct  99.7 viol 0 (blind 0) closed True/True
+transplant/seed47904_from_seed69089        pct  91.0 viol 0 (blind 0) closed True/True
+transplant/seed69089_from_seed31831        pct  74.5 viol 0 (blind 0) closed True/True
+transplant/seed69089_from_seed47904        pct  85.1 viol 0 (blind 0) closed False/False
+
+=== A/B/C: floor, depletion, closure ===
+ALL                n= 96  below-25th: 0 (min  26.9 mean  83.2)  final viol 5 vs exp 72.5 (blind 34)  closed e3000 93/96, half-grok 95/96
+  double-flat      n=  8  below-25th: 0 (min  56.4 mean  78.5)  final viol 1 vs exp 6.0 (blind 5)  closed e3000 7/8, half-grok 8/8
+  natural-normal   n=  8  below-25th: 0 (min  74.9 mean  88.1)  final viol 0 vs exp 8.8 (blind 6)  closed e3000 8/8, half-grok 8/8
+  orth-flat        n= 54  below-25th: 0 (min  43.2 mean  84.9)  final viol 2 vs exp 37.7 (blind 16)  closed e3000 54/54, half-grok 54/54
+  surgical         n= 26  below-25th: 0 (min  26.9 mean  79.5)  final viol 2 vs exp 20.0 (blind 7)  closed e3000 24/26, half-grok 25/26
+FLOOR HEADLINE (freely-trained runs only — surgical arms are init-edited on purpose): below-floor NONE (n=70, min 43.2)
+depletion (freely-trained, run-level): 3/70 runs with >=1 violation vs 23.5 expected by chance; MC p < 1e-5
+
+=== D: engineered repair events (collisionfarm) ===
+   collisionfarm/seed31831_t40: base comm [5, 35, 52], trio [5, 35, 40], final [35, 40, 52] -> trio broken: True
+   collisionfarm/seed47904_t53: base comm [10, 11, 14, 43], trio [10, 43, 53], final [5, 11, 43, 53] -> trio broken: True
+   engineered trios broken: 2/2
+
+Backs SEMIFINAL claim 4: the floor (freely-trained headline; surgical
+arms shown for context), run-level additive depletion, menu closure, and
+engineered repair-on-demand. Provenance of the
+depletion differs by cohort and the claim text must say so: in NATURAL runs
+the mid-training leaders carry violations at chance rate and the cleanup
+happens during consolidation (active repair); in FLAT-init cohorts the
+leaders are already clean by mid-training — with no init bias forcing the
+early race, training freely picks a clean set from the start and there is
+nothing to repair. Forced (natural/surgical) starts sometimes propose
+broken sets and get repaired; free (flat) starts almost never propose them.

@@ -1,0 +1,10 @@
+{
+  "student_run": "runs/zoo/seed37",
+  "teacher_run": "runs/zoo/seed42",
+  "teacher_freqs": null,
+  "teacher_scale": 10.0,
+  "temp": 40.0,
+  "mode": "kl",
+  "alpha": 0.0,
+  "distill_all": false
+}

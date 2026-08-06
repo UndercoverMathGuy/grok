@@ -1,0 +1,15 @@
+{
+  "student_run": "runs/seed37",
+  "teacher_run": "runs/seed42",
+  "teacher_freqs": null,
+  "teacher_scale": 10.0,
+  "schedule": "two-stage",
+  "num_steps": 20,
+  "temp": 10.0,
+  "mode": "mse",
+  "alpha": 0.0,
+  "gate_tol": 1e-06,
+  "gate_metric": "test_ce",
+  "final_epochs": 0,
+  "distill_all": false
+}

@@ -80,21 +80,32 @@ print("\n=== A/B/C: floor, depletion, closure ===")
 agg(rows, "ALL")
 for cohort in sorted({x["cohort"] for x in rows}):
     agg([x for x in rows if x["cohort"] == cohort], f"  {cohort}")
-below = [(x["rel"], round(x["pct"], 1)) for x in rows if x["pct"] < 25]
-print(f"below-floor runs: {below or 'NONE'}")
+free = [x for x in rows if x["cohort"] != "surgical"]
+below = [(x["rel"], round(x["pct"], 1)) for x in free if x["pct"] < 25]
+print(f"FLOOR HEADLINE (freely-trained runs only — surgical arms are "
+      f"init-edited on purpose): below-floor {below or 'NONE'} "
+      f"(n={len(free)}, min {min(x['pct'] for x in free):.1f})")
 
-clusters = {}
-for x in rows:
-    clusters.setdefault((x["p"], x["ds"]), []).append(x["nv"] - x["ev"])
-cl = list(clusters.values())
-boot = []
-for _ in range(20000):
-    pick = rng.integers(0, len(cl), len(cl))
-    boot.append(np.mean([np.mean(cl[i]) for i in pick]))
-boot = np.array(boot)
-print(f"depletion mask-cluster bootstrap ({len(cl)} clusters): "
-      f"mean excess {np.mean([np.mean(v) for v in cl]):+.3f}, "
-      f"p(excess >= 0) = {(boot >= 0).mean():.4f}")
+# Depletion significance, run-level on freely-trained runs: how many runs
+# end with >=1 additive violation vs the chance rate for same-size random
+# sets (Monte-Carlo per (p, K)). No mask clustering — this dataset has
+# only 2 mask cells, too few for cluster-level inference.
+PANY = {}
+def p_any(p, K, n=3000):
+    if (p, K) not in PANY:
+        nf = p // 2
+        PANY[(p, K)] = np.mean([len(violations(rng.choice(
+            np.arange(1, nf + 1), K, replace=False).tolist(), p)) > 0
+            for _ in range(n)])
+    return PANY[(p, K)]
+
+probs = np.array([p_any(x["p"], len(x["comm"])) for x in free])
+obs = sum(x["nv"] > 0 for x in free)
+mc = (rng.random((100000, len(free))) < probs).sum(1)
+pv = np.mean(mc <= obs)
+print(f"depletion (freely-trained, run-level): {obs}/{len(free)} runs with "
+      f">=1 violation vs {probs.sum():.1f} expected by chance; "
+      f"MC p {'< 1e-5' if pv == 0 else f'= {pv:.1e}'}")
 
 print("\n=== D: engineered repair events (collisionfarm) ===")
 _bcomm_cache = {}
@@ -145,8 +156,9 @@ legacy_note = (" (+2/2 from surgery/collision & boost_strong, see claim3 "
                else "")
 print(f"   engineered trios broken: {n_broken}/{n_tot}{legacy_note}")
 print("""
-Backs SEMIFINAL claim 4: the floor, additive depletion with cluster-robust
-p, menu closure, and repair-on-demand across masks. Provenance of the
+Backs SEMIFINAL claim 4: the floor (freely-trained headline; surgical
+arms shown for context), run-level additive depletion, menu closure, and
+engineered repair-on-demand. Provenance of the
 depletion differs by cohort and the claim text must say so: in NATURAL runs
 the mid-training leaders carry violations at chance rate and the cleanup
 happens during consolidation (active repair); in FLAT-init cohorts the

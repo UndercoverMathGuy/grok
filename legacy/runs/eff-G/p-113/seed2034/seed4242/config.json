@@ -1,0 +1,30 @@
+{
+  "p": 113,
+  "fn_name": "add",
+  "frac_train": 0.3,
+  "data_seed": 2034,
+  "init_seed": 4242,
+  "num_layers": 1,
+  "d_model": 128,
+  "embed_init": "orthogonal",
+  "num_heads": 4,
+  "d_mlp": 512,
+  "n_ctx": 3,
+  "act_type": "ReLU",
+  "lr": 0.001,
+  "warmup_steps": 10,
+  "weight_decay": 1.0,
+  "betas": [
+    0.9,
+    0.98
+  ],
+  "adam_eps": 1e-08,
+  "loss_dtype": "f64",
+  "loss_tilt": 0.0,
+  "loss_cvar": 0.05,
+  "grad_noise": 0.0,
+  "grad_noise_until": 0,
+  "num_epochs": 20000,
+  "save_every": 1000,
+  "stopping_thresh": -1.0
+}

@@ -1,0 +1,167 @@
+=== stage dose_farm started Mon Aug  3 01:30:36 IST 2026 ===
+
+##### base seed1/seed21245: committee [6, 21, 23, 43], menu [23, 6, 3, 43, 21, 45, 50, 15], target 55 (z -0.02) #####
+predictions: P-B1 monotone; P-B2 adopt at >=1.20, not at <=1.05; P-B3 control reproduces; P-B4 menu closure
+
+=== seed21245 dose_100 (target 55 x1.0) ===
+train: 3830  test: 8939
+epoch   4000  train 2.8089e-07  test 1.2713e+01  (29 epochs/s)
+epoch   8000  train 1.0044e-07  test 1.9203e-07  (29 epochs/s)
+epoch  12000  train 9.6571e-08  test 1.8344e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed21245/dose_100
+RESULT seed21245 dose_100: grok@6000 committee [3, 6, 21, 23] target f55 peak 69 final 0 (bg median 0.1) acc 1.0000
+
+=== seed21245 dose_105 (target 55 x1.05) ===
+train: 3830  test: 8939
+epoch   4000  train 2.7914e-07  test 1.2467e+01  (29 epochs/s)
+epoch   8000  train 1.0774e-07  test 3.6228e-07  (29 epochs/s)
+epoch  12000  train 9.6881e-08  test 1.8216e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed21245/dose_105
+RESULT seed21245 dose_105: grok@6400 committee [3, 6, 21, 23] target f55 peak 66 final 0 (bg median 0.1) acc 1.0000
+
+=== seed21245 dose_110 (target 55 x1.1) ===
+train: 3830  test: 8939
+epoch   4000  train 2.9045e-07  test 1.4784e+01  (29 epochs/s)
+epoch   8000  train 1.2728e-07  test 3.7259e-04  (29 epochs/s)
+epoch  12000  train 1.0087e-07  test 4.9646e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed21245/dose_110
+RESULT seed21245 dose_110: grok@7400 committee [6, 21, 23, 43, 45] target f55 peak 75 final 0 (bg median 0.1) acc 1.0000
+
+=== seed21245 dose_120 (target 55 x1.2) ===
+train: 3830  test: 8939
+epoch   4000  train 2.7917e-07  test 1.2136e+01  (29 epochs/s)
+epoch   8000  train 9.8590e-08  test 1.9663e-07  (29 epochs/s)
+epoch  12000  train 9.6389e-08  test 1.7616e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed21245/dose_120
+RESULT seed21245 dose_120: grok@5700 committee [3, 6, 21, 23] target f55 peak 87 final 0 (bg median 0.0) acc 1.0000
+
+=== seed21245 dose_150 (target 55 x1.5) ===
+train: 3830  test: 8939
+epoch   4000  train 2.9289e-07  test 1.5319e+01  (29 epochs/s)
+epoch   8000  train 1.0388e-07  test 4.4753e-07  (29 epochs/s)
+epoch  12000  train 9.6304e-08  test 3.3167e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed21245/dose_150
+RESULT seed21245 dose_150: grok@6100 committee [6, 21, 23, 43] target f55 peak 173 final 0 (bg median 0.0) acc 1.0000
+
+=== seed21245 dose_225 (target 55 x2.25) ===
+train: 3830  test: 8939
+epoch   4000  train 2.8017e-07  test 1.2944e+01  (29 epochs/s)
+epoch   8000  train 2.1295e-07  test 3.0521e+00  (29 epochs/s)
+epoch  12000  train 1.0982e-07  test 4.9756e-07  (29 epochs/s)
+done: 12000 epochs in 419s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed21245/dose_225
+RESULT seed21245 dose_225: grok@9300 committee [6, 23, 45, 55] target f55 peak 12024 final 10403 (bg median 0.1) acc 1.0000
+
+##### base seed2/seed51376: committee [8, 14, 15, 27], menu [14, 15, 27, 7, 11, 8, 20, 2], target 34 (z +0.02) #####
+predictions: P-B1 monotone; P-B2 adopt at >=1.20, not at <=1.05; P-B3 control reproduces; P-B4 menu closure
+
+=== seed51376 dose_100 (target 34 x1.0) ===
+train: 3830  test: 8939
+epoch   4000  train 3.0576e-07  test 1.9339e+01  (29 epochs/s)
+epoch   8000  train 1.4938e-07  test 2.7664e-02  (29 epochs/s)
+epoch  12000  train 1.0399e-07  test 7.4305e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed51376/dose_100
+RESULT seed51376 dose_100: grok@8000 committee [8, 11, 14, 15, 27] target f34 peak 28 final 0 (bg median 0.1) acc 1.0000
+
+=== seed51376 dose_105 (target 34 x1.05) ===
+train: 3830  test: 8939
+epoch   4000  train 3.0781e-07  test 2.0008e+01  (29 epochs/s)
+epoch   8000  train 1.4466e-07  test 1.3225e-02  (29 epochs/s)
+epoch  12000  train 9.3279e-08  test 2.2215e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed51376/dose_105
+RESULT seed51376 dose_105: grok@7900 committee [7, 11, 14, 27] target f34 peak 33 final 1 (bg median 0.1) acc 1.0000
+
+=== seed51376 dose_110 (target 34 x1.1) ===
+train: 3830  test: 8939
+epoch   4000  train 3.1143e-07  test 2.0801e+01  (29 epochs/s)
+epoch   8000  train 2.1640e-07  test 3.2054e+00  (29 epochs/s)
+epoch  12000  train 1.0610e-07  test 4.1179e-07  (29 epochs/s)
+done: 12000 epochs in 419s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed51376/dose_110
+RESULT seed51376 dose_110: grok@8900 committee [8, 11, 14, 15, 27] target f34 peak 36 final 0 (bg median 0.0) acc 1.0000
+
+=== seed51376 dose_120 (target 34 x1.2) ===
+train: 3830  test: 8939
+epoch   4000  train 3.1164e-07  test 2.0472e+01  (29 epochs/s)
+epoch   8000  train 1.8092e-07  test 6.8900e-01  (29 epochs/s)
+epoch  12000  train 9.4474e-08  test 2.5281e-07  (29 epochs/s)
+done: 12000 epochs in 419s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed51376/dose_120
+RESULT seed51376 dose_120: grok@8500 committee [7, 11, 14, 27] target f34 peak 40 final 0 (bg median 0.1) acc 1.0000
+
+=== seed51376 dose_150 (target 34 x1.5) ===
+train: 3830  test: 8939
+epoch   4000  train 3.0705e-07  test 1.9509e+01  (29 epochs/s)
+epoch   8000  train 1.5121e-07  test 3.5573e-02  (29 epochs/s)
+epoch  12000  train 1.0107e-07  test 1.2383e-06  (29 epochs/s)
+done: 12000 epochs in 419s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed51376/dose_150
+RESULT seed51376 dose_150: grok@8100 committee [11, 14, 15, 27] target f34 peak 63 final 0 (bg median 0.1) acc 1.0000
+
+=== seed51376 dose_225 (target 34 x2.25) ===
+train: 3830  test: 8939
+epoch   4000  train 3.1198e-07  test 2.0978e+01  (29 epochs/s)
+epoch   8000  train 2.0742e-07  test 2.2669e+00  (29 epochs/s)
+epoch  12000  train 9.7793e-08  test 2.1343e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed51376/dose_225
+RESULT seed51376 dose_225: grok@8700 committee [11, 14, 20, 27] target f34 peak 214 final 0 (bg median 0.0) acc 1.0000
+
+##### base p-113/seed2034/seed33428: committee [4, 25, 51, 56], menu [51, 25, 56, 4, 19, 12, 35, 29], target 44 (z +0.01) #####
+predictions: P-B1 monotone; P-B2 adopt at >=1.20, not at <=1.05; P-B3 control reproduces; P-B4 menu closure
+
+=== seed33428 dose_100 (target 44 x1.0) ===
+train: 3830  test: 8939
+epoch   4000  train 2.4581e-07  test 6.7966e+00  (29 epochs/s)
+epoch   8000  train 9.8339e-08  test 1.9156e-07  (29 epochs/s)
+epoch  12000  train 9.6665e-08  test 1.8606e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed33428/dose_100
+RESULT seed33428 dose_100: grok@5000 committee [4, 25, 51, 56] target f44 peak 65 final 0 (bg median 0.0) acc 1.0000
+
+=== seed33428 dose_105 (target 44 x1.05) ===
+train: 3830  test: 8939
+epoch   4000  train 2.5811e-07  test 8.3515e+00  (29 epochs/s)
+epoch   8000  train 9.8764e-08  test 2.1023e-07  (29 epochs/s)
+epoch  12000  train 9.6655e-08  test 1.9725e-07  (29 epochs/s)
+done: 12000 epochs in 419s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed33428/dose_105
+RESULT seed33428 dose_105: grok@5400 committee [4, 25, 51, 56] target f44 peak 70 final 0 (bg median 0.0) acc 1.0000
+
+=== seed33428 dose_110 (target 44 x1.1) ===
+train: 3830  test: 8939
+epoch   4000  train 2.7904e-07  test 1.2514e+01  (29 epochs/s)
+epoch   8000  train 9.9496e-08  test 2.3011e-07  (29 epochs/s)
+epoch  12000  train 9.6307e-08  test 1.9119e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed33428/dose_110
+RESULT seed33428 dose_110: grok@5600 committee [4, 25, 51, 56] target f44 peak 71 final 0 (bg median 0.1) acc 1.0000
+
+=== seed33428 dose_120 (target 44 x1.2) ===
+train: 3830  test: 8939
+epoch   4000  train 2.2088e-07  test 4.0388e+00  (29 epochs/s)
+epoch   8000  train 1.0792e-07  test 2.1814e-06  (29 epochs/s)
+epoch  12000  train 1.0530e-07  test 1.5230e-06  (29 epochs/s)
+done: 12000 epochs in 419s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed33428/dose_120
+RESULT seed33428 dose_120: grok@4800 committee [4, 12, 25, 51, 56] target f44 peak 101 final 0 (bg median 0.1) acc 1.0000
+
+=== seed33428 dose_150 (target 44 x1.5) ===
+train: 3830  test: 8939
+epoch   4000  train 2.3915e-07  test 5.7471e+00  (29 epochs/s)
+epoch   8000  train 9.8898e-08  test 2.4015e-07  (29 epochs/s)
+epoch  12000  train 9.6195e-08  test 1.8581e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed33428/dose_150
+RESULT seed33428 dose_150: grok@5000 committee [4, 25, 51, 56] target f44 peak 248 final 0 (bg median 0.0) acc 1.0000
+
+=== seed33428 dose_225 (target 44 x2.25) ===
+train: 3830  test: 8939
+epoch   4000  train 1.4257e-07  test 4.9931e-02  (29 epochs/s)
+epoch   8000  train 9.9640e-08  test 7.2869e-07  (29 epochs/s)
+epoch  12000  train 9.8284e-08  test 5.9485e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed33428/dose_225
+RESULT seed33428 dose_225: grok@4100 committee [4, 44, 51, 56] target f44 peak 20840 final 17684 (bg median 0.1) acc 1.0000
+
+##### base og_seed0/seed27058 gap-fill: target 7 x1.50 #####
+
+=== seed27058 dose_150 (target 7 x1.5) ===
+train: 3830  test: 8939
+epoch   4000  train 1.0321e-07  test 1.4336e-06  (29 epochs/s)
+epoch   8000  train 9.0174e-08  test 1.7392e-07  (29 epochs/s)
+epoch  12000  train 8.9186e-08  test 1.5796e-07  (29 epochs/s)
+done: 12000 epochs in 418s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/dosefarm/seed27058/dose_150
+RESULT seed27058 dose_150: grok@3200 committee [7, 14, 49, 52] target f7 peak 5999 final 4450 (bg median 0.0) acc 1.0000
+
+DOSE FARM DONE
+=== stage dose_farm exit 0 Mon Aug  3 03:43:06 IST 2026 ===

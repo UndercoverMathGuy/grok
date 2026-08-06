@@ -1,0 +1,44 @@
+=== stage gk_rotate started Mon Aug  3 03:43:06 IST 2026 ===
+base T_7 1.7645; max achievable gain 5.26
+Suite C — causal control of the ALIGNMENT factor G_k (the second knob).
+
+The ticket variable factorizes: T_k = E_k (W_E energy) x G_k (alignment of
+frequency k's W_E subspace with the attention OV pathway). The energy knob
+is causally proven (dose farm). This suite turns the OTHER knob: rotate
+frequency 7's W_E 2-plane toward the OV map's high-gain input directions
+AT EXACTLY FIXED ENERGY, choosing rotation angles so the transmitted
+energy T_7 is multiplied by the same factors as the energy doses
+{1.05, 1.20, 2.25}. Base: og_seed0/seed27058 (same as the energy curve).
+
+PRE-REGISTERED PREDICTIONS:
+  P-C1 (primary): outcomes match the energy-dose curve AT MATCHED T_7 GAIN
+        — gain 1.05: not adopted; gain 1.20: adopted; gain 2.25: dominant
+        or strongly adopted. I.e. T_k, not E_k, is the causal variable.
+  P-C2: W_E per-frequency ENERGY is unchanged by the surgery (verified
+        numerically below) — so any effect cannot be an energy effect.
+  P-C3: menu closure and bystander chaos as usual.
+
+
+=== gain_105: alpha 0.1492, achieved T_7 gain 1.0500, max energy err 2.2e-16 ===
+train: 3830  test: 8939
+epoch   4000  train 1.2081e-07  test 8.8711e-04  (29 epochs/s)
+epoch   8000  train 9.1771e-08  test 2.4567e-07  (29 epochs/s)
+done: 10000 epochs in 349s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/gkrotate/gain_105
+RESULT gain_105: grok@3700 committee [14, 49, 52] f7 peak 252 final 0 acc 1.0000
+
+=== gain_120: alpha 0.2201, achieved T_7 gain 1.2000, max energy err 4.4e-16 ===
+train: 3830  test: 8939
+epoch   4000  train 1.4449e-07  test 7.1194e-03  (29 epochs/s)
+epoch   8000  train 9.4675e-08  test 2.5990e-07  (29 epochs/s)
+done: 10000 epochs in 348s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/gkrotate/gain_120
+RESULT gain_120: grok@3900 committee [7, 14, 28, 49, 52] f7 peak 2252 final 1582 acc 1.0000
+
+=== gain_225: alpha 0.4119, achieved T_7 gain 2.2500, max energy err 0.0e+00 ===
+train: 3830  test: 8939
+epoch   4000  train 9.9700e-08  test 2.5913e-07  (29 epochs/s)
+epoch   8000  train 9.6497e-08  test 2.0597e-07  (29 epochs/s)
+done: 10000 epochs in 348s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/gkrotate/gain_225
+RESULT gain_225: grok@2200 committee [7, 29, 49, 52] f7 peak 19849 final 19849 acc 1.0000
+
+GK ROTATE DONE
+=== stage gk_rotate exit 0 Mon Aug  3 04:00:32 IST 2026 ===

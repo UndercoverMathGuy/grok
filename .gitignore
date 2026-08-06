@@ -12,8 +12,17 @@ wheels/
 
 # Training runs and downloaded checkpoints
 /runs
-/legacy
 /large_files
 random.pdf
-/runs_torch50k
 .DS_Store
+
+# runs_torch + legacy are committed (LFS), but only the analysis-relevant
+# payload: intermediate checkpoints (50 per run, ~17 GB total, read by no
+# analysis script) stay local. epoch_00000 is the init lottery — kept.
+runs_torch/**/checkpoints/epoch_*.safetensors
+!runs_torch/**/checkpoints/epoch_00000.safetensors
+legacy/**/checkpoints/epoch_*.safetensors
+!legacy/**/checkpoints/epoch_00000.safetensors
+# optimizer state (legacy runs saved it alongside weights) — never analyzed
+legacy/**/checkpoints/optim_*.safetensors
+runs_torch/**/checkpoints/optim_*.safetensors

@@ -1,0 +1,10 @@
+{
+  "student_run": "runs/distill_81_into_37_mse_wd01",
+  "teacher_run": "runs/seed81",
+  "teacher_freqs": null,
+  "teacher_scale": 10.0,
+  "temp": 10.0,
+  "mode": "mse",
+  "alpha": 0.0,
+  "distill_all": false
+}

@@ -1,0 +1,191 @@
+=== stage doubleflat started Sun Aug  2 22:59:28 IST 2026 ===
+Double-flat init: orthogonal W_E + isometric attention heads.
+
+The ticket variable T_k = sum_h ||W_O^h W_V^h W_E|_k||^2 factorizes as
+E_k (W_E spectrum) x G_k (frame-to-OV alignment). orthWE froze E_k and the
+lottery ran on G_k (T50-T54). This experiment freezes BOTH: with
+embed_init='orthogonal' and attn_init='isometric', T_k is identically flat
+by construction (verified numerically per seed below, before training).
+
+PRE-REGISTERED PREDICTIONS (printed before any training):
+  P-DF1 (primary): every epoch-0 committee readout is at chance (AUC ~0.5)
+        on these runs — raw W_E spectrum, closed-form T_k, forward-pass MLP
+        readout, forward-pass align readout. Test: per-readout mean AUC over
+        the 8 seeds, t vs 0.5, all ns and inside [0.40, 0.60].
+  P-DF2: the runs still grok (acc 1.0) and form normal-looking committees:
+        K in 3-6, above the margin floor, menu-closed. Erasing the readable
+        lottery does not break selection - it only hides the selector.
+  P-DF3 (falsification arm): if any readout stays significantly above 0.5,
+        T_k is NOT the complete readable ticket and the residual carrier
+        (candidate: W_in-feature alignment, so far null in every knockout)
+        becomes the next object of study.
+
+8 init seeds, cell (p=113, data_seed=2034), 20k epochs, spectra every 100.
+Runs land in runs/doubleflat/p-113/seed2034/seed<iseed>.
+
+=== init flatness check (rel sd of spectra; Gaussian init ~0.09) ===
+  seed 11285: W_E energy rel-sd 3.47e-09, T_k rel-sd 5.21e-09
+  seed 33428: W_E energy rel-sd 3.06e-09, T_k rel-sd 4.83e-09
+  seed 4242: W_E energy rel-sd 2.91e-09, T_k rel-sd 5.49e-09
+  seed 777: W_E energy rel-sd 2.94e-09, T_k rel-sd 4.75e-09
+  seed 1001: W_E energy rel-sd 2.67e-09, T_k rel-sd 5.12e-09
+  seed 1002: W_E energy rel-sd 3.17e-09, T_k rel-sd 5.22e-09
+  seed 1003: W_E energy rel-sd 2.88e-09, T_k rel-sd 4.65e-09
+  seed 1004: W_E energy rel-sd 2.90e-09, T_k rel-sd 5.76e-09
+  seed 2001: W_E energy rel-sd 3.32e-09, T_k rel-sd 5.62e-09
+  seed 2002: W_E energy rel-sd 3.28e-09, T_k rel-sd 5.72e-09
+  seed 2003: W_E energy rel-sd 3.35e-09, T_k rel-sd 5.14e-09
+  seed 2004: W_E energy rel-sd 2.94e-09, T_k rel-sd 5.40e-09
+  seed 2005: W_E energy rel-sd 3.10e-09, T_k rel-sd 5.24e-09
+  seed 2006: W_E energy rel-sd 3.06e-09, T_k rel-sd 4.89e-09
+  seed 2007: W_E energy rel-sd 2.88e-09, T_k rel-sd 5.53e-09
+  seed 2008: W_E energy rel-sd 2.62e-09, T_k rel-sd 4.69e-09
+skip seed11285 (exists)
+skip seed33428 (exists)
+skip seed4242 (exists)
+
+=== training doubleflat seed 777 ===
+train: 3830  test: 8939
+epoch   4000  train 3.3362e-07  test 2.3109e+01  (32 epochs/s)
+epoch   8000  train 1.7534e-07  test 2.7690e-01  (30 epochs/s)
+epoch  12000  train 1.0055e-07  test 2.5928e-07  (30 epochs/s)
+epoch  16000  train 9.7979e-08  test 1.9990e-07  (30 epochs/s)
+epoch  20000  train 9.7265e-08  test 1.9348e-07  (29 epochs/s)
+done: 20000 epochs in 681s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed777
+
+=== training doubleflat seed 1001 ===
+train: 3830  test: 8939
+epoch   4000  train 2.9875e-07  test 1.4697e+01  (29 epochs/s)
+epoch   8000  train 1.1208e-07  test 7.2587e-07  (29 epochs/s)
+epoch  12000  train 1.0697e-07  test 2.8980e-07  (29 epochs/s)
+epoch  16000  train 1.0156e-07  test 2.3826e-07  (29 epochs/s)
+epoch  20000  train 9.7343e-08  test 2.1847e-07  (29 epochs/s)
+done: 20000 epochs in 698s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed1001
+
+=== training doubleflat seed 1002 ===
+train: 3830  test: 8939
+epoch   4000  train 2.8717e-07  test 1.2068e+01  (29 epochs/s)
+epoch   8000  train 1.0866e-07  test 6.6068e-07  (29 epochs/s)
+epoch  12000  train 9.7361e-08  test 2.8772e-07  (29 epochs/s)
+epoch  16000  train 9.5947e-08  test 2.4375e-07  (29 epochs/s)
+epoch  20000  train 9.4189e-08  test 1.7952e-07  (29 epochs/s)
+done: 20000 epochs in 697s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed1002
+
+=== training doubleflat seed 1003 ===
+train: 3830  test: 8939
+epoch   4000  train 2.9195e-07  test 1.3917e+01  (29 epochs/s)
+epoch   8000  train 1.0777e-07  test 2.3130e-06  (29 epochs/s)
+epoch  12000  train 1.0207e-07  test 3.4189e-07  (29 epochs/s)
+epoch  16000  train 1.0111e-07  test 3.3971e-07  (29 epochs/s)
+epoch  20000  train 1.0061e-07  test 3.3849e-07  (29 epochs/s)
+done: 20000 epochs in 697s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed1003
+
+=== training doubleflat seed 1004 ===
+train: 3830  test: 8939
+epoch   4000  train 2.9299e-07  test 1.4465e+01  (29 epochs/s)
+epoch   8000  train 8.8710e-08  test 1.7632e-07  (29 epochs/s)
+epoch  12000  train 8.6551e-08  test 1.6043e-07  (29 epochs/s)
+epoch  16000  train 8.5794e-08  test 1.5296e-07  (29 epochs/s)
+epoch  20000  train 8.5419e-08  test 1.5093e-07  (29 epochs/s)
+done: 20000 epochs in 697s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed1004
+
+=== training doubleflat seed 2001 ===
+train: 3830  test: 8939
+epoch   4000  train 2.6051e-07  test 7.3041e+00  (29 epochs/s)
+epoch   8000  train 1.0749e-07  test 5.4933e-07  (29 epochs/s)
+epoch  12000  train 1.0101e-07  test 2.8965e-07  (29 epochs/s)
+epoch  16000  train 9.2554e-08  test 2.2371e-07  (29 epochs/s)
+epoch  20000  train 9.1946e-08  test 2.2097e-07  (29 epochs/s)
+done: 20000 epochs in 697s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed2001
+
+=== training doubleflat seed 2002 ===
+train: 3830  test: 8939
+epoch   4000  train 3.0423e-07  test 1.4704e+01  (29 epochs/s)
+epoch   8000  train 1.1291e-07  test 9.4373e-05  (29 epochs/s)
+epoch  12000  train 1.0198e-07  test 1.9031e-06  (29 epochs/s)
+epoch  16000  train 1.0059e-07  test 8.3977e-07  (29 epochs/s)
+epoch  20000  train 1.0008e-07  test 6.7297e-07  (29 epochs/s)
+done: 20000 epochs in 698s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed2002
+
+=== training doubleflat seed 2003 ===
+train: 3830  test: 8939
+epoch   4000  train 3.3723e-07  test 2.4781e+01  (29 epochs/s)
+epoch   8000  train 1.8647e-07  test 5.3739e-01  (29 epochs/s)
+epoch  12000  train 9.5667e-08  test 2.1732e-07  (29 epochs/s)
+epoch  16000  train 9.4148e-08  test 2.0104e-07  (29 epochs/s)
+epoch  20000  train 9.3464e-08  test 1.9888e-07  (29 epochs/s)
+done: 20000 epochs in 697s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed2003
+
+=== training doubleflat seed 2004 ===
+train: 3830  test: 8939
+epoch   4000  train 2.8215e-07  test 1.0923e+01  (29 epochs/s)
+epoch   8000  train 1.0391e-07  test 3.0062e-07  (29 epochs/s)
+epoch  12000  train 9.3760e-08  test 1.9143e-07  (29 epochs/s)
+epoch  16000  train 9.2871e-08  test 1.8026e-07  (29 epochs/s)
+epoch  20000  train 9.2397e-08  test 1.7572e-07  (29 epochs/s)
+done: 20000 epochs in 697s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed2004
+
+=== training doubleflat seed 2005 ===
+train: 3830  test: 8939
+epoch   4000  train 2.9261e-07  test 1.2683e+01  (29 epochs/s)
+epoch   8000  train 9.9247e-08  test 1.9982e-07  (29 epochs/s)
+epoch  12000  train 9.2379e-08  test 1.4635e-07  (29 epochs/s)
+epoch  16000  train 9.0728e-08  test 1.5010e-07  (29 epochs/s)
+epoch  20000  train 9.0149e-08  test 1.5673e-07  (29 epochs/s)
+done: 20000 epochs in 697s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed2005
+
+=== training doubleflat seed 2006 ===
+train: 3830  test: 8939
+epoch   4000  train 3.2864e-07  test 2.2670e+01  (29 epochs/s)
+epoch   8000  train 1.1866e-07  test 6.9324e-06  (29 epochs/s)
+epoch  12000  train 9.6301e-08  test 1.9094e-07  (29 epochs/s)
+epoch  16000  train 9.3521e-08  test 1.7745e-07  (29 epochs/s)
+epoch  20000  train 9.2961e-08  test 1.7422e-07  (29 epochs/s)
+done: 20000 epochs in 697s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed2006
+
+=== training doubleflat seed 2007 ===
+train: 3830  test: 8939
+epoch   4000  train 3.2117e-07  test 2.0135e+01  (29 epochs/s)
+epoch   8000  train 1.0736e-07  test 4.5820e-06  (29 epochs/s)
+epoch  12000  train 9.6516e-08  test 3.1146e-07  (29 epochs/s)
+epoch  16000  train 9.5170e-08  test 2.6574e-07  (29 epochs/s)
+epoch  20000  train 9.4683e-08  test 2.5117e-07  (29 epochs/s)
+done: 20000 epochs in 697s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed2007
+
+=== training doubleflat seed 2008 ===
+train: 3830  test: 8939
+epoch   4000  train 3.0306e-07  test 1.6057e+01  (29 epochs/s)
+epoch   8000  train 1.2436e-07  test 1.7100e-04  (29 epochs/s)
+epoch  12000  train 1.0063e-07  test 5.2160e-07  (29 epochs/s)
+epoch  16000  train 9.9340e-08  test 4.7593e-07  (29 epochs/s)
+epoch  20000  train 9.8719e-08  test 4.3238e-07  (29 epochs/s)
+done: 20000 epochs in 698s -> /Users/ruhaanrajadhyaksha/projects/grok/runs/doubleflat/p-113/seed2034/seed2008
+seed 11285: acc 1.000 grok@8700 committee [22, 35, 37] relM 0.172 menu-closed True
+seed 33428: acc 1.000 grok@5500 committee [4, 6, 29, 38, 55] relM 0.417 menu-closed True
+seed 4242: acc 1.000 grok@7000 committee [4, 21, 22, 37, 53] relM 0.415 menu-closed True
+seed 777: acc 1.000 grok@8300 committee [6, 29, 46, 53] relM 0.341 menu-closed True
+seed 1001: acc 1.000 grok@5400 committee [2, 12, 46, 51] relM 0.336 menu-closed True
+seed 1002: acc 1.000 grok@5600 committee [6, 16, 21, 35] relM 0.379 menu-closed True
+seed 1003: acc 1.000 grok@6200 committee [25, 30, 37, 54] relM 0.291 menu-closed True
+seed 1004: acc 1.000 grok@5500 committee [4, 25, 36] relM 0.261 menu-closed True
+seed 2001: acc 1.000 grok@5100 committee [6, 14, 21, 25] relM 0.379 menu-closed True
+seed 2002: acc 1.000 grok@6600 committee [4, 12, 25, 54, 56] relM 0.459 menu-closed True
+seed 2003: acc 1.000 grok@8300 committee [2, 4, 9, 21] relM 0.190 menu-closed True
+seed 2004: acc 1.000 grok@5400 committee [6, 29, 50, 53] relM 0.357 menu-closed True
+seed 2005: acc 1.000 grok@6300 committee [9, 21, 46] relM 0.139 menu-closed True
+seed 2006: acc 1.000 grok@7000 committee [6, 21, 25, 30] relM 0.362 menu-closed True
+seed 2007: acc 1.000 grok@7000 committee [10, 24, 37, 46] relM 0.403 menu-closed True
+seed 2008: acc 1.000 grok@7400 committee [14, 16, 19, 24] relM 0.241 menu-closed True
+
+=== P-DF1: epoch-0 readouts on double-flat runs (target: ~0.5) ===
+  emb       mean AUC 0.513  sd 0.129  t-vs-0.5 p=0.712  per-seed [0.22 0.56 0.39 0.44 0.65 0.51 0.6  0.57 0.69 0.55 0.37 0.51 0.77 0.46
+ 0.45 0.46]
+  T_k       mean AUC 0.510  sd 0.145  t-vs-0.5 p=0.803  per-seed [0.47 0.63 0.38 0.28 0.47 0.69 0.77 0.53 0.75 0.56 0.35 0.35 0.56 0.35
+ 0.46 0.56]
+  fwd_mlp   mean AUC 0.511  sd 0.170  t-vs-0.5 p=0.812  per-seed [0.94 0.63 0.47 0.28 0.54 0.46 0.35 0.36 0.6  0.63 0.66 0.3  0.31 0.66
+ 0.42 0.55]
+  fwd_align mean AUC 0.564  sd 0.192  t-vs-0.5 p=0.215  per-seed [0.96 0.59 0.36 0.64 0.58 0.59 0.6  0.08 0.73 0.63 0.74 0.31 0.46 0.68
+ 0.56 0.53]
+
+P-DF2: PASS - grok status above; committees/K/floor/menu per row
+=== stage doubleflat exit 0 Mon Aug  3 01:30:18 IST 2026 ===

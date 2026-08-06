@@ -1,0 +1,85 @@
+{
+  "primes": [
+    113,
+    127,
+    157
+  ],
+  "data_seeds": [
+    2034,
+    3604
+  ],
+  "runs": [
+    {
+      "p": 113,
+      "data_seed": 2034,
+      "slot": 0,
+      "init_seed": 33428
+    },
+    {
+      "p": 113,
+      "data_seed": 3604,
+      "slot": 0,
+      "init_seed": 54735
+    },
+    {
+      "p": 127,
+      "data_seed": 2034,
+      "slot": 0,
+      "init_seed": 49631
+    },
+    {
+      "p": 127,
+      "data_seed": 3604,
+      "slot": 0,
+      "init_seed": 31429
+    },
+    {
+      "p": 157,
+      "data_seed": 2034,
+      "slot": 0,
+      "init_seed": 33301
+    },
+    {
+      "p": 157,
+      "data_seed": 3604,
+      "slot": 0,
+      "init_seed": 56947
+    },
+    {
+      "p": 113,
+      "data_seed": 2034,
+      "slot": 1,
+      "init_seed": 11285
+    },
+    {
+      "p": 113,
+      "data_seed": 3604,
+      "slot": 1,
+      "init_seed": 66433
+    },
+    {
+      "p": 127,
+      "data_seed": 2034,
+      "slot": 1,
+      "init_seed": 35407
+    },
+    {
+      "p": 127,
+      "data_seed": 3604,
+      "slot": 1,
+      "init_seed": 89303
+    },
+    {
+      "p": 157,
+      "data_seed": 2034,
+      "slot": 1,
+      "init_seed": 23158
+    },
+    {
+      "p": 157,
+      "data_seed": 3604,
+      "slot": 1,
+      "init_seed": 79905
+    }
+  ]
+}

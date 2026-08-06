@@ -1,0 +1,25 @@
+{
+  "p": 113,
+  "fn_name": "add",
+  "frac_train": 0.3,
+  "data_seed": 0,
+  "init_seed": 55327,
+  "num_layers": 1,
+  "d_model": 128,
+  "num_heads": 4,
+  "d_mlp": 512,
+  "n_ctx": 3,
+  "act_type": "ReLU",
+  "lr": 0.001,
+  "warmup_steps": 10,
+  "weight_decay": 1.0,
+  "betas": [
+    0.9,
+    0.98
+  ],
+  "adam_eps": 1e-08,
+  "loss_dtype": "f64",
+  "num_epochs": 30000,
+  "save_every": 1000,
+  "stopping_thresh": -1.0
+}

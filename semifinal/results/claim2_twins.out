@@ -1,0 +1,35 @@
+=== A. across-dynamics twins (orth-flat, per cell) ===
+cell (113, 3148) [family: 7] n=28 runs | within-seed J 0.372 (84 pairs) vs across-seed 0.093 (252 pairs) | perm p = 0.0000 (10000 valid perms)
+cell (113, 3148) [group: 5] n=28 runs | within-seed J 0.354 (76 pairs) vs across-seed 0.091 (228 pairs) | perm p = 0.0000 (10000 valid perms)
+cell (113, 9415) [family: 7] n=26 runs | within-seed J 0.353 (72 pairs) vs across-seed 0.129 (217 pairs) | perm p = 0.0000 (10000 valid perms)
+cell (113, 9415) [group: 5] n=26 runs | within-seed J 0.337 (65 pairs) vs across-seed 0.130 (196 pairs) | perm p = 0.0000 (10000 valid perms)
+
+=== B. same seed across flattening levels (cells [(113, 3148), (113, 9415)]) ===
+  cell (113, 3148):
+   seed 31831: normal=[5, 35, 52]  orth-flat=[6, 19, 52]  double-flat=[6, 43, 44, 52]   J ['0.20', '0.17', '0.40']
+   seed 47904: normal=[10, 11, 14, 43]  orth-flat=[14, 19, 37, 50, 52]  double-flat=[8, 15, 32, 43, 52]   J ['0.12', '0.12', '0.11']
+   seed 69089: normal=[28, 29, 45, 49]  orth-flat=[14, 27, 29, 34]  double-flat=[2, 29, 34, 44]   J ['0.14', '0.14', '0.33']
+   seed 81412: normal=[2, 5, 28, 29, 44]  orth-flat=[28, 30, 40, 44]  double-flat=[26, 43, 50]   J ['0.29', '0.00', '0.00']
+   stranger baseline (different seeds, same level) = 0.090 over 18 pairs
+  cell (113, 9415):
+   seed 19078: normal=[21, 41, 44, 53, 54, 55]  orth-flat=[3, 41, 48, 50]  double-flat=[5, 44, 53]   J ['0.11', '0.29', '0.00']
+   seed 32610: normal=[8, 29, 44, 50, 53]  orth-flat=[26, 41, 44, 48]  double-flat=[8, 10, 44, 47, 51]   J ['0.12', '0.25', '0.12']
+   seed 68549: normal=[8, 15, 21, 41, 53]  orth-flat=[10, 23, 50, 54]  double-flat=[10, 20, 44, 53]   J ['0.00', '0.12', '0.14']
+   seed 85697: normal=[5, 28, 44]  orth-flat=[8, 13, 15, 19, 44]  double-flat=[6, 41, 48, 55]   J ['0.14', '0.00', '0.00']
+   stranger baseline (different seeds, same level) = 0.141 over 18 pairs
+mean same-seed cross-level J = 0.139 over 24 pairs
+
+=== C. paired normal vs orth twins (descriptive) ===
+  orthWE/p-113/seed3148/seed31831: orth [6, 19, 52] vs normal [5, 35, 52]  J 0.20
+  orthWE/p-113/seed3148/seed47904: orth [14, 19, 37, 50, 52] vs normal [10, 11, 14, 43]  J 0.12
+  orthWE/p-113/seed3148/seed69089: orth [14, 27, 29, 34] vs normal [28, 29, 45, 49]  J 0.14
+  orthWE/p-113/seed3148/seed81412: orth [28, 30, 40, 44] vs normal [2, 5, 28, 29, 44]  J 0.29
+  orthWE/p-113/seed9415/seed19078: orth [3, 41, 48, 50] vs normal [21, 41, 44, 53, 54, 55]  J 0.11
+  orthWE/p-113/seed9415/seed32610: orth [26, 41, 44, 48] vs normal [8, 29, 44, 50, 53]  J 0.12
+  orthWE/p-113/seed9415/seed68549: orth [10, 23, 50, 54] vs normal [8, 15, 21, 41, 53]  J 0.00
+  orthWE/p-113/seed9415/seed85697: orth [8, 13, 15, 19, 44] vs normal [5, 28, 44]  J 0.14
+
+Backs SEMIFINAL claim 2: identity is chosen by the init (A: within-seed
+overlap ~3x baseline across ten dynamics), each flattening level re-rolls
+the choice completely (B: same-seed cross-level overlap ~ stranger
+baseline), and the raw orthWE Jaccards (C) are kept as description only.
