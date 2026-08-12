@@ -71,8 +71,21 @@ def main():
                  if row.get("recruits") else ""))
 
     if total:
-        print(f"\n=== P-C1: exact-set match {exact}/{total} ===")
-    out = Path(args.manifest).with_name("phaseA_scores.json")
+        print(f"\n=== exact-set match {exact}/{total} ===")
+    by_cell = {}
+    arm_by_tag = {a["tag"]: a for a in arms}
+    for row in rows:
+        a = arm_by_tag[row["tag"]]
+        if "cell" in a and "exact" in row:
+            key = (a["cell"]["k"], a["cell"]["s"])
+            by_cell.setdefault(key, []).append(row["exact"])
+    if by_cell:
+        print("\n=== exact rate by (K, s) cell ===")
+        for (k, s) in sorted(by_cell):
+            v = by_cell[(k, s)]
+            print(f"  K={k} s={s:<5g} {sum(v)}/{len(v)}")
+    out = Path(args.manifest).with_name(
+        Path(args.manifest).stem.replace("_manifest", "_scores") + ".json")
     out.write_text(json.dumps(rows, indent=1))
     print(f"scores -> {out}")
 

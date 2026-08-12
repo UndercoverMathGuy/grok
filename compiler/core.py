@@ -218,7 +218,7 @@ def rotate_freq(params, Fm, k, gain):
 # ---------------------------------------------------------------- compiler
 
 def compile_init(params, p, targets, substrate="flat", route="energy",
-                 safety=3.0, energy_cap=None, renorm=True):
+                 safety=3.0, energy_cap=None, renorm="background"):
     """Compile target set `targets` into the init. Returns (params, report).
 
     substrate 'flat' | 'natural'; route 'energy' | 'rotate' (rotate tops up
@@ -260,15 +260,22 @@ def compile_init(params, p, targets, substrate="flat", route="energy",
         edits[t] = dict(need=float(need), rot_gain=float(got_rot),
                         energy_scale=float(e_scale))
 
-    if renorm:
-        # one global factor on the non-target pairs restores the total
-        # per-frequency energy; beta < 1 only widens the margin
-        e_tgt = sum((Fm[:, [2 * t - 1, 2 * t]] ** 2).sum() for t in S)
-        e_bg = sum((Fm[:, [2 * k - 1, 2 * k]] ** 2).sum() for k in bg)
+    e_tgt = sum((Fm[:, [2 * t - 1, 2 * t]] ** 2).sum() for t in S)
+    e_bg = sum((Fm[:, [2 * k - 1, 2 * k]] ** 2).sum() for k in bg)
+    if renorm == "background":
+        # Phase-A renorm: one factor on the non-target pairs restores the
+        # total per-frequency energy; beta < 1 additionally WIDENS the margin
+        # (achieved margin > s). Fails when the targets alone exceed budget.
         beta2 = (total_before - e_tgt) / e_bg
         assert beta2 > 0, "targets exceed the total energy budget"
         for k in bg:
             scale_freq(Fm, k, beta2)
+    elif renorm == "global":
+        # scale the whole token block: total energy restored, T_k ratios
+        # (hence the achieved margin == s) untouched. Works at any dose.
+        Fm *= np.sqrt(total_before / (e_tgt + e_bg))
+    else:
+        assert renorm is None
 
     out = _write_back(params, Fm, W_E, p)
     tk1 = tk_profile(out, p)

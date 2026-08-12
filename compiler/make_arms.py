@@ -68,6 +68,50 @@ def draw_feasible_set(rng, p, k, floor_pct):
     raise RuntimeError("no feasible set found")
 
 
+def make_sweep(args):
+    """Phase B: dose x K sweep, global renorm (achieved margin == s exactly),
+    no probes, no controls — every arm is a weights-only compiled program.
+    Pre-registration: predicted committee == targets for every arm; expected
+    exact-match rate is non-decreasing in s within each K."""
+    bases = natural_bases(args.p)[:args.bases]
+    rng = np.random.default_rng(args.rng_seed)
+    (ARMS / "ckpts_b").mkdir(parents=True, exist_ok=True)
+    safeties = [float(x) for x in args.sweep.split(",")]
+    ks = [int(x) for x in args.ks.split(",")]
+    manifest = []
+    for bdir, bcfg, e0 in bases:
+        bname = bdir.name
+        params = load_ckpt(e0)
+        for k in ks:
+            for s in safeties:
+                for i in range(args.sets_per_cell):
+                    S, feas = draw_feasible_set(rng, args.p, k, args.floor_pct)
+                    tag = f"s{s:g}_K{k}_set{i}_" + "-".join(map(str, S))
+                    compiled, rep = compile_init(params, args.p, S,
+                                                 substrate="flat",
+                                                 route="energy", safety=s,
+                                                 renorm="global")
+                    assert rep["spec_met"], rep
+                    ck = ARMS / "ckpts_b" / f"{bname}_{tag}.safetensors"
+                    save_ckpt(ck, compiled)
+                    manifest.append(dict(
+                        tag=f"{bname}_{tag}", base=str(bdir.relative_to(RUNS)),
+                        run_dir=str(OUT_RUNS / "phaseB" / bname / tag),
+                        ckpt=str(ck), targets=S, feasibility=feas, report=rep,
+                        predicted_committee=S, cell=dict(s=s, k=k),
+                        config=json.loads((bdir / "config.json").read_text())
+                        | dict(num_epochs=args.epochs,
+                               save_every=args.epochs),
+                    ))
+                print(f"  {bname} K={k} s={s:g}: {args.sets_per_cell} arms",
+                      flush=True)
+    out = ARMS / "phaseB_manifest.json"
+    out.write_text(json.dumps(manifest, indent=1))
+    print(f"\n{len(manifest)} arms -> {out}")
+    print("PRE-REGISTERED: predicted committee == targets for every arm; "
+          "exact-rate non-decreasing in s within each K.")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--p", type=int, default=113)
@@ -78,7 +122,14 @@ def main():
     ap.add_argument("--floor-pct", type=float, default=40.0)
     ap.add_argument("--epochs", type=int, default=50_000)
     ap.add_argument("--rng-seed", type=int, default=20260812)
+    ap.add_argument("--sweep", default=None,
+                    help="comma list of safeties -> Phase B sweep mode")
+    ap.add_argument("--ks", default="3,4,5")
+    ap.add_argument("--sets-per-cell", type=int, default=4)
     args = ap.parse_args()
+    if args.sweep:
+        make_sweep(args)
+        return
 
     bases = natural_bases(args.p)
     assert len(bases) >= args.bases, f"only {len(bases)} natural bases with e0"

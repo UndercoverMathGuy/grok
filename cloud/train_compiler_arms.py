@@ -46,7 +46,8 @@ def main():
         # remap the manifest's absolute local paths onto this clone
         rd = ROOT / "runs_compiler" / Path(a["run_dir"]).relative_to(
             Path(a["run_dir"]).parents[2])
-        ck = ROOT / "compiler" / "arms" / "ckpts" / Path(a["ckpt"]).name
+        ckp = Path(a["ckpt"])
+        ck = ROOT / "compiler" / "arms" / ckp.parent.name / ckp.name
         assert ck.exists(), f"missing ckpt {ck} (git lfs pull?)"
         assert ck.stat().st_size > 1000, f"{ck} is an LFS pointer, not data"
         if (rd / "spectra.npz").exists():
