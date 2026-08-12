@@ -26,3 +26,4 @@ legacy/**/checkpoints/epoch_*.safetensors
 # optimizer state (legacy runs saved it alongside weights) — never analyzed
 legacy/**/checkpoints/optim_*.safetensors
 runs_torch/**/checkpoints/optim_*.safetensors
+compiler/arms/*.log

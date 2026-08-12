@@ -1,0 +1,838 @@
+[
+ {
+  "tag": "seed31831_set0_3-15-29-45",
+  "base": "p-113/seed3148/seed31831",
+  "run_dir": "/Users/ruhaanrajadhyaksha/projects/grok/runs_compiler/phaseA/seed31831/set0_3-15-29-45",
+  "ckpt": "/Users/ruhaanrajadhyaksha/projects/grok/compiler/arms/ckpts/seed31831_set0_3-15-29-45.safetensors",
+  "targets": [
+   3,
+   15,
+   29,
+   45
+  ],
+  "feasibility": {
+   "targets": [
+    3,
+    15,
+    29,
+    45
+   ],
+   "violations": [],
+   "lp_pct": 75.0,
+   "lp_relM": 0.38216504898307346,
+   "ok": true
+  },
+  "report": {
+   "targets": [
+    3,
+    15,
+    29,
+    45
+   ],
+   "substrate": "flat",
+   "route": "energy",
+   "safety": 3.0,
+   "energy_cap": null,
+   "edits": {
+    "3": {
+     "need": 3.576149309687956,
+     "rot_gain": 1.0,
+     "energy_scale": 3.576149309687956
+    },
+    "15": {
+     "need": 4.00902490785506,
+     "rot_gain": 1.0,
+     "energy_scale": 4.00902490785506
+    },
+    "29": {
+     "need": 3.11299474854506,
+     "rot_gain": 1.0,
+     "energy_scale": 3.11299474854506
+    },
+    "45": {
+     "need": 3.9050609436632335,
+     "rot_gain": 1.0,
+     "energy_scale": 3.9050609436632335
+    }
+   },
+   "margin": 3.768409942609179,
+   "spec_met": true,
+   "target_ranks": {
+    "3": 4,
+    "15": 2,
+    "29": 3,
+    "45": 1
+   },
+   "tk_top12": [
+    45,
+    15,
+    29,
+    3,
+    19,
+    34,
+    6,
+    35,
+    41,
+    52,
+    40,
+    8
+   ],
+   "total_energy_ratio": 1.0,
+   "energy_rel_sd": 0.7411018377151258
+  },
+  "predicted_committee": [
+   3,
+   15,
+   29,
+   45
+  ],
+  "config": {
+   "p": 113,
+   "fn_name": "add",
+   "frac_train": 0.3,
+   "data_seed": 3148,
+   "init_seed": 31831,
+   "num_layers": 1,
+   "d_model": 128,
+   "embed_init": "normal",
+   "attn_init": "normal",
+   "num_heads": 4,
+   "d_mlp": 512,
+   "n_ctx": 3,
+   "act_type": "ReLU",
+   "lr": 0.001,
+   "warmup_steps": 10,
+   "weight_decay": 1.0,
+   "betas": [
+    0.9,
+    0.98
+   ],
+   "adam_eps": 1e-08,
+   "loss_dtype": "f64",
+   "loss_tilt": 0.0,
+   "loss_cvar": 0.0,
+   "grad_noise": 0.0,
+   "grad_noise_until": 0,
+   "num_epochs": 50000,
+   "save_every": 1000,
+   "stopping_thresh": -1.0
+  }
+ },
+ {
+  "tag": "seed31831_set1_36-42-46-50",
+  "base": "p-113/seed3148/seed31831",
+  "run_dir": "/Users/ruhaanrajadhyaksha/projects/grok/runs_compiler/phaseA/seed31831/set1_36-42-46-50",
+  "ckpt": "/Users/ruhaanrajadhyaksha/projects/grok/compiler/arms/ckpts/seed31831_set1_36-42-46-50.safetensors",
+  "targets": [
+   36,
+   42,
+   46,
+   50
+  ],
+  "feasibility": {
+   "targets": [
+    36,
+    42,
+    46,
+    50
+   ],
+   "violations": [],
+   "lp_pct": 71.66666666666667,
+   "lp_relM": 0.374646500559162,
+   "ok": true
+  },
+  "report": {
+   "targets": [
+    36,
+    42,
+    46,
+    50
+   ],
+   "substrate": "flat",
+   "route": "energy",
+   "safety": 3.0,
+   "energy_cap": null,
+   "edits": {
+    "36": {
+     "need": 3.706799274308436,
+     "rot_gain": 1.0,
+     "energy_scale": 3.706799274308436
+    },
+    "42": {
+     "need": 3.6295219958377167,
+     "rot_gain": 1.0,
+     "energy_scale": 3.6295219958377167
+    },
+    "46": {
+     "need": 3.526247773656162,
+     "rot_gain": 1.0,
+     "energy_scale": 3.526247773656162
+    },
+    "50": {
+     "need": 4.4242934869211705,
+     "rot_gain": 1.0,
+     "energy_scale": 4.4242934869211705
+    }
+   },
+   "margin": 3.8316870105558043,
+   "spec_met": true,
+   "target_ranks": {
+    "36": 2,
+    "42": 4,
+    "46": 1,
+    "50": 3
+   },
+   "tk_top12": [
+    46,
+    36,
+    50,
+    42,
+    19,
+    29,
+    34,
+    6,
+    35,
+    41,
+    52,
+    40
+   ],
+   "total_energy_ratio": 1.0,
+   "energy_rel_sd": 0.7882930522923861
+  },
+  "predicted_committee": [
+   36,
+   42,
+   46,
+   50
+  ],
+  "config": {
+   "p": 113,
+   "fn_name": "add",
+   "frac_train": 0.3,
+   "data_seed": 3148,
+   "init_seed": 31831,
+   "num_layers": 1,
+   "d_model": 128,
+   "embed_init": "normal",
+   "attn_init": "normal",
+   "num_heads": 4,
+   "d_mlp": 512,
+   "n_ctx": 3,
+   "act_type": "ReLU",
+   "lr": 0.001,
+   "warmup_steps": 10,
+   "weight_decay": 1.0,
+   "betas": [
+    0.9,
+    0.98
+   ],
+   "adam_eps": 1e-08,
+   "loss_dtype": "f64",
+   "loss_tilt": 0.0,
+   "loss_cvar": 0.0,
+   "grad_noise": 0.0,
+   "grad_noise_until": 0,
+   "num_epochs": 50000,
+   "save_every": 1000,
+   "stopping_thresh": -1.0
+  }
+ },
+ {
+  "tag": "seed31831_set2_16-30-51-56",
+  "base": "p-113/seed3148/seed31831",
+  "run_dir": "/Users/ruhaanrajadhyaksha/projects/grok/runs_compiler/phaseA/seed31831/set2_16-30-51-56",
+  "ckpt": "/Users/ruhaanrajadhyaksha/projects/grok/compiler/arms/ckpts/seed31831_set2_16-30-51-56.safetensors",
+  "targets": [
+   16,
+   30,
+   51,
+   56
+  ],
+  "feasibility": {
+   "targets": [
+    16,
+    30,
+    51,
+    56
+   ],
+   "violations": [],
+   "lp_pct": 48.0,
+   "lp_relM": 0.3317443227891831,
+   "ok": true
+  },
+  "report": {
+   "targets": [
+    16,
+    30,
+    51,
+    56
+   ],
+   "substrate": "flat",
+   "route": "energy",
+   "safety": 3.0,
+   "energy_cap": null,
+   "edits": {
+    "16": {
+     "need": 3.861587158481184,
+     "rot_gain": 1.0,
+     "energy_scale": 3.861587158481184
+    },
+    "30": {
+     "need": 4.080838355755111,
+     "rot_gain": 1.0,
+     "energy_scale": 4.080838355755111
+    },
+    "51": {
+     "need": 3.4508008873554896,
+     "rot_gain": 1.0,
+     "energy_scale": 3.4508008873554896
+    },
+    "56": {
+     "need": 4.082773384531431,
+     "rot_gain": 1.0,
+     "energy_scale": 4.082773384531431
+    }
+   },
+   "margin": 3.8495706044977247,
+   "spec_met": true,
+   "target_ranks": {
+    "16": 4,
+    "30": 2,
+    "51": 3,
+    "56": 1
+   },
+   "tk_top12": [
+    56,
+    30,
+    51,
+    16,
+    19,
+    29,
+    34,
+    6,
+    35,
+    41,
+    52,
+    40
+   ],
+   "total_energy_ratio": 1.0,
+   "energy_rel_sd": 0.7986912017078438
+  },
+  "predicted_committee": [
+   16,
+   30,
+   51,
+   56
+  ],
+  "config": {
+   "p": 113,
+   "fn_name": "add",
+   "frac_train": 0.3,
+   "data_seed": 3148,
+   "init_seed": 31831,
+   "num_layers": 1,
+   "d_model": 128,
+   "embed_init": "normal",
+   "attn_init": "normal",
+   "num_heads": 4,
+   "d_mlp": 512,
+   "n_ctx": 3,
+   "act_type": "ReLU",
+   "lr": 0.001,
+   "warmup_steps": 10,
+   "weight_decay": 1.0,
+   "betas": [
+    0.9,
+    0.98
+   ],
+   "adam_eps": 1e-08,
+   "loss_dtype": "f64",
+   "loss_tilt": 0.0,
+   "loss_cvar": 0.0,
+   "grad_noise": 0.0,
+   "grad_noise_until": 0,
+   "num_epochs": 50000,
+   "save_every": 1000,
+   "stopping_thresh": -1.0
+  }
+ },
+ {
+  "tag": "seed31831_control",
+  "base": "p-113/seed3148/seed31831",
+  "run_dir": "/Users/ruhaanrajadhyaksha/projects/grok/runs_compiler/phaseA/seed31831/control",
+  "ckpt": "/Users/ruhaanrajadhyaksha/projects/grok/compiler/arms/ckpts/seed31831_control.safetensors",
+  "targets": null,
+  "feasibility": null,
+  "report": {
+   "substrate": "flat",
+   "route": null,
+   "safety": null,
+   "tk_top12": [
+    19,
+    29,
+    34,
+    6,
+    35,
+    41,
+    52,
+    40,
+    8,
+    38,
+    11,
+    12
+   ],
+   "margin": null,
+   "spec_met": null
+  },
+  "predicted_committee": null,
+  "config": {
+   "p": 113,
+   "fn_name": "add",
+   "frac_train": 0.3,
+   "data_seed": 3148,
+   "init_seed": 31831,
+   "num_layers": 1,
+   "d_model": 128,
+   "embed_init": "normal",
+   "attn_init": "normal",
+   "num_heads": 4,
+   "d_mlp": 512,
+   "n_ctx": 3,
+   "act_type": "ReLU",
+   "lr": 0.001,
+   "warmup_steps": 10,
+   "weight_decay": 1.0,
+   "betas": [
+    0.9,
+    0.98
+   ],
+   "adam_eps": 1e-08,
+   "loss_dtype": "f64",
+   "loss_tilt": 0.0,
+   "loss_cvar": 0.0,
+   "grad_noise": 0.0,
+   "grad_noise_until": 0,
+   "num_epochs": 50000,
+   "save_every": 1000,
+   "stopping_thresh": -1.0
+  }
+ },
+ {
+  "tag": "seed47904_set0_4-6-18-46",
+  "base": "p-113/seed3148/seed47904",
+  "run_dir": "/Users/ruhaanrajadhyaksha/projects/grok/runs_compiler/phaseA/seed47904/set0_4-6-18-46",
+  "ckpt": "/Users/ruhaanrajadhyaksha/projects/grok/compiler/arms/ckpts/seed47904_set0_4-6-18-46.safetensors",
+  "targets": [
+   4,
+   6,
+   18,
+   46
+  ],
+  "feasibility": {
+   "targets": [
+    4,
+    6,
+    18,
+    46
+   ],
+   "violations": [],
+   "lp_pct": 55.666666666666664,
+   "lp_relM": 0.35052761092675366,
+   "ok": true
+  },
+  "report": {
+   "targets": [
+    4,
+    6,
+    18,
+    46
+   ],
+   "substrate": "flat",
+   "route": "energy",
+   "safety": 3.0,
+   "energy_cap": null,
+   "edits": {
+    "4": {
+     "need": 3.402724781420918,
+     "rot_gain": 1.0,
+     "energy_scale": 3.402724781420918
+    },
+    "6": {
+     "need": 3.8560361967679615,
+     "rot_gain": 1.0,
+     "energy_scale": 3.8560361967679615
+    },
+    "18": {
+     "need": 3.824215779451433,
+     "rot_gain": 1.0,
+     "energy_scale": 3.824215779451433
+    },
+    "46": {
+     "need": 3.799891691925212,
+     "rot_gain": 1.0,
+     "energy_scale": 3.799891691925212
+    }
+   },
+   "margin": 3.7940389836934334,
+   "spec_met": true,
+   "target_ranks": {
+    "4": 1,
+    "6": 4,
+    "18": 2,
+    "46": 3
+   },
+   "tk_top12": [
+    4,
+    18,
+    46,
+    6,
+    32,
+    21,
+    37,
+    15,
+    49,
+    27,
+    44,
+    48
+   ],
+   "total_energy_ratio": 1.0000000000000002,
+   "energy_rel_sd": 0.7562034950423285
+  },
+  "predicted_committee": [
+   4,
+   6,
+   18,
+   46
+  ],
+  "config": {
+   "p": 113,
+   "fn_name": "add",
+   "frac_train": 0.3,
+   "data_seed": 3148,
+   "init_seed": 47904,
+   "num_layers": 1,
+   "d_model": 128,
+   "embed_init": "normal",
+   "attn_init": "normal",
+   "num_heads": 4,
+   "d_mlp": 512,
+   "n_ctx": 3,
+   "act_type": "ReLU",
+   "lr": 0.001,
+   "warmup_steps": 10,
+   "weight_decay": 1.0,
+   "betas": [
+    0.9,
+    0.98
+   ],
+   "adam_eps": 1e-08,
+   "loss_dtype": "f64",
+   "loss_tilt": 0.0,
+   "loss_cvar": 0.0,
+   "grad_noise": 0.0,
+   "grad_noise_until": 0,
+   "num_epochs": 50000,
+   "save_every": 1000,
+   "stopping_thresh": -1.0
+  }
+ },
+ {
+  "tag": "seed47904_set1_25-49-54-56",
+  "base": "p-113/seed3148/seed47904",
+  "run_dir": "/Users/ruhaanrajadhyaksha/projects/grok/runs_compiler/phaseA/seed47904/set1_25-49-54-56",
+  "ckpt": "/Users/ruhaanrajadhyaksha/projects/grok/compiler/arms/ckpts/seed47904_set1_25-49-54-56.safetensors",
+  "targets": [
+   25,
+   49,
+   54,
+   56
+  ],
+  "feasibility": {
+   "targets": [
+    25,
+    49,
+    54,
+    56
+   ],
+   "violations": [],
+   "lp_pct": 69.33333333333333,
+   "lp_relM": 0.3710937972437725,
+   "ok": true
+  },
+  "report": {
+   "targets": [
+    25,
+    49,
+    54,
+    56
+   ],
+   "substrate": "flat",
+   "route": "energy",
+   "safety": 3.0,
+   "energy_cap": null,
+   "edits": {
+    "25": {
+     "need": 3.828031976081876,
+     "rot_gain": 1.0,
+     "energy_scale": 3.828031976081876
+    },
+    "49": {
+     "need": 3.179396254865106,
+     "rot_gain": 1.0,
+     "energy_scale": 3.179396254865106
+    },
+    "54": {
+     "need": 3.6788524072569584,
+     "rot_gain": 1.0,
+     "energy_scale": 3.6788524072569584
+    },
+    "56": {
+     "need": 3.4234031343284745,
+     "rot_gain": 1.0,
+     "energy_scale": 3.4234031343284745
+    }
+   },
+   "margin": 3.724011037608491,
+   "spec_met": true,
+   "target_ranks": {
+    "25": 3,
+    "49": 2,
+    "54": 4,
+    "56": 1
+   },
+   "tk_top12": [
+    56,
+    49,
+    25,
+    54,
+    32,
+    21,
+    37,
+    15,
+    27,
+    44,
+    48,
+    4
+   ],
+   "total_energy_ratio": 1.0,
+   "energy_rel_sd": 0.7040971956365464
+  },
+  "predicted_committee": [
+   25,
+   49,
+   54,
+   56
+  ],
+  "config": {
+   "p": 113,
+   "fn_name": "add",
+   "frac_train": 0.3,
+   "data_seed": 3148,
+   "init_seed": 47904,
+   "num_layers": 1,
+   "d_model": 128,
+   "embed_init": "normal",
+   "attn_init": "normal",
+   "num_heads": 4,
+   "d_mlp": 512,
+   "n_ctx": 3,
+   "act_type": "ReLU",
+   "lr": 0.001,
+   "warmup_steps": 10,
+   "weight_decay": 1.0,
+   "betas": [
+    0.9,
+    0.98
+   ],
+   "adam_eps": 1e-08,
+   "loss_dtype": "f64",
+   "loss_tilt": 0.0,
+   "loss_cvar": 0.0,
+   "grad_noise": 0.0,
+   "grad_noise_until": 0,
+   "num_epochs": 50000,
+   "save_every": 1000,
+   "stopping_thresh": -1.0
+  }
+ },
+ {
+  "tag": "seed47904_set2_27-29-34-35",
+  "base": "p-113/seed3148/seed47904",
+  "run_dir": "/Users/ruhaanrajadhyaksha/projects/grok/runs_compiler/phaseA/seed47904/set2_27-29-34-35",
+  "ckpt": "/Users/ruhaanrajadhyaksha/projects/grok/compiler/arms/ckpts/seed47904_set2_27-29-34-35.safetensors",
+  "targets": [
+   27,
+   29,
+   34,
+   35
+  ],
+  "feasibility": {
+   "targets": [
+    27,
+    29,
+    34,
+    35
+   ],
+   "violations": [],
+   "lp_pct": 91.0,
+   "lp_relM": 0.4169740761417708,
+   "ok": true
+  },
+  "report": {
+   "targets": [
+    27,
+    29,
+    34,
+    35
+   ],
+   "substrate": "flat",
+   "route": "energy",
+   "safety": 3.0,
+   "energy_cap": null,
+   "edits": {
+    "27": {
+     "need": 3.3668786781683124,
+     "rot_gain": 1.0,
+     "energy_scale": 3.3668786781683124
+    },
+    "29": {
+     "need": 3.7146374443083148,
+     "rot_gain": 1.0,
+     "energy_scale": 3.7146374443083148
+    },
+    "34": {
+     "need": 3.6787990811279094,
+     "rot_gain": 1.0,
+     "energy_scale": 3.6787990811279094
+    },
+    "35": {
+     "need": 3.498981021689769,
+     "rot_gain": 1.0,
+     "energy_scale": 3.498981021689769
+    }
+   },
+   "margin": 3.7373591217341495,
+   "spec_met": true,
+   "target_ranks": {
+    "27": 3,
+    "29": 4,
+    "34": 1,
+    "35": 2
+   },
+   "tk_top12": [
+    34,
+    35,
+    27,
+    29,
+    32,
+    21,
+    37,
+    15,
+    49,
+    44,
+    48,
+    4
+   ],
+   "total_energy_ratio": 0.9999999999999998,
+   "energy_rel_sd": 0.712344481865812
+  },
+  "predicted_committee": [
+   27,
+   29,
+   34,
+   35
+  ],
+  "config": {
+   "p": 113,
+   "fn_name": "add",
+   "frac_train": 0.3,
+   "data_seed": 3148,
+   "init_seed": 47904,
+   "num_layers": 1,
+   "d_model": 128,
+   "embed_init": "normal",
+   "attn_init": "normal",
+   "num_heads": 4,
+   "d_mlp": 512,
+   "n_ctx": 3,
+   "act_type": "ReLU",
+   "lr": 0.001,
+   "warmup_steps": 10,
+   "weight_decay": 1.0,
+   "betas": [
+    0.9,
+    0.98
+   ],
+   "adam_eps": 1e-08,
+   "loss_dtype": "f64",
+   "loss_tilt": 0.0,
+   "loss_cvar": 0.0,
+   "grad_noise": 0.0,
+   "grad_noise_until": 0,
+   "num_epochs": 50000,
+   "save_every": 1000,
+   "stopping_thresh": -1.0
+  }
+ },
+ {
+  "tag": "seed47904_control",
+  "base": "p-113/seed3148/seed47904",
+  "run_dir": "/Users/ruhaanrajadhyaksha/projects/grok/runs_compiler/phaseA/seed47904/control",
+  "ckpt": "/Users/ruhaanrajadhyaksha/projects/grok/compiler/arms/ckpts/seed47904_control.safetensors",
+  "targets": null,
+  "feasibility": null,
+  "report": {
+   "substrate": "flat",
+   "route": null,
+   "safety": null,
+   "tk_top12": [
+    32,
+    21,
+    37,
+    15,
+    49,
+    27,
+    44,
+    48,
+    4,
+    56,
+    53,
+    10
+   ],
+   "margin": null,
+   "spec_met": null
+  },
+  "predicted_committee": null,
+  "config": {
+   "p": 113,
+   "fn_name": "add",
+   "frac_train": 0.3,
+   "data_seed": 3148,
+   "init_seed": 47904,
+   "num_layers": 1,
+   "d_model": 128,
+   "embed_init": "normal",
+   "attn_init": "normal",
+   "num_heads": 4,
+   "d_mlp": 512,
+   "n_ctx": 3,
+   "act_type": "ReLU",
+   "lr": 0.001,
+   "warmup_steps": 10,
+   "weight_decay": 1.0,
+   "betas": [
+    0.9,
+    0.98
+   ],
+   "adam_eps": 1e-08,
+   "loss_dtype": "f64",
+   "loss_tilt": 0.0,
+   "loss_cvar": 0.0,
+   "grad_noise": 0.0,
+   "grad_noise_until": 0,
+   "num_epochs": 50000,
+   "save_every": 1000,
+   "stopping_thresh": -1.0
+  }
+ }
+]
