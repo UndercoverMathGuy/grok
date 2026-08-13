@@ -100,6 +100,27 @@ def init_readouts(init, cfg):
     return out
 
 
+def committee_from_deltas(deltas, floor_frac=0.05):
+    """Mod-add-style set detector on final ablation delta-CEs: sort desc,
+    cut at the largest gap among positive deltas; members must exceed
+    floor_frac * max delta. Returns sorted member list."""
+    d = np.asarray(deltas)
+    order = np.argsort(d)[::-1]
+    s = d[order]
+    pos = s > max(s.max(), 1e-9) * floor_frac
+    n_pos = int(pos.sum())
+    if n_pos <= 1:
+        return sorted(order[:1].tolist())
+    gaps = s[:n_pos - 1] - s[1:n_pos]
+    cut = int(np.argmax(gaps)) + 1
+    return sorted(order[:cut].tolist())
+
+
+def jaccard(a, b):
+    a, b = set(a), set(b)
+    return len(a & b) / max(len(a | b), 1)
+
+
 def rank_of(scores, winner):
     order = np.argsort(np.asarray(scores))[::-1]
     return int(np.where(order == winner)[0][0]) + 1
@@ -129,6 +150,7 @@ def main():
         H = cfg["n_heads"]
         row = dict(run=rd.name, init_seed=cfg["init_seed"],
                    data_seed=cfg["data_seed"], **winner_stats(hist, H))
+        row["prev_final"] = hist[-1]["prevtoken_l0"]
         row["readouts"] = init_readouts(init, cfg)
         rows.append(row)
     H = json.loads((run_dirs[0] / "config.json").read_text())["n_heads"]
@@ -169,8 +191,57 @@ def main():
         pq2[name] = dict(top1=hits / n, mean_rank=float(np.mean(ranks)),
                          auc=auc(labels, scores), binom_p=float(pval))
 
+    # ---- committee-level analysis (prereg fallback branch: the identity
+    # variable is the SET of induction heads by ablation, mod-add style)
+    for r in rows:
+        r["committee"] = committee_from_deltas(r["abl"]) \
+            if np.isfinite(r["abl"]).all() else [r["winner_ind"]]
+    ks = [len(r["committee"]) for r in rows]
+    same_j, cross_j = [], []
+    for i, a in enumerate(rows):
+        for b in rows[i + 1:]:
+            j = jaccard(a["committee"], b["committee"])
+            (same_j if a["init_seed"] == b["init_seed"] else cross_j).append(j)
+    # popularity prior (leave-one-out): score head h by membership rate in
+    # other runs; the init readout must beat THIS, not chance
+    mem = np.array([[1 if h in r["committee"] else 0 for h in range(H)]
+                    for r in rows])
+    pop_scores, pop_labels = [], []
+    kc_scores, kc_labels = [], []
+    for i, r in enumerate(rows):
+        prior = (mem.sum(0) - mem[i]) / (len(rows) - 1)
+        kmax = np.asarray(r["readouts"]["score_kmax"])
+        for h in range(H):
+            pop_scores.append(prior[h])
+            pop_labels.append(mem[i, h])
+            kc_scores.append(kmax[h])
+            kc_labels.append(mem[i, h])
+    # coupled-race test: do L1 committee members compose preferentially
+    # with the WINNING L0 head (argmax prev-token score at final)?
+    coupled = []
+    for r in rows:
+        kcomp = np.asarray(r["readouts"]["kcomp"])       # (g,h) L0 x L1
+        g_win = int(np.argmax(r["prev_final"]))
+        in_c = np.array([h in r["committee"] for h in range(H)])
+        if in_c.all() or not in_c.any():
+            continue
+        coupled.append(float(kcomp[g_win, in_c].mean()
+                             - kcomp[g_win, ~in_c].mean()))
+    pq_committee = dict(
+        k_mean=float(np.mean(ks)), k_counts={str(k): ks.count(k)
+                                             for k in sorted(set(ks))},
+        head_popularity=(mem.mean(0)).tolist(),
+        twin_jaccard=float(np.mean(same_j)) if same_j else None,
+        cross_jaccard=float(np.mean(cross_j)) if cross_j else None,
+        membership_auc_kcomp=auc(kc_labels, kc_scores),
+        membership_auc_popularity_prior=auc(pop_labels, pop_scores),
+        kcomp_to_winning_l0_delta=(float(np.mean(coupled))
+                                   if coupled else None),
+    )
+
     summary = dict(
         n_runs=len(rows), n_heads=H,
+        pq_committee=pq_committee,
         pq0=dict(conc_ind_mean=float(conc.mean()),
                  conc_ind_min=float(conc.min()),
                  conc_abl_mean=float(np.nanmean(conc_abl)),
