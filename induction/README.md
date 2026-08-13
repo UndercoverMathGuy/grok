@@ -62,6 +62,30 @@ winner-take-most). If PQ0 fails again on ablation concentration, treat the
 "induction committee" (top heads by ablation) as the identity variable,
 mod-add style, before abandoning.
 
+## Pilot v2 result (2026-08-13) + wd-sweep prereg
+
+v2 (24 runs, 178s): task fix worked (delayed transition t_form 450-600, CE
+0.242 vs oracle floor 0.221, all-8-head winner diversity, twin/cross winner
+agreement 0.458/0.155 = 3.0×). But NO crisp identity variable: ablation
+concentration 0.173 ~ uniform; gap-detected committees bimodal {1,7} =
+detector artifact on flat profiles; set-level membership AUC ≈ popularity
+prior ≈ 0.49. Diagnosis: no scarcity — wd 0.01 makes redundancy free, so
+induction smears over heads (cf. Singh et al. many-to-many redundancy).
+Mod-add lesson: committee crispness is wd economics (the K* capacity law).
+
+**wd sweep (pre-registered before training):** wd ∈ {0.01, 0.1, 0.3, 1.0},
+same init seeds each cell, 6 init × 2 data seeds per cell.
+- P-W1: ablation top-1 concentration rises monotonically with wd; k_eff
+  (participation ratio of ablation deltas) falls.
+- P-W2: where k_eff reaches ~1-2, winner-level twin agreement rises above
+  v2's 0.458 (crisper variable => more init-determined).
+- P-W3 (cross-system law): k_eff(wd) falls with wd as mod-add K* does —
+  same membership-tax economics in an unrelated system.
+Failure semantics: if high wd kills induction (CE stays at unigram floor)
+before sharpening it, report the window honestly; if k_eff stays ~flat
+across a 100× wd range, the redundancy is not economic and the crisp-
+identity premise fails here → fall back to the mod-add compiler paper.
+
 ## Uniqueness check (2026-08-13)
 
 Closest work, all verified NOT to cover selection-from-init:

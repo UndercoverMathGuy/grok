@@ -227,9 +227,16 @@ def main():
             continue
         coupled.append(float(kcomp[g_win, in_c].mean()
                              - kcomp[g_win, ~in_c].mean()))
+    # detector-independent effective committee size: participation ratio
+    # of positive ablation deltas — robust where the gap detector isn't
+    prs = []
+    for r in rows:
+        d = np.clip(np.asarray(r["abl"], dtype=float), 0, None)
+        prs.append(float(d.sum() ** 2 / max((d ** 2).sum(), 1e-30)))
     pq_committee = dict(
         k_mean=float(np.mean(ks)), k_counts={str(k): ks.count(k)
                                              for k in sorted(set(ks))},
+        k_eff_mean=float(np.mean(prs)), k_eff_sd=float(np.std(prs)),
         head_popularity=(mem.mean(0)).tolist(),
         twin_jaccard=float(np.mean(same_j)) if same_j else None,
         cross_jaccard=float(np.mean(cross_j)) if cross_j else None,
