@@ -15,6 +15,7 @@ wheels/
 /large_files
 random.pdf
 .DS_Store
+/runs_compiler
 
 # runs_torch + legacy are committed (LFS), but only the analysis-relevant
 # payload: intermediate checkpoints (50 per run, ~17 GB total, read by no
