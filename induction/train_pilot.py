@@ -1,60 +1,49 @@
 """Induction-head lottery PILOT — self-contained torch, no imports from the
 mod-add codebase. Lockstep-batched: ALL runs train simultaneously.
 
-Question: in a 2-layer attention-only LM trained on a repeated-sequence
-(in-context copy) task, which head pair becomes the induction circuit —
-and is that identity a seed lottery (as frequency committees are in
-mod-add)?
+Question: in a 2-layer attention-only LM, which head pair becomes the
+induction circuit — and is that identity a seed lottery (as frequency
+committees are in mod-add)?
 
-Setup: vocab V=64, seq length T=64 where the first 32 tokens are uniform
-random and the last 32 are an exact repeat. Next-token loss ONLY on the
-predictable positions (the second half): at query position i >= T/2-1 the
-target seq[i+1] equals seq[i+1-T/2], solvable exactly by the induction
-algorithm (L0 prev-token head composing into an L1 prefix-match+copy head).
-Chance CE = ln(64) ~ 4.16.
+TASKS (--task):
+  copy      v1. First 32 tokens uniform random, last 32 an exact repeat;
+            loss on the second half. RESULT 2026-08-13: PQ0 FAILED —
+            the lag is fixed at T/2, so a purely positional head solves
+            it and induction smears uniformly over all heads
+            (conc 0.131 ~ 1/8). Kept for the record.
+  induction v2 (the fix). Zipfian background tokens; one segment of
+            length seg_min..seg_max repeated at two RANDOM offsets per
+            sequence. The lag varies per sequence, so only content-based
+            prefix matching (real induction) predicts the second copy.
+            Loss on the inducible positions of the second copy only.
 
 Model: 2 layers, attention-only (no MLP, no LayerNorm), learned positional
 embeddings, d_model=128, 8 heads x d_head=16 per layer, causal mask.
 Residual: x = W_E[t] + W_pos;  x += attn_l(x) per layer;  logits = x @ W_U.
 LN is omitted so the OV/QK composition readouts stay exactly linear.
 
-Performance design (the mod-add trainer's recipe, ported):
-  - lockstep batching: params stacked on a leading run axis M; loss =
-    sum over runs of per-run mean CE (separable -> exact per-run grads);
-    one backward + one elementwise AdamW step train every run at once.
-  - training forward uses F.scaled_dot_product_attention (flash; never
-    materializes the T x T pattern). Metrics evals use a separate manual
-    path that DOES return patterns, chunked over the probe batch so the
-    (M, chunk, H, T, T) tensor stays small.
-  - torch.compile on the fused loss step (--no-compile to disable;
-    auto-fallback to eager if compilation fails, e.g. no C++ toolchain —
-    use the -devel base image on cloud, same as the mod-add trainer).
-  - TF32 ON by default (--no-tf32 to disable). This pilot's claims are
-    statistical, not bitwise; numerics caveats from the mod-add homeostat
-    work do not apply here.
-  - per-run data streams come from per-run numpy RNGs, identical to the
-    sequential implementation; one small H2D copy per step.
-  Sequential-vs-batched outputs are statistically equivalent but not
-  bitwise identical (op order, SDPA).
+Performance: lockstep run-batching (params stacked on leading axis M,
+separable summed loss -> exact per-run grads, fused _foreach_ AdamW),
+flash attention (SDPA) for training, torch.compile with a
+reduce-overhead -> default -> eager fallback ladder, static input
+buffers (CUDA-graph friendly), TF32 flag, optional bf16 autocast.
+Pattern-returning evals are a separate manual path, chunked over the
+probe batch. Sequential-vs-batched outputs are statistically equivalent,
+not bitwise.
 
-Run grid: --init-seeds x --data-seeds (default 8 x 3 = 24 runs). Same init
-across different data orders = twin probe for init-vs-SGD-noise attribution
-(the mod-add twin design).
+Unified batch representation for both tasks:
+  tokens (M,B,T)   loss_mask (M,B,T-1)  over query positions 0..T-2
+  qidx,kidx,valid (M,B,N)  per-sequence induction-metric index pairs:
+  attention from query qidx to key kidx is the induction-correct edge.
+Per-eval metrics: masked probe CE, per-head L1 induction score (mean
+attention on the correct edges), per-head L0 prev-token score, per-head
+L1 ablation delta-CE every --ablate-every and at the final step.
+Checkpoints: step 0 (init, pre-update), every --ckpt-every, final.
 
-Per-eval metrics (every --eval-every steps): probe CE, per-head L1
-induction score (attention mass from second-half queries to the induction
-target j = i - T/2 + 1), per-head L0 prev-token score; per-head L1
-ablation delta-CE every --ablate-every steps and at the final step.
-Checkpoints: step 0 (init, saved BEFORE any update), every --ckpt-every,
-and final. Layouts (per-run dirs, metrics.json, safetensors names) are
-unchanged from the sequential version; analyze_pilot.py works as is.
+Idempotent (runs with metrics.json are skipped); detached-friendly.
 
-Idempotent: runs whose directory contains metrics.json are excluded from
-the lockstep batch. Detached-friendly: unbuffered one-line-per-eval prints.
-
-Run:   python3 -u induction/train_pilot.py                    (24 runs)
-       python3 -u induction/train_pilot.py --smoke            (2 tiny runs)
-       python3 -u induction/train_pilot.py --out runs_induction/pilot
+Run:   python3 -u induction/train_pilot.py --task induction   (24 runs)
+       python3 -u induction/train_pilot.py --smoke             (2 tiny runs)
 """
 import argparse
 import json
@@ -71,12 +60,16 @@ from safetensors.torch import save_file
 
 @dataclass
 class Config:
+    task: str = "induction"    # "copy" (v1) | "induction" (v2)
     vocab: int = 64
-    seq_len: int = 64          # first half random, second half exact repeat
+    seq_len: int = 64
     d_model: int = 128
     n_heads: int = 8
     d_head: int = 16
     n_layers: int = 2
+    zipf_alpha: float = 1.0    # induction task background distribution
+    seg_min: int = 8           # repeated-segment length bounds (induction)
+    seg_max: int = 16
     lr: float = 1e-3
     wd: float = 0.01
     beta1: float = 0.9
@@ -95,8 +88,7 @@ class Config:
 # ---------------------------------------------------------------- params
 
 def init_params_single(cfg: Config):
-    """One run's init on CPU from its own generator — identical tensors to
-    the sequential implementation for the same init_seed."""
+    """One run's init on CPU from its own generator (reproducible)."""
     g = torch.Generator(device="cpu").manual_seed(cfg.init_seed)
     d, dh, H = cfg.d_model, cfg.d_head, cfg.n_heads
 
@@ -123,9 +115,8 @@ def stack_params(per_run, device):
 # --------------------------------------------------------------- forward
 
 def forward_fast(P, tokens, cfg: Config, ablate=None):
-    """Flash-attention training path. tokens (M,B,T) -> logits (M,B,T,V).
-    No attention patterns materialized. ablate=(layer, head) zeroes that
-    head's residual write (used by the ablation evals)."""
+    """Flash-attention path, no patterns materialized. (M,B,T)->(M,B,T,V).
+    ablate=(layer, head) zeroes that head's residual write."""
     M, B, T = tokens.shape
     ar = torch.arange(M, device=tokens.device)
     x = P["embed.W_E"][ar[:, None, None], tokens] \
@@ -148,8 +139,8 @@ def forward_fast(P, tokens, cfg: Config, ablate=None):
 
 
 def forward_patterns(P, tokens, cfg: Config):
-    """Manual path returning per-layer attention patterns
-    [(M,B,H,T,T)] plus logits — evals only, callers chunk B."""
+    """Manual path returning per-layer patterns [(M,B,H,T,T)] + logits —
+    evals only, callers chunk B."""
     M, B, T = tokens.shape
     ar = torch.arange(M, device=tokens.device)
     x = P["embed.W_E"][ar[:, None, None], tokens] \
@@ -169,49 +160,67 @@ def forward_patterns(P, tokens, cfg: Config):
     return torch.einsum("mbtd,mdv->mbtv", x, P["unembed.W_U"]), attns
 
 
-def per_run_ce(logits, tokens, cfg: Config):
-    """(M,) per-run mean CE on predictable positions i in [T/2-1, T-2]."""
-    M = tokens.shape[0]
-    half = cfg.seq_len // 2
-    pred = logits[:, :, half - 1:-1]
-    tgt = tokens[:, :, half:]
-    ce = F.cross_entropy(pred.reshape(-1, cfg.vocab), tgt.reshape(-1),
-                         reduction="none")
-    return ce.view(M, -1).mean(1)
+def per_run_ce(logits, tokens, loss_mask):
+    """(M,) per-run mean CE over the masked query positions 0..T-2."""
+    M, B, T, V = logits.shape
+    ce = F.cross_entropy(logits[:, :, :-1].reshape(-1, V),
+                         tokens[:, :, 1:].reshape(-1),
+                         reduction="none").view(M, B, T - 1)
+    return (ce * loss_mask).sum((1, 2)) / loss_mask.sum((1, 2))
 
 
 # ------------------------------------------------------------------ data
 
-def make_batch_np(rngs, cfg: Config, n):
+def zipf_probs(cfg: Config):
+    w = 1.0 / np.arange(1, cfg.vocab + 1) ** cfg.zipf_alpha
+    return w / w.sum()
+
+
+def gen_copy_np(rng, cfg: Config, n):
+    """v1 fixed-lag repeat. Returns tokens plus the unified metadata."""
     half = cfg.seq_len // 2
-    outs = []
-    for rng in rngs:
-        first = rng.integers(0, cfg.vocab, size=(n, half))
-        outs.append(np.concatenate([first, first], axis=1))
-    return torch.from_numpy(np.stack(outs))          # (M,n,T) int64, CPU
+    first = rng.integers(0, cfg.vocab, size=(n, half))
+    toks = np.concatenate([first, first], axis=1)
+    lm = np.zeros((n, cfg.seq_len - 1), bool)
+    lm[:, half - 1:] = True
+    q = np.arange(half, cfg.seq_len - 1)
+    qidx = np.broadcast_to(q, (n, q.size)).copy()
+    kidx = qidx - half + 1
+    valid = np.ones_like(qidx, bool)
+    return toks, lm, qidx, kidx, valid
 
 
-class GpuData:
-    """Per-run torch generators ON DEVICE — no host->device copy per step.
-    Same data_seed => same stream (that is all the twin design needs).
-    Streams differ from the numpy path; --cpu-data restores it."""
+def gen_induction_np(rng, cfg: Config, n, probs):
+    """v2 variable-offset repeated segment over a zipfian background.
+    Loss on second-copy positions o2+j, j in 0..L-2 (target = seg[j+1]);
+    induction-correct attention edge: query o2+j -> key o1+j+1."""
+    T = cfg.seq_len
+    toks = rng.choice(cfg.vocab, size=(n, T), p=probs)
+    L = rng.integers(cfg.seg_min, cfg.seg_max + 1, size=n)
+    o1 = rng.integers(0, T - 2 * L + 1)
+    o2 = rng.integers(o1 + L, T - L + 1)
+    Nmax = cfg.seg_max
+    j = np.broadcast_to(np.arange(Nmax), (n, Nmax))
+    inseg = j < L[:, None]
+    rows = np.broadcast_to(np.arange(n)[:, None], (n, Nmax))
+    # write the repeat: toks[b, o2+j] = toks[b, o1+j] for j < L
+    src = np.clip(o1[:, None] + j, 0, T - 1)
+    dst = np.clip(o2[:, None] + j, 0, T - 1)
+    toks[rows[inseg], dst[inseg]] = toks[rows[inseg], src[inseg]]
+    # loss mask over query positions 0..T-2: q = o2+j, j <= L-2
+    lm = np.zeros((n, T - 1), bool)
+    qm = j <= L[:, None] - 2
+    lm[rows[qm], dst[qm]] = True
+    # induction metric edges: q = o2+j -> k = o1+j+1, j <= L-2
+    qidx = dst
+    kidx = np.clip(src + 1, 0, T - 1)
+    return toks, lm, qidx, kidx, qm
 
-    def __init__(self, cfgs, device):
-        self.gens = [torch.Generator(device=device)
-                     .manual_seed(c.data_seed) for c in cfgs]
-        self.device = device
 
-    def batch(self, cfg: Config, n, out=None):
-        half = cfg.seq_len // 2
-        M = len(self.gens)
-        buf = out if out is not None else torch.empty(
-            M, n, cfg.seq_len, dtype=torch.long, device=self.device)
-        for m, g in enumerate(self.gens):
-            first = torch.randint(0, cfg.vocab, (n, half), generator=g,
-                                  device=self.device)
-            buf[m, :, :half] = first
-            buf[m, :, half:] = first
-        return buf
+def gen_batch(task, rng, cfg: Config, n, probs):
+    if task == "copy":
+        return gen_copy_np(rng, cfg, n)
+    return gen_induction_np(rng, cfg, n, probs)
 
 
 # ----------------------------------------------------------------- evals
@@ -219,38 +228,47 @@ class GpuData:
 @torch.no_grad()
 def eval_metrics(P, probe, cfg: Config, do_ablate, chunk_pat=64,
                  chunk_fast=256):
-    """probe (Bp,T) shared across runs. Returns list of per-run dicts."""
+    """probe = (tokens (Bp,T), loss_mask, qidx, kidx, valid) shared
+    across runs. Returns list of per-run dicts."""
+    ptok, plm, pq, pk, pv = probe
     M = P["embed.W_E"].shape[0]
-    half, T, H = cfg.seq_len // 2, cfg.seq_len, cfg.n_heads
-    Bp = probe.shape[0]
-    qs = torch.arange(half, T - 1, device=probe.device)
-    qa = torch.arange(1, T, device=probe.device)
+    H, T = cfg.n_heads, cfg.seq_len
+    Bp = ptok.shape[0]
 
-    ce_sum = torch.zeros(M, device=probe.device)
-    ind_sum = torch.zeros(M, H, device=probe.device)
-    prev_sum = torch.zeros(M, H, device=probe.device)
+    ce_w = torch.zeros(M, device=ptok.device)
+    ind_sum = torch.zeros(M, H, device=ptok.device)
+    prev_sum = torch.zeros(M, H, device=ptok.device)
+    qa = torch.arange(1, T, device=ptok.device)
+    n_edges = pv.sum().item()
     for i in range(0, Bp, chunk_pat):
-        tok = probe[i:i + chunk_pat].unsqueeze(0).expand(M, -1, -1)
+        tok = ptok[i:i + chunk_pat].unsqueeze(0).expand(M, -1, -1)
+        lm = plm[i:i + chunk_pat].unsqueeze(0).expand(M, -1, -1)
         logits, attns = forward_patterns(P, tok, cfg)
-        n = tok.shape[1]
-        ce_sum += per_run_ce(logits, tok, cfg) * n
-        ind_sum += attns[1][:, :, :, qs, qs - half + 1].mean(-1).sum(1)
+        C = tok.shape[1]
+        ce_w += per_run_ce(logits, tok, lm) * lm[0].sum()
+        # induction edges: permute to (M,H,C,T,T) then advanced-index
+        a1 = attns[1].permute(0, 2, 1, 3, 4)
+        ci = torch.arange(C, device=tok.device)[:, None]
+        edges = a1[:, :, ci, pq[i:i + chunk_pat], pk[i:i + chunk_pat]]
+        ind_sum += (edges * pv[i:i + chunk_pat]).sum((2, 3))
         prev_sum += attns[0][:, :, :, qa, qa - 1].mean(-1).sum(1)
-    ce = (ce_sum / Bp).tolist()
-    ind = (ind_sum / Bp).tolist()
+    tot_mask = plm.sum()
+    ce = (ce_w / tot_mask).tolist()
+    ind = (ind_sum / n_edges).tolist()
     prev = (prev_sum / Bp).tolist()
     out = [{"probe_ce": ce[m], "induction_l1": ind[m],
             "prevtoken_l0": prev[m]} for m in range(M)]
 
     if do_ablate:
-        deltas = torch.zeros(M, H, device=probe.device)
+        deltas = torch.zeros(M, H, device=ptok.device)
         for h in range(H):
-            tot = torch.zeros(M, device=probe.device)
+            ce_h = torch.zeros(M, device=ptok.device)
             for i in range(0, Bp, chunk_fast):
-                tok = probe[i:i + chunk_fast].unsqueeze(0).expand(M, -1, -1)
+                tok = ptok[i:i + chunk_fast].unsqueeze(0).expand(M, -1, -1)
+                lm = plm[i:i + chunk_fast].unsqueeze(0).expand(M, -1, -1)
                 lg = forward_fast(P, tok, cfg, ablate=(1, h))
-                tot += per_run_ce(lg, tok, cfg) * tok.shape[1]
-            deltas[:, h] = tot / Bp - ce_sum / Bp
+                ce_h += per_run_ce(lg, tok, lm) * lm[0].sum()
+            deltas[:, h] = ce_h / tot_mask - ce_w / tot_mask
         for m in range(M):
             out[m]["ablate_dce_l1"] = deltas[m].tolist()
     return out
@@ -259,10 +277,9 @@ def eval_metrics(P, probe, cfg: Config, do_ablate, chunk_pat=64,
 # ------------------------------------------------------------- optimizer
 
 def make_adamw(P, cfg: Config, names):
-    """Fused multi-tensor AdamW (decoupled wd, NO bias correction — the
-    mod-add trainer's optimizer semantics; elementwise on stacked tensors
-    => exact lockstep of M independent per-run optimizers). _foreach_ ops
-    collapse the 13-tensor python loop into ~6 multi-tensor kernels."""
+    """Fused multi-tensor AdamW (decoupled wd, NO bias correction);
+    elementwise on stacked tensors => exact lockstep of M per-run
+    optimizers."""
     ws = [P[k] for k in names]
     ms = [torch.zeros_like(w) for w in ws]
     vs = [torch.zeros_like(w) for w in ws]
@@ -292,8 +309,12 @@ def save_ckpts(P, run_dirs, step):
                    for k, v in P.items()}, str(path))
 
 
-def train_batched(cfgs, run_dirs, device, use_compile=True,
-                  cpu_data=False, bf16=False):
+def to_dev(arrs, device):
+    return [torch.from_numpy(np.ascontiguousarray(a)).to(device)
+            for a in arrs]
+
+
+def train_batched(cfgs, run_dirs, device, use_compile=True, bf16=False):
     """All runs share every Config field except init_seed/data_seed."""
     cfg = cfgs[0]
     M = len(cfgs)
@@ -306,40 +327,50 @@ def train_batched(cfgs, run_dirs, device, use_compile=True,
     names = sorted(P.keys())
     params = [P[k] for k in names]
     opt_step = make_adamw(P, cfg, names)
-    probe = make_batch_np([np.random.default_rng(cfg.probe_seed)], cfg,
-                          cfg.probe_batch)[0].to(device)
 
-    use_gpu_data = device == "cuda" and not cpu_data
-    gpu_data = GpuData(cfgs, device) if use_gpu_data else None
-    np_rngs = None if use_gpu_data else \
-        [np.random.default_rng(c.data_seed) for c in cfgs]
-    # static input buffer: same storage every step, so CUDA graphs
-    # (compile mode reduce-overhead) can capture the whole fwd+loss
+    probs = zipf_probs(cfg)
+    prng = np.random.default_rng(cfg.probe_seed)
+    ptok, plm, pq, pk, pv = to_dev(
+        gen_batch(cfg.task, prng, cfg, cfg.probe_batch, probs), device)
+    probe = (ptok, plm.float(), pq, pk, pv.float())
+    rngs = [np.random.default_rng(c.data_seed) for c in cfgs]
+
+    # static buffers (same storage every step -> CUDA-graph capturable)
     tokens_buf = torch.empty(M, cfg.batch, cfg.seq_len, dtype=torch.long,
                              device=device)
+    mask_buf = torch.empty(M, cfg.batch, cfg.seq_len - 1,
+                           dtype=torch.float32, device=device)
+
+    def fill_buffers():
+        for m, rng in enumerate(rngs):
+            toks, lm, _, _, _ = gen_batch(cfg.task, rng, cfg, cfg.batch,
+                                          probs)
+            tokens_buf[m].copy_(torch.from_numpy(
+                np.ascontiguousarray(toks)), non_blocking=True)
+            mask_buf[m].copy_(torch.from_numpy(lm.astype(np.float32)),
+                              non_blocking=True)
 
     amp = torch.autocast(device_type="cuda", dtype=torch.bfloat16) \
         if (bf16 and device == "cuda") else None
 
-    def loss_fn(tokens):
+    def loss_fn(tokens, lmask):
         if amp is not None:
             with amp:
                 return per_run_ce(forward_fast(P, tokens, cfg),
-                                  tokens, cfg).float().sum()
-        return per_run_ce(forward_fast(P, tokens, cfg), tokens, cfg).sum()
+                                  tokens, lmask).float().sum()
+        return per_run_ce(forward_fast(P, tokens, cfg), tokens,
+                          lmask).sum()
 
     step_loss = loss_fn
     if use_compile:
-        # mode ladder: CUDA-graph capture first, plain inductor second
         for mode in (("reduce-overhead" if device == "cuda" else None),
                      None):
             try:
                 c = torch.compile(loss_fn, dynamic=False, **(
                     {"mode": mode} if mode else {}))
-                tokens_buf.copy_(probe[:cfg.batch].unsqueeze(0)
-                                 .expand(M, -1, -1))
-                c(tokens_buf)        # errors surface on first call
-                c(tokens_buf)        # second call exercises graph replay
+                fill_buffers()
+                c(tokens_buf, mask_buf)   # errors surface on first call
+                c(tokens_buf, mask_buf)   # exercises CUDA-graph replay
                 step_loss = c
                 print(f"torch.compile: ok (mode={mode or 'default'})",
                       flush=True)
@@ -369,11 +400,8 @@ def train_batched(cfgs, run_dirs, device, use_compile=True,
             save_ckpts(P, run_dirs, step)
         if last:
             break
-        if use_gpu_data:
-            gpu_data.batch(cfg, cfg.batch, out=tokens_buf)
-        else:
-            tokens_buf.copy_(make_batch_np(np_rngs, cfg, cfg.batch))
-        loss = step_loss(tokens_buf)
+        fill_buffers()
+        loss = step_loss(tokens_buf, mask_buf)
         grads = torch.autograd.grad(loss, params)
         opt_step(list(grads))
 
@@ -387,21 +415,23 @@ def train_batched(cfgs, run_dirs, device, use_compile=True,
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="runs_induction/pilot")
+    ap.add_argument("--task", default="induction",
+                    choices=["copy", "induction"])
+    ap.add_argument("--out", default=None,
+                    help="default: runs_induction/pilot_<task>")
     ap.add_argument("--init-seeds", type=int, default=8)
     ap.add_argument("--data-seeds", type=int, default=3)
     ap.add_argument("--steps", type=int, default=4000)
+    ap.add_argument("--wd", type=float, default=None)
     ap.add_argument("--device", default=None)
     ap.add_argument("--no-compile", action="store_true")
     ap.add_argument("--no-tf32", action="store_true")
-    ap.add_argument("--cpu-data", action="store_true",
-                    help="numpy data streams (reproduces the original "
-                         "sequential implementation's batches)")
     ap.add_argument("--bf16", action="store_true",
                     help="bf16 autocast for fwd/bwd (cuda only)")
     ap.add_argument("--smoke", action="store_true",
                     help="2 tiny runs (200 steps, d=32) to verify end-to-end")
     args = ap.parse_args()
+    out = args.out or f"runs_induction/pilot_{args.task}"
 
     device = args.device or ("cuda" if torch.cuda.is_available()
                              else "mps" if torch.backends.mps.is_available()
@@ -409,19 +439,20 @@ def main():
     if device == "cuda" and not args.no_tf32:
         torch.backends.cuda.matmul.allow_tf32 = True
         torch.backends.cudnn.allow_tf32 = True
-    print(f"device: {device}  compile: {not args.no_compile}  "
+    print(f"device: {device}  task: {args.task}  "
+          f"compile: {not args.no_compile}  "
           f"tf32: {device == 'cuda' and not args.no_tf32}", flush=True)
 
+    over = {} if args.wd is None else {"wd": args.wd}
     if args.smoke:
-        cfgs = [Config(init_seed=i, data_seed=0, steps=200, d_model=32,
-                       d_head=8, n_heads=4, batch=64, probe_batch=128,
-                       eval_every=50, ablate_every=100, ckpt_every=100)
-                for i in (0, 1)]
-        dirs = [Path(args.out + "_smoke") / f"init{c.init_seed}_data0"
+        cfgs = [Config(task=args.task, init_seed=i, data_seed=0, steps=200,
+                       d_model=32, d_head=8, n_heads=4, batch=64,
+                       probe_batch=128, eval_every=50, ablate_every=100,
+                       ckpt_every=100, **over) for i in (0, 1)]
+        dirs = [Path(out + "_smoke") / f"init{c.init_seed}_data0"
                 for c in cfgs]
         train_batched(cfgs, dirs, device,
-                      use_compile=not args.no_compile,
-                      cpu_data=args.cpu_data, bf16=args.bf16)
+                      use_compile=not args.no_compile, bf16=args.bf16)
         return
 
     init_seeds = [1000 + 7 * i for i in range(args.init_seeds)]
@@ -430,19 +461,19 @@ def main():
     cfgs, dirs = [], []
     for iseed in init_seeds:
         for dseed in data_seeds:
-            rd = Path(args.out) / f"init{iseed}_data{dseed}"
+            rd = Path(out) / f"init{iseed}_data{dseed}"
             if (rd / "metrics.json").exists():
                 print(f"skip (done): {rd}")
                 continue
-            cfgs.append(Config(init_seed=iseed, data_seed=dseed,
-                               steps=args.steps))
+            cfgs.append(Config(task=args.task, init_seed=iseed,
+                               data_seed=dseed, steps=args.steps, **over))
             dirs.append(rd)
     if not cfgs:
         print("nothing to train")
         return
     print(f"training {len(cfgs)} runs in lockstep", flush=True)
     train_batched(cfgs, dirs, device, use_compile=not args.no_compile,
-                  cpu_data=args.cpu_data, bf16=args.bf16)
+                  bf16=args.bf16)
 
 
 if __name__ == "__main__":

@@ -116,7 +116,7 @@ def auc(labels, scores):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--runs", default="runs_induction/pilot")
+    ap.add_argument("--runs", default="runs_induction/pilot_induction")
     args = ap.parse_args()
     run_dirs = sorted(d for d in Path(args.runs).iterdir()
                       if (d / "metrics.json").exists())

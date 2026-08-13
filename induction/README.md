@@ -37,6 +37,31 @@ report honestly.
 Chance CE ln(64) ≈ 4.16; induction solves the second half exactly, so
 trained probe CE ≪ 1 is the sanity bar for "the circuit formed at all."
 
+## Pilot v1 result (2026-08-13, task=copy) — PQ0 FAILED, task-design flaw
+
+24 runs, 5090, 114s. conc_ind 0.131 vs 0.125 uniform → induction-score mass
+statistically uniform over heads; no winner variable exists. Diagnosis: the
+fixed-lag repeat (always T/2) is solvable by a purely positional head, so
+content-matching induction is never forced and the pattern smears. Genuine
+surviving signals: ablation concentration 0.29 (effective committee ~3-4
+heads); same-init twin agreement 0.33 vs cross-init 0.14 (2.3×, clears the
+prereg ratio through a noisy label). PQ2 unscoreable against a noise label.
+Data: `runs_induction/pilot/` (pod), `notes/pivot/induction_pilot.json`.
+
+## Pilot v2 (task=induction): variable-offset repeats — prereg
+
+Fix: zipfian background (α=1), one segment (len 8–16) repeated at two
+random offsets per sequence; lag varies per sequence so only content-based
+prefix matching predicts the second copy; loss restricted to inducible
+positions; induction score measured on the per-sequence correct
+(query → key) edges. Same PQ0/PQ1/PQ2 predictions and decision rule as v1,
+measured against BOTH winner definitions (induction-score argmax and
+ablation-ΔCE argmax); ablation is primary if they disagree. Additional
+prediction PQ0b: ablation concentration rises vs v1 (task now has a niche —
+winner-take-most). If PQ0 fails again on ablation concentration, treat the
+"induction committee" (top heads by ablation) as the identity variable,
+mod-add style, before abandoning.
+
 ## Uniqueness check (2026-08-13)
 
 Closest work, all verified NOT to cover selection-from-init:
