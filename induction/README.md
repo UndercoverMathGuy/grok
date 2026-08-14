@@ -86,6 +86,20 @@ before sharpening it, report the window honestly; if k_eff stays ~flat
 across a 100× wd range, the redundancy is not economic and the crisp-
 identity premise fails here → fall back to the mod-add compiler paper.
 
+**SWEEP RESULT (2026-08-13): P-W1/P-W3 REFUTED — pivot closed per prereg.**
+k_eff 7.58 / 7.52 / 7.51 / 6.68 across wd 0.01→1.0 while CE degrades
+0.24 → 0.25 → 0.29 → 0.43 (floor 0.221): wd damages the circuit without
+individuating it; no sparsifying window exists. Ablation concentration
+0.17→0.21 (≈uniform throughout). Verdict: induction-head identity in this
+2L attn-only setup is soft — the lottery exists (twin/cross winner
+agreement 3.0× at wd 0.01) but there is no discrete identity variable to
+read or write. Keep as the paper's scope-boundary result: crisp circuit
+identity requires membership scarcity (mod-add's wd tax); free redundancy
+dissolves identity into a share-vector (consistent with Singh et al.).
+Salvageable later: kcomp winner-AUC 0.618 (n=24) suggests the continuous
+ablation-share vector may still be init-readable — out of scope for the
+ICLR 2027 window.
+
 ## Uniqueness check (2026-08-13)
 
 Closest work, all verified NOT to cover selection-from-init:
