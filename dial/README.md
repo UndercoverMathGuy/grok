@@ -93,6 +93,39 @@ batch per width, per-run wd inside the batch). Analyzer:
 - Prediction conflicts (e.g. P-D1 lands but P-D3 fails: identity smears but
   stays init-readable) are findings, reported as such.
 
+## SWEEP RESULT (2026-08-14, 192/192 runs) — dial-as-crispness KILLED; two reversals
+
+Full table: notes/dial_summary.json. Grok rate 1.00 everywhere except
+wd=0.1 (0-0.62, late-grokking) and 128/0.3 (0.38).
+
+- **P-D1 FAIL.** k_eff at wd=1.0: 2.53/2.74/2.94/3.19/3.06/2.81 across
+  128->4096 (rho 0.60, p 0.24). Committee size ~4 and top4 share ~0.98 in
+  EVERY cell. 32x width does not smear identity; no drift toward the
+  Morwani dense limit at these scales.
+- **P-D2 inconclusive by design.** Monotone right direction at 512
+  (3.16/2.94/2.42) but only 3 grokking wd levels — a 3-point permutation
+  test cannot reach p<0.05 (min ~0.33). Prereg test was structurally
+  underpowered; effect size small (~25% over 10x wd). wd's unambiguous
+  effect is grok SPEED: ~1.2k epochs at wd=3 vs ~45k at wd=0.1, monotone
+  at every width.
+- **P-D3 REVERSED.** T_k readout AUC RISES with width: ~0.56-0.64
+  (128/256) -> 0.73-0.77 (512, matches historical 0.75) -> 0.74-0.87
+  (1024-4096). Wider = MORE init-determined (lazy-training-consistent).
+- **Persistence:** same init keeps J~0.7-0.9 of its committee across wd
+  changes — identity is init-owned, robust to dynamics.
+
+Conclusion per kill criteria: capacity scarcity does NOT control circuit
+identity crispness within mod-add — identity is task-intrinsic (K~4 is a
+task constant across 32x capacity). The crisp(mod-add)/soft(induction)
+divide separates solution-space structures, not resource levels. The
+salvage is better than the prediction: (a) K-invariance = robustness table
+for the compiler claims; (b) AUC-vs-width = the scale-trend figure — init
+determinism GROWS with overparameterization. Extend-once rule for wd=0.1
+cells (100k): DECLINED 2026-08-14 (pod deleted after the pull) — P-D2 is
+reported as inconclusive-by-design, and the wd=0.1 starved regime stays
+uncharacterized. The seeds/driver are deterministic, so the extension can
+be run later on any pod without touching the existing cohort.
+
 ## Anchors from prior cohorts (for sanity, not scored)
 
 d_mlp=512 / wd=1.0 naturals: committees K~4-6, k_eff ~4-7 expected,

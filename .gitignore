@@ -28,3 +28,5 @@ legacy/**/checkpoints/epoch_*.safetensors
 legacy/**/checkpoints/optim_*.safetensors
 runs_torch/**/checkpoints/optim_*.safetensors
 compiler/arms/*.log
+*tar.gz
+/runs_dial

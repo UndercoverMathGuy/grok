@@ -62,6 +62,8 @@ def main():
                     help="max runs per lockstep batch (widths cannot mix — "
                          "stacked weights need equal shapes; 32 = every "
                          "width is one full batch, ~12-14GB peak at 4096)")
+    ap.add_argument("--spectra-every", type=int, default=100,
+                    help="logit-spectrum snapshot cadence (5 for early-race)")
     ap.add_argument("--compile", default="default",
                     choices=["default", "reduce-overhead", "off"])
     ap.add_argument("--smoke", action="store_true",
@@ -108,7 +110,8 @@ def main():
             rds = [rd for _, rd in part]
             print(f"width {width}: batch of {len(part)} "
                   f"({i + len(part)}/{len(jobs)} pending)", flush=True)
-            train_batched(cfgs, rds, compile_mode=args.compile)
+            train_batched(cfgs, rds, compile_mode=args.compile,
+                          spectra_every=args.spectra_every)
             for rd in rds:
                 report(rd)
             trained += len(part)
