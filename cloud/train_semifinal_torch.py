@@ -381,7 +381,7 @@ def save_ckpts(pr, run_dirs, epoch):
 
 def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
                   spectra_every=100, loss="f32stable", compile_mode="default",
-                  device=None, wb=None, wb_tag=None):
+                  device=None, wb=None, wb_tag=None, freeze=None):
     M = len(cfgs)
     c0 = cfgs[0]
     # lr, weight_decay, loss_tilt and loss_cvar are PER-RUN (broadcast vectors
@@ -441,6 +441,27 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
     lr_t = torch.zeros(M, device=device)    # in-place updated: no recompiles
     bshape = {id(p): (-1,) + (1,) * (p.dim() - 1) for p in params}
 
+    # freeze: optional per-run gating of which params update early. Entry i is
+    # None or (mode, until_epoch): "freeze_we" gates embed.W_E, "only_we"
+    # gates everything BUT embed.W_E, for epochs < until_epoch. A gated param
+    # is left completely untouched — no Adam step, no moment accumulation,
+    # and no weight-decay multiply (a frozen tilt must not decay). Masks are
+    # (M,) tensors updated in place only at schedule boundaries: no recompiles.
+    if freeze is not None and any(f is not None for f in freeze):
+        assert len(freeze) == M
+        act = {k: torch.ones(M, device=device) for k in PARAM_KEYS}
+        f_bounds = sorted({u for f in freeze if f for u in (f[1],)})
+
+        def set_active(epoch):
+            for k in PARAM_KEYS:
+                col = [1.0 if (f is None or epoch >= f[1]
+                               or (f[0] == "freeze_we") != (k == "embed.W_E"))
+                       else 0.0 for f in freeze]
+                act[k].copy_(torch.tensor(col, device=device))
+        set_active(0)
+    else:
+        act, f_bounds = None, []
+
     tokens_np, labels_np = make_dataset(c0)
     masks = [train_test_split(c) for c in cfgs]
     tr_tok = torch.from_numpy(np.stack([tokens_np[m] for m in masks])).to(device)
@@ -495,13 +516,27 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         grads = torch.autograd.grad(per.sum(), params)
         with torch.no_grad():
             # MLX-semantics AdamW: NO bias correction, p <- p(1-lr*wd) - lr*m/(sqrt(v)+eps)
-            for p, g, m_, v_ in zip(params, grads, m_st, v_st):
-                m_.mul_(b1).add_(g, alpha=1 - b1)
-                v_.mul_(b2).addcmul_(g, g, value=1 - b2)
+            for k, p, g, m_, v_ in zip(PARAM_KEYS, params, grads, m_st, v_st):
                 sh = bshape[id(p)]
                 lr_, wd_ = lr_t.view(sh), wd_v.view(sh)
-                p.mul_(1 - lr_ * wd_)
-                p.sub_(lr_ * m_ / (v_.sqrt() + eps))
+                if act is None:
+                    m_.mul_(b1).add_(g, alpha=1 - b1)
+                    v_.mul_(b2).addcmul_(g, g, value=1 - b2)
+                    p.mul_(1 - lr_ * wd_)
+                    p.sub_(lr_ * m_ / (v_.sqrt() + eps))
+                else:
+                    # same arithmetic (kernel-for-kernel, so active runs are
+                    # bit-identical to the ungated path), gated per run:
+                    # inactive runs keep p, m, v exactly — no step, no
+                    # moment accumulation, no weight decay
+                    ab = act[k].view(sh) > 0
+                    m_new = torch.add(m_ * b1, g, alpha=1 - b1)
+                    v_new = torch.addcmul(v_ * b2, g, g, value=1 - b2)
+                    p_new = torch.sub(p * (1 - lr_ * wd_),
+                                      lr_ * m_new / (v_new.sqrt() + eps))
+                    m_.copy_(torch.where(ab, m_new, m_))
+                    v_.copy_(torch.where(ab, v_new, v_))
+                    p.copy_(torch.where(ab, p_new, p))
         return per.detach()
 
     if compile_mode != "off":
@@ -516,6 +551,8 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         if spectra_every and epoch % spectra_every == 0:
             take_snapshot(epoch)
         lr_t.copy_(lr_base * min(epoch / c0.warmup_steps, 1.0))
+        if act is not None and epoch in f_bounds:
+            set_active(epoch)
         train_hist.append(step())
 
         if (epoch + 1) % log_every == 0:
