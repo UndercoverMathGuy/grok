@@ -262,7 +262,7 @@ STAGES = {"t2d-seg1": stage_t2d_seg1, "t2d-forecast": stage_t2d_forecast,
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", required=True, choices=sorted(STAGES))
-    ap.add_argument("--batch", type=int, default=24)
+    ap.add_argument("--batch", type=int, default=36)
     ap.add_argument("--loss", default="f32stable", choices=["f32stable", "f64"])
     ap.add_argument("--compile", dest="compile_mode", default="default")
     ap.add_argument("--smoke", action="store_true")
