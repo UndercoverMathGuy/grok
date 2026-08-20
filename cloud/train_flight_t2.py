@@ -73,9 +73,10 @@ def draw_seeds(family, n):
     return list(zip(ds.tolist(), is_.tolist()))
 
 
-def mk_cfg(fn, p, frac, wd, ds, is_, epochs, lr=1e-3, eps=1e-8, save_every=500):
+def mk_cfg(fn, p, frac, wd, ds, is_, epochs, lr=1e-3, eps=1e-8, save_every=500,
+           width=512):
     return Config(p=p, fn_name=fn, frac_train=frac, data_seed=ds, init_seed=is_,
-                  d_model=128, num_heads=4, d_mlp=512, act_type="ReLU",
+                  d_model=128, num_heads=4, d_mlp=width, act_type="ReLU",
                   lr=lr, weight_decay=wd, betas=(0.9, 0.98), adam_eps=eps,
                   num_epochs=epochs, save_every=save_every)
 
@@ -422,13 +423,112 @@ def stage_floornoise(args):
                       compile_mode=args.compile_mode)
 
 
+# ------------------------- T2-D v3 (locked-model forecaster) -------------------------
+# (frac, wd, lr, d_mlp) — tiers: in-dist / new-value / extrapolation
+V3_CELLS = [
+    (0.3, 1.0, 1e-3, 512), (0.25, 1.0, 1e-3, 512), (0.4, 1.0, 1e-3, 512),
+    (0.3, 3.0, 1e-3, 512), (0.25, 3.0, 1e-3, 512),                       # in-dist
+    (0.35, 1.0, 1e-3, 512), (0.3, 2.0, 1e-3, 512), (0.35, 2.0, 1e-3, 512),
+    (0.3, 1.0, 5e-4, 512), (0.3, 1.0, 2e-3, 512), (0.25, 1.0, 2e-3, 512),
+    (0.3, 2.0, 2e-3, 512), (0.3, 1.0, 1e-3, 256), (0.3, 1.0, 1e-3, 1024),
+    (0.25, 1.0, 1e-3, 1024),                                             # new-value
+    (0.3, 5.0, 1e-3, 512), (0.22, 1.0, 1e-3, 512),                       # extrapolation
+]
+N_V3_SEEDS = 6
+
+
+def v3_jobs(epochs):
+    jobs = []
+    for frac, wd, lr, width in V3_CELLS:
+        fam = f"v3_f{frac}_wd{wd}_lr{lr}_m{width}"
+        for ds, is_ in draw_seeds(fam, N_V3_SEEDS):
+            rd = RUNS / "v3" / fam[3:] / f"ds{ds}_is{is_}"
+            jobs.append((mk_cfg("add", 113, frac, wd, ds, is_, epochs,
+                                lr=lr, save_every=FORECAST_EPOCH,
+                                width=width), rd))
+    return jobs
+
+
+def _v3_batches(jobs):
+    from collections import defaultdict
+    by = defaultdict(list)
+    for c, *rest in jobs:
+        by[c.d_mlp].append((c, *rest))
+    return by
+
+
+def stage_v3_seg1(args):
+    jobs = [(c, rd) for c, rd in v3_jobs(FORECAST_EPOCH)
+            if not (rd / "spectra.npz").exists()]
+    if not jobs:
+        print("v3 seg1 complete"); return
+    for width, chunk in _v3_batches(jobs).items():
+        print(f"v3-seg1 width {width}: {len(chunk)} runs")
+        train_batched([c for c, _ in chunk], [rd for _, rd in chunk],
+                      spectra_every=SPECTRA_EVERY, loss=args.loss,
+                      compile_mode=args.compile_mode, save_optim=True)
+
+
+def stage_v3_forecast(args):
+    sys.path.insert(0, str(ROOT / "flight"))
+    import v3_core
+    model = v3_core.load_model(ROOT / "flight" / "v3_model.json")
+    out = (ROOT / "flight" / "forecasts_v3.json"
+           if RUNS.name == "runs_flight" else RUNS / "forecasts_v3.json")
+    if out.exists():
+        sys.exit(f"REFUSING to overwrite {out}")
+    rows = []
+    for c, rd in v3_jobs(FORECAST_EPOCH):
+        z = np.load(rd / "spectra.npz")
+        tl = None
+        if (rd / "metrics.json").exists():
+            tl = json.loads((rd / "metrics.json").read_text())["test_losses"]
+        f, status = v3_core.core_features(z["epochs"], z["energy"],
+                                          z["coeffs"], z["train_acc"],
+                                          z["test_acc"], tl)
+        row = {"run": str(rd.relative_to(RUNS)), "status": status}
+        if status == "ok":
+            pred = v3_core.predict(model, f)
+            row["forecast"] = "CENSORED" if pred > 30_000 else round(pred)
+            row["log_t_law"] = f["log_t_law"]
+        rows.append(row)
+        print(f'  {row["run"]}: {row.get("forecast", status)}')
+    out.write_text(json.dumps({"meta": {"model_file": "flight/v3_model.json",
+                                        "forecast_epoch": FORECAST_EPOCH},
+                               "forecasts": rows}, indent=1))
+    print(f"wrote {out} — COMMIT BEFORE v3-seg2")
+
+
+def stage_v3_seg2(args):
+    fc = (ROOT / "flight" / "forecasts_v3.json"
+          if RUNS.name == "runs_flight" else RUNS / "forecasts_v3.json")
+    assert fc.exists(), "forecasts_v3.json missing"
+    jobs = []
+    for c, rd in v3_jobs(TOTAL_EPOCHS - FORECAST_EPOCH):
+        if (rd / "seg2" / "spectra.npz").exists():
+            continue
+        ck = rd / "checkpoints" / f"epoch_{FORECAST_EPOCH:05d}.safetensors"
+        assert ck.exists(), f"missing warm checkpoint {ck}"
+        jobs.append((c, rd / "seg2", ck))
+    if not jobs:
+        print("v3 seg2 complete"); return
+    for width, chunk in _v3_batches(jobs).items():
+        print(f"v3-seg2 width {width}: {len(chunk)} warm resumes")
+        train_batched([c for c, _, _ in chunk], [rd for _, rd, _ in chunk],
+                      init_from=[ck for _, _, ck in chunk],
+                      spectra_every=SPECTRA_EVERY, loss=args.loss,
+                      compile_mode=args.compile_mode, save_optim=True)
+
+
 STAGES = {"t2d-seg1": stage_t2d_seg1, "t2d-forecast": stage_t2d_forecast,
           "t2d-seg2": stage_t2d_seg2, "t2d-floor": stage_t2d_floor,
           "t2c": stage_t2c, "t2e": stage_t2e,
           "t2dv2-seg1": stage_t2dv2_seg1,
           "t2dv2-forecast": stage_t2dv2_forecast,
           "t2dv2-seg2": stage_t2dv2_seg2,
-          "floornoise": stage_floornoise}
+          "floornoise": stage_floornoise,
+          "v3-seg1": stage_v3_seg1,
+          "v3-forecast": stage_v3_forecast, "v3-seg2": stage_v3_seg2}
 
 
 def main():
