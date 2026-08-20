@@ -370,18 +370,72 @@ def stage_t2dv2_seg2(args):
                   compile_mode=args.compile_mode, save_optim=True)
 
 
+# ------------------------- replica noise floor -------------------------
+FLOORNOISE_CELLS = [(0.25, 1.0), (0.3, 1.0), (0.3, 3.0), (0.4, 1.0)]
+N_REP = 4
+PERTURB_EPS = 1e-6      # relative (per-tensor std) init perturbation
+
+
+def stage_floornoise(args):
+    """8 identical-config groups x (4 identical replicas + 4 micro-perturbed
+    replicas). Each rep index j is one launch (run with --rep j, ideally
+    concurrently) so identical replicas live in separate kernel schedules."""
+    import torch
+    from train_semifinal_torch import init_params
+    from safetensors.torch import save_file as st_save
+    base_cfgs = []
+    for frac, wd in FLOORNOISE_CELLS:
+        for ds, is_ in draw_seeds(f"floornoise_f{frac}_wd{wd}", 2):
+            base_cfgs.append((frac, wd, ds, is_))
+    reps = [args.rep] if args.rep >= 0 else list(range(N_REP))
+    for j in reps:
+        jobs = []
+        for frac, wd, ds, is_ in base_cfgs:
+            grp = RUNS / "floornoise" / f"f{frac}_wd{wd}_ds{ds}_is{is_}"
+            rd = grp / f"rep{j}"
+            if not (rd / "spectra.npz").exists():
+                jobs.append((mk_cfg("add", 113, frac, wd, ds, is_,
+                                    TOTAL_EPOCHS, save_every=TOTAL_EPOCHS),
+                             rd, None))
+            rp = grp / f"pert{j}"
+            if not (rp / "spectra.npz").exists():
+                cfg = mk_cfg("add", 113, frac, wd, ds, is_, TOTAL_EPOCHS,
+                             save_every=TOTAL_EPOCHS)
+                rp.mkdir(parents=True, exist_ok=True)
+                ck = rp / "init_perturbed.safetensors"
+                if not ck.exists():
+                    pr = init_params(cfg)
+                    g = torch.Generator().manual_seed(7000 + j)
+                    out = {k: (v + PERTURB_EPS * v.std()
+                               * torch.randn(v.shape, generator=g,
+                                             dtype=v.dtype)).contiguous()
+                           for k, v in pr.items()}
+                    st_save(out, str(ck))
+                jobs.append((cfg, rp, ck))
+        if not jobs:
+            print(f"rep {j}: complete")
+            continue
+        print(f"floornoise rep {j}: {len(jobs)} runs")
+        train_batched([c for c, _, _ in jobs], [rd for _, rd, _ in jobs],
+                      init_from=[ck for _, _, ck in jobs],
+                      spectra_every=SPECTRA_EVERY, loss=args.loss,
+                      compile_mode=args.compile_mode)
+
+
 STAGES = {"t2d-seg1": stage_t2d_seg1, "t2d-forecast": stage_t2d_forecast,
           "t2d-seg2": stage_t2d_seg2, "t2d-floor": stage_t2d_floor,
           "t2c": stage_t2c, "t2e": stage_t2e,
           "t2dv2-seg1": stage_t2dv2_seg1,
           "t2dv2-forecast": stage_t2dv2_forecast,
-          "t2dv2-seg2": stage_t2dv2_seg2}
+          "t2dv2-seg2": stage_t2dv2_seg2,
+          "floornoise": stage_floornoise}
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", required=True, choices=sorted(STAGES))
     ap.add_argument("--batch", type=int, default=36)
+    ap.add_argument("--rep", type=int, default=-1)
     ap.add_argument("--loss", default="f32stable", choices=["f32stable", "f64"])
     ap.add_argument("--compile", dest="compile_mode", default="default")
     ap.add_argument("--smoke", action="store_true")
