@@ -254,9 +254,128 @@ def stage_t2e(args):
                           compile_mode=args.compile_mode)
 
 
+
+
+# ------------------------- T2-D v2 (hybrid forecaster) -------------------------
+# Frozen 2026-08-20 from HISTORICAL cohorts only (degrok + degrok2 add113):
+# gamma = median(lam_full / lam_[tmem,500]) per (frac, wd).
+GAMMA = {(0.2, 3.0): 0.65, (0.25, 1.0): 2.23, (0.3, 1.0): 1.44}
+SLOW_CELLS = {(0.2, 3.0), (0.25, 1.0), (0.3, 1.0)}   # K=4 + gamma recipe
+K_PRIOR = 4                                           # capacity result: K~4 task-intrinsic
+
+
+def t2dv2_jobs(epochs):
+    jobs = []
+    for frac, wd in FORECAST_CELLS:
+        for ds, is_ in draw_seeds(f"t2dv2_f{frac}_wd{wd}", N_FORECAST_SEEDS):
+            rd = RUNS / "t2dv2" / f"f{frac}_wd{wd}" / f"ds{ds}_is{is_}"
+            jobs.append((mk_cfg("add", 113, frac, wd, ds, is_, epochs,
+                                save_every=FORECAST_EPOCH), rd))
+    return jobs
+
+
+def _forecast_from_seg1(rd, frac, wd, version):
+    """version 'v1': largest-gap committee + raw lambda (the registered v1
+    recipe, verbatim). version 'v2': hybrid — slow cells use top-K_PRIOR
+    committee and gamma-corrected lambda; fast cells use the v1 recipe."""
+    z = np.load(rd / "spectra.npz")
+    ep, E, ta, te = z["epochs"], z["energy"], z["train_acc"], z["test_acc"]
+    hybrid_slow = version == "v2" and (frac, wd) in SLOW_CELLS
+    if hybrid_slow:
+        comm = np.argsort(E[-1])[::-1][:K_PRIOR].tolist()
+    else:
+        comm = committee_final(E)
+    junk = [j for j in range(E.shape[1]) if j not in comm]
+    r = E[:, junk].sum(1) / E.sum(1)
+    im = fs(ta >= 0.99)
+    if im < 0:
+        return {"forecast": None, "why": "no memorization by forecast epoch"}
+    if fs(te >= 0.9) >= 0:
+        return {"forecast": None, "why": "generalized before forecast epoch"}
+    t_mem = int(ep[im])
+    r_mem = float(r[im])
+    iw = np.where(ep >= t_mem)[0]
+    lam = -float(np.polyfit(ep[iw].astype(float),
+                            np.log(np.clip(r[iw], 1e-12, None)), 1)[0])
+    row = {"committee": comm, "t_mem": t_mem, "r_mem": r_mem,
+           "lam_raw": lam}
+    if hybrid_slow:
+        lam *= GAMMA[(frac, wd)]
+        row["gamma"] = GAMMA[(frac, wd)]
+    if r_mem <= FLOOR_GATE * R_STAR:
+        row["branch"] = "floor"; row["forecast"] = t_mem + FLOOR_WAIT
+    elif lam <= 0:
+        row["branch"] = "cleanup"; row["forecast"] = "CENSORED"
+    else:
+        row["branch"] = "cleanup"
+        pred = t_mem + np.log(r_mem / R_STAR) / lam
+        row["forecast"] = "CENSORED" if pred > 30_000 else round(pred)
+    return row
+
+
+def stage_t2dv2_seg1(args):
+    jobs = [(c, rd) for c, rd in t2dv2_jobs(FORECAST_EPOCH)
+            if not (rd / "spectra.npz").exists()]
+    if not jobs:
+        print("v2 seg1 already complete"); return
+    print(f"t2dv2-seg1: {len(jobs)} fresh runs to {FORECAST_EPOCH} ep")
+    train_batched([c for c, _ in jobs], [rd for _, rd in jobs],
+                  spectra_every=SPECTRA_EVERY, loss=args.loss,
+                  compile_mode=args.compile_mode, save_optim=True)
+
+
+def stage_t2dv2_forecast(args):
+    out = (ROOT / "flight" / "forecasts_t2dv2.json"
+           if RUNS.name == "runs_flight" else RUNS / "forecasts_t2dv2.json")
+    if out.exists():
+        sys.exit(f"REFUSING to overwrite existing forecasts: {out}")
+    rows = []
+    for c, rd in t2dv2_jobs(FORECAST_EPOCH):
+        frac, wd = c.frac_train, c.weight_decay
+        row = {"run": str(rd.relative_to(RUNS)),
+               "v2": _forecast_from_seg1(rd, frac, wd, "v2"),
+               "v1_shadow": _forecast_from_seg1(rd, frac, wd, "v1")}
+        rows.append(row)
+        print(f'  {row["run"]}: v2={row["v2"].get("forecast")} '
+              f'v1={row["v1_shadow"].get("forecast")}')
+    out.write_text(json.dumps(
+        {"meta": {"r_star": R_STAR, "floor_wait": FLOOR_WAIT,
+                  "forecast_epoch": FORECAST_EPOCH, "k_prior": K_PRIOR,
+                  "gamma": {f"{k[0]}_{k[1]}": v for k, v in GAMMA.items()},
+                  "slow_cells": sorted(f"{a}_{b}" for a, b in SLOW_CELLS),
+                  "rule": "hybrid v2 primary; v1 recomputed on same data as "
+                          "shadow ablation; scored vs first sustained "
+                          "test_acc >= 0.9 of the stitched run"},
+         "forecasts": rows}, indent=1))
+    print(f"wrote {out} — COMMIT BEFORE t2dv2-seg2")
+
+
+def stage_t2dv2_seg2(args):
+    fc = (ROOT / "flight" / "forecasts_t2dv2.json"
+          if RUNS.name == "runs_flight" else RUNS / "forecasts_t2dv2.json")
+    assert fc.exists(), "forecasts_t2dv2.json missing: run t2dv2-forecast first"
+    jobs = []
+    for c, rd in t2dv2_jobs(TOTAL_EPOCHS - FORECAST_EPOCH):
+        if (rd / "seg2" / "spectra.npz").exists():
+            continue
+        ck = rd / "checkpoints" / f"epoch_{FORECAST_EPOCH:05d}.safetensors"
+        assert ck.exists(), f"missing warm checkpoint {ck}"
+        jobs.append((c, rd / "seg2", ck))
+    if not jobs:
+        print("v2 seg2 already complete"); return
+    print(f"t2dv2-seg2: {len(jobs)} warm resumes to 30k")
+    train_batched([c for c, _, _ in jobs], [rd for _, rd, _ in jobs],
+                  init_from=[ck for _, _, ck in jobs],
+                  spectra_every=SPECTRA_EVERY, loss=args.loss,
+                  compile_mode=args.compile_mode, save_optim=True)
+
+
 STAGES = {"t2d-seg1": stage_t2d_seg1, "t2d-forecast": stage_t2d_forecast,
           "t2d-seg2": stage_t2d_seg2, "t2d-floor": stage_t2d_floor,
-          "t2c": stage_t2c, "t2e": stage_t2e}
+          "t2c": stage_t2c, "t2e": stage_t2e,
+          "t2dv2-seg1": stage_t2dv2_seg1,
+          "t2dv2-forecast": stage_t2dv2_forecast,
+          "t2dv2-seg2": stage_t2dv2_seg2}
 
 
 def main():
