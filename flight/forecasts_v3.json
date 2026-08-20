@@ -1,0 +1,620 @@
+{
+ "meta": {
+  "model_file": "flight/v3_model.json",
+  "forecast_epoch": 500
+ },
+ "forecasts": [
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m512/ds50235_is89391",
+   "status": "ok",
+   "forecast": 10829,
+   "log_t_law": 4.40350863662355
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m512/ds58583_is25692",
+   "status": "ok",
+   "forecast": 8449,
+   "log_t_law": 4.052456568813581
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m512/ds51262_is33447",
+   "status": "ok",
+   "forecast": 5881,
+   "log_t_law": 4.082058815568989
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m512/ds56320_is39310",
+   "status": "ok",
+   "forecast": 3258,
+   "log_t_law": 3.5169486425136443
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m512/ds58674_is23166",
+   "status": "ok",
+   "forecast": 9648,
+   "log_t_law": 4.239165216820938
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m512/ds51671_is32255",
+   "status": "ok",
+   "forecast": 7417,
+   "log_t_law": 4.272791755323551
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m512/ds51436_is55802",
+   "status": "ok",
+   "forecast": "CENSORED",
+   "log_t_law": 4.752528143839368
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m512/ds59385_is52044",
+   "status": "ok",
+   "forecast": 11294,
+   "log_t_law": 4.001302488677946
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m512/ds53783_is43173",
+   "status": "ok",
+   "forecast": "CENSORED",
+   "log_t_law": 5.19114866143882
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m512/ds58294_is76075",
+   "status": "ok",
+   "forecast": 15706,
+   "log_t_law": 4.394988698356754
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m512/ds53403_is13708",
+   "status": "ok",
+   "forecast": 15818,
+   "log_t_law": 4.432980271625884
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m512/ds56296_is56694",
+   "status": "ok",
+   "forecast": 17730,
+   "log_t_law": 4.558335080500513
+  },
+  {
+   "run": "v3/f0.4_wd1.0_lr0.001_m512/ds50528_is19950",
+   "status": "ok",
+   "forecast": 1234,
+   "log_t_law": 2.732200458523204
+  },
+  {
+   "run": "v3/f0.4_wd1.0_lr0.001_m512/ds58821_is98269",
+   "status": "ok",
+   "forecast": 1343,
+   "log_t_law": 3.445255834451933
+  },
+  {
+   "run": "v3/f0.4_wd1.0_lr0.001_m512/ds56684_is74136",
+   "status": "ok",
+   "forecast": 1269,
+   "log_t_law": 3.144687001882781
+  },
+  {
+   "run": "v3/f0.4_wd1.0_lr0.001_m512/ds56944_is98573",
+   "status": "ok",
+   "forecast": 1472,
+   "log_t_law": 2.9756168043694546
+  },
+  {
+   "run": "v3/f0.4_wd1.0_lr0.001_m512/ds56395_is29208",
+   "status": "ok",
+   "forecast": 967,
+   "log_t_law": 3.066386130527685
+  },
+  {
+   "run": "v3/f0.4_wd1.0_lr0.001_m512/ds54698_is35728",
+   "status": "ok",
+   "forecast": 1526,
+   "log_t_law": 3.10449529883146
+  },
+  {
+   "run": "v3/f0.3_wd3.0_lr0.001_m512/ds58522_is31730",
+   "status": "ok",
+   "forecast": 3636,
+   "log_t_law": 3.6257532290181103
+  },
+  {
+   "run": "v3/f0.3_wd3.0_lr0.001_m512/ds56420_is21762",
+   "status": "ok",
+   "forecast": 2605,
+   "log_t_law": 3.326493185195852
+  },
+  {
+   "run": "v3/f0.3_wd3.0_lr0.001_m512/ds55586_is48315",
+   "status": "ok",
+   "forecast": 5493,
+   "log_t_law": 4.161605540881495
+  },
+  {
+   "run": "v3/f0.3_wd3.0_lr0.001_m512/ds55996_is88469",
+   "status": "ok",
+   "forecast": 2648,
+   "log_t_law": 3.3511708671982245
+  },
+  {
+   "run": "v3/f0.3_wd3.0_lr0.001_m512/ds58746_is81974",
+   "status": "ok",
+   "forecast": 4496,
+   "log_t_law": 3.993557619036151
+  },
+  {
+   "run": "v3/f0.3_wd3.0_lr0.001_m512/ds54915_is23168",
+   "status": "ok",
+   "forecast": 2252,
+   "log_t_law": 3.077611425767332
+  },
+  {
+   "run": "v3/f0.25_wd3.0_lr0.001_m512/ds57672_is79911",
+   "status": "ok",
+   "forecast": 7041,
+   "log_t_law": 4.055488348660988
+  },
+  {
+   "run": "v3/f0.25_wd3.0_lr0.001_m512/ds57798_is36980",
+   "status": "ok",
+   "forecast": 2596,
+   "log_t_law": 3.2022240126868247
+  },
+  {
+   "run": "v3/f0.25_wd3.0_lr0.001_m512/ds55743_is38009",
+   "status": "ok",
+   "forecast": 4817,
+   "log_t_law": 3.9570233555410446
+  },
+  {
+   "run": "v3/f0.25_wd3.0_lr0.001_m512/ds59137_is68654",
+   "status": "ok",
+   "forecast": 3420,
+   "log_t_law": 3.504178291042919
+  },
+  {
+   "run": "v3/f0.25_wd3.0_lr0.001_m512/ds52864_is83688",
+   "status": "ok",
+   "forecast": 17369,
+   "log_t_law": 4.575822499007292
+  },
+  {
+   "run": "v3/f0.25_wd3.0_lr0.001_m512/ds57982_is60134",
+   "status": "ok",
+   "forecast": 6710,
+   "log_t_law": 4.044742052230547
+  },
+  {
+   "run": "v3/f0.35_wd1.0_lr0.001_m512/ds52006_is29987",
+   "status": "ok",
+   "forecast": 1492,
+   "log_t_law": 3.4584914592659413
+  },
+  {
+   "run": "v3/f0.35_wd1.0_lr0.001_m512/ds52169_is30626",
+   "status": "ok",
+   "forecast": 4768,
+   "log_t_law": 3.942148498198318
+  },
+  {
+   "run": "v3/f0.35_wd1.0_lr0.001_m512/ds54913_is75714",
+   "status": "ok",
+   "forecast": 2626,
+   "log_t_law": 3.497924180555004
+  },
+  {
+   "run": "v3/f0.35_wd1.0_lr0.001_m512/ds54622_is90406",
+   "status": "ok",
+   "forecast": 1987,
+   "log_t_law": 2.992424438494295
+  },
+  {
+   "run": "v3/f0.35_wd1.0_lr0.001_m512/ds50043_is78503",
+   "status": "ok",
+   "forecast": 2539,
+   "log_t_law": 3.497864026673321
+  },
+  {
+   "run": "v3/f0.35_wd1.0_lr0.001_m512/ds57561_is52310",
+   "status": "ok",
+   "forecast": 4310,
+   "log_t_law": 3.44024356596241
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.001_m512/ds58389_is28806",
+   "status": "ok",
+   "forecast": 1611,
+   "log_t_law": 3.16395277072036
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.001_m512/ds52216_is41774",
+   "status": "ok",
+   "forecast": 3478,
+   "log_t_law": 3.1450501328721603
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.001_m512/ds53444_is87716",
+   "status": "ok",
+   "forecast": 7718,
+   "log_t_law": 4.284414595638678
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.001_m512/ds52941_is86597",
+   "status": "ok",
+   "forecast": 5435,
+   "log_t_law": 3.9139934896259496
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.001_m512/ds52459_is80777",
+   "status": "ok",
+   "forecast": 5713,
+   "log_t_law": 3.674502813989451
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.001_m512/ds51583_is22488",
+   "status": "ok",
+   "forecast": 3282,
+   "log_t_law": 3.8122694001972546
+  },
+  {
+   "run": "v3/f0.35_wd2.0_lr0.001_m512/ds52187_is21799",
+   "status": "ok",
+   "forecast": 1149,
+   "log_t_law": 2.9039980540719985
+  },
+  {
+   "run": "v3/f0.35_wd2.0_lr0.001_m512/ds52326_is68235",
+   "status": "ok",
+   "forecast": 1286,
+   "log_t_law": 2.892809402234474
+  },
+  {
+   "run": "v3/f0.35_wd2.0_lr0.001_m512/ds58996_is56365",
+   "status": "ok",
+   "forecast": 991,
+   "log_t_law": 2.8720253667199813
+  },
+  {
+   "run": "v3/f0.35_wd2.0_lr0.001_m512/ds57261_is58880",
+   "status": "ok",
+   "forecast": 1559,
+   "log_t_law": 2.9742978949636574
+  },
+  {
+   "run": "v3/f0.35_wd2.0_lr0.001_m512/ds52243_is61410",
+   "status": "ok",
+   "forecast": 1190,
+   "log_t_law": 3.302224412664487
+  },
+  {
+   "run": "v3/f0.35_wd2.0_lr0.001_m512/ds50809_is43928",
+   "status": "ok",
+   "forecast": 839,
+   "log_t_law": 3.1237073899141503
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.0005_m512/ds54544_is51752",
+   "status": "ok",
+   "forecast": 3478,
+   "log_t_law": 3.6066340720493577
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.0005_m512/ds50420_is33083",
+   "status": "ok",
+   "forecast": 23115,
+   "log_t_law": 4.791763573552349
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.0005_m512/ds55676_is66517",
+   "status": "ok",
+   "forecast": 5434,
+   "log_t_law": 3.3761829524218774
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.0005_m512/ds56794_is84979",
+   "status": "ok",
+   "forecast": 8619,
+   "log_t_law": 4.233755906498702
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.0005_m512/ds55599_is98846",
+   "status": "ok",
+   "forecast": 8898,
+   "log_t_law": 4.234717829130656
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.0005_m512/ds54164_is10946",
+   "status": "ok",
+   "forecast": 19350,
+   "log_t_law": 4.574528930949942
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.002_m512/ds51261_is25080",
+   "status": "ok",
+   "forecast": 3431,
+   "log_t_law": 3.3538195078159285
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.002_m512/ds53363_is21836",
+   "status": "ok",
+   "forecast": 1924,
+   "log_t_law": 3.714184584503943
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.002_m512/ds52895_is46868",
+   "status": "ok",
+   "forecast": 2577,
+   "log_t_law": 3.1133957063449977
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.002_m512/ds53042_is41117",
+   "status": "ok",
+   "forecast": 4668,
+   "log_t_law": 3.9117776106023374
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.002_m512/ds56685_is16543",
+   "status": "ok",
+   "forecast": 3075,
+   "log_t_law": 3.3196636184308743
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.002_m512/ds55273_is22888",
+   "status": "ok",
+   "forecast": 7630,
+   "log_t_law": 4.109217885810178
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.002_m512/ds51644_is94351",
+   "status": "ok",
+   "forecast": 5037,
+   "log_t_law": 3.112913982631838
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.002_m512/ds53907_is23880",
+   "status": "ok",
+   "forecast": 5252,
+   "log_t_law": 3.8759983803336033
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.002_m512/ds57560_is75140",
+   "status": "ok",
+   "forecast": 10092,
+   "log_t_law": 4.172780313345468
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.002_m512/ds57107_is82416",
+   "status": "ok",
+   "forecast": 5391,
+   "log_t_law": 3.964414859839698
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.002_m512/ds54489_is18927",
+   "status": "ok",
+   "forecast": 10733,
+   "log_t_law": 4.07582347990025
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.002_m512/ds57598_is92353",
+   "status": "ok",
+   "forecast": 7592,
+   "log_t_law": 4.174313685295518
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.002_m512/ds53132_is99065",
+   "status": "ok",
+   "forecast": 1349,
+   "log_t_law": 3.484098286896861
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.002_m512/ds58770_is71235",
+   "status": "ok",
+   "forecast": 1940,
+   "log_t_law": 2.961752017130393
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.002_m512/ds53353_is64382",
+   "status": "ok",
+   "forecast": 1766,
+   "log_t_law": 2.764516018833348
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.002_m512/ds56704_is18808",
+   "status": "ok",
+   "forecast": 2206,
+   "log_t_law": 3.4153224058741665
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.002_m512/ds56361_is61823",
+   "status": "ok",
+   "forecast": 1194,
+   "log_t_law": 2.7495048830607116
+  },
+  {
+   "run": "v3/f0.3_wd2.0_lr0.002_m512/ds55298_is90945",
+   "status": "ok",
+   "forecast": 1653,
+   "log_t_law": 2.9972086572704564
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m256/ds51299_is16750",
+   "status": "ok",
+   "forecast": 5587,
+   "log_t_law": 3.952413401122068
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m256/ds55525_is71145",
+   "status": "ok",
+   "forecast": 7406,
+   "log_t_law": 3.8792112698584615
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m256/ds53819_is11069",
+   "status": "ok",
+   "forecast": 14711,
+   "log_t_law": 4.349352595547557
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m256/ds53549_is27745",
+   "status": "ok",
+   "forecast": 8431,
+   "log_t_law": 3.9043123417775116
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m256/ds53015_is35852",
+   "status": "ok",
+   "forecast": 26788,
+   "log_t_law": 4.7972421152429225
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m256/ds59036_is69619",
+   "status": "ok",
+   "forecast": 10562,
+   "log_t_law": 4.498092848095031
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m1024/ds59024_is40732",
+   "status": "ok",
+   "forecast": 4648,
+   "log_t_law": 4.0202707006398954
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m1024/ds53366_is11011",
+   "status": "ok",
+   "forecast": 10951,
+   "log_t_law": 4.435718984343036
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m1024/ds54721_is33588",
+   "status": "ok",
+   "forecast": 3501,
+   "log_t_law": 3.747831950629064
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m1024/ds51902_is92079",
+   "status": "ok",
+   "forecast": 3617,
+   "log_t_law": 3.819493894709439
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m1024/ds52518_is23414",
+   "status": "ok",
+   "forecast": 8818,
+   "log_t_law": 4.411521888931905
+  },
+  {
+   "run": "v3/f0.3_wd1.0_lr0.001_m1024/ds51576_is55704",
+   "status": "ok",
+   "forecast": 6865,
+   "log_t_law": 4.241645600855828
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m1024/ds52337_is96988",
+   "status": "ok",
+   "forecast": 8676,
+   "log_t_law": 4.2521662174019035
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m1024/ds50665_is28817",
+   "status": "ok",
+   "forecast": 14048,
+   "log_t_law": 4.511316048302422
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m1024/ds59880_is74043",
+   "status": "ok",
+   "forecast": 14690,
+   "log_t_law": 4.5505494658497385
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m1024/ds51956_is98157",
+   "status": "ok",
+   "forecast": 20862,
+   "log_t_law": 4.657833670424414
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m1024/ds50034_is49377",
+   "status": "ok",
+   "forecast": 13627,
+   "log_t_law": 4.628891828128805
+  },
+  {
+   "run": "v3/f0.25_wd1.0_lr0.001_m1024/ds52777_is12925",
+   "status": "ok",
+   "forecast": "CENSORED",
+   "log_t_law": 5.010104251667694
+  },
+  {
+   "run": "v3/f0.3_wd5.0_lr0.001_m512/ds59607_is80472",
+   "status": "ok",
+   "forecast": 762,
+   "log_t_law": 2.7053120714451713
+  },
+  {
+   "run": "v3/f0.3_wd5.0_lr0.001_m512/ds58616_is12484",
+   "status": "ok",
+   "forecast": 974,
+   "log_t_law": 3.189737348691903
+  },
+  {
+   "run": "v3/f0.3_wd5.0_lr0.001_m512/ds54297_is43741",
+   "status": "ok",
+   "forecast": 800,
+   "log_t_law": 2.7670794209810463
+  },
+  {
+   "run": "v3/f0.3_wd5.0_lr0.001_m512/ds51931_is51841",
+   "status": "ok",
+   "forecast": 914,
+   "log_t_law": 2.6149281242164113
+  },
+  {
+   "run": "v3/f0.3_wd5.0_lr0.001_m512/ds54561_is60770",
+   "status": "ok",
+   "forecast": 995,
+   "log_t_law": 2.7046408872304526
+  },
+  {
+   "run": "v3/f0.3_wd5.0_lr0.001_m512/ds59216_is21446",
+   "status": "ok",
+   "forecast": 1694,
+   "log_t_law": 2.840153970308316
+  },
+  {
+   "run": "v3/f0.22_wd1.0_lr0.001_m512/ds56235_is72173",
+   "status": "ok",
+   "forecast": 17767,
+   "log_t_law": 4.314055773842297
+  },
+  {
+   "run": "v3/f0.22_wd1.0_lr0.001_m512/ds54193_is20020",
+   "status": "ok",
+   "forecast": "CENSORED",
+   "log_t_law": 5.563241794477178
+  },
+  {
+   "run": "v3/f0.22_wd1.0_lr0.001_m512/ds54031_is86270",
+   "status": "ok",
+   "forecast": 29422,
+   "log_t_law": 4.603633374295348
+  },
+  {
+   "run": "v3/f0.22_wd1.0_lr0.001_m512/ds57691_is19444",
+   "status": "ok",
+   "forecast": 16544,
+   "log_t_law": 4.340468356023174
+  },
+  {
+   "run": "v3/f0.22_wd1.0_lr0.001_m512/ds54417_is14058",
+   "status": "ok",
+   "forecast": "CENSORED",
+   "log_t_law": 4.9032612143611125
+  },
+  {
+   "run": "v3/f0.22_wd1.0_lr0.001_m512/ds51068_is52818",
+   "status": "ok",
+   "forecast": 10617,
+   "log_t_law": 3.722172423103104
+  }
+ ]
+}
