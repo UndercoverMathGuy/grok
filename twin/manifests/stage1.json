@@ -1,0 +1,479 @@
+{
+ "stage": 1,
+ "meta_seed": 20260816,
+ "recipe": {
+  "p": 113,
+  "d_model": 128,
+  "num_heads": 4,
+  "d_mlp": 512,
+  "n_ctx": 3,
+  "act_type": "ReLU",
+  "lr": 0.001,
+  "warmup_steps": 10,
+  "weight_decay": 1.0,
+  "betas": [
+   0.9,
+   0.98
+  ],
+  "adam_eps": 1e-08,
+  "test_frac": 0.1
+ },
+ "jobs": [
+  {
+   "name": "basesA/ds47683_is40156",
+   "cohort": "basesA",
+   "group": "basesA",
+   "data_seed": 47683,
+   "init_seed": 40156,
+   "frac": 0.3,
+   "start_epoch": 0,
+   "end_epoch": 30000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    0,
+    10,
+    20,
+    40,
+    80,
+    160,
+    320,
+    640,
+    1280,
+    2560,
+    30000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesA/ds47683_is44699",
+   "cohort": "basesA",
+   "group": "basesA",
+   "data_seed": 47683,
+   "init_seed": 44699,
+   "frac": 0.3,
+   "start_epoch": 0,
+   "end_epoch": 30000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    0,
+    10,
+    20,
+    40,
+    80,
+    160,
+    320,
+    640,
+    1280,
+    2560,
+    30000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesA/ds47683_is45730",
+   "cohort": "basesA",
+   "group": "basesA",
+   "data_seed": 47683,
+   "init_seed": 45730,
+   "frac": 0.3,
+   "start_epoch": 0,
+   "end_epoch": 30000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    0,
+    10,
+    20,
+    40,
+    80,
+    160,
+    320,
+    640,
+    1280,
+    2560,
+    30000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesA/ds47683_is47638",
+   "cohort": "basesA",
+   "group": "basesA",
+   "data_seed": 47683,
+   "init_seed": 47638,
+   "frac": 0.3,
+   "start_epoch": 0,
+   "end_epoch": 30000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    0,
+    10,
+    20,
+    40,
+    80,
+    160,
+    320,
+    640,
+    1280,
+    2560,
+    30000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesA/ds49571_is40156",
+   "cohort": "basesA",
+   "group": "basesA",
+   "data_seed": 49571,
+   "init_seed": 40156,
+   "frac": 0.3,
+   "start_epoch": 0,
+   "end_epoch": 30000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    0,
+    10,
+    20,
+    40,
+    80,
+    160,
+    320,
+    640,
+    1280,
+    2560,
+    30000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesA/ds49571_is44699",
+   "cohort": "basesA",
+   "group": "basesA",
+   "data_seed": 49571,
+   "init_seed": 44699,
+   "frac": 0.3,
+   "start_epoch": 0,
+   "end_epoch": 30000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    0,
+    10,
+    20,
+    40,
+    80,
+    160,
+    320,
+    640,
+    1280,
+    2560,
+    30000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesA/ds49571_is45730",
+   "cohort": "basesA",
+   "group": "basesA",
+   "data_seed": 49571,
+   "init_seed": 45730,
+   "frac": 0.3,
+   "start_epoch": 0,
+   "end_epoch": 30000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    0,
+    10,
+    20,
+    40,
+    80,
+    160,
+    320,
+    640,
+    1280,
+    2560,
+    30000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesA/ds49571_is47638",
+   "cohort": "basesA",
+   "group": "basesA",
+   "data_seed": 49571,
+   "init_seed": 47638,
+   "frac": 0.3,
+   "start_epoch": 0,
+   "end_epoch": 30000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    0,
+    10,
+    20,
+    40,
+    80,
+    160,
+    320,
+    640,
+    1280,
+    2560,
+    30000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesB/ds47683_is40156",
+   "cohort": "basesB",
+   "group": "basesB",
+   "data_seed": 47683,
+   "init_seed": 40156,
+   "frac": 0.5,
+   "start_epoch": 0,
+   "end_epoch": 15000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    10,
+    25,
+    60,
+    150,
+    400,
+    15000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesB/ds47683_is44699",
+   "cohort": "basesB",
+   "group": "basesB",
+   "data_seed": 47683,
+   "init_seed": 44699,
+   "frac": 0.5,
+   "start_epoch": 0,
+   "end_epoch": 15000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    10,
+    25,
+    60,
+    150,
+    400,
+    15000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesB/ds47683_is45730",
+   "cohort": "basesB",
+   "group": "basesB",
+   "data_seed": 47683,
+   "init_seed": 45730,
+   "frac": 0.5,
+   "start_epoch": 0,
+   "end_epoch": 15000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    10,
+    25,
+    60,
+    150,
+    400,
+    15000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesB/ds47683_is47638",
+   "cohort": "basesB",
+   "group": "basesB",
+   "data_seed": 47683,
+   "init_seed": 47638,
+   "frac": 0.5,
+   "start_epoch": 0,
+   "end_epoch": 15000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    10,
+    25,
+    60,
+    150,
+    400,
+    15000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesB/ds49571_is40156",
+   "cohort": "basesB",
+   "group": "basesB",
+   "data_seed": 49571,
+   "init_seed": 40156,
+   "frac": 0.5,
+   "start_epoch": 0,
+   "end_epoch": 15000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    10,
+    25,
+    60,
+    150,
+    400,
+    15000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesB/ds49571_is44699",
+   "cohort": "basesB",
+   "group": "basesB",
+   "data_seed": 49571,
+   "init_seed": 44699,
+   "frac": 0.5,
+   "start_epoch": 0,
+   "end_epoch": 15000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    10,
+    25,
+    60,
+    150,
+    400,
+    15000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesB/ds49571_is45730",
+   "cohort": "basesB",
+   "group": "basesB",
+   "data_seed": 49571,
+   "init_seed": 45730,
+   "frac": 0.5,
+   "start_epoch": 0,
+   "end_epoch": 15000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    10,
+    25,
+    60,
+    150,
+    400,
+    15000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  },
+  {
+   "name": "basesB/ds49571_is47638",
+   "cohort": "basesB",
+   "group": "basesB",
+   "data_seed": 49571,
+   "init_seed": 47638,
+   "frac": 0.5,
+   "start_epoch": 0,
+   "end_epoch": 15000,
+   "log_every": 10,
+   "spectra_every": 25,
+   "ckpt_epochs": [
+    10,
+    25,
+    60,
+    150,
+    400,
+    15000
+   ],
+   "init": {
+    "kind": "fresh"
+   },
+   "edit": {
+    "kind": "none"
+   }
+  }
+ ]
+}

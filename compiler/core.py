@@ -36,8 +36,8 @@ non-W_E tensor byte-identical to the base epoch-0 checkpoint.
 import json
 from pathlib import Path
 
-import mlx.core as mx
 import numpy as np
+from safetensors.numpy import load_file, save_file
 
 from grok.fourier import Fourier
 
@@ -56,13 +56,14 @@ def fourier(p):
 
 def load_ckpt(path):
     """Epoch-0 checkpoint -> dict of float64 numpy arrays (keys as saved)."""
-    return {k: np.array(v, dtype=np.float64) for k, v in mx.load(str(path)).items()}
+    return {k: np.array(v, dtype=np.float64)
+            for k, v in load_file(str(path)).items()}
 
 
 def save_ckpt(path, params):
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-    mx.save_safetensors(str(path),
-                        {k: mx.array(v.astype(np.float32)) for k, v in params.items()})
+    save_file({k: np.ascontiguousarray(v, dtype=np.float32)
+               for k, v in params.items()}, str(path))
 
 
 # ------------------------------------------------------------- T_k readout

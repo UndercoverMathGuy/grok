@@ -1,0 +1,957 @@
+{
+ "arms": {
+  "swap": [
+   {
+    "committee": [
+     13,
+     17,
+     25,
+     43
+    ],
+    "t_gen": 1795,
+    "acc": 1.0,
+    "abs_t_gen": 1815,
+    "rel_dev": 0.32967032967032966,
+    "ratio": 1.3296703296703296,
+    "flip": false,
+    "leader_out": true,
+    "J_donor": 0.6,
+    "name": "ds20474_is648487"
+   },
+   {
+    "committee": [
+     46
+    ],
+    "t_gen": -1,
+    "acc": 0.08233582973480225,
+    "abs_t_gen": -1,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": false,
+    "leader_out": true,
+    "J_donor": 0.0,
+    "name": "ds20474_is677975"
+   },
+   {
+    "committee": [
+     1,
+     23,
+     25,
+     39,
+     50,
+     54
+    ],
+    "t_gen": 2985,
+    "acc": 0.9921691417694092,
+    "abs_t_gen": 3005,
+    "rel_dev": 1.1312056737588652,
+    "ratio": 2.131205673758865,
+    "flip": false,
+    "leader_out": true,
+    "J_donor": 0.2857142857142857,
+    "name": "ds20474_is852875"
+   },
+   {
+    "committee": [
+     1,
+     40,
+     46,
+     50
+    ],
+    "t_gen": 2190,
+    "acc": 1.0,
+    "abs_t_gen": 2210,
+    "rel_dev": 0.12648221343873517,
+    "ratio": 0.8735177865612648,
+    "flip": false,
+    "leader_out": true,
+    "J_donor": 0.5,
+    "name": "ds20474_is888363"
+   },
+   {
+    "committee": [
+     22,
+     53,
+     56
+    ],
+    "t_gen": 1765,
+    "acc": 1.0,
+    "abs_t_gen": 1785,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": false,
+    "leader_out": true,
+    "J_donor": 0.16666666666666666,
+    "name": "ds21435_is648487"
+   },
+   {
+    "committee": [
+     34,
+     36,
+     44,
+     48,
+     52
+    ],
+    "t_gen": 2765,
+    "acc": 1.0,
+    "abs_t_gen": 2785,
+    "rel_dev": 0.03339517625231911,
+    "ratio": 1.033395176252319,
+    "flip": false,
+    "leader_out": true,
+    "J_donor": 0.42857142857142855,
+    "name": "ds21435_is677975"
+   },
+   {
+    "committee": [
+     22,
+     23,
+     29
+    ],
+    "t_gen": 2760,
+    "acc": 1.0,
+    "abs_t_gen": 2780,
+    "rel_dev": 0.27522935779816515,
+    "ratio": 1.275229357798165,
+    "flip": false,
+    "leader_out": true,
+    "J_donor": 0.2,
+    "name": "ds21435_is852875"
+   },
+   {
+    "committee": [
+     23,
+     41,
+     50,
+     56
+    ],
+    "t_gen": 1175,
+    "acc": 1.0,
+    "abs_t_gen": 1195,
+    "rel_dev": 0.14903846153846154,
+    "ratio": 1.1490384615384615,
+    "flip": false,
+    "leader_out": true,
+    "J_donor": 0.4,
+    "name": "ds21435_is888363"
+   }
+  ],
+  "swapsham": [
+   {
+    "committee": [
+     17,
+     25,
+     41,
+     43
+    ],
+    "t_gen": 980,
+    "acc": 1.0,
+    "abs_t_gen": 1000,
+    "rel_dev": 0.2673992673992674,
+    "ratio": 0.7326007326007326,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is648487"
+   },
+   {
+    "committee": [
+     27,
+     33
+    ],
+    "t_gen": -1,
+    "acc": 0.09094977378845215,
+    "abs_t_gen": -1,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": true,
+    "leader_out": false,
+    "J_donor": 0.5,
+    "name": "ds20474_is677975"
+   },
+   {
+    "committee": [
+     41,
+     49,
+     50
+    ],
+    "t_gen": 1420,
+    "acc": 1.0,
+    "abs_t_gen": 1440,
+    "rel_dev": 0.02127659574468085,
+    "ratio": 1.0212765957446808,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.5,
+    "name": "ds20474_is852875"
+   },
+   {
+    "committee": [
+     13,
+     18,
+     41,
+     43,
+     50
+    ],
+    "t_gen": 2720,
+    "acc": 1.0,
+    "abs_t_gen": 2740,
+    "rel_dev": 0.08300395256916997,
+    "ratio": 1.08300395256917,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.42857142857142855,
+    "name": "ds20474_is888363"
+   },
+   {
+    "committee": [
+     22,
+     28,
+     41,
+     55
+    ],
+    "t_gen": 2020,
+    "acc": 1.0,
+    "abs_t_gen": 2040,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.6,
+    "name": "ds21435_is648487"
+   },
+   {
+    "committee": [
+     3,
+     27,
+     44,
+     52
+    ],
+    "t_gen": 2195,
+    "acc": 1.0,
+    "abs_t_gen": 2215,
+    "rel_dev": 0.17810760667903525,
+    "ratio": 0.8218923933209648,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.5,
+    "name": "ds21435_is677975"
+   },
+   {
+    "committee": [
+     22,
+     32,
+     56
+    ],
+    "t_gen": 1915,
+    "acc": 1.0,
+    "abs_t_gen": 1935,
+    "rel_dev": 0.11238532110091744,
+    "ratio": 0.8876146788990825,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.5,
+    "name": "ds21435_is852875"
+   },
+   {
+    "committee": [
+     23,
+     29,
+     41,
+     50
+    ],
+    "t_gen": 1120,
+    "acc": 1.0,
+    "abs_t_gen": 1140,
+    "rel_dev": 0.09615384615384616,
+    "ratio": 1.0961538461538463,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.75,
+    "name": "ds21435_is888363"
+   }
+  ],
+  "jump": [
+   {
+    "committee": [
+     25,
+     41,
+     43
+    ],
+    "t_gen": 185,
+    "acc": 1.0,
+    "abs_t_gen": 385,
+    "rel_dev": 0.717948717948718,
+    "ratio": 0.28205128205128205,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.75,
+    "name": "ds20474_is648487"
+   },
+   {
+    "committee": [
+     25,
+     27,
+     33,
+     46
+    ],
+    "t_gen": 230,
+    "acc": 1.0,
+    "abs_t_gen": 430,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": true,
+    "leader_out": false,
+    "J_donor": 0.25,
+    "name": "ds20474_is677975"
+   },
+   {
+    "committee": [
+     49,
+     50
+    ],
+    "t_gen": 155,
+    "acc": 1.0,
+    "abs_t_gen": 355,
+    "rel_dev": 0.74822695035461,
+    "ratio": 0.25177304964539005,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.6666666666666666,
+    "name": "ds20474_is852875"
+   },
+   {
+    "committee": [
+     40,
+     41,
+     43,
+     50
+    ],
+    "t_gen": 190,
+    "acc": 1.0,
+    "abs_t_gen": 390,
+    "rel_dev": 0.8458498023715415,
+    "ratio": 0.1541501976284585,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.8,
+    "name": "ds20474_is888363"
+   },
+   {
+    "committee": [
+     41
+    ],
+    "t_gen": 200,
+    "acc": 1.0,
+    "abs_t_gen": 400,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.25,
+    "name": "ds21435_is648487"
+   },
+   {
+    "committee": [
+     3,
+     33,
+     44
+    ],
+    "t_gen": 225,
+    "acc": 1.0,
+    "abs_t_gen": 425,
+    "rel_dev": 0.8423005565862709,
+    "ratio": 0.15769944341372913,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.3333333333333333,
+    "name": "ds21435_is677975"
+   },
+   {
+    "committee": [
+     22,
+     41,
+     56
+    ],
+    "t_gen": 225,
+    "acc": 1.0,
+    "abs_t_gen": 425,
+    "rel_dev": 0.805045871559633,
+    "ratio": 0.19495412844036697,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is852875"
+   },
+   {
+    "committee": [
+     23,
+     29,
+     41
+    ],
+    "t_gen": 180,
+    "acc": 1.0,
+    "abs_t_gen": 380,
+    "rel_dev": 0.6346153846153846,
+    "ratio": 0.36538461538461536,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is888363"
+   }
+  ],
+  "jump500": [
+   {
+    "committee": [
+     25,
+     41,
+     43
+    ],
+    "t_gen": 165,
+    "acc": 1.0,
+    "abs_t_gen": 665,
+    "rel_dev": 0.5128205128205128,
+    "ratio": 0.48717948717948717,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.75,
+    "name": "ds20474_is648487"
+   },
+   {
+    "committee": [
+     25,
+     27,
+     33
+    ],
+    "t_gen": 235,
+    "acc": 1.0,
+    "abs_t_gen": 735,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": true,
+    "leader_out": false,
+    "J_donor": 0.3333333333333333,
+    "name": "ds20474_is677975"
+   },
+   {
+    "committee": [
+     49,
+     50
+    ],
+    "t_gen": 145,
+    "acc": 1.0,
+    "abs_t_gen": 645,
+    "rel_dev": 0.5425531914893617,
+    "ratio": 0.4574468085106383,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.6666666666666666,
+    "name": "ds20474_is852875"
+   },
+   {
+    "committee": [
+     40,
+     41,
+     43,
+     46,
+     50
+    ],
+    "t_gen": 190,
+    "acc": 1.0,
+    "abs_t_gen": 690,
+    "rel_dev": 0.7272727272727273,
+    "ratio": 0.2727272727272727,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is888363"
+   },
+   {
+    "committee": [
+     41
+    ],
+    "t_gen": 215,
+    "acc": 1.0,
+    "abs_t_gen": 715,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.25,
+    "name": "ds21435_is648487"
+   },
+   {
+    "committee": [
+     3,
+     33,
+     44
+    ],
+    "t_gen": 230,
+    "acc": 1.0,
+    "abs_t_gen": 730,
+    "rel_dev": 0.7291280148423006,
+    "ratio": 0.27087198515769945,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.3333333333333333,
+    "name": "ds21435_is677975"
+   },
+   {
+    "committee": [
+     22,
+     41,
+     56
+    ],
+    "t_gen": 230,
+    "acc": 1.0,
+    "abs_t_gen": 730,
+    "rel_dev": 0.6651376146788991,
+    "ratio": 0.3348623853211009,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is852875"
+   },
+   {
+    "committee": [
+     23,
+     29,
+     41
+    ],
+    "t_gen": 125,
+    "acc": 1.0,
+    "abs_t_gen": 625,
+    "rel_dev": 0.39903846153846156,
+    "ratio": 0.6009615384615384,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is888363"
+   }
+  ],
+  "jump1000": [
+   {
+    "committee": [
+     25,
+     41,
+     43
+    ],
+    "t_gen": 90,
+    "acc": 1.0,
+    "abs_t_gen": 1090,
+    "rel_dev": 0.20146520146520147,
+    "ratio": 0.7985347985347986,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.75,
+    "name": "ds20474_is648487"
+   },
+   {
+    "committee": [
+     25,
+     27,
+     33
+    ],
+    "t_gen": 235,
+    "acc": 1.0,
+    "abs_t_gen": 1235,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": true,
+    "leader_out": false,
+    "J_donor": 0.3333333333333333,
+    "name": "ds20474_is677975"
+   },
+   {
+    "committee": [
+     49,
+     50,
+     54
+    ],
+    "t_gen": 125,
+    "acc": 1.0,
+    "abs_t_gen": 1125,
+    "rel_dev": 0.20212765957446807,
+    "ratio": 0.7978723404255319,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is852875"
+   },
+   {
+    "committee": [
+     40,
+     41,
+     43,
+     46,
+     50
+    ],
+    "t_gen": 185,
+    "acc": 1.0,
+    "abs_t_gen": 1185,
+    "rel_dev": 0.5316205533596838,
+    "ratio": 0.4683794466403162,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is888363"
+   },
+   {
+    "committee": [
+     41
+    ],
+    "t_gen": 290,
+    "acc": 1.0,
+    "abs_t_gen": 1290,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.25,
+    "name": "ds21435_is648487"
+   },
+   {
+    "committee": [
+     3,
+     33,
+     34,
+     44
+    ],
+    "t_gen": 245,
+    "acc": 1.0,
+    "abs_t_gen": 1245,
+    "rel_dev": 0.5380333951762524,
+    "ratio": 0.4619666048237477,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.5,
+    "name": "ds21435_is677975"
+   },
+   {
+    "committee": [
+     22,
+     41,
+     56
+    ],
+    "t_gen": 210,
+    "acc": 1.0,
+    "abs_t_gen": 1210,
+    "rel_dev": 0.44495412844036697,
+    "ratio": 0.555045871559633,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is852875"
+   },
+   {
+    "committee": [
+     23,
+     29,
+     41
+    ],
+    "t_gen": 15,
+    "acc": 1.0,
+    "abs_t_gen": 1015,
+    "rel_dev": 0.02403846153846154,
+    "ratio": 0.9759615384615384,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is888363"
+   }
+  ],
+  "gate1000": [
+   {
+    "committee": [
+     17,
+     25,
+     41,
+     43
+    ],
+    "t_gen": 460,
+    "acc": 1.0,
+    "abs_t_gen": 1460,
+    "rel_dev": 0.0695970695970696,
+    "ratio": 1.0695970695970696,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is648487"
+   },
+   {
+    "committee": [
+     27
+    ],
+    "t_gen": -1,
+    "acc": 0.09576015174388885,
+    "abs_t_gen": -1,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is677975"
+   },
+   {
+    "committee": [
+     49,
+     50,
+     54
+    ],
+    "t_gen": 550,
+    "acc": 1.0,
+    "abs_t_gen": 1550,
+    "rel_dev": 0.09929078014184398,
+    "ratio": 1.099290780141844,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is852875"
+   },
+   {
+    "committee": [
+     40,
+     41,
+     43,
+     46,
+     50
+    ],
+    "t_gen": 1725,
+    "acc": 1.0,
+    "abs_t_gen": 2725,
+    "rel_dev": 0.07707509881422925,
+    "ratio": 1.0770750988142292,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is888363"
+   },
+   {
+    "committee": [
+     22,
+     28,
+     41,
+     52
+    ],
+    "t_gen": 2225,
+    "acc": 1.0,
+    "abs_t_gen": 3225,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is648487"
+   },
+   {
+    "committee": [
+     3,
+     27,
+     34,
+     36,
+     44
+    ],
+    "t_gen": 1880,
+    "acc": 1.0,
+    "abs_t_gen": 2880,
+    "rel_dev": 0.0686456400742115,
+    "ratio": 1.0686456400742115,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is677975"
+   },
+   {
+    "committee": [
+     22,
+     41,
+     56
+    ],
+    "t_gen": 1400,
+    "acc": 1.0,
+    "abs_t_gen": 2400,
+    "rel_dev": 0.10091743119266056,
+    "ratio": 1.1009174311926606,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is852875"
+   },
+   {
+    "committee": [
+     23,
+     29,
+     41
+    ],
+    "t_gen": 55,
+    "acc": 1.0,
+    "abs_t_gen": 1055,
+    "rel_dev": 0.014423076923076924,
+    "ratio": 1.0144230769230769,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is888363"
+   }
+  ],
+  "jumpgate": [
+   {
+    "committee": [
+     17,
+     25,
+     41,
+     43
+    ],
+    "t_gen": 1400,
+    "acc": 1.0,
+    "abs_t_gen": 1600,
+    "rel_dev": 0.17216117216117216,
+    "ratio": 1.1721611721611722,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is648487"
+   },
+   {
+    "committee": [
+     27
+    ],
+    "t_gen": -1,
+    "acc": 0.08613938838243484,
+    "abs_t_gen": -1,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is677975"
+   },
+   {
+    "committee": [
+     49,
+     50,
+     54
+    ],
+    "t_gen": 1520,
+    "acc": 1.0,
+    "abs_t_gen": 1720,
+    "rel_dev": 0.2198581560283688,
+    "ratio": 1.2198581560283688,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is852875"
+   },
+   {
+    "committee": [
+     40,
+     41,
+     43,
+     46,
+     50
+    ],
+    "t_gen": 2620,
+    "acc": 1.0,
+    "abs_t_gen": 2820,
+    "rel_dev": 0.11462450592885376,
+    "ratio": 1.1146245059288538,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds20474_is888363"
+   },
+   {
+    "committee": [
+     22,
+     28,
+     41,
+     52
+    ],
+    "t_gen": -1,
+    "acc": 0.9742700457572937,
+    "abs_t_gen": -1,
+    "rel_dev": null,
+    "ratio": null,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is648487"
+   },
+   {
+    "committee": [
+     3,
+     27,
+     34,
+     36,
+     44
+    ],
+    "t_gen": 2825,
+    "acc": 0.9991050362586975,
+    "abs_t_gen": 3025,
+    "rel_dev": 0.12244897959183673,
+    "ratio": 1.1224489795918366,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is677975"
+   },
+   {
+    "committee": [
+     22,
+     37,
+     56
+    ],
+    "t_gen": 2260,
+    "acc": 1.0,
+    "abs_t_gen": 2460,
+    "rel_dev": 0.12844036697247707,
+    "ratio": 1.128440366972477,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 0.5,
+    "name": "ds21435_is852875"
+   },
+   {
+    "committee": [
+     23,
+     29,
+     41
+    ],
+    "t_gen": 1000,
+    "acc": 1.0,
+    "abs_t_gen": 1200,
+    "rel_dev": 0.15384615384615385,
+    "ratio": 1.1538461538461537,
+    "flip": false,
+    "leader_out": false,
+    "J_donor": 1.0,
+    "name": "ds21435_is888363"
+   }
+  ]
+ },
+ "verdicts": {
+  "P-B5": {
+   "flips": 0,
+   "n": 8,
+   "result": "FAIL"
+  },
+  "P-B6": {
+   "swap_med_rel_dev": 0.21213390966831336,
+   "sham_med_rel_dev": 0.1042695836273818,
+   "result": "FAIL"
+  },
+  "P-B7": {
+   "J_curve": {
+    "jump": 0.7083333333333333,
+    "jump500": 0.7083333333333333,
+    "jump1000": 0.875
+   },
+   "gate1000": 1.0,
+   "result": "PASS"
+  },
+  "P-B8": {
+   "med_ratio": 0.6764591059925824,
+   "result": "PASS"
+  }
+ }
+}

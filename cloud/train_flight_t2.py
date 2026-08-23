@@ -520,6 +520,59 @@ def stage_v3_seg2(args):
                       compile_mode=args.compile_mode, save_optim=True)
 
 
+# ------------------------- weight-space mechanism test -------------------------
+# Is the delay deletion (Nanda et al. 2023: wd sheds the memorizer) or
+# outcompetition? Committee-agnostic 2D logit spectrum + W_E/W_U Fourier
+# energies every SPECTRA_EVERY, dense checkpoints for post-hoc excluded /
+# restricted loss with the FINAL committee. Analysis: flight/wspace_analysis.py
+WSPACE_CELLS = [(f, wd) for f in (0.3, 0.5) for wd in (0.3, 1.0, 3.0)]
+WSPACE_SEEDS = 4
+WSPACE_EPOCHS = 50_000
+WSPACE_CKPT = 250
+
+
+def stage_wspace(args):
+    jobs = []
+    for frac, wd in WSPACE_CELLS:
+        for ds, is_ in draw_seeds(f"wspace_f{frac}_wd{wd}", WSPACE_SEEDS):
+            rd = RUNS / "wspace" / f"f{frac}_wd{wd}" / f"ds{ds}_is{is_}"
+            if (rd / "spectra.npz").exists():
+                continue
+            jobs.append((mk_cfg("add", 113, frac, wd, ds, is_, WSPACE_EPOCHS,
+                                save_every=WSPACE_CKPT), rd))
+    if not jobs:
+        print("wspace complete"); return
+    print(f"wspace: {len(jobs)} runs, {WSPACE_EPOCHS} ep, ckpt every {WSPACE_CKPT}")
+    train_batched([c for c, _ in jobs], [rd for _, rd in jobs],
+                  spectra_every=SPECTRA_EVERY, loss=args.loss,
+                  compile_mode=args.compile_mode, weight_tap=True)
+
+
+# ------------------------- wd -> 0: floor or divergence? -------------------------
+# lambda_0 so far is a regression intercept over wd >= 0.1 (and at wd 0.1
+# most runs censor at 50k). Direct test with long budgets.
+WD0_CELLS = [(f, wd) for f in (0.3, 0.5) for wd in (0.0, 0.01, 0.03, 0.1)]
+WD0_SEEDS = 6
+WD0_EPOCHS = 150_000
+
+
+def stage_wd0(args):
+    jobs = []
+    for frac, wd in WD0_CELLS:
+        for ds, is_ in draw_seeds(f"wd0_f{frac}_wd{wd}", WD0_SEEDS):
+            rd = RUNS / "wd0" / f"f{frac}_wd{wd}" / f"ds{ds}_is{is_}"
+            if (rd / "spectra.npz").exists():
+                continue
+            jobs.append((mk_cfg("add", 113, frac, wd, ds, is_, WD0_EPOCHS,
+                                save_every=WD0_EPOCHS), rd))
+    if not jobs:
+        print("wd0 complete"); return
+    print(f"wd0: {len(jobs)} runs, {WD0_EPOCHS} ep")
+    train_batched([c for c, _ in jobs], [rd for _, rd in jobs],
+                  spectra_every=SPECTRA_EVERY * 4, loss=args.loss,
+                  compile_mode=args.compile_mode, weight_tap=True)
+
+
 STAGES = {"t2d-seg1": stage_t2d_seg1, "t2d-forecast": stage_t2d_forecast,
           "t2d-seg2": stage_t2d_seg2, "t2d-floor": stage_t2d_floor,
           "t2c": stage_t2c, "t2e": stage_t2e,
@@ -528,7 +581,8 @@ STAGES = {"t2d-seg1": stage_t2d_seg1, "t2d-forecast": stage_t2d_forecast,
           "t2dv2-seg2": stage_t2dv2_seg2,
           "floornoise": stage_floornoise,
           "v3-seg1": stage_v3_seg1,
-          "v3-forecast": stage_v3_forecast, "v3-seg2": stage_v3_seg2}
+          "v3-forecast": stage_v3_forecast, "v3-seg2": stage_v3_seg2,
+          "wspace": stage_wspace, "wd0": stage_wd0}
 
 
 def main():
@@ -541,7 +595,9 @@ def main():
     ap.add_argument("--smoke", action="store_true")
     args = ap.parse_args()
     global FORECAST_EPOCH, TOTAL_EPOCHS, FLOOR_EPOCHS, T2E_EPOCHS, SPECTRA_EVERY
+    global WSPACE_EPOCHS, WSPACE_CKPT, WD0_EPOCHS
     if args.smoke:
+        WSPACE_EPOCHS, WSPACE_CKPT, WD0_EPOCHS = 80, 20, 80
         # tiny end-to-end wiring test (separate RUNS tree; forecasts are
         # numerically meaningless and written to a smoke path)
         args.compile_mode = "off"

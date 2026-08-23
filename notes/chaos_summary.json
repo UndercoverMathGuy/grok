@@ -1,0 +1,517 @@
+{
+ "rows": [
+  {
+   "seed": 101,
+   "eps": 0.0001,
+   "rep": 0,
+   "base": [
+    1,
+    22,
+    28,
+    48,
+    55,
+    56
+   ],
+   "pert": [
+    56
+   ],
+   "jaccard": 0.16666666666666666,
+   "exact": false
+  },
+  {
+   "seed": 101,
+   "eps": 0.0001,
+   "rep": 1,
+   "base": [
+    1,
+    22,
+    28,
+    48,
+    55,
+    56
+   ],
+   "pert": [
+    48,
+    55,
+    56
+   ],
+   "jaccard": 0.5,
+   "exact": false
+  },
+  {
+   "seed": 101,
+   "eps": 0.001,
+   "rep": 0,
+   "base": [
+    1,
+    22,
+    28,
+    48,
+    55,
+    56
+   ],
+   "pert": [
+    55,
+    56
+   ],
+   "jaccard": 0.3333333333333333,
+   "exact": false
+  },
+  {
+   "seed": 101,
+   "eps": 0.001,
+   "rep": 1,
+   "base": [
+    1,
+    22,
+    28,
+    48,
+    55,
+    56
+   ],
+   "pert": [
+    48,
+    55,
+    56
+   ],
+   "jaccard": 0.5,
+   "exact": false
+  },
+  {
+   "seed": 101,
+   "eps": 0.01,
+   "rep": 0,
+   "base": [
+    1,
+    22,
+    28,
+    48,
+    55,
+    56
+   ],
+   "pert": [
+    56
+   ],
+   "jaccard": 0.16666666666666666,
+   "exact": false
+  },
+  {
+   "seed": 101,
+   "eps": 0.01,
+   "rep": 1,
+   "base": [
+    1,
+    22,
+    28,
+    48,
+    55,
+    56
+   ],
+   "pert": [
+    56
+   ],
+   "jaccard": 0.16666666666666666,
+   "exact": false
+  },
+  {
+   "seed": 101,
+   "eps": 0.1,
+   "rep": 0,
+   "base": [
+    1,
+    22,
+    28,
+    48,
+    55,
+    56
+   ],
+   "pert": [
+    56
+   ],
+   "jaccard": 0.16666666666666666,
+   "exact": false
+  },
+  {
+   "seed": 101,
+   "eps": 0.1,
+   "rep": 1,
+   "base": [
+    1,
+    22,
+    28,
+    48,
+    55,
+    56
+   ],
+   "pert": [
+    56
+   ],
+   "jaccard": 0.16666666666666666,
+   "exact": false
+  },
+  {
+   "seed": 202,
+   "eps": 0.0001,
+   "rep": 0,
+   "base": [
+    35
+   ],
+   "pert": [
+    33,
+    34,
+    35,
+    41
+   ],
+   "jaccard": 0.25,
+   "exact": false
+  },
+  {
+   "seed": 202,
+   "eps": 0.0001,
+   "rep": 1,
+   "base": [
+    35
+   ],
+   "pert": [
+    33,
+    34,
+    35,
+    41
+   ],
+   "jaccard": 0.25,
+   "exact": false
+  },
+  {
+   "seed": 202,
+   "eps": 0.001,
+   "rep": 0,
+   "base": [
+    35
+   ],
+   "pert": [
+    33,
+    34,
+    35,
+    41
+   ],
+   "jaccard": 0.25,
+   "exact": false
+  },
+  {
+   "seed": 202,
+   "eps": 0.001,
+   "rep": 1,
+   "base": [
+    35
+   ],
+   "pert": [
+    33,
+    34,
+    35,
+    41
+   ],
+   "jaccard": 0.25,
+   "exact": false
+  },
+  {
+   "seed": 202,
+   "eps": 0.01,
+   "rep": 0,
+   "base": [
+    35
+   ],
+   "pert": [
+    35
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 202,
+   "eps": 0.01,
+   "rep": 1,
+   "base": [
+    35
+   ],
+   "pert": [
+    35
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 202,
+   "eps": 0.1,
+   "rep": 0,
+   "base": [
+    35
+   ],
+   "pert": [
+    33
+   ],
+   "jaccard": 0.0,
+   "exact": false
+  },
+  {
+   "seed": 202,
+   "eps": 0.1,
+   "rep": 1,
+   "base": [
+    35
+   ],
+   "pert": [
+    35
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 303,
+   "eps": 0.0001,
+   "rep": 0,
+   "base": [
+    34
+   ],
+   "pert": [
+    21,
+    34
+   ],
+   "jaccard": 0.5,
+   "exact": false
+  },
+  {
+   "seed": 303,
+   "eps": 0.0001,
+   "rep": 1,
+   "base": [
+    34
+   ],
+   "pert": [
+    34
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 303,
+   "eps": 0.001,
+   "rep": 0,
+   "base": [
+    34
+   ],
+   "pert": [
+    34
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 303,
+   "eps": 0.001,
+   "rep": 1,
+   "base": [
+    34
+   ],
+   "pert": [
+    34
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 303,
+   "eps": 0.01,
+   "rep": 0,
+   "base": [
+    34
+   ],
+   "pert": [
+    34
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 303,
+   "eps": 0.01,
+   "rep": 1,
+   "base": [
+    34
+   ],
+   "pert": [
+    34
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 303,
+   "eps": 0.1,
+   "rep": 0,
+   "base": [
+    34
+   ],
+   "pert": [
+    21,
+    34
+   ],
+   "jaccard": 0.5,
+   "exact": false
+  },
+  {
+   "seed": 303,
+   "eps": 0.1,
+   "rep": 1,
+   "base": [
+    34
+   ],
+   "pert": [
+    34
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 404,
+   "eps": 0.0001,
+   "rep": 0,
+   "base": [
+    11,
+    43
+   ],
+   "pert": [
+    11,
+    43
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 404,
+   "eps": 0.0001,
+   "rep": 1,
+   "base": [
+    11,
+    43
+   ],
+   "pert": [
+    11,
+    43
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 404,
+   "eps": 0.001,
+   "rep": 0,
+   "base": [
+    11,
+    43
+   ],
+   "pert": [
+    11,
+    43
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 404,
+   "eps": 0.001,
+   "rep": 1,
+   "base": [
+    11,
+    43
+   ],
+   "pert": [
+    11,
+    43
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 404,
+   "eps": 0.01,
+   "rep": 0,
+   "base": [
+    11,
+    43
+   ],
+   "pert": [
+    5,
+    11,
+    43
+   ],
+   "jaccard": 0.6666666666666666,
+   "exact": false
+  },
+  {
+   "seed": 404,
+   "eps": 0.01,
+   "rep": 1,
+   "base": [
+    11,
+    43
+   ],
+   "pert": [
+    11,
+    43
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  },
+  {
+   "seed": 404,
+   "eps": 0.1,
+   "rep": 0,
+   "base": [
+    11,
+    43
+   ],
+   "pert": [
+    43
+   ],
+   "jaccard": 0.5,
+   "exact": false
+  },
+  {
+   "seed": 404,
+   "eps": 0.1,
+   "rep": 1,
+   "base": [
+    11,
+    43
+   ],
+   "pert": [
+    11,
+    43
+   ],
+   "jaccard": 1.0,
+   "exact": true
+  }
+ ],
+ "summary": {
+  "0.0001": {
+   "n": 8,
+   "exact_rate": 0.375,
+   "mean_jaccard": 0.5833333333333333
+  },
+  "0.001": {
+   "n": 8,
+   "exact_rate": 0.5,
+   "mean_jaccard": 0.6666666666666666
+  },
+  "0.01": {
+   "n": 8,
+   "exact_rate": 0.625,
+   "mean_jaccard": 0.75
+  },
+  "0.1": {
+   "n": 8,
+   "exact_rate": 0.375,
+   "mean_jaccard": 0.5416666666666666
+  }
+ }
+}

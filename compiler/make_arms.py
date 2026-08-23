@@ -112,6 +112,118 @@ def make_sweep(args):
           "exact-rate non-decreasing in s within each K.")
 
 
+def make_crossed(args):
+    """Phase C: the S-side content dissociation, built to be testable.
+
+    Three defects of Phase B are fixed by construction:
+      1. ONE shared content pool, drawn once, installed at every dose on
+         every base. Phase B redrew inside the innermost loop, so all 96
+         target sets were distinct and the 'identity' factor was an index
+         label carrying no content -- the within-dose permutation was
+         vacuous. Here content is a genuine crossed factor.
+      2. Natural substrate: the base's own W_E draw is kept, so the init is
+         a real natural init with a tilt added, not a QR-flattened field.
+      3. Every base with an epoch-0 checkpoint (2 data masks x 4 init
+         seeds), not 2 bases off a single mask.
+    One no-install control per base anchors the natural t_gen of the cohort.
+    """
+    bases = natural_bases(args.p)[:args.bases]
+    assert len(bases) == args.bases, f"only {len(bases)} bases available"
+    rng = np.random.default_rng(args.rng_seed)
+    (ARMS / "ckpts_c").mkdir(parents=True, exist_ok=True)
+    safeties = [float(x) for x in args.crossed.split(",")]
+
+    pool = []
+    while len(pool) < args.n_contents:
+        S, feas = draw_feasible_set(rng, args.p, args.k, args.floor_pct)
+        if S not in [c[0] for c in pool]:
+            pool.append((S, feas))
+    print(f"shared content pool (K={args.k}, drawn once, crossed with "
+          f"dose x base):")
+    for i, (S, _) in enumerate(pool):
+        print(f"  content{i}: {S}")
+
+    def rec(tag, bdir, kind, ckpt, run_sub, epochs, cell, **kw):
+        """Paths are stored REPO-RELATIVE: the cloud pod resolves them against
+        its own clone root, so nothing depends on this machine's layout."""
+        cfg = json.loads((bdir / "config.json").read_text()) | dict(
+            num_epochs=epochs, save_every=epochs)
+        cfg.update(kw.pop("config_over", {}))
+        return dict(tag=tag, kind=kind, base=str(bdir.relative_to(RUNS)),
+                    ckpt_rel=str(Path(ckpt).relative_to(ROOT)),
+                    run_rel=str(Path("runs_compiler/phaseC") / run_sub),
+                    run_dir=str(OUT_RUNS / "phaseC" / run_sub),
+                    ckpt=str(ckpt), cell=cell, config=cfg, **kw)
+
+    manifest = []
+    # ---- S-side: content x dose x base, fully crossed -------------------
+    for bdir, bcfg, e0 in bases:
+        bname = bdir.name
+        params = load_ckpt(e0)
+        for ci, (S, feas) in enumerate(pool):
+            for s in safeties:
+                tag = f"s{s:g}_c{ci}_" + "-".join(map(str, S))
+                compiled, rep = compile_init(params, args.p, S,
+                                             substrate=args.substrate,
+                                             route="energy", safety=s,
+                                             renorm="global")
+                assert rep["spec_met"], (tag, rep)
+                ck = ARMS / "ckpts_c" / f"{bname}_{tag}.safetensors"
+                save_ckpt(ck, compiled)
+                manifest.append(rec(
+                    f"{bname}_{tag}", bdir, "sside", ck, f"{bname}/{tag}",
+                    args.epochs, dict(s=s, k=args.k, content=ci, base=bname),
+                    targets=S, feasibility=feas, report=rep,
+                    predicted_committee=S))
+        # no-install control: the base's own epoch-0 checkpoint, untouched.
+        # Anchors this cohort's natural t_gen, so the acceleration the
+        # install buys is measured inside the cohort instead of across it.
+        manifest.append(rec(
+            f"{bname}_control", bdir, "sside_control", e0, f"{bname}/control",
+            args.epochs, dict(s=0.0, k=None, content=None, base=bname),
+            targets=[], feasibility=None, predicted_committee=None,
+            report=dict(substrate="none", route=None, safety=None)))
+        print(f"  {bname}: {len(pool) * len(safeties)} S-side arms + control",
+              flush=True)
+
+    # ---- L-side: late data reveal, post-lock ----------------------------
+    # Resumes from the base's OWN natural checkpoints (save_every=1000), so
+    # the donors are genuine mainline natural runs at wd=1.0 -- not the
+    # wd=3.0 boost donors, 2 of whose 8 never reached the threshold.
+    # frac 0.3 -> 0.7 with the same data_seed: the split is a seeded shuffle
+    # truncated at frac*N, so the larger training set is an exact SUPERSET.
+    # No example changes side, no parameter or optimizer setting is touched.
+    jumps = [int(x) for x in args.jump_times.split(",")]
+    for bdir, bcfg, e0 in bases:
+        bname = bdir.name
+        for t in jumps:
+            ck = bdir / "checkpoints" / f"epoch_{t:05d}.safetensors"
+            assert ck.exists(), f"missing donor checkpoint {ck}"
+            for kind, fr in (("lside_jump", args.frac2),
+                             ("lside_gate", bcfg.frac_train)):
+                sub = f"{bname}/{kind.split('_')[1]}{t}"
+                manifest.append(rec(
+                    f"{bname}_{kind.split('_')[1]}{t}", bdir, kind, ck, sub,
+                    args.lside_epochs,
+                    dict(s=None, k=None, content=None, base=bname, t_jump=t),
+                    targets=[], feasibility=None, predicted_committee=None,
+                    report=dict(substrate="none", route=None, safety=None),
+                    config_over=dict(frac_train=fr)))
+        print(f"  {bname}: {2 * len(jumps)} L-side arms", flush=True)
+
+    out = ARMS / "phaseC_manifest.json"
+    out.write_text(json.dumps(manifest, indent=1))
+    ns = sum(a["kind"].startswith("sside") for a in manifest)
+    nl = sum(a["kind"].startswith("lside") for a in manifest)
+    print(f"\n{len(manifest)} arms -> {out}   (S-side {ns}, L-side {nl})")
+    print(f"S-side: {args.bases} bases x {len(pool)} contents x "
+          f"{len(safeties)} doses (fully crossed) + {args.bases} controls")
+    print(f"L-side: {args.bases} bases x {len(jumps)} jump times "
+          f"x (jump frac {args.frac2} + self-restart gate)")
+    print("PRE-REGISTERED analyses, both committed before training: "
+          "compiler/analyze_sside.py and compiler/analyze_lside.py.")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--p", type=int, default=113)
@@ -126,7 +238,21 @@ def main():
                     help="comma list of safeties -> Phase B sweep mode")
     ap.add_argument("--ks", default="3,4,5")
     ap.add_argument("--sets-per-cell", type=int, default=4)
+    ap.add_argument("--crossed", default=None,
+                    help="comma list of safeties -> Phase C crossed mode")
+    ap.add_argument("--substrate", default="natural",
+                    choices=("natural", "flat"))
+    ap.add_argument("--n-contents", type=int, default=8,
+                    help="size of the shared content pool (Phase C)")
+    ap.add_argument("--jump-times", default="500,1000,2000,4000,6000,8000,10000",
+                    help="Phase C L-side: donor epochs to reveal data at")
+    ap.add_argument("--frac2", type=float, default=0.7,
+                    help="Phase C L-side: revealed training fraction")
+    ap.add_argument("--lside-epochs", type=int, default=20_000)
     args = ap.parse_args()
+    if args.crossed:
+        make_crossed(args)
+        return
     if args.sweep:
         make_sweep(args)
         return

@@ -1,0 +1,6311 @@
+{
+ "g": 2,
+ "dose": 3.0,
+ "seed": 20260819,
+ "contents": [
+  [
+   9,
+   26,
+   40,
+   41
+  ],
+  [
+   24,
+   25,
+   31,
+   53
+  ],
+  [
+   2,
+   23,
+   47,
+   50
+  ]
+ ],
+ "mirrors": [
+  [
+   18,
+   31,
+   33,
+   52
+  ],
+  [
+   7,
+   48,
+   50,
+   51
+  ],
+  [
+   4,
+   13,
+   19,
+   46
+  ]
+ ],
+ "arms": [
+  {
+   "tag": "seed31831_c0_orig",
+   "kind": "install",
+   "base": "seed31831",
+   "ckpt": "mirror/arms/ckpts/seed31831_c0_orig.safetensors",
+   "run_rel": "runs_mirror/seed31831_c0_orig",
+   "cell": {
+    "base": "seed31831",
+    "content": 0,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 31831,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    9,
+    26,
+    40,
+    41
+   ],
+   "feasibility": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894923,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "9": {
+      "need": 4.4000808242483895,
+      "energy_scale": 4.4000808242483895
+     },
+     "26": {
+      "need": 3.842274081110173,
+      "energy_scale": 3.842274081110173
+     },
+     "40": {
+      "need": 3.4128405337954475,
+      "energy_scale": 3.4128405337954475
+     },
+     "41": {
+      "need": 4.029904948374503,
+      "energy_scale": 4.029904948374503
+     }
+    },
+    "margin": 2.9999999999999845,
+    "spec_met": true,
+    "target_ranks": {
+     "9": 2,
+     "26": 4,
+     "40": 1,
+     "41": 3
+    },
+    "tk_top12": [
+     40,
+     9,
+     41,
+     26,
+     35,
+     36,
+     3,
+     2,
+     27,
+     37,
+     31,
+     49
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.6725008037018759
+   }
+  },
+  {
+   "tag": "seed31831_c0_mirr",
+   "kind": "install",
+   "base": "seed31831",
+   "ckpt": "mirror/arms/ckpts/seed31831_c0_mirr.safetensors",
+   "run_rel": "runs_mirror/seed31831_c0_mirr",
+   "cell": {
+    "base": "seed31831",
+    "content": 0,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 31831,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    18,
+    31,
+    33,
+    52
+   ],
+   "feasibility": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894857,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "18": {
+      "need": 4.0053530248654265,
+      "energy_scale": 4.0053530248654265
+     },
+     "31": {
+      "need": 3.632488237247011,
+      "energy_scale": 3.632488237247011
+     },
+     "33": {
+      "need": 4.788134936630318,
+      "energy_scale": 4.788134936630318
+     },
+     "52": {
+      "need": 4.2444128056257435,
+      "energy_scale": 4.2444128056257435
+     }
+    },
+    "margin": 2.999999999999985,
+    "spec_met": true,
+    "target_ranks": {
+     "18": 4,
+     "31": 3,
+     "33": 2,
+     "52": 1
+    },
+    "tk_top12": [
+     52,
+     33,
+     31,
+     18,
+     35,
+     36,
+     3,
+     2,
+     40,
+     27,
+     37,
+     49
+    ],
+    "total_energy_ratio": 1.0000000000000004,
+    "energy_rel_sd": 0.6632331045171086
+   }
+  },
+  {
+   "tag": "seed31831_c1_orig",
+   "kind": "install",
+   "base": "seed31831",
+   "ckpt": "mirror/arms/ckpts/seed31831_c1_orig.safetensors",
+   "run_rel": "runs_mirror/seed31831_c1_orig",
+   "cell": {
+    "base": "seed31831",
+    "content": 1,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 31831,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    24,
+    25,
+    31,
+    53
+   ],
+   "feasibility": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690896,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "24": {
+      "need": 5.2815464720719065,
+      "energy_scale": 5.2815464720719065
+     },
+     "25": {
+      "need": 4.175741391123724,
+      "energy_scale": 4.175741391123724
+     },
+     "31": {
+      "need": 3.632488237247011,
+      "energy_scale": 3.632488237247011
+     },
+     "53": {
+      "need": 4.437209273779152,
+      "energy_scale": 4.437209273779152
+     }
+    },
+    "margin": 2.999999999999988,
+    "spec_met": true,
+    "target_ranks": {
+     "24": 2,
+     "25": 3,
+     "31": 4,
+     "53": 1
+    },
+    "tk_top12": [
+     53,
+     24,
+     25,
+     31,
+     35,
+     36,
+     3,
+     2,
+     40,
+     27,
+     37,
+     49
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.6999232017687177
+   }
+  },
+  {
+   "tag": "seed31831_c1_mirr",
+   "kind": "install",
+   "base": "seed31831",
+   "ckpt": "mirror/arms/ckpts/seed31831_c1_mirr.safetensors",
+   "run_rel": "runs_mirror/seed31831_c1_mirr",
+   "cell": {
+    "base": "seed31831",
+    "content": 1,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 31831,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    7,
+    48,
+    50,
+    51
+   ],
+   "feasibility": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690903,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "7": {
+      "need": 4.835356667364054,
+      "energy_scale": 4.835356667364054
+     },
+     "48": {
+      "need": 3.695097024891148,
+      "energy_scale": 3.695097024891148
+     },
+     "50": {
+      "need": 4.950484535897024,
+      "energy_scale": 4.950484535897024
+     },
+     "51": {
+      "need": 4.273166004402556,
+      "energy_scale": 4.273166004402556
+     }
+    },
+    "margin": 2.9999999999999813,
+    "spec_met": true,
+    "target_ranks": {
+     "7": 1,
+     "48": 4,
+     "50": 3,
+     "51": 2
+    },
+    "tk_top12": [
+     7,
+     51,
+     50,
+     48,
+     35,
+     36,
+     3,
+     2,
+     40,
+     27,
+     37,
+     31
+    ],
+    "total_energy_ratio": 0.9999999999999997,
+    "energy_rel_sd": 0.6714507346662482
+   }
+  },
+  {
+   "tag": "seed31831_c2_orig",
+   "kind": "install",
+   "base": "seed31831",
+   "ckpt": "mirror/arms/ckpts/seed31831_c2_orig.safetensors",
+   "run_rel": "runs_mirror/seed31831_c2_orig",
+   "cell": {
+    "base": "seed31831",
+    "content": 2,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 31831,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    2,
+    23,
+    47,
+    50
+   ],
+   "feasibility": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500605,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "2": {
+      "need": 3.2671942056441936,
+      "energy_scale": 3.2671942056441936
+     },
+     "23": {
+      "need": 4.016141780805258,
+      "energy_scale": 4.016141780805258
+     },
+     "47": {
+      "need": 4.4927984398632494,
+      "energy_scale": 4.4927984398632494
+     },
+     "50": {
+      "need": 4.950484535897024,
+      "energy_scale": 4.950484535897024
+     }
+    },
+    "margin": 2.9999999999999867,
+    "spec_met": true,
+    "target_ranks": {
+     "2": 2,
+     "23": 1,
+     "47": 4,
+     "50": 3
+    },
+    "tk_top12": [
+     23,
+     2,
+     50,
+     47,
+     35,
+     36,
+     3,
+     40,
+     27,
+     37,
+     31,
+     49
+    ],
+    "total_energy_ratio": 0.9999999999999998,
+    "energy_rel_sd": 0.6602700395006186
+   }
+  },
+  {
+   "tag": "seed31831_c2_mirr",
+   "kind": "install",
+   "base": "seed31831",
+   "ckpt": "mirror/arms/ckpts/seed31831_c2_mirr.safetensors",
+   "run_rel": "runs_mirror/seed31831_c2_mirr",
+   "cell": {
+    "base": "seed31831",
+    "content": 2,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 31831,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    4,
+    13,
+    19,
+    46
+   ],
+   "feasibility": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500445,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "4": {
+      "need": 4.158267618273369,
+      "energy_scale": 4.158267618273369
+     },
+     "13": {
+      "need": 4.611402491616017,
+      "energy_scale": 4.611402491616017
+     },
+     "19": {
+      "need": 4.063590018407404,
+      "energy_scale": 4.063590018407404
+     },
+     "46": {
+      "need": 4.293691815433704,
+      "energy_scale": 4.293691815433704
+     }
+    },
+    "margin": 2.9999999999999853,
+    "spec_met": true,
+    "target_ranks": {
+     "4": 4,
+     "13": 3,
+     "19": 2,
+     "46": 1
+    },
+    "tk_top12": [
+     46,
+     19,
+     13,
+     4,
+     35,
+     36,
+     3,
+     2,
+     40,
+     27,
+     37,
+     31
+    ],
+    "total_energy_ratio": 1.0000000000000004,
+    "energy_rel_sd": 0.7015007495446753
+   }
+  },
+  {
+   "tag": "seed31831_control",
+   "kind": "control",
+   "base": "seed31831",
+   "ckpt": "runs_torch/p-113/seed3148/seed31831/checkpoints/epoch_00000.safetensors",
+   "run_rel": "runs_mirror/seed31831_control",
+   "cell": {
+    "base": "seed31831",
+    "content": null,
+    "side": null
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 31831,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [],
+   "feasibility": null,
+   "report": null
+  },
+  {
+   "tag": "seed31831_twin",
+   "kind": "twin",
+   "base": "seed31831",
+   "ckpt": "mirror/arms/ckpts/seed31831_twin.safetensors",
+   "run_rel": "runs_mirror/seed31831_twin",
+   "cell": {
+    "base": "seed31831",
+    "content": 0,
+    "side": "twin"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 31831,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    13,
+    20,
+    36,
+    52
+   ],
+   "feasibility": null,
+   "report": null,
+   "mask": "mirror/arms/masks/seed31831_twin.npy",
+   "twin_of": "seed31831_c0_orig"
+  },
+  {
+   "tag": "seed47904_c0_orig",
+   "kind": "install",
+   "base": "seed47904",
+   "ckpt": "mirror/arms/ckpts/seed47904_c0_orig.safetensors",
+   "run_rel": "runs_mirror/seed47904_c0_orig",
+   "cell": {
+    "base": "seed47904",
+    "content": 0,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 47904,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    9,
+    26,
+    40,
+    41
+   ],
+   "feasibility": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894923,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "9": {
+      "need": 4.379836055529676,
+      "energy_scale": 4.379836055529676
+     },
+     "26": {
+      "need": 3.838259501012372,
+      "energy_scale": 3.838259501012372
+     },
+     "40": {
+      "need": 4.943402744606356,
+      "energy_scale": 4.943402744606356
+     },
+     "41": {
+      "need": 3.908220160842064,
+      "energy_scale": 3.908220160842064
+     }
+    },
+    "margin": 3.0000000000000075,
+    "spec_met": true,
+    "target_ranks": {
+     "9": 2,
+     "26": 4,
+     "40": 3,
+     "41": 1
+    },
+    "tk_top12": [
+     41,
+     9,
+     40,
+     26,
+     45,
+     11,
+     53,
+     46,
+     47,
+     14,
+     20,
+     55
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.6811152875622439
+   }
+  },
+  {
+   "tag": "seed47904_c0_mirr",
+   "kind": "install",
+   "base": "seed47904",
+   "ckpt": "mirror/arms/ckpts/seed47904_c0_mirr.safetensors",
+   "run_rel": "runs_mirror/seed47904_c0_mirr",
+   "cell": {
+    "base": "seed47904",
+    "content": 0,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 47904,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    18,
+    31,
+    33,
+    52
+   ],
+   "feasibility": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894857,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "18": {
+      "need": 4.40091735815562,
+      "energy_scale": 4.40091735815562
+     },
+     "31": {
+      "need": 4.983348192245152,
+      "energy_scale": 4.983348192245152
+     },
+     "33": {
+      "need": 4.0863441041057165,
+      "energy_scale": 4.0863441041057165
+     },
+     "52": {
+      "need": 4.184888174640456,
+      "energy_scale": 4.184888174640456
+     }
+    },
+    "margin": 3.000000000000003,
+    "spec_met": true,
+    "target_ranks": {
+     "18": 4,
+     "31": 3,
+     "33": 2,
+     "52": 1
+    },
+    "tk_top12": [
+     52,
+     33,
+     31,
+     18,
+     45,
+     11,
+     53,
+     46,
+     26,
+     41,
+     47,
+     14
+    ],
+    "total_energy_ratio": 0.9999999999999998,
+    "energy_rel_sd": 0.6954771858596596
+   }
+  },
+  {
+   "tag": "seed47904_c1_orig",
+   "kind": "install",
+   "base": "seed47904",
+   "ckpt": "mirror/arms/ckpts/seed47904_c1_orig.safetensors",
+   "run_rel": "runs_mirror/seed47904_c1_orig",
+   "cell": {
+    "base": "seed47904",
+    "content": 1,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 47904,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    24,
+    25,
+    31,
+    53
+   ],
+   "feasibility": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690896,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "24": {
+      "need": 5.551462995472352,
+      "energy_scale": 5.551462995472352
+     },
+     "25": {
+      "need": 4.099670454334394,
+      "energy_scale": 4.099670454334394
+     },
+     "31": {
+      "need": 4.983348192245152,
+      "energy_scale": 4.983348192245152
+     },
+     "53": {
+      "need": 3.5491862366948452,
+      "energy_scale": 3.5491862366948452
+     }
+    },
+    "margin": 3.000000000000002,
+    "spec_met": true,
+    "target_ranks": {
+     "24": 1,
+     "25": 2,
+     "31": 3,
+     "53": 4
+    },
+    "tk_top12": [
+     24,
+     25,
+     31,
+     53,
+     45,
+     11,
+     46,
+     26,
+     41,
+     47,
+     14,
+     20
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.7195405453093551
+   }
+  },
+  {
+   "tag": "seed47904_c1_mirr",
+   "kind": "install",
+   "base": "seed47904",
+   "ckpt": "mirror/arms/ckpts/seed47904_c1_mirr.safetensors",
+   "run_rel": "runs_mirror/seed47904_c1_mirr",
+   "cell": {
+    "base": "seed47904",
+    "content": 1,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 47904,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    7,
+    48,
+    50,
+    51
+   ],
+   "feasibility": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690903,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "7": {
+      "need": 4.79450552097019,
+      "energy_scale": 4.79450552097019
+     },
+     "48": {
+      "need": 5.27078473560027,
+      "energy_scale": 5.27078473560027
+     },
+     "50": {
+      "need": 4.373409980625427,
+      "energy_scale": 4.373409980625427
+     },
+     "51": {
+      "need": 4.073712842142184,
+      "energy_scale": 4.073712842142184
+     }
+    },
+    "margin": 2.999999999999998,
+    "spec_met": true,
+    "target_ranks": {
+     "7": 1,
+     "48": 2,
+     "50": 4,
+     "51": 3
+    },
+    "tk_top12": [
+     7,
+     48,
+     51,
+     50,
+     45,
+     11,
+     53,
+     46,
+     26,
+     41,
+     47,
+     14
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.7323358962649916
+   }
+  },
+  {
+   "tag": "seed47904_c2_orig",
+   "kind": "install",
+   "base": "seed47904",
+   "ckpt": "mirror/arms/ckpts/seed47904_c2_orig.safetensors",
+   "run_rel": "runs_mirror/seed47904_c2_orig",
+   "cell": {
+    "base": "seed47904",
+    "content": 2,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 47904,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    2,
+    23,
+    47,
+    50
+   ],
+   "feasibility": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500605,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "2": {
+      "need": 4.99838388282678,
+      "energy_scale": 4.99838388282678
+     },
+     "23": {
+      "need": 4.513161582900056,
+      "energy_scale": 4.513161582900056
+     },
+     "47": {
+      "need": 3.959765444944668,
+      "energy_scale": 3.959765444944668
+     },
+     "50": {
+      "need": 4.373409980625427,
+      "energy_scale": 4.373409980625427
+     }
+    },
+    "margin": 2.999999999999999,
+    "spec_met": true,
+    "target_ranks": {
+     "2": 2,
+     "23": 1,
+     "47": 4,
+     "50": 3
+    },
+    "tk_top12": [
+     23,
+     2,
+     50,
+     47,
+     45,
+     11,
+     53,
+     46,
+     26,
+     41,
+     14,
+     20
+    ],
+    "total_energy_ratio": 0.9999999999999998,
+    "energy_rel_sd": 0.7090248556195407
+   }
+  },
+  {
+   "tag": "seed47904_c2_mirr",
+   "kind": "install",
+   "base": "seed47904",
+   "ckpt": "mirror/arms/ckpts/seed47904_c2_mirr.safetensors",
+   "run_rel": "runs_mirror/seed47904_c2_mirr",
+   "cell": {
+    "base": "seed47904",
+    "content": 2,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 47904,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    4,
+    13,
+    19,
+    46
+   ],
+   "feasibility": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500445,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "4": {
+      "need": 4.096235148292185,
+      "energy_scale": 4.096235148292185
+     },
+     "13": {
+      "need": 6.774527201917138,
+      "energy_scale": 6.774527201917138
+     },
+     "19": {
+      "need": 5.177861020122334,
+      "energy_scale": 5.177861020122334
+     },
+     "46": {
+      "need": 3.819497349901439,
+      "energy_scale": 3.819497349901439
+     }
+    },
+    "margin": 2.999999999999996,
+    "spec_met": true,
+    "target_ranks": {
+     "4": 3,
+     "13": 1,
+     "19": 2,
+     "46": 4
+    },
+    "tk_top12": [
+     13,
+     19,
+     4,
+     46,
+     45,
+     11,
+     53,
+     26,
+     41,
+     47,
+     14,
+     20
+    ],
+    "total_energy_ratio": 0.9999999999999998,
+    "energy_rel_sd": 0.7436211550993588
+   }
+  },
+  {
+   "tag": "seed47904_control",
+   "kind": "control",
+   "base": "seed47904",
+   "ckpt": "runs_torch/p-113/seed3148/seed47904/checkpoints/epoch_00000.safetensors",
+   "run_rel": "runs_mirror/seed47904_control",
+   "cell": {
+    "base": "seed47904",
+    "content": null,
+    "side": null
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 47904,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [],
+   "feasibility": null,
+   "report": null
+  },
+  {
+   "tag": "seed47904_twin",
+   "kind": "twin",
+   "base": "seed47904",
+   "ckpt": "mirror/arms/ckpts/seed47904_twin.safetensors",
+   "run_rel": "runs_mirror/seed47904_twin",
+   "cell": {
+    "base": "seed47904",
+    "content": 0,
+    "side": "twin"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 47904,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    13,
+    20,
+    36,
+    52
+   ],
+   "feasibility": null,
+   "report": null,
+   "mask": "mirror/arms/masks/seed47904_twin.npy",
+   "twin_of": "seed47904_c0_orig"
+  },
+  {
+   "tag": "seed69089_c0_orig",
+   "kind": "install",
+   "base": "seed69089",
+   "ckpt": "mirror/arms/ckpts/seed69089_c0_orig.safetensors",
+   "run_rel": "runs_mirror/seed69089_c0_orig",
+   "cell": {
+    "base": "seed69089",
+    "content": 0,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 69089,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    9,
+    26,
+    40,
+    41
+   ],
+   "feasibility": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894923,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "9": {
+      "need": 3.736770901383556,
+      "energy_scale": 3.736770901383556
+     },
+     "26": {
+      "need": 3.898582924079395,
+      "energy_scale": 3.898582924079395
+     },
+     "40": {
+      "need": 3.037650357368687,
+      "energy_scale": 3.037650357368687
+     },
+     "41": {
+      "need": 4.196640794131014,
+      "energy_scale": 4.196640794131014
+     }
+    },
+    "margin": 3.0000000000000027,
+    "spec_met": true,
+    "target_ranks": {
+     "9": 4,
+     "26": 2,
+     "40": 1,
+     "41": 3
+    },
+    "tk_top12": [
+     40,
+     26,
+     41,
+     9,
+     35,
+     14,
+     53,
+     22,
+     42,
+     17,
+     23,
+     1
+    ],
+    "total_energy_ratio": 0.9999999999999998,
+    "energy_rel_sd": 0.5846667150231847
+   }
+  },
+  {
+   "tag": "seed69089_c0_mirr",
+   "kind": "install",
+   "base": "seed69089",
+   "ckpt": "mirror/arms/ckpts/seed69089_c0_mirr.safetensors",
+   "run_rel": "runs_mirror/seed69089_c0_mirr",
+   "cell": {
+    "base": "seed69089",
+    "content": 0,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 69089,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    18,
+    31,
+    33,
+    52
+   ],
+   "feasibility": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894857,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "18": {
+      "need": 5.0645765498121,
+      "energy_scale": 5.0645765498121
+     },
+     "31": {
+      "need": 4.267014848486371,
+      "energy_scale": 4.267014848486371
+     },
+     "33": {
+      "need": 4.231149884388331,
+      "energy_scale": 4.231149884388331
+     },
+     "52": {
+      "need": 4.863362243327273,
+      "energy_scale": 4.863362243327273
+     }
+    },
+    "margin": 3.000000000000008,
+    "spec_met": true,
+    "target_ranks": {
+     "18": 1,
+     "31": 3,
+     "33": 4,
+     "52": 2
+    },
+    "tk_top12": [
+     18,
+     52,
+     31,
+     33,
+     35,
+     40,
+     14,
+     53,
+     22,
+     42,
+     17,
+     23
+    ],
+    "total_energy_ratio": 0.9999999999999999,
+    "energy_rel_sd": 0.675131925267066
+   }
+  },
+  {
+   "tag": "seed69089_c1_orig",
+   "kind": "install",
+   "base": "seed69089",
+   "ckpt": "mirror/arms/ckpts/seed69089_c1_orig.safetensors",
+   "run_rel": "runs_mirror/seed69089_c1_orig",
+   "cell": {
+    "base": "seed69089",
+    "content": 1,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 69089,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    24,
+    25,
+    31,
+    53
+   ],
+   "feasibility": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690896,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "24": {
+      "need": 4.360909279072064,
+      "energy_scale": 4.360909279072064
+     },
+     "25": {
+      "need": 4.58631881174797,
+      "energy_scale": 4.58631881174797
+     },
+     "31": {
+      "need": 4.267014848486371,
+      "energy_scale": 4.267014848486371
+     },
+     "53": {
+      "need": 3.138436398649979,
+      "energy_scale": 3.138436398649979
+     }
+    },
+    "margin": 3.000000000000009,
+    "spec_met": true,
+    "target_ranks": {
+     "24": 3,
+     "25": 1,
+     "31": 4,
+     "53": 2
+    },
+    "tk_top12": [
+     25,
+     53,
+     24,
+     31,
+     35,
+     40,
+     14,
+     22,
+     42,
+     17,
+     23,
+     1
+    ],
+    "total_energy_ratio": 0.9999999999999999,
+    "energy_rel_sd": 0.6301252538337698
+   }
+  },
+  {
+   "tag": "seed69089_c1_mirr",
+   "kind": "install",
+   "base": "seed69089",
+   "ckpt": "mirror/arms/ckpts/seed69089_c1_mirr.safetensors",
+   "run_rel": "runs_mirror/seed69089_c1_mirr",
+   "cell": {
+    "base": "seed69089",
+    "content": 1,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 69089,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    7,
+    48,
+    50,
+    51
+   ],
+   "feasibility": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690903,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "7": {
+      "need": 4.02394191061821,
+      "energy_scale": 4.02394191061821
+     },
+     "48": {
+      "need": 3.378468417027018,
+      "energy_scale": 3.378468417027018
+     },
+     "50": {
+      "need": 3.8951581955478485,
+      "energy_scale": 3.8951581955478485
+     },
+     "51": {
+      "need": 3.5911262836958993,
+      "energy_scale": 3.5911262836958993
+     }
+    },
+    "margin": 2.9999999999999982,
+    "spec_met": true,
+    "target_ranks": {
+     "7": 2,
+     "48": 3,
+     "50": 1,
+     "51": 4
+    },
+    "tk_top12": [
+     50,
+     7,
+     48,
+     51,
+     35,
+     40,
+     14,
+     53,
+     22,
+     42,
+     17,
+     23
+    ],
+    "total_energy_ratio": 1.0000000000000002,
+    "energy_rel_sd": 0.5682600763584827
+   }
+  },
+  {
+   "tag": "seed69089_c2_orig",
+   "kind": "install",
+   "base": "seed69089",
+   "ckpt": "mirror/arms/ckpts/seed69089_c2_orig.safetensors",
+   "run_rel": "runs_mirror/seed69089_c2_orig",
+   "cell": {
+    "base": "seed69089",
+    "content": 2,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 69089,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    2,
+    23,
+    47,
+    50
+   ],
+   "feasibility": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500605,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "2": {
+      "need": 3.9620727852399624,
+      "energy_scale": 3.9620727852399624
+     },
+     "23": {
+      "need": 3.1774032075002543,
+      "energy_scale": 3.1774032075002543
+     },
+     "47": {
+      "need": 3.5577333848026442,
+      "energy_scale": 3.5577333848026442
+     },
+     "50": {
+      "need": 3.8951581955478485,
+      "energy_scale": 3.8951581955478485
+     }
+    },
+    "margin": 3.000000000000004,
+    "spec_met": true,
+    "target_ranks": {
+     "2": 3,
+     "23": 4,
+     "47": 1,
+     "50": 2
+    },
+    "tk_top12": [
+     47,
+     50,
+     2,
+     23,
+     35,
+     40,
+     14,
+     53,
+     22,
+     42,
+     17,
+     1
+    ],
+    "total_energy_ratio": 1.0000000000000002,
+    "energy_rel_sd": 0.5810025581404378
+   }
+  },
+  {
+   "tag": "seed69089_c2_mirr",
+   "kind": "install",
+   "base": "seed69089",
+   "ckpt": "mirror/arms/ckpts/seed69089_c2_mirr.safetensors",
+   "run_rel": "runs_mirror/seed69089_c2_mirr",
+   "cell": {
+    "base": "seed69089",
+    "content": 2,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 69089,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    4,
+    13,
+    19,
+    46
+   ],
+   "feasibility": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500445,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "4": {
+      "need": 4.053429610354645,
+      "energy_scale": 4.053429610354645
+     },
+     "13": {
+      "need": 4.603904090402662,
+      "energy_scale": 4.603904090402662
+     },
+     "19": {
+      "need": 3.796841654728093,
+      "energy_scale": 3.796841654728093
+     },
+     "46": {
+      "need": 3.7778202318994993,
+      "energy_scale": 3.7778202318994993
+     }
+    },
+    "margin": 3.000000000000006,
+    "spec_met": true,
+    "target_ranks": {
+     "4": 4,
+     "13": 3,
+     "19": 1,
+     "46": 2
+    },
+    "tk_top12": [
+     19,
+     46,
+     13,
+     4,
+     35,
+     40,
+     14,
+     53,
+     22,
+     42,
+     17,
+     23
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.6726802782634259
+   }
+  },
+  {
+   "tag": "seed69089_control",
+   "kind": "control",
+   "base": "seed69089",
+   "ckpt": "runs_torch/p-113/seed3148/seed69089/checkpoints/epoch_00000.safetensors",
+   "run_rel": "runs_mirror/seed69089_control",
+   "cell": {
+    "base": "seed69089",
+    "content": null,
+    "side": null
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 69089,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [],
+   "feasibility": null,
+   "report": null
+  },
+  {
+   "tag": "seed69089_twin",
+   "kind": "twin",
+   "base": "seed69089",
+   "ckpt": "mirror/arms/ckpts/seed69089_twin.safetensors",
+   "run_rel": "runs_mirror/seed69089_twin",
+   "cell": {
+    "base": "seed69089",
+    "content": 0,
+    "side": "twin"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 69089,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    13,
+    20,
+    36,
+    52
+   ],
+   "feasibility": null,
+   "report": null,
+   "mask": "mirror/arms/masks/seed69089_twin.npy",
+   "twin_of": "seed69089_c0_orig"
+  },
+  {
+   "tag": "seed81412_c0_orig",
+   "kind": "install",
+   "base": "seed81412",
+   "ckpt": "mirror/arms/ckpts/seed81412_c0_orig.safetensors",
+   "run_rel": "runs_mirror/seed81412_c0_orig",
+   "cell": {
+    "base": "seed81412",
+    "content": 0,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 81412,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    9,
+    26,
+    40,
+    41
+   ],
+   "feasibility": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894923,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "9": {
+      "need": 4.424169954365445,
+      "energy_scale": 4.424169954365445
+     },
+     "26": {
+      "need": 3.980305891278524,
+      "energy_scale": 3.980305891278524
+     },
+     "40": {
+      "need": 3.51311430986595,
+      "energy_scale": 3.51311430986595
+     },
+     "41": {
+      "need": 3.4419922067448225,
+      "energy_scale": 3.4419922067448225
+     }
+    },
+    "margin": 2.9999999999999956,
+    "spec_met": true,
+    "target_ranks": {
+     "9": 4,
+     "26": 2,
+     "40": 1,
+     "41": 3
+    },
+    "tk_top12": [
+     40,
+     26,
+     41,
+     9,
+     23,
+     10,
+     29,
+     6,
+     35,
+     8,
+     30,
+     48
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.6354347092723012
+   }
+  },
+  {
+   "tag": "seed81412_c0_mirr",
+   "kind": "install",
+   "base": "seed81412",
+   "ckpt": "mirror/arms/ckpts/seed81412_c0_mirr.safetensors",
+   "run_rel": "runs_mirror/seed81412_c0_mirr",
+   "cell": {
+    "base": "seed81412",
+    "content": 0,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 81412,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    18,
+    31,
+    33,
+    52
+   ],
+   "feasibility": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894857,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "18": {
+      "need": 4.461859790432633,
+      "energy_scale": 4.461859790432633
+     },
+     "31": {
+      "need": 3.872439667215641,
+      "energy_scale": 3.872439667215641
+     },
+     "33": {
+      "need": 3.6603187117650595,
+      "energy_scale": 3.6603187117650595
+     },
+     "52": {
+      "need": 4.315614242027804,
+      "energy_scale": 4.315614242027804
+     }
+    },
+    "margin": 2.999999999999996,
+    "spec_met": true,
+    "target_ranks": {
+     "18": 2,
+     "31": 4,
+     "33": 3,
+     "52": 1
+    },
+    "tk_top12": [
+     52,
+     18,
+     33,
+     31,
+     23,
+     10,
+     29,
+     6,
+     35,
+     8,
+     30,
+     48
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.6290744817190206
+   }
+  },
+  {
+   "tag": "seed81412_c1_orig",
+   "kind": "install",
+   "base": "seed81412",
+   "ckpt": "mirror/arms/ckpts/seed81412_c1_orig.safetensors",
+   "run_rel": "runs_mirror/seed81412_c1_orig",
+   "cell": {
+    "base": "seed81412",
+    "content": 1,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 81412,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    24,
+    25,
+    31,
+    53
+   ],
+   "feasibility": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690896,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "24": {
+      "need": 3.5702183348854657,
+      "energy_scale": 3.5702183348854657
+     },
+     "25": {
+      "need": 3.9989978592648123,
+      "energy_scale": 3.9989978592648123
+     },
+     "31": {
+      "need": 3.872439667215641,
+      "energy_scale": 3.872439667215641
+     },
+     "53": {
+      "need": 4.569723883055104,
+      "energy_scale": 4.569723883055104
+     }
+    },
+    "margin": 2.999999999999996,
+    "spec_met": true,
+    "target_ranks": {
+     "24": 2,
+     "25": 3,
+     "31": 4,
+     "53": 1
+    },
+    "tk_top12": [
+     53,
+     24,
+     25,
+     31,
+     23,
+     10,
+     29,
+     6,
+     35,
+     8,
+     30,
+     48
+    ],
+    "total_energy_ratio": 1.0000000000000002,
+    "energy_rel_sd": 0.5697370272028096
+   }
+  },
+  {
+   "tag": "seed81412_c1_mirr",
+   "kind": "install",
+   "base": "seed81412",
+   "ckpt": "mirror/arms/ckpts/seed81412_c1_mirr.safetensors",
+   "run_rel": "runs_mirror/seed81412_c1_mirr",
+   "cell": {
+    "base": "seed81412",
+    "content": 1,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 81412,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    7,
+    48,
+    50,
+    51
+   ],
+   "feasibility": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690903,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "7": {
+      "need": 3.466088587332858,
+      "energy_scale": 3.466088587332858
+     },
+     "48": {
+      "need": 3.283097087388536,
+      "energy_scale": 3.283097087388536
+     },
+     "50": {
+      "need": 3.6116705029173812,
+      "energy_scale": 3.6116705029173812
+     },
+     "51": {
+      "need": 4.115207724189134,
+      "energy_scale": 4.115207724189134
+     }
+    },
+    "margin": 2.999999999999996,
+    "spec_met": true,
+    "target_ranks": {
+     "7": 3,
+     "48": 4,
+     "50": 1,
+     "51": 2
+    },
+    "tk_top12": [
+     50,
+     51,
+     7,
+     48,
+     23,
+     10,
+     29,
+     6,
+     35,
+     8,
+     30,
+     13
+    ],
+    "total_energy_ratio": 1.0000000000000002,
+    "energy_rel_sd": 0.5439450979792839
+   }
+  },
+  {
+   "tag": "seed81412_c2_orig",
+   "kind": "install",
+   "base": "seed81412",
+   "ckpt": "mirror/arms/ckpts/seed81412_c2_orig.safetensors",
+   "run_rel": "runs_mirror/seed81412_c2_orig",
+   "cell": {
+    "base": "seed81412",
+    "content": 2,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 81412,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    2,
+    23,
+    47,
+    50
+   ],
+   "feasibility": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500605,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "2": {
+      "need": 3.4279462101341234,
+      "energy_scale": 3.4279462101341234
+     },
+     "23": {
+      "need": 2.9992951463582123,
+      "energy_scale": 2.9992951463582123
+     },
+     "47": {
+      "need": 3.556006236284903,
+      "energy_scale": 3.556006236284903
+     },
+     "50": {
+      "need": 3.6108219365484087,
+      "energy_scale": 3.6108219365484087
+     }
+    },
+    "margin": 2.9999999999999982,
+    "spec_met": true,
+    "target_ranks": {
+     "2": 4,
+     "23": 3,
+     "47": 2,
+     "50": 1
+    },
+    "tk_top12": [
+     50,
+     47,
+     23,
+     2,
+     10,
+     29,
+     6,
+     35,
+     8,
+     30,
+     48,
+     13
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.5401045882232348
+   }
+  },
+  {
+   "tag": "seed81412_c2_mirr",
+   "kind": "install",
+   "base": "seed81412",
+   "ckpt": "mirror/arms/ckpts/seed81412_c2_mirr.safetensors",
+   "run_rel": "runs_mirror/seed81412_c2_mirr",
+   "cell": {
+    "base": "seed81412",
+    "content": 2,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 81412,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    4,
+    13,
+    19,
+    46
+   ],
+   "feasibility": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500445,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "4": {
+      "need": 3.377397081805471,
+      "energy_scale": 3.377397081805471
+     },
+     "13": {
+      "need": 3.3259390082974316,
+      "energy_scale": 3.3259390082974316
+     },
+     "19": {
+      "need": 3.775912927319997,
+      "energy_scale": 3.775912927319997
+     },
+     "46": {
+      "need": 3.3948289130936833,
+      "energy_scale": 3.3948289130936833
+     }
+    },
+    "margin": 2.999999999999998,
+    "spec_met": true,
+    "target_ranks": {
+     "4": 4,
+     "13": 2,
+     "19": 1,
+     "46": 3
+    },
+    "tk_top12": [
+     19,
+     13,
+     46,
+     4,
+     23,
+     10,
+     29,
+     6,
+     35,
+     8,
+     30,
+     48
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.5427702647183116
+   }
+  },
+  {
+   "tag": "seed81412_control",
+   "kind": "control",
+   "base": "seed81412",
+   "ckpt": "runs_torch/p-113/seed3148/seed81412/checkpoints/epoch_00000.safetensors",
+   "run_rel": "runs_mirror/seed81412_control",
+   "cell": {
+    "base": "seed81412",
+    "content": null,
+    "side": null
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 81412,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [],
+   "feasibility": null,
+   "report": null
+  },
+  {
+   "tag": "seed81412_twin",
+   "kind": "twin",
+   "base": "seed81412",
+   "ckpt": "mirror/arms/ckpts/seed81412_twin.safetensors",
+   "run_rel": "runs_mirror/seed81412_twin",
+   "cell": {
+    "base": "seed81412",
+    "content": 0,
+    "side": "twin"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 3148,
+    "init_seed": 81412,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    13,
+    20,
+    36,
+    52
+   ],
+   "feasibility": null,
+   "report": null,
+   "mask": "mirror/arms/masks/seed81412_twin.npy",
+   "twin_of": "seed81412_c0_orig"
+  },
+  {
+   "tag": "seed19078_c0_orig",
+   "kind": "install",
+   "base": "seed19078",
+   "ckpt": "mirror/arms/ckpts/seed19078_c0_orig.safetensors",
+   "run_rel": "runs_mirror/seed19078_c0_orig",
+   "cell": {
+    "base": "seed19078",
+    "content": 0,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 19078,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    9,
+    26,
+    40,
+    41
+   ],
+   "feasibility": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894923,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "9": {
+      "need": 4.073387440725785,
+      "energy_scale": 4.073387440725785
+     },
+     "26": {
+      "need": 3.826394951668871,
+      "energy_scale": 3.826394951668871
+     },
+     "40": {
+      "need": 4.590014200543009,
+      "energy_scale": 4.590014200543009
+     },
+     "41": {
+      "need": 4.710233369685923,
+      "energy_scale": 4.710233369685923
+     }
+    },
+    "margin": 2.999999999999986,
+    "spec_met": true,
+    "target_ranks": {
+     "9": 1,
+     "26": 4,
+     "40": 3,
+     "41": 2
+    },
+    "tk_top12": [
+     9,
+     41,
+     40,
+     26,
+     55,
+     53,
+     5,
+     45,
+     22,
+     54,
+     38,
+     49
+    ],
+    "total_energy_ratio": 0.9999999999999998,
+    "energy_rel_sd": 0.6847630968083024
+   }
+  },
+  {
+   "tag": "seed19078_c0_mirr",
+   "kind": "install",
+   "base": "seed19078",
+   "ckpt": "mirror/arms/ckpts/seed19078_c0_mirr.safetensors",
+   "run_rel": "runs_mirror/seed19078_c0_mirr",
+   "cell": {
+    "base": "seed19078",
+    "content": 0,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 19078,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    18,
+    31,
+    33,
+    52
+   ],
+   "feasibility": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894857,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "18": {
+      "need": 5.106104922865644,
+      "energy_scale": 5.106104922865644
+     },
+     "31": {
+      "need": 4.683509754008009,
+      "energy_scale": 4.683509754008009
+     },
+     "33": {
+      "need": 5.034534404844151,
+      "energy_scale": 5.034534404844151
+     },
+     "52": {
+      "need": 4.7610465753186135,
+      "energy_scale": 4.7610465753186135
+     }
+    },
+    "margin": 2.9999999999999893,
+    "spec_met": true,
+    "target_ranks": {
+     "18": 4,
+     "31": 1,
+     "33": 2,
+     "52": 3
+    },
+    "tk_top12": [
+     31,
+     33,
+     52,
+     18,
+     55,
+     53,
+     5,
+     45,
+     22,
+     54,
+     38,
+     49
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.7223471919488351
+   }
+  },
+  {
+   "tag": "seed19078_c1_orig",
+   "kind": "install",
+   "base": "seed19078",
+   "ckpt": "mirror/arms/ckpts/seed19078_c1_orig.safetensors",
+   "run_rel": "runs_mirror/seed19078_c1_orig",
+   "cell": {
+    "base": "seed19078",
+    "content": 1,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 19078,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    24,
+    25,
+    31,
+    53
+   ],
+   "feasibility": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690896,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "24": {
+      "need": 4.641044152549429,
+      "energy_scale": 4.641044152549429
+     },
+     "25": {
+      "need": 3.7264363434942878,
+      "energy_scale": 3.7264363434942878
+     },
+     "31": {
+      "need": 4.683509754008009,
+      "energy_scale": 4.683509754008009
+     },
+     "53": {
+      "need": 3.122861909006951,
+      "energy_scale": 3.122861909006951
+     }
+    },
+    "margin": 2.9999999999999893,
+    "spec_met": true,
+    "target_ranks": {
+     "24": 2,
+     "25": 3,
+     "31": 1,
+     "53": 4
+    },
+    "tk_top12": [
+     31,
+     24,
+     25,
+     53,
+     55,
+     5,
+     45,
+     22,
+     54,
+     38,
+     49,
+     47
+    ],
+    "total_energy_ratio": 1.0000000000000002,
+    "energy_rel_sd": 0.6935417872018025
+   }
+  },
+  {
+   "tag": "seed19078_c1_mirr",
+   "kind": "install",
+   "base": "seed19078",
+   "ckpt": "mirror/arms/ckpts/seed19078_c1_mirr.safetensors",
+   "run_rel": "runs_mirror/seed19078_c1_mirr",
+   "cell": {
+    "base": "seed19078",
+    "content": 1,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 19078,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    7,
+    48,
+    50,
+    51
+   ],
+   "feasibility": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690903,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "7": {
+      "need": 4.67002513791802,
+      "energy_scale": 4.67002513791802
+     },
+     "48": {
+      "need": 4.436825432291894,
+      "energy_scale": 4.436825432291894
+     },
+     "50": {
+      "need": 3.862273761534858,
+      "energy_scale": 3.862273761534858
+     },
+     "51": {
+      "need": 4.6796379273674145,
+      "energy_scale": 4.6796379273674145
+     }
+    },
+    "margin": 2.999999999999986,
+    "spec_met": true,
+    "target_ranks": {
+     "7": 4,
+     "48": 1,
+     "50": 2,
+     "51": 3
+    },
+    "tk_top12": [
+     48,
+     50,
+     51,
+     7,
+     55,
+     53,
+     5,
+     45,
+     22,
+     54,
+     38,
+     49
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.6906548670362008
+   }
+  },
+  {
+   "tag": "seed19078_c2_orig",
+   "kind": "install",
+   "base": "seed19078",
+   "ckpt": "mirror/arms/ckpts/seed19078_c2_orig.safetensors",
+   "run_rel": "runs_mirror/seed19078_c2_orig",
+   "cell": {
+    "base": "seed19078",
+    "content": 2,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 19078,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    2,
+    23,
+    47,
+    50
+   ],
+   "feasibility": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500605,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "2": {
+      "need": 4.784405809514671,
+      "energy_scale": 4.784405809514671
+     },
+     "23": {
+      "need": 5.2259010912670165,
+      "energy_scale": 5.2259010912670165
+     },
+     "47": {
+      "need": 3.7032888148956062,
+      "energy_scale": 3.7032888148956062
+     },
+     "50": {
+      "need": 3.862273761534858,
+      "energy_scale": 3.862273761534858
+     }
+    },
+    "margin": 2.9999999999999885,
+    "spec_met": true,
+    "target_ranks": {
+     "2": 1,
+     "23": 4,
+     "47": 3,
+     "50": 2
+    },
+    "tk_top12": [
+     2,
+     50,
+     47,
+     23,
+     55,
+     53,
+     5,
+     45,
+     22,
+     54,
+     38,
+     49
+    ],
+    "total_energy_ratio": 0.9999999999999999,
+    "energy_rel_sd": 0.7043566618180835
+   }
+  },
+  {
+   "tag": "seed19078_c2_mirr",
+   "kind": "install",
+   "base": "seed19078",
+   "ckpt": "mirror/arms/ckpts/seed19078_c2_mirr.safetensors",
+   "run_rel": "runs_mirror/seed19078_c2_mirr",
+   "cell": {
+    "base": "seed19078",
+    "content": 2,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 19078,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    4,
+    13,
+    19,
+    46
+   ],
+   "feasibility": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500445,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "4": {
+      "need": 4.091167173099968,
+      "energy_scale": 4.091167173099968
+     },
+     "13": {
+      "need": 4.572351887902869,
+      "energy_scale": 4.572351887902869
+     },
+     "19": {
+      "need": 3.736136056096982,
+      "energy_scale": 3.736136056096982
+     },
+     "46": {
+      "need": 4.089585441918606,
+      "energy_scale": 4.089585441918606
+     }
+    },
+    "margin": 2.9999999999999964,
+    "spec_met": true,
+    "target_ranks": {
+     "4": 2,
+     "13": 4,
+     "19": 3,
+     "46": 1
+    },
+    "tk_top12": [
+     46,
+     4,
+     19,
+     13,
+     55,
+     53,
+     5,
+     45,
+     22,
+     54,
+     38,
+     49
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.689833284695226
+   }
+  },
+  {
+   "tag": "seed19078_control",
+   "kind": "control",
+   "base": "seed19078",
+   "ckpt": "runs_torch/p-113/seed9415/seed19078/checkpoints/epoch_00000.safetensors",
+   "run_rel": "runs_mirror/seed19078_control",
+   "cell": {
+    "base": "seed19078",
+    "content": null,
+    "side": null
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 19078,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [],
+   "feasibility": null,
+   "report": null
+  },
+  {
+   "tag": "seed19078_twin",
+   "kind": "twin",
+   "base": "seed19078",
+   "ckpt": "mirror/arms/ckpts/seed19078_twin.safetensors",
+   "run_rel": "runs_mirror/seed19078_twin",
+   "cell": {
+    "base": "seed19078",
+    "content": 0,
+    "side": "twin"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 19078,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    13,
+    20,
+    36,
+    52
+   ],
+   "feasibility": null,
+   "report": null,
+   "mask": "mirror/arms/masks/seed19078_twin.npy",
+   "twin_of": "seed19078_c0_orig"
+  },
+  {
+   "tag": "seed32610_c0_orig",
+   "kind": "install",
+   "base": "seed32610",
+   "ckpt": "mirror/arms/ckpts/seed32610_c0_orig.safetensors",
+   "run_rel": "runs_mirror/seed32610_c0_orig",
+   "cell": {
+    "base": "seed32610",
+    "content": 0,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 32610,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    9,
+    26,
+    40,
+    41
+   ],
+   "feasibility": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894923,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "9": {
+      "need": 4.014069042550215,
+      "energy_scale": 4.014069042550215
+     },
+     "26": {
+      "need": 5.143406791137382,
+      "energy_scale": 5.143406791137382
+     },
+     "40": {
+      "need": 4.126922076304575,
+      "energy_scale": 4.126922076304575
+     },
+     "41": {
+      "need": 4.2497002911443795,
+      "energy_scale": 4.2497002911443795
+     }
+    },
+    "margin": 2.999999999999991,
+    "spec_met": true,
+    "target_ranks": {
+     "9": 2,
+     "26": 3,
+     "40": 4,
+     "41": 1
+    },
+    "tk_top12": [
+     41,
+     9,
+     26,
+     40,
+     43,
+     47,
+     53,
+     7,
+     3,
+     28,
+     45,
+     27
+    ],
+    "total_energy_ratio": 1.0000000000000004,
+    "energy_rel_sd": 0.6908032306969932
+   }
+  },
+  {
+   "tag": "seed32610_c0_mirr",
+   "kind": "install",
+   "base": "seed32610",
+   "ckpt": "mirror/arms/ckpts/seed32610_c0_mirr.safetensors",
+   "run_rel": "runs_mirror/seed32610_c0_mirr",
+   "cell": {
+    "base": "seed32610",
+    "content": 0,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 32610,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    18,
+    31,
+    33,
+    52
+   ],
+   "feasibility": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894857,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "18": {
+      "need": 5.203492711078682,
+      "energy_scale": 5.203492711078682
+     },
+     "31": {
+      "need": 4.120311983855063,
+      "energy_scale": 4.120311983855063
+     },
+     "33": {
+      "need": 5.010112136462718,
+      "energy_scale": 5.010112136462718
+     },
+     "52": {
+      "need": 3.8901461321540385,
+      "energy_scale": 3.8901461321540385
+     }
+    },
+    "margin": 2.999999999999993,
+    "spec_met": true,
+    "target_ranks": {
+     "18": 2,
+     "31": 3,
+     "33": 1,
+     "52": 4
+    },
+    "tk_top12": [
+     33,
+     18,
+     31,
+     52,
+     43,
+     47,
+     53,
+     7,
+     3,
+     28,
+     45,
+     27
+    ],
+    "total_energy_ratio": 1.0000000000000004,
+    "energy_rel_sd": 0.7227626690964686
+   }
+  },
+  {
+   "tag": "seed32610_c1_orig",
+   "kind": "install",
+   "base": "seed32610",
+   "ckpt": "mirror/arms/ckpts/seed32610_c1_orig.safetensors",
+   "run_rel": "runs_mirror/seed32610_c1_orig",
+   "cell": {
+    "base": "seed32610",
+    "content": 1,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 32610,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    24,
+    25,
+    31,
+    53
+   ],
+   "feasibility": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690896,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "24": {
+      "need": 3.6515875697945175,
+      "energy_scale": 3.6515875697945175
+     },
+     "25": {
+      "need": 4.4803785768150375,
+      "energy_scale": 4.4803785768150375
+     },
+     "31": {
+      "need": 4.120311983855063,
+      "energy_scale": 4.120311983855063
+     },
+     "53": {
+      "need": 3.287981786123081,
+      "energy_scale": 3.287981786123081
+     }
+    },
+    "margin": 2.9999999999999862,
+    "spec_met": true,
+    "target_ranks": {
+     "24": 3,
+     "25": 1,
+     "31": 2,
+     "53": 4
+    },
+    "tk_top12": [
+     25,
+     31,
+     24,
+     53,
+     43,
+     47,
+     7,
+     3,
+     28,
+     45,
+     27,
+     13
+    ],
+    "total_energy_ratio": 1.0000000000000004,
+    "energy_rel_sd": 0.6536169081458033
+   }
+  },
+  {
+   "tag": "seed32610_c1_mirr",
+   "kind": "install",
+   "base": "seed32610",
+   "ckpt": "mirror/arms/ckpts/seed32610_c1_mirr.safetensors",
+   "run_rel": "runs_mirror/seed32610_c1_mirr",
+   "cell": {
+    "base": "seed32610",
+    "content": 1,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 32610,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    7,
+    48,
+    50,
+    51
+   ],
+   "feasibility": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690903,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "7": {
+      "need": 3.3321128401831226,
+      "energy_scale": 3.3321128401831226
+     },
+     "48": {
+      "need": 4.765942314149339,
+      "energy_scale": 4.765942314149339
+     },
+     "50": {
+      "need": 3.5338013840253666,
+      "energy_scale": 3.5338013840253666
+     },
+     "51": {
+      "need": 4.437310826681867,
+      "energy_scale": 4.437310826681867
+     }
+    },
+    "margin": 2.9999999999999893,
+    "spec_met": true,
+    "target_ranks": {
+     "7": 3,
+     "48": 1,
+     "50": 2,
+     "51": 4
+    },
+    "tk_top12": [
+     48,
+     50,
+     7,
+     51,
+     43,
+     47,
+     53,
+     3,
+     28,
+     45,
+     27,
+     13
+    ],
+    "total_energy_ratio": 1.0000000000000004,
+    "energy_rel_sd": 0.6160632449090331
+   }
+  },
+  {
+   "tag": "seed32610_c2_orig",
+   "kind": "install",
+   "base": "seed32610",
+   "ckpt": "mirror/arms/ckpts/seed32610_c2_orig.safetensors",
+   "run_rel": "runs_mirror/seed32610_c2_orig",
+   "cell": {
+    "base": "seed32610",
+    "content": 2,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 32610,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    2,
+    23,
+    47,
+    50
+   ],
+   "feasibility": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500605,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "2": {
+      "need": 3.61399312715025,
+      "energy_scale": 3.61399312715025
+     },
+     "23": {
+      "need": 3.7999754198622155,
+      "energy_scale": 3.7999754198622155
+     },
+     "47": {
+      "need": 3.005895130125829,
+      "energy_scale": 3.005895130125829
+     },
+     "50": {
+      "need": 3.5338013840253666,
+      "energy_scale": 3.5338013840253666
+     }
+    },
+    "margin": 2.9999999999999907,
+    "spec_met": true,
+    "target_ranks": {
+     "2": 4,
+     "23": 1,
+     "47": 3,
+     "50": 2
+    },
+    "tk_top12": [
+     23,
+     50,
+     47,
+     2,
+     43,
+     53,
+     7,
+     3,
+     28,
+     45,
+     27,
+     13
+    ],
+    "total_energy_ratio": 1.0000000000000004,
+    "energy_rel_sd": 0.5431354652792239
+   }
+  },
+  {
+   "tag": "seed32610_c2_mirr",
+   "kind": "install",
+   "base": "seed32610",
+   "ckpt": "mirror/arms/ckpts/seed32610_c2_mirr.safetensors",
+   "run_rel": "runs_mirror/seed32610_c2_mirr",
+   "cell": {
+    "base": "seed32610",
+    "content": 2,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 32610,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    4,
+    13,
+    19,
+    46
+   ],
+   "feasibility": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500445,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "4": {
+      "need": 3.6122277152785034,
+      "energy_scale": 3.6122277152785034
+     },
+     "13": {
+      "need": 3.465402366611498,
+      "energy_scale": 3.465402366611498
+     },
+     "19": {
+      "need": 4.478529551610826,
+      "energy_scale": 4.478529551610826
+     },
+     "46": {
+      "need": 4.826396741402271,
+      "energy_scale": 4.826396741402271
+     }
+    },
+    "margin": 2.99999999999999,
+    "spec_met": true,
+    "target_ranks": {
+     "4": 2,
+     "13": 1,
+     "19": 3,
+     "46": 4
+    },
+    "tk_top12": [
+     13,
+     4,
+     19,
+     46,
+     43,
+     47,
+     53,
+     7,
+     3,
+     28,
+     45,
+     27
+    ],
+    "total_energy_ratio": 1.0000000000000002,
+    "energy_rel_sd": 0.6428892193107398
+   }
+  },
+  {
+   "tag": "seed32610_control",
+   "kind": "control",
+   "base": "seed32610",
+   "ckpt": "runs_torch/p-113/seed9415/seed32610/checkpoints/epoch_00000.safetensors",
+   "run_rel": "runs_mirror/seed32610_control",
+   "cell": {
+    "base": "seed32610",
+    "content": null,
+    "side": null
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 32610,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [],
+   "feasibility": null,
+   "report": null
+  },
+  {
+   "tag": "seed32610_twin",
+   "kind": "twin",
+   "base": "seed32610",
+   "ckpt": "mirror/arms/ckpts/seed32610_twin.safetensors",
+   "run_rel": "runs_mirror/seed32610_twin",
+   "cell": {
+    "base": "seed32610",
+    "content": 0,
+    "side": "twin"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 32610,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    13,
+    20,
+    36,
+    52
+   ],
+   "feasibility": null,
+   "report": null,
+   "mask": "mirror/arms/masks/seed32610_twin.npy",
+   "twin_of": "seed32610_c0_orig"
+  },
+  {
+   "tag": "seed68549_c0_orig",
+   "kind": "install",
+   "base": "seed68549",
+   "ckpt": "mirror/arms/ckpts/seed68549_c0_orig.safetensors",
+   "run_rel": "runs_mirror/seed68549_c0_orig",
+   "cell": {
+    "base": "seed68549",
+    "content": 0,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 68549,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    9,
+    26,
+    40,
+    41
+   ],
+   "feasibility": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894923,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "9": {
+      "need": 4.733439825688026,
+      "energy_scale": 4.733439825688026
+     },
+     "26": {
+      "need": 3.423615756083798,
+      "energy_scale": 3.423615756083798
+     },
+     "40": {
+      "need": 5.333675850515751,
+      "energy_scale": 5.333675850515751
+     },
+     "41": {
+      "need": 3.8078483762281867,
+      "energy_scale": 3.8078483762281867
+     }
+    },
+    "margin": 3.0000000000000018,
+    "spec_met": true,
+    "target_ranks": {
+     "9": 3,
+     "26": 4,
+     "40": 1,
+     "41": 2
+    },
+    "tk_top12": [
+     40,
+     41,
+     9,
+     26,
+     34,
+     10,
+     19,
+     24,
+     21,
+     55,
+     15,
+     18
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.6564197078717054
+   }
+  },
+  {
+   "tag": "seed68549_c0_mirr",
+   "kind": "install",
+   "base": "seed68549",
+   "ckpt": "mirror/arms/ckpts/seed68549_c0_mirr.safetensors",
+   "run_rel": "runs_mirror/seed68549_c0_mirr",
+   "cell": {
+    "base": "seed68549",
+    "content": 0,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 68549,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    18,
+    31,
+    33,
+    52
+   ],
+   "feasibility": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894857,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "18": {
+      "need": 3.5208195425122093,
+      "energy_scale": 3.5208195425122093
+     },
+     "31": {
+      "need": 5.428877302852025,
+      "energy_scale": 5.428877302852025
+     },
+     "33": {
+      "need": 4.5512746441591,
+      "energy_scale": 4.5512746441591
+     },
+     "52": {
+      "need": 3.8640199368393464,
+      "energy_scale": 3.8640199368393464
+     }
+    },
+    "margin": 2.999999999999999,
+    "spec_met": true,
+    "target_ranks": {
+     "18": 4,
+     "31": 3,
+     "33": 2,
+     "52": 1
+    },
+    "tk_top12": [
+     52,
+     33,
+     31,
+     18,
+     34,
+     10,
+     19,
+     24,
+     26,
+     21,
+     55,
+     15
+    ],
+    "total_energy_ratio": 0.9999999999999998,
+    "energy_rel_sd": 0.6668226484986857
+   }
+  },
+  {
+   "tag": "seed68549_c1_orig",
+   "kind": "install",
+   "base": "seed68549",
+   "ckpt": "mirror/arms/ckpts/seed68549_c1_orig.safetensors",
+   "run_rel": "runs_mirror/seed68549_c1_orig",
+   "cell": {
+    "base": "seed68549",
+    "content": 1,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 68549,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    24,
+    25,
+    31,
+    53
+   ],
+   "feasibility": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690896,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "24": {
+      "need": 3.3289776879383144,
+      "energy_scale": 3.3289776879383144
+     },
+     "25": {
+      "need": 3.7239331907113393,
+      "energy_scale": 3.7239331907113393
+     },
+     "31": {
+      "need": 5.428877302852025,
+      "energy_scale": 5.428877302852025
+     },
+     "53": {
+      "need": 3.828340716147657,
+      "energy_scale": 3.828340716147657
+     }
+    },
+    "margin": 3.0000000000000004,
+    "spec_met": true,
+    "target_ranks": {
+     "24": 3,
+     "25": 4,
+     "31": 1,
+     "53": 2
+    },
+    "tk_top12": [
+     31,
+     53,
+     24,
+     25,
+     34,
+     10,
+     19,
+     26,
+     21,
+     55,
+     15,
+     18
+    ],
+    "total_energy_ratio": 0.9999999999999999,
+    "energy_rel_sd": 0.6512159407451685
+   }
+  },
+  {
+   "tag": "seed68549_c1_mirr",
+   "kind": "install",
+   "base": "seed68549",
+   "ckpt": "mirror/arms/ckpts/seed68549_c1_mirr.safetensors",
+   "run_rel": "runs_mirror/seed68549_c1_mirr",
+   "cell": {
+    "base": "seed68549",
+    "content": 1,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 68549,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    7,
+    48,
+    50,
+    51
+   ],
+   "feasibility": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690903,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "7": {
+      "need": 4.06200861176208,
+      "energy_scale": 4.06200861176208
+     },
+     "48": {
+      "need": 4.357902042941898,
+      "energy_scale": 4.357902042941898
+     },
+     "50": {
+      "need": 4.0206188518056685,
+      "energy_scale": 4.0206188518056685
+     },
+     "51": {
+      "need": 3.7696697888710924,
+      "energy_scale": 3.7696697888710924
+     }
+    },
+    "margin": 2.999999999999998,
+    "spec_met": true,
+    "target_ranks": {
+     "7": 2,
+     "48": 3,
+     "50": 1,
+     "51": 4
+    },
+    "tk_top12": [
+     50,
+     7,
+     48,
+     51,
+     34,
+     10,
+     19,
+     24,
+     26,
+     21,
+     55,
+     15
+    ],
+    "total_energy_ratio": 0.9999999999999998,
+    "energy_rel_sd": 0.62954847487324
+   }
+  },
+  {
+   "tag": "seed68549_c2_orig",
+   "kind": "install",
+   "base": "seed68549",
+   "ckpt": "mirror/arms/ckpts/seed68549_c2_orig.safetensors",
+   "run_rel": "runs_mirror/seed68549_c2_orig",
+   "cell": {
+    "base": "seed68549",
+    "content": 2,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 68549,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    2,
+    23,
+    47,
+    50
+   ],
+   "feasibility": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500605,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "2": {
+      "need": 5.966308479684055,
+      "energy_scale": 5.966308479684055
+     },
+     "23": {
+      "need": 4.6191544982253685,
+      "energy_scale": 4.6191544982253685
+     },
+     "47": {
+      "need": 4.1792912571681375,
+      "energy_scale": 4.1792912571681375
+     },
+     "50": {
+      "need": 4.0206188518056685,
+      "energy_scale": 4.0206188518056685
+     }
+    },
+    "margin": 3.000000000000005,
+    "spec_met": true,
+    "target_ranks": {
+     "2": 3,
+     "23": 4,
+     "47": 1,
+     "50": 2
+    },
+    "tk_top12": [
+     47,
+     50,
+     2,
+     23,
+     34,
+     10,
+     19,
+     24,
+     26,
+     21,
+     55,
+     15
+    ],
+    "total_energy_ratio": 1.0000000000000002,
+    "energy_rel_sd": 0.6707583096742733
+   }
+  },
+  {
+   "tag": "seed68549_c2_mirr",
+   "kind": "install",
+   "base": "seed68549",
+   "ckpt": "mirror/arms/ckpts/seed68549_c2_mirr.safetensors",
+   "run_rel": "runs_mirror/seed68549_c2_mirr",
+   "cell": {
+    "base": "seed68549",
+    "content": 2,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 68549,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    4,
+    13,
+    19,
+    46
+   ],
+   "feasibility": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500445,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "4": {
+      "need": 3.804285491445435,
+      "energy_scale": 3.804285491445435
+     },
+     "13": {
+      "need": 4.522793440120458,
+      "energy_scale": 4.522793440120458
+     },
+     "19": {
+      "need": 3.2683292900872685,
+      "energy_scale": 3.2683292900872685
+     },
+     "46": {
+      "need": 4.20325247783205,
+      "energy_scale": 4.20325247783205
+     }
+    },
+    "margin": 3.0000000000000053,
+    "spec_met": true,
+    "target_ranks": {
+     "4": 4,
+     "13": 3,
+     "19": 1,
+     "46": 2
+    },
+    "tk_top12": [
+     19,
+     46,
+     13,
+     4,
+     34,
+     10,
+     24,
+     26,
+     21,
+     55,
+     15,
+     18
+    ],
+    "total_energy_ratio": 0.9999999999999998,
+    "energy_rel_sd": 0.661451729252922
+   }
+  },
+  {
+   "tag": "seed68549_control",
+   "kind": "control",
+   "base": "seed68549",
+   "ckpt": "runs_torch/p-113/seed9415/seed68549/checkpoints/epoch_00000.safetensors",
+   "run_rel": "runs_mirror/seed68549_control",
+   "cell": {
+    "base": "seed68549",
+    "content": null,
+    "side": null
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 68549,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [],
+   "feasibility": null,
+   "report": null
+  },
+  {
+   "tag": "seed68549_twin",
+   "kind": "twin",
+   "base": "seed68549",
+   "ckpt": "mirror/arms/ckpts/seed68549_twin.safetensors",
+   "run_rel": "runs_mirror/seed68549_twin",
+   "cell": {
+    "base": "seed68549",
+    "content": 0,
+    "side": "twin"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 68549,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    13,
+    20,
+    36,
+    52
+   ],
+   "feasibility": null,
+   "report": null,
+   "mask": "mirror/arms/masks/seed68549_twin.npy",
+   "twin_of": "seed68549_c0_orig"
+  },
+  {
+   "tag": "seed85697_c0_orig",
+   "kind": "install",
+   "base": "seed85697",
+   "ckpt": "mirror/arms/ckpts/seed85697_c0_orig.safetensors",
+   "run_rel": "runs_mirror/seed85697_c0_orig",
+   "cell": {
+    "base": "seed85697",
+    "content": 0,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 85697,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    9,
+    26,
+    40,
+    41
+   ],
+   "feasibility": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894923,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     9,
+     26,
+     40,
+     41
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "9": {
+      "need": 3.6184124970493348,
+      "energy_scale": 3.6184124970493348
+     },
+     "26": {
+      "need": 4.490647640478779,
+      "energy_scale": 4.490647640478779
+     },
+     "40": {
+      "need": 5.499791076799968,
+      "energy_scale": 5.499791076799968
+     },
+     "41": {
+      "need": 3.832382612222671,
+      "energy_scale": 3.832382612222671
+     }
+    },
+    "margin": 3.0000000000000013,
+    "spec_met": true,
+    "target_ranks": {
+     "9": 1,
+     "26": 2,
+     "40": 3,
+     "41": 4
+    },
+    "tk_top12": [
+     9,
+     26,
+     40,
+     41,
+     1,
+     28,
+     10,
+     38,
+     11,
+     5,
+     30,
+     42
+    ],
+    "total_energy_ratio": 0.9999999999999998,
+    "energy_rel_sd": 0.6773214648546448
+   }
+  },
+  {
+   "tag": "seed85697_c0_mirr",
+   "kind": "install",
+   "base": "seed85697",
+   "ckpt": "mirror/arms/ckpts/seed85697_c0_mirr.safetensors",
+   "run_rel": "runs_mirror/seed85697_c0_mirr",
+   "cell": {
+    "base": "seed85697",
+    "content": 0,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 85697,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    18,
+    31,
+    33,
+    52
+   ],
+   "feasibility": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "violations": [],
+    "lp_pct": 52.0,
+    "lp_relM": 0.34501340645894857,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     18,
+     31,
+     33,
+     52
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "18": {
+      "need": 4.8292446867692576,
+      "energy_scale": 4.8292446867692576
+     },
+     "31": {
+      "need": 4.157162902267563,
+      "energy_scale": 4.157162902267563
+     },
+     "33": {
+      "need": 4.057938086447282,
+      "energy_scale": 4.057938086447282
+     },
+     "52": {
+      "need": 3.8741372993706515,
+      "energy_scale": 3.8741372993706515
+     }
+    },
+    "margin": 3.0000000000000067,
+    "spec_met": true,
+    "target_ranks": {
+     "18": 3,
+     "31": 4,
+     "33": 1,
+     "52": 2
+    },
+    "tk_top12": [
+     33,
+     52,
+     18,
+     31,
+     1,
+     28,
+     10,
+     38,
+     11,
+     5,
+     30,
+     42
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.6610709363012217
+   }
+  },
+  {
+   "tag": "seed85697_c1_orig",
+   "kind": "install",
+   "base": "seed85697",
+   "ckpt": "mirror/arms/ckpts/seed85697_c1_orig.safetensors",
+   "run_rel": "runs_mirror/seed85697_c1_orig",
+   "cell": {
+    "base": "seed85697",
+    "content": 1,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 85697,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    24,
+    25,
+    31,
+    53
+   ],
+   "feasibility": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690896,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     24,
+     25,
+     31,
+     53
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "24": {
+      "need": 4.191622814074652,
+      "energy_scale": 4.191622814074652
+     },
+     "25": {
+      "need": 4.190865105155834,
+      "energy_scale": 4.190865105155834
+     },
+     "31": {
+      "need": 4.157162902267563,
+      "energy_scale": 4.157162902267563
+     },
+     "53": {
+      "need": 4.175896609757291,
+      "energy_scale": 4.175896609757291
+     }
+    },
+    "margin": 3.0000000000000027,
+    "spec_met": true,
+    "target_ranks": {
+     "24": 2,
+     "25": 4,
+     "31": 3,
+     "53": 1
+    },
+    "tk_top12": [
+     53,
+     24,
+     31,
+     25,
+     1,
+     28,
+     10,
+     38,
+     11,
+     5,
+     30,
+     42
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.7052357908655388
+   }
+  },
+  {
+   "tag": "seed85697_c1_mirr",
+   "kind": "install",
+   "base": "seed85697",
+   "ckpt": "mirror/arms/ckpts/seed85697_c1_mirr.safetensors",
+   "run_rel": "runs_mirror/seed85697_c1_mirr",
+   "cell": {
+    "base": "seed85697",
+    "content": 1,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 85697,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    7,
+    48,
+    50,
+    51
+   ],
+   "feasibility": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "violations": [],
+    "lp_pct": 44.666666666666664,
+    "lp_relM": 0.3265567974690903,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     7,
+     48,
+     50,
+     51
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "7": {
+      "need": 4.475598362274006,
+      "energy_scale": 4.475598362274006
+     },
+     "48": {
+      "need": 4.32360044140013,
+      "energy_scale": 4.32360044140013
+     },
+     "50": {
+      "need": 4.520852463568234,
+      "energy_scale": 4.520852463568234
+     },
+     "51": {
+      "need": 4.278408754420161,
+      "energy_scale": 4.278408754420161
+     }
+    },
+    "margin": 3.0000000000000036,
+    "spec_met": true,
+    "target_ranks": {
+     "7": 1,
+     "48": 4,
+     "50": 2,
+     "51": 3
+    },
+    "tk_top12": [
+     7,
+     50,
+     51,
+     48,
+     1,
+     28,
+     10,
+     38,
+     11,
+     5,
+     30,
+     42
+    ],
+    "total_energy_ratio": 1.0000000000000002,
+    "energy_rel_sd": 0.7106867096411263
+   }
+  },
+  {
+   "tag": "seed85697_c2_orig",
+   "kind": "install",
+   "base": "seed85697",
+   "ckpt": "mirror/arms/ckpts/seed85697_c2_orig.safetensors",
+   "run_rel": "runs_mirror/seed85697_c2_orig",
+   "cell": {
+    "base": "seed85697",
+    "content": 2,
+    "side": "orig"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 85697,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    2,
+    23,
+    47,
+    50
+   ],
+   "feasibility": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500605,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     2,
+     23,
+     47,
+     50
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "2": {
+      "need": 4.0639135945518365,
+      "energy_scale": 4.0639135945518365
+     },
+     "23": {
+      "need": 4.01447320974034,
+      "energy_scale": 4.01447320974034
+     },
+     "47": {
+      "need": 4.066702241087425,
+      "energy_scale": 4.066702241087425
+     },
+     "50": {
+      "need": 4.520852463568234,
+      "energy_scale": 4.520852463568234
+     }
+    },
+    "margin": 3.0000000000000036,
+    "spec_met": true,
+    "target_ranks": {
+     "2": 1,
+     "23": 2,
+     "47": 4,
+     "50": 3
+    },
+    "tk_top12": [
+     2,
+     23,
+     50,
+     47,
+     1,
+     28,
+     10,
+     38,
+     11,
+     5,
+     30,
+     42
+    ],
+    "total_energy_ratio": 1.0,
+    "energy_rel_sd": 0.6710520232351572
+   }
+  },
+  {
+   "tag": "seed85697_c2_mirr",
+   "kind": "install",
+   "base": "seed85697",
+   "ckpt": "mirror/arms/ckpts/seed85697_c2_mirr.safetensors",
+   "run_rel": "runs_mirror/seed85697_c2_mirr",
+   "cell": {
+    "base": "seed85697",
+    "content": 2,
+    "side": "mirr"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 85697,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    4,
+    13,
+    19,
+    46
+   ],
+   "feasibility": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "violations": [],
+    "lp_pct": 82.0,
+    "lp_relM": 0.39427147660500445,
+    "ok": true
+   },
+   "report": {
+    "targets": [
+     4,
+     13,
+     19,
+     46
+    ],
+    "substrate": "natural",
+    "route": "energy",
+    "safety": 3.0,
+    "edits": {
+     "4": {
+      "need": 4.226917155329372,
+      "energy_scale": 4.226917155329372
+     },
+     "13": {
+      "need": 3.7581435658222255,
+      "energy_scale": 3.7581435658222255
+     },
+     "19": {
+      "need": 4.482661340020644,
+      "energy_scale": 4.482661340020644
+     },
+     "46": {
+      "need": 4.180353208616242,
+      "energy_scale": 4.180353208616242
+     }
+    },
+    "margin": 3.000000000000003,
+    "spec_met": true,
+    "target_ranks": {
+     "4": 4,
+     "13": 3,
+     "19": 2,
+     "46": 1
+    },
+    "tk_top12": [
+     46,
+     19,
+     13,
+     4,
+     1,
+     28,
+     10,
+     38,
+     11,
+     5,
+     30,
+     42
+    ],
+    "total_energy_ratio": 1.0000000000000002,
+    "energy_rel_sd": 0.6195246519199105
+   }
+  },
+  {
+   "tag": "seed85697_control",
+   "kind": "control",
+   "base": "seed85697",
+   "ckpt": "runs_torch/p-113/seed9415/seed85697/checkpoints/epoch_00000.safetensors",
+   "run_rel": "runs_mirror/seed85697_control",
+   "cell": {
+    "base": "seed85697",
+    "content": null,
+    "side": null
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 85697,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [],
+   "feasibility": null,
+   "report": null
+  },
+  {
+   "tag": "seed85697_twin",
+   "kind": "twin",
+   "base": "seed85697",
+   "ckpt": "mirror/arms/ckpts/seed85697_twin.safetensors",
+   "run_rel": "runs_mirror/seed85697_twin",
+   "cell": {
+    "base": "seed85697",
+    "content": 0,
+    "side": "twin"
+   },
+   "config": {
+    "p": 113,
+    "fn_name": "add",
+    "frac_train": 0.3,
+    "data_seed": 9415,
+    "init_seed": 85697,
+    "num_layers": 1,
+    "d_model": 128,
+    "embed_init": "normal",
+    "attn_init": "normal",
+    "num_heads": 4,
+    "d_mlp": 512,
+    "n_ctx": 3,
+    "act_type": "ReLU",
+    "lr": 0.001,
+    "warmup_steps": 10,
+    "weight_decay": 1.0,
+    "betas": [
+     0.9,
+     0.98
+    ],
+    "adam_eps": 1e-08,
+    "loss_dtype": "f64",
+    "loss_tilt": 0.0,
+    "loss_cvar": 0.0,
+    "grad_noise": 0.0,
+    "grad_noise_until": 0,
+    "num_epochs": 30000,
+    "save_every": 30000,
+    "stopping_thresh": -1.0
+   },
+   "targets": [
+    13,
+    20,
+    36,
+    52
+   ],
+   "feasibility": null,
+   "report": null,
+   "mask": "mirror/arms/masks/seed85697_twin.npy",
+   "twin_of": "seed85697_c0_orig"
+  }
+ ]
+}

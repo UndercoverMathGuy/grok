@@ -1,0 +1,2962 @@
+[
+ {
+  "run": "runs_dial/w0128_wd0.3/ds15573_is135533",
+  "d_mlp": 128,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.322500228881836,
+  "all_nu_logit_iqr": [
+   6.124180316925049,
+   6.538908004760742
+  ],
+  "all_nu_margin_med": 6.216930866241455,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.285097599029541,
+  "weights_only_nu_logit_iqr": [
+   6.067140579223633,
+   6.513650894165039
+  ],
+  "weights_only_nu_margin_med": 6.186435222625732,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd0.3/ds15573_is648223",
+  "d_mlp": 128,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.525635719299316,
+  "all_nu_logit_iqr": [
+   6.0741190910339355,
+   6.944433689117432
+  ],
+  "all_nu_margin_med": 6.190982341766357,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.459012508392334,
+  "weights_only_nu_logit_iqr": [
+   5.936009883880615,
+   6.941132068634033
+  ],
+  "weights_only_nu_margin_med": 6.141624450683594,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd0.3/ds15573_is871231",
+  "d_mlp": 128,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.5488667488098145,
+  "all_nu_logit_iqr": [
+   6.217461109161377,
+   6.8926801681518555
+  ],
+  "all_nu_margin_med": 6.248445510864258,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.456610679626465,
+  "weights_only_nu_logit_iqr": [
+   6.058385848999023,
+   6.89104700088501
+  ],
+  "weights_only_nu_margin_med": 6.212723255157471,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd1/ds15573_is135533",
+  "d_mlp": 128,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.693352699279785,
+  "all_nu_logit_iqr": [
+   5.9791460037231445,
+   7.314260959625244
+  ],
+  "all_nu_margin_med": 6.122469902038574,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.624876022338867,
+  "weights_only_nu_logit_iqr": [
+   5.77519416809082,
+   7.271976947784424
+  ],
+  "weights_only_nu_margin_med": 6.082081317901611,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd1/ds15573_is479062",
+  "d_mlp": 128,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.526458263397217,
+  "all_nu_logit_iqr": [
+   6.151982307434082,
+   6.970966339111328
+  ],
+  "all_nu_margin_med": 6.187716484069824,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4480767250061035,
+  "weights_only_nu_logit_iqr": [
+   6.012246131896973,
+   6.962145805358887
+  ],
+  "weights_only_nu_margin_med": 6.131564617156982,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd1/ds15573_is648223",
+  "d_mlp": 128,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.686916351318359,
+  "all_nu_logit_iqr": [
+   6.016125679016113,
+   7.432923793792725
+  ],
+  "all_nu_margin_med": 6.07558536529541,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.546613693237305,
+  "weights_only_nu_logit_iqr": [
+   5.8602447509765625,
+   7.315077304840088
+  ],
+  "weights_only_nu_margin_med": 5.9922990798950195,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd1/ds15573_is871231",
+  "d_mlp": 128,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.705236434936523,
+  "all_nu_logit_iqr": [
+   6.146100044250488,
+   7.258758544921875
+  ],
+  "all_nu_margin_med": 6.084089756011963,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.567013740539551,
+  "weights_only_nu_logit_iqr": [
+   5.9545087814331055,
+   7.225080490112305
+  ],
+  "weights_only_nu_margin_med": 6.005702495574951,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd1/ds19870_is135533",
+  "d_mlp": 128,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.612021446228027,
+  "all_nu_logit_iqr": [
+   5.9622087478637695,
+   7.223644256591797
+  ],
+  "all_nu_margin_med": 5.958430290222168,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.529860973358154,
+  "weights_only_nu_logit_iqr": [
+   5.748870372772217,
+   7.241564750671387
+  ],
+  "weights_only_nu_margin_med": 5.892826080322266,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd1/ds19870_is479062",
+  "d_mlp": 128,
+  "wd": 1.0,
+  "K": 3,
+  "all_nu_logit_med": 6.720958232879639,
+  "all_nu_logit_iqr": [
+   6.235876560211182,
+   7.299546718597412
+  ],
+  "all_nu_margin_med": 6.163776397705078,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.593099117279053,
+  "weights_only_nu_logit_iqr": [
+   6.031883239746094,
+   7.277567386627197
+  ],
+  "weights_only_nu_margin_med": 6.0905442237854,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd1/ds19870_is648223",
+  "d_mlp": 128,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.540874481201172,
+  "all_nu_logit_iqr": [
+   5.973460674285889,
+   7.180716514587402
+  ],
+  "all_nu_margin_med": 6.022395133972168,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.45290994644165,
+  "weights_only_nu_logit_iqr": [
+   5.817132472991943,
+   7.174238681793213
+  ],
+  "weights_only_nu_margin_med": 5.95818567276001,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd1/ds19870_is871231",
+  "d_mlp": 128,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.438124179840088,
+  "all_nu_logit_iqr": [
+   6.038796424865723,
+   6.894265174865723
+  ],
+  "all_nu_margin_med": 6.108709335327148,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.368622303009033,
+  "weights_only_nu_logit_iqr": [
+   5.907784938812256,
+   6.902256965637207
+  ],
+  "weights_only_nu_margin_med": 6.056293964385986,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd3/ds15573_is135533",
+  "d_mlp": 128,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.509598255157471,
+  "all_nu_logit_iqr": [
+   6.005243301391602,
+   7.1491780281066895
+  ],
+  "all_nu_margin_med": 5.952601432800293,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4049763679504395,
+  "weights_only_nu_logit_iqr": [
+   5.7804388999938965,
+   7.1843342781066895
+  ],
+  "weights_only_nu_margin_med": 5.836507320404053,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd3/ds15573_is479062",
+  "d_mlp": 128,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.542459964752197,
+  "all_nu_logit_iqr": [
+   6.017657279968262,
+   7.039025783538818
+  ],
+  "all_nu_margin_med": 6.002394676208496,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.456831455230713,
+  "weights_only_nu_logit_iqr": [
+   5.8378424644470215,
+   7.01647424697876
+  ],
+  "weights_only_nu_margin_med": 5.932058811187744,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd3/ds15573_is648223",
+  "d_mlp": 128,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.560338973999023,
+  "all_nu_logit_iqr": [
+   5.971499919891357,
+   7.175764083862305
+  ],
+  "all_nu_margin_med": 6.033825874328613,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.462058067321777,
+  "weights_only_nu_logit_iqr": [
+   5.775891304016113,
+   7.1574859619140625
+  ],
+  "weights_only_nu_margin_med": 5.975599765777588,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd3/ds15573_is871231",
+  "d_mlp": 128,
+  "wd": 3.0,
+  "K": 3,
+  "all_nu_logit_med": 6.708502292633057,
+  "all_nu_logit_iqr": [
+   6.245781421661377,
+   7.110934734344482
+  ],
+  "all_nu_margin_med": 6.228600025177002,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.63670015335083,
+  "weights_only_nu_logit_iqr": [
+   5.917403697967529,
+   7.231070041656494
+  ],
+  "weights_only_nu_margin_med": 6.193777561187744,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd3/ds19870_is135533",
+  "d_mlp": 128,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.616669654846191,
+  "all_nu_logit_iqr": [
+   6.173055648803711,
+   7.107692718505859
+  ],
+  "all_nu_margin_med": 6.031024932861328,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.515260219573975,
+  "weights_only_nu_logit_iqr": [
+   6.008491516113281,
+   7.117162704467773
+  ],
+  "weights_only_nu_margin_med": 5.971982479095459,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd3/ds19870_is479062",
+  "d_mlp": 128,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.637456893920898,
+  "all_nu_logit_iqr": [
+   6.188104152679443,
+   7.1197614669799805
+  ],
+  "all_nu_margin_med": 6.195976734161377,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.544867515563965,
+  "weights_only_nu_logit_iqr": [
+   6.00151252746582,
+   7.144976615905762
+  ],
+  "weights_only_nu_margin_med": 6.120872974395752,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd3/ds19870_is648223",
+  "d_mlp": 128,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.611711502075195,
+  "all_nu_logit_iqr": [
+   6.148210048675537,
+   7.083377361297607
+  ],
+  "all_nu_margin_med": 6.09178352355957,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.51054573059082,
+  "weights_only_nu_logit_iqr": [
+   5.965951442718506,
+   7.056648254394531
+  ],
+  "weights_only_nu_margin_med": 6.032717704772949,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0128_wd3/ds19870_is871231",
+  "d_mlp": 128,
+  "wd": 3.0,
+  "K": 3,
+  "all_nu_logit_med": 6.754427433013916,
+  "all_nu_logit_iqr": [
+   6.3248186111450195,
+   7.212547302246094
+  ],
+  "all_nu_margin_med": 6.0650129318237305,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.618356227874756,
+  "weights_only_nu_logit_iqr": [
+   6.0387187004089355,
+   7.287949085235596
+  ],
+  "weights_only_nu_margin_med": 5.948620796203613,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd0.3/ds15573_is135533",
+  "d_mlp": 256,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.612545490264893,
+  "all_nu_logit_iqr": [
+   6.128286838531494,
+   7.052178382873535
+  ],
+  "all_nu_margin_med": 6.124037265777588,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.519014835357666,
+  "weights_only_nu_logit_iqr": [
+   5.961565017700195,
+   7.033191204071045
+  ],
+  "weights_only_nu_margin_med": 6.073147773742676,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd0.3/ds15573_is479062",
+  "d_mlp": 256,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.5198073387146,
+  "all_nu_logit_iqr": [
+   6.215846061706543,
+   6.838583946228027
+  ],
+  "all_nu_margin_med": 6.240423679351807,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.439077377319336,
+  "weights_only_nu_logit_iqr": [
+   6.112064361572266,
+   6.817933559417725
+  ],
+  "weights_only_nu_margin_med": 6.203247547149658,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd0.3/ds15573_is648223",
+  "d_mlp": 256,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.5088653564453125,
+  "all_nu_logit_iqr": [
+   6.227973937988281,
+   6.799149036407471
+  ],
+  "all_nu_margin_med": 6.105508804321289,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.435293197631836,
+  "weights_only_nu_logit_iqr": [
+   6.13014030456543,
+   6.758069038391113
+  ],
+  "weights_only_nu_margin_med": 6.058314323425293,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd0.3/ds19870_is135533",
+  "d_mlp": 256,
+  "wd": 0.3,
+  "K": 3,
+  "all_nu_logit_med": 6.664615154266357,
+  "all_nu_logit_iqr": [
+   6.127267837524414,
+   7.091113090515137
+  ],
+  "all_nu_margin_med": 6.188437461853027,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.581525802612305,
+  "weights_only_nu_logit_iqr": [
+   5.81413459777832,
+   7.238913059234619
+  ],
+  "weights_only_nu_margin_med": 6.12863826751709,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd0.3/ds19870_is479062",
+  "d_mlp": 256,
+  "wd": 0.3,
+  "K": 3,
+  "all_nu_logit_med": 6.54386043548584,
+  "all_nu_logit_iqr": [
+   6.202002048492432,
+   6.922466278076172
+  ],
+  "all_nu_margin_med": 6.261163711547852,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4637861251831055,
+  "weights_only_nu_logit_iqr": [
+   6.042044162750244,
+   6.947329998016357
+  ],
+  "weights_only_nu_margin_med": 6.213104724884033,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd0.3/ds19870_is648223",
+  "d_mlp": 256,
+  "wd": 0.3,
+  "K": 3,
+  "all_nu_logit_med": 6.676665782928467,
+  "all_nu_logit_iqr": [
+   6.350254535675049,
+   7.006104469299316
+  ],
+  "all_nu_margin_med": 6.243993759155273,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.568116188049316,
+  "weights_only_nu_logit_iqr": [
+   6.180380344390869,
+   6.962849140167236
+  ],
+  "weights_only_nu_margin_med": 6.171798229217529,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd0.3/ds19870_is871231",
+  "d_mlp": 256,
+  "wd": 0.3,
+  "K": 3,
+  "all_nu_logit_med": 6.7246174812316895,
+  "all_nu_logit_iqr": [
+   6.244530200958252,
+   7.160889148712158
+  ],
+  "all_nu_margin_med": 6.227193355560303,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.626723766326904,
+  "weights_only_nu_logit_iqr": [
+   6.022329807281494,
+   7.137991905212402
+  ],
+  "weights_only_nu_margin_med": 6.160403251647949,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd1/ds15573_is135533",
+  "d_mlp": 256,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.772163391113281,
+  "all_nu_logit_iqr": [
+   6.130521774291992,
+   7.369435787200928
+  ],
+  "all_nu_margin_med": 6.073797702789307,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.606597900390625,
+  "weights_only_nu_logit_iqr": [
+   5.935098171234131,
+   7.2542290687561035
+  ],
+  "weights_only_nu_margin_med": 5.977232933044434,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd1/ds15573_is479062",
+  "d_mlp": 256,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.45290994644165,
+  "all_nu_logit_iqr": [
+   6.015267372131348,
+   6.869115352630615
+  ],
+  "all_nu_margin_med": 6.018432140350342,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.3835930824279785,
+  "weights_only_nu_logit_iqr": [
+   5.885495662689209,
+   6.846718788146973
+  ],
+  "weights_only_nu_margin_med": 5.97055196762085,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd1/ds15573_is648223",
+  "d_mlp": 256,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.578736305236816,
+  "all_nu_logit_iqr": [
+   6.083958625793457,
+   7.035950183868408
+  ],
+  "all_nu_margin_med": 6.34130334854126,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4936203956604,
+  "weights_only_nu_logit_iqr": [
+   5.93619441986084,
+   7.01019287109375
+  ],
+  "weights_only_nu_margin_med": 6.28866720199585,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd1/ds15573_is871231",
+  "d_mlp": 256,
+  "wd": 1.0,
+  "K": 3,
+  "all_nu_logit_med": 6.6869401931762695,
+  "all_nu_logit_iqr": [
+   5.976225852966309,
+   7.264861106872559
+  ],
+  "all_nu_margin_med": 6.264900207519531,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.578390598297119,
+  "weights_only_nu_logit_iqr": [
+   5.766088008880615,
+   7.281953811645508
+  ],
+  "weights_only_nu_margin_med": 6.197800159454346,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd1/ds19870_is135533",
+  "d_mlp": 256,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.7356486320495605,
+  "all_nu_logit_iqr": [
+   5.982233047485352,
+   7.43019437789917
+  ],
+  "all_nu_margin_med": 6.027073860168457,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.62224817276001,
+  "weights_only_nu_logit_iqr": [
+   5.753554821014404,
+   7.402202129364014
+  ],
+  "weights_only_nu_margin_med": 5.929466247558594,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd1/ds19870_is479062",
+  "d_mlp": 256,
+  "wd": 1.0,
+  "K": 3,
+  "all_nu_logit_med": 6.866302490234375,
+  "all_nu_logit_iqr": [
+   6.229767799377441,
+   7.5081706047058105
+  ],
+  "all_nu_margin_med": 6.338245868682861,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.687512397766113,
+  "weights_only_nu_logit_iqr": [
+   5.997406482696533,
+   7.386236190795898
+  ],
+  "weights_only_nu_margin_med": 6.261598587036133,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd1/ds19870_is648223",
+  "d_mlp": 256,
+  "wd": 1.0,
+  "K": 3,
+  "all_nu_logit_med": 6.820448875427246,
+  "all_nu_logit_iqr": [
+   6.423630237579346,
+   7.2495808601379395
+  ],
+  "all_nu_margin_med": 6.164801597595215,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.64734411239624,
+  "weights_only_nu_logit_iqr": [
+   6.240859031677246,
+   7.071529865264893
+  ],
+  "weights_only_nu_margin_med": 6.062301158905029,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd1/ds19870_is871231",
+  "d_mlp": 256,
+  "wd": 1.0,
+  "K": 3,
+  "all_nu_logit_med": 6.746250629425049,
+  "all_nu_logit_iqr": [
+   6.261622428894043,
+   7.275481224060059
+  ],
+  "all_nu_margin_med": 6.06472110748291,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.631491661071777,
+  "weights_only_nu_logit_iqr": [
+   6.060590744018555,
+   7.233841419219971
+  ],
+  "weights_only_nu_margin_med": 5.973478317260742,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd3/ds15573_is135533",
+  "d_mlp": 256,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.601693153381348,
+  "all_nu_logit_iqr": [
+   6.070245742797852,
+   7.179661750793457
+  ],
+  "all_nu_margin_med": 5.999349117279053,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.484531879425049,
+  "weights_only_nu_logit_iqr": [
+   5.875149726867676,
+   7.157891273498535
+  ],
+  "weights_only_nu_margin_med": 5.91975212097168,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd3/ds15573_is479062",
+  "d_mlp": 256,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.598134994506836,
+  "all_nu_logit_iqr": [
+   6.048135280609131,
+   7.188243865966797
+  ],
+  "all_nu_margin_med": 6.020875453948975,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.491766929626465,
+  "weights_only_nu_logit_iqr": [
+   5.858689308166504,
+   7.168374061584473
+  ],
+  "weights_only_nu_margin_med": 5.91798210144043,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd3/ds15573_is648223",
+  "d_mlp": 256,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.670289039611816,
+  "all_nu_logit_iqr": [
+   6.1112542152404785,
+   7.1886491775512695
+  ],
+  "all_nu_margin_med": 6.260537624359131,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.562138557434082,
+  "weights_only_nu_logit_iqr": [
+   5.90391731262207,
+   7.172373294830322
+  ],
+  "weights_only_nu_margin_med": 6.176852226257324,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd3/ds15573_is871231",
+  "d_mlp": 256,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.763116836547852,
+  "all_nu_logit_iqr": [
+   6.039183616638184,
+   7.423102378845215
+  ],
+  "all_nu_margin_med": 6.05357027053833,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.634864807128906,
+  "weights_only_nu_logit_iqr": [
+   5.692712306976318,
+   7.506221771240234
+  ],
+  "weights_only_nu_margin_med": 5.966922760009766,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd3/ds19870_is135533",
+  "d_mlp": 256,
+  "wd": 3.0,
+  "K": 3,
+  "all_nu_logit_med": 6.781687259674072,
+  "all_nu_logit_iqr": [
+   6.286605358123779,
+   7.2706780433654785
+  ],
+  "all_nu_margin_med": 6.164152145385742,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.654197692871094,
+  "weights_only_nu_logit_iqr": [
+   5.9854631423950195,
+   7.344339370727539
+  ],
+  "weights_only_nu_margin_med": 6.080597400665283,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd3/ds19870_is479062",
+  "d_mlp": 256,
+  "wd": 3.0,
+  "K": 3,
+  "all_nu_logit_med": 6.916447162628174,
+  "all_nu_logit_iqr": [
+   6.340421199798584,
+   7.46430778503418
+  ],
+  "all_nu_margin_med": 5.958626747131348,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.840604305267334,
+  "weights_only_nu_logit_iqr": [
+   5.973162651062012,
+   7.517146110534668
+  ],
+  "weights_only_nu_margin_med": 5.90617561340332,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd3/ds19870_is648223",
+  "d_mlp": 256,
+  "wd": 3.0,
+  "K": 3,
+  "all_nu_logit_med": 6.720803260803223,
+  "all_nu_logit_iqr": [
+   6.342733383178711,
+   7.108241081237793
+  ],
+  "all_nu_margin_med": 6.169140338897705,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.577508926391602,
+  "weights_only_nu_logit_iqr": [
+   6.124675273895264,
+   7.116876602172852
+  ],
+  "weights_only_nu_margin_med": 6.0649237632751465,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0256_wd3/ds19870_is871231",
+  "d_mlp": 256,
+  "wd": 3.0,
+  "K": 3,
+  "all_nu_logit_med": 6.7547197341918945,
+  "all_nu_logit_iqr": [
+   6.309240341186523,
+   7.221397399902344
+  ],
+  "all_nu_margin_med": 6.141242980957031,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.63997220993042,
+  "weights_only_nu_logit_iqr": [
+   6.041031360626221,
+   7.256112575531006
+  ],
+  "weights_only_nu_margin_med": 6.0411505699157715,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd0.1/ds15573_is648223",
+  "d_mlp": 512,
+  "wd": 0.1,
+  "K": 5,
+  "all_nu_logit_med": 6.446878910064697,
+  "all_nu_logit_iqr": [
+   6.148758411407471,
+   6.775238513946533
+  ],
+  "all_nu_margin_med": 6.23282527923584,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.384302139282227,
+  "weights_only_nu_logit_iqr": [
+   6.014659881591797,
+   6.79316520690918
+  ],
+  "weights_only_nu_margin_med": 6.1985931396484375,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd0.3/ds15573_is135533",
+  "d_mlp": 512,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.537304878234863,
+  "all_nu_logit_iqr": [
+   6.101343154907227,
+   6.970912456512451
+  ],
+  "all_nu_margin_med": 6.130277156829834,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.454262733459473,
+  "weights_only_nu_logit_iqr": [
+   5.958501815795898,
+   6.954612731933594
+  ],
+  "weights_only_nu_margin_med": 6.081157684326172,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd0.3/ds15573_is479062",
+  "d_mlp": 512,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.606395244598389,
+  "all_nu_logit_iqr": [
+   6.1968231201171875,
+   7.006706237792969
+  ],
+  "all_nu_margin_med": 6.133072376251221,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.514997959136963,
+  "weights_only_nu_logit_iqr": [
+   6.044714450836182,
+   6.9628071784973145
+  ],
+  "weights_only_nu_margin_med": 6.086920738220215,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd0.3/ds15573_is648223",
+  "d_mlp": 512,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.51352596282959,
+  "all_nu_logit_iqr": [
+   6.106176376342773,
+   6.9088664054870605
+  ],
+  "all_nu_margin_med": 6.160826683044434,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4403886795043945,
+  "weights_only_nu_logit_iqr": [
+   5.9853081703186035,
+   6.8732991218566895
+  ],
+  "weights_only_nu_margin_med": 6.119072914123535,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd0.3/ds15573_is871231",
+  "d_mlp": 512,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.596287727355957,
+  "all_nu_logit_iqr": [
+   6.169157981872559,
+   7.071994304656982
+  ],
+  "all_nu_margin_med": 6.110991954803467,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.499508380889893,
+  "weights_only_nu_logit_iqr": [
+   6.005344867706299,
+   7.048394203186035
+  ],
+  "weights_only_nu_margin_med": 6.0509419441223145,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd0.3/ds19870_is135533",
+  "d_mlp": 512,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.655753135681152,
+  "all_nu_logit_iqr": [
+   6.215184688568115,
+   7.078293800354004
+  ],
+  "all_nu_margin_med": 6.253416061401367,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.565845489501953,
+  "weights_only_nu_logit_iqr": [
+   6.059988975524902,
+   7.034484386444092
+  ],
+  "weights_only_nu_margin_med": 6.210256099700928,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd0.3/ds19870_is479062",
+  "d_mlp": 512,
+  "wd": 0.3,
+  "K": 3,
+  "all_nu_logit_med": 6.713949680328369,
+  "all_nu_logit_iqr": [
+   6.240131855010986,
+   7.172104835510254
+  ],
+  "all_nu_margin_med": 6.242849349975586,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.590882301330566,
+  "weights_only_nu_logit_iqr": [
+   6.057205677032471,
+   7.162927150726318
+  ],
+  "weights_only_nu_margin_med": 6.168627738952637,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd0.3/ds19870_is648223",
+  "d_mlp": 512,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.592526912689209,
+  "all_nu_logit_iqr": [
+   6.119657039642334,
+   6.9858293533325195
+  ],
+  "all_nu_margin_med": 6.034177780151367,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.51905632019043,
+  "weights_only_nu_logit_iqr": [
+   5.9724531173706055,
+   6.96068000793457
+  ],
+  "weights_only_nu_margin_med": 5.97217321395874,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd0.3/ds19870_is871231",
+  "d_mlp": 512,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.433183670043945,
+  "all_nu_logit_iqr": [
+   6.143907070159912,
+   6.732180118560791
+  ],
+  "all_nu_margin_med": 6.138864994049072,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.378384113311768,
+  "weights_only_nu_logit_iqr": [
+   6.059142589569092,
+   6.696272850036621
+  ],
+  "weights_only_nu_margin_med": 6.108506679534912,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd1/ds15573_is135533",
+  "d_mlp": 512,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.6386847496032715,
+  "all_nu_logit_iqr": [
+   5.907486915588379,
+   7.256213665008545
+  ],
+  "all_nu_margin_med": 6.160462856292725,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.550714015960693,
+  "weights_only_nu_logit_iqr": [
+   5.695888996124268,
+   7.302818298339844
+  ],
+  "weights_only_nu_margin_med": 6.115163326263428,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd1/ds15573_is479062",
+  "d_mlp": 512,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.9159345626831055,
+  "all_nu_logit_iqr": [
+   6.193408012390137,
+   7.5294647216796875
+  ],
+  "all_nu_margin_med": 5.983127117156982,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.717858791351318,
+  "weights_only_nu_logit_iqr": [
+   5.931307792663574,
+   7.43121337890625
+  ],
+  "weights_only_nu_margin_med": 5.931951522827148,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd1/ds15573_is648223",
+  "d_mlp": 512,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.510748386383057,
+  "all_nu_logit_iqr": [
+   5.98354434967041,
+   7.025765419006348
+  ],
+  "all_nu_margin_med": 6.093029499053955,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.428594589233398,
+  "weights_only_nu_logit_iqr": [
+   5.828658580780029,
+   7.010532379150391
+  ],
+  "weights_only_nu_margin_med": 6.048403263092041,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd1/ds15573_is871231",
+  "d_mlp": 512,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.468882083892822,
+  "all_nu_logit_iqr": [
+   6.013258934020996,
+   6.945256233215332
+  ],
+  "all_nu_margin_med": 6.036459922790527,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.396120071411133,
+  "weights_only_nu_logit_iqr": [
+   5.860995769500732,
+   6.9254937171936035
+  ],
+  "weights_only_nu_margin_med": 5.980302333831787,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd1/ds19870_is135533",
+  "d_mlp": 512,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.909348964691162,
+  "all_nu_logit_iqr": [
+   6.171422958374023,
+   7.597750663757324
+  ],
+  "all_nu_margin_med": 6.08870267868042,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.680140018463135,
+  "weights_only_nu_logit_iqr": [
+   5.9846110343933105,
+   7.411373615264893
+  ],
+  "weights_only_nu_margin_med": 5.997251510620117,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd1/ds19870_is479062",
+  "d_mlp": 512,
+  "wd": 1.0,
+  "K": 3,
+  "all_nu_logit_med": 6.925148010253906,
+  "all_nu_logit_iqr": [
+   6.33065938949585,
+   7.48911190032959
+  ],
+  "all_nu_margin_med": 6.063338279724121,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.727334976196289,
+  "weights_only_nu_logit_iqr": [
+   6.091187953948975,
+   7.312014102935791
+  ],
+  "weights_only_nu_margin_med": 5.9508256912231445,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd1/ds19870_is648223",
+  "d_mlp": 512,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.497804164886475,
+  "all_nu_logit_iqr": [
+   6.027061939239502,
+   6.936686038970947
+  ],
+  "all_nu_margin_med": 6.183294296264648,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.415447235107422,
+  "weights_only_nu_logit_iqr": [
+   5.912195205688477,
+   6.917567729949951
+  ],
+  "weights_only_nu_margin_med": 6.164348602294922,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd1/ds19870_is871231",
+  "d_mlp": 512,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.527703762054443,
+  "all_nu_logit_iqr": [
+   6.037270545959473,
+   7.120518207550049
+  ],
+  "all_nu_margin_med": 6.140545845031738,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.445406913757324,
+  "weights_only_nu_logit_iqr": [
+   5.9085774421691895,
+   7.102555751800537
+  ],
+  "weights_only_nu_margin_med": 6.080865859985352,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd3/ds15573_is135533",
+  "d_mlp": 512,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.555964469909668,
+  "all_nu_logit_iqr": [
+   6.037449359893799,
+   7.096810340881348
+  ],
+  "all_nu_margin_med": 6.111104965209961,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.481659412384033,
+  "weights_only_nu_logit_iqr": [
+   5.882575511932373,
+   7.097710609436035
+  ],
+  "weights_only_nu_margin_med": 6.046108722686768,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd3/ds15573_is479062",
+  "d_mlp": 512,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.796240329742432,
+  "all_nu_logit_iqr": [
+   6.1318206787109375,
+   7.500709056854248
+  ],
+  "all_nu_margin_med": 5.900180339813232,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.658625602722168,
+  "weights_only_nu_logit_iqr": [
+   5.917445659637451,
+   7.393810749053955
+  ],
+  "weights_only_nu_margin_med": 5.837550163269043,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd3/ds15573_is648223",
+  "d_mlp": 512,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.626467227935791,
+  "all_nu_logit_iqr": [
+   5.990582466125488,
+   7.232851982116699
+  ],
+  "all_nu_margin_med": 5.98834753036499,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.529181957244873,
+  "weights_only_nu_logit_iqr": [
+   5.820529460906982,
+   7.217684745788574
+  ],
+  "weights_only_nu_margin_med": 5.933023929595947,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd3/ds15573_is871231",
+  "d_mlp": 512,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.766883373260498,
+  "all_nu_logit_iqr": [
+   6.127708435058594,
+   7.3333258628845215
+  ],
+  "all_nu_margin_med": 6.067480087280273,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.652225017547607,
+  "weights_only_nu_logit_iqr": [
+   5.854588985443115,
+   7.347146511077881
+  ],
+  "weights_only_nu_margin_med": 6.009861946105957,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd3/ds19870_is135533",
+  "d_mlp": 512,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.687119007110596,
+  "all_nu_logit_iqr": [
+   6.301385402679443,
+   7.0194244384765625
+  ],
+  "all_nu_margin_med": 6.155063629150391,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.575947284698486,
+  "weights_only_nu_logit_iqr": [
+   6.123525142669678,
+   6.977903366088867
+  ],
+  "weights_only_nu_margin_med": 6.080055236816406,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd3/ds19870_is479062",
+  "d_mlp": 512,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.601907730102539,
+  "all_nu_logit_iqr": [
+   6.057438373565674,
+   7.204913139343262
+  ],
+  "all_nu_margin_med": 6.078755855560303,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.503579139709473,
+  "weights_only_nu_logit_iqr": [
+   5.88484001159668,
+   7.180603504180908
+  ],
+  "weights_only_nu_margin_med": 6.0276336669921875,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd3/ds19870_is648223",
+  "d_mlp": 512,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.598361492156982,
+  "all_nu_logit_iqr": [
+   6.045983791351318,
+   7.251994609832764
+  ],
+  "all_nu_margin_med": 6.104549407958984,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4898362159729,
+  "weights_only_nu_logit_iqr": [
+   5.858582019805908,
+   7.250540256500244
+  ],
+  "weights_only_nu_margin_med": 6.050232887268066,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w0512_wd3/ds19870_is871231",
+  "d_mlp": 512,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.799989223480225,
+  "all_nu_logit_iqr": [
+   6.195237636566162,
+   7.404460430145264
+  ],
+  "all_nu_margin_med": 6.04340934753418,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.635079383850098,
+  "weights_only_nu_logit_iqr": [
+   6.0270795822143555,
+   7.279277801513672
+  ],
+  "weights_only_nu_margin_med": 5.987930774688721,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.1/ds15573_is648223",
+  "d_mlp": 1024,
+  "wd": 0.1,
+  "K": 4,
+  "all_nu_logit_med": 6.317047119140625,
+  "all_nu_logit_iqr": [
+   6.1897430419921875,
+   6.45288610458374
+  ],
+  "all_nu_margin_med": 6.213885307312012,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.281211853027344,
+  "weights_only_nu_logit_iqr": [
+   6.144866466522217,
+   6.422855377197266
+  ],
+  "weights_only_nu_margin_med": 6.188116073608398,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.1/ds19870_is135533",
+  "d_mlp": 1024,
+  "wd": 0.1,
+  "K": 5,
+  "all_nu_logit_med": 6.327148914337158,
+  "all_nu_logit_iqr": [
+   6.113762855529785,
+   6.566519260406494
+  ],
+  "all_nu_margin_med": 6.125044822692871,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.279739856719971,
+  "weights_only_nu_logit_iqr": [
+   6.033975124359131,
+   6.559975624084473
+  ],
+  "weights_only_nu_margin_med": 6.105276584625244,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.1/ds19870_is479062",
+  "d_mlp": 1024,
+  "wd": 0.1,
+  "K": 4,
+  "all_nu_logit_med": 6.510855674743652,
+  "all_nu_logit_iqr": [
+   6.252533912658691,
+   6.763534069061279
+  ],
+  "all_nu_margin_med": 6.247539520263672,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.459984302520752,
+  "weights_only_nu_logit_iqr": [
+   6.138423919677734,
+   6.758015155792236
+  ],
+  "weights_only_nu_margin_med": 6.2088494300842285,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.3/ds15573_is135533",
+  "d_mlp": 1024,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.694616317749023,
+  "all_nu_logit_iqr": [
+   5.892539978027344,
+   7.389251708984375
+  ],
+  "all_nu_margin_med": 6.160457134246826,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.584922790527344,
+  "weights_only_nu_logit_iqr": [
+   5.652162551879883,
+   7.424973964691162
+  ],
+  "weights_only_nu_margin_med": 6.109311103820801,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.3/ds15573_is479062",
+  "d_mlp": 1024,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.608665943145752,
+  "all_nu_logit_iqr": [
+   6.145718574523926,
+   7.065945625305176
+  ],
+  "all_nu_margin_med": 6.2598700523376465,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.5130133628845215,
+  "weights_only_nu_logit_iqr": [
+   5.976833820343018,
+   7.032994270324707
+  ],
+  "weights_only_nu_margin_med": 6.224344730377197,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.3/ds15573_is648223",
+  "d_mlp": 1024,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.626258850097656,
+  "all_nu_logit_iqr": [
+   6.105109691619873,
+   7.17575216293335
+  ],
+  "all_nu_margin_med": 6.207568168640137,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.529378414154053,
+  "weights_only_nu_logit_iqr": [
+   5.9411234855651855,
+   7.165048599243164
+  ],
+  "weights_only_nu_margin_med": 6.1540446281433105,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.3/ds15573_is871231",
+  "d_mlp": 1024,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.515331745147705,
+  "all_nu_logit_iqr": [
+   6.206340312957764,
+   6.8814697265625
+  ],
+  "all_nu_margin_med": 6.028855800628662,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4269256591796875,
+  "weights_only_nu_logit_iqr": [
+   6.081682205200195,
+   6.872750759124756
+  ],
+  "weights_only_nu_margin_med": 5.986023426055908,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.3/ds19870_is135533",
+  "d_mlp": 1024,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.6584649085998535,
+  "all_nu_logit_iqr": [
+   6.049648761749268,
+   7.2604451179504395
+  ],
+  "all_nu_margin_med": 6.136058330535889,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.560082912445068,
+  "weights_only_nu_logit_iqr": [
+   5.863373279571533,
+   7.241880893707275
+  ],
+  "weights_only_nu_margin_med": 6.077373504638672,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.3/ds19870_is479062",
+  "d_mlp": 1024,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.57023811340332,
+  "all_nu_logit_iqr": [
+   6.05684232711792,
+   7.170644760131836
+  ],
+  "all_nu_margin_med": 6.126791000366211,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.478107452392578,
+  "weights_only_nu_logit_iqr": [
+   5.908369064331055,
+   7.159685134887695
+  ],
+  "weights_only_nu_margin_med": 6.068570613861084,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.3/ds19870_is648223",
+  "d_mlp": 1024,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.540356159210205,
+  "all_nu_logit_iqr": [
+   6.141523361206055,
+   6.971162796020508
+  ],
+  "all_nu_margin_med": 6.141481399536133,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.454513072967529,
+  "weights_only_nu_logit_iqr": [
+   5.99086856842041,
+   6.9519429206848145
+  ],
+  "weights_only_nu_margin_med": 6.085520267486572,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd0.3/ds19870_is871231",
+  "d_mlp": 1024,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.596424579620361,
+  "all_nu_logit_iqr": [
+   6.162566661834717,
+   7.030866622924805
+  ],
+  "all_nu_margin_med": 6.13268518447876,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.501862525939941,
+  "weights_only_nu_logit_iqr": [
+   6.02418327331543,
+   7.011920928955078
+  ],
+  "weights_only_nu_margin_med": 6.083207607269287,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd1/ds15573_is135533",
+  "d_mlp": 1024,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.583950996398926,
+  "all_nu_logit_iqr": [
+   6.041067123413086,
+   7.0819292068481445
+  ],
+  "all_nu_margin_med": 6.084220886230469,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.493471622467041,
+  "weights_only_nu_logit_iqr": [
+   5.855441093444824,
+   7.067220687866211
+  ],
+  "weights_only_nu_margin_med": 6.007877349853516,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd1/ds15573_is479062",
+  "d_mlp": 1024,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.830657482147217,
+  "all_nu_logit_iqr": [
+   6.088505744934082,
+   7.594902038574219
+  ],
+  "all_nu_margin_med": 5.941951751708984,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.628815650939941,
+  "weights_only_nu_logit_iqr": [
+   5.8706440925598145,
+   7.424848556518555
+  ],
+  "weights_only_nu_margin_med": 5.846585273742676,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd1/ds15573_is648223",
+  "d_mlp": 1024,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.776805877685547,
+  "all_nu_logit_iqr": [
+   6.179653167724609,
+   7.408727645874023
+  ],
+  "all_nu_margin_med": 6.199337959289551,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.615001201629639,
+  "weights_only_nu_logit_iqr": [
+   5.990052223205566,
+   7.2905354499816895
+  ],
+  "weights_only_nu_margin_med": 6.133852958679199,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd1/ds15573_is871231",
+  "d_mlp": 1024,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.603445053100586,
+  "all_nu_logit_iqr": [
+   6.272182941436768,
+   6.928861141204834
+  ],
+  "all_nu_margin_med": 6.382371425628662,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.521678447723389,
+  "weights_only_nu_logit_iqr": [
+   6.140378952026367,
+   6.8743181228637695
+  ],
+  "weights_only_nu_margin_med": 6.331338882446289,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd1/ds19870_is135533",
+  "d_mlp": 1024,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.784458160400391,
+  "all_nu_logit_iqr": [
+   6.134449005126953,
+   7.474862098693848
+  ],
+  "all_nu_margin_med": 6.084334373474121,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.649447917938232,
+  "weights_only_nu_logit_iqr": [
+   5.877390384674072,
+   7.422083377838135
+  ],
+  "weights_only_nu_margin_med": 6.034290790557861,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd1/ds19870_is479062",
+  "d_mlp": 1024,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.713073253631592,
+  "all_nu_logit_iqr": [
+   6.052628517150879,
+   7.351932048797607
+  ],
+  "all_nu_margin_med": 6.0614013671875,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.598379611968994,
+  "weights_only_nu_logit_iqr": [
+   5.845935344696045,
+   7.256475925445557
+  ],
+  "weights_only_nu_margin_med": 5.987215518951416,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd1/ds19870_is648223",
+  "d_mlp": 1024,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.8129096031188965,
+  "all_nu_logit_iqr": [
+   6.246067523956299,
+   7.4302778244018555
+  ],
+  "all_nu_margin_med": 6.263922691345215,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.620192050933838,
+  "weights_only_nu_logit_iqr": [
+   6.096706390380859,
+   7.146037578582764
+  ],
+  "weights_only_nu_margin_med": 6.17970085144043,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd1/ds19870_is871231",
+  "d_mlp": 1024,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.4352216720581055,
+  "all_nu_logit_iqr": [
+   6.046043395996094,
+   6.8505330085754395
+  ],
+  "all_nu_margin_med": 6.267993450164795,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.359569549560547,
+  "weights_only_nu_logit_iqr": [
+   5.930181503295898,
+   6.8369035720825195
+  ],
+  "weights_only_nu_margin_med": 6.224595069885254,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd3/ds15573_is135533",
+  "d_mlp": 1024,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.754796981811523,
+  "all_nu_logit_iqr": [
+   6.177114486694336,
+   7.349250316619873
+  ],
+  "all_nu_margin_med": 6.153728485107422,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.630049228668213,
+  "weights_only_nu_logit_iqr": [
+   5.928464889526367,
+   7.31686544418335
+  ],
+  "weights_only_nu_margin_med": 6.080215930938721,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd3/ds15573_is479062",
+  "d_mlp": 1024,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.759850978851318,
+  "all_nu_logit_iqr": [
+   6.112022876739502,
+   7.422077178955078
+  ],
+  "all_nu_margin_med": 5.987954616546631,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.603081703186035,
+  "weights_only_nu_logit_iqr": [
+   5.883076190948486,
+   7.360931396484375
+  ],
+  "weights_only_nu_margin_med": 5.8789520263671875,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd3/ds15573_is648223",
+  "d_mlp": 1024,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.621169090270996,
+  "all_nu_logit_iqr": [
+   6.159038543701172,
+   7.114022254943848
+  ],
+  "all_nu_margin_med": 6.137321472167969,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.514246940612793,
+  "weights_only_nu_logit_iqr": [
+   6.006542682647705,
+   7.081398963928223
+  ],
+  "weights_only_nu_margin_med": 6.0646257400512695,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd3/ds15573_is871231",
+  "d_mlp": 1024,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.582526683807373,
+  "all_nu_logit_iqr": [
+   6.1033453941345215,
+   7.189751625061035
+  ],
+  "all_nu_margin_med": 6.064154624938965,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.452754974365234,
+  "weights_only_nu_logit_iqr": [
+   5.950694561004639,
+   7.164351463317871
+  ],
+  "weights_only_nu_margin_med": 6.008378028869629,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd3/ds19870_is135533",
+  "d_mlp": 1024,
+  "wd": 3.0,
+  "K": 3,
+  "all_nu_logit_med": 6.859007835388184,
+  "all_nu_logit_iqr": [
+   6.359444618225098,
+   7.44842529296875
+  ],
+  "all_nu_margin_med": 6.348305702209473,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.688072681427002,
+  "weights_only_nu_logit_iqr": [
+   6.101307392120361,
+   7.343516826629639
+  ],
+  "weights_only_nu_margin_med": 6.229457855224609,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd3/ds19870_is479062",
+  "d_mlp": 1024,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.599142551422119,
+  "all_nu_logit_iqr": [
+   6.055811405181885,
+   7.246368408203125
+  ],
+  "all_nu_margin_med": 6.127232074737549,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.494311809539795,
+  "weights_only_nu_logit_iqr": [
+   5.8923492431640625,
+   7.218125820159912
+  ],
+  "weights_only_nu_margin_med": 6.0800251960754395,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd3/ds19870_is648223",
+  "d_mlp": 1024,
+  "wd": 3.0,
+  "K": 5,
+  "all_nu_logit_med": 6.585500717163086,
+  "all_nu_logit_iqr": [
+   6.0493388175964355,
+   7.173702239990234
+  ],
+  "all_nu_margin_med": 6.041215896606445,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.480056285858154,
+  "weights_only_nu_logit_iqr": [
+   5.8760199546813965,
+   7.148117542266846
+  ],
+  "weights_only_nu_margin_med": 5.963680744171143,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w1024_wd3/ds19870_is871231",
+  "d_mlp": 1024,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.676200866699219,
+  "all_nu_logit_iqr": [
+   6.034040451049805,
+   7.288008689880371
+  ],
+  "all_nu_margin_med": 6.229857444763184,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.5817461013793945,
+  "weights_only_nu_logit_iqr": [
+   5.850882053375244,
+   7.275666236877441
+  ],
+  "weights_only_nu_margin_med": 6.161392688751221,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.1/ds15573_is135533",
+  "d_mlp": 2048,
+  "wd": 0.1,
+  "K": 6,
+  "all_nu_logit_med": 6.2135515213012695,
+  "all_nu_logit_iqr": [
+   6.091122150421143,
+   6.348967552185059
+  ],
+  "all_nu_margin_med": 6.131677627563477,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.1857500076293945,
+  "weights_only_nu_logit_iqr": [
+   6.06336784362793,
+   6.317905426025391
+  ],
+  "weights_only_nu_margin_med": 6.110246658325195,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.1/ds15573_is648223",
+  "d_mlp": 2048,
+  "wd": 0.1,
+  "K": 5,
+  "all_nu_logit_med": 6.286200046539307,
+  "all_nu_logit_iqr": [
+   6.181154727935791,
+   6.396143913269043
+  ],
+  "all_nu_margin_med": 6.170552730560303,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.24700927734375,
+  "weights_only_nu_logit_iqr": [
+   6.139937877655029,
+   6.353377342224121
+  ],
+  "weights_only_nu_margin_med": 6.151112079620361,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.1/ds15573_is871231",
+  "d_mlp": 2048,
+  "wd": 0.1,
+  "K": 4,
+  "all_nu_logit_med": 6.435519695281982,
+  "all_nu_logit_iqr": [
+   6.212765216827393,
+   6.655759334564209
+  ],
+  "all_nu_margin_med": 6.264966011047363,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.381799221038818,
+  "weights_only_nu_logit_iqr": [
+   6.099287033081055,
+   6.669764518737793
+  ],
+  "weights_only_nu_margin_med": 6.2425456047058105,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.1/ds19870_is135533",
+  "d_mlp": 2048,
+  "wd": 0.1,
+  "K": 7,
+  "all_nu_logit_med": 6.192079067230225,
+  "all_nu_logit_iqr": [
+   6.0722479820251465,
+   6.320539951324463
+  ],
+  "all_nu_margin_med": 6.118542671203613,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.167882919311523,
+  "weights_only_nu_logit_iqr": [
+   6.0523786544799805,
+   6.28745174407959
+  ],
+  "weights_only_nu_margin_med": 6.103756904602051,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.1/ds19870_is871231",
+  "d_mlp": 2048,
+  "wd": 0.1,
+  "K": 4,
+  "all_nu_logit_med": 6.321850776672363,
+  "all_nu_logit_iqr": [
+   6.193813323974609,
+   6.458327293395996
+  ],
+  "all_nu_margin_med": 6.214207172393799,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.283816337585449,
+  "weights_only_nu_logit_iqr": [
+   6.15089750289917,
+   6.421353340148926
+  ],
+  "weights_only_nu_margin_med": 6.200130462646484,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.3/ds15573_is135533",
+  "d_mlp": 2048,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.641902923583984,
+  "all_nu_logit_iqr": [
+   6.193121910095215,
+   7.127967834472656
+  ],
+  "all_nu_margin_med": 6.183705806732178,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.530576229095459,
+  "weights_only_nu_logit_iqr": [
+   6.037008285522461,
+   7.105571269989014
+  ],
+  "weights_only_nu_margin_med": 6.125277042388916,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.3/ds15573_is479062",
+  "d_mlp": 2048,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.662648677825928,
+  "all_nu_logit_iqr": [
+   6.171440601348877,
+   7.096250534057617
+  ],
+  "all_nu_margin_med": 6.246854305267334,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.577175140380859,
+  "weights_only_nu_logit_iqr": [
+   5.998038291931152,
+   7.086905479431152
+  ],
+  "weights_only_nu_margin_med": 6.205875873565674,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.3/ds15573_is648223",
+  "d_mlp": 2048,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.67214822769165,
+  "all_nu_logit_iqr": [
+   6.002972602844238,
+   7.243996620178223
+  ],
+  "all_nu_margin_med": 6.139359951019287,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.586573600769043,
+  "weights_only_nu_logit_iqr": [
+   5.787197113037109,
+   7.268460750579834
+  ],
+  "weights_only_nu_margin_med": 6.095216751098633,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.3/ds15573_is871231",
+  "d_mlp": 2048,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.626753330230713,
+  "all_nu_logit_iqr": [
+   6.04517936706543,
+   7.239091873168945
+  ],
+  "all_nu_margin_med": 6.097224712371826,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.5306715965271,
+  "weights_only_nu_logit_iqr": [
+   5.871693134307861,
+   7.236248970031738
+  ],
+  "weights_only_nu_margin_med": 6.017162799835205,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.3/ds19870_is135533",
+  "d_mlp": 2048,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.58868932723999,
+  "all_nu_logit_iqr": [
+   6.188520908355713,
+   6.962932586669922
+  ],
+  "all_nu_margin_med": 6.15753698348999,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.500515937805176,
+  "weights_only_nu_logit_iqr": [
+   6.0303215980529785,
+   6.932359218597412
+  ],
+  "weights_only_nu_margin_med": 6.097475051879883,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.3/ds19870_is479062",
+  "d_mlp": 2048,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.604059219360352,
+  "all_nu_logit_iqr": [
+   6.195315361022949,
+   7.023101329803467
+  ],
+  "all_nu_margin_med": 6.216597080230713,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.509509086608887,
+  "weights_only_nu_logit_iqr": [
+   6.040977478027344,
+   7.003261566162109
+  ],
+  "weights_only_nu_margin_med": 6.1505937576293945,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.3/ds19870_is648223",
+  "d_mlp": 2048,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.361506462097168,
+  "all_nu_logit_iqr": [
+   6.12383508682251,
+   6.590989589691162
+  ],
+  "all_nu_margin_med": 6.2925591468811035,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.292314529418945,
+  "weights_only_nu_logit_iqr": [
+   6.0516037940979,
+   6.560714244842529
+  ],
+  "weights_only_nu_margin_med": 6.246753215789795,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd0.3/ds19870_is871231",
+  "d_mlp": 2048,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.606490612030029,
+  "all_nu_logit_iqr": [
+   6.212204933166504,
+   7.008947372436523
+  ],
+  "all_nu_margin_med": 6.287320613861084,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.51275110244751,
+  "weights_only_nu_logit_iqr": [
+   6.0753889083862305,
+   6.978808879852295
+  ],
+  "weights_only_nu_margin_med": 6.241997241973877,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd1/ds15573_is135533",
+  "d_mlp": 2048,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.736661911010742,
+  "all_nu_logit_iqr": [
+   6.20305061340332,
+   7.364465236663818
+  ],
+  "all_nu_margin_med": 6.151893138885498,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.5792012214660645,
+  "weights_only_nu_logit_iqr": [
+   6.020702838897705,
+   7.239049911499023
+  ],
+  "weights_only_nu_margin_med": 6.066246509552002,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd1/ds15573_is479062",
+  "d_mlp": 2048,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.750333309173584,
+  "all_nu_logit_iqr": [
+   6.062217712402344,
+   7.379942417144775
+  ],
+  "all_nu_margin_med": 5.964127540588379,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.605769634246826,
+  "weights_only_nu_logit_iqr": [
+   5.879613399505615,
+   7.310393333435059
+  ],
+  "weights_only_nu_margin_med": 5.906652450561523,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd1/ds15573_is648223",
+  "d_mlp": 2048,
+  "wd": 1.0,
+  "K": 3,
+  "all_nu_logit_med": 6.6478447914123535,
+  "all_nu_logit_iqr": [
+   6.068803310394287,
+   7.229126930236816
+  ],
+  "all_nu_margin_med": 6.276777744293213,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.562907695770264,
+  "weights_only_nu_logit_iqr": [
+   5.853039264678955,
+   7.1729512214660645
+  ],
+  "weights_only_nu_margin_med": 6.224177837371826,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd1/ds15573_is871231",
+  "d_mlp": 2048,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.856391429901123,
+  "all_nu_logit_iqr": [
+   6.148370742797852,
+   7.6296467781066895
+  ],
+  "all_nu_margin_med": 5.931069374084473,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.669210433959961,
+  "weights_only_nu_logit_iqr": [
+   5.906163692474365,
+   7.468491554260254
+  ],
+  "weights_only_nu_margin_med": 5.843307018280029,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd1/ds19870_is135533",
+  "d_mlp": 2048,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.755923271179199,
+  "all_nu_logit_iqr": [
+   6.132911205291748,
+   7.363523483276367
+  ],
+  "all_nu_margin_med": 6.223897933959961,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.592801094055176,
+  "weights_only_nu_logit_iqr": [
+   5.9730730056762695,
+   7.230092525482178
+  ],
+  "weights_only_nu_margin_med": 6.172775745391846,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd1/ds19870_is479062",
+  "d_mlp": 2048,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.496212959289551,
+  "all_nu_logit_iqr": [
+   6.068570613861084,
+   6.988332748413086
+  ],
+  "all_nu_margin_med": 6.056585788726807,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4179205894470215,
+  "weights_only_nu_logit_iqr": [
+   5.949168682098389,
+   6.9771881103515625
+  ],
+  "weights_only_nu_margin_med": 6.007091045379639,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd1/ds19870_is648223",
+  "d_mlp": 2048,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.41309928894043,
+  "all_nu_logit_iqr": [
+   5.9478278160095215,
+   6.9898881912231445
+  ],
+  "all_nu_margin_med": 6.055727958679199,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.342834949493408,
+  "weights_only_nu_logit_iqr": [
+   5.812722206115723,
+   6.966526031494141
+  ],
+  "weights_only_nu_margin_med": 5.987411975860596,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd1/ds19870_is871231",
+  "d_mlp": 2048,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.577628135681152,
+  "all_nu_logit_iqr": [
+   6.085770606994629,
+   7.114593982696533
+  ],
+  "all_nu_margin_med": 6.0614013671875,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4865641593933105,
+  "weights_only_nu_logit_iqr": [
+   5.927326679229736,
+   7.094343185424805
+  ],
+  "weights_only_nu_margin_med": 5.991804122924805,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd3/ds15573_is135533",
+  "d_mlp": 2048,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.691344261169434,
+  "all_nu_logit_iqr": [
+   6.125753879547119,
+   7.178094387054443
+  ],
+  "all_nu_margin_med": 6.135289192199707,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.5844340324401855,
+  "weights_only_nu_logit_iqr": [
+   5.950491905212402,
+   7.129350185394287
+  ],
+  "weights_only_nu_margin_med": 6.068451881408691,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd3/ds15573_is479062",
+  "d_mlp": 2048,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.697053909301758,
+  "all_nu_logit_iqr": [
+   6.055179595947266,
+   7.325018405914307
+  ],
+  "all_nu_margin_med": 6.334264755249023,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.575643539428711,
+  "weights_only_nu_logit_iqr": [
+   5.871031761169434,
+   7.308772087097168
+  ],
+  "weights_only_nu_margin_med": 6.2707109451293945,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd3/ds15573_is648223",
+  "d_mlp": 2048,
+  "wd": 3.0,
+  "K": 3,
+  "all_nu_logit_med": 6.8428449630737305,
+  "all_nu_logit_iqr": [
+   6.253827095031738,
+   7.598423957824707
+  ],
+  "all_nu_margin_med": 5.999659061431885,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.649489879608154,
+  "weights_only_nu_logit_iqr": [
+   5.98555850982666,
+   7.473258972167969
+  ],
+  "weights_only_nu_margin_med": 5.944782733917236,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd3/ds15573_is871231",
+  "d_mlp": 2048,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.625638961791992,
+  "all_nu_logit_iqr": [
+   6.025786399841309,
+   7.3394646644592285
+  ],
+  "all_nu_margin_med": 6.086628437042236,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.514723777770996,
+  "weights_only_nu_logit_iqr": [
+   5.823408126831055,
+   7.315291881561279
+  ],
+  "weights_only_nu_margin_med": 6.004575729370117,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd3/ds19870_is135533",
+  "d_mlp": 2048,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.564379692077637,
+  "all_nu_logit_iqr": [
+   6.074274063110352,
+   7.080707550048828
+  ],
+  "all_nu_margin_med": 6.038885593414307,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4518609046936035,
+  "weights_only_nu_logit_iqr": [
+   5.925229072570801,
+   7.034758567810059
+  ],
+  "weights_only_nu_margin_med": 5.9421305656433105,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd3/ds19870_is479062",
+  "d_mlp": 2048,
+  "wd": 3.0,
+  "K": 5,
+  "all_nu_logit_med": 6.537405967712402,
+  "all_nu_logit_iqr": [
+   6.0680999755859375,
+   7.061362266540527
+  ],
+  "all_nu_margin_med": 5.974330425262451,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.449757099151611,
+  "weights_only_nu_logit_iqr": [
+   5.926629543304443,
+   7.041808605194092
+  ],
+  "weights_only_nu_margin_med": 5.906294822692871,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd3/ds19870_is648223",
+  "d_mlp": 2048,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.6262946128845215,
+  "all_nu_logit_iqr": [
+   5.97843074798584,
+   7.310112953186035
+  ],
+  "all_nu_margin_med": 6.000511646270752,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.542698383331299,
+  "weights_only_nu_logit_iqr": [
+   5.795546531677246,
+   7.30350399017334
+  ],
+  "weights_only_nu_margin_med": 5.922451496124268,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w2048_wd3/ds19870_is871231",
+  "d_mlp": 2048,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.574302673339844,
+  "all_nu_logit_iqr": [
+   6.090651512145996,
+   7.121030807495117
+  ],
+  "all_nu_margin_med": 6.067813873291016,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.4722371101379395,
+  "weights_only_nu_logit_iqr": [
+   5.918631553649902,
+   7.098437309265137
+  ],
+  "weights_only_nu_margin_med": 5.964139461517334,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd0.1/ds15573_is648223",
+  "d_mlp": 4096,
+  "wd": 0.1,
+  "K": 6,
+  "all_nu_logit_med": 6.209356307983398,
+  "all_nu_logit_iqr": [
+   6.06423807144165,
+   6.3629608154296875
+  ],
+  "all_nu_margin_med": 6.114013195037842,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.184504508972168,
+  "weights_only_nu_logit_iqr": [
+   6.035190582275391,
+   6.340724945068359
+  ],
+  "weights_only_nu_margin_med": 6.103065490722656,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd0.3/ds15573_is135533",
+  "d_mlp": 4096,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.568843364715576,
+  "all_nu_logit_iqr": [
+   6.278285503387451,
+   6.861498832702637
+  ],
+  "all_nu_margin_med": 6.147482872009277,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.489454746246338,
+  "weights_only_nu_logit_iqr": [
+   6.164801597595215,
+   6.831986427307129
+  ],
+  "weights_only_nu_margin_med": 6.093422889709473,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd0.3/ds15573_is479062",
+  "d_mlp": 4096,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.54722785949707,
+  "all_nu_logit_iqr": [
+   6.192120552062988,
+   6.8690080642700195
+  ],
+  "all_nu_margin_med": 6.212085723876953,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.47560453414917,
+  "weights_only_nu_logit_iqr": [
+   6.077856063842773,
+   6.836015224456787
+  ],
+  "weights_only_nu_margin_med": 6.188556671142578,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd0.3/ds15573_is648223",
+  "d_mlp": 4096,
+  "wd": 0.3,
+  "K": 5,
+  "all_nu_logit_med": 6.541983127593994,
+  "all_nu_logit_iqr": [
+   6.194260120391846,
+   6.885754585266113
+  ],
+  "all_nu_margin_med": 6.153400897979736,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.467528820037842,
+  "weights_only_nu_logit_iqr": [
+   6.079905986785889,
+   6.851975440979004
+  ],
+  "weights_only_nu_margin_med": 6.112237453460693,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd0.3/ds15573_is871231",
+  "d_mlp": 4096,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.640806198120117,
+  "all_nu_logit_iqr": [
+   6.059917449951172,
+   7.185192584991455
+  ],
+  "all_nu_margin_med": 6.1291093826293945,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.531536102294922,
+  "weights_only_nu_logit_iqr": [
+   5.893380165100098,
+   7.183136463165283
+  ],
+  "weights_only_nu_margin_med": 6.077903747558594,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd0.3/ds19870_is135533",
+  "d_mlp": 4096,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.379695415496826,
+  "all_nu_logit_iqr": [
+   6.062915325164795,
+   6.688203811645508
+  ],
+  "all_nu_margin_med": 6.257122993469238,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.331815242767334,
+  "weights_only_nu_logit_iqr": [
+   5.979873180389404,
+   6.680181980133057
+  ],
+  "weights_only_nu_margin_med": 6.224034786224365,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd0.3/ds19870_is479062",
+  "d_mlp": 4096,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.641402244567871,
+  "all_nu_logit_iqr": [
+   6.19642972946167,
+   7.091196537017822
+  ],
+  "all_nu_margin_med": 6.200857639312744,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.54822301864624,
+  "weights_only_nu_logit_iqr": [
+   6.040816783905029,
+   7.078973293304443
+  ],
+  "weights_only_nu_margin_med": 6.159825325012207,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd0.3/ds19870_is648223",
+  "d_mlp": 4096,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.64457893371582,
+  "all_nu_logit_iqr": [
+   6.131165027618408,
+   7.134809494018555
+  ],
+  "all_nu_margin_med": 6.086372375488281,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.543067932128906,
+  "weights_only_nu_logit_iqr": [
+   5.965015411376953,
+   7.110827922821045
+  ],
+  "weights_only_nu_margin_med": 6.0235514640808105,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd0.3/ds19870_is871231",
+  "d_mlp": 4096,
+  "wd": 0.3,
+  "K": 4,
+  "all_nu_logit_med": 6.609619617462158,
+  "all_nu_logit_iqr": [
+   5.980993270874023,
+   7.153618335723877
+  ],
+  "all_nu_margin_med": 6.1230363845825195,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.525170803070068,
+  "weights_only_nu_logit_iqr": [
+   5.794157981872559,
+   7.137312412261963
+  ],
+  "weights_only_nu_margin_med": 6.066353797912598,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd1/ds15573_is135533",
+  "d_mlp": 4096,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.55697774887085,
+  "all_nu_logit_iqr": [
+   6.124544143676758,
+   6.987682819366455
+  ],
+  "all_nu_margin_med": 6.147583961486816,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.473715305328369,
+  "weights_only_nu_logit_iqr": [
+   5.995701789855957,
+   6.964762210845947
+  ],
+  "weights_only_nu_margin_med": 6.11171293258667,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd1/ds15573_is479062",
+  "d_mlp": 4096,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.837553024291992,
+  "all_nu_logit_iqr": [
+   6.114591598510742,
+   7.46607780456543
+  ],
+  "all_nu_margin_med": 6.046955108642578,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.624894142150879,
+  "weights_only_nu_logit_iqr": [
+   5.984503746032715,
+   7.19584846496582
+  ],
+  "weights_only_nu_margin_med": 5.965504169464111,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd1/ds15573_is648223",
+  "d_mlp": 4096,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.462248802185059,
+  "all_nu_logit_iqr": [
+   6.036424160003662,
+   7.073061466217041
+  ],
+  "all_nu_margin_med": 6.05788516998291,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.375833511352539,
+  "weights_only_nu_logit_iqr": [
+   5.894309997558594,
+   7.070832252502441
+  ],
+  "weights_only_nu_margin_med": 6.008872985839844,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd1/ds15573_is871231",
+  "d_mlp": 4096,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.809208869934082,
+  "all_nu_logit_iqr": [
+   6.078976631164551,
+   7.572576999664307
+  ],
+  "all_nu_margin_med": 6.067617416381836,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.642099857330322,
+  "weights_only_nu_logit_iqr": [
+   5.847949981689453,
+   7.468777179718018
+  ],
+  "weights_only_nu_margin_med": 5.97639274597168,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd1/ds19870_is135533",
+  "d_mlp": 4096,
+  "wd": 1.0,
+  "K": 5,
+  "all_nu_logit_med": 6.431163311004639,
+  "all_nu_logit_iqr": [
+   6.067724704742432,
+   6.787491798400879
+  ],
+  "all_nu_margin_med": 6.201453685760498,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.370976448059082,
+  "weights_only_nu_logit_iqr": [
+   5.965689182281494,
+   6.75606632232666
+  ],
+  "weights_only_nu_margin_med": 6.151309013366699,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd1/ds19870_is479062",
+  "d_mlp": 4096,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.773408889770508,
+  "all_nu_logit_iqr": [
+   6.091980457305908,
+   7.419044017791748
+  ],
+  "all_nu_margin_med": 6.084554672241211,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.604834079742432,
+  "weights_only_nu_logit_iqr": [
+   5.843521595001221,
+   7.277054786682129
+  ],
+  "weights_only_nu_margin_med": 6.011000633239746,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd1/ds19870_is648223",
+  "d_mlp": 4096,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.791985511779785,
+  "all_nu_logit_iqr": [
+   6.042139530181885,
+   7.379042625427246
+  ],
+  "all_nu_margin_med": 6.05812931060791,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.659716606140137,
+  "weights_only_nu_logit_iqr": [
+   5.842276096343994,
+   7.2928361892700195
+  ],
+  "weights_only_nu_margin_med": 5.987614631652832,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd1/ds19870_is871231",
+  "d_mlp": 4096,
+  "wd": 1.0,
+  "K": 4,
+  "all_nu_logit_med": 6.673703670501709,
+  "all_nu_logit_iqr": [
+   6.027604103088379,
+   7.35386323928833
+  ],
+  "all_nu_margin_med": 6.135128498077393,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.5508928298950195,
+  "weights_only_nu_logit_iqr": [
+   5.825279235839844,
+   7.290380477905273
+  ],
+  "weights_only_nu_margin_med": 6.074292182922363,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd3/ds15573_is135533",
+  "d_mlp": 4096,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.774404525756836,
+  "all_nu_logit_iqr": [
+   6.19842004776001,
+   7.310953617095947
+  ],
+  "all_nu_margin_med": 6.272409439086914,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.642147541046143,
+  "weights_only_nu_logit_iqr": [
+   5.987239360809326,
+   7.276065349578857
+  ],
+  "weights_only_nu_margin_med": 6.202091217041016,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd3/ds15573_is479062",
+  "d_mlp": 4096,
+  "wd": 3.0,
+  "K": 5,
+  "all_nu_logit_med": 6.582211017608643,
+  "all_nu_logit_iqr": [
+   5.927475452423096,
+   7.084223747253418
+  ],
+  "all_nu_margin_med": 6.139425277709961,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.529211521148682,
+  "weights_only_nu_logit_iqr": [
+   5.770027160644531,
+   7.055944919586182
+  ],
+  "weights_only_nu_margin_med": 6.085675239562988,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd3/ds15573_is648223",
+  "d_mlp": 4096,
+  "wd": 3.0,
+  "K": 5,
+  "all_nu_logit_med": 6.588855743408203,
+  "all_nu_logit_iqr": [
+   6.097153186798096,
+   7.060057163238525
+  ],
+  "all_nu_margin_med": 6.125026702880859,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.499353885650635,
+  "weights_only_nu_logit_iqr": [
+   5.970444679260254,
+   7.030866622924805
+  ],
+  "weights_only_nu_margin_med": 6.071282386779785,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd3/ds15573_is871231",
+  "d_mlp": 4096,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.6358537673950195,
+  "all_nu_logit_iqr": [
+   5.930229187011719,
+   7.38691520690918
+  ],
+  "all_nu_margin_med": 6.055280685424805,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.535248756408691,
+  "weights_only_nu_logit_iqr": [
+   5.749460220336914,
+   7.387302875518799
+  ],
+  "weights_only_nu_margin_med": 5.980564594268799,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd3/ds19870_is135533",
+  "d_mlp": 4096,
+  "wd": 3.0,
+  "K": 5,
+  "all_nu_logit_med": 6.546864032745361,
+  "all_nu_logit_iqr": [
+   6.100246429443359,
+   6.982205867767334
+  ],
+  "all_nu_margin_med": 6.244845867156982,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.465061664581299,
+  "weights_only_nu_logit_iqr": [
+   5.974723815917969,
+   6.954857349395752
+  ],
+  "weights_only_nu_margin_med": 6.2059173583984375,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd3/ds19870_is479062",
+  "d_mlp": 4096,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.891237735748291,
+  "all_nu_logit_iqr": [
+   6.441991806030273,
+   7.327080249786377
+  ],
+  "all_nu_margin_med": 6.108053684234619,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.75175142288208,
+  "weights_only_nu_logit_iqr": [
+   6.325629234313965,
+   7.152342796325684
+  ],
+  "weights_only_nu_margin_med": 6.050280570983887,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd3/ds19870_is648223",
+  "d_mlp": 4096,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.593754768371582,
+  "all_nu_logit_iqr": [
+   6.007657051086426,
+   7.17933988571167
+  ],
+  "all_nu_margin_med": 5.9995341300964355,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.517852306365967,
+  "weights_only_nu_logit_iqr": [
+   5.850619792938232,
+   7.148838520050049
+  ],
+  "weights_only_nu_margin_med": 5.938584327697754,
+  "weights_only_frac_pos": 1.0
+ },
+ {
+  "run": "runs_dial/w4096_wd3/ds19870_is871231",
+  "d_mlp": 4096,
+  "wd": 3.0,
+  "K": 4,
+  "all_nu_logit_med": 6.682834148406982,
+  "all_nu_logit_iqr": [
+   6.049672603607178,
+   7.248233795166016
+  ],
+  "all_nu_margin_med": 6.139073848724365,
+  "all_frac_pos": 1.0,
+  "weights_only_nu_logit_med": 6.5870442390441895,
+  "weights_only_nu_logit_iqr": [
+   5.861841678619385,
+   7.207910537719727
+  ],
+  "weights_only_nu_margin_med": 6.079060077667236,
+  "weights_only_frac_pos": 1.0
+ }
+]

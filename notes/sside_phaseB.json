@@ -1,0 +1,101 @@
+{
+ "n": 96,
+ "median_t_gen": 400.0,
+ "grid": 100,
+ "resid_sd": 82.39826262859265,
+ "band": 0.15,
+ "tests": {
+  "content identity": {
+   "skipped": "no content label"
+  },
+  "LP margin pctile": {
+   "observed": 38.469707985315196,
+   "noise_ceiling": 58.04134178985466,
+   "band_epochs": 60.0,
+   "equivalent": true,
+   "detected": false,
+   "p": 0.2055,
+   "kind": "correlation"
+  },
+  "LP relative margin": {
+   "observed": 19.345795557071074,
+   "noise_ceiling": 57.62897663125785,
+   "band_epochs": 60.0,
+   "equivalent": true,
+   "detected": false,
+   "p": 0.5381,
+   "kind": "correlation"
+  },
+  "mean target frequency": {
+   "observed": 25.285709772663864,
+   "noise_ceiling": 82.53646506139134,
+   "band_epochs": 60.0,
+   "equivalent": true,
+   "detected": false,
+   "p": 0.5788,
+   "kind": "correlation"
+  },
+  "target span": {
+   "observed": 46.34780087429741,
+   "noise_ceiling": 65.73846908734052,
+   "band_epochs": 60.0,
+   "equivalent": true,
+   "detected": false,
+   "p": 0.19105,
+   "kind": "correlation"
+  },
+  "lowest target frequency": {
+   "observed": 41.20413756346324,
+   "noise_ceiling": 65.57992854944337,
+   "band_epochs": 60.0,
+   "equivalent": true,
+   "detected": false,
+   "p": 0.24525,
+   "kind": "correlation"
+  },
+  "max T_k rank of targets": {
+   "observed": 3.125,
+   "noise_ceiling": 40.625,
+   "band_epochs": 60.0,
+   "equivalent": true,
+   "detected": false,
+   "p": 0.9405,
+   "kind": "correlation"
+  },
+  "mantel content-similarity": {
+   "observed": 5.696779738584394,
+   "noise_ceiling": 52.646736175870885,
+   "band_epochs": 60.0,
+   "equivalent": true,
+   "detected": false,
+   "p": 0.8534,
+   "kind": "correlation",
+   "informative_pairs": 0.29924242424242425
+  },
+  "install exactness": {
+   "observed": 0.7109574733949359,
+   "noise_ceiling": 15.641064414688547,
+   "band_epochs": 60.0,
+   "equivalent": true,
+   "detected": false,
+   "p": 0.99145,
+   "kind": "epochs"
+  },
+  "J(realised, installed)": {
+   "observed": 0.7047019278631255,
+   "noise_ceiling": 55.06742207730468,
+   "band_epochs": 60.0,
+   "equivalent": true,
+   "detected": false,
+   "p": 0.97905,
+   "kind": "correlation"
+  }
+ },
+ "power": {
+  "resid_sd": 82.39826262859265,
+  "quantisation_sd": 28.86751345948129,
+  "mde_epochs": 47.0945297974415,
+  "mde_frac": 0.11773632449360376
+ },
+ "verdict": "EQUIVALENT"
+}

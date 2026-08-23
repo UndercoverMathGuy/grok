@@ -92,6 +92,51 @@ excluded pairwise; if an arm loses >= 4/8 pairs to non-grok, that arm's
 predictions are declared unmeasurable at this budget, and the run is
 extended once to 16k epochs before judging.
 
+## RESULT (2026-08-15, 56/56 runs, all groked) — P-T1 killed as declared; dissociation landed with substrates SWAPPED
+
+Full numbers: notes/clock_summary.json. Verdicts against the prereg:
+
+- **P-T1 KILL** (pre-declared criterion met): freezing W_E for N=50/200/500
+  shifts t_ident by only +10/+12/+8 — selection runs ON SCHEDULE with its
+  presumed substrate immobilized. The pre-declared revision applies:
+  selection is a DOWNSTREAM race over W_E's static init tilt, not W_E
+  dynamics. (Consistent with epoch-0 logit readability: the tilt exists
+  before any step.)
+- **P-T2 weakened:** fz committees differ from base twins (J ~0.31-0.37 vs
+  ~0 null, ~0.8+ natural twins). Even a 50-epoch freeze redirects the
+  winner: init biases the natural race but does not dictate a perturbed one.
+- **P-T3:** branch logic assumed d_ident > 0; the honest reading is
+  maximal clock dissociation in the unanticipated direction — fz arms
+  delay GROK by +390/+585/+1295 (superlinear rework cost at small N)
+  while selection is untouched.
+- **P-T4 PASS:** on500 delays selection (+100) far less than it moves
+  grok. Dose-responsive selection delay across on arms (+28/+85/+100) —
+  the only intervention found that moves selection timing at all — while
+  grok net ACCELERATES (on50 -490, on200 -242, window included): a W_E
+  head start does real consolidation work.
+- Manipulation checks: fz50 window tracks base train-acc (dev 0.027);
+  long freezes slow memorization (dev 0.387) — W_E updates participate in
+  consolidation. on windows: train acc <= 0.06 (nothing else can learn).
+
+**Mechanism follow-up (exploratory, on pulled ckpts):** static-tilt AUC
+vs the run's OWN final committee rises monotonically with freeze length —
+base 0.734, fz50 0.783, fz200 0.828, fz500 0.850: freezing the signal
+makes the readout literal. Mirror: in on500 the epoch-0 tilt is useless
+(0.522, chance) but W_E after its solo 500-epoch window predicts the
+final winner at 0.969 — W_E alone re-runs the race through the frozen
+random readout, picks a different committee, and that decision sticks.
+Unified picture: selection is a **bilinear amplification race** between
+W_E's spectrum and downstream selectivity — whichever factor is free
+carries the amplification (hence rigid timing, 25-120 epochs under every
+intervention tried), while the outcome depends on which geometry the race
+runs through. Consolidation needs both factors co-moving (freeze one:
+rework cost; head-start one: acceleration).
+
+Headline sharpened, not killed: two processes with two clocks is now
+causally demonstrated (wd, fz, on all dissociate them); the substrate
+claim revises from "selection lives in W_E" to "the tilt is the signal,
+the race is bilinear, W_E updates belong to consolidation."
+
 ## Files
 
 - `clock/train_clock.py` — driver (idempotent, one lockstep batch of 56,

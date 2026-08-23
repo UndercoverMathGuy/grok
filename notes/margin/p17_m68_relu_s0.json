@@ -1,0 +1,679 @@
+{
+ "p": 17,
+ "m": 68,
+ "act": "relu",
+ "rows": [
+  {
+   "restart": 24,
+   "fourier_init": false,
+   "gamma": 0.0027208204325699322,
+   "sparsity": 0.9378302157602149
+  },
+  {
+   "restart": 108,
+   "fourier_init": true,
+   "gamma": 0.002690298647669014,
+   "sparsity": 0.9559016972029125
+  },
+  {
+   "restart": 49,
+   "fourier_init": false,
+   "gamma": 0.002575949814721814,
+   "sparsity": 0.9371310406392038
+  },
+  {
+   "restart": 57,
+   "fourier_init": false,
+   "gamma": 0.002536527173486824,
+   "sparsity": 0.9356817535800785
+  },
+  {
+   "restart": 96,
+   "fourier_init": true,
+   "gamma": 0.0024906284998092642,
+   "sparsity": 0.9555744408452082
+  },
+  {
+   "restart": 68,
+   "fourier_init": false,
+   "gamma": 0.0023581944406471833,
+   "sparsity": 0.9379550753490259
+  },
+  {
+   "restart": 56,
+   "fourier_init": false,
+   "gamma": 0.0023168857955528917,
+   "sparsity": 0.9375475739120929
+  },
+  {
+   "restart": 75,
+   "fourier_init": false,
+   "gamma": 0.0023132102435298,
+   "sparsity": 0.9385409186116712
+  },
+  {
+   "restart": 69,
+   "fourier_init": false,
+   "gamma": 0.0023122535070148496,
+   "sparsity": 0.9376261103806041
+  },
+  {
+   "restart": 76,
+   "fourier_init": false,
+   "gamma": 0.002305734027991172,
+   "sparsity": 0.9390330807478372
+  },
+  {
+   "restart": 5,
+   "fourier_init": false,
+   "gamma": 0.0022671556946418344,
+   "sparsity": 0.9375563892778563
+  },
+  {
+   "restart": 98,
+   "fourier_init": true,
+   "gamma": 0.0022561431622982408,
+   "sparsity": 0.9564535647918723
+  },
+  {
+   "restart": 109,
+   "fourier_init": true,
+   "gamma": 0.002253274644312112,
+   "sparsity": 0.9544952037791955
+  },
+  {
+   "restart": 111,
+   "fourier_init": true,
+   "gamma": 0.0022236621810024647,
+   "sparsity": 0.9549167754578979
+  },
+  {
+   "restart": 30,
+   "fourier_init": false,
+   "gamma": 0.0022147675361051796,
+   "sparsity": 0.9375294567691871
+  },
+  {
+   "restart": 93,
+   "fourier_init": false,
+   "gamma": 0.0022144111278237536,
+   "sparsity": 0.9368582920598246
+  },
+  {
+   "restart": 18,
+   "fourier_init": false,
+   "gamma": 0.0022072853347436363,
+   "sparsity": 0.9392723192849219
+  },
+  {
+   "restart": 102,
+   "fourier_init": true,
+   "gamma": 0.002200406387940351,
+   "sparsity": 0.9552615288621328
+  },
+  {
+   "restart": 104,
+   "fourier_init": true,
+   "gamma": 0.002170401421090805,
+   "sparsity": 0.9556181708728411
+  },
+  {
+   "restart": 43,
+   "fourier_init": false,
+   "gamma": 0.0021596658660826087,
+   "sparsity": 0.937427252851967
+  },
+  {
+   "restart": 27,
+   "fourier_init": false,
+   "gamma": 0.002156322043504659,
+   "sparsity": 0.937641263386095
+  },
+  {
+   "restart": 1,
+   "fourier_init": false,
+   "gamma": 0.002144508456234042,
+   "sparsity": 0.9402751427325616
+  },
+  {
+   "restart": 23,
+   "fourier_init": false,
+   "gamma": 0.0021391137386483953,
+   "sparsity": 0.9429173359371834
+  },
+  {
+   "restart": 58,
+   "fourier_init": false,
+   "gamma": 0.0021162516143625656,
+   "sparsity": 0.9375647012860994
+  },
+  {
+   "restart": 38,
+   "fourier_init": false,
+   "gamma": 0.002108738330654606,
+   "sparsity": 0.9397591415866545
+  },
+  {
+   "restart": 44,
+   "fourier_init": false,
+   "gamma": 0.0021038111938355545,
+   "sparsity": 0.9347916852986323
+  },
+  {
+   "restart": 62,
+   "fourier_init": false,
+   "gamma": 0.0020924583775160615,
+   "sparsity": 0.9397999395125294
+  },
+  {
+   "restart": 15,
+   "fourier_init": false,
+   "gamma": 0.0020486752250818683,
+   "sparsity": 0.9385146009785835
+  },
+  {
+   "restart": 0,
+   "fourier_init": false,
+   "gamma": 0.0020424670740916344,
+   "sparsity": 0.9391903743836042
+  },
+  {
+   "restart": 73,
+   "fourier_init": false,
+   "gamma": 0.002021544741503264,
+   "sparsity": 0.936661953821106
+  },
+  {
+   "restart": 4,
+   "fourier_init": false,
+   "gamma": 0.0020150013105608966,
+   "sparsity": 0.9388713064069903
+  },
+  {
+   "restart": 11,
+   "fourier_init": false,
+   "gamma": 0.0019948859584608567,
+   "sparsity": 0.938943541625136
+  },
+  {
+   "restart": 71,
+   "fourier_init": false,
+   "gamma": 0.001984274033951358,
+   "sparsity": 0.9370654034785973
+  },
+  {
+   "restart": 70,
+   "fourier_init": false,
+   "gamma": 0.001969273244169109,
+   "sparsity": 0.9391273640187295
+  },
+  {
+   "restart": 22,
+   "fourier_init": false,
+   "gamma": 0.001968733315483222,
+   "sparsity": 0.9375506730836803
+  },
+  {
+   "restart": 90,
+   "fourier_init": false,
+   "gamma": 0.0019485796422516626,
+   "sparsity": 0.9391229487260088
+  },
+  {
+   "restart": 97,
+   "fourier_init": true,
+   "gamma": 0.0019274805158422895,
+   "sparsity": 0.9563270890472823
+  },
+  {
+   "restart": 12,
+   "fourier_init": false,
+   "gamma": 0.0019267669722972001,
+   "sparsity": 0.9402195115927784
+  },
+  {
+   "restart": 2,
+   "fourier_init": false,
+   "gamma": 0.0019170803290409775,
+   "sparsity": 0.940766031715262
+  },
+  {
+   "restart": 54,
+   "fourier_init": false,
+   "gamma": 0.0019142503607767597,
+   "sparsity": 0.9383624308774197
+  },
+  {
+   "restart": 94,
+   "fourier_init": false,
+   "gamma": 0.0019082880456978437,
+   "sparsity": 0.9378738087784334
+  },
+  {
+   "restart": 72,
+   "fourier_init": false,
+   "gamma": 0.0019033682478135148,
+   "sparsity": 0.9401017732633868
+  },
+  {
+   "restart": 39,
+   "fourier_init": false,
+   "gamma": 0.0018774418671321448,
+   "sparsity": 0.9417506906081962
+  },
+  {
+   "restart": 8,
+   "fourier_init": false,
+   "gamma": 0.0018770132879324616,
+   "sparsity": 0.9385561128134903
+  },
+  {
+   "restart": 67,
+   "fourier_init": false,
+   "gamma": 0.0018743478290158475,
+   "sparsity": 0.9402578309446178
+  },
+  {
+   "restart": 74,
+   "fourier_init": false,
+   "gamma": 0.0018605365126666985,
+   "sparsity": 0.9362750427450844
+  },
+  {
+   "restart": 92,
+   "fourier_init": false,
+   "gamma": 0.0018560096058410206,
+   "sparsity": 0.9391784490817106
+  },
+  {
+   "restart": 35,
+   "fourier_init": false,
+   "gamma": 0.0018476476216613869,
+   "sparsity": 0.9375854953658314
+  },
+  {
+   "restart": 13,
+   "fourier_init": false,
+   "gamma": 0.0018290945417494785,
+   "sparsity": 0.9389692988607914
+  },
+  {
+   "restart": 33,
+   "fourier_init": false,
+   "gamma": 0.0017946230276026033,
+   "sparsity": 0.9366973629793615
+  },
+  {
+   "restart": 42,
+   "fourier_init": false,
+   "gamma": 0.001787483793807369,
+   "sparsity": 0.9368800758571941
+  },
+  {
+   "restart": 20,
+   "fourier_init": false,
+   "gamma": 0.0017740395072076602,
+   "sparsity": 0.941113328718706
+  },
+  {
+   "restart": 7,
+   "fourier_init": false,
+   "gamma": 0.0017593007357407067,
+   "sparsity": 0.9420159852946864
+  },
+  {
+   "restart": 55,
+   "fourier_init": false,
+   "gamma": 0.0017584983198859136,
+   "sparsity": 0.9378453001943882
+  },
+  {
+   "restart": 3,
+   "fourier_init": false,
+   "gamma": 0.0017511581593837346,
+   "sparsity": 0.9389549144636321
+  },
+  {
+   "restart": 26,
+   "fourier_init": false,
+   "gamma": 0.0017357481445422073,
+   "sparsity": 0.9396748309561653
+  },
+  {
+   "restart": 107,
+   "fourier_init": true,
+   "gamma": 0.0017187726788175546,
+   "sparsity": 0.9546678339596252
+  },
+  {
+   "restart": 51,
+   "fourier_init": false,
+   "gamma": 0.0017165273814769033,
+   "sparsity": 0.9361899243013382
+  },
+  {
+   "restart": 14,
+   "fourier_init": false,
+   "gamma": 0.001704579950056173,
+   "sparsity": 0.94114523005163
+  },
+  {
+   "restart": 21,
+   "fourier_init": false,
+   "gamma": 0.0016905712116570114,
+   "sparsity": 0.9404116562442378
+  },
+  {
+   "restart": 31,
+   "fourier_init": false,
+   "gamma": 0.001687638631037278,
+   "sparsity": 0.9411247349598247
+  },
+  {
+   "restart": 37,
+   "fourier_init": false,
+   "gamma": 0.0016746648130988883,
+   "sparsity": 0.9401162987100631
+  },
+  {
+   "restart": 59,
+   "fourier_init": false,
+   "gamma": 0.0016701202383538308,
+   "sparsity": 0.9359531898839794
+  },
+  {
+   "restart": 101,
+   "fourier_init": true,
+   "gamma": 0.0016668392992748079,
+   "sparsity": 0.9531368441857003
+  },
+  {
+   "restart": 87,
+   "fourier_init": false,
+   "gamma": 0.0016634192523320886,
+   "sparsity": 0.9374394221365477
+  },
+  {
+   "restart": 41,
+   "fourier_init": false,
+   "gamma": 0.001645854088207878,
+   "sparsity": 0.9390885638875327
+  },
+  {
+   "restart": 45,
+   "fourier_init": false,
+   "gamma": 0.0016370120919739183,
+   "sparsity": 0.9390107293889022
+  },
+  {
+   "restart": 36,
+   "fourier_init": false,
+   "gamma": 0.0016230452015360492,
+   "sparsity": 0.9401774727827276
+  },
+  {
+   "restart": 6,
+   "fourier_init": false,
+   "gamma": 0.0016203561438004853,
+   "sparsity": 0.9364926888537027
+  },
+  {
+   "restart": 81,
+   "fourier_init": false,
+   "gamma": 0.0016093368113548482,
+   "sparsity": 0.9376090629645729
+  },
+  {
+   "restart": 85,
+   "fourier_init": false,
+   "gamma": 0.0016033990345009947,
+   "sparsity": 0.9403005032127716
+  },
+  {
+   "restart": 25,
+   "fourier_init": false,
+   "gamma": 0.001601645632638515,
+   "sparsity": 0.9361090477746629
+  },
+  {
+   "restart": 100,
+   "fourier_init": true,
+   "gamma": 0.001600098809378868,
+   "sparsity": 0.9551509714674692
+  },
+  {
+   "restart": 77,
+   "fourier_init": false,
+   "gamma": 0.0015992696115851527,
+   "sparsity": 0.9394566416025519
+  },
+  {
+   "restart": 103,
+   "fourier_init": true,
+   "gamma": 0.0015751971870019564,
+   "sparsity": 0.9541637904300962
+  },
+  {
+   "restart": 40,
+   "fourier_init": false,
+   "gamma": 0.0015617517682698081,
+   "sparsity": 0.9383926302495279
+  },
+  {
+   "restart": 66,
+   "fourier_init": false,
+   "gamma": 0.0015567070894639684,
+   "sparsity": 0.9402113942508107
+  },
+  {
+   "restart": 86,
+   "fourier_init": false,
+   "gamma": 0.0015431895693251976,
+   "sparsity": 0.9382781947082967
+  },
+  {
+   "restart": 60,
+   "fourier_init": false,
+   "gamma": 0.001532270792115173,
+   "sparsity": 0.937894933343192
+  },
+  {
+   "restart": 52,
+   "fourier_init": false,
+   "gamma": 0.0015220182503488016,
+   "sparsity": 0.9360196001254616
+  },
+  {
+   "restart": 95,
+   "fourier_init": false,
+   "gamma": 0.0015023447733600375,
+   "sparsity": 0.9388600905502299
+  },
+  {
+   "restart": 16,
+   "fourier_init": false,
+   "gamma": 0.0014927414662302754,
+   "sparsity": 0.941128447112459
+  },
+  {
+   "restart": 47,
+   "fourier_init": false,
+   "gamma": 0.0014617104227305782,
+   "sparsity": 0.9427136488114
+  },
+  {
+   "restart": 48,
+   "fourier_init": false,
+   "gamma": 0.001452036043995355,
+   "sparsity": 0.9373090196352076
+  },
+  {
+   "restart": 82,
+   "fourier_init": false,
+   "gamma": 0.001445316012872669,
+   "sparsity": 0.9373752974770447
+  },
+  {
+   "restart": 46,
+   "fourier_init": false,
+   "gamma": 0.0014399225749607142,
+   "sparsity": 0.9397567411081097
+  },
+  {
+   "restart": 53,
+   "fourier_init": false,
+   "gamma": 0.0014279492100091498,
+   "sparsity": 0.9372674329560101
+  },
+  {
+   "restart": 79,
+   "fourier_init": false,
+   "gamma": 0.0014267480626076294,
+   "sparsity": 0.9390103688730811
+  },
+  {
+   "restart": 83,
+   "fourier_init": false,
+   "gamma": 0.0014180806522770548,
+   "sparsity": 0.9333709264162385
+  },
+  {
+   "restart": 63,
+   "fourier_init": false,
+   "gamma": 0.0013824231829185542,
+   "sparsity": 0.9374279112143901
+  },
+  {
+   "restart": 17,
+   "fourier_init": false,
+   "gamma": 0.0013282447176706457,
+   "sparsity": 0.9388583042254041
+  },
+  {
+   "restart": 64,
+   "fourier_init": false,
+   "gamma": 0.0013251332749819834,
+   "sparsity": 0.9410277224225266
+  },
+  {
+   "restart": 19,
+   "fourier_init": false,
+   "gamma": 0.0013224971354678589,
+   "sparsity": 0.9382505302921466
+  },
+  {
+   "restart": 65,
+   "fourier_init": false,
+   "gamma": 0.0013182600746162072,
+   "sparsity": 0.9373527286622535
+  },
+  {
+   "restart": 10,
+   "fourier_init": false,
+   "gamma": 0.001303117528908643,
+   "sparsity": 0.9392093186962381
+  },
+  {
+   "restart": 29,
+   "fourier_init": false,
+   "gamma": 0.0012523129060170554,
+   "sparsity": 0.9375250727865597
+  },
+  {
+   "restart": 91,
+   "fourier_init": false,
+   "gamma": 0.0012376666607704792,
+   "sparsity": 0.9366893450189121
+  },
+  {
+   "restart": 78,
+   "fourier_init": false,
+   "gamma": 0.0012018409261492736,
+   "sparsity": 0.9413296221538242
+  },
+  {
+   "restart": 89,
+   "fourier_init": false,
+   "gamma": 0.0011550118996994426,
+   "sparsity": 0.9375252609598116
+  },
+  {
+   "restart": 105,
+   "fourier_init": true,
+   "gamma": 0.0011500778541011182,
+   "sparsity": 0.9535498330345814
+  },
+  {
+   "restart": 50,
+   "fourier_init": false,
+   "gamma": 0.0011325291885946331,
+   "sparsity": 0.9361044984418968
+  },
+  {
+   "restart": 99,
+   "fourier_init": true,
+   "gamma": 0.0010931065075123472,
+   "sparsity": 0.95515861389777
+  },
+  {
+   "restart": 34,
+   "fourier_init": false,
+   "gamma": 0.001087449704301995,
+   "sparsity": 0.9345708649161805
+  },
+  {
+   "restart": 61,
+   "fourier_init": false,
+   "gamma": 0.0010662970580705843,
+   "sparsity": 0.9407231709089373
+  },
+  {
+   "restart": 110,
+   "fourier_init": true,
+   "gamma": 0.000969168376578399,
+   "sparsity": 0.9532345028974262
+  },
+  {
+   "restart": 106,
+   "fourier_init": true,
+   "gamma": 0.000911721714026959,
+   "sparsity": 0.9542685092725515
+  },
+  {
+   "restart": 28,
+   "fourier_init": false,
+   "gamma": 0.0008367783681296134,
+   "sparsity": 0.9370770161212393
+  },
+  {
+   "restart": 9,
+   "fourier_init": false,
+   "gamma": 0.0008268464658774035,
+   "sparsity": 0.9370066715140969
+  },
+  {
+   "restart": 88,
+   "fourier_init": false,
+   "gamma": 0.0007686144577083651,
+   "sparsity": 0.9366557952438296
+  },
+  {
+   "restart": 32,
+   "fourier_init": false,
+   "gamma": 0.0007257164061115731,
+   "sparsity": 0.9407419478574095
+  },
+  {
+   "restart": 84,
+   "fourier_init": false,
+   "gamma": 0.00017393474325801128,
+   "sparsity": 0.9381529333231727
+  },
+  {
+   "restart": 80,
+   "fourier_init": false,
+   "gamma": -1.6920241014319742e-05,
+   "sparsity": 0.9373494785068263
+  }
+ ]
+}

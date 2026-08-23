@@ -10,7 +10,13 @@ naturals. Seeds are drawn from SEED_DRAW and printed at startup.
 
 Lockstep batched training, exactly as the MLX version: weights stacked on a
 leading run axis, loss = sum of per-run mean CEs (separable -> exact per-run
-grads), per-run AdamW in lockstep. Optimizer matches MLX semantics: NO bias
+grads), per-run AdamW in lockstep. Perf notes (2026-08-18): batches may be
+RAGGED in frac_train (per-run example indices padded mode=edge with zero
+weights — padded slots contribute exactly zero loss/grad; equal-count
+batches take the historical bit-identical path); compile_mode
+"reduce-overhead" (CUDA graphs) is safe — the history buffer copies the
+graph-owned step output each epoch; f64 spectra projections are dispatched
+to a side CUDA stream (identical math/values, overlapped scheduling). Optimizer matches MLX semantics: NO bias
 correction, decoupled wd as p*(1-lr*wd) — the homeostat eps-floor result
 depends on this exact form; torch.optim.AdamW (bias-corrected) would NOT
 reproduce it.
@@ -168,6 +174,13 @@ class Config:
     num_epochs: int = 50_000
     save_every: int = 100
     stopping_thresh: float = -1.0
+    # Shortcut pathway (shortcut/): logits += table_scale * T[a, b, :] with a
+    # zero-init learnable per-pair table T (p*p, d_vocab) — an explicit,
+    # degree-1 memorization route beside the degree->=4 circuit. 0 = off
+    # (T then has exactly zero gradient and stays zero: baseline arithmetic
+    # unchanged). table_wd_mult scales the decoupled wd applied to T.
+    table_scale: float = 0.0
+    table_wd_mult: float = 1.0
 
     @property
     def d_vocab(self):
@@ -191,13 +204,22 @@ class Config:
 
 
 def make_dataset(cfg):
-    """All p^2 pairs [a, b, =] lexicographic; labels (a+b)%p."""
-    assert cfg.fn_name == "add"
+    """All p^2 pairs [a, b, =] lexicographic; labels (a+b)%p for 'add',
+    (a-b)%p for 'sub', group product for 's5' (p must be 120; token
+    structure unchanged)."""
     p = cfg.p
     a = np.repeat(np.arange(p), p)
     b = np.tile(np.arange(p), p)
     tokens = np.stack([a, b, np.full(p * p, p)], axis=1).astype(np.int64)
-    labels = ((a + b) % p).astype(np.int64)
+    if cfg.fn_name == "s5":
+        assert p == 120
+        from groups import MULT
+        labels = MULT[a, b].astype(np.int64)
+    elif cfg.fn_name == "sub":
+        labels = ((a - b) % p).astype(np.int64)
+    else:
+        assert cfg.fn_name == "add"
+        labels = ((a + b) % p).astype(np.int64)
     return tokens, labels
 
 
@@ -373,23 +395,37 @@ def make_ce(loss, cfgs):
 # training
 # --------------------------------------------------------------------------
 
-def save_ckpts(pr, run_dirs, epoch):
+def save_ckpts(pr, run_dirs, epoch, optim=None):
+    """optim=(m_st, v_st, step_off) additionally stores the Adam moments and
+    absolute step count per run (keys adam.m.<param>, adam.v.<param>,
+    adam.step), enabling WARM resumes: init_from auto-detects these keys and
+    restores the exact optimizer state instead of a cold restart."""
     for i, rd in enumerate(run_dirs):
-        save_file({k: v[i].detach().cpu().contiguous() for k, v in pr.items()},
-                  str(rd / "checkpoints" / f"epoch_{epoch:05d}.safetensors"))
+        d = {k: v[i].detach().cpu().contiguous() for k, v in pr.items()}
+        if optim is not None:
+            m_st, v_st, step_off = optim
+            for j, k in enumerate(pr):
+                d[f"adam.m.{k}"] = m_st[j][i].detach().cpu().contiguous()
+                d[f"adam.v.{k}"] = v_st[j][i].detach().cpu().contiguous()
+            d["adam.step"] = torch.tensor(float(epoch + step_off[i].item()))
+        save_file(d, str(rd / "checkpoints" / f"epoch_{epoch:05d}.safetensors"))
 
 
 def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
                   spectra_every=100, loss="f32stable", compile_mode="default",
-                  device=None, wb=None, wb_tag=None, freeze=None):
+                  device=None, wb=None, wb_tag=None, freeze=None,
+                  masks_override=None, save_optim=False, grad_tap=False,
+                  weight_tap=False):
     M = len(cfgs)
     c0 = cfgs[0]
     # lr, weight_decay, loss_tilt and loss_cvar are PER-RUN (broadcast vectors
     # in the optimizer / grouped in the aggregator), so dynamics families can
     # share one lockstep batch. Everything below still has to agree: it either
     # changes tensor shapes or the epoch grid.
+    # frac_train may differ within a batch (ragged path pads per-run example
+    # sets); everything shape- or schedule-bearing below still must agree.
     for c in cfgs:
-        for f in ("p", "fn_name", "frac_train", "d_model", "num_heads", "d_mlp",
+        for f in ("p", "fn_name", "d_model", "num_heads", "d_mlp",
                   "n_ctx", "act_type", "warmup_steps",
                   "betas", "adam_eps", "num_epochs", "save_every",
                   "stopping_thresh"):
@@ -418,7 +454,10 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         (rd / "checkpoints").mkdir(parents=True, exist_ok=True)
         cfg.save(rd / "config.json")
 
-    # stack per-run inits (fresh torch draws, or warm-start checkpoints)
+    # stack per-run inits (fresh torch draws, or checkpoints). A checkpoint
+    # carrying adam.* keys (written via save_optim=True) is resumed WARM:
+    # its Adam moments and step count are restored exactly. Otherwise the
+    # resume is cold (m=v=0, warmup restarts) — the historical behavior.
     per_run = []
     for i, cfg in enumerate(cfgs):
         p = init_params(cfg)
@@ -427,9 +466,49 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         per_run.append(p)
     pr = {k: torch.stack([r[k] for r in per_run]).to(device).requires_grad_()
           for k in PARAM_KEYS}
-    params = list(pr.values())
+    # optional per-pair shortcut table (see Config.table_scale): one extra
+    # stacked param, zero-init, per-run gain ts_v and wd multiplier twm_v
+    table = any(c.table_scale > 0 for c in cfgs)
+    keys = list(PARAM_KEYS)
+    if table:
+        pr["table.T"] = torch.zeros(M, c0.p * c0.p, c0.d_vocab, device=device,
+                                    requires_grad=True)
+        keys.append("table.T")
+        ts_v = torch.tensor([c.table_scale for c in cfgs], dtype=torch.float32,
+                            device=device)[:, None, None]
+        twm_v = torch.tensor([c.table_wd_mult for c in cfgs],
+                             dtype=torch.float32, device=device)
+    params = [pr[k] for k in keys]
+
+    def logits_fn(toks):
+        L = batched_final_logits(pr, toks, c0)
+        if table:
+            T = pr["table.T"]
+            if toks.dim() == 2:
+                L = L + ts_v * T[:, toks[:, 0] * c0.p + toks[:, 1]]
+            else:
+                idx = (toks[..., 0] * c0.p + toks[..., 1]).unsqueeze(-1)
+                L = L + ts_v * T.gather(1, idx.expand(-1, -1, T.shape[-1]))
+        return L
     m_st = [torch.zeros_like(p) for p in params]
     v_st = [torch.zeros_like(p) for p in params]
+    step_off = torch.zeros(M, device=device)
+    warm_any = False
+    for i, p in enumerate(per_run):
+        if "adam.step" not in p:
+            continue
+        missing = [k for k in PARAM_KEYS
+                   if f"adam.m.{k}" not in p or f"adam.v.{k}" not in p]
+        assert not missing, f"partial optimizer state in ckpt: {missing}"
+        for j, k in enumerate(PARAM_KEYS):
+            m_st[j][i] = p[f"adam.m.{k}"].to(device)
+            v_st[j][i] = p[f"adam.v.{k}"].to(device)
+        step_off[i] = float(p["adam.step"].item())
+        warm_any = True
+    if warm_any:
+        print(f"warm resume: {int((step_off > 0).sum())} run(s) with restored "
+              f"Adam state, step offsets {step_off.cpu().numpy().tolist()}",
+              flush=True)
     b1, b2 = c0.betas
     eps = c0.adam_eps
     # Per-run lr / weight decay as (M,) vectors, broadcast against each
@@ -438,6 +517,9 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
     lr_base = torch.tensor([c.lr for c in cfgs], dtype=torch.float32, device=device)
     wd_v = torch.tensor([c.weight_decay for c in cfgs], dtype=torch.float32,
                         device=device)
+    wd_k = {k: wd_v for k in keys}
+    if table:
+        wd_k["table.T"] = wd_v * twm_v
     lr_t = torch.zeros(M, device=device)    # in-place updated: no recompiles
     bshape = {id(p): (-1,) + (1,) * (p.dim() - 1) for p in params}
 
@@ -449,7 +531,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
     # (M,) tensors updated in place only at schedule boundaries: no recompiles.
     if freeze is not None and any(f is not None for f in freeze):
         assert len(freeze) == M
-        act = {k: torch.ones(M, device=device) for k in PARAM_KEYS}
+        act = {k: torch.ones(M, device=device) for k in keys}
         f_bounds = sorted({u for f in freeze if f for u in (f[1],)})
 
         def set_active(epoch):
@@ -463,62 +545,218 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         act, f_bounds = None, []
 
     tokens_np, labels_np = make_dataset(c0)
-    masks = [train_test_split(c) for c in cfgs]
-    tr_tok = torch.from_numpy(np.stack([tokens_np[m] for m in masks])).to(device)
-    tr_lab = torch.from_numpy(np.stack([labels_np[m] for m in masks])).to(device)
-    te_tok = torch.from_numpy(np.stack([tokens_np[~m] for m in masks])).to(device)
-    te_lab = torch.from_numpy(np.stack([labels_np[~m] for m in masks])).to(device)
+    # masks_override: per-run explicit train masks (np bool, p^2), None entries
+    # fall back to the seeded split. Runs whose masks differ in COUNT (e.g.
+    # different frac_train stacked into one lockstep batch) are handled by the
+    # ragged path: per-run example indices padded (mode=edge) to the batch max
+    # and a per-run weight vector (1/count on real slots, 0 on pads), so the
+    # padded slots contribute exactly zero loss and zero gradient. With equal
+    # counts the historical compact path runs unchanged (bit-identical).
+    masks = [train_test_split(c) if masks_override is None
+             or masks_override[i] is None else np.asarray(masks_override[i])
+             for i, c in enumerate(cfgs)]
+    ragged = len({int(m.sum()) for m in masks}) > 1
+    if ragged:
+        assert all(c.loss_tilt == 0 and c.loss_cvar == 0 for c in cfgs), \
+            "ragged batches support the plain-mean objective only"
+
+        def pack(sels):
+            n = max(len(s) for s in sels)
+            idx = np.stack([np.pad(s, (0, n - len(s)), mode="edge")
+                            for s in sels])
+            w = np.stack([np.concatenate([np.full(len(s), 1.0 / len(s),
+                                                  dtype=np.float32),
+                                          np.zeros(n - len(s), np.float32)])
+                          for s in sels])
+            return idx, w
+
+        tr_idx, tr_w = pack([np.flatnonzero(m) for m in masks])
+        te_idx, te_w = pack([np.flatnonzero(~m) for m in masks])
+        tr_tok = torch.from_numpy(tokens_np[tr_idx]).to(device)
+        tr_lab = torch.from_numpy(labels_np[tr_idx]).to(device)
+        te_tok = torch.from_numpy(tokens_np[te_idx]).to(device)
+        te_lab = torch.from_numpy(labels_np[te_idx]).to(device)
+        w_tr = torch.from_numpy(tr_w).to(device)
+        w_te = torch.from_numpy(te_w).to(device)
+        base = per_ex_stable_f32 if loss == "f32stable" else per_ex_f64
+        ce_tr = lambda lg, lb: (base(lg, lb) * w_tr).sum(1).float()
+        ce_te = lambda lg, lb: (base(lg, lb) * w_te).sum(1).float()
+    else:
+        tr_tok = torch.from_numpy(np.stack([tokens_np[m] for m in masks])).to(device)
+        tr_lab = torch.from_numpy(np.stack([labels_np[m] for m in masks])).to(device)
+        te_tok = torch.from_numpy(np.stack([tokens_np[~m] for m in masks])).to(device)
+        te_lab = torch.from_numpy(np.stack([labels_np[~m] for m in masks])).to(device)
+        ce_tr = ce_te = make_ce(loss, cfgs)
     grid = torch.from_numpy(tokens_np).to(device)
-    ce = make_ce(loss, cfgs)
     recipes = sorted({(c.lr, c.weight_decay, c.loss_tilt, c.loss_cvar)
                       for c in cfgs})
-    print(f"batch {M} on {device}:  train {tr_tok.shape[1]}  "
-          f"test {te_tok.shape[1]}  {len(recipes)} recipe(s) "
+    counts = sorted({int(m.sum()) for m in masks})
+    print(f"batch {M} on {device}:  train {counts[0]}"
+          + (f"-{counts[-1]} padded to {tr_tok.shape[1]} (ragged)"
+             if ragged else "")
+          + f"  test {te_tok.shape[1]}  {len(recipes)} recipe(s) "
           f"(lr, wd, tilt, cvar): {recipes}", flush=True)
 
-    # spectra machinery (GPU f64; tiny matmuls)
-    basis = fourier_basis(c0.p)
-    n_ = c0.p // 2
-    bc, bs = basis[1::2], basis[2::2]                       # (n, p)
-    u_cos = torch.from_numpy((np.einsum("np,nq->npq", bc, bc)
-                              - np.einsum("np,nq->npq", bs, bs))
-                             .reshape(n_, -1) / np.sqrt(2)).to(device)
-    u_sin = torch.from_numpy((np.einsum("np,nq->npq", bs, bc)
-                              + np.einsum("np,nq->npq", bc, bs))
-                             .reshape(n_, -1) / np.sqrt(2)).to(device)
-    b_cos = torch.from_numpy(bc).to(device)
-    b_sin = torch.from_numpy(bs).to(device)
+    # spectra machinery (GPU f64; tiny matmuls). For 's5' the per-frequency
+    # Fourier decomposition is replaced by per-irrep isotypic energy over
+    # the 6 NONTRIVIAL irreps (trivial = constant offset, excluded exactly
+    # like the constant Fourier row); coeffs = sqrt(energy) so the
+    # gap-detector committee machinery works unchanged.
     lab_t = torch.from_numpy(labels_np).to(device)
     mask_t = torch.from_numpy(np.stack(masks)).to(device)
-    spectra = [{"epochs": [], "coeffs": [], "energy": [],
-                "train_acc": [], "test_acc": []} for _ in range(M)]
+    # snapshots accumulate ON DEVICE (lists of (M, ...) tensors) and transfer
+    # once at save time — the old per-run .cpu()/float() pattern cost M*4 host
+    # syncs per snapshot, which dominates at spectra_every=5.
+    snap = {"epochs": [], "coeffs": [], "energy": [],
+            "train_acc": [], "test_acc": []}
+    if table:
+        # circuit-only accs/spectra above; the FULL (circuit + table) accs and
+        # the two pathways' squared norms alongside
+        for k in ("train_acc_full", "test_acc_full", "table_norm2",
+                  "circuit_norm2"):
+            snap[k] = []
+    if grad_tap:
+        snap["grad_energy"], snap["grad_dot"] = [], []
+    if weight_tap:
+        # committee-agnostic decomposition, so any committee can be applied
+        # post hoc: full 2D logit spectrum over (a, b) per output, grouped
+        # by input-frequency pair; Fourier energy of W_E / W_U over the p
+        # token axis; per-matrix squared norms. All f32, main stream.
+        assert c0.fn_name != "s5", "weight tap is Fourier-only"
+        for k in ("diag2d", "off2d", "single2d", "const2d", "total2d",
+                  "wE_energy", "wU_energy", "pnorm"):
+            snap[k] = []
+        F_t = torch.from_numpy(fourier_basis(c0.p)).float().to(device)
+        kidx = torch.tensor([(i + 1) // 2 for i in range(c0.p)],
+                            device=device)                    # row -> freq, 0=const
+        same_k = (kidx[:, None] == kidx[None, :]) & (kidx[:, None] > 0)
+    if c0.fn_name == "s5":
+        from groups import PROJ
+        proj_t = torch.from_numpy(PROJ[1:]).to(device)       # (6, p, p)
+    else:
+        basis = fourier_basis(c0.p)
+        n_ = c0.p // 2
+        bc, bs = basis[1::2], basis[2::2]                    # (n, p)
+        # 'add' solutions live on cos/sin(w(a+b)); 'sub' on cos/sin(w(a-b)).
+        # sgn flips the cross terms so the projectors match the task.
+        sgn = -1.0 if c0.fn_name == "sub" else 1.0
+        u_cos = torch.from_numpy((np.einsum("np,nq->npq", bc, bc)
+                                  - sgn * np.einsum("np,nq->npq", bs, bs))
+                                 .reshape(n_, -1) / np.sqrt(2)).to(device)
+        u_sin = torch.from_numpy((np.einsum("np,nq->npq", bs, bc)
+                                  + sgn * np.einsum("np,nq->npq", bc, bs))
+                                 .reshape(n_, -1) / np.sqrt(2)).to(device)
+        b_cos = torch.from_numpy(bc).to(device)
+        b_sin = torch.from_numpy(bs).to(device)
 
-    @torch.no_grad()
-    def take_snapshot(epoch):
-        L = batched_final_logits(pr, grid, c0)[..., :c0.p]
-        acc = L.argmax(-1) == lab_t                          # (M, p^2)
-        Ld = L.double()
+    # The f64 projection runs at 1/64 rate on GeForce and would stall the
+    # fp32 training stream ~10ms per snapshot. On CUDA it is dispatched to a
+    # SIDE STREAM against a cloned logit buffer: the f64 units grind away
+    # while the next training steps proceed on the fp32 pipeline. The math,
+    # dtypes and stored values are IDENTICAL to the synchronous form — only
+    # the scheduling changes. Non-CUDA devices take the synchronous path.
+    side = (torch.cuda.Stream() if str(device).startswith("cuda") else None)
+
+    def project(Ld):
+        if c0.fn_name == "s5":
+            energy = torch.stack([((Ld @ proj_t[r].T) ** 2).sum((-1, -2))
+                                  for r in range(proj_t.shape[0])], -1)
+            return energy.sqrt(), energy
         c = torch.einsum("fp,mpo->mfo", u_cos, Ld)           # (M, n, p)
         s = torch.einsum("fp,mpo->mfo", u_sin, Ld)
         energy = (c ** 2).sum(-1) + (s ** 2).sum(-1)
         coeffs = ((c * b_cos).sum(-1) + (s * b_sin).sum(-1)) / math.sqrt(2)
-        tr_a = (acc & mask_t).sum(-1) / mask_t.sum(-1)
-        te_a = (acc & ~mask_t).sum(-1) / (~mask_t).sum(-1)
-        for i in range(M):
-            spectra[i]["epochs"].append(epoch)
-            spectra[i]["coeffs"].append(coeffs[i].cpu().numpy())
-            spectra[i]["energy"].append(energy[i].cpu().numpy())
-            spectra[i]["train_acc"].append(float(tr_a[i]))
-            spectra[i]["test_acc"].append(float(te_a[i]))
+        return coeffs, energy
+
+    @torch.no_grad()
+    def weight_snapshot(L):
+        p, nf = c0.p, c0.p // 2 + 1
+        Lc = (L - L.mean(-1, keepdim=True)).reshape(M, p, p, p)   # softmax gauge
+        H = torch.einsum("ia,jb,mabo->mijo", F_t, F_t, Lc)
+        E2 = (H ** 2).sum(-1)                                      # (M, p, p)
+        diag = torch.zeros(M, nf, device=device).index_add_(
+            1, kidx, (E2 * same_k).sum(2))                         # (M, nf): k=k' blocks
+        const = E2[:, 0, 0]
+        single = E2[:, 0, 1:].sum(1) + E2[:, 1:, 0].sum(1)
+        total = E2.sum((1, 2))
+        snap["diag2d"].append(diag[:, 1:])                         # freqs 1..p//2
+        snap["const2d"].append(const)
+        snap["single2d"].append(single)
+        snap["off2d"].append(total - const - single - diag[:, 1:].sum(1))
+        snap["total2d"].append(total)
+        for key, name in (("embed.W_E", "wE_energy"), ("unembed.W_U", "wU_energy")):
+            W = pr[key].detach()[:, :, :p]                         # (M, d, p)
+            C = W @ F_t.T                                          # (M, d, p)
+            e = torch.zeros(M, nf, device=device).index_add_(
+                1, kidx, (C ** 2).sum(1))
+            snap[name].append(e)                                   # index 0 = const
+        snap["pnorm"].append(torch.stack(
+            [(pr[k].detach() ** 2).flatten(1).sum(1) for k in PARAM_KEYS], 1))
+
+    @torch.no_grad()
+    def take_snapshot(epoch):
+        L = batched_final_logits(pr, grid, c0)[..., :c0.p]
+        if weight_tap:
+            weight_snapshot(L)
+        acc = L.argmax(-1) == lab_t                          # (M, p^2)
+        if table:
+            accf = logits_fn(grid)[..., :c0.p].argmax(-1) == lab_t
+            snap["train_acc_full"].append((accf & mask_t).sum(-1).double()
+                                          / mask_t.sum(-1))
+            snap["test_acc_full"].append((accf & ~mask_t).sum(-1).double()
+                                         / (~mask_t).sum(-1))
+            snap["table_norm2"].append((pr["table.T"].detach() ** 2).sum((1, 2)))
+            snap["circuit_norm2"].append(sum(
+                (pr[k].detach() ** 2).flatten(1).sum(1) for k in PARAM_KEYS))
+        snap["epochs"].append(epoch)
+        snap["train_acc"].append((acc & mask_t).sum(-1).double()
+                                 / mask_t.sum(-1))
+        snap["test_acc"].append((acc & ~mask_t).sum(-1).double()
+                                / (~mask_t).sum(-1))
+        if side is None:
+            coeffs, energy = project(L.double())
+        else:
+            Lc = L.detach().clone()
+            ready = torch.cuda.Event()
+            ready.record()
+            with torch.cuda.stream(side):
+                side.wait_event(ready)
+                Lc.record_stream(side)
+                coeffs, energy = project(Lc.double())
+        snap["coeffs"].append(coeffs)
+        snap["energy"].append(energy)
+
+    def grad_snapshot():
+        """Per-frequency (or per-irrep) energy of grad(W_E) and its dot with
+        W_E's own components, on the training objective. One extra eager
+        fwd/bwd per snapshot epoch — the mechanistic 'gradient tap'. Under
+        plain GD dE_k/dt = -2*lr*dot_k: dot_k > 0 means the loss is decaying
+        frequency k, dot_k < 0 means it is growing it."""
+        per = ce_tr(logits_fn(tr_tok), tr_lab)
+        (gW,) = torch.autograd.grad(per.sum(), pr["embed.W_E"])
+        gF = gW[:, :, :c0.p].double()
+        wF = pr["embed.W_E"].detach()[:, :, :c0.p].double()
+        if c0.fn_name == "s5":
+            gE = torch.stack([((gF @ proj_t[r].T) ** 2).sum((1, 2))
+                              for r in range(proj_t.shape[0])], -1)
+            gd = torch.stack([((gF @ proj_t[r].T) * (wF @ proj_t[r].T))
+                              .sum((1, 2)) for r in range(proj_t.shape[0])], -1)
+        else:
+            gc, gs = gF @ b_cos.T, gF @ b_sin.T              # (M, d, n)
+            wc, ws = wF @ b_cos.T, wF @ b_sin.T
+            gE = (gc ** 2 + gs ** 2).sum(1)
+            gd = (gc * wc + gs * ws).sum(1)
+        snap["grad_energy"].append(gE)
+        snap["grad_dot"].append(gd)
 
     def step():
-        per = ce(batched_final_logits(pr, tr_tok, c0), tr_lab)
+        per = ce_tr(logits_fn(tr_tok), tr_lab)
         grads = torch.autograd.grad(per.sum(), params)
         with torch.no_grad():
             # MLX-semantics AdamW: NO bias correction, p <- p(1-lr*wd) - lr*m/(sqrt(v)+eps)
-            for k, p, g, m_, v_ in zip(PARAM_KEYS, params, grads, m_st, v_st):
+            for k, p, g, m_, v_ in zip(keys, params, grads, m_st, v_st):
                 sh = bshape[id(p)]
-                lr_, wd_ = lr_t.view(sh), wd_v.view(sh)
+                lr_, wd_ = lr_t.view(sh), wd_k[k].view(sh)
                 if act is None:
                     m_.mul_(b1).add_(g, alpha=1 - b1)
                     v_.mul_(b2).addcmul_(g, g, value=1 - b2)
@@ -543,23 +781,39 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         step = torch.compile(step, mode=None if compile_mode == "default"
                              else compile_mode)
 
-    train_hist, test_hist = [], []
+    # Preallocated device history: under reduce-overhead (CUDA graphs) the
+    # tensor step() returns is graph-owned and overwritten on the next replay,
+    # so it must be copied out before the next call — appending the returned
+    # tensor to a list would silently alias every epoch to the same buffer.
+    train_hist = torch.empty(c0.num_epochs, M, device=device)
+    test_hist = []
     t0 = time.time()
     for epoch in range(c0.num_epochs):
         if epoch % c0.save_every == 0:
-            save_ckpts(pr, run_dirs, epoch)
+            save_ckpts(pr, run_dirs, epoch,
+                       optim=(m_st, v_st, step_off) if save_optim else None)
         if spectra_every and epoch % spectra_every == 0:
             take_snapshot(epoch)
-        lr_t.copy_(lr_base * min(epoch / c0.warmup_steps, 1.0))
+            if grad_tap:
+                grad_snapshot()
+        if warm_any:
+            # per-run step offsets: warm-resumed runs skip the lr warmup they
+            # already served. Cold runs (offset 0) follow the same curve; the
+            # scalar path below is kept for pure-cold batches so historical
+            # cohorts stay bit-identical.
+            lr_t.copy_(lr_base * ((epoch + step_off)
+                                  / c0.warmup_steps).clamp(max=1.0))
+        else:
+            lr_t.copy_(lr_base * min(epoch / c0.warmup_steps, 1.0))
         if act is not None and epoch in f_bounds:
             set_active(epoch)
-        train_hist.append(step())
+        train_hist[epoch].copy_(step())
 
         if (epoch + 1) % log_every == 0:
             with torch.no_grad():
-                te = ce(batched_final_logits(pr, te_tok, c0), te_lab).cpu().numpy()
+                te = ce_te(logits_fn(te_tok), te_lab).cpu().numpy()
             test_hist.append(te)
-            tr = train_hist[-1].cpu().numpy()
+            tr = train_hist[epoch].cpu().numpy()
             eps_s = (epoch + 1) / (time.time() - t0)
             # median as well as mean: the test distribution is heavy-tailed
             # (one late-grokking straggler can be 100x the median and then
@@ -582,15 +836,24 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
             if te.max() < c0.stopping_thresh:
                 break
 
-    epoch = len(train_hist)
-    save_ckpts(pr, run_dirs, epoch)
+    epoch = epoch + 1 if c0.num_epochs else 0        # epochs actually trained
+    save_ckpts(pr, run_dirs, epoch,
+               optim=(m_st, v_st, step_off) if save_optim else None)
     if spectra_every:
         take_snapshot(epoch)
-    train_all = torch.stack(train_hist).cpu().numpy()        # (E, M)
+        if grad_tap:
+            grad_snapshot()
+    if side is not None:
+        torch.cuda.synchronize()             # drain the side-stream spectra
+    train_all = train_hist[:epoch].cpu().numpy()             # (E, M)
     test_all = np.stack(test_hist) if test_hist else np.zeros((0, M))
+    # assemble per-run spectra from the device-side accumulators (S, M, ...)
+    sp_ep = np.array(snap["epochs"])
+    sp = {k: torch.stack(snap[k]).cpu().numpy() if snap[k] else
+          np.zeros((0, M)) for k in snap if k != "epochs"}
     for i, rd in enumerate(run_dirs):
-        np.savez(rd / "spectra.npz",
-                 **{k: np.array(v) for k, v in spectra[i].items()})
+        np.savez(rd / "spectra.npz", epochs=sp_ep,
+                 **{k: v[:, i] for k, v in sp.items()})
         (rd / "metrics.json").write_text(json.dumps({
             "train_losses": train_all[:, i].tolist(),
             "test_losses": test_all[:, i].tolist(),
