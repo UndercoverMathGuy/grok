@@ -317,7 +317,8 @@ def batched_final_logits(pr, tokens, cfg):
     z = (attn.unsqueeze(-1) * v).sum(2).reshape(M, N, h * dh)
     xf = x[:, :, -1] + z @ pr["blocks.0.attn.W_O"].transpose(1, 2)
     pre = xf @ pr["blocks.0.mlp.W_in"].transpose(1, 2) + pr["blocks.0.mlp.b_in"][:, None]
-    act = F.relu(pre) if cfg.act_type == "ReLU" else F.gelu(pre)
+    act = (F.relu(pre) if cfg.act_type == "ReLU"
+           else pre * pre if cfg.act_type == "Quad" else F.gelu(pre))
     xf = xf + act @ pr["blocks.0.mlp.W_out"].transpose(1, 2) + pr["blocks.0.mlp.b_out"][:, None]
     return xf @ pr["unembed.W_U"]
 
