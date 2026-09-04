@@ -249,6 +249,8 @@ def fourier_basis(p):
 # fresh — fine: every run is defined by its own seed within this backend)
 # --------------------------------------------------------------------------
 
+TTAP_STATS = ["g_q10", "g_q50", "g_q90", "sqrtv_q50", "frac_g_lt_eps",
+              "frac_sqrtv_lt_eps", "l1", "l2"]
 PARAM_KEYS = ["embed.W_E", "pos_embed.W_pos",
               "blocks.0.attn.W_K", "blocks.0.attn.W_Q",
               "blocks.0.attn.W_V", "blocks.0.attn.W_O",
@@ -416,7 +418,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
                   spectra_every=100, loss="f32stable", compile_mode="default",
                   device=None, wb=None, wb_tag=None, freeze=None,
                   masks_override=None, save_optim=False, grad_tap=False,
-                  weight_tap=False):
+                  weight_tap=False, tensor_tap=False):
     M = len(cfgs)
     c0 = cfgs[0]
     # lr, weight_decay, loss_tilt and loss_cvar are PER-RUN (broadcast vectors
@@ -618,6 +620,12 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
             snap[k] = []
     if grad_tap:
         snap["grad_energy"], snap["grad_dot"] = [], []
+    if tensor_tap:
+        # eps-crossing chronology (nudial/eps_chronology.py, E5): per weight
+        # tensor, per snapshot: quantiles of the full-batch |grad| Adam sees,
+        # of sqrt(v) (its actual denominator), fractions below adam_eps, and
+        # the tensor's l1/l2 norms. (S, M, n_keys, len(TTAP_STATS)).
+        snap["ttap"] = []
     if weight_tap:
         # committee-agnostic decomposition, so any committee can be applied
         # post hoc: full 2D logit spectrum over (a, b) per output, grouped
@@ -750,6 +758,31 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         snap["grad_energy"].append(gE)
         snap["grad_dot"].append(gd)
 
+    def _q(a, qs):
+        """Quantiles of a (M, n) tensor along n via sort (device-agnostic)."""
+        s = a.sort(dim=1).values
+        idx = [int(round(q * (a.shape[1] - 1))) for q in qs]
+        return s[:, idx]                                   # (M, len(qs))
+
+    def tensor_snapshot():
+        """One extra eager fwd/bwd; per-tensor stats of what Adam sees."""
+        per = ce_tr(logits_fn(tr_tok), tr_lab)
+        grads = torch.autograd.grad(per.sum(), [pr[k] for k in PARAM_KEYS])
+        rows = []
+        with torch.no_grad():
+            for j, (k, g) in enumerate(zip(PARAM_KEYS, grads)):
+                a = g.abs().flatten(1)                     # (M, n)
+                sv = v_st[j].sqrt().flatten(1)
+                w = pr[k].detach().flatten(1)
+                rows.append(torch.cat([
+                    _q(a, (0.1, 0.5, 0.9)),
+                    _q(sv, (0.5,)),
+                    (a < eps).float().mean(1, keepdim=True),
+                    (sv < eps).float().mean(1, keepdim=True),
+                    w.abs().sum(1, keepdim=True),
+                    w.norm(dim=1, keepdim=True)], 1))      # (M, 8)
+        snap["ttap"].append(torch.stack(rows, 1))          # (M, n_keys, 8)
+
     def step():
         per = ce_tr(logits_fn(tr_tok), tr_lab)
         grads = torch.autograd.grad(per.sum(), params)
@@ -797,6 +830,8 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
             take_snapshot(epoch)
             if grad_tap:
                 grad_snapshot()
+            if tensor_tap:
+                tensor_snapshot()
         if warm_any:
             # per-run step offsets: warm-resumed runs skip the lr warmup they
             # already served. Cold runs (offset 0) follow the same curve; the
@@ -844,6 +879,8 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         take_snapshot(epoch)
         if grad_tap:
             grad_snapshot()
+        if tensor_tap:
+            tensor_snapshot()
     if side is not None:
         torch.cuda.synchronize()             # drain the side-stream spectra
     train_all = train_hist[:epoch].cpu().numpy()             # (E, M)
@@ -852,9 +889,11 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
     sp_ep = np.array(snap["epochs"])
     sp = {k: torch.stack(snap[k]).cpu().numpy() if snap[k] else
           np.zeros((0, M)) for k in snap if k != "epochs"}
+    extra = ({"ttap_keys": np.array(PARAM_KEYS), "ttap_stats": np.array(TTAP_STATS)}
+             if tensor_tap else {})
     for i, rd in enumerate(run_dirs):
         np.savez(rd / "spectra.npz", epochs=sp_ep,
-                 **{k: v[:, i] for k, v in sp.items()})
+                 **{k: v[:, i] for k, v in sp.items()}, **extra)
         (rd / "metrics.json").write_text(json.dumps({
             "train_losses": train_all[:, i].tolist(),
             "test_losses": test_all[:, i].tolist(),
