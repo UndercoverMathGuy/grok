@@ -1,0 +1,43 @@
+AdamW f0.5 relu4: 32/32 runs finite and fit
+AdamW f0.5 relu4: n=32 nu=4 grokked=32 train_fit=32
+  AdamW f0.5 relu4 step 100: median gamma 4.962e-06 acc-rate 0.00
+  AdamW f0.5 relu4 step 200: median gamma 4.962e-06 acc-rate 0.00
+  AdamW f0.5 relu4 step 300: median gamma 4.962e-06 acc-rate 0.00
+  AdamW f0.5 relu4 step 400: median gamma 4.962e-06 acc-rate 0.00
+  AdamW f0.5 relu4: median gamma 4.963e-06 -> 4.963e-06 | polish gain med 0.00% max 0.00% | ratio to ceiling(K*) med 0.777 | K hist {np.int64(4): np.int64(2), np.int64(5): np.int64(16), np.int64(6): np.int64(11), np.int64(7): np.int64(3)}
+AdamW f1 relu4: 32/32 runs finite and fit
+AdamW f1 relu4: n=32 nu=4 grokked=0 train_fit=32
+  AdamW f1 relu4 step 100: median gamma 5.099e-06 acc-rate 0.00
+  AdamW f1 relu4 step 200: median gamma 5.099e-06 acc-rate 0.00
+  AdamW f1 relu4 step 300: median gamma 5.099e-06 acc-rate 0.00
+  AdamW f1 relu4 step 400: median gamma 5.099e-06 acc-rate 0.00
+  AdamW f1 relu4: median gamma 5.104e-06 -> 5.104e-06 | polish gain med 0.00% max 0.00% | ratio to ceiling(K*) med 0.799 | K hist {np.int64(4): np.int64(4), np.int64(5): np.int64(16), np.int64(6): np.int64(11), np.int64(7): np.int64(1)}
+GD f1 relu4: 32/32 runs finite and fit
+GD f1 relu4: n=32 nu=4 grokked=0 train_fit=32
+  GD f1 relu4 step 100: median gamma 2.040e-06 acc-rate 0.00
+  GD f1 relu4 step 200: median gamma 2.040e-06 acc-rate 0.00
+  GD f1 relu4 step 300: median gamma 2.040e-06 acc-rate 0.00
+  GD f1 relu4 step 400: median gamma 2.040e-06 acc-rate 0.00
+  GD f1 relu4: median gamma 2.064e-06 -> 2.064e-06 | polish gain med 0.00% max 3.66% | ratio to ceiling(K*) med 0.323 | K hist {np.int64(1): np.int64(2), np.int64(2): np.int64(7), np.int64(3): np.int64(18), np.int64(4): np.int64(5)}
+AdamW f0.5 relu6: 32/32 runs finite and fit
+AdamW f0.5 relu6: n=32 nu=6 grokked=32 train_fit=32
+  AdamW f0.5 relu6 step 100: median gamma 4.694e-08 acc-rate 0.00
+  AdamW f0.5 relu6 step 200: median gamma 4.694e-08 acc-rate 0.00
+  AdamW f0.5 relu6 step 300: median gamma 4.694e-08 acc-rate 0.00
+  AdamW f0.5 relu6 step 400: median gamma 4.694e-08 acc-rate 0.00
+  AdamW f0.5 relu6: median gamma 4.739e-08 -> 4.739e-08 | polish gain med 0.00% max 0.00% | ratio to ceiling(K*) med 0.762 | K hist {np.int64(3): np.int64(5), np.int64(4): np.int64(18), np.int64(5): np.int64(9)}
+AdamW f1 relu6: 32/32 runs finite and fit
+AdamW f1 relu6: n=32 nu=6 grokked=0 train_fit=32
+  AdamW f1 relu6 step 100: median gamma 4.562e-08 acc-rate 0.00
+  AdamW f1 relu6 step 200: median gamma 4.562e-08 acc-rate 0.00
+  AdamW f1 relu6 step 300: median gamma 4.562e-08 acc-rate 0.00
+  AdamW f1 relu6 step 400: median gamma 4.562e-08 acc-rate 0.00
+  AdamW f1 relu6: median gamma 4.593e-08 -> 4.594e-08 | polish gain med 0.00% max 0.39% | ratio to ceiling(K*) med 0.739 | K hist {np.int64(3): np.int64(6), np.int64(4): np.int64(25), np.int64(5): np.int64(1)}
+GD f1 relu6: 26/32 runs finite and fit
+GD f1 relu6: n=26 nu=6 grokked=0 train_fit=26
+  GD f1 relu6 step 100: median gamma 2.801e-08 acc-rate 0.00
+  GD f1 relu6 step 200: median gamma 2.801e-08 acc-rate 0.00
+  GD f1 relu6 step 300: median gamma 2.801e-08 acc-rate 0.00
+  GD f1 relu6 step 400: median gamma 2.801e-08 acc-rate 0.00
+  GD f1 relu6: median gamma 2.824e-08 -> 2.824e-08 | polish gain med 0.00% max 1.22% | ratio to ceiling(K*) med 0.454 | K hist {np.int64(1): np.int64(2), np.int64(2): np.int64(15), np.int64(3): np.int64(8), np.int64(4): np.int64(1)}
+wrote /workspace/grok/notes/margin_redo.json

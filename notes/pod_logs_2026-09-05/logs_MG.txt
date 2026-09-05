@@ -1,0 +1,104 @@
+[MG] relu4_m512_p113_train_gd: 32 runs
+batch 32 on cuda: relu nu=4 m=512 p=113 mode=train layout=(1, 1) train 12769 test 0
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/compile_fx.py:282: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
+skipping cudagraphs due to mutated inputs (5 instances). Found from : 
+   File "/workspace/grok/nudial/train_nudial.py", line 287, in torch_dynamo_resume_in_step_at_281
+    q.sub_(lr_ * (g + wd_ * q))
+
+/workspace/grok/nudial/train_nudial.py:352: RuntimeWarning: All-NaN slice encountered
+  print(f"epoch {epoch+1:6d}  obj {tr.mean():.4e}  test med {np.nanmedian(te):.4e} "
+/workspace/grok/nudial/train_nudial.py:353: RuntimeWarning: All-NaN slice encountered
+  f"max {np.nanmax(te):.4e}  ({eps_s:.1f} eps/s x {M} = {eps_s*M:.0f} run-eps/s)",
+epoch    500  obj 4.7179e+00  test med nan max nan  (23.7 eps/s x 32 = 757 run-eps/s)
+epoch   1000  obj 4.7100e+00  test med nan max nan  (30.9 eps/s x 32 = 990 run-eps/s)
+epoch   1500  obj 4.7040e+00  test med nan max nan  (34.5 eps/s x 32 = 1103 run-eps/s)
+epoch   2000  obj 4.6985e+00  test med nan max nan  (36.6 eps/s x 32 = 1170 run-eps/s)
+epoch   2500  obj 4.6928e+00  test med nan max nan  (37.9 eps/s x 32 = 1214 run-eps/s)
+epoch   3000  obj 4.6859e+00  test med nan max nan  (38.9 eps/s x 32 = 1245 run-eps/s)
+epoch   3500  obj 4.6765e+00  test med nan max nan  (39.6 eps/s x 32 = 1268 run-eps/s)
+epoch   4000  obj 4.6592e+00  test med nan max nan  (40.2 eps/s x 32 = 1286 run-eps/s)
+epoch   4500  obj 4.4734e+00  test med nan max nan  (40.6 eps/s x 32 = 1301 run-eps/s)
+epoch   5000  obj 3.5688e+00  test med nan max nan  (41.0 eps/s x 32 = 1312 run-eps/s)
+epoch   5500  obj 1.2686e+00  test med nan max nan  (41.3 eps/s x 32 = 1322 run-eps/s)
+epoch   6000  obj 1.9798e-01  test med nan max nan  (41.6 eps/s x 32 = 1330 run-eps/s)
+epoch   6500  obj 3.8747e-02  test med nan max nan  (41.8 eps/s x 32 = 1337 run-eps/s)
+epoch   7000  obj 2.3760e-02  test med nan max nan  (42.0 eps/s x 32 = 1343 run-eps/s)
+epoch   7500  obj 1.9902e-02  test med nan max nan  (42.1 eps/s x 32 = 1349 run-eps/s)
+epoch   8000  obj 1.8631e-02  test med nan max nan  (42.3 eps/s x 32 = 1353 run-eps/s)
+epoch   8500  obj 1.8152e-02  test med nan max nan  (42.4 eps/s x 32 = 1358 run-eps/s)
+epoch   9000  obj 1.7955e-02  test med nan max nan  (42.5 eps/s x 32 = 1361 run-eps/s)
+epoch   9500  obj 1.7875e-02  test med nan max nan  (42.6 eps/s x 32 = 1365 run-eps/s)
+epoch  10000  obj 1.7845e-02  test med nan max nan  (42.7 eps/s x 32 = 1368 run-eps/s)
+epoch  10500  obj 1.7839e-02  test med nan max nan  (42.8 eps/s x 32 = 1370 run-eps/s)
+epoch  11000  obj 1.7843e-02  test med nan max nan  (42.9 eps/s x 32 = 1373 run-eps/s)
+epoch  11500  obj 1.7849e-02  test med nan max nan  (43.0 eps/s x 32 = 1375 run-eps/s)
+epoch  12000  obj 1.7845e-02  test med nan max nan  (43.0 eps/s x 32 = 1377 run-eps/s)
+epoch  12500  obj 1.7825e-02  test med nan max nan  (43.1 eps/s x 32 = 1379 run-eps/s)
+epoch  13000  obj 1.7786e-02  test med nan max nan  (43.2 eps/s x 32 = 1381 run-eps/s)
+epoch  13500  obj 1.7728e-02  test med nan max nan  (43.2 eps/s x 32 = 1383 run-eps/s)
+epoch  14000  obj 1.7654e-02  test med nan max nan  (43.3 eps/s x 32 = 1384 run-eps/s)
+epoch  14500  obj 1.7566e-02  test med nan max nan  (43.3 eps/s x 32 = 1386 run-eps/s)
+epoch  15000  obj 1.7472e-02  test med nan max nan  (43.3 eps/s x 32 = 1387 run-eps/s)
+epoch  15500  obj 1.7380e-02  test med nan max nan  (43.4 eps/s x 32 = 1388 run-eps/s)
+epoch  16000  obj 1.7297e-02  test med nan max nan  (43.4 eps/s x 32 = 1390 run-eps/s)
+epoch  16500  obj 1.7229e-02  test med nan max nan  (43.5 eps/s x 32 = 1391 run-eps/s)
+epoch  17000  obj 1.7179e-02  test med nan max nan  (43.5 eps/s x 32 = 1392 run-eps/s)
+epoch  17500  obj 1.7146e-02  test med nan max nan  (43.5 eps/s x 32 = 1393 run-eps/s)
+epoch  18000  obj 1.7124e-02  test med nan max nan  (43.6 eps/s x 32 = 1394 run-eps/s)
+epoch  18500  obj 1.7106e-02  test med nan max nan  (43.6 eps/s x 32 = 1395 run-eps/s)
+epoch  19000  obj 1.7089e-02  test med nan max nan  (43.6 eps/s x 32 = 1396 run-eps/s)
+epoch  19500  obj 1.7071e-02  test med nan max nan  (43.6 eps/s x 32 = 1396 run-eps/s)
+epoch  20000  obj 1.7050e-02  test med nan max nan  (43.7 eps/s x 32 = 1397 run-eps/s)
+done: 20000 epochs x 32 runs in 459s
+[MG] relu6_m512_p113_train_gd: 32 runs
+batch 32 on cuda: relu nu=6 m=512 p=113 mode=train layout=(2, 2) train 12769 test 0
+skipping cudagraphs due to mutated inputs (7 instances). Found from : 
+   File "/workspace/grok/nudial/train_nudial.py", line 287, in torch_dynamo_resume_in_step_at_281
+    q.sub_(lr_ * (g + wd_ * q))
+
+/workspace/grok/nudial/train_nudial.py:352: RuntimeWarning: All-NaN slice encountered
+  print(f"epoch {epoch+1:6d}  obj {tr.mean():.4e}  test med {np.nanmedian(te):.4e} "
+/workspace/grok/nudial/train_nudial.py:353: RuntimeWarning: All-NaN slice encountered
+  f"max {np.nanmax(te):.4e}  ({eps_s:.1f} eps/s x {M} = {eps_s*M:.0f} run-eps/s)",
+epoch    500  obj 4.7153e+00  test med nan max nan  (25.8 eps/s x 32 = 827 run-eps/s)
+epoch   1000  obj 4.7053e+00  test med nan max nan  (29.6 eps/s x 32 = 947 run-eps/s)
+epoch   1500  obj 4.6917e+00  test med nan max nan  (31.1 eps/s x 32 = 996 run-eps/s)
+epoch   2000  obj 4.4462e+00  test med nan max nan  (31.9 eps/s x 32 = 1021 run-eps/s)
+epoch   2500  obj nan  test med nan max nan  (32.4 eps/s x 32 = 1038 run-eps/s)
+epoch   3000  obj nan  test med nan max nan  (32.8 eps/s x 32 = 1049 run-eps/s)
+epoch   3500  obj nan  test med nan max nan  (33.0 eps/s x 32 = 1057 run-eps/s)
+epoch   4000  obj nan  test med nan max nan  (33.2 eps/s x 32 = 1064 run-eps/s)
+epoch   4500  obj nan  test med nan max nan  (33.4 eps/s x 32 = 1069 run-eps/s)
+epoch   5000  obj nan  test med nan max nan  (33.5 eps/s x 32 = 1073 run-eps/s)
+epoch   5500  obj nan  test med nan max nan  (33.6 eps/s x 32 = 1076 run-eps/s)
+epoch   6000  obj nan  test med nan max nan  (33.7 eps/s x 32 = 1079 run-eps/s)
+epoch   6500  obj nan  test med nan max nan  (33.8 eps/s x 32 = 1082 run-eps/s)
+epoch   7000  obj nan  test med nan max nan  (33.9 eps/s x 32 = 1084 run-eps/s)
+epoch   7500  obj nan  test med nan max nan  (33.9 eps/s x 32 = 1086 run-eps/s)
+epoch   8000  obj nan  test med nan max nan  (34.0 eps/s x 32 = 1087 run-eps/s)
+epoch   8500  obj nan  test med nan max nan  (34.0 eps/s x 32 = 1089 run-eps/s)
+epoch   9000  obj nan  test med nan max nan  (34.1 eps/s x 32 = 1090 run-eps/s)
+epoch   9500  obj nan  test med nan max nan  (34.1 eps/s x 32 = 1091 run-eps/s)
+epoch  10000  obj nan  test med nan max nan  (34.1 eps/s x 32 = 1092 run-eps/s)
+epoch  10500  obj nan  test med nan max nan  (34.2 eps/s x 32 = 1093 run-eps/s)
+epoch  11000  obj nan  test med nan max nan  (34.2 eps/s x 32 = 1094 run-eps/s)
+epoch  11500  obj nan  test med nan max nan  (34.2 eps/s x 32 = 1095 run-eps/s)
+epoch  12000  obj nan  test med nan max nan  (34.2 eps/s x 32 = 1096 run-eps/s)
+epoch  12500  obj nan  test med nan max nan  (34.3 eps/s x 32 = 1096 run-eps/s)
+epoch  13000  obj nan  test med nan max nan  (34.3 eps/s x 32 = 1097 run-eps/s)
+epoch  13500  obj nan  test med nan max nan  (34.3 eps/s x 32 = 1097 run-eps/s)
+epoch  14000  obj nan  test med nan max nan  (34.3 eps/s x 32 = 1098 run-eps/s)
+epoch  14500  obj nan  test med nan max nan  (34.3 eps/s x 32 = 1098 run-eps/s)
+epoch  15000  obj nan  test med nan max nan  (34.3 eps/s x 32 = 1099 run-eps/s)
+epoch  15500  obj nan  test med nan max nan  (34.4 eps/s x 32 = 1099 run-eps/s)
+epoch  16000  obj nan  test med nan max nan  (34.4 eps/s x 32 = 1100 run-eps/s)
+epoch  16500  obj nan  test med nan max nan  (34.4 eps/s x 32 = 1100 run-eps/s)
+epoch  17000  obj nan  test med nan max nan  (34.4 eps/s x 32 = 1100 run-eps/s)
+epoch  17500  obj nan  test med nan max nan  (34.4 eps/s x 32 = 1101 run-eps/s)
+epoch  18000  obj nan  test med nan max nan  (34.4 eps/s x 32 = 1101 run-eps/s)
+epoch  18500  obj nan  test med nan max nan  (34.4 eps/s x 32 = 1101 run-eps/s)
+epoch  19000  obj nan  test med nan max nan  (34.4 eps/s x 32 = 1102 run-eps/s)
+epoch  19500  obj nan  test med nan max nan  (34.4 eps/s x 32 = 1102 run-eps/s)
+epoch  20000  obj nan  test med nan max nan  (34.4 eps/s x 32 = 1102 run-eps/s)
+done: 20000 epochs x 32 runs in 581s

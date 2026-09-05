@@ -1,0 +1,118 @@
+[M] relu4_m512_p113_f0.5_train: 32 runs
+batch 32 on cuda: relu nu=4 m=512 p=113 mode=train layout=(1, 1) train 6384 test 6385
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/compile_fx.py:282: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
+skipping cudagraphs due to mutated inputs (15 instances). Found from : 
+   File "/workspace/grok/nudial/train_nudial.py", line 292, in torch_dynamo_resume_in_step_at_281
+    q.sub_(lr_ * m_ / (v_.sqrt() + eps))
+
+epoch    500  obj 1.3447e-03  test med 1.0960e+01 max 1.3200e+01  (29.3 eps/s x 32 = 938 run-eps/s)
+epoch   1000  obj 6.4575e-06  test med 2.3493e+00 max 9.3052e+00  (43.9 eps/s x 32 = 1403 run-eps/s)
+epoch   1500  obj 5.7088e-07  test med 3.1649e-03 max 1.8724e+00  (52.6 eps/s x 32 = 1682 run-eps/s)
+epoch   2000  obj 4.3188e-07  test med 3.7903e-06 max 1.1640e-02  (58.3 eps/s x 32 = 1867 run-eps/s)
+epoch   2500  obj 3.7753e-07  test med 7.7430e-07 max 1.4221e-05  (62.5 eps/s x 32 = 1999 run-eps/s)
+epoch   3000  obj 3.5573e-07  test med 5.0286e-07 max 1.6543e-06  (65.5 eps/s x 32 = 2098 run-eps/s)
+epoch   3500  obj 3.4445e-07  test med 4.3850e-07 max 8.9526e-07  (67.9 eps/s x 32 = 2174 run-eps/s)
+epoch   4000  obj 3.3722e-07  test med 4.0581e-07 max 6.7442e-07  (69.8 eps/s x 32 = 2235 run-eps/s)
+epoch   4500  obj 3.3167e-07  test med 3.8968e-07 max 5.6854e-07  (71.4 eps/s x 32 = 2285 run-eps/s)
+epoch   5000  obj 3.2731e-07  test med 3.7684e-07 max 4.9823e-07  (72.7 eps/s x 32 = 2326 run-eps/s)
+epoch   5500  obj 3.2365e-07  test med 3.7137e-07 max 4.5532e-07  (73.8 eps/s x 32 = 2361 run-eps/s)
+epoch   6000  obj 3.2071e-07  test med 3.6807e-07 max 4.3373e-07  (74.7 eps/s x 32 = 2391 run-eps/s)
+epoch   6500  obj 3.1860e-07  test med 3.6487e-07 max 4.1765e-07  (75.5 eps/s x 32 = 2417 run-eps/s)
+epoch   7000  obj 3.1704e-07  test med 3.6121e-07 max 4.1049e-07  (76.2 eps/s x 32 = 2439 run-eps/s)
+epoch   7500  obj 3.1577e-07  test med 3.5917e-07 max 4.0354e-07  (76.8 eps/s x 32 = 2459 run-eps/s)
+epoch   8000  obj 3.1481e-07  test med 3.5563e-07 max 3.9863e-07  (77.4 eps/s x 32 = 2477 run-eps/s)
+epoch   8500  obj 3.1407e-07  test med 3.5292e-07 max 3.9556e-07  (77.9 eps/s x 32 = 2492 run-eps/s)
+epoch   9000  obj 3.1342e-07  test med 3.5226e-07 max 3.9365e-07  (78.3 eps/s x 32 = 2507 run-eps/s)
+epoch   9500  obj 3.1277e-07  test med 3.5180e-07 max 3.9232e-07  (78.7 eps/s x 32 = 2519 run-eps/s)
+epoch  10000  obj 3.1211e-07  test med 3.5017e-07 max 3.9140e-07  (79.1 eps/s x 32 = 2531 run-eps/s)
+done: 10000 epochs x 32 runs in 127s
+[M] relu4_m512_p113_f1_train: 32 runs
+batch 32 on cuda: relu nu=4 m=512 p=113 mode=train layout=(1, 1) train 12769 test 0
+skipping cudagraphs due to mutated inputs (15 instances). Found from : 
+   File "/workspace/grok/nudial/train_nudial.py", line 292, in torch_dynamo_resume_in_step_at_281
+    q.sub_(lr_ * m_ / (v_.sqrt() + eps))
+
+/workspace/grok/nudial/train_nudial.py:352: RuntimeWarning: All-NaN slice encountered
+  print(f"epoch {epoch+1:6d}  obj {tr.mean():.4e}  test med {np.nanmedian(te):.4e} "
+/workspace/grok/nudial/train_nudial.py:353: RuntimeWarning: All-NaN slice encountered
+  f"max {np.nanmax(te):.4e}  ({eps_s:.1f} eps/s x {M} = {eps_s*M:.0f} run-eps/s)",
+epoch    500  obj 3.5501e-04  test med nan max nan  (24.9 eps/s x 32 = 797 run-eps/s)
+epoch   1000  obj 2.1433e-06  test med nan max nan  (31.8 eps/s x 32 = 1018 run-eps/s)
+epoch   1500  obj 3.2183e-07  test med nan max nan  (35.1 eps/s x 32 = 1122 run-eps/s)
+epoch   2000  obj 3.2547e-07  test med nan max nan  (36.9 eps/s x 32 = 1182 run-eps/s)
+epoch   2500  obj 3.2338e-07  test med nan max nan  (38.2 eps/s x 32 = 1221 run-eps/s)
+epoch   3000  obj 3.2056e-07  test med nan max nan  (39.0 eps/s x 32 = 1249 run-eps/s)
+epoch   3500  obj 3.1819e-07  test med nan max nan  (39.7 eps/s x 32 = 1269 run-eps/s)
+epoch   4000  obj 3.1632e-07  test med nan max nan  (40.2 eps/s x 32 = 1285 run-eps/s)
+epoch   4500  obj 3.1485e-07  test med nan max nan  (40.5 eps/s x 32 = 1297 run-eps/s)
+epoch   5000  obj 3.1377e-07  test med nan max nan  (40.9 eps/s x 32 = 1307 run-eps/s)
+epoch   5500  obj 3.1294e-07  test med nan max nan  (41.1 eps/s x 32 = 1316 run-eps/s)
+epoch   6000  obj 3.1221e-07  test med nan max nan  (41.3 eps/s x 32 = 1323 run-eps/s)
+epoch   6500  obj 3.1156e-07  test med nan max nan  (41.5 eps/s x 32 = 1329 run-eps/s)
+epoch   7000  obj 3.1094e-07  test med nan max nan  (41.7 eps/s x 32 = 1334 run-eps/s)
+epoch   7500  obj 3.1037e-07  test med nan max nan  (41.8 eps/s x 32 = 1339 run-eps/s)
+epoch   8000  obj 3.0999e-07  test med nan max nan  (42.0 eps/s x 32 = 1343 run-eps/s)
+epoch   8500  obj 3.0977e-07  test med nan max nan  (42.1 eps/s x 32 = 1346 run-eps/s)
+epoch   9000  obj 3.0959e-07  test med nan max nan  (42.2 eps/s x 32 = 1350 run-eps/s)
+epoch   9500  obj 3.0939e-07  test med nan max nan  (42.3 eps/s x 32 = 1352 run-eps/s)
+epoch  10000  obj 3.0913e-07  test med nan max nan  (42.3 eps/s x 32 = 1355 run-eps/s)
+done: 10000 epochs x 32 runs in 236s
+[M] relu6_m512_p113_f0.5_train: 32 runs
+batch 32 on cuda: relu nu=6 m=512 p=113 mode=train layout=(2, 2) train 6384 test 6385
+skipping cudagraphs due to mutated inputs (21 instances). Found from : 
+   File "/workspace/grok/nudial/train_nudial.py", line 292, in torch_dynamo_resume_in_step_at_281
+    q.sub_(lr_ * m_ / (v_.sqrt() + eps))
+
+epoch    500  obj 3.7758e-04  test med 1.1671e+01 max 1.8399e+01  (31.0 eps/s x 32 = 992 run-eps/s)
+epoch   1000  obj 1.3300e-06  test med 1.1900e+00 max 2.0304e+01  (42.7 eps/s x 32 = 1366 run-eps/s)
+epoch   1500  obj 1.2566e-07  test med 6.3498e-07 max 1.4722e+01  (48.8 eps/s x 32 = 1562 run-eps/s)
+epoch   2000  obj 9.0029e-08  test med 1.0647e-07 max 2.6207e+00  (52.6 eps/s x 32 = 1683 run-eps/s)
+epoch   2500  obj 7.9836e-08  test med 8.7784e-08 max 2.3563e-04  (55.1 eps/s x 32 = 1765 run-eps/s)
+epoch   3000  obj 7.6764e-08  test med 8.2479e-08 max 2.1680e-07  (57.0 eps/s x 32 = 1824 run-eps/s)
+epoch   3500  obj 7.5347e-08  test med 8.0419e-08 max 1.0933e-07  (58.4 eps/s x 32 = 1869 run-eps/s)
+epoch   4000  obj 7.4490e-08  test med 7.9126e-08 max 1.0386e-07  (59.5 eps/s x 32 = 1903 run-eps/s)
+epoch   4500  obj 7.3968e-08  test med 7.8193e-08 max 1.0265e-07  (60.4 eps/s x 32 = 1932 run-eps/s)
+epoch   5000  obj 7.3581e-08  test med 7.7671e-08 max 1.0099e-07  (61.1 eps/s x 32 = 1955 run-eps/s)
+epoch   5500  obj 7.3347e-08  test med 7.7535e-08 max 9.9700e-08  (61.7 eps/s x 32 = 1974 run-eps/s)
+epoch   6000  obj 7.3200e-08  test med 7.7412e-08 max 9.8647e-08  (62.2 eps/s x 32 = 1991 run-eps/s)
+epoch   6500  obj 7.3017e-08  test med 7.7309e-08 max 9.7849e-08  (62.6 eps/s x 32 = 2005 run-eps/s)
+epoch   7000  obj 7.2888e-08  test med 7.7235e-08 max 9.7206e-08  (63.0 eps/s x 32 = 2017 run-eps/s)
+epoch   7500  obj 7.2807e-08  test med 7.7166e-08 max 9.6714e-08  (63.4 eps/s x 32 = 2028 run-eps/s)
+epoch   8000  obj 7.2737e-08  test med 7.7113e-08 max 9.6184e-08  (63.7 eps/s x 32 = 2037 run-eps/s)
+epoch   8500  obj 7.2669e-08  test med 7.7066e-08 max 9.5721e-08  (63.9 eps/s x 32 = 2045 run-eps/s)
+epoch   9000  obj 7.2590e-08  test med 7.7013e-08 max 9.5298e-08  (64.2 eps/s x 32 = 2053 run-eps/s)
+epoch   9500  obj 7.2525e-08  test med 7.6972e-08 max 9.4913e-08  (64.4 eps/s x 32 = 2060 run-eps/s)
+epoch  10000  obj 7.2471e-08  test med 7.6932e-08 max 9.4561e-08  (64.6 eps/s x 32 = 2066 run-eps/s)
+done: 10000 epochs x 32 runs in 155s
+[M] relu6_m512_p113_f1_train: 32 runs
+batch 32 on cuda: relu nu=6 m=512 p=113 mode=train layout=(2, 2) train 12769 test 0
+skipping cudagraphs due to mutated inputs (21 instances). Found from : 
+   File "/workspace/grok/nudial/train_nudial.py", line 292, in torch_dynamo_resume_in_step_at_281
+    q.sub_(lr_ * m_ / (v_.sqrt() + eps))
+
+/workspace/grok/nudial/train_nudial.py:352: RuntimeWarning: All-NaN slice encountered
+  print(f"epoch {epoch+1:6d}  obj {tr.mean():.4e}  test med {np.nanmedian(te):.4e} "
+/workspace/grok/nudial/train_nudial.py:353: RuntimeWarning: All-NaN slice encountered
+  f"max {np.nanmax(te):.4e}  ({eps_s:.1f} eps/s x {M} = {eps_s*M:.0f} run-eps/s)",
+epoch    500  obj 8.8193e-05  test med nan max nan  (31.3 eps/s x 32 = 1003 run-eps/s)
+epoch   1000  obj 4.9675e-07  test med nan max nan  (32.9 eps/s x 32 = 1053 run-eps/s)
+epoch   1500  obj 7.2666e-08  test med nan max nan  (33.5 eps/s x 32 = 1070 run-eps/s)
+epoch   2000  obj 7.3556e-08  test med nan max nan  (33.7 eps/s x 32 = 1080 run-eps/s)
+epoch   2500  obj 7.3494e-08  test med nan max nan  (33.9 eps/s x 32 = 1085 run-eps/s)
+epoch   3000  obj 7.3243e-08  test med nan max nan  (34.0 eps/s x 32 = 1089 run-eps/s)
+epoch   3500  obj 7.3080e-08  test med nan max nan  (34.1 eps/s x 32 = 1092 run-eps/s)
+epoch   4000  obj 7.3006e-08  test med nan max nan  (34.2 eps/s x 32 = 1094 run-eps/s)
+epoch   4500  obj 7.2956e-08  test med nan max nan  (34.2 eps/s x 32 = 1095 run-eps/s)
+epoch   5000  obj 7.2915e-08  test med nan max nan  (34.3 eps/s x 32 = 1096 run-eps/s)
+epoch   5500  obj 7.2879e-08  test med nan max nan  (34.3 eps/s x 32 = 1097 run-eps/s)
+epoch   6000  obj 7.2847e-08  test med nan max nan  (34.3 eps/s x 32 = 1098 run-eps/s)
+epoch   6500  obj 7.2817e-08  test med nan max nan  (34.3 eps/s x 32 = 1099 run-eps/s)
+epoch   7000  obj 7.2789e-08  test med nan max nan  (34.4 eps/s x 32 = 1100 run-eps/s)
+epoch   7500  obj 7.2763e-08  test med nan max nan  (34.4 eps/s x 32 = 1100 run-eps/s)
+epoch   8000  obj 7.2738e-08  test med nan max nan  (34.4 eps/s x 32 = 1101 run-eps/s)
+epoch   8500  obj 7.2714e-08  test med nan max nan  (34.4 eps/s x 32 = 1101 run-eps/s)
+epoch   9000  obj 7.2691e-08  test med nan max nan  (34.4 eps/s x 32 = 1101 run-eps/s)
+epoch   9500  obj 7.2668e-08  test med nan max nan  (34.4 eps/s x 32 = 1102 run-eps/s)
+epoch  10000  obj 7.2647e-08  test med nan max nan  (34.4 eps/s x 32 = 1102 run-eps/s)
+done: 10000 epochs x 32 runs in 291s

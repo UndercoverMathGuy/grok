@@ -1,0 +1,12 @@
+  f64 AdamW relu4 step 50: median gamma 4.8213e-06 acc-rate 0.50 lr med 5.3e-06
+  f64 AdamW relu4 step 100: median gamma 4.8213e-06 acc-rate 0.12 lr med 1.0e-09
+f64: gamma med 4.7509e-06 -> 4.8517e-06, accepted steps [20.0, 46.0, 72.0, 63.0, 34.0, 76.0, 26.0, 68.0]
+  noise 0.1 step 50: median gamma 4.4986e-06 acc-rate 0.38 lr med 6.4e-05
+  noise 0.1 step 100: median gamma 4.4986e-06 acc-rate 0.50 lr med 1.7e-05
+  noise 0.1 step 150: median gamma 4.4986e-06 acc-rate 0.25 lr med 1.0e-09
+noise 0.1: original med 4.7509e-06 -> perturbed 4.2968e-06 -> polished 4.5190e-06 (recovered 47% of the loss); accepted [94.0, 84.0, 25.0, 35.0, 58.0, 95.0, 117.0, 117.0]; K [6, 7, 7, 6, 5, 5, 7, 5]
+  noise 0.03 step 50: median gamma 4.8057e-06 acc-rate 0.62 lr med 6.4e-05
+  noise 0.03 step 100: median gamma 4.8184e-06 acc-rate 0.25 lr med 1.0e-09
+  noise 0.03 step 150: median gamma 4.8184e-06 acc-rate 0.12 lr med 1.0e-09
+noise 0.03: original med 4.7509e-06 -> perturbed 4.7306e-06 -> polished 4.8290e-06 (recovered 165% of the loss); accepted [116.0, 51.0, 49.0, 49.0, 54.0, 69.0, 88.0, 45.0]; K [6, 7, 7, 6, 5, 5, 7, 5]
+wrote notes/margin_control.json
