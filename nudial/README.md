@@ -152,3 +152,37 @@ concentrate at the CE floor).
 - **P-N11:** the subset optimum has the same mode as the full-data optimum
   (4 / 3) — i.e. the +1 is not a property of the subset's margin landscape.
   KILL if the subset optimum mode is 5 / 4.
+
+## Round 4 (pre-registered 2026-08-28, before any run): fixed-support gamma(K)
+
+The +1 has two surviving readings after rounds 1-3 and the 08-24 review:
+(a) C8/C9 — the ansatz undercounts: with the relu leak, democratic K*+1
+committees genuinely achieve higher normalized margin than K* ones, so
+trained nets sit at the true optimum; (b) dynamics artifact — the optimum
+is at K*, trained nets simply land one above and C9's margin ordering
+reflects weak margin-ascent baselines, not optimality. This is the pack's
+W2 and C12 prediction 3. This round separates them.
+
+**Cohort S (fixed support):** relu-4, m=512, p=113, frac 0.5, wd 1,
+lr 1e-3, MLX-semantics AdamW, init_scale 1, 20k epochs — cohort-A recipe —
+except the first layer is parameterized E1 = A @ B_S with B_S the fixed
+orthonormal cos/sin rows of the exhaustively-optimal support S, so only
+frequencies in S can enter the network. ||A @ B_S||_F = ||A||_F, so wd
+accounting is unchanged; nu stays 4. Supports (kstar_table exhaustive,
+p=113): K=3 (1,6,43); K=4 (1,7,11,43); K=5 (1,14,20,44,52);
+K=6 (1,5,12,15,38,46). 12 seeds per K, plus 12 unmasked controls
+(A of full rank p, B = identity-equivalent full Fourier basis).
+
+- **P-N12 (the +1 kill test):** among grokked runs, median
+  gamma = g/||theta||^nu (full grid) satisfies gamma(K=5) > gamma(K=4).
+  CONFIRM C8/C9 if gamma peaks at K=5 with gamma(5)/gamma(4) >= 1.1.
+  KILL C8/C9 if gamma peaks at K=4 (the trained +1 is then a dynamics
+  artifact and the C9 "trained nets are optimal" reading must be retracted).
+  Between 1.0 and 1.1: underpowered, extend seeds before reading.
+- **P-N13 (sanity):** unmasked control reproduces cohort-A relu-4 medians
+  (gamma ~ 4.4e-6, mode K_gap 5) — the reparameterization itself is inert.
+- Secondary read (not a bar): gamma(6) < gamma(5) and gamma(3) < gamma(4)
+  (interior peak), matching the theory curve's shape at nu=4.
+
+Run: `python3 nudial/fixed_support.py` (writes runs_nudial/S/…,
+seeds logged per run; analyze with nudial/fixed_support.py --score).
