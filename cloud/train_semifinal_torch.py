@@ -203,6 +203,20 @@ class Config:
         return cls(**d)
 
 
+def group_mod(fn_name):
+    """Group task module for fn_name: 's5' -> groups (S5, p=120); 'd<n>' ->
+    dihedral D_n (p = 2n). None for 'add'/'sub'. Exposes MULT, PROJ (isotypic
+    projectors, trivial irrep first), IRREP_NAMES, IRREP_DIMS."""
+    if fn_name == "s5":
+        import groups
+        return groups
+    if fn_name.startswith("d") and fn_name[1:].isdigit():
+        import types
+        from dihedral import build
+        return types.SimpleNamespace(**build(int(fn_name[1:])))
+    return None
+
+
 def make_dataset(cfg):
     """All p^2 pairs [a, b, =] lexicographic; labels (a+b)%p for 'add',
     (a-b)%p for 'sub', group product for 's5' (p must be 120; token
@@ -211,10 +225,10 @@ def make_dataset(cfg):
     a = np.repeat(np.arange(p), p)
     b = np.tile(np.arange(p), p)
     tokens = np.stack([a, b, np.full(p * p, p)], axis=1).astype(np.int64)
-    if cfg.fn_name == "s5":
-        assert p == 120
-        from groups import MULT
-        labels = MULT[a, b].astype(np.int64)
+    gm = group_mod(cfg.fn_name)
+    if gm is not None:
+        assert p == gm.MULT.shape[0], (cfg.fn_name, p, gm.MULT.shape)
+        labels = gm.MULT[a, b].astype(np.int64)
     elif cfg.fn_name == "sub":
         labels = ((a - b) % p).astype(np.int64)
     else:
@@ -631,7 +645,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         # post hoc: full 2D logit spectrum over (a, b) per output, grouped
         # by input-frequency pair; Fourier energy of W_E / W_U over the p
         # token axis; per-matrix squared norms. All f32, main stream.
-        assert c0.fn_name != "s5", "weight tap is Fourier-only"
+        assert group_mod(c0.fn_name) is None, "weight tap is Fourier-only"
         for k in ("diag2d", "off2d", "single2d", "const2d", "total2d",
                   "wE_energy", "wU_energy", "pnorm"):
             snap[k] = []
@@ -639,9 +653,9 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         kidx = torch.tensor([(i + 1) // 2 for i in range(c0.p)],
                             device=device)                    # row -> freq, 0=const
         same_k = (kidx[:, None] == kidx[None, :]) & (kidx[:, None] > 0)
-    if c0.fn_name == "s5":
-        from groups import PROJ
-        proj_t = torch.from_numpy(PROJ[1:]).to(device)       # (6, p, p)
+    GM = group_mod(c0.fn_name)
+    if GM is not None:
+        proj_t = torch.from_numpy(GM.PROJ[1:]).to(device)     # (n_irreps-1, p, p), trivial dropped
     else:
         basis = fourier_basis(c0.p)
         n_ = c0.p // 2
@@ -667,7 +681,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
     side = (torch.cuda.Stream() if str(device).startswith("cuda") else None)
 
     def project(Ld):
-        if c0.fn_name == "s5":
+        if GM is not None:
             energy = torch.stack([((Ld @ proj_t[r].T) ** 2).sum((-1, -2))
                                   for r in range(proj_t.shape[0])], -1)
             return energy.sqrt(), energy
@@ -745,7 +759,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         (gW,) = torch.autograd.grad(per.sum(), pr["embed.W_E"])
         gF = gW[:, :, :c0.p].double()
         wF = pr["embed.W_E"].detach()[:, :, :c0.p].double()
-        if c0.fn_name == "s5":
+        if GM is not None:
             gE = torch.stack([((gF @ proj_t[r].T) ** 2).sum((1, 2))
                               for r in range(proj_t.shape[0])], -1)
             gd = torch.stack([((gF @ proj_t[r].T) * (wF @ proj_t[r].T))

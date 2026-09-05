@@ -197,6 +197,8 @@ Logs notes/nudial3*.log.
 
 ## The resolution: AdamW's K*+1 solutions have the HIGHEST normalised l2 margin of anything we produced
 
+> RETRACTED 2026-09-05 (notes/margin_redo.md): cohorts D/H/J were stuck local optima; against the constructive class ceiling AdamW sits at 0.74-0.80 and the K*+1 nets are BELOW the K* construction. Keep only the AdamW-vs-GD ordering (now 1.7-2.4x, not 7-20x).
+
 Normalised margin g_min/||theta||^nu over the full p^2 grid, identical formula everywhere:
 
 | relu-4, p=113, m=512 | n | margin (median) | K | k_eff | profile |

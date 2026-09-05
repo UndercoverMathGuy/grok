@@ -52,6 +52,15 @@ def load_group(runs):
 
 
 def polish(pr, cfg, nu, steps, lr0=3e-3, label="", rtol=1e-6):
+    """Verified-monotone ascent on the exact normalised margin.
+    Each step tries several ascent directions (softmin gradients at three
+    sharpnesses concentrating on the worst decile / percentile / worst
+    handful, plus the hard argmin example's gradient) and a 3-point line
+    search per direction; the proposal with the largest exact-min increase
+    is accepted per run, else nothing moves and the step shrinks. The
+    original single-direction version (margin_polish.py) accepted nothing
+    even from a perturbed net (notes/margin_control.json, 09-05): the
+    worst-decile softmin direction is not an ascent direction of the min."""
     M = pr[next(iter(pr))].shape[0]; p = cfg.p
     a = torch.arange(p, device=DEV).repeat_interleave(p); b = torch.arange(p, device=DEV).repeat(p)
     labs = ((a + b) % p)[None].expand(M, -1)
@@ -65,32 +74,49 @@ def polish(pr, cfg, nu, steps, lr0=3e-3, label="", rtol=1e-6):
     gam0 = (gmin / R2 ** (nu / 2)).cpu().numpy()
     lr = torch.full((M,), lr0, device=DEV, dtype=DT)
     n_acc = torch.zeros(M, device=DEV)
+    SHARP = (8.0, 200.0, 5000.0)
     for step in range(steps):
+        dirs = []
         with torch.enable_grad():
             q = {k: v.clone().requires_grad_() for k, v in pr.items()}
             gq = margins(q)
             mn = gq.min(1, keepdim=True).values
             q10 = gq.kthvalue(max(1, gq.shape[1] // 10), dim=1, keepdim=True).values
-            beta = 8.0 / (q10 - mn + 1e-30)
-            sm = -(torch.logsumexp(-beta * (gq - mn), 1)) / beta.squeeze(1)
-            grads = torch.autograd.grad(sm.sum(), [q[k] for k in keys])
-        gn2 = sum((gr ** 2).flatten(1).sum(1) for gr in grads)
-        sc = lr * (R2 / gn2.clamp(min=1e-30)).sqrt()
-        prop = {k: pr[k] + sc.view(-1, *[1] * (pr[k].dim() - 1)) * gr for k, gr in zip(keys, grads)}
-        fac = (R2 / sq_norm(prop)).sqrt()
-        prop = {k: v * fac.view(-1, *[1] * (v.dim() - 1)) for k, v in prop.items()}
-        newmin = margins(prop).min(1).values
-        acc = newmin > gmin * (1 + rtol)
-        for k in keys:
-            am = acc.view(-1, *[1] * (pr[k].dim() - 1))
-            pr[k] = torch.where(am, prop[k], pr[k])
-        gmin = torch.where(acc, newmin, gmin)
+            for sh in SHARP:
+                beta = sh / (q10 - mn + 1e-30)
+                sm = -(torch.logsumexp(-beta * (gq - mn), 1)) / beta.squeeze(1)
+                dirs.append(torch.autograd.grad(sm.sum(), [q[k] for k in keys], retain_graph=True))
+            hard = gq.min(1).values
+            dirs.append(torch.autograd.grad(hard.sum(), [q[k] for k in keys]))
+        best_new = gmin.clone(); best_prop = None
+        for grads in dirs:
+            gn2 = sum((gr ** 2).flatten(1).sum(1) for gr in grads)
+            for f in (1.0, 0.25, 0.0625):
+                sc = lr * f * (R2 / gn2.clamp(min=1e-30)).sqrt()
+                prop = {k: pr[k] + sc.view(-1, *[1] * (pr[k].dim() - 1)) * gr for k, gr in zip(keys, grads)}
+                fac = (R2 / sq_norm(prop)).sqrt()
+                prop = {k: v * fac.view(-1, *[1] * (v.dim() - 1)) for k, v in prop.items()}
+                newmin = margins(prop).min(1).values
+                better = newmin > best_new
+                if better.any():
+                    if best_prop is None:
+                        best_prop = {k: pr[k].clone() for k in keys}
+                    for k in keys:
+                        am = better.view(-1, *[1] * (pr[k].dim() - 1))
+                        best_prop[k] = torch.where(am, prop[k], best_prop[k])
+                    best_new = torch.where(better, newmin, best_new)
+        acc = best_new > gmin * (1 + rtol)
+        if best_prop is not None:
+            for k in keys:
+                am = acc.view(-1, *[1] * (pr[k].dim() - 1))
+                pr[k] = torch.where(am, best_prop[k], pr[k])
+        gmin = torch.where(acc, best_new, gmin)
         n_acc += acc.float()
         lr = torch.where(acc, lr * 1.15, lr * 0.5).clamp(1e-9, 0.3)
-        if (step + 1) % 100 == 0:
+        if (step + 1) % 50 == 0:
             gam = gmin / R2 ** (nu / 2)
-            print(f"  {label} step {step+1}: median gamma {gam.median().item():.3e} "
-                  f"acc-rate {acc.float().mean().item():.2f}", flush=True)
+            print(f"  {label} step {step+1}: median gamma {gam.median().item():.4e} "
+                  f"acc-rate {acc.float().mean().item():.2f} lr med {lr.median().item():.1e}", flush=True)
     L = forward(pr, a, b, cfg).double().cpu()
     keff, Kg = mp.spectrum(L, p)
     gam = (gmin / R2 ** (nu / 2)).cpu().numpy()
@@ -113,6 +139,13 @@ def main():
     results = {"ceiling": {str(nu): {K: ceil[str(nu)][K]["gamma_free"] for K in ceil[str(nu)]} for nu in (4, 6)}}
     for name, runs in groups.items():
         runs = [r for r in runs if (r / "final.safetensors").exists()][:args.n]
+        # drop diverged runs (GD at lr 0.3 can NaN on some seeds): non-finite weights or train acc < 0.999
+        def finite(r):
+            ta = float(np.load(r / "spectra.npz")["train_acc"][-1])
+            w = load_file(r / "final.safetensors")
+            return np.isfinite(ta) and ta >= 0.999 and all(torch.isfinite(v).all() for v in w.values())
+        n0 = len(runs); runs = [r for r in runs if finite(r)]
+        print(f"{name}: {len(runs)}/{n0} runs finite and fit", flush=True)
         if not runs:
             print(f"{name}: no runs found"); continue
         cfgs, pr = load_group(runs)
