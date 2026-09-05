@@ -430,6 +430,16 @@ def plan(args):
             runs = [dict(init_from=str(f), init_seed=int(f.parent.name.split("_s")[1])) for f in src[:32]]
             if runs:
                 jobs.append(("J", dict(family=fam, nu=nu, m=512, p=113, mode="margin", frac_train=1.0), runs))
+    if args.cohort in ("M", "MG"):            # margin redo (2026-09-05): trained finals vs construction ceiling
+        for fam, nu in (("relu", 4), ("relu", 6)):
+            if args.cohort == "M":            # AdamW, the paper recipe (frac 0.5 wd 1) and full data (wd 1)
+                for frac in args.fracs:
+                    runs = [dict(weight_decay=1.0, init_seed=s, data_seed=s % 1000) for s in seeds]
+                    jobs.append(("M", dict(family=fam, nu=nu, m=512, mode="train", frac_train=frac), runs))
+            else:                             # plain GD + coupled l2, the cohort-I cell that fits (lr 0.3, wd 3e-4)
+                runs = [dict(opt="gd", lr=0.3, weight_decay=3e-4, init_seed=s, data_seed=s % 1000) for s in seeds]
+                jobs.append(("MG", dict(family=fam, nu=nu, m=512, mode="train", frac_train=1.0,
+                                        warmup_steps=1), runs))
     if args.cohort in ("F", "all2"):          # init-scale sweep at wd=1
         for fam, nu in (("relu", 4), ("quad", 3)):
             runs = [dict(init_scale=sc, weight_decay=1.0, init_seed=s, data_seed=s % 1000)
@@ -440,7 +450,7 @@ def plan(args):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--cohort", default="all", choices=["A", "B", "C", "all", "D", "E", "F", "all2", "G", "H", "all3", "I", "J", "all4"])
+    ap.add_argument("--cohort", default="all", choices=["A", "B", "C", "all", "D", "E", "F", "all2", "G", "H", "all3", "I", "J", "all4", "M", "MG"])
     ap.add_argument("--gd-lrs", type=float, nargs="+", default=[1.0, 3.0, 10.0])
     ap.add_argument("--gd-wds", type=float, nargs="+", default=[3e-4, 1e-3, 3e-3])
     ap.add_argument("--fracs", type=float, nargs="+", default=[0.3, 0.5, 0.7, 0.9, 1.0])
@@ -472,7 +482,7 @@ def main():
                 c = Config(**tmpl, **rk, num_epochs=args.epochs)
                 c.nu = c.degree
                 lay = f"_L{c.layout[0]}{c.layout[1]}" if c.layout_pre >= 0 else ""
-                fr = f"_f{c.frac_train:g}" if cohort in ("G", "H") else ""
+                fr = f"_f{c.frac_train:g}" if cohort in ("G", "H", "M") else ""
                 cell = f"{c.family}{c.nu}{lay}_m{c.m}_p{c.p}{fr}_{c.mode}"
                 sc = f"_sc{c.init_scale:g}" if c.init_scale != 1.0 else ""
                 if c.opt == "gd": cell += "_gd"
