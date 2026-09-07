@@ -59,3 +59,24 @@ P5  Margin: grokked nets sit within 26% of the best K's constructed
     gamma in absolute terms and the equal-share r(K_obs) of each run.
 
 Scoring output: notes/p1009_scored.json + a table in notes/nudial_results.md.
+
+## Addendum (2026-09-07, still before any run): converged ladder
+
+The table above used notes/kstar_pscale.json, whose local search at p = 1009
+(200 restarts) was under-converged: M_5 = 1.4149 there vs 1.5019 at 4000
+restarts (nudial/score_p1009.py, 2000 restarts x 3 reps). Converged ladder:
+
+  K      3      4      5      6      7      8      9     10
+  M_K  0.230  0.743  1.502  2.330  3.114  3.995  4.841  5.666
+  r(K) 0.394  0.717  0.928  1.000  0.982  0.964  0.923  0.875
+
+  K* = 6 (7 at 0.982, 8 at 0.964). Plateau {r >= 0.74} = {5, ..., 13},
+  {r >= 0.84} = {5, ..., 11}. K = 4 still below the plateau. M_K values
+  remain lower bounds (local search).
+
+Predictions unchanged in substance; sets updated: P1 uses {5, ..., 13};
+account (a) peak-tracking = mode in {6, 7, 8}; P2 stays "median >= 6".
+The selection-exponent account (nu_sel in (4.66, 4.83)) predicts mode 5
+here, so P2 separates it from peak-tracking as well.
+Constructive equal-amplitude ceilings at p = 1009 (m = 512): K5 3.34e-7,
+K6 3.57e-7, K7 3.59e-7, K8 3.46e-7, K9 3.29e-7 (polish not run, ~1-3%).

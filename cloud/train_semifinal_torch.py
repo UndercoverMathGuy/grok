@@ -432,7 +432,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
                   spectra_every=100, loss="f32stable", compile_mode="default",
                   device=None, wb=None, wb_tag=None, freeze=None,
                   masks_override=None, save_optim=False, grad_tap=False,
-                  weight_tap=False, tensor_tap=False):
+                  weight_tap=False, tensor_tap=False, vocab_proj=None):
     M = len(cfgs)
     c0 = cfgs[0]
     # lr, weight_decay, loss_tilt and loss_cvar are PER-RUN (broadcast vectors
@@ -496,6 +496,41 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         twm_v = torch.tensor([c.table_wd_mult for c in cfgs],
                              dtype=torch.float32, device=device)
     params = [pr[k] for k in keys]
+
+    # ---- fixed-support constraint (projected AdamW on the vocab axis) -----
+    # vocab_proj = {"E": bool, "U": bool, "P": (p, p) or (M, p, p)} with P a
+    # symmetric idempotent projector on the GROUP-token axis (vocab columns
+    # 0..p-1; the '=' column p is never touched and stays free). W_E and/or
+    # W_U have shape (M, d, v); the length-p slice of each d-row is the
+    # token-indexed function whose isotypic content P restricts. The init is
+    # projected once and the projection is re-applied after every AdamW
+    # update, so out-of-subspace coordinates are zeroed every step (to f32
+    # roundoff of the projected weight, ~5e-8 relative — it does not
+    # accumulate, and the observable it controls, the logits' off-support
+    # isotypic energy, comes out at ~1e-14 of the total). Gradients and Adam
+    # moments are NOT projected: only the weights are constrained. With
+    # P = I this is a no-op matmul, bit-identical to vocab_proj=None.
+    if vocab_proj is not None:
+        vp_keys = [k for k, on in (("embed.W_E", vocab_proj.get("E")),
+                                   ("unembed.W_U", vocab_proj.get("U"))) if on]
+        P_vp = torch.as_tensor(np.asarray(vocab_proj["P"]),
+                               dtype=torch.float32, device=device)
+        assert P_vp.shape[-2:] == (c0.p, c0.p), P_vp.shape
+        assert P_vp.dim() in (2, 3) and (P_vp.dim() == 2 or P_vp.shape[0] == M)
+        pv = c0.p
+
+        def _project_vocab():
+            for k in vp_keys:
+                w = pr[k]
+                w[:, :, :pv].copy_(w[:, :, :pv] @ P_vp)
+        if vp_keys:
+            with torch.no_grad():
+                _project_vocab()
+            print(f"vocab_proj on {vp_keys}: P {tuple(P_vp.shape)} "
+                  f"rank {int(round(float(P_vp.reshape(-1, pv, pv)[0].diagonal().sum())))}",
+                  flush=True)
+    else:
+        vp_keys = []
 
     def logits_fn(toks):
         L = batched_final_logits(pr, toks, c0)
@@ -823,6 +858,8 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
                     m_.copy_(torch.where(ab, m_new, m_))
                     v_.copy_(torch.where(ab, v_new, v_))
                     p.copy_(torch.where(ab, p_new, p))
+            if vp_keys:
+                _project_vocab()          # fixed support: re-zero off-support
         return per.detach()
 
     if compile_mode != "off":
