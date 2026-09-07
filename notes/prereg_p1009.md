@@ -80,3 +80,10 @@ The selection-exponent account (nu_sel in (4.66, 4.83)) predicts mode 5
 here, so P2 separates it from peak-tracking as well.
 Constructive equal-amplitude ceilings at p = 1009 (m = 512): K5 3.34e-7,
 K6 3.57e-7, K7 3.59e-7, K8 3.46e-7, K9 3.29e-7 (polish not run, ~1-3%).
+Search-noise note (same day, before any run finished): rep-spread of M_K
+at 2000-4000 restarts is 1-2%, the size of the K = 6 vs 7 gap (1.8%), and
+the argmax was 7 at 200 restarts. The registered peak is therefore
+"K* in {6, 7}, ladder flat to 2% over 6-8"; no prediction above depends on
+which of the two it is. A 20000-restart x 5-rep ladder is being computed
+(notes/p1009_ladder_nu4_hi.json) to settle it; whichever way it lands,
+P1-P5 are scored as written.
