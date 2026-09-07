@@ -127,3 +127,67 @@ gained from cheaper cost. Symmetrising the network over the task symmetry
 (a,b,c) -> (a+s, b+t, c+s+t) does NOT work at b=2: the averaged network has
 p^2 m neurons at scale p^{-2/3} each and costs p^{2/3} times more — the same
 concavity that produces sparsity makes symmetrisation expensive.
+
+## 7. Correction (2026-09-07): the superposition gap is not real, and the attainment claim was wrong
+
+Two errors in Sections 3-4 and 6, found by direct computation (session
+2026-09-07; numerics reproduced inline below).
+
+(a) THE UPPER BOUND IS UNRESTRICTED. Section 6 bounded a multi-frequency
+neuron's cost by 3 (sum_k a_k / c0)^{2/3}, i.e. AM-GM applied to the
+TOTAL clean amplitude. That is loose. Parseval splits every factor norm
+over frequencies, ||u||^2 = (p/2) sum_k rho^u_k^2, and the clean amplitude
+at k involves only the k-components, a_k = rho^u_k rho^v_k rho^w_k / 2
+(verified: a multi-frequency neuron with unit cosines at K frequencies has
+a_k = 0.5 at each of them and leak < 1e-14 elsewhere). So AM-GM applies
+PER FREQUENCY:
+    (p/2)(rho^u_k^2 + rho^v_k^2 + rho^w_k^2) >= (3p/2) (2 a_k)^{2/3},
+and summing over k,   cost_n >= (3p/2) 2^{2/3} sum_k a_{k,n}^{2/3}
+for EVERY neuron, single- or multi-frequency. Subadditivity of x^{2/3}
+across neurons then gives sum_k A_k^{2/3} <= ||theta||^2 / ((3p/2) 2^{2/3})
+for the whole network, which is exactly the constraint of the finite
+program. With the junk lemma and the phase lemma:
+    max-margin(any network) <= c0 3^{-3/2} Gamma*(p) ||theta||^3.
+Checked on random band-limited multi-neuron networks: sum A_k^{2/3} /
+budget = 0.19-0.54, never above 1. A neuron carrying K frequencies costs
+EXACTLY the same per unit of sum_k a_k^{2/3} as K single-frequency neurons
+(269.06 at p=113 for K = 1, 2, 3, 4): superposition saves nothing. The
+1.009 "unrestricted bound" of Section 1 is simply a weaker bound, not
+evidence of a gap. The restriction to single-frequency neurons in Section
+3 is unnecessary; the 3.8x of Section 4 is void.
+
+(b) THE BOUND IS NOT ATTAINED BY THE PHASE-COMPLETE CONSTRUCTION. Section
+3 claimed that 4 phase-shifted neurons per frequency cancel all junk "at
+zero extra cost". That is the L_{2,3} accounting (mass-splitting is free
+at b = nu), not the l2 accounting. Under l2, n_k neurons per frequency at
+factor amplitude rho deliver clean n_k rho^3/2 at cost 3 n_k rho^2 (p/2),
+whereas the bound allows one neuron of amplitude n_k^{1/3} rho at cost
+3 n_k^{2/3} rho^2 (p/2): the split costs n_k^{1/3} more, so the
+construction's normalised margin is n_k^{-1/2} of the bound. Verified on
+the K* = 6 support with (phi, psi, phi+psi) product-grid phases: n_k = 16
+(4x4 grid) is the smallest exactly junk-free block found (junk energy 0,
+gamma = 0.250 x bound, exactly 16^{-1/2}); n_k = 64 gives 0.125; n_k = 1
+and 4 leave 89% / 75% junk energy and negative margin. No exactly
+junk-free block with n_k <= 5 exists on the pi/4 phase grid in this
+family (exhaustive search). The same n_k^{1/3} splitting price is what
+makes l2 sparse across frequencies; here it is paid within a frequency
+to cancel junk.
+
+STATUS after the correction (quadratic 1-hidden-layer MLP, plain l2):
+- Upper bound, all networks: c0 3^{-3/2} Gamma*(p) ||theta||^3, with
+  Gamma* from the sparse finite program (K* = 6 at p = 113; ladder as in
+  Section 3). THEOREM, unrestricted.
+- Lower bound, constructive: n_k^{-1/2} of that with n_k = 16 (0.25), same
+  program shape for every support, so the construction's argmax is also K*.
+- The true supremum lies in [0.25, 1] x bound (junk-tolerant networks with
+  fewer neurons per frequency may beat the junk-free construction). The
+  constant does NOT affect K* on the upper-bound side; on the lower-bound
+  side supports with Gamma_S < Gamma*/4 are excluded as optima, which
+  removes K <= 2 and K >= ~25 but not the plateau. The exact K* of the
+  supremum remains an empirical statement (P-N12 fixed-support) plus the
+  upper-bound argmax, not a two-sided theorem.
+- Consequence for the paper: state "sparse program = unrestricted upper
+  bound on the l2 max-margin; junk-free construction within 4x with the
+  same shape"; drop "theorem in the single-frequency class" and drop the
+  3.8x superposition gap; the open constant is the junk-cancellation
+  price, min over networks of (margin lost to junk) vs (cost of splitting).
