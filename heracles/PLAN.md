@@ -64,9 +64,14 @@ H5  Optimizer robustness at 60k, wd 3e-4, nu {4, 6}: gdm (lr 0.3, clip 1) and sg
     gd comes from H3's 60k checkpoint. 32 runs. Prediction: same mode and plateau as gd; gamma within 20%.
 H6  Constructed ceilings per (p, nu): port construct_gamma to give the "of ceiling" denominator (local, later).
 
-Stage 1 = R2 (144) + Rkeep (112) + H1 (320) + H2 (64) + H5 (32) + H3 (128) = 800 runs, 38 batches, in that
-order (cheapest first, so a second termination loses the least). Estimated 12-15 GPU hours on an L40S-class
-card, about $15 of the $20 on the account; H4 (~250 runs, ~1.5 h) follows from the same volume.
+Stage 1 = R2 (144) + Rkeep (112) + H1 (320) + H2 (32) + H3 (56) = 664 runs, 32 batches, in that order
+(cheapest first, so a second termination loses the least). H4 (~250 runs) follows from the same volume.
+
+AMENDMENT 09-12 03:50Z, before any H cell had started (R2 was 500 epochs in): the only card in stock with a
+network volume was an RTX PRO 4500 (1108 run-epochs/s at 144 runs, 3090-class, not 5090-class), which put
+the design above as written at ~26 GPU hours, over the $20 balance. Trimmed: H3 back to 8 seeds (the
+original registration) with nu 6 capped at 200k epochs (wd 3e-5 dropped at nu 6 only); H2 nu 4 only; H5
+deferred to a later pod. Predictions and kill rules unchanged.
 
 ## Out of scope for heracles (recorded so nobody re-pitches them)
 

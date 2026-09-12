@@ -125,21 +125,24 @@ LONG = dict(num_epochs=60_000, spectra_every=600, ckpt_at=(20_000,))
 
 
 def cohort_H2():
-    """wd x frac at p 113, nu {4, 6}, record recipe: wd {1e-3, 3e-4} x frac {0.3, 0.7} x 8 seeds, 60k epochs with a
+    """wd x frac at p 113, nu 4, record recipe: wd {1e-3, 3e-4} x frac {0.3, 0.7} x 8 seeds, 60k epochs with a
     20k checkpoint (so wd 1e-3 is read at 20k and 3e-4 at 60k, matched to H3's 1/(lr wd) budget rule).
-    frac 0.5 is read from H3's 20k / 60k checkpoints. 4 batches x 16."""
+    frac 0.5 is read from H3's 20k / 60k checkpoints. 2 batches x 16. (nu 6 dropped 09-12: throughput/budget.)"""
     S = SEEDS[:8]
-    return [("H2", [cfg(nu=nu, frac_train=f, weight_decay=wd, init_seed=s, **REC, **LONG) for wd in (1e-3, 3e-4) for s in S])
-            for nu in (4, 6) for f in (0.3, 0.7)]
+    return [("H2", [cfg(nu=4, frac_train=f, weight_decay=wd, init_seed=s, **REC, **LONG) for wd in (1e-3, 3e-4) for s in S])
+            for f in (0.3, 0.7)]
 
 
 def cohort_H3():
-    """The Wei limit: record recipe, wd {1e-3, 3e-4, 1e-4, 3e-5} x nu {4, 6} x 16 seeds, 600k epochs with checkpoints at
-    20k / 60k / 200k so every wd is read at every matched budget (20k for 1e-3, 60k for 3e-4, 200k for 1e-4, 600k for
-    3e-5). 2 batches x 64. The 20k / 60k checkpoints of the wd 1e-3 / 3e-4 arms double as H2's frac 0.5 and H5's gd."""
-    S = SEEDS[:16]
-    E = dict(num_epochs=600_000, spectra_every=2000, ckpt_at=(20_000, 60_000, 200_000))
-    return [("H3", [cfg(nu=nu, weight_decay=wd, init_seed=s, **REC, **E) for wd in (1e-3, 3e-4, 1e-4, 3e-5) for s in S]) for nu in (4, 6)]
+    """The Wei limit: record recipe, 8 seeds, checkpoints at 20k / 60k / 200k so every wd is read at every matched
+    budget (20k for 1e-3, 60k for 3e-4, 200k for 1e-4, 600k for 3e-5). nu 4: wd {1e-3, 3e-4, 1e-4, 3e-5}, 600k epochs
+    (32 runs). nu 6: wd {1e-3, 3e-4, 1e-4}, 200k epochs (24 runs). The 20k / 60k checkpoints of the wd 1e-3 / 3e-4
+    arms double as H2's frac 0.5 and H5's gd. (09-12: 16 seeds -> 8 and nu 6 capped at 200k for throughput/budget.)"""
+    S = SEEDS[:8]
+    E4 = dict(num_epochs=600_000, spectra_every=2000, ckpt_at=(20_000, 60_000, 200_000))
+    E6 = dict(num_epochs=200_000, spectra_every=2000, ckpt_at=(20_000, 60_000))
+    return [("H3", [cfg(nu=4, weight_decay=wd, init_seed=s, **REC, **E4) for wd in (1e-3, 3e-4, 1e-4, 3e-5) for s in S]),
+            ("H3", [cfg(nu=6, weight_decay=wd, init_seed=s, **REC, **E6) for wd in (1e-3, 3e-4, 1e-4) for s in S])]
 
 
 def cohort_H5():
@@ -152,9 +155,9 @@ def cohort_H5():
 
 
 def cohort_H():
-    """Stage 1 of the H launch, cheapest first: R2 (l3 recipe), Rkeep, H1, H2, H5, H3. H4 (geometry dial) launches
+    """Stage 1 of the H launch, cheapest first: R2 (l3 recipe), Rkeep, H1, H2, H3 (H5 deferred 09-12). H4 (geometry dial) launches
     separately once R2 is scored and the l3 / l6 recipes are chosen."""
-    return cohort_R2() + cohort_Rkeep() + cohort_H1() + cohort_H2() + cohort_H5() + cohort_H3()
+    return cohort_R2() + cohort_Rkeep() + cohort_H1() + cohort_H2() + cohort_H3()   # H5 deferred (budget)
 
 
 COHORTS = {"R": cohort_R, "R2": cohort_R2, "smoke": cohort_smoke, "Rkeep": cohort_Rkeep, "H1": cohort_H1, "H2": cohort_H2,
