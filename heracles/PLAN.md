@@ -74,7 +74,8 @@ AMENDMENT 09-12 03:50Z, before any H cell had started (R2 was 500 epochs in): th
 network volume was an RTX PRO 4500 (1108 run-epochs/s at 144 runs, 3090-class, not 5090-class), which put
 the design above as written at ~26 GPU hours, over the $20 balance. Trimmed: H3 back to 8 seeds (the
 original registration) with nu 6 capped at 200k epochs (wd 3e-5 dropped at nu 6 only); H2 nu 4 only; H5
-deferred to a later pod. Predictions and kill rules unchanged. Stage 2 (cohort_S2 = H4 + H5 + H2 nu 6, ~384
+deferred to a later pod. Predictions and kill rules unchanged. 07:15Z: H3 moved to an L40S pod (fm3bmxbopmvqmm,
+US-TX-3, own volume) and restored to 16 seeds (64 + 48 runs) before any H3 result was read. Stage 2 (cohort_S2 = H4 + H5 + H2 nu 6, ~384
 runs, ~3.5 h on this card) restores H5 and H2 nu 6; the 40-run gd batch ran at 1242 run-epochs/s, so the card
 saturates by 40 runs and the small H1 batches are cheap (stage 1 revised to ~9 h, ~$6.50).
 
