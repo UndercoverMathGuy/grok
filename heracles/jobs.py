@@ -154,6 +154,35 @@ def cohort_H5():
     return J
 
 
+LQREC = dict(lr=0.03, weight_decay=1e-4)     # R2 record for lq q = 3 and q = 4 at nu 4 (RECIPES.md)
+
+
+def cohort_H4():
+    """Geometry dial, p 113 (stage 2, after R2). nu 4: q3 / q4 are R2's record cells (reused, not retrained); q6 gets a
+    3 x 3 (lr, wd) mini-grid; sign + box is R's record (Rkeep). nu 6: q3 / q4 / q6 mini-grids (3 x 3 each, sharing one
+    batch since q is per-run) and a sign + box 2 x 2 grid; gd nu 6 comes from H3. Recipe selection inside each cell
+    follows the RECIPES rule (>= 7/8 grok, finite, max median gamma_q, ties -> smaller wd), registered in PLAN.md."""
+    S = SEEDS[:8]; J = []
+    G = [(lr, wd) for lr in (0.01, 0.03, 0.1) for wd in (1e-5, 1e-4, 1e-3)]
+    J.append(("H4", [cfg(nu=4, opt="lq", q=6.0, reg="lq", lr=lr, weight_decay=wd, init_seed=s) for lr, wd in G for s in S]))
+    J.append(("H4", [cfg(nu=6, opt="lq", q=q, reg="lq", lr=lr, weight_decay=wd, init_seed=s) for q in (3.0, 4.0, 6.0) for lr, wd in G for s in S]))
+    J.append(("H4", [cfg(nu=6, opt="sign", q=float("inf"), reg="box", lr=lr, maxnorm=c, momentum=0.9, init_seed=s)
+                     for lr in (1e-4, 3e-4) for c in (0.2, 0.4) for s in S]))
+    return J
+
+
+def cohort_H2b():
+    """H2's nu 6 half (deferred 09-12, restored in stage 2): wd {1e-3, 3e-4} x frac {0.3, 0.7} x 8 seeds, 60k, 20k ckpt."""
+    S = SEEDS[:8]
+    return [("H2", [cfg(nu=6, frac_train=f, weight_decay=wd, init_seed=s, **REC, **LONG) for wd in (1e-3, 3e-4) for s in S])
+            for f in (0.3, 0.7)]
+
+
+def cohort_S2():
+    """Stage 2: H4 (geometry dial) + H5 (gdm / sgd at 60k) + H2 nu 6. ~384 runs."""
+    return cohort_H4() + cohort_H5() + cohort_H2b()
+
+
 def cohort_H():
     """Stage 1 of the H launch, cheapest first: R2 (l3 recipe), Rkeep, H1, H2, H3 (H5 deferred 09-12). H4 (geometry dial) launches
     separately once R2 is scored and the l3 / l6 recipes are chosen."""
@@ -161,7 +190,7 @@ def cohort_H():
 
 
 COHORTS = {"R": cohort_R, "R2": cohort_R2, "smoke": cohort_smoke, "Rkeep": cohort_Rkeep, "H1": cohort_H1, "H2": cohort_H2,
-           "H3": cohort_H3, "H5": cohort_H5, "H": cohort_H}
+           "H3": cohort_H3, "H5": cohort_H5, "H": cohort_H, "H4": cohort_H4, "H2b": cohort_H2b, "S2": cohort_S2}
 
 
 def main():

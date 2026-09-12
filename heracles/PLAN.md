@@ -55,10 +55,13 @@ H3  The Wei limit, q = 2, record recipe, p 113, frac 0.5: wd {1e-3, 3e-4, 1e-4, 
     wd 3e-4 being a finite-lambda effect; or (b) mode stays K* + 1 while the margin keeps rising, i.e. the +1
     belongs to the l2 max-margin landscape reachable by gradient flow. (b) kills every "+1 is optimizer-borne"
     sentence. Also read: whether the count at fixed wd moves between 20k and 600k (drift = not equilibrated).
-H4  Geometry dial, p 113, nu {4, 6}: gd (q 2, from H3), lq q3, lq q4, lq q6, sign + box. Launches as stage 2
-    once R2 is scored: q3 / q4 recipes = R2 winners by the RECIPES rule; q6 and all nu-6 l_q cells carry a
-    3 x 3 (lr, wd) mini-grid with the same rule applied post hoc (recipe selection inside the cell is
-    registered here, so it is not a free parameter of the count). Prediction at nu 6: K* = 3, 4, 6, dense,
+H4  Geometry dial, p 113, nu {4, 6}: gd (q 2, from H3), lq q3, lq q4, lq q6, sign + box. Stage 2 (jobs.py
+    cohort_S2, registered 09-12 after R2 was scored): nu-4 q3 / q4 = R2's record cells lr 0.03 wd 1e-4 (reused);
+    nu-4 q6 and every nu-6 l_q cell carry the 3 x 3 grid lr {0.01, 0.03, 0.1} x wd {1e-5, 1e-4, 1e-3}; nu-6
+    sign + box carries lr {1e-4, 3e-4} x box {0.2, 0.4}. The RECIPES selection rule picks one cell per (nu, q)
+    post hoc (>= 7/8 grok, finite, max median gamma_q, ties -> smaller wd), so the recipe is not a free
+    parameter of the count. R2 already shows the q = 3 count sits in its flat plateau (mode 5, K* 8, plateau
+    4..12) and q = 4 = nu lands at 5-7 rather than dense. Prediction at nu 6: K* = 3, 4, 6, dense,
     dense; at nu 4: 4, plateau 4..12, dense, dense, dense. Kill: the nu-6 mode is not monotone in q.
 H5  Optimizer robustness at 60k, wd 3e-4, nu {4, 6}: gdm (lr 0.3, clip 1) and sgd (lr 1, B 1024) x 8 seeds;
     gd comes from H3's 60k checkpoint. 32 runs. Prediction: same mode and plateau as gd; gamma within 20%.
@@ -71,7 +74,9 @@ AMENDMENT 09-12 03:50Z, before any H cell had started (R2 was 500 epochs in): th
 network volume was an RTX PRO 4500 (1108 run-epochs/s at 144 runs, 3090-class, not 5090-class), which put
 the design above as written at ~26 GPU hours, over the $20 balance. Trimmed: H3 back to 8 seeds (the
 original registration) with nu 6 capped at 200k epochs (wd 3e-5 dropped at nu 6 only); H2 nu 4 only; H5
-deferred to a later pod. Predictions and kill rules unchanged.
+deferred to a later pod. Predictions and kill rules unchanged. Stage 2 (cohort_S2 = H4 + H5 + H2 nu 6, ~384
+runs, ~3.5 h on this card) restores H5 and H2 nu 6; the 40-run gd batch ran at 1242 run-epochs/s, so the card
+saturates by 40 runs and the small H1 batches are cheap (stage 1 revised to ~9 h, ~$6.50).
 
 ## Out of scope for heracles (recorded so nobody re-pitches them)
 
