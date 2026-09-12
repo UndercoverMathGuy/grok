@@ -197,7 +197,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cohort", default="R")
     ap.add_argument("--smoke", action="store_true")
-    ap.add_argument("--compile", default="reduce-overhead")
+    ap.add_argument("--compile", default="default", help="reduce-overhead (CUDA graphs) crashes with a Dynamo guard error (ValueError: stoi) on the SECOND compile in one process, seen twice on 09-12 (nu-6 layouts after a nu-4 batch); default mode is ~10%% slower and safe")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--log-every", type=int, default=500)
     ap.add_argument("--max-batch", type=int, default=144, help="split larger batches into chunks of at most this many runs")
