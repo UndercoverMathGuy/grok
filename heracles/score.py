@@ -235,13 +235,13 @@ def main():
     ap.add_argument("--no-sides", action="store_true")
     ap.add_argument("--n-cand", type=int, default=16)
     args = ap.parse_args()
-    rds = []
+    rds = []; wfile = args.ckpt or "final.safetensors"     # run dirs are those holding the requested weight file
     for r in args.runs:
         r = Path(r)
-        if (r / "final.safetensors").exists():
+        if (r / wfile).exists():
             rds.append(r)
         else:
-            rds += sorted(d for d in r.glob("*") if (d / "final.safetensors").exists())
+            rds += sorted(d for d in r.glob("*") if (d / wfile).exists())
     rows = []; Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     save = lambda: Path(args.out).write_text(json.dumps(dict(rows=rows, summary=summarize(rows)), indent=0, default=float))
     for rd in rds:
