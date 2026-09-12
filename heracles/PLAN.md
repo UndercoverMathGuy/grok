@@ -61,7 +61,10 @@ H4  Geometry dial, p 113, nu {4, 6}: gd (q 2, from H3), lq q3, lq q4, lq q6, sig
     sign + box carries lr {1e-4, 3e-4} x box {0.2, 0.4}. The RECIPES selection rule picks one cell per (nu, q)
     post hoc (>= 7/8 grok, finite, max median gamma_q, ties -> smaller wd), so the recipe is not a free
     parameter of the count. R2 already shows the q = 3 count sits in its flat plateau (mode 5, K* 8, plateau
-    4..12) and q = 4 = nu lands at 5-7 rather than dense. Prediction at nu 6: K* = 3, 4, 6, dense,
+    4..12) and q = 4 = nu lands at 5-7 rather than dense.
+    OUTCOME 09-12: KILL as registered (nu-6 count 4 at q 3, 4, 6; nu-4 l6 5-7 vs 8..12/dense). Cross-norm matrix
+    clears the optimizers; construct_q.py shows the ladder's K-committee family is 10-10^4 below trained l_q nets
+    for q > 2. l_q ladder withdrawn (RESULTS_stage2.md, THEORY.md status line). Prediction at nu 6: K* = 3, 4, 6, dense,
     dense; at nu 4: 4, plateau 4..12, dense, dense, dense. Kill: the nu-6 mode is not monotone in q.
 H5  Optimizer robustness at 60k, wd 3e-4, nu {4, 6}: gdm (lr 0.3, clip 1) and sgd (lr 1, B 1024) x 8 seeds;
     gd comes from H3's 60k checkpoint. 32 runs. Prediction: same mode and plateau as gd; gamma within 20%.

@@ -1,3 +1,8 @@
+> **Status 2026-09-12 (after H4 + construct_q.py, see RESULTS_stage2.md):** the l_q ladder of sections 3-4 is WITHDRAWN as a
+> quantitative count predictor for q > 2. Trained l_q nets exceed the K-committee constructions the ladder rests on by
+> 1-4 orders of magnitude in gamma_q, the nu-6 count is 4 at every q, and no geometry produces a dense solution. The l_2
+> case (q = 2) is unaffected. Section 4's admissibility scoping (constant-geometry optimizers) is kept.
+
 # The count under a constant l_q geometry
 
 Everything in `heracles` is scoped to optimizers whose implicit geometry is one fixed norm for the
