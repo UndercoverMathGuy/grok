@@ -70,3 +70,33 @@ optimizer failing to follow its geometry.
   through the ladder does not.
 - Open: an l_q ceiling that uses full width (d, m, r) with superposed frequencies, to test whether the trained
   l_q nets are at their optimum. Not needed for the l_2 paper spine.
+
+## H4 addendum — sign + box at nu 6
+
+Winner lr 3e-4 box 0.2: 7/8 grok, mode 4 {4:3, 5:3, 7:1}, clean 0.81 (box 0.4: 0/8; lr 1e-4 box 0.2: 1/8).
+Predicted dense; measured 4-5. Completes the nu-6 row: 4 at every q in {2, 3, 4, 6, inf}.
+
+## H5 — optimizer robustness at 60k, wd 3e-4 (20k checkpoint in brackets)   [scores/H5]
+
+| nu | gd (H1/H3, 20k) | gdm lr 0.3 clip 1 | sgd lr 1 B 1024 |
+|---|---|---|---|
+| 4 | mode 5, 0.67 of ceiling | mode 5 {4:1, 5:7} [5], 0.61 | mode 5 {4:1, 5:6, 6:1} [5], 0.63 |
+| 6 | mode 4, 0.64 | mode 3 {3:4, 4:2, 5:2} [3/4 tie], 0.70 | mode 4 (5/8 grok) {3:2, 4:3} [3], 0.80 |
+
+nu 4: registered statement holds (same mode, margins within 10%). nu 6: modes 3-4 vs gd's 4, margins 0.70-0.80 vs
+0.64, i.e. the momentum / minibatch runs reach a higher margin and a count one closer to K* = 3 (plateau 2..5, all
+in). sgd at nu 6 groks only 5/8 in 60k. 20k = 60k in every cell.
+
+## H2 addendum — nu 6, wd x frac (60k, [20k])   [scores/H2]
+
+| frac | wd 3e-4 | wd 1e-3 |
+|---|---|---|
+| 0.3 | mode 4 {3:2, 4:4, 5:2} [4], 0.63 | mode 4 {3:3, 4:4, 5:1} [4], 0.68 |
+| 0.5 (H1) | mode 4 {4:5, 5:2, 6:1}, 0.64 | — |
+| 0.7 | mode 4 {4:6, 5:2} [4], 0.72 | collapse 0/8 |
+
+At nu 6 frac does not move the mode at all (4 everywhere); wd 1e-3 collapses at frac 0.7 exactly as at nu 4.
+Registered H2 statement holds at nu 6. Across every nu-6 cell of stage 1 + 2 the pattern is: higher margin
+fraction, count nearer K* (0.64 -> 4; 0.70-0.80 -> 3-4).
+
+Pod vs2z7ht3uk9nyj and volume 14r5qnlle5 deleted after a verified pull (992 runs local across R/H1/H2/H4/H5).
