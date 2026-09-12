@@ -55,6 +55,9 @@ H3  The Wei limit, q = 2, record recipe, p 113, frac 0.5: wd {1e-3, 3e-4, 1e-4, 
     wd 3e-4 being a finite-lambda effect; or (b) mode stays K* + 1 while the margin keeps rising, i.e. the +1
     belongs to the l2 max-margin landscape reachable by gradient flow. (b) kills every "+1 is optimizer-borne"
     sentence. Also read: whether the count at fixed wd moves between 20k and 600k (drift = not equilibrated).
+    OUTCOME 09-12 (RESULTS_H3.md): margin monotone in 1/wd at nu 4 (0.52 -> 0.74), clean -> 1.00; count on the
+    K*/K*+1 boundary tipping toward K* at wd 3e-5 (9:5) -> fork (a) weakly at nu 4; nu 6 mode K*+1 at every wd
+    with seeds at K* growing with budget -> (b) drifting to (a). No upward drift, no dense, 200k = 600k.
 H4  Geometry dial, p 113, nu {4, 6}: gd (q 2, from H3), lq q3, lq q4, lq q6, sign + box. Stage 2 (jobs.py
     cohort_S2, registered 09-12 after R2 was scored): nu-4 q3 / q4 = R2's record cells lr 0.03 wd 1e-4 (reused);
     nu-4 q6 and every nu-6 l_q cell carry the 3 x 3 grid lr {0.01, 0.03, 0.1} x wd {1e-5, 1e-4, 1e-3}; nu-6

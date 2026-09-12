@@ -3,7 +3,7 @@ Usage: uv run python heracles/analyze_H3.py [--scores heracles/scores/H3]"""
 import argparse, collections, json, re
 from pathlib import Path
 import numpy as np
-CEIL = {4: 6.39e-6}     # constructed K=4 ceiling, relu-4 m512 p113 (no nu-6 ceiling yet: H6)
+CEIL = {4: 6.39e-6, 6: 6.2e-8}     # constructed K* ceilings, relu m512 p113 (nu 6: construct_q.py K=3, l2)
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--scores", default=str(Path(__file__).resolve().parent / "scores" / "H3"))
