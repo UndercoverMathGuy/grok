@@ -20,7 +20,8 @@ interface-ablation instrument (read-and-write rule on; scores/Rsides). "of ceili
 | MIXED control (sign + l2 shrink) | lr 3e-4, wd 1 | 8/8 | 0.19 | 0.96 | {5:4, 6:2, 7:1, 8:1} |
 
 Boundaries measured in R (all q = 2 classes unless noted):
-- wd 3e-3: 0/8 grok in every cell, every lr (weights decay to zero before signal grows).
+- wd 3e-3: 0/8 grok in every cell, every lr (weights decay to zero before signal grows). At frac 0.7 the same
+  collapse already happens at wd 1e-3 (H2); the admissible top of the wd range shrinks with train fraction.
 - wd 1e-4: partial grok, margin 0.10 of ceiling at 20k epochs — not equilibrated; needs ~5x budget.
 - lr 3 without clip: divergence in 1-6 of 8 seeds; clip 1 removes it at no margin cost.
 - sign + box 0.05: 0/8 (box too tight to represent the task); box 0.1 groks but at 0.07 of ceiling.
