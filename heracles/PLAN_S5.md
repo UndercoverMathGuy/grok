@@ -1,4 +1,9 @@
-# heracles S5 plan (drafted 2026-09-12, schedule added 09-13; NOT YET REGISTERED, awaiting sign-off)
+# heracles S5 plan (drafted 2026-09-12, schedule added 09-13, signed off 09-13, E0 registered 09-13 09:05Z)
+
+> **OUTCOME 09-13 (RESULTS_S5.md):** E1 record = mod-add record; E0 ladder registered (nu-dependent argmax); E2: K* = 1 (+ patch)
+> holds, margin order = ladder order in all 4 cells, leader statement (b) FAILED everywhere (lottery); E3 not triggered;
+> E4: S4 and A5 as S5 (A5 patch = Galois conjugate, priced by the S3b addendum), D_113 needs frac 0.5 (count 4 + parity).
+> All 470 runs pulled; pod fsglufchnz325w and volume jolr5zlyu6 deleted.
 
 Why S5 next: mod-add is the equal-share case (every frequency is a 2-dim irrep of identical cost). S5's irreps
 have dimensions 1, 1, 4, 4, 5, 5, 6, so the l_2 ladder becomes WEIGHTED: each irrep rho has its own representation

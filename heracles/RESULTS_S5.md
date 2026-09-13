@@ -71,3 +71,67 @@ split at wd 1e-4 (std_sign 4 / std 3 at both fracs) equals the split at 3e-4 and
 trigger did not fire. The open question it would answer: does the leader distribution move toward the ladder argmax as
 wd -> 0 (the mod-add tie-break did), or is the basin fixed at init for good? One cell (nu 6, wd 1e-4 vs 3e-4, 16 seeds,
 200k) settles it; ~$1.
+
+## E1b — optimizer control at S5 (gdm lr 0.3 clip 1; sgd lr 1 B 1024; wd 3e-4, frac 0.8, nu 4, 8 seeds, 20k)
+
+| opt | grok | gamma_2 med | clean | K_abl | leaders | share | sign_rel |
+|---|---|---|---|---|---|---|---|
+| gd (E1) | 8/8 | 2.53e-6 | 0.86 | {1:1, 2:4, 3:3} | std_sign 4, std 3, 5a 1 | 1.00 | 0.144 |
+| gdm | 8/8 | 2.28e-6 | 0.92 | {1:1, 2:5, 3:2} | std_sign 4, std 2, 6 1, 5a 1 | 1.00 | 0.135 |
+| sgd | 8/8 | 1.83e-6 | 0.87 | {2:5, 3:2, 4:1} | std_sign 3, std 2, 5a 2, 6 1 | 0.98 | 0.155 |
+
+Same count, same patch, same lottery, margins within 10-30%: the l_2 family agrees at S5 as it did on mod-add (H5).
+
+## E4 — other groups (S3 + S3b addendum + S3c retry; scores/S3)
+
+Measured ladders (fixed-support, best gamma_2 over 4 seeds, all supports grokked 4/4) and free runs (8 seeds, 60k;
+D_113 20k). "of argmax" uses the ladder including the addendum supports (pairs at A5, triples at S4).
+
+S4 (irreps 1, 1, 2, 3 = std, 3' = std_sign; sign patch available; the 2-dim irrep is non-faithful):
+
+| nu | ladder top rungs (of argmax) | free runs |
+|---|---|---|
+| 4 | std_sign+sign+2 1.00, std+sign+2 0.99, std_sign+sign 0.97, std+sign 0.90, std_sign 0.89, std 0.80 | 8/8 grok; leaders std 6, std_sign 2; K_abl 3 (leader + sign + 2) in 6/8; single faithful irrep 1.00; gamma_2 0.71 of argmax; sign_rel on std 0.36 (ladder 0.22) |
+| 6 | std_sign 1.00, std_sign+sign+2 0.97, std+sign+2 0.96, std_sign+sign 0.95, std+sign 0.94, std 0.73 | 7/8 grok; leaders std 6, std_sign 1; K_abl 2 in 6/7; single faithful 0.86; gamma_2 0.63 of argmax |
+
+A5 (irreps 1, 3a, 3b, 4, 5; simple group, no sign irrep; 3a / 3b are Galois conjugates):
+
+| nu | ladder top rungs (of argmax) | free runs |
+|---|---|---|
+| 4 | 3a+4 1.00 (med 0.67), 4+5 0.85 (med 0.39), 3a+3b 0.84 (med 0.70), 4 0.84 (med 0.81), 3a 0.74, 3b 0.73, 5 0.38 | 8/8 grok; 3a + 3b in 8/8 (K_abl 2 in 7/8), leader 3a 4 / 3b 4 at share 0.73; gamma_2 5.5e-6 = 0.58 of argmax, 0.69 of the 3a+3b rung |
+| 6 | 3a+3b 1.00, 3a 0.94, 3b 0.92, 3a+4 0.88, 4+5 0.62, 4 0.56, 5 0.16 | 7/8 grok (one run destabilised after 40k); leaders 5 4, 3b 2, 3a 1; single faithful 0.86; gamma_2 2.4e-8 = 0.32 of argmax |
+
+- S4: K* = 1 (+ sign, + the cheap non-faithful 2) holds in every grokked run; the ladder top is flat (six supports within
+  20% at nu 4), the free runs sit in it at 0.63-0.71 of the argmax, and the leader lottery again favours std over the
+  std_sign argmax (6/8 at both nu).
+- A5: the free solution is the conjugate PAIR 3a + 3b at nu 4 — the patch role sign plays on S5 / S4 is played by the
+  Galois conjugate, which covers the two 5-cycle classes evenly — and the ladder prices it as a top rung (0.84 of the
+  best-of-4 argmax, 0.70 by median, within the flat top). At nu 6, 3a + 3b IS the argmax but the free runs land on the
+  worst rung (5 leads 4/7) at 0.32 of the ceiling: the strongest case in the programme of the lottery going against the
+  ladder. Those runs are low-margin (ladder 5 = 0.16 of argmax; free 5-led runs 0.28) — the same "lower rung = lower
+  margin" ordering, with an unlucky population.
+- D_113 (56 two-dim irreps + sign): the record recipe COLLAPSES at frac 0.8 (0/8 at both nu, weights -> 0; the fixed-support
+  ladder at frac 0.8 did not grok either, 3/14, so it is void). Retry at frac 0.5, nu 4, 20k, 4 seeds each: 4/4 grok at
+  wd 3e-4 and 1e-4, K_abl 4-5 (wd 3e-4: {4:3, 5:1}; wd 1e-4: {5:1, 6:2, 8:1}), K_load90 3-5, 3-4 two-dim irreps carrying
+  90% of the margin plus the sign irrep at >= the leader amplitude (the reflection parity), clean 0.68-0.78, gamma_2
+  1.1e-6. Reading: D_113's count is mod-add's K*(113, nu 4) = 4 rotation frequencies plus the parity patch, with no
+  hierarchical pair structure (members e.g. {49, 48, 12, 4}, {4, 22, 7, 43}); the fixed-support ladder for D_113 must be
+  re-run at frac 0.5 to price it (not done today).
+
+## Verdict (S5 programme, 2026-09-13; 470 runs, ~$5.5)
+
+1. The weighted l_2 ladder's COUNT prediction holds on S5, S4 and A5: one faithful irrep plus the cheapest coverage patch
+   (sign on S5 / S4, the Galois conjugate on A5), K_abl 1-2 in the clean runs, exactly as the coverage table says. The only
+   deviation is a low-margin two-irrep basin in 5/16 nu-4 S5 runs, the S5 form of mod-add's +1.
+2. The ladder predicts the MARGIN of each solution: in every cell the leaders ranked by measured gamma_2 follow the
+   fixed-support ladder order, and the top free runs reach the ceiling (S5 nu 4 std + sign at 0.92-1.03 of it). The sign
+   patch amplitude is the ladder's (0.17 on std at S5 nu 4).
+3. The ladder does NOT predict which near-tied support a seed lands in. The registered leader statement (b) failed in
+   every S5 / S4 cell (predicted leads 0.14-0.44) and the nu-6 flip to std_sign appears only as a margin ordering, not as
+   a frequency. The identity is a seed lottery, biased toward the 4-dim (S5) / 3-dim (S4) permutation irreps regardless of
+   the small (< 20%) differences between top rungs. Same conclusion as the mod-add programme: count and margin are l_2
+   properties; identity is init-borne.
+4. D_113 stays the scope boundary: the count matches mod-add's K* = 4 plus a parity patch, but the recipe needs frac 0.5
+   and the ladder was not priced there.
+5. Open: E3 (wd -> 0 at S5 / A5 nu 6) — does the lottery drift toward the argmax as the margin rises, as the mod-add
+   tie-break did? One 16-seed cell at nu 6, 200k epochs, ~$1.

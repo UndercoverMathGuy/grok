@@ -257,6 +257,24 @@ def cohort_S3():
     return J
 
 
+def cohort_S3b():
+    """E4 addendum (after the first S3 read, 09-13 10:15Z): supports the free runs used that the singles ladder did not
+    price. A5: the Galois-conjugate pair 3a + 3b (8/8 free runs at nu 4), plus 3a + 4 and 4 + 5 as controls. S4: std +
+    sign + 2 and std_sign + sign + 2 (the free runs' third member is the non-faithful 2-dim irrep). 4 seeds, nu {4, 6}."""
+    S4_ = SEEDS[:4]; J = []
+    for nu in (4, 6):
+        J.append(("S3", [gcfg("a5", nu=nu, support=sp, init_seed=s, **S5REC, **LONG) for sp in ((1, 2), (1, 3), (3, 4)) for s in S4_]))
+        J.append(("S3", [gcfg("s4", nu=nu, support=sp, init_seed=s, **S5REC, **LONG) for sp in ((3, 1, 2), (4, 1, 2)) for s in S4_]))
+    return J
+
+
+def cohort_S3c():
+    """D_113 retry (09-13 10:40Z): the record recipe collapses at D_113 frac 0.8 (0/8, weights -> 0, as wd 1e-3 did at
+    mod-add frac 0.7). Lower train fraction + lower wd: nu 4, frac 0.5, wd {3e-4, 1e-4} x 4 seeds, 20k."""
+    rec = {k: v for k, v in S5REC.items() if k != "weight_decay"}
+    return [("S3", [gcfg("d113", nu=4, frac_train=0.5, weight_decay=wd, init_seed=s, **rec) for wd in (3e-4, 1e-4) for s in SEEDS[:4]])]
+
+
 def cohort_S5smoke():
     S = SEEDS[:2]; E = dict(m=64, d=16, r=16, num_epochs=30, spectra_every=10)
     return [("smoke", [gcfg("s4", opt="gd", lr=1.0, weight_decay=1e-3, clip=1.0, init_seed=s, support=sp, **E) for sp in ((), (3,), (3, 1)) for s in S]),
@@ -264,7 +282,7 @@ def cohort_S5smoke():
             ("smoke", [gcfg("s5", nu=3, opt="gdm", lr=0.1, weight_decay=1e-3, init_seed=s, support=(2, 1), **E) for s in S])]
 
 
-COHORTS = {"SR": cohort_SR, "SRb": cohort_SRb, "S0": cohort_S0, "S1": cohort_S1, "S2c": cohort_S2c, "S3": cohort_S3, "S5smoke": cohort_S5smoke,
+COHORTS = {"S3c": cohort_S3c, "S3b": cohort_S3b, "SR": cohort_SR, "SRb": cohort_SRb, "S0": cohort_S0, "S1": cohort_S1, "S2c": cohort_S2c, "S3": cohort_S3, "S5smoke": cohort_S5smoke,
            "R": cohort_R, "R2": cohort_R2, "smoke": cohort_smoke, "Rkeep": cohort_Rkeep, "H1": cohort_H1, "H2": cohort_H2,
            "H3": cohort_H3, "H5": cohort_H5, "H": cohort_H, "H4": cohort_H4, "H2b": cohort_H2b, "S2": cohort_S2}
 
