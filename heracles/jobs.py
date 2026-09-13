@@ -275,6 +275,48 @@ def cohort_S3c():
     return [("S3", [gcfg("d113", nu=4, frac_train=0.5, weight_decay=wd, init_seed=s, **rec) for wd in (3e-4, 1e-4) for s in SEEDS[:4]])]
 
 
+# ---------------------------------------------------------------- 2026-09-13 pm: abelian groups Z_120 and Z_11 x Z_11 (PLAN_Z.md)
+ZREC = dict(opt="gd", lr=3.0, weight_decay=3e-4, clip=1.0)     # mod-add / S5 record; ZR checks it transfers (lr 1 rides along)
+ZGROUPS = ("z120", "z11x11")
+
+
+def zcfg(task, **kw):
+    """abelian cell: p = |G|, frac 0.5 (mod-add convention; 7200 / 7320 train pairs), m 512, d = r = 128."""
+    base = dict(task=task, nu=4, m=512, d=128, r=128, frac_train=0.5, data_seed=DATA_SEED, num_epochs=20_000, spectra_every=200)
+    base.update(kw)
+    return Config(**base)
+
+
+def cohort_ZR():
+    """Z-R: recipe check, lr {1, 3} x wd 3e-4 x clip 1, 8 seeds, 20k, both groups (one batch per group). 32 runs."""
+    S = SEEDS[:8]
+    return [("ZR", [zcfg(g, opt="gd", lr=lr, weight_decay=3e-4, clip=1.0, init_seed=s) for lr in (1.0, 3.0) for s in S]) for g in ZGROUPS]
+
+
+def cohort_Z1():
+    """Z-1: main, record recipe x nu {4, 6} x 16 seeds x both groups, 60k with a 20k checkpoint. 64 runs."""
+    S = SEEDS[:16]
+    return [("Z1", [zcfg(g, nu=nu, init_seed=s, **ZREC, **LONG) for s in S]) for g in ZGROUPS for nu in (4, 6)]
+
+
+def cohort_ZL():
+    """Z-L: fixed-support ladder at the kstar_ab.py sets S*_K for K in {K*-1 .. K*+2} (per nu), 4 seeds, 60k; the measured
+    cross-check of the constructed ceilings (S5 methodology). ~2 groups x 4 K x 2 nu x 4 = 64 runs."""
+    import json
+    ks = json.load(open(Path(__file__).resolve().parent / "kstar_ab.json")); S4_ = SEEDS[:4]; J = []
+    for g in ZGROUPS:
+        for nu in (4, 6):
+            Ks = ks[g][f"kstar_nu{nu}"]; sups = [tuple(ks[g]["ladder"][str(K)]["S"]) for K in range(max(1, Ks - 1), Ks + 3) if str(K) in ks[g]["ladder"]]
+            J.append(("ZL", [zcfg(g, nu=nu, support=sp, init_seed=s, **ZREC, **LONG) for sp in sups for s in S4_]))
+    return J
+
+
+def cohort_Zsmoke():
+    S = SEEDS[:2]; E = dict(m=64, d=16, r=16, num_epochs=30, spectra_every=10)
+    return [("smoke", [zcfg("z120", opt="gd", lr=1.0, weight_decay=1e-3, clip=1.0, init_seed=s, support=sp, **E) for sp in ((), (1, 60)) for s in S]),
+            ("smoke", [zcfg("z11x11", nu=6, opt="gd", lr=1.0, weight_decay=1e-3, init_seed=s, **E) for s in S])]
+
+
 def cohort_S5smoke():
     S = SEEDS[:2]; E = dict(m=64, d=16, r=16, num_epochs=30, spectra_every=10)
     return [("smoke", [gcfg("s4", opt="gd", lr=1.0, weight_decay=1e-3, clip=1.0, init_seed=s, support=sp, **E) for sp in ((), (3,), (3, 1)) for s in S]),
@@ -282,7 +324,7 @@ def cohort_S5smoke():
             ("smoke", [gcfg("s5", nu=3, opt="gdm", lr=0.1, weight_decay=1e-3, init_seed=s, support=(2, 1), **E) for s in S])]
 
 
-COHORTS = {"S3c": cohort_S3c, "S3b": cohort_S3b, "SR": cohort_SR, "SRb": cohort_SRb, "S0": cohort_S0, "S1": cohort_S1, "S2c": cohort_S2c, "S3": cohort_S3, "S5smoke": cohort_S5smoke,
+COHORTS = {"ZR": cohort_ZR, "Z1": cohort_Z1, "ZL": cohort_ZL, "Zsmoke": cohort_Zsmoke, "S3c": cohort_S3c, "S3b": cohort_S3b, "SR": cohort_SR, "SRb": cohort_SRb, "S0": cohort_S0, "S1": cohort_S1, "S2c": cohort_S2c, "S3": cohort_S3, "S5smoke": cohort_S5smoke,
            "R": cohort_R, "R2": cohort_R2, "smoke": cohort_smoke, "Rkeep": cohort_Rkeep, "H1": cohort_H1, "H2": cohort_H2,
            "H3": cohort_H3, "H5": cohort_H5, "H": cohort_H, "H4": cohort_H4, "H2b": cohort_H2b, "S2": cohort_S2}
 
@@ -298,7 +340,7 @@ def main():
     args = ap.parse_args()
     torch.set_float32_matmul_precision("highest")
     if args.smoke:
-        args.cohort, args.compile, args.log_every = ("S5smoke" if args.cohort == "S5smoke" else "smoke"), "off", 10
+        args.cohort, args.compile, args.log_every = (args.cohort if args.cohort.endswith("smoke") else "smoke"), "off", 10
     jobs = [(t, b[i:i + args.max_batch]) for t, b in COHORTS[args.cohort]() for i in range(0, len(b), args.max_batch)]
     total = sum(len(b) for _, b in jobs)
     print(f"cohort {args.cohort}: {len(jobs)} batches, {total} runs, RUNS={RUNS}", flush=True)

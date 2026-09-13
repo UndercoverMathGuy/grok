@@ -34,6 +34,11 @@ class Group:
     PROJ: np.ndarray
     faithful: np.ndarray
     sign: object
+    schur: np.ndarray = None      # <chi_r, chi_r> per irrep: 1 (absolutely irreducible) or 2 (complex-type real irrep, e.g. 2-dim irreps of abelian groups)
+
+    def __post_init__(self):
+        if self.schur is None:
+            self.schur = np.ones(len(self.irrep_names))
 
     @property
     def R(self):
@@ -45,8 +50,12 @@ class Group:
         return np.stack([((F @ self.PROJ[r].T) ** 2).sum(-1) for r in range(self.R)], -1)
 
     def amplitudes(self, f):
-        """f: (N,) folded clean logit function f(x) = A-weighted sum chi_r(x)/d_r -> A_r = d_r sqrt(E_r / N)."""
-        return self.irrep_dims * np.sqrt(self.irrep_energy(f) / self.N)
+        """f: (N,) folded clean logit function f(x) = A-weighted sum chi_r(x)/d_r -> A_r = d_r sqrt(E_r / (N s_r))."""
+        return self.irrep_dims * np.sqrt(self.irrep_energy(f) / (self.N * self.schur))
+
+    def coverage(self):
+        """(R, N) coverage of offset x by irrep r: 1 - chi_r(x) / d_r (0 at the identity; the mod-add 1 - cos)."""
+        return 1 - self.CHAR[:, self.class_of] / self.irrep_dims[:, None]
 
 
 def _perm_group(perms, n):
@@ -80,21 +89,22 @@ def _classes(MULT, INV):
     return class_of
 
 
-def _finish(name, N, MULT, INV, e, class_of, class_names, irrep_names, irrep_dims, CHAR, faithful, sign):
+def _finish(name, N, MULT, INV, e, class_of, class_names, irrep_names, irrep_dims, CHAR, faithful, sign, schur=None):
     irrep_dims = np.asarray(irrep_dims); CHAR = np.asarray(CHAR, dtype=np.float64)
     R = len(irrep_names); assert CHAR.shape == (R, len(class_names))
-    assert int((irrep_dims ** 2).sum()) == N, "sum d^2 must equal |G|"
+    schur = np.ones(R) if schur is None else np.asarray(schur, dtype=np.float64)
+    assert abs((irrep_dims ** 2 / schur).sum() - N) < 1e-9, "sum d^2 / s must equal |G|"
     sizes = np.bincount(class_of, minlength=len(class_names)).astype(np.float64)
     gram = (CHAR * sizes) @ CHAR.T / N
-    assert np.allclose(gram, np.eye(R), atol=1e-9), f"{name}: character rows not orthonormal\n{gram}"
+    assert np.allclose(gram, np.diag(schur), atol=1e-9), f"{name}: character rows not orthogonal with the stated Schur multiplicities\n{gram}"
     xyinv = MULT[np.arange(N)[:, None], INV[None, :]]
-    PROJ = np.stack([(irrep_dims[r] / N) * CHAR[r][class_of[xyinv]] for r in range(R)])
+    PROJ = np.stack([(irrep_dims[r] / (N * schur[r])) * CHAR[r][class_of[xyinv]] for r in range(R)])
     assert np.allclose(PROJ.sum(0), np.eye(N), atol=1e-9), f"{name}: projectors must sum to I"
     for r in range(R):
         assert np.allclose(PROJ[r] @ PROJ[r], PROJ[r], atol=1e-9), f"{name}: P_{irrep_names[r]} not idempotent"
         assert np.allclose(PROJ[r], PROJ[r].T, atol=1e-12)
     return Group(name, N, MULT, INV, e, class_of, class_names, list(irrep_names), irrep_dims, CHAR, PROJ,
-                 np.asarray(faithful, dtype=bool), sign)
+                 np.asarray(faithful, dtype=bool), sign, schur)
 
 
 def _by_type(perms, class_of, types):
@@ -189,7 +199,40 @@ def D(n):
     return _finish(f"d{n}", N, MULT, INV, 0, class_of, class_names, names, dims, CHAR, [0, 0] + [1] * h, 1)
 
 
-BUILDERS = {"s5": S5, "s4": S4, "a5": A5, "d113": lambda: D(113)}
+def abelian(orders, name):
+    """Z_{n1} x ... x Z_{nk}. Elements = tuples in lexicographic order; every class is a singleton. Real irreps: the
+    trivial character, every real character of order 2 (1-dim), and one 2-dim real irrep chi + conj(chi) per pair of
+    conjugate complex characters (Schur multiplicity 2). Coverage of an offset x by the 2-dim irrep (j): 1 - cos(2 pi j.x / n).
+    'faithful' marks every nontrivial irrep (the leader readout needs candidates; for abelian groups it means 'nontrivial')."""
+    import itertools as it
+    els = list(it.product(*[range(n) for n in orders])); N = len(els); idx = {x: i for i, x in enumerate(els)}
+    MULT = np.zeros((N, N), dtype=np.int64); INV = np.zeros(N, dtype=np.int64)
+    for i, a in enumerate(els):
+        INV[i] = idx[tuple((-x) % n for x, n in zip(a, orders))]
+        for j, b in enumerate(els):
+            MULT[i, j] = idx[tuple((x + y) % n for x, y, n in zip(a, b, orders))]
+    class_of = np.arange(N); class_names = [str(x) for x in els]
+    chars = list(it.product(*[range(n) for n in orders]))            # character labels j, chi_j(x) = exp(2 pi i j.x/n)
+    seen = set(); names, dims, rows, schur, faithful = [], [], [], [], []
+    for j in chars:
+        if j in seen: continue
+        jb = tuple((-y) % n for y, n in zip(j, orders)); seen.add(j); seen.add(jb)
+        ph = np.array([sum(y * x / n for x, y, n in zip(a, j, orders)) for a in els]) * 2 * np.pi
+        lab = "+".join(str(y) for y in j) if len(orders) > 1 else str(j[0])
+        if j == jb:                                                   # real character (trivial or order 2)
+            names.append("trivial" if all(y == 0 for y in j) else f"sgn{lab}"); dims.append(1); rows.append(np.cos(ph)); schur.append(1)
+        else:
+            names.append(f"f{lab}"); dims.append(2); rows.append(2 * np.cos(ph)); schur.append(2)
+        faithful.append(not all(y == 0 for y in j))
+    order = np.argsort([0 if n == "trivial" else 1 for n in names], kind="stable")
+    names = [names[i] for i in order]; dims = [dims[i] for i in order]; rows = [rows[i] for i in order]
+    schur = [schur[i] for i in order]; faithful = [faithful[i] for i in order]
+    sign = next((i for i, n in enumerate(names) if n.startswith("sgn")), None)
+    return _finish(name, N, MULT, INV, idx[tuple(0 for _ in orders)], class_of, class_names, names, dims, np.stack(rows), faithful, sign, schur)
+
+
+BUILDERS = {"s5": S5, "s4": S4, "a5": A5, "d113": lambda: D(113), "z120": lambda: abelian((120,), "z120"),
+            "z11x11": lambda: abelian((11, 11), "z11x11"), "z113": lambda: abelian((113,), "z113")}
 
 
 def get_group(name):

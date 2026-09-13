@@ -299,7 +299,7 @@ def train_batched(cfgs, run_dirs, compile_mode="reduce-overhead", log_every=500,
         b_cos = torch.from_numpy(bc).to(device); b_sin = torch.from_numpy(bs).to(device)
     else:   # fold index x = a b c^-1 over the (a, b, c) logit table; energy = ||P_r f||^2 of f = g / N^2; A_r = d_r sqrt(E_r / N)
         FOLD = torch.from_numpy(G.MULT[lab_np[:, None], G.INV[None, :]].reshape(-1)).to(device)
-        PROJ_t = torch.from_numpy(G.PROJ).to(device); dims_t = torch.from_numpy(G.irrep_dims.astype(np.float64)).to(device)
+        PROJ_t = torch.from_numpy(G.PROJ).to(device); dims_t = torch.from_numpy(G.irrep_dims / np.sqrt(G.schur)).to(device)   # A_r = d_r sqrt(E_r / (N s_r))
     snap = {k: [] for k in ("epochs", "coeffs", "energy", "train_acc", "test_acc", "pnorm2", "qnormq", "min_margin", "min_margin_norm")}
     q_eff = torch.where(torch.isinf(q_v), torch.full_like(q_v, 2.0), q_v)   # sign: record l2 too; l_inf via max below
     first99 = {"train": [None] * M, "test": [None] * M}
