@@ -14,7 +14,7 @@ SSH="ssh -i $KEY -p $port -o StrictHostKeyChecking=no root@$host"
 case $cmd in
   up)
     $SSH "mkdir -p /workspace/heracles /workspace/heracles_runs"
-    scp -i $KEY -P $port -o StrictHostKeyChecking=no "$HERE"/train.py "$HERE"/score.py "$HERE"/jobs.py "$HERE"/kstar.py "$HERE"/score_loop.sh root@$host:/workspace/heracles/
+    scp -i $KEY -P $port -o StrictHostKeyChecking=no "$HERE"/train.py "$HERE"/score.py "$HERE"/jobs.py "$HERE"/kstar.py "$HERE"/groups.py "$HERE"/score_loop.sh root@$host:/workspace/heracles/
     $SSH "pip install -q --break-system-packages safetensors 2>&1 | tail -1; python3 -c 'import torch;print(torch.__version__, torch.cuda.get_device_name(0))'" ;;
   run)
     $SSH "cd /workspace && (setsid nohup env RUNS_DIR=/workspace/heracles_runs python3 -u heracles/jobs.py --cohort $cohort > /workspace/heracles_${cohort}.log 2>&1 < /dev/null &) ; sleep 2; head -3 /workspace/heracles_${cohort}.log" ;;

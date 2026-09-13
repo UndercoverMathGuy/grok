@@ -22,8 +22,10 @@ from safetensors.torch import load_file
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from train import Config, forward
+from groups import get_group
 torch.set_grad_enabled(False)
 DT = torch.float64
+FLOOR_FIXED = 0.02      # group tasks with too few irreps for a null pool (S5, S4, A5): an irrep counts if every cut drops m_min by >= 2%
 
 
 def trig(p, k):
@@ -47,6 +49,19 @@ def interface_energy(T, axis, p):
     return (Fq.abs() ** 2).sum(0)
 
 
+def cut_irrep(T, axis, PROJ, rs):
+    """remove the isotypic components rs from the token axis: tok <- tok - tok @ P_r (P_r symmetric)."""
+    Tm = T.movedim(axis, -1).clone(); tok = Tm
+    for r in rs:
+        tok = tok - tok @ PROJ[r]
+    return tok.movedim(-1, axis)
+
+
+def interface_energy_irrep(T, axis, PROJ):
+    tok = T.movedim(axis, -1).reshape(-1, T.shape[axis])
+    return torch.stack([((tok @ PROJ[r]) ** 2).sum() for r in range(PROJ.shape[0])])
+
+
 def committee_from_coeffs(coeffs, floor=0.02):
     a = np.abs(coeffs); order = np.argsort(a)[::-1]
     logs = np.log(a[order] + 1e-12)
@@ -60,6 +75,8 @@ class MLP:
     def __init__(self, rd, ckpt=None):
         rd = Path(rd)
         self.cfg = Config.load(rd / "config.json"); self.p = self.cfg.p
+        self.G = None if self.cfg.task == "modadd" else get_group(self.cfg.task)
+        self.PROJ = None if self.G is None else torch.from_numpy(self.G.PROJ).to(DT)
         f = rd / "final.safetensors" if ckpt is None else rd / ckpt
         self.pr = {k: v.to(DT)[None] for k, v in load_file(str(f)).items()}
         self.name = f"{rd.parent.name}/{rd.name}" + ("" if ckpt is None else f"@{ckpt}")
@@ -71,17 +88,20 @@ class MLP:
         return forward(pr, a, b, self.cfg)[0]
 
     def cut(self, ks, sides=("in", "out")):
+        """ks: frequencies (modadd) or irrep indices (group tasks)."""
         pr = dict(self.pr)
         for key, axis, side in self.interfaces:
             if side in sides:
-                pr[key] = cut_freq(pr[key], axis, self.p, ks)
+                pr[key] = cut_freq(pr[key], axis, self.p, ks) if self.G is None else cut_irrep(pr[key], axis, self.PROJ, ks)
         return pr
 
     def energy(self, sides=("in", "out")):
-        e = torch.zeros(self.p // 2, dtype=DT)
+        """modadd: (p//2,) per-frequency share, index k-1; group: (R,) per-irrep share, index = irrep index."""
+        e = torch.zeros(self.p // 2 if self.G is None else self.G.R, dtype=DT)
         for key, axis, side in self.interfaces:
             if side in sides:
-                ek = interface_energy(self.pr[key], axis, self.p); e += ek / ek.sum()
+                ek = interface_energy(self.pr[key], axis, self.p) if self.G is None else interface_energy_irrep(self.pr[key], axis, self.PROJ)
+                e += ek / ek.sum()
         return e / e.sum()
 
     def norms(self):
@@ -95,8 +115,11 @@ class MLP:
 
 
 class Grid:
-    def __init__(self, p):
+    def __init__(self, p, G=None):
         self.p = p; self.a_rows = p if p <= 200 else max(1, 20_000_000 // (p * p)); self.n_idx = torch.arange(p)
+        self.G = G
+        if G is not None:
+            self.MULT = torch.from_numpy(G.MULT); self.INV = torch.from_numpy(G.INV)
 
     def stats(self, model, pr, want_spectrum=False):
         p = self.p; mins = []; sums = 0.0; cnt = 0; accs = 0
@@ -105,13 +128,13 @@ class Grid:
             a = torch.arange(a0, min(p, a0 + self.a_rows)).repeat_interleave(p)
             b = torch.arange(p).repeat(len(a) // p)
             L = model.logits(pr, a, b).to(DT); L = L - L.mean(1, keepdim=True)
-            y = (a + b) % p; idx = torch.arange(len(a))
+            y = (a + b) % p if self.G is None else self.MULT[a, b]; idx = torch.arange(len(a))
             zy = L[idx, y]; o = L.clone(); o[idx, y] = -1e30
             mg = zy - o.max(1).values
             mins.append(float(mg.min())); sums += float(mg.sum()); cnt += len(a)
             accs += int((L.argmax(1) == y).sum()); qs.append(mg)
             if want_spectrum:
-                n = ((a + b)[:, None] - self.n_idx[None]) % p
+                n = ((a + b)[:, None] - self.n_idx[None]) % p if self.G is None else self.MULT[y[:, None], self.INV[None, :]]
                 g.index_add_(0, n.reshape(-1), L.reshape(-1)); sq += float((L ** 2).sum())
         allq = torch.cat(qs)
         out = dict(m_min=min(mins), m_mean=sums / cnt, m_q01=float(torch.quantile(allq, 0.01)), acc=accs / cnt)
@@ -140,21 +163,57 @@ def legacy_counts(g, sq, p):
                 top_k=[int(x) + 1 for x in order[:8]], top8=[round(float(x), 3) for x in (amp[order][:8] / amp.max())])
 
 
+def legacy_counts_group(g, sq, G):
+    """group analogue of legacy_counts on the folded clean function f = g / N^2: amplitudes A_r = d_r sqrt(E_r / N),
+    m_clean = f(e) - max_{x != e} f(x), K_load90 by adding irreps in amplitude order, clean_frac = ||g||^2 / (N^2 sq)."""
+    N = G.N; f = (g / N ** 2).numpy(); PROJ = G.PROJ
+    amp_all = G.amplitudes(f); nt = np.arange(1, G.R)                     # nontrivial irreps (the trivial one is a constant shift)
+    amp = torch.from_numpy(amp_all[nt]); order = torch.argsort(amp, descending=True)
+    comp = np.stack([PROJ[r] @ f for r in range(G.R)])
+    mm = lambda fn: float(fn[G.e] - np.max(np.delete(fn, G.e)))
+    m_full = mm(f); K_load = None
+    for i in range(1, len(nt) + 1):
+        if mm(comp[nt[order[:i].numpy()]].sum(0)) >= 0.9 * m_full:
+            K_load = i; break
+    share = amp ** 2 / (amp ** 2).sum()
+    names = [G.irrep_names[int(nt[i])] for i in order]
+    return dict(K_gap=len(committee_from_coeffs(amp.numpy())),
+                K_thr10=int((amp >= 0.1 * amp.max()).sum()), K_thr05=int((amp >= 0.05 * amp.max()).sum()),
+                K_load90=K_load, k_eff=float(1 / (share ** 2).sum()),
+                clean_frac=float((g ** 2).sum() / N ** 2 / sq), m_clean=m_full,
+                top_k=[int(nt[i]) for i in order[:8]], top8=[round(float(x), 3) for x in (amp[order][:8] / amp.max())],
+                top_names=names[:8], amp={G.irrep_names[r]: float(amp_all[r]) for r in range(G.R)})
+
+
 def ablation_count(model, n_cand=16, n_null=32, null_seed=0, sides_all=True, fold_n=5, fold_e=0.25, log=print):
-    p = model.p; nf = p // 2; grid = Grid(p); t0 = time.time()
+    p = model.p; nf = p // 2; G = model.G; grid = Grid(p, G); t0 = time.time()
     base = grid.stats(model, model.pr, want_spectrum=True)
-    leg = legacy_counts(base.pop("g"), base.pop("sq"), p)
     e_in, e_out = model.energy(("in",)), model.energy(("out",)); e_both = (e_in + e_out) / 2
-    order = torch.argsort(e_both, descending=True)
-    cand = sorted(set(int(k) + 1 for k in order[:n_cand]) | set(leg["top_k"][:8]))
-    top32 = set(int(k) + 1 for k in order[:32])
     rng = np.random.default_rng(null_seed)
-    pool = [k for k in range(1, nf + 1) if k not in top32 and k not in cand]
+    if G is None:
+        leg = legacy_counts(base.pop("g"), base.pop("sq"), p)
+        order = torch.argsort(e_both, descending=True)
+        cand = sorted(set(int(k) + 1 for k in order[:n_cand]) | set(leg["top_k"][:8]))
+        top32 = set(int(k) + 1 for k in order[:32])
+        pool = [k for k in range(1, nf + 1) if k not in top32 and k not in cand]
+    else:                                     # candidates = every nontrivial irrep (small groups) or the top n_cand by energy (D_113)
+        leg = legacy_counts_group(base.pop("g"), base.pop("sq"), G)
+        eb = e_both.clone(); eb[0] = -1; order = torch.argsort(eb, descending=True)
+        cand = sorted(set(int(r) for r in order[:n_cand] if r != 0) | set(leg["top_k"][:8]))
+        top32 = set(int(r) for r in order[:32])
+        pool = [r for r in range(1, G.R) if r not in top32 and r not in cand]
     null = sorted(int(k) for k in rng.choice(pool, size=min(n_null, len(pool)), replace=False)) if pool else []
     m0 = base["m_min"]
     n2, nq = model.norms(); nu = model.cfg.nu
-    res = dict(name=model.name, p=p, nu=nu, q=model.cfg.q, opt=model.cfg.opt, m_min=m0, m_mean=base["m_mean"], m_q01=base["m_q01"],
+    res = dict(name=model.name, task=model.cfg.task, p=p, nu=nu, q=model.cfg.q, opt=model.cfg.opt, support=list(model.cfg.support),
+               m_min=m0, m_mean=base["m_mean"], m_q01=base["m_q01"],
                acc=base["acc"], pnorm2=n2, qnorm=nq, gamma2=m0 / n2 ** (nu / 2), gammaq=m0 / nq ** nu, legacy=leg)
+    if G is not None:                         # leader readout for the registered S5 statements (a)-(c)
+        A = leg["amp"]; fa = [G.irrep_names[r] for r in np.flatnonzero(G.faithful)]
+        tot = sum(A[n] ** 2 for n in fa); lead = max(fa, key=lambda n: A[n])
+        res.update(leader=lead, lead_share=A[lead] ** 2 / tot if tot > 0 else None,
+                   sign_rel=(A[G.irrep_names[G.sign]] / A[lead] if G.sign is not None and A[lead] > 0 else None),
+                   n_faithful_02=int(sum(A[n] >= 0.2 * A[lead] for n in fa)))
     if m0 <= 0:                                    # not separated: counts are meaningless
         res.update(K_abl=None, counted=[], profile=[], null_floor=None, secs=time.time() - t0)
         log(f"  {model.name}: NOT separated (m_min {m0:.3f}, acc {base['acc']:.3f}) | K_thr10 {leg['K_thr10']} clean {leg['clean_frac']:.2f}")
@@ -170,13 +229,15 @@ def ablation_count(model, n_cand=16, n_null=32, null_seed=0, sides_all=True, fol
         if sides_all:
             row["in"] = drops([k], ("in",)); row["out"] = drops([k], ("out",))
         row["e_in"] = float(e_in[k - 1]); row["e_out"] = float(e_out[k - 1]); per[k] = row
-    EPS = 1e-6
+    EPS = 1e-6 if (G is None or null) else FLOOR_FIXED      # mod-add unchanged; small groups use the fixed 2% floor
     null_floor = max([per[k]["both"]["d_min"] for k in null] + [EPS])
     prof = sorted(((per[k]["both"]["d_min"], k) for k in cand), reverse=True)
     raw = [k for d, k in prof if d > null_floor]
     e_tot = {k: per[k]["e_in"] + per[k]["e_out"] for k in cand}
 
     def harmonic_of(k, fnds):
+        if G is not None:
+            return None
         for f1 in fnds:
             if any((n * f1) % p in (k, p - k) for n in range(2, fold_n + 1)):
                 return f1
@@ -209,7 +270,8 @@ def ablation_count(model, n_cand=16, n_null=32, null_seed=0, sides_all=True, fol
                profile=[(k, round(d, 4)) for d, k in prof], per=per, cand=cand, null=null, **fixed, secs=time.time() - t0)
     log(f"  {model.name}: m_min {m0:.3f} acc {base['acc']:.4f} gamma2 {res['gamma2']:.3g} | K_abl {len(counted)} raw {len(raw)} "
         f"(floor {null_floor:.4f}) vs K_thr10 {leg['K_thr10']} K_gap {leg['K_gap']} K_load90 {leg['K_load90']} clean {leg['clean_frac']:.3f} "
-        f"| top {res['profile'][:6]} | {res['secs']:.0f}s")
+        f"| top {res['profile'][:6]} | {res['secs']:.0f}s"
+        + (f" | leader {res['leader']} share {res['lead_share']:.2f} sign {res['sign_rel']}" if G is not None else ""))
     return res
 
 
@@ -221,6 +283,10 @@ def summarize(rows, key=lambda r: r["cell"]):
         h = lambda f: dict(sorted(collections.Counter(f(r) for r in g).items(), key=lambda kv: str(kv[0])))
         med = lambda f: float(np.median([f(r) for r in g])) if g else None
         out[cell] = dict(n=len(rs), grok=len(g), K_abl=h(lambda r: r["K_abl"]), K_thr10=h(lambda r: r["legacy"]["K_thr10"]),
+                         leader=h(lambda r: r.get("leader")) if g and "leader" in g[0] else None,
+                         lead_share_med=med(lambda r: r["lead_share"]) if g and "leader" in g[0] else None,
+                         sign_rel_med=(float(np.median([r["sign_rel"] for r in g if r.get("sign_rel") is not None]))
+                                       if g and any(r.get("sign_rel") is not None for r in g) else None),
                          K_abl_med=med(lambda r: r["K_abl"]), gamma2_med=med(lambda r: r["gamma2"]), gammaq_med=med(lambda r: r["gammaq"]),
                          clean_med=med(lambda r: r["legacy"]["clean_frac"]), m_min_med=med(lambda r: r["m_min"]),
                          nonfinite=sum(1 for r in rs if not math.isfinite(r["m_min"])))
@@ -256,7 +322,8 @@ def main():
         save()
     print("\n==== SUMMARY")
     for cell, s in summarize(rows).items():
-        print(f"{cell}: n={s['n']} grok={s['grok']} K_abl={s['K_abl']} K_thr10={s['K_thr10']} gamma2_med={s['gamma2_med']} clean={s['clean_med']} nonfinite={s['nonfinite']}")
+        print(f"{cell}: n={s['n']} grok={s['grok']} K_abl={s['K_abl']} K_thr10={s['K_thr10']} gamma2_med={s['gamma2_med']} clean={s['clean_med']} nonfinite={s['nonfinite']}"
+              + (f" leader={s['leader']} share={s['lead_share_med']} sign_rel={s['sign_rel_med']}" if s.get('leader') else ""))
     save(); print("wrote", args.out)
 
 

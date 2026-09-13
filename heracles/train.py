@@ -41,7 +41,7 @@ torch.backends.cuda.matmul.allow_tf32 = False      # exact fp32 (user veto on TF
 torch.backends.cudnn.allow_tf32 = False
 
 LAYOUT = {2: (0, 0), 3: (1, 0), 4: (1, 1), 5: (2, 1), 6: (2, 2), 7: (3, 2), 8: (3, 3)}
-SHAPE_FIELDS = ("p", "nu", "m", "d", "r", "frac_train", "opt", "reg", "num_epochs", "warmup_steps",
+SHAPE_FIELDS = ("task", "p", "nu", "m", "d", "r", "frac_train", "opt", "reg", "num_epochs", "warmup_steps",
                 "batch_size", "spectra_every")
 
 
@@ -71,6 +71,15 @@ class Config:
     spectra_every: int = 200
     ckpt_every: int = 0
     ckpt_at: tuple = ()          # explicit epochs at which to save ckpt_XXXXXX.safetensors (in addition to ckpt_every)
+    task: str = "modadd"         # modadd | s5 | s4 | a5 | d113 (groups.py); group tasks set p = |G| and label = index(a @ b)
+    support: tuple = ()          # group tasks only: irrep indices; if non-empty, the input and output interfaces are
+                                 # projected onto the isotypic span of these irreps after every step (fixed-support run)
+
+    def __post_init__(self):
+        if self.task != "modadd":
+            from groups import get_group
+            self.p = get_group(self.task).N
+        self.support = tuple(int(i) for i in self.support); self.ckpt_at = tuple(self.ckpt_at)
 
     @property
     def layout(self):
@@ -83,7 +92,6 @@ class Config:
     def load(path):
         dd = json.loads(Path(path).read_text())
         dd = {k: v for k, v in dd.items() if k in Config.__dataclass_fields__}
-        if "ckpt_at" in dd: dd["ckpt_at"] = tuple(dd["ckpt_at"])
         return Config(**dd)
 
 
@@ -192,7 +200,14 @@ def train_batched(cfgs, run_dirs, compile_mode="reduce-overhead", log_every=500,
     params = [pr[k] for k in keys]
     bshape = {id(x): (-1,) + (1,) * (x.dim() - 1) for x in params}
 
-    a_np = np.repeat(np.arange(p), p); b_np = np.tile(np.arange(p), p); lab_np = (a_np + b_np) % p
+    a_np = np.repeat(np.arange(p), p); b_np = np.tile(np.arange(p), p)
+    G = None
+    if c0.task != "modadd":
+        from groups import get_group
+        G = get_group(c0.task); assert G.N == p
+        lab_np = G.MULT[a_np, b_np]
+    else:
+        lab_np = (a_np + b_np) % p
     A_all = torch.from_numpy(a_np).to(device); B_all = torch.from_numpy(b_np).to(device)
     lab_all = torch.from_numpy(lab_np).to(device)
     masks = [train_test_split(c) for c in cfgs]
@@ -215,6 +230,18 @@ def train_batched(cfgs, run_dirs, compile_mode="reduce-overhead", log_every=500,
     OPT, REG = c0.opt, c0.reg
     use_clip = any(c.clip > 0 for c in cfgs)
     gen = torch.Generator(device=device).manual_seed(c0.data_seed * 7919 + 1)
+    use_proj = any(len(c.support) > 0 for c in cfgs)
+    if use_proj:
+        assert G is not None, "support projection is a group-task feature"
+        PS = torch.stack([torch.from_numpy(G.PROJ[list(c.support)].sum(0) if c.support else np.eye(p)) for c in cfgs]).float().to(device)
+        in_keys = ["E1"] if c0.layout[0] > 0 else ["U", "V"]
+
+        @torch.no_grad()
+        def project():
+            for k in in_keys:
+                pr[k].copy_(pr[k] @ PS)          # rows of the input table are functions on G
+            pr["W"].copy_(PS @ pr["W"])          # columns of the output table are functions on G
+        project()
 
     def step():
         if OPT == "sgd":
@@ -257,16 +284,22 @@ def train_batched(cfgs, run_dirs, compile_mode="reduce-overhead", log_every=500,
                 if OPT in ("sign", "signm") and REG == "box":
                     b = box_v.view(sh)
                     x.copy_(torch.maximum(torch.minimum(x, b), -b))
+            if use_proj:
+                project()
         return per.detach()
 
     if compile_mode != "off":
         step = torch.compile(step, mode=None if compile_mode == "default" else compile_mode)
 
-    basis = fourier_basis(p); n_ = p // 2
-    bc, bs = basis[1::2], basis[2::2]
-    u_cos = torch.from_numpy((np.einsum("np,nq->npq", bc, bc) - np.einsum("np,nq->npq", bs, bs)).reshape(n_, -1) / np.sqrt(2)).to(device)
-    u_sin = torch.from_numpy((np.einsum("np,nq->npq", bs, bc) + np.einsum("np,nq->npq", bc, bs)).reshape(n_, -1) / np.sqrt(2)).to(device)
-    b_cos = torch.from_numpy(bc).to(device); b_sin = torch.from_numpy(bs).to(device)
+    if G is None:
+        basis = fourier_basis(p); n_ = p // 2
+        bc, bs = basis[1::2], basis[2::2]
+        u_cos = torch.from_numpy((np.einsum("np,nq->npq", bc, bc) - np.einsum("np,nq->npq", bs, bs)).reshape(n_, -1) / np.sqrt(2)).to(device)
+        u_sin = torch.from_numpy((np.einsum("np,nq->npq", bs, bc) + np.einsum("np,nq->npq", bc, bs)).reshape(n_, -1) / np.sqrt(2)).to(device)
+        b_cos = torch.from_numpy(bc).to(device); b_sin = torch.from_numpy(bs).to(device)
+    else:   # fold index x = a b c^-1 over the (a, b, c) logit table; energy = ||P_r f||^2 of f = g / N^2; A_r = d_r sqrt(E_r / N)
+        FOLD = torch.from_numpy(G.MULT[lab_np[:, None], G.INV[None, :]].reshape(-1)).to(device)
+        PROJ_t = torch.from_numpy(G.PROJ).to(device); dims_t = torch.from_numpy(G.irrep_dims.astype(np.float64)).to(device)
     snap = {k: [] for k in ("epochs", "coeffs", "energy", "train_acc", "test_acc", "pnorm2", "qnormq", "min_margin", "min_margin_norm")}
     q_eff = torch.where(torch.isinf(q_v), torch.full_like(q_v, 2.0), q_v)   # sign: record l2 too; l_inf via max below
     first99 = {"train": [None] * M, "test": [None] * M}
@@ -282,9 +315,14 @@ def train_batched(cfgs, run_dirs, compile_mode="reduce-overhead", log_every=500,
             if first99["test"][i] is None and te_acc[i] >= 0.99: first99["test"][i] = epoch
         snap["epochs"].append(epoch); snap["train_acc"].append(tr_acc); snap["test_acc"].append(te_acc)
         Ld = L.double()
-        c = torch.einsum("fp,mpo->mfo", u_cos, Ld); s = torch.einsum("fp,mpo->mfo", u_sin, Ld)
-        snap["energy"].append((c ** 2).sum(-1) + (s ** 2).sum(-1))
-        snap["coeffs"].append(((c * b_cos).sum(-1) + (s * b_sin).sum(-1)) / math.sqrt(2))
+        if G is None:
+            c = torch.einsum("fp,mpo->mfo", u_cos, Ld); s = torch.einsum("fp,mpo->mfo", u_sin, Ld)
+            snap["energy"].append((c ** 2).sum(-1) + (s ** 2).sum(-1))
+            snap["coeffs"].append(((c * b_cos).sum(-1) + (s * b_sin).sum(-1)) / math.sqrt(2))
+        else:
+            g = torch.zeros(M, p, dtype=torch.float64, device=device).index_add_(1, FOLD, Ld.reshape(M, -1)) / (p * p)
+            En = (torch.einsum("mx,rxy->mry", g, PROJ_t) ** 2).sum(-1)
+            snap["energy"].append(En); snap["coeffs"].append(dims_t * torch.sqrt(En / p))
         n2 = sq_norm(pr).detach(); snap["pnorm2"].append(n2)
         snap["qnormq"].append(q_norm_q(pr, q_eff).detach() if OPT != "sign" and OPT != "signm"
                               else torch.stack([max(v[i].abs().max() for v in pr.values()) for i in range(M)]).detach())
@@ -293,7 +331,8 @@ def train_batched(cfgs, run_dirs, compile_mode="reduce-overhead", log_every=500,
 
     E = c0.num_epochs
     train_hist = torch.empty(E, M, device=device); test_hist = []
-    print(f"batch {M} on {device}: nu={nu} layout={c0.layout} m={c0.m} p={p} opt={OPT} reg={REG} "
+    print(f"batch {M} on {device}: task={c0.task} nu={nu} layout={c0.layout} m={c0.m} p={p} opt={OPT} reg={REG} "
+          f"{'support ' + str(sorted(set(c.support for c in cfgs))) + ' ' if use_proj else ''}"
           f"train {N_tr} test {te_idx.shape[1]} | lr {sorted(set(c.lr for c in cfgs))} wd {sorted(set(c.weight_decay for c in cfgs))}", flush=True)
     t0 = time.time()
     for epoch in range(E):

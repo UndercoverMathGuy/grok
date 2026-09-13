@@ -33,7 +33,10 @@ def cfg(**kw):
 
 
 def name(c, tag):
-    parts = [tag, c.opt]
+    parts = [tag] + ([c.task] if c.task != "modadd" else []) + [c.opt]
+    if c.support:
+        from groups import get_group
+        parts.append("sup-" + "-".join(get_group(c.task).irrep_names[i] for i in c.support))
     if c.opt == "lq": parts.append(f"q{c.q:g}")
     parts += [f"lr{c.lr:g}"]
     parts.append(f"box{c.maxnorm:g}" if c.reg == "box" else f"wd{c.weight_decay:g}")
@@ -41,7 +44,7 @@ def name(c, tag):
     if c.clip: parts.append(f"clip{c.clip:g}")
     if c.batch_size: parts.append(f"B{c.batch_size}")
     if c.nu != 4: parts.append(f"nu{c.nu}")
-    if c.p != 113: parts.append(f"p{c.p}")
+    if c.p != 113 and c.task == "modadd": parts.append(f"p{c.p}")
     if c.frac_train != 0.5: parts.append(f"f{c.frac_train:g}")
     if c.m != 512: parts.append(f"m{c.m}")
     return "/".join([parts[0], "_".join(parts[1:]), f"seed{c.init_seed}"])
@@ -189,7 +192,80 @@ def cohort_H():
     return cohort_R2() + cohort_Rkeep() + cohort_H1() + cohort_H2() + cohort_H3()   # H5 deferred (budget)
 
 
-COHORTS = {"R": cohort_R, "R2": cohort_R2, "smoke": cohort_smoke, "Rkeep": cohort_Rkeep, "H1": cohort_H1, "H2": cohort_H2,
+# ---------------------------------------------------------------- 2026-09-13: S5 programme (PLAN_S5.md)
+def gcfg(task, **kw):
+    """group-task cell: p = |G| (set by Config), m 512, d = r = 128, frac 0.8 (S5 memorises below 0.6), 20k epochs."""
+    base = dict(task=task, nu=4, m=512, d=128, r=128, frac_train=0.8, data_seed=DATA_SEED, num_epochs=20_000, spectra_every=200)
+    base.update(kw)
+    return Config(**base)
+
+
+S5REC = dict(opt="gd", lr=3.0, weight_decay=3e-4, clip=1.0)   # E1 winner goes here (mod-add record until E1 is scored)
+S5_IRREPS = dict(sign=1, std=2, std_sign=3, a5=4, b5=5, six=6)
+
+
+def cohort_SR():
+    """E1: S5 recipe sweep. gd lr {1, 3} x wd {1e-3, 3e-4, 1e-4}, clip 1, frac {0.6, 0.8}, nu 4, 8 seeds, 20k. 96 runs, 2 batches."""
+    S = SEEDS[:8]
+    return [("SR", [gcfg("s5", opt="gd", lr=lr, weight_decay=wd, clip=1.0, frac_train=f, init_seed=s)
+                    for lr in (1.0, 3.0) for wd in (1e-3, 3e-4, 1e-4) for s in S]) for f in (0.6, 0.8)]
+
+
+def cohort_SRb():
+    """E1b: gdm / sgd at the E1 winner (robustness), 8 seeds each."""
+    S = SEEDS[:8]; wd = S5REC["weight_decay"]
+    return [("SR", [gcfg("s5", opt="gdm", lr=0.3, weight_decay=wd, clip=1.0, momentum=0.9, init_seed=s) for s in S]),
+            ("SR", [gcfg("s5", opt="sgd", batch_size=1024, lr=1.0, weight_decay=wd, init_seed=s) for s in S])]
+
+
+def cohort_S0():
+    """E0: the measured weighted ladder. Fixed-support runs (interfaces projected onto the isotypic span after every step):
+    each faithful irrep alone and each faithful irrep + sign, nu {4, 6}, 4 seeds, S5 record recipe, 60k. Ceiling per
+    support = best gamma_2 over seeds. 10 supports x 2 nu x 4 seeds = 80 runs."""
+    S = SEEDS[:4]; sup = [(r,) for r in (2, 3, 4, 5, 6)] + [(r, 1) for r in (2, 3, 4, 5, 6)]
+    return [("S0", [gcfg("s5", nu=nu, support=sp, init_seed=s, **S5REC, **LONG) for sp in sup for s in S]) for nu in (4, 6)]
+
+
+def cohort_S1():
+    """E2: S5 main. Record recipe x nu {4, 6} x frac {0.6, 0.8} x 16 seeds, 60k with a 20k checkpoint. 64 runs."""
+    S = SEEDS[:16]
+    return [("S1", [gcfg("s5", nu=nu, frac_train=f, init_seed=s, **S5REC, **LONG) for s in S]) for nu in (4, 6) for f in (0.6, 0.8)]
+
+
+def cohort_S2c():
+    """E3 (conditional): Wei limit at S5, nu 4, frac 0.8, wd {1e-3, 3e-4, 1e-4} x 8 seeds, 200k, ckpts 20k / 60k."""
+    S = SEEDS[:8]; E = dict(num_epochs=200_000, spectra_every=2000, ckpt_at=(20_000, 60_000))
+    rec = {k: v for k, v in S5REC.items() if k != "weight_decay"}
+    return [("S2", [gcfg("s5", nu=4, weight_decay=wd, init_seed=s, **rec, **E) for wd in (1e-3, 3e-4, 1e-4) for s in S])]
+
+
+def cohort_S3():
+    """E4: other groups with the same ladder + free-run pair. S4 (faithful std, std_sign; sign patch), A5 (3a, 3b, 4, 5; no
+    sign irrep), D_113 (56 two-dim irreps: one single + hierarchical pairs rho1 + rho_u, u in {2, 3, 5, 8, 27, 56}; the
+    single-irrep ceilings are all equal by the r -> r^u automorphism). Ladders at 4 seeds (2 at D_113, nu 4 only);
+    free runs 8 seeds x nu {4, 6}, 20k (60k at S4 / A5 is cheap: use LONG)."""
+    S8, S4_ = SEEDS[:8], SEEDS[:4]; J = []
+    lad = {"s4": [(3,), (4,), (3, 1), (4, 1)], "a5": [(1,), (2,), (3,), (4,)]}
+    for task in ("s4", "a5"):
+        for nu in (4, 6):
+            J.append((f"S3", [gcfg(task, nu=nu, support=sp, init_seed=s, **S5REC, **LONG) for sp in lad[task] for s in S4_]
+                             + [gcfg(task, nu=nu, init_seed=s, **S5REC, **LONG) for s in S8]))
+    d_sup = [(2,)] + [(2, 1 + u) for u in (2, 3, 5, 8, 27, 56)]      # rho_j is irrep index 1 + j
+    J.append(("S3", [gcfg("d113", nu=4, support=sp, init_seed=s, **S5REC) for sp in d_sup for s in SEEDS[:2]]))
+    for nu in (4, 6):
+        J.append(("S3", [gcfg("d113", nu=nu, init_seed=s, **S5REC) for s in S8]))
+    return J
+
+
+def cohort_S5smoke():
+    S = SEEDS[:2]; E = dict(m=64, d=16, r=16, num_epochs=30, spectra_every=10)
+    return [("smoke", [gcfg("s4", opt="gd", lr=1.0, weight_decay=1e-3, clip=1.0, init_seed=s, support=sp, **E) for sp in ((), (3,), (3, 1)) for s in S]),
+            ("smoke", [gcfg("a5", nu=6, opt="gd", lr=1.0, weight_decay=1e-3, init_seed=s, **E) for s in S]),
+            ("smoke", [gcfg("s5", nu=3, opt="gdm", lr=0.1, weight_decay=1e-3, init_seed=s, support=(2, 1), **E) for s in S])]
+
+
+COHORTS = {"SR": cohort_SR, "SRb": cohort_SRb, "S0": cohort_S0, "S1": cohort_S1, "S2c": cohort_S2c, "S3": cohort_S3, "S5smoke": cohort_S5smoke,
+           "R": cohort_R, "R2": cohort_R2, "smoke": cohort_smoke, "Rkeep": cohort_Rkeep, "H1": cohort_H1, "H2": cohort_H2,
            "H3": cohort_H3, "H5": cohort_H5, "H": cohort_H, "H4": cohort_H4, "H2b": cohort_H2b, "S2": cohort_S2}
 
 
@@ -204,7 +280,7 @@ def main():
     args = ap.parse_args()
     torch.set_float32_matmul_precision("highest")
     if args.smoke:
-        args.cohort, args.compile, args.log_every = "smoke", "off", 10
+        args.cohort, args.compile, args.log_every = ("S5smoke" if args.cohort == "S5smoke" else "smoke"), "off", 10
     jobs = [(t, b[i:i + args.max_batch]) for t, b in COHORTS[args.cohort]() for i in range(0, len(b), args.max_batch)]
     total = sum(len(b) for _, b in jobs)
     print(f"cohort {args.cohort}: {len(jobs)} batches, {total} runs, RUNS={RUNS}", flush=True)
