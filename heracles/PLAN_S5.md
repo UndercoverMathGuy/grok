@@ -30,6 +30,40 @@ Registered statements for E2 (per cell, grokked runs only):
 Prior from the transformer runs (09-04, AdamW): std led 25/32, 5a 5, std_sign 2, sign at 0.08-0.15, 6 never.
 The MLP under gd is a fresh reading; (b) is where the weighting question is decided.
 
+## A2. E0 measured ladder — REGISTERED 2026-09-13 09:05Z, before any S1 (E2) score was read   [scores/S0, analyze_S5.py --cohort S0]
+
+Fixed-support runs (both interfaces projected onto the isotypic span after every step), S5 record recipe (gd lr 3,
+wd 3e-4, clip 1), frac 0.8, 60k epochs, 4 seeds per support, all 80 runs grokked 4/4. Ceiling per support = best
+gamma_2 over seeds. sign_rel = A_sign / A_leader measured in the pair run (the patch amplitude the ceiling uses).
+
+| support | nu 4 best | nu 4 / argmax | nu 4 sign_rel | nu 6 best | nu 6 / argmax | nu 6 sign_rel |
+|---|---|---|---|---|---|---|
+| std + sign | **3.39e-6** | **1.00** | 0.17 | 1.34e-8 | 0.69 | 0.00 (patch unused) |
+| std_sign + sign | 3.01e-6 | 0.89 | 0.15 | **1.95e-8** | **1.00** | 0.05 |
+| std | 2.80e-6 | 0.83 | - | 1.34e-8 | 0.69 | - |
+| std_sign | 2.75e-6 | 0.81 | - | 1.62e-8 | 0.83 | - |
+| 5b | 2.17e-6 | 0.64 | - | 1.08e-8 | 0.55 | - |
+| 5a + sign | 2.01e-6 | 0.59 | 0.18 | 9.5e-9 | 0.49 | 0.01 |
+| 5b + sign | 1.78e-6 | 0.53 | 0.11 | 9.4e-9 | 0.48 | 0.05 |
+| 5a | 1.52e-6 | 0.45 | - | 5.7e-9 | 0.29 | - |
+| 6 + sign | 1.38e-6 | 0.41 | 0.15 | 8.2e-9 | 0.42 | 0.05 |
+| 6 | 9.5e-7 | 0.28 | - | 5.4e-9 | 0.28 | - |
+
+Predictions for E2 (fixed now):
+- nu 4: leader **std** with sign patch at 0.17; runner-up std_sign (+ sign 0.15) at 0.89 of the ceiling. The two
+  4-dim irreps are a near-tie (11%), as the top rungs were on mod-add; 5a / 5b / 6 are >= 36% below and should not lead.
+- nu 6: leader **std_sign** with a small sign patch (0.05); std at 0.69, no sign patch on it. A sharper prediction
+  (31% gap) and a nu-dependent flip of the leader: this is the weighted-ladder content that the alpha model lacked.
+- Both nu: 6 never leads (0.28 of ceiling); 5b > 5a at both nu.
+- Statement (c) is re-stated from the measured pairs: sign_rel within +-0.06 of the pair value for the run's leader
+  (nu 4: std 0.17, std_sign 0.15, 5a 0.18, 5b 0.11, 6 0.15; nu 6: <= 0.06 for every leader).
+- Statement (d): gamma_2 of the free runs >= 0.5 of the argmax ceiling (3.39e-6 at nu 4, 1.95e-8 at nu 6).
+
+Disclosure: E1 (recipe sweep, nu 4 only) was scored before E0 and its leader frequencies were seen (std_sign ~55%,
+std ~30%, 5a ~10% at 8 seeds x 4 grokking cells). The E0 numbers above were not adjusted to it: the ladder is what
+the fixed-support runs measured. E2 at 16 seeds x 2 fractions is the registered test of (b); the nu-6 flip is the
+prediction that was not visible in E1 at all.
+
 ## B. Hour-by-hour schedule (T = sign-off; one pod, L40S secure + network volume; everything inside heracles/)
 
 | hour | GPU | local (Mac) |
