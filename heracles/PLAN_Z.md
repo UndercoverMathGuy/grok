@@ -1,5 +1,10 @@
 # heracles Z plan — abelian groups Z_120 and Z_11 x Z_11 (REGISTERED 2026-09-13 12:10Z, before any run)
 
+> **OUTCOME 09-13 17:50Z (RESULTS_Z.md):** (a) holds at 3/4 cells, Z_120 nu 6 mode 5 vs constructed K* 3 — resolved by ZL: K <= 3
+> supports are unreachable by GD at nu 6, reachable argmax 4, so the usual +1; (b) 0.67-0.75 of exact ceilings everywhere;
+> (c) KILLED as registered (wrong statistic, unequal amplitudes); (d) holds (divisor frequencies in 32/32, sign in 15/32);
+> (e) holds (Z_11^2 nu 6 mode 4 = K*, none at 3). 160 runs pulled; pod 8pbeu68dw8nykq + volume bgkjwsxg7g deleted.
+
 Why: two abelian tasks that stress the two halves of the ladder K* = argmax_K M_K / K^{nu/2} that mod-add cannot.
 - Z_120 (cyclic, composite): all 59 two-dim irreps cost the same but their coverage vectors differ — a frequency k with
   gcd(k, 120) = g has zero coverage on the subgroup of order g, so committees must be chosen by coverage. The weighted
