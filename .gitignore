@@ -34,3 +34,5 @@ compiler/arms/*.log
 *.safetensors
 *.npy
 *.pt
+
+runs_clean

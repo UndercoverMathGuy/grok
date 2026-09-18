@@ -181,6 +181,18 @@ class Config:
     # unchanged). table_wd_mult scales the decoupled wd applied to T.
     table_scale: float = 0.0
     table_wd_mult: float = 1.0
+    # 2026-09-09 clean cohort: optimizer family and homogeneity-degree dial.
+    # opt: adamw (MLX-semantics, the record) | gd (plain full-batch GD with
+    # coupled l2 wd/2||theta||^2) | lion (sign-momentum, decoupled wd).
+    # n_pre_lin extra (d, d) linear maps applied to the token embedding
+    # before the positional add; n_post_lin extra (d, d) maps applied to the
+    # final residual before unembedding. Each raises the path degree by 1.
+    opt: str = "adamw"
+    momentum: float = 0.9       # gdm (heavy-ball GD) only
+    clip: float = 0.0           # >0: per-run global gradient-norm clipping (direction-preserving)
+    init_scale: float = 1.0     # Lyu et al. 2024 regime: every weight matrix x init_scale (biases stay 0)
+    n_pre_lin: int = 0
+    n_post_lin: int = 0
 
     @property
     def d_vocab(self):
@@ -265,6 +277,12 @@ def fourier_basis(p):
 
 TTAP_STATS = ["g_q10", "g_q50", "g_q90", "sqrtv_q50", "frac_g_lt_eps",
               "frac_sqrtv_lt_eps", "l1", "l2"]
+def param_keys(cfg):
+    return (PARAM_KEYS[:1] + [f"embed.L{i}" for i in range(cfg.n_pre_lin)]
+            + PARAM_KEYS[1:-1] + [f"unembed.L{i}" for i in range(cfg.n_post_lin)]
+            + PARAM_KEYS[-1:])
+
+
 PARAM_KEYS = ["embed.W_E", "pos_embed.W_pos",
               "blocks.0.attn.W_K", "blocks.0.attn.W_Q",
               "blocks.0.attn.W_V", "blocks.0.attn.W_O",
@@ -296,10 +314,17 @@ def init_params(cfg):
         W_O = torch.from_numpy(q.astype(np.float32))
     else:
         assert cfg.attn_init == "normal"
-    return dict(zip(PARAM_KEYS, [
+    out = dict(zip(PARAM_KEYS, [
         W_E, n(cfg.n_ctx, d), W_K, W_Q, W_V, W_O,
         n(m, d), torch.zeros(m), n(d, m), torch.zeros(d),
         torch.randn(d, v, generator=g) / math.sqrt(v)]))
+    for i in range(cfg.n_pre_lin):
+        out[f"embed.L{i}"] = n(d, d)
+    for i in range(cfg.n_post_lin):
+        out[f"unembed.L{i}"] = n(d, d)
+    if cfg.init_scale != 1.0:
+        out = {k: (v * cfg.init_scale if v.dim() > 1 else v) for k, v in out.items()}
+    return out
 
 
 # --------------------------------------------------------------------------
@@ -319,6 +344,8 @@ def batched_final_logits(pr, tokens, cfg):
     else:
         idx = tokens.reshape(M, -1, 1).expand(-1, -1, d)
         x = E.gather(1, idx).reshape(M, *tokens.shape[1:], d)
+    for i in range(cfg.n_pre_lin):                            # degree dial
+        x = x @ pr[f"embed.L{i}"].transpose(1, 2)[:, None]
     x = x + pr["pos_embed.W_pos"][:, None, :T, :]
     N = x.shape[1]
 
@@ -336,6 +363,8 @@ def batched_final_logits(pr, tokens, cfg):
     act = (F.relu(pre) if cfg.act_type == "ReLU"
            else pre * pre if cfg.act_type == "Quad" else F.gelu(pre))
     xf = xf + act @ pr["blocks.0.mlp.W_out"].transpose(1, 2) + pr["blocks.0.mlp.b_out"][:, None]
+    for i in range(cfg.n_post_lin):                           # degree dial
+        xf = xf @ pr[f"unembed.L{i}"].transpose(1, 2)
     return xf @ pr["unembed.W_U"]
 
 
@@ -445,7 +474,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         for f in ("p", "fn_name", "d_model", "num_heads", "d_mlp",
                   "n_ctx", "act_type", "warmup_steps",
                   "betas", "adam_eps", "num_epochs", "save_every",
-                  "stopping_thresh"):
+                  "stopping_thresh", "opt", "momentum", "clip", "n_pre_lin", "n_post_lin"):
             assert getattr(c, f) == getattr(c0, f), f"batch must agree on {f}"
         assert c.num_layers == 1
         # tilt/CVaR are supported (they only reshape the per-example
@@ -481,12 +510,13 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         if init_from is not None and init_from[i] is not None:
             p = load_file(str(init_from[i]))
         per_run.append(p)
+    KEYS = param_keys(c0)
     pr = {k: torch.stack([r[k] for r in per_run]).to(device).requires_grad_()
-          for k in PARAM_KEYS}
+          for k in KEYS}
     # optional per-pair shortcut table (see Config.table_scale): one extra
     # stacked param, zero-init, per-run gain ts_v and wd multiplier twm_v
     table = any(c.table_scale > 0 for c in cfgs)
-    keys = list(PARAM_KEYS)
+    keys = list(KEYS)
     if table:
         pr["table.T"] = torch.zeros(M, c0.p * c0.p, c0.d_vocab, device=device,
                                     requires_grad=True)
@@ -549,10 +579,10 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
     for i, p in enumerate(per_run):
         if "adam.step" not in p:
             continue
-        missing = [k for k in PARAM_KEYS
+        missing = [k for k in KEYS
                    if f"adam.m.{k}" not in p or f"adam.v.{k}" not in p]
         assert not missing, f"partial optimizer state in ckpt: {missing}"
-        for j, k in enumerate(PARAM_KEYS):
+        for j, k in enumerate(KEYS):
             m_st[j][i] = p[f"adam.m.{k}"].to(device)
             v_st[j][i] = p[f"adam.v.{k}"].to(device)
         step_off[i] = float(p["adam.step"].item())
@@ -563,6 +593,9 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
               flush=True)
     b1, b2 = c0.betas
     eps = c0.adam_eps
+    OPT = c0.opt; MU = c0.momentum; CLIP = c0.clip
+    assert OPT in ("adamw", "gd", "gdm", "ngd", "lion"), OPT
+    assert OPT == "adamw" or freeze is None, "freeze gating is AdamW-only"
     # Per-run lr / weight decay as (M,) vectors, broadcast against each
     # stacked param's trailing dims. With one distinct value this is
     # arithmetically identical to the old scalar form.
@@ -587,7 +620,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         f_bounds = sorted({u for f in freeze if f for u in (f[1],)})
 
         def set_active(epoch):
-            for k in PARAM_KEYS:
+            for k in KEYS:
                 col = [1.0 if (f is None or epoch >= f[1]
                                or (f[0] == "freeze_we") != (k == "embed.W_E"))
                        else 0.0 for f in freeze]
@@ -749,7 +782,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
                 1, kidx, (C ** 2).sum(1))
             snap[name].append(e)                                   # index 0 = const
         snap["pnorm"].append(torch.stack(
-            [(pr[k].detach() ** 2).flatten(1).sum(1) for k in PARAM_KEYS], 1))
+            [(pr[k].detach() ** 2).flatten(1).sum(1) for k in KEYS], 1))
 
     @torch.no_grad()
     def take_snapshot(epoch):
@@ -765,7 +798,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
                                          / (~mask_t).sum(-1))
             snap["table_norm2"].append((pr["table.T"].detach() ** 2).sum((1, 2)))
             snap["circuit_norm2"].append(sum(
-                (pr[k].detach() ** 2).flatten(1).sum(1) for k in PARAM_KEYS))
+                (pr[k].detach() ** 2).flatten(1).sum(1) for k in KEYS))
         snap["epochs"].append(epoch)
         snap["train_acc"].append((acc & mask_t).sum(-1).double()
                                  / mask_t.sum(-1))
@@ -816,10 +849,10 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
     def tensor_snapshot():
         """One extra eager fwd/bwd; per-tensor stats of what Adam sees."""
         per = ce_tr(logits_fn(tr_tok), tr_lab)
-        grads = torch.autograd.grad(per.sum(), [pr[k] for k in PARAM_KEYS])
+        grads = torch.autograd.grad(per.sum(), [pr[k] for k in KEYS])
         rows = []
         with torch.no_grad():
-            for j, (k, g) in enumerate(zip(PARAM_KEYS, grads)):
+            for j, (k, g) in enumerate(zip(KEYS, grads)):
                 a = g.abs().flatten(1)                     # (M, n)
                 sv = v_st[j].sqrt().flatten(1)
                 w = pr[k].detach().flatten(1)
@@ -836,10 +869,30 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
         per = ce_tr(logits_fn(tr_tok), tr_lab)
         grads = torch.autograd.grad(per.sum(), params)
         with torch.no_grad():
+            if OPT == "ngd" or CLIP > 0:
+                gn = torch.sqrt(sum((g ** 2).flatten(1).sum(1) for g in grads)) + 1e-12
+            if CLIP > 0:
+                sc = torch.clamp(CLIP / gn, max=1.0)
+                grads = [g * sc.view(bshape[id(p)]) for p, g in zip(params, grads)]
             # MLX-semantics AdamW: NO bias correction, p <- p(1-lr*wd) - lr*m/(sqrt(v)+eps)
             for k, p, g, m_, v_ in zip(keys, params, grads, m_st, v_st):
                 sh = bshape[id(p)]
                 lr_, wd_ = lr_t.view(sh), wd_k[k].view(sh)
+                if OPT == "gd":                       # plain GD, coupled l2
+                    p.sub_(lr_ * (g + wd_ * p))
+                    continue
+                if OPT == "gdm":                      # heavy-ball GD, coupled l2
+                    m_.mul_(MU).add_(g + wd_ * p)
+                    p.sub_(lr_ * m_)
+                    continue
+                if OPT == "ngd":                      # normalized GD, coupled l2
+                    p.sub_(lr_ * (g / gn.view(sh) + wd_ * p))
+                    continue
+                if OPT == "lion":                     # sign momentum, decoupled wd
+                    u = torch.sign(m_ * b1 + g * (1 - b1))
+                    m_.mul_(b2).add_(g, alpha=1 - b2)
+                    p.sub_(lr_ * (u + wd_ * p))
+                    continue
                 if act is None:
                     m_.mul_(b1).add_(g, alpha=1 - b1)
                     v_.mul_(b2).addcmul_(g, g, value=1 - b2)
@@ -940,7 +993,7 @@ def train_batched(cfgs, run_dirs, init_from=None, log_every=100,
     sp_ep = np.array(snap["epochs"])
     sp = {k: torch.stack(snap[k]).cpu().numpy() if snap[k] else
           np.zeros((0, M)) for k in snap if k != "epochs"}
-    extra = ({"ttap_keys": np.array(PARAM_KEYS), "ttap_stats": np.array(TTAP_STATS)}
+    extra = ({"ttap_keys": np.array(KEYS), "ttap_stats": np.array(TTAP_STATS)}
              if tensor_tap else {})
     for i, rd in enumerate(run_dirs):
         np.savez(rd / "spectra.npz", epochs=sp_ep,

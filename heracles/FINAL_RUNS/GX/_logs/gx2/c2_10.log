@@ -1,0 +1,37 @@
+s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000: |G| 24, 16 seeds, dev cuda
+  step   2000 lr  0.20 ce med 1.285e-01 max 1.374e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3432.3 [2s]
+  step   4000 lr  0.80 ce med 2.112e-02 max 2.224e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3363.4 [3s]
+  step   6000 lr  3.20 ce med 1.710e-02 max 1.787e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2377.9 [5s]
+  step   8000 lr  3.20 ce med 1.121e-02 max 1.160e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 1336.3 [6s]
+  step  10000 lr  3.20 ce med 9.271e-03 max 9.499e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 1016.7 [8s]
+  step  12000 lr  3.20 ce med 8.647e-03 max 8.890e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 915.2 [9s]
+  step  14000 lr  3.20 ce med 8.324e-03 max 8.591e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 874.5 [10s]
+  step  16000 lr  3.20 ce med 8.183e-03 max 8.414e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 860.3 [12s]
+  step  18000 lr  3.20 ce med 8.063e-03 max 8.283e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 849.6 [13s]
+  step  20000 lr  3.20 ce med 7.994e-03 max 8.178e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 842.5 [15s]
+  step  22000 lr  3.20 ce med 7.910e-03 max 8.093e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 837.7 [16s]
+  step  24000 lr  3.20 ce med 7.826e-03 max 8.027e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 831.8 [17s]
+  step  26000 lr  3.20 ce med 7.797e-03 max 7.989e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 827.8 [19s]
+  step  28000 lr  3.20 ce med 7.746e-03 max 7.946e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 822.9 [20s]
+  step  30000 lr  3.20 ce med 7.720e-03 max 7.907e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 817.3 [22s]
+  step  32000 lr  3.20 ce med 7.676e-03 max 7.879e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 813.2 [23s]
+  step  34000 lr  3.20 ce med 7.652e-03 max 7.857e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 810.1 [24s]
+  step  36000 lr  3.20 ce med 7.630e-03 max 7.834e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 806.8 [26s]
+  step  38000 lr  3.20 ce med 7.606e-03 max 7.815e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 805.8 [27s]
+  step  40000 lr  3.20 ce med 7.577e-03 max 7.794e-03 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 803.1 [28s]
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed0: acc 1.0000 m_min 5.0024 gamma 2.147e-04 K_abl 4 ['std', 'std_sign', 'sign', '2'] leader std share 0.6255427910982568 sign_rel 0.5622052852212349 K_thr10 4 clean 0.643
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed1: acc 1.0000 m_min 5.1108 gamma 2.209e-04 K_abl 4 ['std', 'std_sign', 'sign', '2'] leader std share 0.7912336157505437 sign_rel 0.4493659131336788 K_thr10 4 clean 0.661
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed2: acc 1.0000 m_min 5.3473 gamma 2.364e-04 K_abl 4 ['std_sign', 'std', '2', 'sign'] leader std_sign share 0.8814513211764992 sign_rel 0.4081753056902338 K_thr10 4 clean 0.702
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed3: acc 1.0000 m_min 4.9484 gamma 2.179e-04 K_abl 4 ['2', 'std', 'std_sign', 'sign'] leader std_sign share 0.6625128606810482 sign_rel 0.6629729614278694 K_thr10 4 clean 0.576
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed4: acc 1.0000 m_min 5.3562 gamma 2.369e-04 K_abl 4 ['std_sign', '2', 'std', 'sign'] leader std_sign share 0.8734952386923581 sign_rel 0.46962434971266526 K_thr10 4 clean 0.573
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed5: acc 1.0000 m_min 4.7090 gamma 2.071e-04 K_abl 4 ['std_sign', '2', 'std', 'sign'] leader std_sign share 0.9518327371615187 sign_rel 0.34444808263936616 K_thr10 4 clean 0.690
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed6: acc 1.0000 m_min 5.5442 gamma 2.520e-04 K_abl 4 ['std', 'std_sign', '2', 'sign'] leader std share 0.7700189240508319 sign_rel 0.5117535489914732 K_thr10 4 clean 0.695
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed7: acc 1.0000 m_min 4.9078 gamma 2.076e-04 K_abl 4 ['std_sign', 'std', '2', 'sign'] leader std_sign share 0.8475780972575487 sign_rel 0.38054706945816064 K_thr10 4 clean 0.654
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed8: acc 1.0000 m_min 5.4095 gamma 2.348e-04 K_abl 4 ['std_sign', 'std', '2', 'sign'] leader std_sign share 0.6991992171371726 sign_rel 0.4931107114903147 K_thr10 4 clean 0.633
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed9: acc 1.0000 m_min 5.3335 gamma 2.324e-04 K_abl 4 ['std', 'std_sign', '2', 'sign'] leader std share 0.5981332403216976 sign_rel 0.6036241682253858 K_thr10 4 clean 0.684
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed10: acc 1.0000 m_min 4.9567 gamma 2.119e-04 K_abl 4 ['std_sign', 'sign', '2', 'std'] leader std_sign share 0.8903063206173214 sign_rel 0.40054697717823917 K_thr10 4 clean 0.662
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed11: acc 1.0000 m_min 5.5936 gamma 2.466e-04 K_abl 4 ['std', 'std_sign', '2', 'sign'] leader std share 0.640355915151797 sign_rel 0.41941627743736887 K_thr10 4 clean 0.786
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed12: acc 1.0000 m_min 5.6046 gamma 2.447e-04 K_abl 4 ['std_sign', 'std', '2', 'sign'] leader std_sign share 0.7481115096422187 sign_rel 0.5027937109262697 K_thr10 4 clean 0.611
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed13: acc 1.0000 m_min 4.9532 gamma 2.176e-04 K_abl 4 ['std_sign', 'sign', 'std', '2'] leader std_sign share 0.5911395649706673 sign_rel 0.5673170674876609 K_thr10 4 clean 0.681
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed14: acc 1.0000 m_min 5.3329 gamma 2.393e-04 K_abl 4 ['std_sign', 'std', 'sign', '2'] leader std_sign share 0.7855119374878461 sign_rel 0.5186850101929157 K_thr10 4 clean 0.708
+DONE s4_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed15: acc 1.0000 m_min 4.9870 gamma 2.182e-04 K_abl 4 ['std_sign', 'std', 'sign', '2'] leader std_sign share 0.716471127434639 sign_rel 0.4193192386822363 K_thr10 4 clean 0.799

@@ -1,0 +1,18 @@
+JOB b2 2 exit 0
+JOB b2 1 exit 0
+JOB b2 3 exit 0
+JOB b2 4 exit 0
+JOB b2 5 exit 0
+JOB b2 6 exit 0
+JOB b2 7 exit 0
+ALL JOBS DONE
+JOB b3 3 exit 0
+JOB b3 6 exit 0
+JOB b3 7 exit 0
+JOB b3 2 exit 0
+JOB b3 4 exit 0
+JOB b3 1 exit 0
+JOB b3 5 exit 0
+JOB b3 8 exit 0
+JOB b3 9 exit 0
+ALL JOBS DONE

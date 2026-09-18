@@ -1,0 +1,37 @@
+a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000: |G| 60, 16 seeds, dev cuda
+  step   2000 lr  0.20 ce med 4.045e+00 max 4.047e+00 acc(all rows) min 0.0478 med 0.0558 |theta|^2 med 2826.9 [15s]
+  step   4000 lr  0.80 ce med 3.856e+00 max 3.862e+00 acc(all rows) min 0.5611 med 0.5675 |theta|^2 med 2678.8 [20s]
+  step   6000 lr  3.20 ce med 8.905e-02 max 9.842e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8020.9 [26s]
+  step   8000 lr  3.20 ce med 5.781e-02 max 6.066e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 5175.8 [32s]
+  step  10000 lr  3.20 ce med 5.177e-02 max 5.341e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4391.3 [38s]
+  step  12000 lr  3.20 ce med 4.925e-02 max 5.105e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4128.6 [44s]
+  step  14000 lr  3.20 ce med 4.767e-02 max 4.974e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3970.2 [50s]
+  step  16000 lr  3.20 ce med 4.651e-02 max 4.895e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3882.9 [56s]
+  step  18000 lr  3.20 ce med 4.565e-02 max 4.841e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3836.9 [61s]
+  step  20000 lr  3.20 ce med 4.497e-02 max 4.794e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3793.4 [67s]
+  step  22000 lr  3.20 ce med 4.442e-02 max 4.746e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3765.3 [73s]
+  step  24000 lr  3.20 ce med 4.403e-02 max 4.701e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.1 [79s]
+  step  26000 lr  3.20 ce med 4.368e-02 max 4.659e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3715.8 [85s]
+  step  28000 lr  3.20 ce med 4.317e-02 max 4.619e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3693.0 [91s]
+  step  30000 lr  3.20 ce med 4.268e-02 max 4.597e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3675.7 [97s]
+  step  32000 lr  3.20 ce med 4.229e-02 max 4.578e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3658.8 [103s]
+  step  34000 lr  3.20 ce med 4.200e-02 max 4.549e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3653.1 [109s]
+  step  36000 lr  3.20 ce med 4.181e-02 max 4.510e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3648.3 [114s]
+  step  38000 lr  3.20 ce med 4.164e-02 max 4.477e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3646.5 [120s]
+  step  40000 lr  3.20 ce med 4.149e-02 max 4.460e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3645.0 [126s]
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed0: acc 1.0000 m_min 2.8905 gamma 1.278e-05 K_abl 4 ['3a', '3b', '4', '5'] leader 3a share 0.5061951604102065 sign_rel None K_thr10 3 clean 0.605
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed1: acc 1.0000 m_min 2.9634 gamma 1.357e-05 K_abl 4 ['3b', '3a', '5', '4'] leader 3b share 0.5041057675584538 sign_rel None K_thr10 2 clean 0.665
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed2: acc 1.0000 m_min 2.9376 gamma 1.295e-05 K_abl 4 ['3b', '3a', '4', '5'] leader 3b share 0.7833930140683633 sign_rel None K_thr10 3 clean 0.601
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed3: acc 1.0000 m_min 3.3763 gamma 1.534e-05 K_abl 4 ['3b', '3a', '4', '5'] leader 3b share 0.5443198021769802 sign_rel None K_thr10 2 clean 0.777
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed4: acc 1.0000 m_min 2.9718 gamma 1.295e-05 K_abl 4 ['3a', '3b', '4', '5'] leader 3a share 0.5272833211605281 sign_rel None K_thr10 3 clean 0.648
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed5: acc 1.0000 m_min 3.0856 gamma 1.417e-05 K_abl 4 ['3b', '3a', '5', '4'] leader 3b share 0.5560213514780757 sign_rel None K_thr10 2 clean 0.650
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed6: acc 1.0000 m_min 3.2584 gamma 1.482e-05 K_abl 4 ['3a', '3b', '4', '5'] leader 3a share 0.5263562828637889 sign_rel None K_thr10 2 clean 0.663
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed7: acc 1.0000 m_min 3.4559 gamma 1.598e-05 K_abl 4 ['3a', '3b', '5', '4'] leader 3a share 0.7696551578693046 sign_rel None K_thr10 2 clean 0.851
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed8: acc 1.0000 m_min 2.8080 gamma 1.295e-05 K_abl 3 ['3a', '3b', '4'] leader 3a share 0.6267281863013943 sign_rel None K_thr10 2 clean 0.829
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed9: acc 1.0000 m_min 2.9685 gamma 1.314e-05 K_abl 4 ['3a', '3b', '4', '5'] leader 3a share 0.5705372933542843 sign_rel None K_thr10 3 clean 0.554
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed10: acc 1.0000 m_min 3.3583 gamma 1.520e-05 K_abl 4 ['3b', '3a', '4', '5'] leader 3b share 0.6283772403432462 sign_rel None K_thr10 2 clean 0.701
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed11: acc 1.0000 m_min 2.7453 gamma 1.204e-05 K_abl 4 ['3b', '3a', '4', '5'] leader 3b share 0.5352793415302539 sign_rel None K_thr10 3 clean 0.537
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed12: acc 1.0000 m_min 2.7295 gamma 1.206e-05 K_abl 4 ['3a', '3b', '4', '5'] leader 3a share 0.7016380246381927 sign_rel None K_thr10 2 clean 0.688
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed13: acc 1.0000 m_min 3.1248 gamma 1.422e-05 K_abl 4 ['3a', '3b', '5', '4'] leader 3a share 0.5537993885310152 sign_rel None K_thr10 2 clean 0.814
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed14: acc 1.0000 m_min 2.9397 gamma 1.332e-05 K_abl 4 ['3b', '3a', '4', '5'] leader 3b share 0.6031630658326355 sign_rel None K_thr10 2 clean 0.574
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed15: acc 1.0000 m_min 3.5611 gamma 1.642e-05 K_abl 4 ['3a', '3b', '5', '4'] leader 3a share 0.6714510791533397 sign_rel None K_thr10 2 clean 0.820

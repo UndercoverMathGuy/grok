@@ -1,0 +1,9 @@
+device cuda args {'n': 4, 'act': 'prod', 'p': [59], 'penalty': ['l2'], 'q': None, 'seeds': [5, 6], 'lam': 1e-05, 'm': 500, 'steps': 80000, 'lr0': 0.05, 'lrmax': 12.8, 'init_scale': 14.0, 'clip': 1.0, 'wd_warmup': 20000, 'escape_frac': 0.8, 'lrmax2': 3.2, 'resume': None, 'tied': True, 'chunk': 400000, 'grid': False, 'trace_every': 20000, 'out': 'heracles/runs/NU4', 'resume_tag': ''}
+  table p59 n4 tied=True: 557845 rows in 2 chunks [7s]
+/workspace/heracles/nsum.py:224: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+  tot = loss_ce + float(pen)
+  n4 prod p59 l2 s5 step   2000 lr   0.20 loss 4.345e+00 ce 4.230e+00 acc 0.0174  [82s]
+  n4 prod p59 l2 s5 step   4000 lr   0.80 loss 4.252e+00 ce 4.150e+00 acc 0.0179  [257s]
+  n4 prod p59 l2 s5 step   6000 lr   3.20 loss 4.163e+00 ce 4.079e+00 acc 0.0218  [479s]
+  warm-up ends at step 6413 (ce 3.259 vs 0.8 ln p = 3.262); wd on, lr cap 3.2

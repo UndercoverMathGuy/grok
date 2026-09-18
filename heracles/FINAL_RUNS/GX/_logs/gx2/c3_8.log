@@ -1,0 +1,31 @@
+a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-3a: |G| 60, 4 seeds, dev cuda
+  step   2000 lr  0.20 ce med 4.085e+00 max 4.086e+00 acc(all rows) min 0.1478 med 0.1711 |theta|^2 med 448.9 [11s]
+  step   4000 lr  0.80 ce med 4.024e+00 max 4.027e+00 acc(all rows) min 0.9667 med 0.9711 |theta|^2 med 569.5 [22s]
+  warm-up over for every seed at step 4878: [4841, 4851, 4878, 4842]
+  step   6000 lr  3.20 ce med 9.387e-02 max 9.993e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 5742.9 [28s]
+  step   8000 lr  3.20 ce med 6.122e-02 max 6.233e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4687.5 [30s]
+  step  10000 lr  3.20 ce med 5.635e-02 max 5.733e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4335.7 [32s]
+  step  12000 lr  3.20 ce med 5.397e-02 max 5.488e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4182.6 [35s]
+  step  14000 lr  3.20 ce med 5.119e-02 max 5.346e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4039.8 [37s]
+  step  16000 lr  3.20 ce med 4.889e-02 max 5.230e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3889.7 [39s]
+  step  18000 lr  3.20 ce med 4.815e-02 max 5.085e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3814.7 [41s]
+  step  20000 lr  3.20 ce med 4.804e-02 max 5.067e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3796.9 [44s]
+  step  22000 lr  3.20 ce med 4.743e-02 max 5.063e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3778.5 [46s]
+  step  24000 lr  3.20 ce med 4.721e-02 max 5.060e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3748.2 [48s]
+  step  26000 lr  3.20 ce med 4.718e-02 max 5.059e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3743.3 [50s]
+  step  28000 lr  3.20 ce med 4.718e-02 max 5.058e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.9 [52s]
+  step  30000 lr  3.20 ce med 4.718e-02 max 5.057e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.8 [55s]
+  step  32000 lr  3.20 ce med 4.717e-02 max 5.057e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.7 [57s]
+  step  34000 lr  3.20 ce med 4.717e-02 max 5.057e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.5 [59s]
+  step  36000 lr  3.20 ce med 4.717e-02 max 5.056e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.5 [61s]
+  step  38000 lr  3.20 ce med 4.717e-02 max 5.056e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.4 [63s]
+  step  40000 lr  3.20 ce med 4.717e-02 max 5.056e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.4 [66s]
+  step  42000 lr  3.20 ce med 4.717e-02 max 5.056e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.4 [68s]
+  step  44000 lr  3.20 ce med 4.717e-02 max 5.056e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.4 [70s]
+  step  46000 lr  3.20 ce med 4.717e-02 max 5.056e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.4 [72s]
+  step  48000 lr  3.20 ce med 4.717e-02 max 5.056e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.4 [75s]
+  step  50000 lr  3.20 ce med 4.717e-02 max 5.055e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3742.4 [77s]
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-3a seed0: acc 1.0000 m_min 5.2952 gamma 2.313e-05 K_abl 1 ['3a'] leader 3a share 1.0 sign_rel None K_thr10 1 clean 1.000
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-3a seed1: acc 1.0000 m_min 5.3676 gamma 2.088e-05 K_abl 1 ['3a'] leader 3a share 1.0 sign_rel None K_thr10 1 clean 1.000
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-3a seed2: acc 1.0000 m_min 5.2657 gamma 2.300e-05 K_abl 1 ['3a'] leader 3a share 1.0 sign_rel None K_thr10 1 clean 1.000
+DONE a5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-3a seed3: acc 1.0000 m_min 5.3223 gamma 2.325e-05 K_abl 1 ['3a'] leader 3a share 1.0 sign_rel None K_thr10 1 clean 1.000

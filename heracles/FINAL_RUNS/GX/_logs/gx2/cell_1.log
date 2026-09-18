@@ -1,0 +1,12 @@
+s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000: |G| 120, 16 seeds, dev cuda
+  step   2000 lr  0.20 ce med 4.784e+00 max 4.784e+00 acc(all rows) min 0.0094 med 0.0104 |theta|^2 med 3113.3 [36s]
+  step   4000 lr  0.80 ce med 4.773e+00 max 4.773e+00 acc(all rows) min 0.0217 med 0.0242 |theta|^2 med 2478.4 [72s]
+  step   6000 lr  3.20 ce med 4.772e+00 max 4.773e+00 acc(all rows) min 0.1536 med 0.1590 |theta|^2 med 1106.8 [107s]
+  step   8000 lr  3.20 ce med 4.786e+00 max 4.786e+00 acc(all rows) min 0.5267 med 0.5435 |theta|^2 med 138.6 [144s]
+  step  10000 lr  3.20 ce med 4.787e+00 max 4.787e+00 acc(all rows) min 0.4769 med 0.6662 |theta|^2 med 13.6 [180s]
+  step  12000 lr  3.20 ce med 4.787e+00 max 4.787e+00 acc(all rows) min 0.0735 med 0.4138 |theta|^2 med 1.2 [216s]
+  step  14000 lr  3.20 ce med 4.787e+00 max 4.787e+00 acc(all rows) min 0.0163 med 0.1418 |theta|^2 med 0.1 [252s]
+  step  16000 lr  3.20 ce med 4.787e+00 max 4.787e+00 acc(all rows) min 0.0165 med 0.1231 |theta|^2 med 0.0 [287s]
+  step  18000 lr  3.20 ce med 4.787e+00 max 4.787e+00 acc(all rows) min 0.0164 med 0.1179 |theta|^2 med 0.0 [324s]
+  step  20000 lr  3.20 ce med 4.787e+00 max 4.787e+00 acc(all rows) min 0.0164 med 0.1167 |theta|^2 med 0.0 [360s]
+  step  22000 lr  3.20 ce med 4.787e+00 max 4.787e+00 acc(all rows) min 0.0164 med 0.1165 |theta|^2 med 0.0 [396s]

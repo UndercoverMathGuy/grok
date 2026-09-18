@@ -1,0 +1,37 @@
+z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000: |G| 71, 16 seeds, dev cuda
+  step   2000 lr  0.20 ce med 4.163e+00 max 4.166e+00 acc(all rows) min 0.0494 med 0.0542 |theta|^2 med 2883.5 [7s]
+  step   4000 lr  0.80 ce med 3.609e+00 max 3.641e+00 acc(all rows) min 0.5699 med 0.5999 |theta|^2 med 3297.2 [14s]
+  step   6000 lr  3.20 ce med 4.131e-02 max 4.454e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 5434.7 [19s]
+  step   8000 lr  3.20 ce med 3.095e-02 max 3.245e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 3217.6 [24s]
+  step  10000 lr  3.20 ce med 2.864e-02 max 3.012e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2789.9 [30s]
+  step  12000 lr  3.20 ce med 2.781e-02 max 2.938e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2695.7 [37s]
+  step  14000 lr  3.20 ce med 2.734e-02 max 2.898e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2648.5 [47s]
+  step  16000 lr  3.20 ce med 2.701e-02 max 2.866e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2621.2 [60s]
+  step  18000 lr  3.20 ce med 2.667e-02 max 2.842e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2600.0 [71s]
+  step  20000 lr  3.20 ce med 2.629e-02 max 2.822e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2581.3 [85s]
+  step  22000 lr  3.20 ce med 2.608e-02 max 2.805e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2550.8 [98s]
+  step  24000 lr  3.20 ce med 2.602e-02 max 2.791e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2534.9 [112s]
+  step  26000 lr  3.20 ce med 2.602e-02 max 2.780e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2519.1 [122s]
+  step  28000 lr  3.20 ce med 2.602e-02 max 2.772e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2504.2 [133s]
+  step  30000 lr  3.20 ce med 2.595e-02 max 2.765e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2493.9 [145s]
+  step  32000 lr  3.20 ce med 2.587e-02 max 2.757e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2488.8 [157s]
+  step  34000 lr  3.20 ce med 2.584e-02 max 2.749e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2484.3 [168s]
+  step  36000 lr  3.20 ce med 2.582e-02 max 2.742e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2480.1 [176s]
+  step  38000 lr  3.20 ce med 2.582e-02 max 2.738e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2475.2 [181s]
+  step  40000 lr  3.20 ce med 2.582e-02 max 2.734e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 2471.6 [186s]
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed0: acc 1.0000 m_min 3.2897 gamma 2.665e-05 K_abl 15 ['f13', 'f16', 'f25', 'f7', 'f28', 'f24', 'f5', 'f11', 'f32', 'f31', 'f29', 'f10', 'f26', 'f9', 'f20'] leader f25 share 0.20939752070642917 sign_rel None K_thr10 14 clean 0.642
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed1: acc 1.0000 m_min 3.1173 gamma 2.574e-05 K_abl 15 ['f18', 'f25', 'f15', 'f35', 'f2', 'f29', 'f24', 'f14', 'f9', 'f8', 'f5', 'f16', 'f19', 'f3', 'f27'] leader f25 share 0.2600384042461123 sign_rel None K_thr10 10 clean 0.668
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed2: acc 1.0000 m_min 2.9698 gamma 2.439e-05 K_abl 14 ['f6', 'f1', 'f10', 'f34', 'f25', 'f32', 'f21', 'f15', 'f2', 'f3', 'f17', 'f18', 'f20', 'f30'] leader f6 share 0.2138587504298741 sign_rel None K_thr10 12 clean 0.695
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed3: acc 1.0000 m_min 3.2559 gamma 2.599e-05 K_abl 15 ['f10', 'f1', 'f13', 'f21', 'f6', 'f15', 'f32', 'f16', 'f18', 'f28', 'f19', 'f7', 'f30', 'f24', 'f23'] leader f1 share 0.20880066373130382 sign_rel None K_thr10 14 clean 0.610
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed4: acc 1.0000 m_min 2.9067 gamma 2.416e-05 K_abl 11 ['f27', 'f29', 'f28', 'f7', 'f30', 'f9', 'f19', 'f5', 'f24', 'f33', 'f15'] leader f30 share 0.2392572921293854 sign_rel None K_thr10 10 clean 0.697
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed5: acc 1.0000 m_min 2.8402 gamma 2.310e-05 K_abl 15 ['f3', 'f22', 'f21', 'f20', 'f8', 'f6', 'f13', 'f11', 'f35', 'f15', 'f18', 'f10', 'f34', 'f26', 'f4'] leader f22 share 0.26116275536205674 sign_rel None K_thr10 10 clean 0.677
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed6: acc 1.0000 m_min 3.1123 gamma 2.402e-05 K_abl 16 ['f5', 'f32', 'f4', 'f8', 'f14', 'f16', 'f19', 'f23', 'f7', 'f26', 'f24', 'f2', 'f6', 'f33', 'f13', 'f22'] leader f5 share 0.250443545176903 sign_rel None K_thr10 18 clean 0.630
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed7: acc 1.0000 m_min 2.7530 gamma 2.150e-05 K_abl 16 ['f34', 'f22', 'f29', 'f17', 'f18', 'f7', 'f25', 'f19', 'f8', 'f14', 'f28', 'f23', 'f16', 'f33', 'f26', 'f13'] leader f22 share 0.24261172854775492 sign_rel None K_thr10 17 clean 0.554
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed8: acc 1.0000 m_min 3.3315 gamma 2.732e-05 K_abl 12 ['f1', 'f26', 'f22', 'f17', 'f29', 'f12', 'f20', 'f7', 'f5', 'f19', 'f15', 'f35'] leader f1 share 0.2976494303503396 sign_rel None K_thr10 12 clean 0.620
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed9: acc 1.0000 m_min 2.9094 gamma 2.427e-05 K_abl 11 ['f20', 'f17', 'f8', 'f30', 'f5', 'f18', 'f21', 'f27', 'f2', 'f6', 'f22'] leader f17 share 0.18178579267595715 sign_rel None K_thr10 11 clean 0.672
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed10: acc 1.0000 m_min 3.1477 gamma 2.562e-05 K_abl 14 ['f9', 'f32', 'f26', 'f8', 'f15', 'f34', 'f3', 'f12', 'f7', 'f4', 'f33', 'f19', 'f5', 'f16'] leader f9 share 0.2875328602915212 sign_rel None K_thr10 11 clean 0.626
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed11: acc 1.0000 m_min 2.8182 gamma 2.224e-05 K_abl 16 ['f7', 'f10', 'f2', 'f33', 'f16', 'f14', 'f30', 'f15', 'f25', 'f11', 'f29', 'f1', 'f20', 'f21', 'f22', 'f19'] leader f10 share 0.23097416638944526 sign_rel None K_thr10 18 clean 0.631
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed12: acc 1.0000 m_min 2.5940 gamma 2.098e-05 K_abl 16 ['f29', 'f35', 'f8', 'f16', 'f17', 'f2', 'f32', 'f25', 'f30', 'f1', 'f18', 'f28', 'f22', 'f15', 'f3', 'f23'] leader f35 share 0.2494530961691231 sign_rel None K_thr10 12 clean 0.580
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed13: acc 1.0000 m_min 3.0101 gamma 2.456e-05 K_abl 14 ['f3', 'f12', 'f17', 'f23', 'f16', 'f5', 'f32', 'f22', 'f4', 'f21', 'f24', 'f34', 'f8', 'f30'] leader f3 share 0.22999587949238964 sign_rel None K_thr10 14 clean 0.633
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed14: acc 1.0000 m_min 3.2833 gamma 2.679e-05 K_abl 13 ['f29', 'f8', 'f18', 'f5', 'f4', 'f2', 'f30', 'f31', 'f11', 'f14', 'f15', 'f17', 'f21'] leader f8 share 0.24943123524778738 sign_rel None K_thr10 11 clean 0.611
+DONE z71_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed15: acc 1.0000 m_min 2.7563 gamma 2.080e-05 K_abl 15 ['f34', 'f13', 'f15', 'f26', 'f18', 'f35', 'f30', 'f22', 'f6', 'f12', 'f20', 'f8', 'f14', 'f10', 'f25'] leader f34 share 0.3245445599126923 sign_rel None K_thr10 18 clean 0.550

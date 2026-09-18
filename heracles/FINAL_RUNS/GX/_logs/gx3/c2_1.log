@@ -1,0 +1,34 @@
+z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000: |G| 121, 13 seeds, dev cuda
+  step   2000 lr  0.20 ce med 4.785e+00 max 4.786e+00 acc(all rows) min 0.0093 med 0.0124 |theta|^2 med 3111.8 [26s]
+  step   4000 lr  0.80 ce med 4.739e+00 max 4.740e+00 acc(all rows) min 0.0408 med 0.0441 |theta|^2 med 2551.7 [51s]
+  step   6000 lr  3.20 ce med 4.614e+00 max 4.634e+00 acc(all rows) min 0.3412 med 0.4530 |theta|^2 med 1978.3 [82s]
+  step   8000 lr  3.20 ce med 7.048e-02 max 8.422e-02 acc(all rows) min 0.9999 med 1.0000 |theta|^2 med 5339.8 [115s]
+  step  10000 lr  3.20 ce med 6.205e-02 max 7.229e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4795.6 [148s]
+  step  12000 lr  3.20 ce med 5.920e-02 max 6.987e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4701.4 [185s]
+  step  14000 lr  3.20 ce med 5.785e-02 max 6.826e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4666.8 [222s]
+  step  16000 lr  3.20 ce med 5.731e-02 max 6.699e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4650.1 [259s]
+  step  18000 lr  3.20 ce med 5.684e-02 max 6.624e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4641.6 [296s]
+  step  20000 lr  3.20 ce med 5.643e-02 max 6.586e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4636.7 [333s]
+  step  22000 lr  3.20 ce med 5.614e-02 max 6.562e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4633.1 [363s]
+  step  24000 lr  3.20 ce med 5.594e-02 max 6.545e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4630.1 [393s]
+  step  26000 lr  3.20 ce med 5.579e-02 max 6.529e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4627.5 [422s]
+  step  28000 lr  3.20 ce med 5.567e-02 max 6.512e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4625.3 [457s]
+  step  30000 lr  3.20 ce med 5.556e-02 max 6.493e-02 acc(all rows) min 0.9999 med 1.0000 |theta|^2 med 4623.5 [493s]
+  step  32000 lr  3.20 ce med 5.546e-02 max 6.472e-02 acc(all rows) min 0.9999 med 1.0000 |theta|^2 med 4622.0 [530s]
+  step  34000 lr  3.20 ce med 5.538e-02 max 6.452e-02 acc(all rows) min 0.9999 med 1.0000 |theta|^2 med 4620.8 [567s]
+  step  36000 lr  3.20 ce med 5.530e-02 max 6.432e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4619.8 [604s]
+  step  38000 lr  3.20 ce med 5.523e-02 max 6.413e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4618.9 [640s]
+  step  40000 lr  3.20 ce med 5.517e-02 max 6.397e-02 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 4618.1 [676s]
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed3: acc 1.0000 m_min 1.5282 gamma 5.023e-06 K_abl 16 ['f3+7', 'f2+4', 'f0+1', 'f5+3', 'f5+2', 'f1+7', 'f1+8', 'f0+4', 'f1+4', 'f1+10', 'f1+2', 'f0+2', 'f5+5', 'f5+6', 'f1+1', 'f2+2'] leader f3+7 share 0.2677024882332167 sign_rel None K_thr10 23 clean 0.512
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed4: acc 1.0000 m_min 0.8210 gamma 2.589e-06 K_abl 16 ['f3+1', 'f1+8', 'f1+7', 'f4+5', 'f1+2', 'f3+7', 'f0+1', 'f2+3', 'f4+2', 'f5+7', 'f4+6', 'f3+9', 'f2+0', 'f5+10', 'f0+3', 'f1+0'] leader f3+1 share 0.34286655280465117 sign_rel None K_thr10 29 clean 0.385
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed5: acc 1.0000 m_min 0.6831 gamma 2.130e-06 K_abl 12 ['f4+10', 'f0+3', 'f5+10', 'f1+0', 'f1+9', 'f1+2', 'f4+8', 'f5+0', 'f4+1', 'f2+7', 'f1+7', 'f3+2'] leader f4+1 share 0.17635079453643526 sign_rel None K_thr10 28 clean 0.386
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed6: acc 1.0000 m_min 1.3974 gamma 4.453e-06 K_abl 11 ['f5+3', 'f2+6', 'f1+4', 'f0+3', 'f2+4', 'f2+3', 'f5+7', 'f1+7', 'f5+2', 'f4+2', 'f2+10'] leader f2+4 share 0.13364062093048623 sign_rel None K_thr10 31 clean 0.378
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed7: acc 1.0000 m_min 2.0937 gamma 6.989e-06 K_abl 16 ['f1+3', 'f5+10', 'f5+2', 'f4+4', 'f0+1', 'f3+8', 'f4+9', 'f2+3', 'f3+1', 'f4+5', 'f5+8', 'f4+2', 'f2+1', 'f2+7', 'f4+3', 'f3+7'] leader f5+10 share 0.3032526741522943 sign_rel None K_thr10 17 clean 0.549
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed8: acc 1.0000 m_min 1.6876 gamma 5.361e-06 K_abl 16 ['f3+3', 'f1+6', 'f1+5', 'f2+8', 'f4+7', 'f4+9', 'f2+4', 'f5+10', 'f0+5', 'f5+6', 'f2+5', 'f4+2', 'f3+8', 'f2+1', 'f0+3', 'f3+6'] leader f4+7 share 0.16867426168596703 sign_rel None K_thr10 28 clean 0.399
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed9: acc 1.0000 m_min 1.4242 gamma 4.386e-06 K_abl 11 ['f3+7', 'f2+8', 'f1+2', 'f5+10', 'f2+4', 'f4+10', 'f5+6', 'f2+5', 'f4+9', 'f0+2', 'f1+1'] leader f2+8 share 0.14624720936311428 sign_rel None K_thr10 34 clean 0.310
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed10: acc 1.0000 m_min 1.8254 gamma 5.853e-06 K_abl 16 ['f5+9', 'f2+0', 'f1+10', 'f1+3', 'f5+0', 'f3+0', 'f5+5', 'f3+10', 'f3+5', 'f0+5', 'f0+3', 'f1+7', 'f3+7', 'f3+2', 'f1+9', 'f1+0'] leader f5+9 share 0.3277630915475547 sign_rel None K_thr10 25 clean 0.502
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed11: acc 1.0000 m_min 0.4289 gamma 1.347e-06 K_abl 16 ['f3+1', 'f3+0', 'f5+8', 'f3+4', 'f4+2', 'f1+0', 'f1+5', 'f1+10', 'f3+7', 'f4+0', 'f3+6', 'f5+1', 'f3+5', 'f0+2', 'f2+0', 'f5+6'] leader f3+1 share 0.17604522472213774 sign_rel None K_thr10 27 clean 0.315
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed12: acc 1.0000 m_min 1.8999 gamma 6.528e-06 K_abl 14 ['f1+8', 'f4+5', 'f1+0', 'f3+0', 'f2+10', 'f4+4', 'f2+9', 'f1+6', 'f1+10', 'f0+5', 'f4+7', 'f4+3', 'f3+3', 'f5+3'] leader f4+5 share 0.2084686536022683 sign_rel None K_thr10 15 clean 0.595
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed13: acc 1.0000 m_min 0.7592 gamma 2.483e-06 K_abl 13 ['f3+5', 'f3+4', 'f1+10', 'f4+5', 'f2+4', 'f1+2', 'f2+2', 'f3+7', 'f5+3', 'f4+8', 'f2+7', 'f1+4', 'f3+10'] leader f1+10 share 0.2801688761583482 sign_rel None K_thr10 16 clean 0.550
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed14: acc 1.0000 m_min 1.2924 gamma 4.292e-06 K_abl 16 ['f1+3', 'f0+4', 'f5+8', 'f2+8', 'f0+1', 'f4+8', 'f3+10', 'f1+8', 'f3+9', 'f3+7', 'f4+2', 'f4+10', 'f0+3', 'f2+3', 'f1+9', 'f3+2'] leader f0+4 share 0.2492410415808908 sign_rel None K_thr10 21 clean 0.450
+DONE z11x11_quad_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed15: acc 1.0000 m_min 1.2250 gamma 3.895e-06 K_abl 16 ['f3+10', 'f1+7', 'f2+1', 'f4+1', 'f2+6', 'f2+9', 'f0+3', 'f5+2', 'f0+1', 'f3+7', 'f2+5', 'f1+6', 'f2+0', 'f5+9', 'f2+4', 'f1+0'] leader f1+7 share 0.31255277745433097 sign_rel None K_thr10 28 clean 0.392

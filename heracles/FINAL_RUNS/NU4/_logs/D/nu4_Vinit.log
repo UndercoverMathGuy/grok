@@ -1,0 +1,2 @@
+device cuda args {'n': 3, 'act': 'prod', 'p': [71], 'penalty': ['l2'], 'q': None, 'seeds': [0], 'lam': 1e-05, 'm': 500, 'steps': 120000, 'lr0': 0.05, 'lrmax': 12.8, 'init_scale': 8.0, 'clip': 1.0, 'wd_warmup': 60000, 'escape_frac': 0.8, 'lrmax2': 3.2, 'resume': None, 'tied': False, 'chunk': 400000, 'grid': True, 'trace_every': 20000, 'out': 'heracles/runs/NU4', 'resume_tag': ''}
+  table p71 n3 tied=False: 357911 rows in 1 chunks [4s]

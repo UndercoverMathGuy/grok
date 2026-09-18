@@ -60,7 +60,10 @@ class Config:
     betas: tuple = (0.9, 0.98)
     adam_eps: float = 1e-8
     num_epochs: int = 20_000
-    opt: str = "adamw"          # adamw | gd  (gd: plain full-batch GD, coupled l2 penalty wd/2*||theta||^2)
+    opt: str = "adamw"          # adamw | gd | gdm | ngd | lion  (gd/gdm/ngd: coupled l2 penalty wd/2*||theta||^2; gdm = heavy-ball mu=momentum; ngd = unit-gradient step)
+    momentum: float = 0.9       # gdm only
+    clip: float = 0.0           # >0: clip per-run global gradient l2 norm to this value (direction-preserving)
+    ckpt_every: int = 0         # >0: save ckpt_<epoch>.safetensors every that many epochs
     init_from: str = ""         # path to a final.safetensors to warm-start from (e.g. cohort J)
     layout_pre: int = -1        # >=0: explicit (n_pre, n_post) override (nu is then derived)
     layout_post: int = -1
@@ -191,7 +194,7 @@ def train_batched(cfgs, run_dirs, compile_mode="reduce-overhead",
     M = len(cfgs); c0 = cfgs[0]
     for c in cfgs:
         for f in ("p", "family", "m", "d", "r", "frac_train", "mode", "layout", "opt",
-                  "warmup_steps", "betas", "adam_eps", "num_epochs"):
+                  "warmup_steps", "betas", "adam_eps", "num_epochs", "clip", "momentum"):
             assert getattr(c, f) == getattr(c0, f), f"batch must agree on {f}"
         if c.mode == "l2nu":
             assert c.layout == (0, 0), "L_{2,nu} is defined for 1-hidden-layer nets"
@@ -242,7 +245,8 @@ def train_batched(cfgs, run_dirs, compile_mode="reduce-overhead",
     lr_base = torch.tensor([c.lr for c in cfgs], device=device)
     wd_v = torch.tensor([c.weight_decay if c.mode == "train" else 0.0
                          for c in cfgs], device=device)
-    GD = c0.opt == "gd"
+    GD = c0.opt == "gd"; LION = c0.opt == "lion"; GDM = c0.opt == "gdm"; NGD = c0.opt == "ngd"
+    MU = c0.momentum; CLIP = c0.clip
     lam_v = torch.tensor([c.lam for c in cfgs], device=device)
     beta_v = torch.tensor([c.beta_max for c in cfgs], device=device)
     lr_t = torch.zeros(M, device=device); beta_t = torch.ones(M, device=device)
@@ -280,11 +284,28 @@ def train_batched(cfgs, run_dirs, compile_mode="reduce-overhead",
         per = objective()
         grads = torch.autograd.grad(per.sum(), params)
         with torch.no_grad():
+            if NGD or CLIP > 0:                          # per-run global gradient norm
+                gn = torch.sqrt(sum((g ** 2).flatten(1).sum(1) for g in grads)) + 1e-12
+            if CLIP > 0:
+                sc = torch.clamp(CLIP / gn, max=1.0)
+                grads = [g * sc.view(bshape[id(q)]) for q, g in zip(params, grads)]
             for q, g, m_, v_ in zip(params, grads, m_st, v_st):
                 sh = bshape[id(q)]
                 lr_, wd_ = lr_t.view(sh), wd_v.view(sh)
                 if GD:                                   # plain GD on CE + wd/2 ||theta||^2
                     q.sub_(lr_ * (g + wd_ * q))
+                    continue
+                if GDM:                                  # heavy-ball GD, same objective
+                    m_.mul_(MU).add_(g + wd_ * q)
+                    q.sub_(lr_ * m_)
+                    continue
+                if NGD:                                  # normalized GD: unit gradient direction, coupled l2
+                    q.sub_(lr_ * (g / gn.view(sh) + wd_ * q))
+                    continue
+                if LION:                                 # Lion (Chen et al. 2023), decoupled wd
+                    u = torch.sign(m_ * b1 + g * (1 - b1))
+                    m_.mul_(b2).add_(g, alpha=1 - b2)
+                    q.sub_(lr_ * (u + wd_ * q))
                     continue
                 m_.mul_(b1).add_(g, alpha=1 - b1)
                 v_.mul_(b2).addcmul_(g, g, value=1 - b2)
@@ -338,6 +359,10 @@ def train_batched(cfgs, run_dirs, compile_mode="reduce-overhead",
         phase_t.fill_(1.0 if epoch >= 0.6 * E else 0.0)
         beta_t.copy_(1.0 + (beta_v - 1.0) * min(ph, 1.0))
         train_hist[epoch].copy_(step())
+        if c0.ckpt_every and (epoch + 1) % c0.ckpt_every == 0 and epoch + 1 < E:
+            for i, rd in enumerate(run_dirs):
+                save_file({k: v[i].detach().cpu().contiguous() for k, v in pr.items()},
+                          str(rd / f"ckpt_{epoch + 1:06d}.safetensors"))
         if (epoch + 1) % log_every == 0:
             with torch.no_grad():
                 tr = train_hist[epoch].cpu().numpy()
@@ -440,6 +465,66 @@ def plan(args):
                 runs = [dict(opt="gd", lr=0.3, weight_decay=3e-4, init_seed=s, data_seed=s % 1000) for s in seeds]
                 jobs.append(("MG", dict(family=fam, nu=nu, m=512, mode="train", frac_train=1.0,
                                         warmup_steps=1), runs))
+    if args.cohort == "CLEAN":                # 2026-09-09 clean cohort: star design around relu4 m512 f0.5 wd1 AdamW
+        S16, S8 = seeds[:16], seeds[:8]
+        def cell(fam, nu, m=512, frac=0.5, opt="adamw", **kw):
+            return dict(family=fam, nu=nu, m=m, mode="train", frac_train=frac, opt=opt,
+                        ckpt_every=1000, **kw)
+        R = lambda ss, **kw: [dict(init_seed=s, data_seed=s % 1000, **kw) for s in ss]
+        jobs.append(("CLEAN", cell("relu", 4), sum([R(S16, weight_decay=wd) for wd in (0.3, 1.0, 3.0)], [])))
+        for fam, nu in (("relu", 2), ("relu", 3), ("relu", 5), ("relu", 6), ("quad", 3), ("quad", 4)):
+            jobs.append(("CLEAN", cell(fam, nu), R(S8, weight_decay=1.0)))
+        for frac in (0.3, 0.7):
+            jobs.append(("CLEAN", cell("relu", 4, frac=frac), R(S8, weight_decay=1.0)))
+        for m in (128, 2048):
+            jobs.append(("CLEAN", cell("relu", 4, m=m), R(S8, weight_decay=1.0)))
+        jobs.append(("CLEAN", cell("relu", 4, opt="gd", warmup_steps=1),
+                     R(S8, lr=0.3, weight_decay=3e-4) + R(S8, lr=1.0, weight_decay=1e-3)))
+        jobs.append(("CLEAN", cell("relu", 4, opt="gd", frac=1.0, warmup_steps=1),
+                     R(S8, lr=0.3, weight_decay=3e-4)))
+        jobs.append(("CLEAN", cell("relu", 4, opt="lion", betas=(0.9, 0.99)),
+                     R(S8, lr=1e-4, weight_decay=1.0) + R(S8, lr=3e-4, weight_decay=1.0)))
+    if args.cohort == "OPT":                  # 2026-09-09 l2-geometry optimizer sweep on the reference cell (pass 2: scaled to the working GD cell lr 1 wd 1e-3)
+        S8 = seeds[:8]
+        R = lambda ss, **kw: [dict(init_seed=s, data_seed=s % 1000, **kw) for s in ss]
+        base = dict(family="relu", nu=4, m=512, mode="train", frac_train=0.5, ckpt_every=2000, warmup_steps=1)
+        jobs.append(("OPT2", dict(base, opt="gd"), R(S8, lr=1.0, weight_decay=1e-3)))                       # reference (grokked 8/8, K=4 in CLEAN)
+        jobs.append(("OPT2", dict(base, opt="gdm"), R(S8, lr=0.1, weight_decay=1e-3) + R(S8, lr=0.03, weight_decay=1e-3)))   # eff lr 1 / 0.3
+        jobs.append(("OPT2", dict(base, opt="ngd"), R(S8, lr=0.1, weight_decay=0.03) + R(S8, lr=0.1, weight_decay=0.1)))    # |theta|_eq ~ 1/wd
+        jobs.append(("OPT2", dict(base, opt="adamw", adam_eps=1.0, warmup_steps=10),
+                     R(S8, lr=1.0, weight_decay=1e-3) + R(S8, lr=0.3, weight_decay=3e-3)))                 # step ~ lr*g, decay lr*wd = 1e-3
+    if args.cohort == "L2":                   # 2026-09-09 l2-geometry record cohort: momentum GD at two lrs per cell (+ gd / eps witnesses at base)
+        S8 = seeds[:8]
+        R = lambda ss, **kw: [dict(init_seed=s, data_seed=s % 1000, **kw) for s in ss]
+        def cell(fam, nu, m=512, frac=0.5, opt="gdm", **kw):
+            return dict(dict(family=fam, nu=nu, m=m, mode="train", frac_train=frac, opt=opt, ckpt_every=2000, warmup_steps=1), **kw)
+        G2 = lambda ss: R(ss, lr=0.1, weight_decay=1e-3) + R(ss, lr=0.03, weight_decay=1e-3)
+        jobs.append(("L2", cell("relu", 4), G2(S8) + R(S8, lr=0.1, weight_decay=3e-3) + R(S8, lr=0.1, weight_decay=3e-4)))   # base + wd
+        for fam, nu in (("relu", 2), ("relu", 3), ("relu", 5), ("relu", 6), ("quad", 3), ("quad", 4)):
+            jobs.append(("L2", cell(fam, nu), G2(S8)))
+        for frac in (0.3, 0.7):
+            jobs.append(("L2", cell("relu", 4, frac=frac), G2(S8)))
+        for m in (128, 2048):
+            jobs.append(("L2", cell("relu", 4, m=m), G2(S8)))
+        jobs.append(("L2", cell("relu", 4, opt="gd"), R(S8, lr=1.0, weight_decay=1e-3)))                       # witness: plain GD
+        jobs.append(("L2", cell("relu", 4, opt="adamw", adam_eps=1.0, warmup_steps=10), R(S8, lr=1.0, weight_decay=1e-3)))   # witness: large-eps Adam
+    if args.cohort == "PILOT":                # 09-09 l2 recipe pilot on the cells that collapsed/diverged: lr x wd x clip, short
+        S4 = seeds[:4]
+        R = lambda ss, **kw: [dict(init_seed=s, data_seed=s % 1000, **kw) for s in ss]
+        recipes = [dict(lr=0.1, weight_decay=1e-4), dict(lr=0.1, weight_decay=3e-4), dict(lr=0.3, weight_decay=1e-4), dict(lr=0.03, weight_decay=1e-4)]
+        for fam, nu, frac in (("relu", 4, 0.7), ("relu", 4, 0.5), ("relu", 2, 0.5), ("quad", 3, 0.5), ("quad", 4, 0.5), ("relu", 3, 0.5)):
+            for clip in (1.0, 0.0):
+                jobs.append(("PILOT", dict(family=fam, nu=nu, m=512, mode="train", frac_train=frac, opt="gdm", warmup_steps=1, clip=clip),
+                             sum([R(S4, **rc) for rc in recipes], [])))
+    if args.cohort == "LYU":                  # 09-09 Lyu-regime pilot: large init x small coupled l2, SGD-momentum + clip
+        S4 = seeds[:4]
+        R = lambda ss, **kw: [dict(init_seed=s, data_seed=s % 1000, **kw) for s in ss]
+        def cell(fam, nu, frac=0.5, opt="gdm", **kw):
+            return dict(dict(family=fam, nu=nu, m=512, mode="train", frac_train=frac, opt=opt, warmup_steps=1, clip=1.0, ckpt_every=5000), **kw)
+        arms = lambda: sum([R(S4, init_scale=a, lr=0.1, weight_decay=wd) for a in (2.0, 4.0) for wd in (1e-3, 1e-4)], [])
+        for fam, nu, frac in (("relu", 4, 0.5), ("relu", 4, 0.7), ("relu", 2, 0.5), ("relu", 3, 0.5), ("relu", 6, 0.5), ("quad", 3, 0.5), ("quad", 4, 0.5)):
+            jobs.append(("LYU", cell(fam, nu, frac), arms()))
+        jobs.append(("LYU", cell("relu", 4, opt="gd"), sum([R(S4, init_scale=a, lr=1.0, weight_decay=wd) for a in (2.0, 4.0) for wd in (1e-3, 1e-4)], [])))
     if args.cohort in ("F", "all2"):          # init-scale sweep at wd=1
         for fam, nu in (("relu", 4), ("quad", 3)):
             runs = [dict(init_scale=sc, weight_decay=1.0, init_seed=s, data_seed=s % 1000)
@@ -450,7 +535,7 @@ def plan(args):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--cohort", default="all", choices=["A", "B", "C", "all", "D", "E", "F", "all2", "G", "H", "all3", "I", "J", "all4", "M", "MG"])
+    ap.add_argument("--cohort", default="all", choices=["A", "B", "C", "all", "D", "E", "F", "all2", "G", "H", "all3", "I", "J", "all4", "M", "MG", "CLEAN", "OPT", "L2", "PILOT", "LYU"])
     ap.add_argument("--gd-lrs", type=float, nargs="+", default=[1.0, 3.0, 10.0])
     ap.add_argument("--gd-wds", type=float, nargs="+", default=[3e-4, 1e-3, 3e-3])
     ap.add_argument("--fracs", type=float, nargs="+", default=[0.3, 0.5, 0.7, 0.9, 1.0])
@@ -482,12 +567,14 @@ def main():
                 c = Config(**tmpl, **rk, num_epochs=args.epochs)
                 c.nu = c.degree
                 lay = f"_L{c.layout[0]}{c.layout[1]}" if c.layout_pre >= 0 else ""
-                fr = f"_f{c.frac_train:g}" if cohort in ("G", "H", "M") else ""
+                fr = f"_f{c.frac_train:g}" if cohort in ("G", "H", "M", "CLEAN", "OPT", "L2", "PILOT", "LYU") else ""
                 cell = f"{c.family}{c.nu}{lay}_m{c.m}_p{c.p}{fr}_{c.mode}"
                 sc = f"_sc{c.init_scale:g}" if c.init_scale != 1.0 else ""
-                if c.opt == "gd": cell += "_gd"
+                if c.opt != "adamw": cell += f"_{c.opt}"
+                if c.adam_eps != 1e-8: cell += f"_eps{c.adam_eps:g}"
+                if c.clip: cell += f"_clip{c.clip:g}"
                 if c.init_from: cell += "_warm"
-                tag = (f"wd{c.weight_decay:g}_lr{c.lr:g}{sc}" if c.opt == "gd" else
+                tag = (f"wd{c.weight_decay:g}_lr{c.lr:g}{sc}" if (c.opt != "adamw" or c.adam_eps != 1e-8) else
                        f"wd{c.weight_decay:g}{sc}" if c.mode == "train" else
                        f"lam{c.lam:g}" if c.mode == "l2nu" else "mm")
                 rd = RUNS / cohort / cell / f"{tag}_s{c.init_seed}"

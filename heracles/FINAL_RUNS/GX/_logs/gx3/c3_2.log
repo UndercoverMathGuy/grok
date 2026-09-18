@@ -1,0 +1,31 @@
+s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-std-std_sign-sign-5a-5b: |G| 120, 4 seeds, dev cuda
+  step   2000 lr  0.20 ce med 4.784e+00 max 4.785e+00 acc(all rows) min 0.0108 med 0.0110 |theta|^2 med 2277.9 [16s]
+  step   4000 lr  0.80 ce med 4.770e+00 max 4.770e+00 acc(all rows) min 0.0321 med 0.0330 |theta|^2 med 2312.9 [32s]
+  step   6000 lr  3.20 ce med 4.669e+00 max 4.671e+00 acc(all rows) min 0.4184 med 0.4199 |theta|^2 med 3134.6 [50s]
+  warm-up over for every seed at step 6498: [6498, 6460, 6483, 6373]
+  step   8000 lr  3.20 ce med 2.319e-01 max 2.432e-01 acc(all rows) min 0.9974 med 0.9983 |theta|^2 med 12366.8 [69s]
+  step  10000 lr  3.20 ce med 1.627e-01 max 1.659e-01 acc(all rows) min 0.9999 med 1.0000 |theta|^2 med 10284.6 [88s]
+  step  12000 lr  3.20 ce med 1.491e-01 max 1.525e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9720.0 [106s]
+  step  14000 lr  3.20 ce med 1.436e-01 max 1.471e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9531.8 [124s]
+  step  16000 lr  3.20 ce med 1.404e-01 max 1.437e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9440.3 [142s]
+  step  18000 lr  3.20 ce med 1.382e-01 max 1.414e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9391.7 [161s]
+  step  20000 lr  3.20 ce med 1.367e-01 max 1.396e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9359.5 [179s]
+  step  22000 lr  3.20 ce med 1.356e-01 max 1.382e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9333.5 [197s]
+  step  24000 lr  3.20 ce med 1.350e-01 max 1.370e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9305.9 [215s]
+  step  26000 lr  3.20 ce med 1.345e-01 max 1.359e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9270.5 [233s]
+  step  28000 lr  3.20 ce med 1.339e-01 max 1.351e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9227.8 [252s]
+  step  30000 lr  3.20 ce med 1.333e-01 max 1.343e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9190.0 [270s]
+  step  32000 lr  3.20 ce med 1.328e-01 max 1.337e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9159.0 [288s]
+  step  34000 lr  3.20 ce med 1.324e-01 max 1.331e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9132.8 [306s]
+  step  36000 lr  3.20 ce med 1.320e-01 max 1.326e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9108.1 [325s]
+  step  38000 lr  3.20 ce med 1.316e-01 max 1.324e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9083.0 [343s]
+  step  40000 lr  3.20 ce med 1.310e-01 max 1.321e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9055.5 [361s]
+  step  42000 lr  3.20 ce med 1.304e-01 max 1.317e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9029.8 [379s]
+  step  44000 lr  3.20 ce med 1.298e-01 max 1.312e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 9005.3 [397s]
+  step  46000 lr  3.20 ce med 1.292e-01 max 1.309e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8979.1 [416s]
+  step  48000 lr  3.20 ce med 1.288e-01 max 1.305e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8954.8 [434s]
+  step  50000 lr  3.20 ce med 1.282e-01 max 1.302e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8930.3 [452s]
+DONE s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-std-std_sign-sign-5a-5b seed0: acc 1.0000 m_min 1.4245 gamma 1.688e-06 K_abl 5 ['std', 'std_sign', '5a', 'sign', '5b'] leader std share 0.5158267367185648 sign_rel 0.4829806564192572 K_thr10 5 clean 0.490
+DONE s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-std-std_sign-sign-5a-5b seed1: acc 1.0000 m_min 1.5653 gamma 1.876e-06 K_abl 5 ['std_sign', 'std', 'sign', '5b', '5a'] leader std share 0.4897813729702493 sign_rel 0.4391763168714235 K_thr10 5 clean 0.529
+DONE s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-std-std_sign-sign-5a-5b seed2: acc 1.0000 m_min 1.2494 gamma 1.454e-06 K_abl 5 ['std_sign', 'std', 'sign', '5a', '5b'] leader std_sign share 0.4967260988160366 sign_rel 0.43275625481084823 K_thr10 5 clean 0.555
+DONE s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-std-std_sign-sign-5a-5b seed3: acc 1.0000 m_min 1.1114 gamma 1.302e-06 K_abl 5 ['std', 'std_sign', 'sign', '5b', '5a'] leader std_sign share 0.4826173333326707 sign_rel 0.5014799839535427 K_thr10 5 clean 0.491

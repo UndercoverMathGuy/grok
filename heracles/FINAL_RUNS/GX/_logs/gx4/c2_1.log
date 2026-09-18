@@ -1,0 +1,29 @@
+s5_quad_frac0.8_lam0.0001_init4_lrmax3.2_clip0_m500_st40000: |G| 120, 8 seeds, dev cuda
+  step   2000 lr  0.20 ce med 4.767e+00 max 4.769e+00 acc(all rows) min 0.0113 med 0.0122 |theta|^2 med 3110.8 [24s]
+  step   4000 lr  0.80 ce med 4.698e+00 max 4.699e+00 acc(all rows) min 0.0506 med 0.0537 |theta|^2 med 2620.4 [47s]
+  step   6000 lr  3.20 ce med 3.945e+00 max 4.398e+00 acc(all rows) min 0.3985 med 0.4258 |theta|^2 med 3014.7 [70s]
+  step   8000 lr  3.20 ce med 1.215e-01 max 1.243e-01 acc(all rows) min 0.9724 med 0.9743 |theta|^2 med 9165.6 [94s]
+  step  10000 lr  3.20 ce med 1.042e-01 max 1.061e-01 acc(all rows) min 0.9897 med 0.9910 |theta|^2 med 7715.7 [119s]
+  step  12000 lr  3.20 ce med 9.782e-02 max 9.970e-02 acc(all rows) min 0.9929 med 0.9936 |theta|^2 med 7206.9 [147s]
+  step  14000 lr  3.20 ce med 9.464e-02 max 9.620e-02 acc(all rows) min 0.9949 med 0.9955 |theta|^2 med 7008.3 [175s]
+  step  16000 lr  3.20 ce med 9.285e-02 max 9.435e-02 acc(all rows) min 0.9958 med 0.9962 |theta|^2 med 6882.9 [202s]
+  step  18000 lr  3.20 ce med 9.160e-02 max 9.292e-02 acc(all rows) min 0.9963 med 0.9968 |theta|^2 med 6807.5 [230s]
+  step  20000 lr  3.20 ce med 9.052e-02 max 9.170e-02 acc(all rows) min 0.9965 med 0.9972 |theta|^2 med 6743.2 [258s]
+  step  22000 lr  3.20 ce med 8.952e-02 max 9.092e-02 acc(all rows) min 0.9967 med 0.9977 |theta|^2 med 6676.5 [286s]
+  step  24000 lr  3.20 ce med 8.883e-02 max 9.022e-02 acc(all rows) min 0.9970 med 0.9981 |theta|^2 med 6625.5 [314s]
+  step  26000 lr  3.20 ce med 8.832e-02 max 8.954e-02 acc(all rows) min 0.9971 med 0.9983 |theta|^2 med 6590.3 [342s]
+  step  28000 lr  3.20 ce med 8.776e-02 max 8.894e-02 acc(all rows) min 0.9974 med 0.9983 |theta|^2 med 6551.1 [369s]
+  step  30000 lr  3.20 ce med 8.725e-02 max 8.849e-02 acc(all rows) min 0.9975 med 0.9983 |theta|^2 med 6522.9 [397s]
+  step  32000 lr  3.20 ce med 8.678e-02 max 8.812e-02 acc(all rows) min 0.9978 med 0.9988 |theta|^2 med 6502.0 [425s]
+  step  34000 lr  3.20 ce med 8.636e-02 max 8.777e-02 acc(all rows) min 0.9981 med 0.9988 |theta|^2 med 6485.7 [453s]
+  step  36000 lr  3.20 ce med 8.595e-02 max 8.744e-02 acc(all rows) min 0.9984 med 0.9989 |theta|^2 med 6463.6 [481s]
+  step  38000 lr  3.20 ce med 8.556e-02 max 8.710e-02 acc(all rows) min 0.9986 med 0.9990 |theta|^2 med 6443.3 [509s]
+  step  40000 lr  3.20 ce med 8.507e-02 max 8.680e-02 acc(all rows) min 0.9988 med 0.9992 |theta|^2 med 6430.2 [536s]
+DONE s5_quad_frac0.8_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed0: acc 0.9996 m_min -0.5903 gamma -1.183e-06 K_abl None [] leader std share 0.49664655019940834 sign_rel 0.37919374259670924 K_thr10 5 clean 0.534
+DONE s5_quad_frac0.8_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed1: acc 0.9988 m_min -1.8653 gamma -3.659e-06 K_abl None [] leader std_sign share 0.5342685564206217 sign_rel 0.40340516065768456 K_thr10 5 clean 0.480
+DONE s5_quad_frac0.8_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed2: acc 0.9992 m_min -1.5517 gamma -2.987e-06 K_abl None [] leader std share 0.5734009978035074 sign_rel 0.3785061669955664 K_thr10 5 clean 0.499
+DONE s5_quad_frac0.8_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed3: acc 0.9995 m_min -1.2208 gamma -2.337e-06 K_abl None [] leader std share 0.6094054578295391 sign_rel 0.4037314552424807 K_thr10 5 clean 0.481
+DONE s5_quad_frac0.8_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed4: acc 0.9997 m_min -1.0684 gamma -2.275e-06 K_abl None [] leader std_sign share 0.5263582359916221 sign_rel 0.3512345511675131 K_thr10 3 clean 0.546
+DONE s5_quad_frac0.8_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed5: acc 0.9994 m_min -0.5302 gamma -1.026e-06 K_abl None [] leader std share 0.5769346289410675 sign_rel 0.41570828062709814 K_thr10 5 clean 0.460
+DONE s5_quad_frac0.8_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed6: acc 0.9989 m_min -0.9616 gamma -1.818e-06 K_abl None [] leader std share 0.4019543729118001 sign_rel 0.47032858135456873 K_thr10 5 clean 0.473
+DONE s5_quad_frac0.8_lam0.0001_init4_lrmax3.2_clip0_m500_st40000 seed7: acc 0.9991 m_min -1.6012 gamma -3.105e-06 K_abl None [] leader std share 0.7456474435684247 sign_rel 0.31877026110194323 K_thr10 5 clean 0.509

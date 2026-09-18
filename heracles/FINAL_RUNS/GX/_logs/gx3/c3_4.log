@@ -1,0 +1,31 @@
+s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-std_sign-sign: |G| 120, 4 seeds, dev cuda
+  step   2000 lr  0.20 ce med 4.787e+00 max 4.787e+00 acc(all rows) min 0.0142 med 0.0173 |theta|^2 med 465.8 [16s]
+  step   4000 lr  0.80 ce med 4.784e+00 max 4.784e+00 acc(all rows) min 0.0976 med 0.1078 |theta|^2 med 474.6 [33s]
+  step   6000 lr  3.20 ce med 4.761e+00 max 4.762e+00 acc(all rows) min 0.9525 med 0.9576 |theta|^2 med 658.5 [51s]
+  warm-up over for every seed at step 6734: [6697, 6697, 6690, 6734]
+  step   8000 lr  3.20 ce med 2.756e-01 max 2.999e-01 acc(all rows) min 0.9790 med 0.9813 |theta|^2 med 10002.6 [72s]
+  step  10000 lr  3.20 ce med 1.565e-01 max 1.643e-01 acc(all rows) min 0.9997 med 0.9999 |theta|^2 med 9278.2 [91s]
+  step  12000 lr  3.20 ce med 1.388e-01 max 1.436e-01 acc(all rows) min 0.9999 med 0.9999 |theta|^2 med 8950.0 [109s]
+  step  14000 lr  3.20 ce med 1.305e-01 max 1.340e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8828.2 [127s]
+  step  16000 lr  3.20 ce med 1.248e-01 max 1.293e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8770.5 [145s]
+  step  18000 lr  3.20 ce med 1.208e-01 max 1.263e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8731.5 [163s]
+  step  20000 lr  3.20 ce med 1.188e-01 max 1.239e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8692.4 [181s]
+  step  22000 lr  3.20 ce med 1.172e-01 max 1.218e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8663.3 [199s]
+  step  24000 lr  3.20 ce med 1.158e-01 max 1.200e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8641.4 [217s]
+  step  26000 lr  3.20 ce med 1.146e-01 max 1.185e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8624.0 [235s]
+  step  28000 lr  3.20 ce med 1.137e-01 max 1.173e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8610.0 [253s]
+  step  30000 lr  3.20 ce med 1.129e-01 max 1.163e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8598.9 [271s]
+  step  32000 lr  3.20 ce med 1.121e-01 max 1.154e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8589.6 [289s]
+  step  34000 lr  3.20 ce med 1.114e-01 max 1.144e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8581.2 [307s]
+  step  36000 lr  3.20 ce med 1.107e-01 max 1.135e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8571.9 [325s]
+  step  38000 lr  3.20 ce med 1.098e-01 max 1.128e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8558.2 [344s]
+  step  40000 lr  3.20 ce med 1.087e-01 max 1.121e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8539.7 [362s]
+  step  42000 lr  3.20 ce med 1.076e-01 max 1.116e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8526.5 [380s]
+  step  44000 lr  3.20 ce med 1.065e-01 max 1.114e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8519.5 [398s]
+  step  46000 lr  3.20 ce med 1.063e-01 max 1.113e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8511.4 [416s]
+  step  48000 lr  3.20 ce med 1.062e-01 max 1.111e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8501.0 [434s]
+  step  50000 lr  3.20 ce med 1.061e-01 max 1.110e-01 acc(all rows) min 1.0000 med 1.0000 |theta|^2 med 8495.3 [452s]
+DONE s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-std_sign-sign seed0: acc 1.0000 m_min 2.6746 gamma 3.416e-06 K_abl 2 ['sign', 'std_sign'] leader std_sign share 1.0 sign_rel 0.19358903502921423 K_thr10 2 clean 0.770
+DONE s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-std_sign-sign seed1: acc 1.0000 m_min 2.5687 gamma 3.262e-06 K_abl 2 ['std_sign', 'sign'] leader std_sign share 1.0 sign_rel 0.193971111485284 K_thr10 2 clean 0.803
+DONE s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-std_sign-sign seed2: acc 1.0000 m_min 2.8835 gamma 3.749e-06 K_abl 2 ['std_sign', 'sign'] leader std_sign share 1.0 sign_rel 0.17643590505377468 K_thr10 2 clean 0.944
+DONE s5_bil_frac1_lam0.0001_init4_lrmax3.2_clip0_m500_st50000_wdw20000_sup-std_sign-sign seed3: acc 1.0000 m_min 3.6489 gamma 4.660e-06 K_abl 2 ['std_sign', 'sign'] leader std_sign share 1.0 sign_rel 0.2123704308804082 K_thr10 2 clean 0.805

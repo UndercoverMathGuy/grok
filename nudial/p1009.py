@@ -155,7 +155,7 @@ def train_chunked(cfgs, run_dirs, mem_gb=28.0, compile_mode="default",
         for f in ("p", "family", "m", "d", "r", "frac_train", "mode", "layout",
                   "opt", "warmup_steps", "betas", "adam_eps", "num_epochs"):
             assert getattr(c, f) == getattr(c0, f), f"batch must agree on {f}"
-        assert c.mode == "train" and c.opt == "adamw", "p1009: train/adamw only"
+        assert c.mode == "train" and c.opt in ("adamw", "gd", "gdm", "ngd"), "p1009: train mode; adamw/gd/gdm/ngd"
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
     run_dirs = [Path(rd) for rd in run_dirs]
     if save:
@@ -196,7 +196,7 @@ def train_chunked(cfgs, run_dirs, mem_gb=28.0, compile_mode="default",
     m_st = [torch.zeros_like(q) for q in params]
     v_st = [torch.zeros_like(q) for q in params]
     acc = [torch.zeros_like(q) for q in params]
-    b1, b2 = c0.betas; eps = c0.adam_eps
+    b1, b2 = c0.betas; eps = c0.adam_eps; OPT = c0.opt; MU = c0.momentum; CLIP = c0.clip
     lr_base = torch.tensor([c.lr for c in cfgs], device=device)
     wd_v = torch.tensor([c.weight_decay for c in cfgs], device=device)
     lr_t = torch.zeros(M, device=device)
@@ -226,9 +226,21 @@ def train_chunked(cfgs, run_dirs, mem_gb=28.0, compile_mode="default",
                 a_.add_(g)
             tot += per.detach()
         with torch.no_grad():
+            if OPT == "ngd" or CLIP > 0:
+                gn = torch.sqrt(sum((g ** 2).flatten(1).sum(1) for g in acc)) + 1e-12
+            if CLIP > 0:
+                sc = torch.clamp(CLIP / gn, max=1.0)
+                for a_, q in zip(acc, params):
+                    a_.mul_(sc.view(bshape[id(q)]))
             for q, g, m_, v_ in zip(params, acc, m_st, v_st):
                 sh = bshape[id(q)]
                 lr_, wd_ = lr_t.view(sh), wd_v.view(sh)
+                if OPT == "gd":                       # plain GD, coupled l2
+                    q.sub_(lr_ * (g + wd_ * q)); continue
+                if OPT == "gdm":                      # heavy-ball GD, coupled l2
+                    m_.mul_(MU).add_(g + wd_ * q); q.sub_(lr_ * m_); continue
+                if OPT == "ngd":
+                    q.sub_(lr_ * (g / gn.view(sh) + wd_ * q)); continue
                 m_.mul_(b1).add_(g, alpha=1 - b1)
                 v_.mul_(b2).addcmul_(g, g, value=1 - b2)
                 q.mul_(1 - lr_ * wd_)
@@ -294,6 +306,10 @@ def train_chunked(cfgs, run_dirs, mem_gb=28.0, compile_mode="default",
             take_snapshot(epoch)
         lr_t.copy_(lr_base * min(epoch / c0.warmup_steps, 1.0))
         train_hist[epoch].copy_(step())
+        if c0.ckpt_every and (epoch + 1) % c0.ckpt_every == 0 and epoch + 1 < E and save:
+            for i, rd in enumerate(run_dirs):
+                save_file({k: v[i].detach().cpu().contiguous() for k, v in pr.items()},
+                          str(rd / f"ckpt_{epoch + 1:06d}.safetensors"))
         if (epoch + 1) % log_every == 0:
             tr = train_hist[epoch].cpu().numpy()
             te_ce, te_ac = test_stats()
@@ -519,6 +535,12 @@ def main():
     ap.add_argument("--device", default=None)
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--test", action="store_true")
+    ap.add_argument("--opt", default="adamw", choices=["adamw", "gd", "gdm", "ngd"])
+    ap.add_argument("--lr", type=float, default=None, help="default 1e-3 adamw, 0.1 gdm")
+    ap.add_argument("--wd", type=float, default=None, help="default 1.0 adamw, 1e-3 gd-family")
+    ap.add_argument("--ckpt-every", type=int, default=0)
+    ap.add_argument("--seed-offset", type=int, default=0)
+    ap.add_argument("--clip", type=float, default=0.0)
     args = ap.parse_args()
     if args.test:
         ok = test_grad() & test_fft()
@@ -528,16 +550,20 @@ def main():
         args.compile, args.device = "off", "cpu"
         args.log_every, args.spectra_every = 100, 100
 
-    seeds = draw_seeds(32)[:args.seeds]
-    cell = f"relu4_m{args.width}_p{args.p}_f0.5_train"
+    seeds = draw_seeds(32)[args.seed_offset:args.seed_offset + args.seeds]
+    ad = args.opt == "adamw"
+    lr = args.lr if args.lr is not None else (1e-3 if ad else 0.1)
+    wd = args.wd if args.wd is not None else (1.0 if ad else 1e-3)
+    cell = f"relu4_m{args.width}_p{args.p}_f0.5_train" + ("" if ad else f"_{args.opt}")
     cfgs, dirs = [], []
     for s in seeds:
         c = Config(p=args.p, family="relu", nu=4, m=args.width, d=128, r=128,
-                   frac_train=0.5, mode="train", weight_decay=1.0, lr=1e-3,
+                   frac_train=0.5, mode="train", weight_decay=wd, lr=lr, opt=args.opt,
+                   warmup_steps=10 if ad else 1, ckpt_every=args.ckpt_every, clip=args.clip,
                    init_scale=1.0, init_seed=s, data_seed=s % 1000,
                    num_epochs=args.epochs)
         c.nu = c.degree
-        rd = RUNS / f"P{args.p}" / cell / f"wd{c.weight_decay:g}_s{s}"
+        rd = RUNS / f"P{args.p}" / cell / (f"wd{c.weight_decay:g}_s{s}" if ad else f"wd{c.weight_decay:g}_lr{c.lr:g}" + (f"_clip{c.clip:g}" if c.clip else "") + f"_s{s}")
         if (rd / "spectra.npz").exists():
             print(f"skip {rd} (done)"); continue
         cfgs.append(c); dirs.append(rd)

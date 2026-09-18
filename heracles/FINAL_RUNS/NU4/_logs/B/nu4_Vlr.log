@@ -1,0 +1,39 @@
+device cuda args {'n': 3, 'act': 'prod', 'p': [71], 'penalty': ['l2'], 'q': None, 'seeds': [0], 'lam': 1e-05, 'm': 500, 'steps': 60000, 'lr0': 0.05, 'lrmax': 12.8, 'init_scale': 14.0, 'clip': 1.0, 'wd_warmup': 20000, 'escape_frac': 0.8, 'lrmax2': 0.8, 'resume': None, 'tied': False, 'chunk': 400000, 'grid': True, 'trace_every': 20000, 'out': 'heracles/runs/NU4', 'resume_tag': ''}
+  table p71 n3 tied=False: 357911 rows in 1 chunks [1s]
+/workspace/heracles/nsum.py:224: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+  tot = loss_ce + float(pen)
+  n3 prod p71 l2 s0 step   2000 lr   0.20 loss 5.314e+00 ce 4.961e+00 acc 0.0143  [65s]
+  n3 prod p71 l2 s0 step   4000 lr   0.80 loss 4.890e+00 ce 4.583e+00 acc 0.0156  [130s]
+  n3 prod p71 l2 s0 step   6000 lr   3.20 loss 4.536e+00 ce 4.286e+00 acc 0.0214  [195s]
+  warm-up ends at step 6918 (ce 3.409 vs 0.8 ln p = 3.410); wd on, lr cap 0.8
+  n3 prod p71 l2 s0 step   8000 lr   0.80 loss 1.742e+00 ce 1.474e+00 acc 0.5723  [261s]
+  n3 prod p71 l2 s0 step  10000 lr   0.80 loss 5.261e-01 ce 2.318e-01 acc 0.9403  [326s]
+  n3 prod p71 l2 s0 step  12000 lr   0.80 loss 3.940e-01 ce 9.811e-02 acc 0.9778  [391s]
+  n3 prod p71 l2 s0 step  14000 lr   0.80 loss 3.448e-01 ce 5.440e-02 acc 0.9895  [457s]
+  n3 prod p71 l2 s0 step  16000 lr   0.80 loss 3.215e-01 ce 3.939e-02 acc 0.9930  [522s]
+  n3 prod p71 l2 s0 step  18000 lr   0.80 loss 3.055e-01 ce 3.251e-02 acc 0.9948  [587s]
+  n3 prod p71 l2 s0 step  20000 lr   0.80 loss 2.924e-01 ce 2.866e-02 acc 0.9958  [652s]
+  TRACE step 20000 margin -6.816 gamma -9.801e-09 K5 6 K2 7 N05 7 clean 0.394
+  n3 prod p71 l2 s0 step  22000 lr   0.80 loss 2.809e-01 ce 2.623e-02 acc 0.9964  [718s]
+  n3 prod p71 l2 s0 step  24000 lr   0.80 loss 2.705e-01 ce 2.456e-02 acc 0.9968  [783s]
+  n3 prod p71 l2 s0 step  26000 lr   0.80 loss 2.610e-01 ce 2.332e-02 acc 0.9971  [849s]
+  n3 prod p71 l2 s0 step  28000 lr   0.80 loss 2.522e-01 ce 2.235e-02 acc 0.9974  [914s]
+  n3 prod p71 l2 s0 step  30000 lr   0.80 loss 2.441e-01 ce 2.154e-02 acc 0.9976  [980s]
+  n3 prod p71 l2 s0 step  32000 lr   0.80 loss 2.364e-01 ce 2.084e-02 acc 0.9978  [1045s]
+  n3 prod p71 l2 s0 step  34000 lr   0.80 loss 2.293e-01 ce 2.020e-02 acc 0.9980  [1110s]
+  n3 prod p71 l2 s0 step  36000 lr   0.80 loss 2.226e-01 ce 1.962e-02 acc 0.9982  [1176s]
+  n3 prod p71 l2 s0 step  38000 lr   0.80 loss 2.163e-01 ce 1.908e-02 acc 0.9984  [1241s]
+  n3 prod p71 l2 s0 step  40000 lr   0.80 loss 2.103e-01 ce 1.856e-02 acc 0.9986  [1306s]
+  TRACE step 40000 margin -4.202 gamma -1.143e-08 K5 7 K2 7 N05 7 clean 0.424
+  n3 prod p71 l2 s0 step  42000 lr   0.80 loss 2.047e-01 ce 1.806e-02 acc 0.9987  [1371s]
+  n3 prod p71 l2 s0 step  44000 lr   0.80 loss 1.994e-01 ce 1.758e-02 acc 0.9988  [1437s]
+  n3 prod p71 l2 s0 step  46000 lr   0.80 loss 1.944e-01 ce 1.709e-02 acc 0.9989  [1502s]
+  n3 prod p71 l2 s0 step  48000 lr   0.80 loss 1.896e-01 ce 1.661e-02 acc 0.9991  [1567s]
+  n3 prod p71 l2 s0 step  50000 lr   0.80 loss 1.851e-01 ce 1.614e-02 acc 0.9992  [1633s]
+  n3 prod p71 l2 s0 step  52000 lr   0.80 loss 1.808e-01 ce 1.567e-02 acc 0.9993  [1698s]
+  n3 prod p71 l2 s0 step  54000 lr   0.80 loss 1.767e-01 ce 1.523e-02 acc 0.9994  [1763s]
+  n3 prod p71 l2 s0 step  56000 lr   0.80 loss 1.728e-01 ce 1.481e-02 acc 0.9994  [1829s]
+  n3 prod p71 l2 s0 step  58000 lr   0.80 loss 1.691e-01 ce 1.443e-02 acc 0.9995  [1894s]
+  n3 prod p71 l2 s0 step  60000 lr   0.80 loss 1.655e-01 ce 1.409e-02 acc 0.9995  [1959s]
+DONE n3_prod_p71_l2_lam1e-05_lrmax12.8_init14_m500_st60000_clip1_wdw20000_esc0.8_lr20.8 seed0: acc 0.9995 margin -2.5526 gamma -1.113e-08 K_2pct 7 K_5pct 7 N_05 7 clean 0.444 top-share 0.691 freqs>=1% 27  [1959s]
