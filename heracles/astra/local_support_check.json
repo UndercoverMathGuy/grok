@@ -1,0 +1,38 @@
+[
+  {
+    "p": 3,
+    "supports": 1,
+    "mode_support_pairs": 9,
+    "maximum_output_support": 2
+  },
+  {
+    "p": 5,
+    "supports": 3,
+    "mode_support_pairs": 75,
+    "maximum_output_support": 4
+  },
+  {
+    "p": 7,
+    "supports": 7,
+    "mode_support_pairs": 343,
+    "maximum_output_support": 6
+  },
+  {
+    "p": 11,
+    "supports": 31,
+    "mode_support_pairs": 3751,
+    "maximum_output_support": 10
+  },
+  {
+    "p": 13,
+    "supports": 63,
+    "mode_support_pairs": 10647,
+    "maximum_output_support": 12
+  },
+  {
+    "p": 17,
+    "supports": 255,
+    "mode_support_pairs": 73695,
+    "maximum_output_support": 16
+  }
+]

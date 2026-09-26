@@ -1,0 +1,30 @@
+{
+  "p": 3,
+  "n": 2,
+  "q": 2,
+  "width": 3,
+  "weight_variables": 27,
+  "active_constraints": 18,
+  "active_jacobian_rank": 14,
+  "critical_dimension": 13,
+  "positive_pivots": [
+    "6",
+    "6",
+    "3/2",
+    "7/12",
+    "51/56",
+    "9/17",
+    "43/54",
+    "1751/3096",
+    "780/1751",
+    "197/960",
+    "351/788"
+  ],
+  "restricted_negative_hessian_rank": 11,
+  "kernel_dimension": 2,
+  "kernel_equals_constant_logit_phase_tangent": true,
+  "margin": "9/8",
+  "squared_norm": "27/2",
+  "norm_multiplier": "1/8",
+  "scope": "Exact local second-order certificate allowing all raw weight directions; not a global bound."
+}

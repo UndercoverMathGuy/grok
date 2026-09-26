@@ -1,0 +1,9 @@
+{
+  "task": 78,
+  "item_id": "C4-nanda-handful",
+  "lens": "citation",
+  "upheld": true,
+  "issues": "None substantive. Independently fetched arXiv abs+HTML and Semantic Scholar: bib fields correct (title, 5 authors, ICLR 2023, arXiv:2301.05217). Sec 3 confirms one-layer transformer, P=113, AdamW lr 1e-3, wd=1. Sec 4.1 confirms 5 key frequencies {14,35,41,42,52} and 6 significant frequencies in W_E. App C.2.1 confirms other seeds use varying small sets. Sec 5.3 confirms no grokking without weight decay. Caveat: weight decay is AdamW's decoupled decay in a transformer; the sentence is descriptive, so it stays accurate. Workflow note: WebSearch returned 'used its web search budget (200 of 200 WebSearch calls)'. The shared session search cap is exhausted, and later verifiers can only use WebFetch.",
+  "corrected_verdict": "SUPPORTED",
+  "extra_citations": []
+}

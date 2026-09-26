@@ -1,0 +1,3 @@
+ok n 126 frac_match 0.0159 frac n_near>=K 0.0952 jacc .05/.01 0.183 0.125 n_near.01 vs n_tight exact 0.00794 supported False
+not_converged n 45 frac_match 0.0222 frac n_near>=K 0.0222 jacc .05/.01 0.125 0 n_near.01 vs n_tight exact 0.0222 supported False
+controls all match: True

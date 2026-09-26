@@ -1,0 +1,29 @@
+{
+ "id": "U7-group-tensor",
+ "verdict": "CITATION_FOUND",
+ "evidence": "The sentence at groups.tex:4 has no citation, and refs.bib has none of the candidate papers (11 entries).\n\nSources checked:\n- Strassen 1969: bibliographic data confirmed from Crossref (api.crossref.org/works/10.1007/BF02165411): \"Gaussian elimination is not optimal\", Numer. Math. 13(4):354-356. Springer's page is behind a login.\n- Bl\u00e4ser 2013, \"Fast Matrix Multiplication\", ToC Graduate Surveys 5, pp. 1-60, doi 10.4086/toc.gs.2013.005. I fetched the landing page and the full PDF.\n  - Sec. 1, Eq. (1.1): the standard algorithm \"altogether uses n^3 multiplications\".\n  - Def. 4.4/4.5: the rank is the minimal number of products of linear forms, which equals the minimal number of triads.\n  - Sec. 5: <k,m,n> is the matmul tensor.\n  - Example 5.10: R(<2,2,2>)=7 (Strassen) and 19<=R(<3,3,3>)<=23.\n- Shutman, Louidor, Tessler, arXiv 2509.06931 (fetched abs and html). Prop. 5.2: \"Denote by m_d the tensor rank of matrix multiplication for real d\u00d7d matrices. Then ... rank(delta_{G,phi^{\u22973}}) <= m_d (type I), 3m_{d/2} (type II), 8m_{d/2} (type III).\" They also note that the naive Gaussian implementation gives d_phi^3. Their setting is Hadamard/product nets trained with plain GD, with no norm or margin. This is the ML precedent for the claim that per-irrep width is set by the matmul tensor rank. What we add is the L_{2,b} norm price.\n- Stander et al., ICML 2024 (PMLR 235:46441-46467): metadata confirmed. It is about coset circuits and does not support the tensor/schoolbook sentence.\n- Chughtai et al. 2023 is already in the bib. Its GCR algorithm is the natural mechanistic citation for irrep matrix multiplication.\n\nCaveat: the d^nu count for degree nu is our own generalisation of schoolbook's d^3. Strassen and Bl\u00e4ser only cover the bilinear case.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/u7-group-tensor/CHECK.md. The web-search budget had run out, so every source came from direct fetches.",
+ "recommended_citations": [
+  {
+   "key": "strassen1969",
+   "bibtex": "@article{strassen1969,\n  title={Gaussian elimination is not optimal},\n  author={Strassen, Volker},\n  journal={Numerische Mathematik},\n  volume={13},\n  number={4},\n  pages={354--356},\n  year={1969},\n  doi={10.1007/BF02165411}\n}",
+   "url": "https://api.crossref.org/works/10.1007/BF02165411",
+   "confirmed": true,
+   "why": "Supports 'how cheaply the matrix-multiplication tensor can be written as a sum of products'. It is the canonical result that the matmul tensor decomposes more cheaply than schoolbook: 7 products for 2x2."
+  },
+  {
+   "key": "blaser2013",
+   "bibtex": "@article{blaser2013,\n  title={Fast Matrix Multiplication},\n  author={Bl{\\\"a}ser, Markus},\n  journal={Theory of Computing Library, Graduate Surveys},\n  number={5},\n  pages={1--60},\n  year={2013},\n  doi={10.4086/toc.gs.2013.005}\n}",
+   "url": "https://theoryofcomputing.org/articles/gs005/",
+   "confirmed": true,
+   "why": "Textbook reference for tensor rank as the minimal number of products (Def. 4.4/4.5), for the schoolbook n^3 count (Sec. 1, Eq. 1.1) and for the matmul tensor <n,n,n> (Sec. 5). It supports the 'schoolbook algorithm' phrase."
+  },
+  {
+   "key": "shutman2025",
+   "bibtex": "@article{shutman2025,\n  title={Learning words in groups: fusion algebras, tensor ranks and grokking},\n  author={Shutman, Maor and Louidor, Oren and Tessler, Ran},\n  journal={arXiv preprint arXiv:2509.06931},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2509.06931",
+   "confirmed": true,
+   "why": "Prop. 5.2 bounds the rank of each irrep's block by m_d, the tensor rank of dxd matmul, and notes that the naive algorithm gives d^3. It is the direct ML precedent for 'irrep cost = matmul tensor decomposition'. Their setting has no norm or margin, so our contribution is the norm price."
+  }
+ ],
+ "recommended_change": "In groups.tex line 4, change \"...a price set by how cheaply the matrix-multiplication tensor can be written as a sum of products; at even degree this is the schoolbook algorithm, with $d^\\nu$ neurons per $d$-dimensional representation.\" to \"...a price set by how cheaply the matrix-multiplication tensor can be written as a sum of products \\citep{strassen1969,blaser2013}; \\citet{shutman2025} bound the width each irreducible representation needs by this tensor rank, and we add its price under the $L_{2,b}$ norm. At even degree the price is attained by the degree-$\\nu$ analogue of the schoolbook algorithm, with $d^\\nu$ neurons per $d$-dimensional representation.\" Optionally cite \\citet{chughtai2023toy} (already in the bib) for irrep matrix multiplication in trained networks. Do not cite Stander et al. here; it belongs in the S5 empirics, as the coset-circuit contrast."
+}

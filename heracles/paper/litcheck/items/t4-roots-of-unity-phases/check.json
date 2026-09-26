@@ -1,0 +1,36 @@
+{
+ "id": "T4-roots-of-unity-phases",
+ "verdict": "PARTIALLY_KNOWN",
+ "evidence": "Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/t4-roots-of-unity-phases/CHECK.md.\n\n(1) Mohlenkamp & Monzon, \"Trigonometric identities and sums of separable functions\", Math. Intelligencer 27(2):65-69, 2005.\n- Metadata confirmed via Crossref. Full text read from the Ohio University preprint.\n- Theorem 2: sin(sum_{j=1}^n x_j) = sum_j sin(x_j) prod_{k!=j} sin(x_k+alpha_k-alpha_j)/sin(alpha_k-alpha_j), for any distinct alpha. So the sine of a sum of n variables has separation rank (tensor rank) n instead of 2^{n-1}.\n- Fig. 1 (right) uses alpha=0, pi/3, 2pi/3 \"The amplitude has been equidistributed\". These are exactly our nu=3 phases.\n- Their Remarks say the result extends to cos.\n- I checked numerically that their identity with equally spaced alpha_j=pi j/nu holds, and that our nu-block identity sum_l prod_t cos(theta_t+alpha_l) cos(theta_c+n alpha_l) = nu 2^{-n} cos(sum theta - theta_c) holds, for nu=2..5.\n- Our block is the equally spaced cosine case of this rank-nu decomposition.\n\n(2) Gromov 2023 (arXiv 2301.02679), Eqs. (6)-(16).\n- Phase constraint (12) is phi1+phi2=phi3.\n- The unwanted product-to-sum terms are suppressed only approximately, using i.i.d. uniform random phases (Eq. 15: sum_k cos(2pi k s/p+phi_k) << N): \"each frequency appears several times with different random phases ultimately leading to a better wave interference.\"\n\n(3) Morwani et al. ICLR 2024, App. F.2.\n- Uses 8 neurons per frequency with phase triples (0,0,0), (0,pi,pi), (pi/2,-pi/2,0), (pi/2,pi/2,pi), (-pi/2,0,-pi/2), (-pi/2,pi,pi/2), (0,-pi/2,-pi/2), (0,pi/2,pi/2).\n- Each of the 4 cos/sin terms of cos(a+b-c) comes from a sign pair. Cancellation is exact, but it relies on sign and quarter-turn phases.\n- App. C (parity) has the sign-vector version: \"every term other than Pi x_{S_i} cancels out in the sum\".\n\n(4) Li, Liang, Shi, Song, Zhou, AISTATS 2025, App. E.3 (Lemma E.3).\n- Uses 2^{2k-1} neurons per frequency: the 2^k cos/sin terms of Eq. 25, each built by 2^{k-1} neurons.\n- This is the +-1 polarization identity 2^k k! prod d_i = sum_{c in {+-1}^k} (-1)^{(k-sum c)/2}(sum c_j d_j)^k, i.e. the Z_2 version of the roots-of-unity idea.\n\n(5) He, Wang, Chen, Yang, arXiv 2602.16849, Def. 4.1(iii).\n- Requires sum_{m in N_k} exp(i iota phi_m)=0 for iota in {2,4}. Equally spaced phases satisfy this phase-moment cancellation.\n- The setting is quadratic nets, and the 2x and 2y noise peaks are left uncancelled (Prop 4.2).\n\n(6) The underlying identity sum_l omega^{lu} = nu[nu|u] is the textbook roots-of-unity filter / series multisection.\n\nWhat is ours:\n- The block is the unique equality case of the cost lemma: chain vectors are orthogonal iff zeta is a non-trivial nu-th root of unity.\n- It gives exact norm optimality with the minimum nu neurons per feature. The ML constructions above use 8 or 2^{2nu-3} neurons, or cancel only approximately.\n- I found no ML paper that uses the rank-nu separated form.\n\nSearches run:\n- Gromov, Morwani and Li full texts, grepped for phase and cancellation.\n- He et al. text.\n- Web: \"Mohlenkamp Monzon trigonometric identities sums of separable functions\", \"roots of unity filter series multisection\", \"Fischer sums of like powers of multivariate linear forms\".\n- Fischer, Math. Mag. 67(1):59-61, 1994: metadata confirmed, but its roots-of-unity content was not verified, so no bib entry.",
+ "recommended_citations": [
+  {
+   "key": "mohlenkamp2005trig",
+   "bibtex": "@article{mohlenkamp2005trig,\n  title={Trigonometric identities and sums of separable functions},\n  author={Mohlenkamp, Martin J. and Monz{\\'o}n, Lucas},\n  journal={The Mathematical Intelligencer},\n  volume={27},\n  number={2},\n  pages={65--69},\n  year={2005},\n  doi={10.1007/BF02985795}\n}",
+   "url": "https://api.crossref.org/works/10.1007/BF02985795",
+   "confirmed": true,
+   "why": "Supports the sentence 'The phases are a rotated copy of the nu-th roots of unity' (cyclic.tex l.58). Their Thm 2 proves that a trig function of a sum of n variables has an exact rank-n separated representation, instead of the naive 2^{n-1}. Their Fig. 1 uses the equally spaced phases 0, pi/3, 2pi/3, which is our nu=3 block."
+  },
+  {
+   "key": "gromov2023grokking",
+   "bibtex": "(already in refs.bib)",
+   "url": "https://arxiv.org/abs/2301.02679",
+   "confirmed": true,
+   "why": "Contrast: Eqs. (12)-(15) cancel the unwanted terms only approximately, using many neurons with random uniform phases."
+  },
+  {
+   "key": "morwani2024feature",
+   "bibtex": "(already in refs.bib)",
+   "url": "https://arxiv.org/abs/2311.07568",
+   "confirmed": true,
+   "why": "Contrast: App. F.2 cancels exactly using sign pairs with phases in {0, pi/2, pi}, which takes 8 neurons per frequency at nu=3."
+  },
+  {
+   "key": "li2025nsum",
+   "bibtex": "(already in refs.bib)",
+   "url": "https://proceedings.mlr.press/v258/li25b.html",
+   "confirmed": true,
+   "why": "Contrast: App. E.3 (Lemma E.3) cancels exactly using the +-1 polarization identity, which takes 2^{2k-1} neurons per frequency."
+  }
+ ],
+ "recommended_change": "In cyclic.tex after line 58 ('...they cancel every sign-flipped copy.'), insert: \"This is the equally-spaced case of the rank-$\\nu$ separated representation of a trigonometric function of a sum of $\\nu$ variables \\citep{mohlenkamp2005trig}. Earlier max-margin constructions cancel the unwanted terms with $\\pm1$ sign patterns, using $8$ neurons per frequency at $\\nu=3$ \\citep{morwani2024feature} and $2^{2\\nu-3}$ in general \\citep{li2025nsum}. \\citet{gromov2023grokking} cancels them only approximately, with random phases. Here the roots-of-unity block is the equality case of Lemma~\\ref{lem:cost}, so $\\nu$ neurons per feature are also norm-optimal.\" Add the mohlenkamp2005trig bib entry. Do not claim the identity itself as new."
+}

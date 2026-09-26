@@ -1,0 +1,174 @@
+[
+ {
+  "p": 13,
+  "T": [
+   1
+  ],
+  "L": 24,
+  "one_sided": 0.962635,
+  "two_sided": 0.984216,
+  "transfer": 0.576971,
+  "passes": true
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   2
+  ],
+  "L": 16,
+  "one_sided": 0.468287,
+  "two_sided": 0.796505,
+  "transfer": 0.506464,
+  "passes": true
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   3
+  ],
+  "L": 16,
+  "one_sided": 0.63612,
+  "two_sided": 0.679381,
+  "transfer": 0.499762,
+  "passes": true
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   5
+  ],
+  "L": 16,
+  "one_sided": 0.650038,
+  "two_sided": 0.801285,
+  "transfer": 0.531872,
+  "passes": true
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   2,
+   3
+  ],
+  "L": 12,
+  "one_sided": 0.297092,
+  "two_sided": 0.539416,
+  "transfer": 0.332255,
+  "passes": true
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   2,
+   4
+  ],
+  "L": 12,
+  "one_sided": 0.372651,
+  "two_sided": 0.522878,
+  "transfer": 0.362675,
+  "passes": true
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   2,
+   5
+  ],
+  "L": 12,
+  "one_sided": 0.325429,
+  "two_sided": 0.501372,
+  "transfer": 0.329987,
+  "passes": true
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   3,
+   4
+  ],
+  "L": 12,
+  "one_sided": 0.362566,
+  "two_sided": 0.559469,
+  "transfer": 0.373995,
+  "passes": true
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "L": 8,
+  "one_sided": 0.202498,
+  "two_sided": 0.368428,
+  "transfer": 0.215177,
+  "passes": false
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   2,
+   3,
+   5
+  ],
+  "L": 8,
+  "one_sided": 0.228572,
+  "two_sided": 0.395934,
+  "transfer": 0.238335,
+  "passes": false
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   2,
+   3,
+   6
+  ],
+  "L": 8,
+  "one_sided": 0.225346,
+  "two_sided": 0.381959,
+  "transfer": 0.231126,
+  "passes": false
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "L": 6,
+  "one_sided": 0.138204,
+  "two_sided": 0.314209,
+  "transfer": 0.165279,
+  "passes": false
+ },
+ {
+  "p": 13,
+  "T": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "L": 6,
+  "one_sided": 0.075851,
+  "two_sided": 0.260208,
+  "transfer": 0.118599,
+  "passes": false
+ }
+]

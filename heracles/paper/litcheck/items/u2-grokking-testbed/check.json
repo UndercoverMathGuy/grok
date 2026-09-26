@@ -1,0 +1,36 @@
+{
+ "id": "U2-grokking-testbed",
+ "verdict": "CITATION_FOUND",
+ "evidence": "refs.bib has power2022grokking and gromov2023grokking, but no section cites them. Grepping sections/*.tex finds only morwani, nanda, chughtai, mccracken, wei, alon, hoeffding. Liu 2022 and Zhong 2023 are not in the bib.\n\nSources fetched this session:\n(1) arXiv 2201.02177, Power et al. From the PDF: \"We train on the binary operation of division mod 97\", and the appendix lists the \"binary operations that we have tried (for a prime number p = 97)\". This paper is the origin of the grokking testbed.\n(2) arXiv 2301.02679, Gromov 2023. Sec. 3.1, Eqs. (6)-(7) give an analytic solution for modular addition by a two-layer net with quadratic activation. The weights are periodic with frequencies k = 0..(p-1)/2, the phases are random and satisfy constraint (12), and each frequency repeats with different random phases. This is the precursor of the Fourier constructions, so it also belongs in prelim/approach.\n(3) arXiv 2205.10343, Liu et al. The arXiv page lists NeurIPS 2022. Effective theory and phase diagram of grokking.\n(4) arXiv 2306.17844, Zhong et al. The arXiv page lists NeurIPS 2023. On modular addition, different hyperparameters and inits give Clock vs Pizza algorithms.\n\nVenues for (3) and (4) come from the arXiv comment fields. Proceedings pages were not checked: the web-search budget ran out and Semantic Scholar returned 429.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/u2-grokking-testbed/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "power2022grokking",
+   "bibtex": "@article{power2022grokking,\n  title={Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets},\n  author={Power, Alethea and Burda, Yuri and Edwards, Harri and Babuschkin, Igor and Misra, Vedant},\n  journal={arXiv preprint arXiv:2201.02177},\n  year={2022}\n}",
+   "url": "https://arxiv.org/abs/2201.02177",
+   "confirmed": true,
+   "why": "Intro: modular arithmetic (p=97 binary-operation tables) as the canonical grokking testbed; already in bib, just uncited."
+  },
+  {
+   "key": "gromov2023grokking",
+   "bibtex": "@article{gromov2023grokking,\n  title={Grokking modular arithmetic},\n  author={Gromov, Andrey},\n  journal={arXiv preprint arXiv:2301.02679},\n  year={2023}\n}",
+   "url": "https://arxiv.org/abs/2301.02679",
+   "confirmed": true,
+   "why": "Intro + prelim: Sec 3.1 Eqs (6)-(7) give the analytic periodic-weight (Fourier) solution to modular addition for quadratic two-layer nets with random phases; precursor to Morwani's and our constructions. Already in bib, uncited."
+  },
+  {
+   "key": "liu2022towards",
+   "bibtex": "@inproceedings{liu2022towards,\n  title={Towards Understanding Grokking: An Effective Theory of Representation Learning},\n  author={Liu, Ziming and Kitouni, Ouail and Nolte, Niklas and Michaud, Eric J. and Tegmark, Max and Williams, Mike},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2022},\n  note={arXiv:2205.10343}\n}",
+   "url": "https://arxiv.org/abs/2205.10343",
+   "confirmed": true,
+   "why": "Intro background on grokking on arithmetic tasks and the role of weight decay (phase diagrams). Venue from the arXiv comment field."
+  },
+  {
+   "key": "zhong2023clock",
+   "bibtex": "@inproceedings{zhong2023clock,\n  title={The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks},\n  author={Zhong, Ziqian and Liu, Ziming and Tegmark, Max and Andreas, Jacob},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2023},\n  note={arXiv:2306.17844}\n}",
+   "url": "https://arxiv.org/abs/2306.17844",
+   "confirmed": true,
+   "why": "Intro: on modular addition, the learned algorithm depends on hyperparameters and init (Clock vs Pizza). Supports the point that the circuit found is not fixed and motivates asking what decides it. Venue from the arXiv comment field."
+  }
+ ],
+ "recommended_change": "Intro, para 2: open with \"Modular addition is the standard testbed for grokking \\citep{power2022grokking,liu2022towards} and for mechanistic interpretability, where trained networks are found to implement Fourier circuits \\citep{nanda2023progress,gromov2023grokking,zhong2023clock}.\" In prelim/approach, cite gromov2023grokking next to morwani2024feature for the analytic Fourier construction in quadratic nets. Add the liu2022towards and zhong2023clock bib entries."
+}

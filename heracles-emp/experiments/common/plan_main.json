@@ -1,0 +1,9 @@
+{"pods": {
+ "P1": {"host": "213.173.110.151", "port": 13256, "steps": [["E1", ["E1_nu4_p59_b00", "E1_nu3_p113_b00"]], ["E6", ["E6_pairs_b00", "E6_marginals_b00", "E6_marginals_b01"]]]},
+ "P2": {"host": "157.157.221.29", "port": 32812, "steps": [["E1", ["E1_nu4_p59_b01", "E1_nu4_p43_b00"]]]},
+ "P3": {"host": "213.173.111.15", "port": 10853, "steps": [["E1", ["E1_nu5_p17_b00", "E1_nu5_p13_b00", "E1_nu5_p11_b00"]]]},
+ "P4": {"host": "213.173.110.226", "port": 39505, "steps": [["E7", ["E7_nu4_p37_b00", "E7_nu4_p37_b01"]], ["E1", ["E1_nu3_p23_b00", "E1_nu3_p31_b00", "E1_nu3_p43_b00", "E1_nu3_p83_b00"]]]},
+ "P5": {"host": "47.47.180.58", "port": 14713, "steps": [["E3", ["E3_product_nu4_p59_b00", "E3_product_nu4_p43_b00", "E3_product_nu4_p23_b00"]], ["E1", ["E1_nu3_p59_b00", "E1_nu4_p17_b00"]]]},
+ "P6": {"host": "47.47.180.58", "port": 16409, "steps": [["E3", ["E3_product_nu3_p23_b00", "E3_product_nu3_p59_b00", "E3_product_nu3_p113_b00", "E3_power_nu3_p23_b00", "E3_power_nu3_p59_b00", "E3_power_nu3_p113_b00"]], ["E1", ["E1_nu4_p23_b00", "E1_nu4_p31_b00"]]]},
+ "P8": {"host": "149.36.1.192", "port": 22337, "steps": [["E3", ["E3_product_nu5_p11_b00", "E3_product_nu5_p13_b00", "E3_product_nu5_p17_b00"]], ["E8", ["E8_nu3_p11_b00", "E8_nu3_p13_b00", "E8_nu3_p17_b00", "E8_nu3_p19_b00", "E8_nu3_p29_b00", "E8_nu3_p37_b00", "E8_nu3_p47_b00", "E8_nu3_p71_b00"]]]}
+}}

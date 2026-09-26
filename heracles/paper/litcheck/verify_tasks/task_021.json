@@ -1,0 +1,34 @@
+{
+ "item": {
+  "id": "R23-bottleneck",
+  "kind": "our_result",
+  "location": "cyclic.tex prop:bottleneck",
+  "statement": "A maximizer with K features has K tight offsets with linearly independent coverage rows on the support; y is the unique solution; 2K candidates are simultaneously hardest wrong answers",
+  "what_to_check": "Relation to LP basic solutions and Chebyshev equioscillation"
+ },
+ "chk": {
+  "id": "R23-bottleneck",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r23-bottleneck/CHECK.md.\n\nThe proof in appendix.tex (app:shape) has three steps:\n(a) a maximizer is Gamma_s times a vertex of P_p, because a concave, monotone phi is minimised over a line-free polyhedron;\n(b) at a vertex the active constraints have full rank, so K coverage rows are independent on the support;\n(c) y_S is the unique solution of the square system.\n\nSteps (a) and (b) are textbook: concave minimisation at extreme points (Rockafellar, Convex Analysis, Sec. 32) and the vertex characterisation of LP basic feasible solutions.\n\nClosest prior art is Shapley and Snow, \"Basic Solutions of Discrete Games\" (Contributions to the Theory of Games Vol. I, AM-24, Princeton UP, pp. 27-36). Crossref lists it as 1951, DOI 10.1515/9781400881727-004; it is often cited as 1950. At s=1 the programme is the matrix game with payoff cov(j,delta), and Shapley-Snow characterise extreme optimal strategies through a square sub-game G'. Restated as Thm 2.3.1 in Attia and Oliu-Barton, arXiv 1810.08798: \"A couple (x,y) is a basic solution of G iff there exists a square sub-game G' satisfying ... G' y' = val(G) 1\". Prop 2.3.4(iii) there gives Ker(G' - vU') = <y'>, which is uniqueness. Our proposition is the s>1 analogue: the concave budget keeps the optimum at a vertex of the same polyhedron.\n\nChebyshev equioscillation is only an analogy. Alternation needs the Haar condition, and the Kolmogorov / Rivlin-Shapiro characterisation gives at most n+1 extremal points (survey: Goldsztejn, arXiv 2310.01851). Our coverage system is not Haar, the problem is a budgeted max-min, and our count is a lower bound from vertex rank.\n\nOn the ML side, Morwani et al. ICLR 2024, Lemma 6, says \"all points in the support of q* are on the margin for any maximum margin solution\". That is the dense analogue of tight wrong labels.\n\nI found no paper stating that there are at least K tight wrong-answer offsets for K features in modular addition, or that the amplitude ratios are fixed by an equalising system. Search queries covered Shapley-Snow basic solutions, concave minimisation at vertices, Chebyshev/Haar characterisation, the max-min cosine-sum LP, and modular addition max-margin with tight wrong labels and vertices.",
+  "recommended_citations": [
+   {
+    "key": "shapley1950basic",
+    "bibtex": "@incollection{shapley1950basic,\n  author = {Shapley, L. S. and Snow, R. N.},\n  title = {Basic Solutions of Discrete Games},\n  booktitle = {Contributions to the Theory of Games, Volume I},\n  series = {Annals of Mathematics Studies},\n  number = {24},\n  editor = {Kuhn, H. W. and Tucker, A. W.},\n  publisher = {Princeton University Press},\n  pages = {27--35},\n  year = {1950},\n  doi = {10.1515/9781400881727-004}\n}",
+    "url": "https://doi.org/10.1515/9781400881727-004",
+    "confirmed": true,
+    "why": "Supports the sentence that at s=1 the bottleneck proposition is the Shapley-Snow characterisation. Extreme optimal strategies of a matrix game (payoff cov(j,delta)) correspond to square nonsingular sub-games on which the strategy uniquely solves the equalising system G'y' = val 1. Metadata was confirmed via the Crossref API. The DeGruyter page returned 405. The statement was confirmed via the Attia and Oliu-Barton Thm 2.3.1 restatement. Crossref gives pages 27-36 and year 1951; the entry uses the commonly cited 1950 and 27-35."
+   },
+   {
+    "key": "morwani2024feature",
+    "bibtex": "(already in refs.bib per sweep)",
+    "url": "https://arxiv.org/abs/2311.07568",
+    "confirmed": true,
+    "why": "Lemma 6 says all points in the support of q* are on the margin. This is the dense-case analogue of the tight-wrong-answer statement and can be contrasted with our K tight offsets."
+   }
+  ],
+  "recommended_change": "Add one sentence after prop:bottleneck or in its proof (app:shape): \"This is the vertex (basic-solution) characterisation of linear programming. At s=1 it is exactly the Shapley-Snow description of extreme optimal strategies of the matrix game with payoff cov(j,delta) \\citep{shapley1950basic}. For s>1 the concave budget keeps the optimum at a vertex of the same polyhedron (Proposition shapes), so the same square equalising system persists.\" Present the linear-independence and uniqueness step as standard. Claim as new only the reading: an optimal network is pinned by at least K equally hard wrong answers that fix its amplitude ratios, and exactly K is observed at p<=23. Chebyshev equioscillation can be mentioned as an analogy, but the coverage system is not Haar, so do not call it a special case."
+ },
+ "lens": "novelty_ml",
+ "slug": "r23-bottleneck",
+ "task": 21
+}

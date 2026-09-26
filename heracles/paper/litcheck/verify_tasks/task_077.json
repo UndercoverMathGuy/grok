@@ -1,0 +1,30 @@
+{
+ "item": {
+  "id": "C3-wei-thm41",
+  "kind": "cited_claim",
+  "location": "approach.tex 'By Wei et al. [Theorem 4.1]'",
+  "current_citations": [
+   "wei2019regularization"
+  ],
+  "statement": "Global minimizers of cross-entropy plus lambda ||theta||_{2,b}^b attain normalized margin tending to gamma*_b as lambda -> 0",
+  "what_to_check": "Verify Theorem 4.1 hypotheses: homogeneous networks, multiclass CE, arbitrary norm (does it cover L_{2,b} with b != nu?), exact statement"
+ },
+ "chk": {
+  "id": "C3-wei-thm41",
+  "verdict": "PARTIALLY_SUPPORTED",
+  "evidence": "Read the full text of Wei, Lee, Liu, Ma (arXiv 1810.05369 PDF). Confirmed the venue at proceedings.neurips.cc/paper/2019/hash/8744cf92c88433f8cb04a02e6db69a0d-Abstract.html (NeurIPS 32, 2019).\n\nSec. 4 setup: f(.;Theta) is a-positive-homogeneous in Theta and continuous. The regulariser uses \"some general norm ||.||\", with L_lambda = logistic loss + lambda||Theta||^r for fixed r>0 (eq. 4.1). gamma_lambda is the margin of Theta_lambda/||Theta_lambda||, and gamma* = max_{||Theta||<=1} of the min margin.\n\nTheorem 4.1 covers binary logistic loss only: \"Assume the training data is separable ... gamma*>0. Then the normalized margin of the global optimum of the weakly-regularized objective (equation 4.1) converges to gamma* as the regularization goes to zero.\" The text adds: \"Though the result in this section is stated for binary classification, it extends to the multi-class setting with cross-entropy loss ... Section C.\"\n\nTheorem C.1 (App. C) uses softmax CE + lambda||Theta||^r (eq. C.1) and the margin f_y - max_{j!=y} f_j: \"Assume gamma*>0 in the multi-class setting with cross entropy loss. Then as lambda -> 0, gamma_lambda -> gamma*.\" Theorem 4.1 is proved by reduction to C.1.\n\nHow the hypotheses match our setting:\n- Our net is nu-positive-homogeneous and polynomial, so a = nu and continuity holds.\n- ||theta||_{2,b} with 2<=b<=nu (prelim.tex) is a genuine norm, an l_b norm of l_2 norms with b>=1. Wei's general-norm hypothesis therefore covers b != nu.\n- The regulariser exponent is r = b.\n- The normalized margin h/||theta||^nu and the unit-ball gamma* match Wei's definitions.\n- Separability holds because gamma*_b > 0.\n- The paper's \"global minimizers\" and \"nothing about GD\" agree with Wei's scope.\n\nThe only mismatch: modular addition is a multi-class problem, so the correct pointer is Theorem C.1, not 4.1, which is binary. Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/c3-wei-thm41/CHECK.md.",
+  "recommended_citations": [
+   {
+    "key": "wei2019regularization",
+    "bibtex": "@inproceedings{wei2019regularization,\n  title={Regularization Matters: Generalization and Optimization of Neural Nets v.s. their Induced Kernel},\n  author={Wei, Colin and Lee, Jason D. and Liu, Qiang and Ma, Tengyu},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={32},\n  year={2019}\n}",
+    "url": "https://proceedings.neurips.cc/paper/2019/hash/8744cf92c88433f8cb04a02e6db69a0d-Abstract.html",
+    "confirmed": true,
+    "why": "Supports the approach.tex sentence. Theorem C.1 (the multi-class analogue of Thm 4.1) proves that for any positively homogeneous continuous f, any norm, and any r>0, the global minimizers of cross-entropy + lambda||Theta||^r have normalized margin tending to the max margin gamma*>0 as lambda->0. With a=nu, r=b and ||.||=L_{2,b} (a norm since b>=2), this gives exactly the paper's claim."
+   }
+  ],
+  "recommended_change": "In approach.tex, replace \"By \\citet[Theorem~4.1]{wei2019regularization}, the global minimizers...\" with \"By \\citet[Theorem~4.1; Theorem~C.1 for multi-class cross-entropy]{wei2019regularization}, which holds for any norm and any positively homogeneous network (here $\\gamma^*_b>0$), the global minimizers...\". Alternatively, cite just [Theorem~C.1]. Add volume={32} to the bib entry."
+ },
+ "lens": "citation",
+ "slug": "c3-wei-thm41",
+ "task": 77
+}

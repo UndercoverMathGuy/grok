@@ -1,0 +1,16 @@
+{
+  "task": 4,
+  "item_id": "R7-universal-bound",
+  "lens": "novelty_math",
+  "upheld": true,
+  "corrected_verdict": "PARTIALLY_KNOWN (unchanged). b=nu endpoint known (Morwani Thm 7; Li et al. 2025). Every proof ingredient is known: the pricing step is Gunasekar et al. 2018 Lemmas 6-7 (l2 on the factors of a depth-L diagonal/convolutional product gives L*||beta_hat||_{2/L}^{2/L}, in the Fourier domain, inside a max-margin problem), also Dai et al. 2021; quasi-norm subadditivity is textbook. The bound for b<nu on modular addition, for any width and any kind of neuron, was not found.",
+  "issues": "OPERATIONAL: the WebSearch budget for this session was already exhausted on my first query ('200 of 200 WebSearch calls'), so every later verifier in this run gets no search results. My novelty search was limited to WebFetch on primary sources I already knew. The 'b<nu not found' part therefore rests on the checker's queries plus targeted fetches, not a fresh math-literature sweep. MISSED PRIOR ART (technique): Gunasekar, Lee, Soudry, Srebro, NeurIPS 2018 (arXiv 1806.00468; PDF read). Lemma 6: min ||w||_2^2 over depth-L diagonal factorisations = L||beta||_{2/L}^{2/L}. Lemma 7: the same for linear conv nets, with the Fourier transform of beta. Thm 2a: max-margin in the l_{2/L} quasi-norm of Fourier coefficients. Thm 4: homogeneous polynomial parameterisations. This is the canonical source for the pricing step (amplitude A of a nu-fold product costs a multiple of A^{2/nu}) and predates Hoff, Dai and Fan. It should be cited first. CITATION CHECKS: morwani Thm 7 value and width 4(p-1) confirmed; li2025fourier PMLR 258:523-531 and m>=2^{2k-2}(p-1) confirmed; dai2021 confirmed (the PDF lists diagonal networks -> l_{2/d} quasi-norm and CNN -> quasi-norm on the Fourier domain); fan2023 TMLR Jan 2023 confirmed; kam2026 (2609.17926, submitted 2026-09-15) exists, and App. A.3.2 Eq 15 plus Prop 5 (uniform allocation optimal under ||beta||_2=B, quadratic net) are confirmed, although its abstract is about intrinsic dimension. hoff2017lasso: the arXiv entry and the key sentence are confirmed, but the CSDA journal ref is still unconfirmed (the Elsevier page returned 403), so keep the arXiv bib. WORDING: Hoff, Gunasekar and Dai are all b=2 (sum of squared l2 norms), so the recommended sentence should say 'at b=2; general b is the same AM-GM'.",
+  "extra_citations": [
+    {
+      "key": "gunasekar2018implicit",
+      "bibtex": "@inproceedings{gunasekar2018implicit,\n  title={Implicit Bias of Gradient Descent on Linear Convolutional Networks},\n  author={Gunasekar, Suriya and Lee, Jason D. and Soudry, Daniel and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={31},\n  year={2018}\n}",
+      "url": "https://arxiv.org/abs/1806.00468",
+      "why": "Lemmas 6-7: l2 regularisation on the factors of a depth-L diagonal or convolutional product induces L*||beta_hat||_{2/L}^{2/L} on the Fourier coefficients. Thm 2a is a max-margin statement in that quasi-norm. This is the canonical source for the A^{b/nu} pricing step of thm:universal (at b=2)."
+    }
+  ]
+}

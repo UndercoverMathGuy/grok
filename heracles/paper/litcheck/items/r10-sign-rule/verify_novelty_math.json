@@ -1,0 +1,34 @@
+{
+  "task": 10,
+  "item_id": "R10-sign-rule",
+  "lens": "novelty_math",
+  "upheld": true,
+  "corrected_verdict": "PARTIALLY_KNOWN: the lemma is elementary (Hermitian symmetry, separability of the product DFT, and multinomial pigeonhole for power neurons), and its exact per-operand n-operand form is not stated elsewhere. Its content is already visible in earlier work. Gromov 2023 Eq. (11) has the flipped copies with per-operand phases at n=2. Doshi et al. 2024 App. A.2 covers S-operand power neurons. Cross-neuron cancellation appears approximately in Gromov 2023 and Doshi 2024 (random phases) and exactly in Morwani 2024 App. F.2, Li et al. 2025 Lemma 4.3 and He et al. 2026 Def. 4.1(iii).",
+  "issues": "Verdict label survives, but the checker's evidence and recommended sentence are incomplete. (1) The checker dismissed Gromov 2023 (arXiv 2301.02679, already in refs.bib) after reading only the abstract. Its Sec. 3.1 Eq. (11) explicitly lists one quadratic neuron's sign-flipped copies cos(2pi k(n-m-+q)/p + phi1 - phi2 -+ phi3) with the per-operand unit factor e^{-2i phi2}, and Eqs. (14)-(15) cancel them across neurons with random phases. That is the n=2 case of lem:sign plus cross-neuron cancellation, three years before He et al. (2) Missed: Doshi, He, Das, Gromov 2024 (arXiv 2406.03495) App. A.2 Eq. (18), on S-operand addition with the x^S power activation. Only the multilinear S!/2^S term survives; the other terms, exponentially many in S, are suppressed by 1/N via random phases. This is the n-operand power-neuron analogue. (3) Missed exact cancelling constructions: Morwani et al. App. F.2 (8 neurons per frequency, n=2, 'every term other than [the target] cancels out in the sum') and Li et al. Lemma 4.3/E.3 (2^{2k-1} power neurons per frequency, exact for k operands). The checker's claim that Li has no relevant content is true only for the lemma statement. (4) He et al. 2602.16849 is verified: Jianliang He, Leda Wang, Siyu Chen, Zhuoran Yang; Feb 2026; Eq. 4.1 and Def. 4.1(iii) as described. The recommended sentence, however, gives He et al. priority for flipped copies and cancellation that Gromov 2023 had first. Replace it with: 'The lemma is Hermitian symmetry of the weights' Fourier transform. The sign-flipped copies are explicit in the expansion of \\citet[Eq.~11]{gromov2023grokking}. There, and for S operands with power activation in \\citet[App.~A.2]{doshi2024grokking}, they are suppressed by random phases across neurons. Exact cancelling constructions appear in \\citet[App.~F.2]{morwani2024feature}, \\citet[Lemma~4.3]{li2025nsum} and \\citet[Def.~4.1(iii)]{he2026mechanism}. Lemma~\\ref{lem:cost} prices this cancellation.' Also flag Morwani F.2 and Li Lemma 4.3 as the foil for prop:block (nu neurons versus 8 or 2^{2k-1}). Operational: the session WebSearch budget was exhausted (200/200) and verifiers share one scratchpad with generic filenames, which caused clobbered files; both slow the verify stage.",
+  "extra_citations": [
+    {
+      "key": "gromov2023grokking",
+      "bibtex": "@article{gromov2023grokking,\n  title={Grokking modular arithmetic},\n  author={Gromov, Andrey},\n  journal={arXiv preprint arXiv:2301.02679},\n  year={2023}\n}",
+      "url": "https://arxiv.org/abs/2301.02679",
+      "why": "Already in refs.bib. Sec. 3.1 Eq. (11) lists the sign-flipped copies of one quadratic neuron with per-operand phase factors (n=2 case of lem:sign), and Eqs. (14)-(15) cancel them across neurons via random phases. This is the earliest source."
+    },
+    {
+      "key": "doshi2024grokking",
+      "bibtex": "@article{doshi2024grokking,\n  title={Grokking Modular Polynomials},\n  author={Doshi, Darshil and He, Tianyu and Das, Aritra and Gromov, Andrey},\n  journal={arXiv preprint arXiv:2406.03495},\n  year={2024}\n}",
+      "url": "https://arxiv.org/abs/2406.03495",
+      "why": "App. A.2 Eq. (18) covers S-operand modular addition with x^S (power) activation. Only the multilinear S!/2^S term survives; the other terms, including sign-flipped ones, are suppressed by 1/N via random phases. This is the n-operand power-neuron analogue."
+    },
+    {
+      "key": "he2026mechanism",
+      "bibtex": "@article{he2026mechanism,\n  title={On the Mechanism and Dynamics of Modular Addition: Fourier Features, Lottery Ticket, and Grokking},\n  author={He, Jianliang and Wang, Leda and Chen, Siyu and Yang, Zhuoran},\n  journal={arXiv preprint arXiv:2602.16849},\n  year={2026}\n}",
+      "url": "https://arxiv.org/abs/2602.16849",
+      "why": "Verified: full first names on the arXiv abstract page (submitted 18 Feb 2026). Eq. 4.1 contains the flipped copy cos(omega(x+y+j)+4phi_m), and Def. 4.1(iii) is the exact phase-symmetry cancellation condition. It should be cited after Gromov 2023, not as the primary source."
+    },
+    {
+      "key": "li2025nsum",
+      "bibtex": "@inproceedings{li2025nsum,\n  title={Fourier circuits in neural networks and transformers: a case study of modular arithmetic with multiple inputs},\n  author={Li, Chenyang and Liang, Yingyu and Shi, Zhenmei and Song, Zhao and Zhou, Tianyi},\n  booktitle={International Conference on Artificial Intelligence and Statistics (AISTATS)},\n  year={2025},\n  note={arXiv:2402.09469}\n}",
+      "url": "https://arxiv.org/abs/2402.09469",
+      "why": "Already in refs.bib. Lemma 4.3 / E.3 with Eq. (25) gives an exact k-operand construction with 2^{2k-1} power neurons per frequency that cancels all flipped copies, i.e. a feasible point of eq:JF. Morwani et al. App. F.2 is the n=2 version with 8 neurons per frequency."
+    }
+  ]
+}

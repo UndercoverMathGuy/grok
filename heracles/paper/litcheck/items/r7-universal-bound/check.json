@@ -1,0 +1,50 @@
+{
+ "id": "R7-universal-bound",
+ "verdict": "PARTIALLY_KNOWN",
+ "evidence": "The b = nu endpoint is known. Morwani et al., ICLR 2024 (arXiv 2311.07568; I fetched the HTML) prove all their theorems only at L_{2,nu}. Their Thm 7 gives the max L_{2,3} margin as sqrt(2/27)/(p^{1/2}(p-1)) for the quadratic net with width >= 4(p-1). Plain L2 appears only empirically: Fig 4b says L2 ReLU neurons are \"nearly 1-sparse ... but not quite\". Li, Liang, Shi, Song and Zhou, AISTATS 2025, PMLR 258:523-531 (proceedings page fetched) state only a maximum L_{2,k+1} margin, with m >= 2^{2k-2}(p-1). Our cor:dense reproduces Morwani Thm 7, and the paper already says so.\n\nThe b < nu case, including b = 2 weight decay, was not found anywhere. Papers I checked:\n- Mohamadi et al., ICML 2024 (2407.12332, HTML): the norm is l_inf. Prop 3.8 only shows that zero-loss solutions exist with ||theta||_inf <= floor(h/8p)^{-1/3}; Thm 4.5 is a generalisation bound for Omega(p) margin. There is no upper bound on the max margin over all widths.\n- Tian, NeurIPS 2025 (2410.01779): Thm 5 says \"lower-order solutions are preferred if trained with L2 regularization\", argued by path-connectivity. There is no margin bound.\n- Jacobs and Montufar 2026 (2605.19458): mirror flow. No modular addition and no L_{2,b} bound.\n- Kam, Bessafi and Cadet 2026 (2609.17926, HTML App. A.3.2): Eq 15 is max over ||beta||_2 = B of min_s sum_k beta_k(1-cos(omega_k s)), and Prop 5 finds a uniform allocation optimal. The l2 budget on the amplitudes is posited for the quadratic net only; it is not derived from homogeneity, and they make no claim for all networks or widths. This is the closest analogue of the coverage programme, but not of the universal bound.\n- Memana 2026 (2608.04451) and Nguyen 2026 (2606.17399) are irrelevant.\n\nThe pricing step (amplitude A costs A^{b/nu}, then subadditivity) is a known ingredient:\n- Hoff (arXiv 1611.00040): \"a subclass of L_q penalties with q<=1 can be expressed as sums of L_2 penalties\".\n- Dai, Karzand and Srebro, NeurIPS 2021: the representation cost of l2 regularisation on the parameters.\n- Fan, Ding, Yang, Zhang and Udell, TMLR 2023 (2012.03436): regularisers built from the Euclidean norms of CP components are \"monotonic transformations of tensor Schatten-p quasi-norm\". A product neuron is a rank-one CP term, so our pricing is the diagonal (Fourier) case of this.\n\nWhat is new: an upper bound on the max L_{2,b} margin for b < nu that holds for every width and every kind of neuron (mixed frequencies, interference, inactive). I found no margin upper bound for modular addition under any norm other than L_{2,nu}.\n\nQueries run:\n- modular addition max margin L2 weight decay sparse Fourier any width\n- \"max-margin\" modular addition L_{2,nu}\n- Tian algebraic objects weight decay\n- margin maximization number of frequencies log p\n- weight decay rank-one tensor Schatten quasi-norm 2/N\n- modular addition weight decay fewer frequencies theorem 2026\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r7-universal-bound/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "morwani2024feature",
+   "bibtex": "@inproceedings{morwani2024feature,\n  title={Feature emergence via margin maximization: case studies in algebraic tasks},\n  author={Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},\n  booktitle={International Conference on Learning Representations},\n  year={2024}\n}",
+   "url": "https://arxiv.org/abs/2311.07568",
+   "confirmed": true,
+   "why": "At b=nu, Thm 7 (max L_{2,3} margin sqrt(2/27)/(p^{1/2}(p-1))) is the endpoint of thm:universal. It is already in refs.bib and cited in cor:dense."
+  },
+  {
+   "key": "li2025fourier",
+   "bibtex": "@inproceedings{li2025fourier,\n  title={Fourier Circuits in Neural Networks and Transformers: A Case Study of Modular Arithmetic with Multiple Inputs},\n  author={Li, Chenyang and Liang, Yingyu and Shi, Zhenmei and Song, Zhao and Zhou, Tianyi},\n  booktitle={Proceedings of The 28th International Conference on Artificial Intelligence and Statistics},\n  series={PMLR},\n  volume={258},\n  pages={523--531},\n  year={2025}\n}",
+   "url": "https://proceedings.mlr.press/v258/li25b.html",
+   "confirmed": true,
+   "why": "The max L_{2,k+1} margin for the power-neuron k-input sum is the b=nu endpoint of the power-neuron case."
+  },
+  {
+   "key": "hoff2017lasso",
+   "bibtex": "@article{hoff2017lasso,\n  title={Lasso, fractional norm and structured sparse estimation using a Hadamard product parametrization},\n  author={Hoff, Peter D.},\n  journal={arXiv preprint arXiv:1611.00040},\n  year={2017}\n}",
+   "url": "https://arxiv.org/abs/1611.00040",
+   "confirmed": true,
+   "why": "Pricing step: L_q penalties with q<=1 written as sums of L2 penalties on multiplicative factors. The fetched page shows only the arXiv listing; the CSDA 115:186-198 journal ref comes from the sweep and I did not confirm it here."
+  },
+  {
+   "key": "dai2021representation",
+   "bibtex": "@inproceedings{dai2021representation,\n  title={Representation Costs of Linear Neural Networks: Analysis and Design},\n  author={Dai, Zhen and Karzand, Mina and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={34},\n  year={2021}\n}",
+   "url": "https://proceedings.neurips.cc/paper/2021/hash/e22cb9d6bbb4c290a94e4fff4d68a831-Abstract.html",
+   "confirmed": true,
+   "why": "Pricing step: l2 regularisation on parameters induces l_p/quasi-norm representation costs."
+  },
+  {
+   "key": "fan2023euclidean",
+   "bibtex": "@article{fan2023euclidean,\n  title={Euclidean-Norm-Induced Schatten-p Quasi-Norm Regularization for Low-Rank Tensor Completion and Tensor Robust Principal Component Analysis},\n  author={Fan, Jicong and Ding, Lijun and Yang, Chengrun and Zhang, Zhao and Udell, Madeleine},\n  journal={Transactions on Machine Learning Research},\n  year={2023}\n}",
+   "url": "https://arxiv.org/abs/2012.03436",
+   "confirmed": true,
+   "why": "Regularisers built from the Euclidean norms of CP components are monotone transforms of the tensor Schatten-p quasi-norm. A product neuron is a rank-one CP term, so the A^{b/nu} pricing is the diagonal case."
+  },
+  {
+   "key": "kam2026symmetry",
+   "bibtex": "@article{kam2026symmetry,\n  title={Symmetry without a manifold: intrinsic dimension on orbits},\n  author={Kam, Chon-Fai and Bessafi, Miloud and Cadet, Fr{\\'e}d{\\'e}ric},\n  journal={arXiv preprint arXiv:2609.17926},\n  year={2026}\n}",
+   "url": "https://arxiv.org/abs/2609.17926",
+   "confirmed": true,
+   "why": "Concurrent work. App. A.3.2 Eq 15 has the same coverage max-min with a convex l2 amplitude budget, and Prop 5 finds a dense optimum. They posit the budget for quadratic nets and give no bound over all networks, so this is a contrast to the concave b/nu budget."
+  }
+ ],
+ "recommended_change": "In approach.tex, after the proof of thm:universal, add: \"At $b=\\nu$ this is the maximum margin of \\citet[Thm.~7]{morwani2024feature} and \\citet{li2025fourier}; we know of no earlier margin bound for $b<\\nu$ (in particular plain weight decay, $b=2$). The pricing step is the diagonal case of the fact that $\\ell_2$ penalties on multiplicative factors induce $\\ell_q$ quasi-norm costs \\citep{hoff2017lasso,dai2021representation,fan2023euclidean}. Concurrently, \\citet{kam2026symmetry} study the same coverage max-min under a convex $\\ell_2$ budget on amplitudes and find the uniform (dense) allocation optimal; the concave budget $\\sum_j y_j^{1/s}$ forced by homogeneity is what makes the optimum sparse.\" Add the new bib entries hoff2017lasso, dai2021representation, fan2023euclidean, kam2026symmetry and li2025fourier if they are missing; refs.bib currently has no Hoff, Dai, Kolb or Ongie entries."
+}

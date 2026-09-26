@@ -1,0 +1,9 @@
+{
+  "task": 63,
+  "item_id": "T13-relu-budget",
+  "lens": "novelty_ml",
+  "upheld": true,
+  "corrected_verdict": "PARTIALLY_KNOWN (the template is Morwani App. F.1; the ReLU 1-Lipschitz extension was not found in the ML literature). The printed constant is wrong for n>=2: the correct bound is C_2 <= 1/(2p), not p^{-n}/2.",
+  "issues": "Verdict and both confirmed citations survive. Morwani 2311.07568 App. F.1 has the Plancherel and Cauchy-Schwarz steps and the line 'shifting the mean of w does not affect the margin'. Gromov 2301.02679 has the ReLU remark, and its App. B says 'We do not have an analytic proof'. No ML paper bounds a ReLU single-neuron Fourier/margin budget. Checked: 2511.23443 (Huang & Li, ReLU vs sine, expressivity only), 2606.05863 (Tan et al., locally-linear reduction only), 2407.12332 (Mohamadi et al., l_inf margin, quadratic net), 2402.09469 (Li et al., power activations only), 2412.03773 (ReLU MLP mechanistic bounds), 2608.04451 (dynamics only). Checker errors: (1) the j=0 issue is a false alarm, since prelim.tex l.7 defines \\Fp={1,...,(p-1)/2}, so recommended change (2) is unnecessary. (2) The checker missed a real error in appendix.tex l.283. The stated steps give sum_{j in F}|h^(j..j) w^(j)| <= (p^n/4)||omega||^2, not (p/4)||omega||^2, so C_2 <= 1/(2p) (= B_p at nu=2), not p^{-n}/2. A numerical check (items/t13-relu-budget/relu_budget_check.py) finds random ReLU neurons with C_2 >= 0.00391 at p=23, n=2, against the claimed 0.000945, with violations also at p=7 and 11 and at n=3. The conclusion (Thm universal and Cor dense apply at b=nu=2) survives with the corrected constant. INFRA: WebSearch failed with 'used its web search budget (200 of 200 WebSearch calls)', and the arXiv export API returns HTTP 429. This is probably why the verify stage is slow. This check used arxiv.org/search HTML and PDFs via curl.",
+  "extra_citations": []
+}

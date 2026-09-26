@@ -1,0 +1,22 @@
+{
+ "task": 74,
+ "item_id": "F10-no-related-work",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "SUPPORTED",
+ "issues": "Verdict upheld: no related-work section; the TODO is now at intro.tex:12 (live edits; the checker's :22 is stale); lyu2020gradient, gromov2023grokking, li2025nsum and power2022grokking have 0 cites; the mccracken2025 bib entry has the wrong title and author. All 8 recommended citations were fetched and exist with the claimed content (Li Thm 4.1 dense L_{2,k+1} with one neuron per frequency, PMLR 258:523-531 via li25b; McCracken Cor 4.8; Jacobs-Montufar Thm 4.9; Tian NeurIPS 2025; Zhong NeurIPS 2023; Doshi x^S + random-phase cancellation; Gromov GD/AdamW; Lyu-Li KKT). Corrections: (1) MISATTRIBUTION in the live intro.tex:6: 'count moves from dense to sparse as the degree of the network changes \\citep{mccracken2025}'. McCracken attribute the transition to adding depth or trainable embeddings and say 'we don't know why it occurs'; nothing about degree or homogeneity. Reword. (2) mccracken2025 is a NeurIPS 2025 poster (OpenReview zuHs6RHQwT), so use @inproceedings, not the checker's arXiv @article; spell it L\u00e9tourneau. (3) The checker's suggested 'our Theorem [scaling] supplies the matching upper bound' is loose: McCracken is sufficiency for an unnormalised logit margin, while thm:scaling is Theta(log p) necessary and sufficient for normalised L_{2,b} maximizers. (4) In Jacobs-Montufar the exponent is the mirror-potential exponent (optimiser geometry), not a network homogeneity or weight-norm exponent, and sparse vs dense is shown by example. (5) The Doshi et al. PDF is marked 'ICLR 2024 Workshop BGPT'; cite that workshop or arXiv. (6) The live intro.tex:4 says Wei et al. show max-margin solutions 'are approached by networks when trained'. Wei prove it for the global minimiser of the weakly regularised loss, not for training dynamics; that sentence also has an unclosed $.",
+ "extra_citations": [
+  {
+   "key": "mccracken2025",
+   "bibtex": "@inproceedings{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and L{\\'e}tourneau, Vincent and Precup, Doina and Love, Jonathan},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2025},\n  note={arXiv:2505.18266}\n}",
+   "url": "https://openreview.net/forum?id=zuHs6RHQwT",
+   "why": "Corrected venue: OpenReview venueid NeurIPS.cc/2025/Conference (poster). Replaces both the wrong existing entry and the checker's arXiv-only @article."
+  },
+  {
+   "key": "doshi2024polynomials",
+   "bibtex": "@inproceedings{doshi2024polynomials,\n  title={Grokking Modular Polynomials},\n  author={Doshi, Darshil and He, Tianyu and Das, Aritra and Gromov, Andrey},\n  booktitle={ICLR 2024 Workshop on Bridging the Gap Between Practice and Theory in Deep Learning (BGPT)},\n  year={2024},\n  note={arXiv:2406.03495}\n}",
+   "url": "https://arxiv.org/abs/2406.03495",
+   "why": "Venue established from the PDF footer 'ICLR 2024 Workshop BGPT'. Content verified: phi(x)=x^S, cosine weights with iid random phases, cross-terms suppressed by 1/N (random phase approximation)."
+  }
+ ]
+}

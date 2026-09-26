@@ -1,0 +1,39 @@
+{
+ "p": 3,
+ "h": 1,
+ "enum_version": "vertex-enum-v1",
+ "tolerances": {
+  "TOL_POS": 1e-10,
+  "TOL_FEAS": 1e-09,
+  "TOL_TIGHT": 1e-07,
+  "TOL_FINAL": 1e-11,
+  "TOL_RANK": 1e-10,
+  "ROUND_DIGITS": 9
+ },
+ "n_orbit_reps": 1,
+ "n_vertices": 1,
+ "npz_sha256": "e6832e382bcff21ca46bb7fc25faf2beac80f8c08c4de61d488c85a1d6190c92",
+ "programme_py_sha256": "94309426a85f87fe925482a7ba19fe473e0494fac8e298b89c27035c5ecb53b2",
+ "stats": {
+  "p": 3,
+  "h": 1,
+  "n_supports": 1,
+  "per_K": {
+   "1": {
+    "n_supports": 1,
+    "n_T": 1,
+    "n_solved": 1,
+    "n_candidates": 1,
+    "seconds": 0.015865802764892578
+   }
+  },
+  "n_candidates_total": 1,
+  "n_rejected_in_refinement": 0,
+  "n_vertices_raw": 1,
+  "seconds_refine": 0.00014090538024902344,
+  "seconds_total": 0.016182899475097656,
+  "seconds_orbits": 6.604194641113281e-05
+ },
+ "seconds_wall": 1.1690990924835205,
+ "created": "2026-09-25 16:45:24 IST"
+}

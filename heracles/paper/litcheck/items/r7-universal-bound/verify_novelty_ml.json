@@ -1,0 +1,22 @@
+{
+ "task": 3,
+ "item_id": "R7-universal-bound",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN",
+ "issues": "Verdict upheld: PARTIALLY_KNOWN. The b=nu endpoint (Morwani Thm 7; Li et al. AISTATS 2025) is known, and so is the pricing ingredient. I found no max L_{2,b} margin upper bound for b<nu on modular addition. I checked arXiv abstract searches, the arXiv listing search, 2609.26679, 2606.08985, 2511.23443, 2602.16849, Tian 2410.01779 Thm 5 and Jacobs-Montufar. Every confirmed citation re-fetched and correct in substance. Problems: (1) MISSED canonical precedent for the pricing step: Gunasekar-Lee-Soudry-Srebro NeurIPS 2018 (1806.00468). There, depth-L linear conv nets give an l_{2/L} bridge penalty in the frequency domain, which is the Fourier-domain analogue of A^{b/nu} pricing at b=2. It should head the pricing citations. (2) li2025fourier duplicates the existing refs.bib key li2025nsum (same paper). Reuse li2025nsum and add PMLR 258:523-531. (3) hoff2017lasso should be the journal version: Crossref confirms Comput. Stat. Data Anal. 115:186-198 (2017), doi 10.1016/j.csda.2017.06.007. (4) Tian's 'NeurIPS 2025' venue is unverified: the fetched v4 HTML states none. It is not a recommended citation. Operational: the session's WebSearch budget is exhausted (200/200) and the arXiv API is rate-limiting, which is likely slowing the parallel verifiers.",
+ "extra_citations": [
+  {
+   "key": "gunasekar2018implicit",
+   "bibtex": "@inproceedings{gunasekar2018implicit,\n  title={Implicit Bias of Gradient Descent on Linear Convolutional Networks},\n  author={Gunasekar, Suriya and Lee, Jason D. and Soudry, Daniel and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={31},\n  year={2018}\n}",
+   "url": "https://proceedings.neurips.cc/paper_files/paper/2018/hash/0e98aeeb54acf612b9eb4e48a269814c-Abstract.html",
+   "why": "Canonical ML precedent for the pricing step: for L multiplicative factors, the parameter l2 norm becomes an l_{2/L} bridge penalty on Fourier coefficients. This is the frequency-domain version of 'amplitude A costs A^{b/nu}' at b=2. Cite it with Dai et al. 2021, whose Table 1 lists conv nets -> l_{2/d} quasi-norm on the Fourier domain."
+  },
+  {
+   "key": "hoff2017lasso",
+   "bibtex": "@article{hoff2017lasso,\n  title={Lasso, fractional norm and structured sparse estimation using a {H}adamard product parametrization},\n  author={Hoff, Peter D.},\n  journal={Computational Statistics \\& Data Analysis},\n  volume={115},\n  pages={186--198},\n  year={2017},\n  doi={10.1016/j.csda.2017.06.007}\n}",
+   "url": "https://doi.org/10.1016/j.csda.2017.06.007",
+   "why": "Corrected bib fields for the checker's hoff2017lasso: the published journal version, confirmed via Crossref, in place of the arXiv-preprint entry."
+  }
+ ]
+}

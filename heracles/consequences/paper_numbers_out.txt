@@ -1,0 +1,25 @@
+p=13: switch points in (1, 2.5] (exact root of cost equality between consecutive optimal vertices):
+   s = 1.2850: K 6 -> 4   ([np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)] -> [np.int64(1), np.int64(2), np.int64(3), np.int64(6)])
+   s = 1.4067: K 4 -> 3   ([np.int64(1), np.int64(2), np.int64(3), np.int64(6)] -> [np.int64(1), np.int64(2), np.int64(5)])
+   s = 1.6776: K 3 -> 2   ([np.int64(1), np.int64(2), np.int64(5)] -> [np.int64(4), np.int64(6)])
+p=23: switch points in (1, 2.5] (exact root of cost equality between consecutive optimal vertices):
+   s = 1.1597: K 11 -> 9   ([np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9), np.int64(10), np.int64(11)] -> [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(7), np.int64(8), np.int64(9), np.int64(10)])
+   s = 1.1673: K 9 -> 8   ([np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(8), np.int64(10), np.int64(11)] -> [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(6), np.int64(7), np.int64(9), np.int64(11)])
+   s = 1.2282: K 8 -> 7   ([np.int64(1), np.int64(2), np.int64(3), np.int64(6), np.int64(7), np.int64(8), np.int64(10), np.int64(11)] -> [np.int64(1), np.int64(2), np.int64(3), np.int64(6), np.int64(7), np.int64(8), np.int64(11)])
+   s = 1.3163: K 7 -> 6   ([np.int64(1), np.int64(2), np.int64(3), np.int64(6), np.int64(7), np.int64(8), np.int64(11)] -> [np.int64(1), np.int64(3), np.int64(5), np.int64(7), np.int64(9), np.int64(11)])
+   s = 1.3494: K 6 -> 4   ([np.int64(1), np.int64(3), np.int64(5), np.int64(7), np.int64(9), np.int64(11)] -> [np.int64(4), np.int64(5), np.int64(6), np.int64(8)])
+   s = 1.6975: K 4 -> 3   ([np.int64(4), np.int64(5), np.int64(6), np.int64(8)] -> [np.int64(4), np.int64(9), np.int64(11)])
+   s = 1.9549: K 3 -> 3   ([np.int64(4), np.int64(9), np.int64(11)] -> [np.int64(4), np.int64(9), np.int64(11)])
+   s = 2.0922: K 3 -> 2   ([np.int64(4), np.int64(9), np.int64(11)] -> [np.int64(6), np.int64(8)])
+
+ablation at exact maximisers: ratio (actual relative loss)/(1-(1-w)^s), and loss <= 2y/m check; tight offsets vs K
+  s=1.5: loss/lower-bound in [1.149, 1.724] over 18 (p, j) pairs; upper bound holds: True; tight >= K at all p: True
+  s=2.0: loss/lower-bound in [1.044, 1.407] over 15 (p, j) pairs; upper bound holds: True; tight >= K at all p: True
+  s=2.5: loss/lower-bound in [1.000, 1.183] over 11 (p, j) pairs; upper bound holds: True; tight >= K at all p: True
+exact end of the dense window s_c(p): largest s at which the all-frequency vertex is optimal
+  p=7: s_c = 1.5475  (s_c - 1)*ln p = 1.065
+  p=11: s_c = 1.3454  (s_c - 1)*ln p = 0.828
+  p=13: s_c = 1.2850  (s_c - 1)*ln p = 0.731
+  p=17: s_c = 1.2166  (s_c - 1)*ln p = 0.614
+  p=19: s_c = 1.1938  (s_c - 1)*ln p = 0.571
+  p=23: s_c = 1.1597  (s_c - 1)*ln p = 0.501

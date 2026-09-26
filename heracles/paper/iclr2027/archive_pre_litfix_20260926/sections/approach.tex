@@ -1,0 +1,93 @@
+\section{Theoretical approach}\label{sec:approach}
+
+\paragraph{Maximum margin} As in \citet{morwani2024feature}, the margin of a datapoint $x$ where the correct answer is $y$ is $g(\theta,x,y)=f(\theta,x)[y]-\max_{y'\neq y}f(\theta,x)[y']$. 
+The margin of the dataset is $h(\theta)=\min_{(x,y)\in D_p}g(\theta,x,y)$, and the maximum margin under $L_{2,b}$ norm is $\gamma^*_b:=\max_{\|\theta\|_{2,b}\le1}h(\theta)$. 
+By homogeneity the normalized margin of any $\theta$ is $h(\theta)/\|\theta\|_{2,b}^\nu$. 
+By \citet[Theorem~4.1]{wei2019regularization}, the global minimizers of cross-entropy plus $\lambda\|\theta\|_{2,b}^b$ attain normalized margin tending to $\gamma^*_b$ as $\lambda\to0$.
+Hence, we study maximum margin solutions as ideal, theoretically achievable solutions for the network, without considering empirical achievability. 
+
+\subsection{Averaged margins and Fourier amplitudes}\label{sec:avg}
+
+The minimum margin is at most any averaged class-weighted margin \citep[Section~3]{morwani2024feature}. We average over $D_p$ and put all weight on the candidate with offset $\delta$ from the answer. Let
+\[
+\eta_\theta(\delta):=\E_x\big[f(\theta,x)[y(x)-\delta]\big],\qquad\delta\in\sZ_p,
+\]
+
+\begin{lemma}[Average Margin]\label{lem:avg}
+For every $\theta$ and $\delta\neq0$, $h(\theta)\le\eta_\theta(0)-\eta_\theta(\delta)$.
+\end{lemma}
+\begin{proof}
+For every $x$, $y(x)-\delta$ is an incorrect candidate, so $f(\theta,x)[y(x)]-f(\theta,x)[y(x)-\delta]\ge h(\theta)$. Average over $x$.
+\end{proof}
+
+As a result of the averaging, $\eta_\theta$ keeps only the part of the logit table that depends on the offset between label and candidate. The rest does not depend on the accuracy of the candidate itself and hence, it is termed \emph{interference}. Lemma~\ref{lem:avg} says interference cannot increase the margin as it uses the average over every input.
+
+% can we say that interference does not depend upon diff?? 
+
+$\eta_\theta$ is a real function on $\sZ_p$, hence a sum of cosines (Appendix~\ref{app:spectrum}):
+\begin{equation}
+  \eta_\theta(\delta)=\bar\eta_\theta+\sum_{j\in\Fp}\mathrm{Re}\big(\beta_j\rho^{j\delta}\big),\qquad\beta_j:=2p^{-(n+1)}\hat f_\theta(j,\dots,j;-j).
+  \label{eq:spectrum}
+\end{equation}
+We call $A_j:=|\beta_j|$ the \emph{amplitude} of frequency $j$; a frequency with $A_j>0$ is a \emph{feature}, as in \citet{nanda2023progress,morwani2024feature}. Since $f$ is a sum over neurons, $\beta_j=\sum_i\beta_{ij}$ with $\beta_{ij}$ computed from neuron $i$ alone; for a product neuron $\beta_{ij}=2p^{-\nu}\overline{\hat w_i(j)}\prod_{t=1}^{n}\hat u_{it}(j)$. Frequency $j$ separates the label from the candidate $\delta$ away by the \emph{coverage} $\cov{j}{\delta}:=1-\cos(2\pi j\delta/p)$, which satisfies $\sum_{\delta\neq0}\cov{j}{\delta}=p$ and is small where $j\delta$ is near a multiple of $p$. Hence, several frequencies are needed to cover every offset to maximize margin.
+
+\begin{lemma}[]\label{lem:phase}
+For every $\theta$ and $\delta\neq0$, $\ h(\theta)\le\sum_{j\in\Fp}\mathrm{Re}(\beta_j)\,\cov{j}{\delta}\le\sum_{j\in\Fp}A_j\,\cov{j}{\delta}$.
+\end{lemma}
+\begin{proof}
+Average Lemma~\ref{lem:avg} at $\delta$ and $-\delta$ and use \eqref{eq:spectrum}.
+\end{proof}
+
+% make an appendix proof for this 
+
+The margin is thus bounded from above by the amplitudes of the frequencies alone, and hence, is largest when each $\beta_j$ is real and positive and each frequency contributes a cosine peaked at the label.
+% used to be "The margin is thus controlled by the amplitudes alone" - seems inaccurate cuz the phase impacts - upper bound is controlled only by amps assuming perfect phase
+
+\subsection{The budget-splitting problem}\label{sec:programme}
+
+For a model with homogeneity degree $\nu$ and regularization $L_{2, b}$ for modular addition over prime $p$, $s:=\nu/b\in[1,\nu/2]$. 
+
+Every feature in a model is a product of $\nu$ weights and cost the model in regularization through $L_{2, b}$ norm. 
+
+For a product neuron, the amplitude $A$ is proportional to the product of the weights. Hence, the minimum penalty (sum of the weights) to achieve amplitude $A$ is when they are exactly equal by the AM-GM inequality. 
+
+The least penalty to achieve amplitude $A$ is $A^{b/v}=A^{1/s}$.
+
+In the model, we split an amplitude $a_j$ over all the frequencies in the model over a unit cost budget $sum_{j}a_{j}^{1/s}\le 1$.
+
+For a maximizer $y^*$, $\Kstar(s,p)=|\spt(y^*)|$ for the number of frequencies.
+% L_{2,b} or L_{b, b} - also add this proof in the appendix properly too
+% can we not do this for a power neuron?? 
+% rework this to be this strucutre (more coherent) but with more detail
+% Remove practical stuff
+\begin{equation}
+  \Gamma_s(p):=\max\Big\{\min_{\delta\neq0}\sum_{j\in\Fp}y_j\,\cov{j}{\delta}\ :\ y\in\R_{\ge0}^{\Fp},\ \sum_{j\in\Fp}y_j^{1/s}\le1\Big\}.
+  \label{eq:programme}
+\end{equation}
+ %Original: One unit of budget is split over frequencies; spending $y_j^{1/s}$ on frequency $j$ buys amplitude $y_j$, and the score is the coverage of the worst offset. Since $1/s\le1$, large purchases are discounted. For a maximizer $y^*$ we write $\Kstar(s,p)=|\spt(y^*)|$ for its number of features.\footnote{We have not proved that all maximizers have the same support size; every statement is made for ``a maximizer'' and holds for each.} The two forces are visible at $p=5$, where $\cov{1}{\delta}=(0.69,1.81,1.81,0.69)$ and $\cov{2}{\delta}=(1.81,0.69,0.69,1.81)$ for $\delta=1,\dots,4$. At $s=1$, an equal split covers every offset by $1.25$ while one frequency covers the worst offset by $0.69$, so both are used. At $s=2$ an equal split ($y=\frac14,\frac14$) covers every offset by only $0.625$, so one frequency is used. The exponent comes from homogeneity: a feature is a product of $\nu$ weight factors, and at fixed product their total $L_{2,b}$ cost is least when they are equal (AM--GM), so amplitude $A$ costs a multiple of $A^{b/\nu}=A^{1/s}$.
+
+\begin{proposition}[coverage bound]\label{prop:coverage}
+With $\|A\|_{1/s}:=\big(\sum_jA_j^{1/s}\big)^s$, every $\theta$ satisfies $h(\theta)\le\Gamma_s(p)\,\|A\|_{1/s}$.
+\end{proposition}
+\begin{proof}
+If $A=0$, Lemma~\ref{lem:phase} gives $h(\theta)\le0$. Otherwise $y:=A/\|A\|_{1/s}$ is feasible for \eqref{eq:programme}; apply Lemma~\ref{lem:phase} and multiply by $\|A\|_{1/s}$.
+\end{proof}
+
+Let $\beta_j(\omega)$ be the coefficient of the single neuron $\phi(\omega,\cdot)$ and
+\[
+C_b:=\max_{\|\omega\|_2\le1}\sum_{j\in\Fp}|\beta_j(\omega)|^{b/\nu},
+\]
+so that, by homogeneity, $\sum_j|\beta_j(\omega)|^{b/\nu}\le C_b\|\omega\|_2^b$ for every neuron. For the product neuron $C_b^{\nu/b}=B_p:=2(2p\nu)^{-\nu/2}$ for all $2\le b\le\nu$, and for the power neuron $C_b^{\nu/b}=n!\,B_p$ (Appendix~\ref{app:models}).
+
+\begin{theorem}[universal bound]\label{thm:universal}
+For any one-hidden-layer network with homogeneity constant $\nu$, any width, and any $2\le b\le\nu$, $\ \gamma^*_b\le C_b^{\,\nu/b}\,\Gamma_{\nu/b}(p)$.
+\end{theorem}
+\begin{proof}
+Let $r=b/\nu\le1$. As $t\mapsto t^r$ is subadditive and $A_j\le\sum_i|\beta_{ij}|$, $\ \sum_jA_j^r\le\sum_{i,j}|\beta_{ij}|^r\le C_b\|\theta\|_{2,b}^b$. Raise to the power $1/r$ and apply Proposition~\ref{prop:coverage}.
+\end{proof}
+
+\begin{corollary}[$b=\nu$: every frequency is used]\label{cor:dense}
+$\Gamma_1(p)=p/(p-1)$, with unique maximizer $y_j=2/(p-1)$ for all $j$, so at $b=\nu$ any network attaining Theorem~\ref{thm:universal} has equal amplitude on every frequency. For the quadratic network of \citet{morwani2024feature} the bound is $2B_p\frac p{p-1}=\sqrt{2/27}\,/\,(p^{1/2}(p-1))$, exactly their maximum $L_{2,3}$-margin. (Proof: Appendix~\ref{app:dense}.)
+\end{corollary}
+
+For $b<\nu$ the bound holds but is not attained: a neuron that carries a frequency also carries interference at that frequency.

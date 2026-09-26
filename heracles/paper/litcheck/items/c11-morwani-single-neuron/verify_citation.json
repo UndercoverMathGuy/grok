@@ -1,0 +1,9 @@
+{
+  "task": 85,
+  "item_id": "C11-morwani-single-neuron",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "PARTIALLY_SUPPORTED",
+  "issues": "Checker's verdict and its confirmed citation survive. I fetched arXiv abs 2311.07568 (title, author order, ICLR 2024 Spotlight all match the bib) and the v2 PDF: Lemma 3 (binary) and Lemma 5 (class-weighted) both have a 'Single neuron optimization' bullet, and App E.1 derives E_q g = sum_i ||w_i||^nu E_q psi(w_i/||w_i||) <= gamma max_{||w||_b<=1} ||w||_nu^nu. Minor refinements: (1) for multi-class modular addition the relevant lemma is Lemma 5; Lemma 3 is binary, so cite Lemma 5 (cf. Lemma 3). (2) The checker did not note Morwani's App E.1 Remark that the norm-allocation analysis 'can be used to compute optimal norms for b != nu as well'. Only the combining step needs b = nu, which makes 'as in Morwani' a fair attribution of the reduction even at b < nu. The objective still differs: a linear expected margin under dual q, versus the paper's concave l_{b/nu} Fourier budget C_b used in a subadditivity bound. The recommended rewording is accurate. I found no better or more canonical source for this step. Wei et al. 1810.05369, already cited elsewhere, does not state a single-neuron reduction in its abstract.",
+  "extra_citations": []
+}

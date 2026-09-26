@@ -1,0 +1,90 @@
+[
+  {
+    "p": 3,
+    "n": 2,
+    "width": 5,
+    "start": 0,
+    "ratio": 0.9999999999999996,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.0005900859832763672,
+    "jac_error": 4.009153009576494e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 5,
+    "start": 1,
+    "ratio": 0.9999999999999116,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.0030171871185302734,
+    "jac_error": 4.009153009576494e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 5,
+    "start": 2,
+    "ratio": 0.9999999999998861,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.003114938735961914,
+    "jac_error": 4.009153009576494e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 5,
+    "start": 3,
+    "ratio": 0.9999999999998586,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.003679037094116211,
+    "jac_error": 4.009153009576494e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 5,
+    "start": 4,
+    "ratio": 0.9999999999994114,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.00787806510925293,
+    "jac_error": 4.009153009576494e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 5,
+    "start": 5,
+    "ratio": 0.9999999999997266,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.07398080825805664,
+    "jac_error": 4.009153009576494e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 5,
+    "start": 6,
+    "ratio": 0.9999999999994533,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.005136728286743164,
+    "jac_error": 4.009153009576494e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 5,
+    "start": 7,
+    "ratio": 0.9999999999991849,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.006426095962524414,
+    "jac_error": 4.009153009576494e-10
+  }
+]

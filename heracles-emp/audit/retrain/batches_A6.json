@@ -1,0 +1,61 @@
+{
+ "batches": [
+  {
+   "batch_id": "audit_A6",
+   "runs": [
+    {
+     "run_id": "E6_marg_seed108_audit",
+     "config": {
+      "model": "product",
+      "n": 2,
+      "p": 23,
+      "q": 2.0,
+      "width": 66,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 9.200000000000001,
+      "lr_c": 0.4,
+      "lam": 3.4508718521047825e-05,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 4.795831523312719,
+      "seed": 108,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.5
+     }
+    },
+    {
+     "run_id": "E6_marg_seed114_audit",
+     "config": {
+      "model": "product",
+      "n": 2,
+      "p": 23,
+      "q": 2.0,
+      "width": 66,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 9.200000000000001,
+      "lr_c": 0.4,
+      "lam": 3.4508718521047825e-05,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 4.795831523312719,
+      "seed": 114,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.5
+     }
+    }
+   ]
+  }
+ ]
+}

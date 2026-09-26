@@ -1,0 +1,34 @@
+{
+ "item": {
+  "id": "T13-relu-budget",
+  "kind": "our_technique",
+  "location": "appendix app:models ReLU",
+  "statement": "Cauchy-Schwarz + Parseval + 1-Lipschitz variance bound give the ReLU single-neuron budget",
+  "what_to_check": "Compare Morwani/Gromov ReLU arguments"
+ },
+ "chk": {
+  "id": "T13-relu-budget",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "The Fourier + Cauchy-Schwarz single-neuron template comes from Morwani et al. ICLR 2024 (arXiv 2311.07568v2; I read the full PDF).\n- App. F.1, \"Proofs for cyclic groups (Theorem 7)\", bounds a quadratic neuron in three steps: \"By Plancherel's theorem, the norm constraint is equivalent to ...\", then Cauchy-Schwarz (and AM-GM), giving sqrt(2/27)/(p^{1/2}(p-1)).\n- The same section says \"E_c[w(c)] = 0, because shifting the mean of w does not affect the margin\".\n- Morwani treats ReLU only empirically (Fig 1a, Fig 4, the L2-regularised ReLU runs). There is no ReLU bound.\n\nGromov 2023 (arXiv 2301.02679; I grepped the full PDF) analyses quadratic activation. It says only \"The weights (6)-(7) also work for other activation functions, including ReLU\", which is an empirical claim with no bound.\n\nOther papers checked:\n- Li et al. AISTATS 2025 (2402.09469): power activations only.\n- Memana 2026 (arXiv 2608.04451, single ReLU neuron): a dynamics counterexample to MAIS-O60, with no margin or budget bound.\n- McCracken et al. 2505.18266: random-frequency constructions, with no single-neuron norm budget.\n\nThe step Var(f(X)) <= L^2 Var(X) for L-Lipschitz f is a textbook fact, proved in one line with an independent copy of X. It needs no citation.\n\nI found no paper that bounds the ReLU single-neuron Fourier budget for modular-addition margins. So the ReLU extension (the 1-Lipschitz variance step on top of diagonal Parseval) is new as far as I found, but the template is Morwani's.\n\nA possible technical issue: the text sums over j in F_p, but Var(h) does not control the j = 0 term h^(0) ~ E[h]. This should be justified, either by w^(0) = 0 (the mean of w is margin-irrelevant, as in Morwani F.1) or by summing over j != 0.\n\nSearches run:\n- \"ReLU network modular addition maximum margin upper bound Fourier single neuron proof\"\n- \"1-Lipschitz function variance contraction Var(f(X)) <= Var(X) lemma\"\n\nNotes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/t13-relu-budget/CHECK.md.",
+  "recommended_citations": [
+   {
+    "key": "morwani2024feature",
+    "bibtex": "(already in refs.bib as morwani2024feature)",
+    "url": "https://arxiv.org/abs/2311.07568",
+    "confirmed": true,
+    "why": "App. F.1 (proof of Thm 7) is where the Plancherel + Cauchy-Schwarz single-neuron Fourier budget originates, for quadratic neurons. It also shows that the mean of w does not affect the margin, which justifies dropping the j=0 term. Cite it in the ReLU paragraph as the template being extended."
+   },
+   {
+    "key": "gromov2023grokking",
+    "bibtex": "(already in refs.bib as gromov2023grokking)",
+    "url": "https://arxiv.org/abs/2301.02679",
+    "confirmed": true,
+    "why": "Optional. Its quadratic analytic solution reportedly also works for ReLU, but only empirically, with no bound. It supports the statement that no prior ReLU margin bound exists."
+   }
+  ],
+  "recommended_change": "In appendix.tex, ReLU paragraph (l.283):\n1. Change \"Cauchy--Schwarz over j, Parseval for the diagonal coefficients, and Var(h)<=Var(sum_t u_t)\" to \"The Plancherel/Cauchy--Schwarz single-neuron argument of \\citet[App.~F.1]{morwani2024feature}, extended to ReLU by the 1-Lipschitz variance bound Var(sigma(X))<=Var(X) (take an independent copy X': Var f(X)=\\tfrac12\\E(f(X)-f(X'))^2)\".\n2. Justify the j=0 term. Either sum over j in F_p\\{0}, or add \"w.l.o.g. \\hat w(0)=0, since shifting the mean of w does not change the margin\". The reason is that Var(h) does not bound \\hat h(0,...,0)."
+ },
+ "lens": "novelty_ml",
+ "slug": "t13-relu-budget",
+ "task": 63
+}

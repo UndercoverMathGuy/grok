@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact integers and fractions",
+  "A": "1/2",
+  "r": "2/3",
+  "rectangle": [
+    "0",
+    "1/2",
+    "0",
+    "3/2"
+  ],
+  "corner_brackets": [
+    "177/50",
+    "503/2500"
+  ],
+  "leaves": 313,
+  "visited": 417,
+  "replayed": 313,
+  "counts": {
+    "corner": 1,
+    "cubic": 96,
+    "peel": 211,
+    "quadratic": 2,
+    "trivial": 3
+  },
+  "root_denominator": 1000000000000000000000000,
+  "seconds": 0.11339902877807617
+}

@@ -1,0 +1,27 @@
+{
+ "item": {
+  "id": "T7-active-constraints",
+  "kind": "our_technique",
+  "location": "appendix proof of prop:bottleneck",
+  "statement": "At a vertex the active constraints have full rank, giving K independent tight offsets",
+  "what_to_check": "Basic LP theory; Chebyshev alternation analogue"
+ },
+ "chk": {
+  "id": "T7-active-constraints",
+  "verdict": "KNOWN",
+  "evidence": "The proof step at appendix.tex:166 (proof of Prop. bottleneck) is a textbook LP fact. A point of a polyhedron in R^n is a vertex (extreme point) exactly when it is a basic feasible solution, meaning n of its active constraints are linearly independent. Source: Bertsimas & Tsitsiklis, Introduction to Linear Optimization (1997), Def. 2.9 (p. 50) and Theorem 2.3 (vertex = extreme point = BFS).\n\nHow this was confirmed:\n- Wikipedia \"Basic solution (linear programming)\" was fetched. It gives the definition (\"of all the constraints that are active at that vector, at least n of them must be linearly independent\") and cites B&T 1997, Athena Scientific, p. 50, ISBN 978-1-886529-19-9.\n- arXiv 2302.12364 was fetched and its text extracted. It states \"basic feasible solutions are precisely extreme points (vertices) of the feasible set (Bertsimas and Tsitsiklis, 1997, Theorem 2.3)\". Its bib entry is \"Athena Scientific, 1st edition, 1997. ISBN 1886529191\".\n\nOur argument is the standard basis-matrix argument (B&T Sec 2.3):\n- The active bounds v_j=0 for j outside S are unit vectors supported outside S.\n- So the active coverage rows, restricted to S, must have rank K, and the resulting K\u00d7K system is invertible.\nThe step is correct and nothing in the technique is new.\n\nChebyshev alternation analogue: the programme is a discrete max-min problem. A basic optimal solution of the LP form of discrete Chebyshev approximation is pinned by a reference set of n+1 active points, which becomes alternation under the Haar condition. We get K tight offsets rather than K+1 because the normalisation constraint is absorbed into the scaling. I did not fetch a canonical approximation-theory source (e.g. Cheney 1966), so it is unconfirmed and has no bib entry.\n\nWhat is ours is the interpretation of the tight offsets as simultaneous hardest wrong answers in the constructed network.\n\nQueries run:\n- \"Bertsimas Tsitsiklis Theorem 2.3 vertex extreme point basic feasible solution\"\n- \"basic feasible solution linearly independent active constraints Theorem 2.3\"\n- \"discrete Chebyshev minimax LP n+1 extremal points Haar\"\n\nNotes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/t7-active-constraints/CHECK.md.",
+  "recommended_citations": [
+   {
+    "key": "bertsimas1997",
+    "bibtex": "@book{bertsimas1997,\n  author    = {Bertsimas, Dimitris and Tsitsiklis, John N.},\n  title     = {Introduction to Linear Optimization},\n  publisher = {Athena Scientific},\n  address   = {Belmont, MA},\n  year      = {1997},\n  isbn      = {978-1-886529-19-9}\n}",
+    "url": "https://en.wikipedia.org/wiki/Basic_solution_(linear_programming)",
+    "confirmed": true,
+    "why": "Supports 'At a vertex, the active constraints have rank |F_p|' (appendix, proof of Prop. bottleneck). Theorem 2.3 says vertex = extreme point = basic feasible solution, and Def. 2.9 (p. 50) defines a basic solution as one with n linearly independent active constraints. I confirmed title, authors, publisher and year from the Wikipedia citation and from the bib of arXiv 2302.12364, which cites the theorem number. I did not fetch the book itself."
+   }
+  ],
+  "recommended_change": "In the proof of Proposition bottleneck in appendix.tex, change \"At a vertex, the active constraints have rank $|\\Fp|$.\" to \"At a vertex, the active constraints have rank $|\\Fp|$ (a vertex is a basic feasible solution; \\citealp[Thm.~2.3]{bertsimas1997}).\" Optionally, add a phrase in cyclic.tex after the proposition noting that the K tight offsets are the analogue of a Chebyshev reference set. Do not claim any novelty for this step."
+ },
+ "lens": "novelty_math",
+ "slug": "t7-active-constraints",
+ "task": 54
+}

@@ -1,0 +1,16 @@
+{
+  "task": 62,
+  "item_id": "T12-dense-uniqueness",
+  "lens": "novelty_math",
+  "upheld": false,
+  "corrected_verdict": "KNOWN",
+  "issues": "Citation check. I re-read morwani2024feature (arXiv 2311.07568v2, ICLR 2024 spotlight). The bib entry is correct, and so are the quoted passages: the uniform class weighting tau = 1/(p-1) in Sec 4, the second part of Lemma 6 (every point in spt(q*) is on the margin), App. F.3, and Theorem 7 (only 'at least one neuron per frequency').\n\nVerdict: KNOWN, not PARTIALLY_KNOWN. There are two problems with the checker's verdict.\n\n(1) The checker missed classical prior art. Define the cyclic spherical code v_delta = (sqrt(y_j) rho^{j delta})_j. Its points are unit vectors with Gram entries zeta(delta - delta'), and the coverage equals ||v_delta - v_0||^2 / 2. So the statement Gamma_1 = p/(p-1) is Rankin's simplex bound (1955, Thm 1(ii) via Lemmas 1-3) with m = p points. Rankin's Lemma 1 proves it by the same averaging of squared distances. The equality case is the regular simplex. For a cyclic code, the Gram matrix is then the circulant (p/(p-1))I - J/(p-1). Its spectrum is flat, so y_j = 2/(p-1) and the maximizer is unique. That is the paper's Fourier-inversion step: the standard fact that constant off-diagonal correlation is equivalent to a flat spectrum. The checker called this 'folklore' and gave no citation.\n\n(2) 'Equal amplitudes' is not new relative to Morwani. In their F.3, every diagonal coefficient f^(j,j,-j) with j != 0 equals lambda p^2. That coefficient is our G_j, so equal network-level amplitude on every frequency is already in their computation. They state only '> 0'. The checker's recommended sentence says the reduction gives the 'stronger conclusion that the amplitudes are equal'. That overclaims and should be softened to 'makes explicit'. The only new ingredient is the universality at b = nu via Thm universal, which is a separate item.\n\nProof arithmetic checked: sum_{delta != 0} cov = p; c0 = -1/(p-1); y_j = 2/(p-1), summing to 1.\n\nHarness note: WebSearch in this verifier session returned 'used its web search budget (200 of 200 WebSearch calls)' on the first call. The workflow session's search quota is exhausted, so verifiers can only WebFetch known URLs. This likely contributes to the slow and weak verify stage. Raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION.",
+  "extra_citations": [
+    {
+      "key": "rankin1955closest",
+      "bibtex": "@article{rankin1955closest,\n  title={The closest packing of spherical caps in n dimensions},\n  author={Rankin, R. A.},\n  journal={Proceedings of the Glasgow Mathematical Association},\n  volume={2},\n  number={3},\n  pages={139--144},\n  year={1955},\n  doi={10.1017/S2040618500033219}\n}",
+      "url": "https://doi.org/10.1017/S2040618500033219",
+      "why": "Thm 1(ii), with Lemmas 1-3, is the simplex bound: m unit vectors have maximum pairwise inner product at least -1/(m-1), attained by the regular simplex. Lemma 1 proves it by averaging squared distances. Take m = p and the cyclic code v_delta = (sqrt(y_j) rho^{j delta})_j. Then this is exactly Gamma_1 <= p/(p-1), with equality only at the regular simplex, whose circulant Gram matrix has flat spectrum and so gives y_j = 2/(p-1). Cite it next to Morwani at app:dense as the classical source of the averaging and equality step."
+    }
+  ]
+}

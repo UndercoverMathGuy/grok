@@ -1,0 +1,49 @@
+{
+ "device": "cpu",
+ "dtype": "float32",
+ "runs": [
+  {
+   "variant": {
+    "seed": 1,
+    "lr": 1.0,
+    "lam": 0.001,
+    "q": 2.0
+   },
+   "bit_identical": false,
+   "max_abs_weight_diff": 2.980232238769531e-07,
+   "rel_weight_diff": 1.6634986997428764e-07,
+   "gamma_solo": 0.0013611198005890781,
+   "gamma_batched": 0.001361119741192466,
+   "gamma_rel_diff": 4.363804873673809e-08
+  },
+  {
+   "variant": {
+    "seed": 2,
+    "lr": 0.5,
+    "lam": 0.003,
+    "q": 2.5
+   },
+   "bit_identical": false,
+   "max_abs_weight_diff": 2.384185791015625e-07,
+   "rel_weight_diff": 1.9084880003816977e-07,
+   "gamma_solo": 0.0035700955755336777,
+   "gamma_batched": 0.0035700957939894095,
+   "gamma_rel_diff": 6.119044355558459e-08
+  },
+  {
+   "variant": {
+    "seed": 3,
+    "lr": 0.7,
+    "lam": 0.001,
+    "q": 3.0,
+    "momentum": 0.5
+   },
+   "bit_identical": false,
+   "max_abs_weight_diff": 4.172325134277344e-07,
+   "rel_weight_diff": 3.493368887178358e-07,
+   "gamma_solo": 0.006358165828138205,
+   "gamma_batched": 0.006358165696720348,
+   "gamma_rel_diff": 2.0669145953609155e-08
+  }
+ ]
+}

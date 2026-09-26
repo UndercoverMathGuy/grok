@@ -1,0 +1,28 @@
+{
+ "task": 1,
+ "item_id": "R4-programme",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN",
+ "issues": "(1) Bib error: ghosh2006growing pages should be 6605--6611, not 6605--6610. The PDF has 7 pages, printed 6605 to 6611. The content claim is correct: Eq. (2) is the |E|=k lambda_2 problem, relaxed to an SDP. (2) Missed ML prior art for the exponent sentence ('AM-GM, so amplitude A costs A^{b/nu}'). At b=2 this is known: Tibshirani 2021 (a k-layer product with weight decay equals an l_{2/k} penalty via AM-GM) and Kolb et al. ICLR 2025, Thm 1 (depth-D factorisation with L2 equals an L_{2/D} quasi-norm, same local and global minima). (3) Missed generic sparse-vs-dense precedent: Jacobs & Montufar 2605.19458, Thm 4.9, reduces homogeneous-net max-margin to min sum_j |a_j|^{alpha/2}; alpha=1 is sparse and alpha>=2 is dense. The recommended sentence 'the concave budget that homogeneity forces is what makes ours sparse' should cite it and must not sell that mechanism as new. (4) Boyd ICM Sec. 7 gives the existence half of Cor. dense directly: an edge-transitive graph with 1^T w=1 has a uniform optimal solution, and here Z_p^* acts transitively on frequency classes. Uniqueness is the paper's own addition. (5) All other confirmed citations re-verified from primary sources: Gunasekar Thm 2a verbatim; Kam App. A.3.2 Eq. 15 / Prop. 5 (l2 budget, uniform optimal at full support); Boyd lambda_2 with w>=0, 1^T w=1, vol. 3 pp. 1311-1319; Jagadeesan K=1 nuclear, K=D l_{2,1}. No ML paper found with the coverage max-min under an l_{1/s} budget, q=b/nu<1, or its K* count. (6) Harness: WebSearch is exhausted for the whole session (200/200), and the arXiv API returns 429, so verifiers are falling back to slow WebFetch searches.",
+ "extra_citations": [
+  {
+   "key": "tibshirani2021equivalences",
+   "bibtex": "@misc{tibshirani2021equivalences,\n  title={Equivalences Between Sparse Models and Neural Networks},\n  author={Tibshirani, Ryan J.},\n  year={2021},\n  note={Working note, April 15, 2021. \\url{https://www.stat.berkeley.edu/~ryantibs/papers/sparsitynn.pdf}}\n}",
+   "url": "https://www.stat.berkeley.edu/~ryantibs/papers/sparsitynn.pdf",
+   "why": "The AM-GM pricing step, stated at b=2: a k-layer product network with weight decay is equivalent to an l_{2/k} penalty (min_{prod a_l=c} sum a_l^2 = k|c|^{2/k}). Cite at 'The exponent comes from homogeneity ... (AM-GM)'."
+  },
+  {
+   "key": "kolb2025deep",
+   "bibtex": "@inproceedings{kolb2025deep,\n  title={Deep Weight Factorization: Sparse Learning Through the Lens of Artificial Symmetries},\n  author={Kolb, Chris and Weber, Tobias and Bischl, Bernd and R{\\\"u}gamer, David},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2025},\n  note={arXiv:2502.02496}\n}",
+   "url": "https://arxiv.org/abs/2502.02496",
+   "why": "Peer-reviewed form of the same step. Thm 1: L2 on a depth-D factorisation has the same minima as an L_{2/D} quasi-norm penalty, with factors balanced at optima (Lemma 1)."
+  },
+  {
+   "key": "jacobs2026implicit",
+   "bibtex": "@article{jacobs2026implicit,\n  title={Implicit Bias of Mirror Flow in Homogeneous Neural Networks: Sparse and Dense Feature Learning},\n  author={Jacobs, Tom and Mont{\\'u}far, Guido},\n  journal={arXiv preprint arXiv:2605.19458},\n  year={2026}\n}",
+   "url": "https://arxiv.org/abs/2605.19458",
+   "why": "Thm 4.9: homogeneous-net max-margin reduces to min sum_j |a_j|^{alpha/2}; alpha<2 is sparse and alpha>=2 is dense. This generic principle, that the exponent of a per-unit cost decides sparse vs dense, is what reviewers will cite against 'the concave budget makes ours sparse'."
+  }
+ ]
+}

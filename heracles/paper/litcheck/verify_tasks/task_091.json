@@ -1,0 +1,34 @@
+{
+ "item": {
+  "id": "U3-n-operand",
+  "kind": "uncited_background",
+  "location": "prelim.tex n-operand task and power neuron",
+  "statement": "n-operand modular addition with (u_1+...+u_n)^n w neurons",
+  "what_to_check": "Li et al. 2025 (in bib, uncited) owns this family and a general-nu dense result"
+ },
+ "chk": {
+  "id": "U3-n-operand",
+  "verdict": "CITATION_FOUND",
+  "evidence": "In prelim.tex line 5 the n-operand task and the power neuron are defined, but the only citation is morwani2024feature (for n=2). The entry li2025nsum is in refs.bib (line 53) and is never cited. I confirmed the source from https://arxiv.org/html/2402.09469 and https://proceedings.mlr.press/v258/li25b.html. Li, Liang, Shi, Song and Zhou, \"Fourier Circuits in Neural Networks and Transformers: A Case Study of Modular Arithmetic with Multiple Inputs\", AISTATS 2025, PMLR 258:523-531. Their Sec 3.1 defines the k-input dataset (a_1+...+a_k) mod p and the neuron phi(theta_i,a) = (u_{i,1}(a_1)+...+u_{i,k}(a_k))^k w_i under ||theta||_{2,k+1} <= 1. This is our D_p with our power neuron at n=k, b=nu. Their Thm 4.1 (Sec 4) says that if m >= 2^{2k-1}(p-1)/2, then gamma* = 2(k!)/((2k+2)^{(k+1)/2}(p-1)p^{(k-1)/2}), and for each frequency in 1..(p-1)/2 some neuron uses only that frequency. That is the dense endpoint for general nu, so they own the family. There is a secondary precedent in Doshi, He, Das, Gromov, \"Grokking Modular Polynomials\", arXiv 2406.03495 (2024 preprint). Their Sec 2 \"Modular Addition with Many Terms\", Eq. 1, is f = W phi(U(e_{n1}+...+e_{nS})) with phi(x)=x^S. It has the same power-neuron form and gives an analytic solution, with no margin theorem. Searches: arXiv HTML of 2402.09469, the PMLR page, and the arXiv abs/HTML of 2406.03495. Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/u3-n-operand/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "li2025nsum",
+    "bibtex": "@inproceedings{li2025nsum,\n  title={Fourier Circuits in Neural Networks and Transformers: A Case Study of Modular Arithmetic with Multiple Inputs},\n  author={Li, Chenyang and Liang, Yingyu and Shi, Zhenmei and Song, Zhao and Zhou, Tianyi},\n  booktitle={Proceedings of The 28th International Conference on Artificial Intelligence and Statistics (AISTATS)},\n  series={PMLR},\n  volume={258},\n  pages={523--531},\n  year={2025}\n}",
+    "url": "https://proceedings.mlr.press/v258/li25b.html",
+    "confirmed": true,
+    "why": "Cite at prelim.tex l.5 for the n-operand task and the power neuron (their Sec 3.1: the same dataset, the same (sum_t u_t(a_t))^k w neuron and the L_{2,k+1} norm). Also cite it wherever the b=nu dense endpoint and the n! B_p power bound appear (approach.tex l.58, appendix.tex l.266/279). Their Thm 4.1 gives the exact max L_{2,k+1} margin and shows that every frequency is used."
+   },
+   {
+    "key": "doshi2024grokking",
+    "bibtex": "@article{doshi2024grokking,\n  title={Grokking Modular Polynomials},\n  author={Doshi, Darshil and He, Tianyu and Das, Aritra and Gromov, Andrey},\n  journal={arXiv preprint arXiv:2406.03495},\n  year={2024}\n}",
+    "url": "https://arxiv.org/abs/2406.03495",
+    "confirmed": true,
+    "why": "Secondary citation for the power-neuron family. Their Sec 2, Eq. 1 is a 2-layer MLP with phi(x)=x^S for S-term modular addition, and they build an analytic Fourier solution. It has no margin or norm theorem."
+   }
+  ],
+  "recommended_change": "In prelim.tex line 5, change the end of the power-neuron sentence to: \"... both with $\\nu=n+1$. This task and the power neuron are those of \\citet{li2025nsum} (see also \\citealp{doshi2024grokking}), and at $n=2$ the power neuron is the quadratic neuron of \\citet{morwani2024feature}.\" In approach.tex l.58 and at the appendix power-neuron paragraph (appendix.tex l.279), add: \"At $b=\\nu$ the maximum margin of the power network, with every frequency used, is computed by \\citet[Thm 4.1]{li2025nsum}.\" Add the doshi2024grokking bib entry."
+ },
+ "lens": "citation",
+ "slug": "u3-n-operand",
+ "task": 91
+}

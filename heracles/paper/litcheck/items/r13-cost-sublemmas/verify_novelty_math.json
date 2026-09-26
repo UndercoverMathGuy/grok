@@ -1,0 +1,16 @@
+{
+ "task": 14,
+ "item_id": "R13-cost-sublemmas",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN, with more of it known than the checker said. Given the chain lemma (H upper triangular with unit diagonal, so |det H|=1), the inequality part of Lemma cost for all 0<r<=1, Prop. gen and Remark 'other penalties' all follow from Rotfel'd's trace inequality (Thompson 1976, Thm 3(i)/eq. (1)) plus Jensen/AM-GM on log singular values. This covers every concave increasing psi with psi(0)=0 and psi\u2218exp convex, a strictly larger class than TBF. Genuinely ours: the chain lemma, and the equality case (exactly nu neurons, equal moduli, orthogonal chain vectors). Prop. esym is a textbook Cauchy-Binet/Hadamard intermediate and is not needed for the inequality.",
+ "issues": "Both confirmed citations check out. Rajan-Tepedelenlioglu arXiv 1302.5383: PDF text read. Def. 1, eq. (6) TBF, Property S1 and App. A eqs. (28)-(31) are as the checker described. Crossref confirms TIT 61(4):1619-1628. Schilling-Song-Vondracek: ETH TOC shows Ch. 8 'Thorin-Bernstein functions' starting p. 73. Crossref confirms de Gruyter, issued 2009-12-24, print year 2010. Missed prior art: Rotfel'd's trace inequality as proved by Thompson (Pacific J. Math 66(1):285-290, 1976), which holds for arbitrary square matrices: sum f(sigma(A+B)) <= sum f(sigma(A)) + sum f(sigma(B)) for f concave, increasing, f(0)=0. Applied to H = sum_l d_l u_l u_l^* (rank-one singular values |d_l|), it gives sum psi(|d_l|) >= sum psi(sigma_i(H)). Since |det H|=1 by the chain lemma, Jensen on log sigma_i gives >= nu psi(1) whenever psi\u2218exp is convex, which every TBF satisfies. Numerically sanity-checked on 20k random instances. So the checker's recommended wording, which calls the domination (Lemma chain + Prop. esym) the new ingredient, overclaims. The domination is a corollary of the chain lemma plus a 1969/1976 matrix inequality. The paper's determinant/Bernstein route is still needed for the equality case, which the Rotfel'd route does not give. Recommend citing Thompson 1976 (Rotfel'd) in Remark 'other penalties' and presenting the generating-function proof as a self-contained route that also yields equality. Harness note for the user's slowness complaint: WebSearch in this session is exhausted ('200 of 200 WebSearch calls') and the arXiv export API returns HTTP 429. Verifiers are running search-blind and guessing URLs, which explains much of the verify-stage slowness.",
+ "extra_citations": [
+  {
+   "key": "thompson1976convex",
+   "bibtex": "@article{thompson1976convex,\n  title={Convex and concave functions of singular values of matrix sums},\n  author={Thompson, Robert C.},\n  journal={Pacific Journal of Mathematics},\n  volume={66},\n  number={1},\n  pages={285--290},\n  year={1976},\n  doi={10.2140/pjm.1976.66.285}\n}",
+   "url": "https://msp.org/pjm/1976/66-1/p30.xhtml",
+   "why": "Eq. (1) (Rotfel'd) and Thm 3(i) give sum f(sigma_i(A+B)) <= sum f(sigma_i(A)) + sum f(sigma_i(B)) for arbitrary square matrices and f concave, increasing, f(0)=0. With the chain lemma (|det H|=1) and Jensen on log singular values, this yields the inequality of Lemma cost, Prop. gen and Remark 'other penalties' in two lines. It is the canonical math prior art for the transfer step."
+  }
+ ]
+}

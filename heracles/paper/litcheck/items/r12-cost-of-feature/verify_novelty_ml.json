@@ -1,0 +1,16 @@
+{
+ "task": 11,
+ "item_id": "R12-cost-of-feature",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN (count part >= nu is folklore via a substitution argument; the equal-amplitude, equally spaced construction appears in Mohlenkamp-Monzon Fig. 1; the weighted l_r bound nu^{1-r}, its equality case and the det(I+tH)/Hadamard proof were not found)",
+ "issues": "All three confirmed citations survive, and their Crossref metadata is correct. Beylkin-Mohlenkamp: Lemma 2.4 / eq. (2.9) confirmed; the kappa~7 remark is a parenthetical in Sec. 3.3 during a d=10 experiment, not in Sec. 3 generally. Mohlenkamp-Monzon: the 'We believe ... minimal' sentence is confirmed, and their Fig. 1 (right) already shows alpha = 0, pi/3, 2pi/3 with equidistributed amplitude, which is the nu-block (Prop block); cite them there too. Comon-Ottaviani abstract confirmed. CORRECTION to the checker's framing: the real tensor rank lower bound rank Re(z_1...z_d) >= d is not open. It follows in two lines by substitution: contract the last factor with w orthogonal to a_1^d, which gives Re(c z_1...z_{d-1}), c != 0, with r-1 terms; induct. So the recommended text 'which they conjectured to be minimal ... Lemma cost proves the lower bound of nu terms' overclaims. Present only the weighted l_r bound and its equality characterisation as new. The paper's weaker hypothesis (only the C(nu,2) interval patterns, app:cost) is not covered by the substitution argument, a point in the paper's favour. ML search: Tian 2410.01779 constructs order-4/6 per-frequency solutions with roots of unity but proves no lower bound and no norm cost. Li et al. 2402.09469 uses 2^{2k-1} neurons per frequency (Lemma 4.3, sum-to-product App E.1), with no minimum, no l_p (p<1) cost and no equality case; this is a good contrast (2^{2k-1} vs nu = k+1). Wang-Seigal 2202.11740 (JSC 2023), checked as requested, is irrelevant (unfolding bounds, Comon counterexamples). TOOLING (explains workflow slowness): WebSearch refused as '200 of 200' session budget used, shared across all workflow agents; export.arxiv.org API and Semantic Scholar returned HTTP 429. Later verifiers cannot search and must fall back to curl on arxiv.org/search, Crossref and OpenAlex. Morwani App F.2, He et al. and Gromov were not re-checked here. Li et al. (2402.09469) is already in refs.bib as an AISTATS 2025 entry; it should be cited at Lemma cost as the 2^{2k-1}-neuron contrast.",
+ "extra_citations": [
+  {
+   "key": "causa2011maximum",
+   "bibtex": "@article{causa2011maximum, title={On the maximum rank of a real binary form}, author={Causa, Antonio and Re, Riccardo}, journal={Annali di Matematica Pura ed Applicata}, year={2011}, note={arXiv:1006.5127}}",
+   "url": "https://arxiv.org/abs/1006.5127",
+   "why": "Optional companion to Comon-Ottaviani: forms with d real roots form the interior of the rank-d locus of real binary forms (the symmetric analogue of the count). Journal volume and pages not verified; use the arXiv note or check Crossref before adding."
+  }
+ ]
+}

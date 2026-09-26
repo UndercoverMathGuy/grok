@@ -1,0 +1,8 @@
+{
+  "task": 50,
+  "item_id": "T5-concave-vertex",
+  "lens": "novelty_math",
+  "upheld": true,
+  "corrected_verdict": "KNOWN",
+  "issues": "Verdict KNOWN stands. This is the concave-minimization form of Bauer's maximum principle. P_p is unbounded, so the right citation is the line-free polyhedral version in Rockafellar Sec. 32 applied to -phi (phi>=0 is bounded below, so monotonicity is not even needed). The strictness half is folklore. The paper's proof is correct. Citation metadata re-confirmed via Crossref: Rockafellar 1970 PUP, DOI 10.1515/9781400873173; Horst-Tuy 1996 Springer, DOI 10.1007/978-3-662-03199-5, ISBN 9783642082474. Benson 1995 Handbook ch. pp. 43-148 also confirmed. Caveat: neither I nor the checker saw the Sec. 32 text or a Horst-Tuy theorem (archive.org restricted/403, De Gruyter 405, JSTOR failed). Cite the section only; drop any theorem number and the unverified pp. 342-346. Neither key is in refs.bib yet. Optional classical primary source, metadata only (content not fetched, Wiley 403): Hirsch & Hoffman 1961, CPAM 14(3):355-369, DOI 10.1002/cpa.3160140313. Process note: the session WebSearch budget is exhausted (200/200), so later verifiers cannot search."
+}

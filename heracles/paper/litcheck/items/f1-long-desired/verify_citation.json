@@ -1,0 +1,16 @@
+{
+  "task": 65,
+  "item_id": "F1-long-desired",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "PARTIALLY_SUPPORTED",
+  "issues": "Upheld. The three citations exist and support the softened sentence, with two corrections. (1) The checker attributes 'we ultimately want to count the features used by real neural networks, where the number of features is unknown' to Elhage et al. 2022. That sentence is in the Comments & Replications section of the Toy Models page, in the entry 'Extracting Features with Sparse Autoencoders' by Sharkey, Braun and Millidge (Conjecture), so it is not the authors' text. The support for elhage2022superposition rests on the authors' Open Questions section: 'How many features should we expect to be stored in superposition? ... perhaps tighter bounds!' It also rests on the main-text line 'one question is just how many features the model learns to represent'. Those are verified. The checker's bibtex is exactly the page's official BibTeX. (2) sharkey2025open was published in TMLR in 2025 with Survey Certification (OpenReview 91H76m9Z94, confirmed via the OpenReview API). The bib should cite TMLR, not 'arXiv preprint'. The TMLR author list orders Saunders before Michaud and gives fuller first names. The quoted sentence ('provide bounds on the number of features we should expect models to be capable of learning') is verified in arXiv v1, Sec. 2.1.2. The TMLR PDF could not be fetched. The sentence concerns capacity bounds, not regularisation-driven selection, so it is loose support. olah2020zoom: bib matches the official Distill BibTeX, and Claim 1 is verified verbatim. It is optional and supports only the notion of a feature. 'Long-desired result' should still be dropped, per the checker's rewrite. Operational: WebSearch returned 'this session has used its web search budget (200 of 200 WebSearch calls)'. Later verifiers have no search, which likely contributes to the slow verify stage.",
+  "extra_citations": [
+    {
+      "key": "sharkey2025open",
+      "bibtex": "@article{sharkey2025open,\n  title={Open Problems in Mechanistic Interpretability},\n  author={Lee Sharkey and Bilal Chughtai and Joshua Batson and Jack Lindsey and Jeffrey Wu and Lucius Bushnaq and Nicholas Goldowsky-Dill and Stefan Heimersheim and Alejandro Ortega and Joseph Isaac Bloom and Stella Biderman and Adri{\\`a} Garriga-Alonso and Arthur Conmy and Neel Nanda and Jessica Mary Rumbelow and Martin Wattenberg and Nandi Schoots and Joseph Miller and William Saunders and Eric J Michaud and Stephen Casper and Max Tegmark and David Bau and Eric Todd and Atticus Geiger and Mor Geva and Jesse Hoogland and Daniel Murfet and Thomas McGrath},\n  journal={Transactions on Machine Learning Research},\n  issn={2835-8856},\n  year={2025},\n  url={https://openreview.net/forum?id=91H76m9Z94},\n  note={Survey Certification}\n}",
+      "url": "https://openreview.net/forum?id=91H76m9Z94",
+      "why": "Replaces the checker's arXiv-preprint entry for the same paper with its published TMLR 2025 version (official OpenReview bibtex, retrieved via API). The same Sec. 2.1.2 sentence on bounding the number of features supports calling the question open."
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+ "batches": [
+  {
+   "batch_id": "E3_product_nu5_p17_b00",
+   "runs": [
+    {
+     "run_id": "E3_product_nu5_p17_seed0",
+     "config": {
+      "model": "product",
+      "n": 4,
+      "p": 17,
+      "q": 5.0,
+      "width": 80,
+      "steps": 300000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 0.5950000000000001,
+      "lr_c": 0.035,
+      "lam": 1.5923148557384853e-08,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 4.123105625617661,
+      "seed": 0,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.0
+     }
+    },
+    {
+     "run_id": "E3_product_nu5_p17_seed1",
+     "config": {
+      "model": "product",
+      "n": 4,
+      "p": 17,
+      "q": 5.0,
+      "width": 80,
+      "steps": 300000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 0.5950000000000001,
+      "lr_c": 0.035,
+      "lam": 1.5923148557384853e-08,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 4.123105625617661,
+      "seed": 1,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.0
+     }
+    },
+    {
+     "run_id": "E3_product_nu5_p17_seed2",
+     "config": {
+      "model": "product",
+      "n": 4,
+      "p": 17,
+      "q": 5.0,
+      "width": 80,
+      "steps": 300000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 0.5950000000000001,
+      "lr_c": 0.035,
+      "lam": 1.5923148557384853e-08,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 4.123105625617661,
+      "seed": 2,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.0
+     }
+    },
+    {
+     "run_id": "E3_product_nu5_p17_seed3",
+     "config": {
+      "model": "product",
+      "n": 4,
+      "p": 17,
+      "q": 5.0,
+      "width": 80,
+      "steps": 300000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 0.5950000000000001,
+      "lr_c": 0.035,
+      "lam": 1.5923148557384853e-08,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 4.123105625617661,
+      "seed": 3,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.0
+     }
+    }
+   ]
+  }
+ ]
+}

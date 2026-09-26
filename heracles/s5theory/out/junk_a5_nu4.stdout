@@ -1,0 +1,6 @@
+== s4 n=3 q=2: exact symmetric ceiling 4.240299e-07 on {'sign': 0.166666666667, 'std_sign': 0.333333333333} (82 neurons)
+   eps 0.0: start gamma/ceiling 0.99706 -> best after ascent 1.26854
+   eps 0.02: start gamma/ceiling 0.85174 -> best after ascent 1.45964
+   eps 0.1: start gamma/ceiling 0.18026 -> best after ascent 1.45990
+== a5 n=3 q=2: exact symmetric ceiling 3.291148e-08 on {'3b': 0.72360679775} (81 neurons)
+   eps 0.02: start gamma/ceiling 0.72155 -> best after ascent 0.99991

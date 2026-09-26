@@ -1,0 +1,200 @@
+[
+  {
+    "p": 3,
+    "n": 2,
+    "width": 3,
+    "start": 0,
+    "ratio": 0.9999999999999996,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.0072939395904541016,
+    "jac_error": 2.6713736778205543e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 3,
+    "start": 1,
+    "ratio": 0.9999999999998467,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.0031387805938720703,
+    "jac_error": 2.6713736778205543e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 3,
+    "start": 2,
+    "ratio": 0.9999999999996002,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.002315998077392578,
+    "jac_error": 2.6713736778205543e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 3,
+    "start": 3,
+    "ratio": 0.9999999999997564,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.003068208694458008,
+    "jac_error": 2.6713736778205543e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 3,
+    "start": 4,
+    "ratio": -2.3132360224834105e-12,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.001210927963256836,
+    "jac_error": 2.6713736778205543e-10
+  },
+  {
+    "p": 3,
+    "n": 2,
+    "width": 3,
+    "start": 5,
+    "ratio": 0.9999999999996899,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.004405975341796875,
+    "jac_error": 2.6713736778205543e-10
+  },
+  {
+    "p": 3,
+    "n": 3,
+    "width": 4,
+    "start": 0,
+    "ratio": 0.9999999999999994,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.0007348060607910156,
+    "jac_error": 3.498081824204746e-10
+  },
+  {
+    "p": 3,
+    "n": 3,
+    "width": 4,
+    "start": 1,
+    "ratio": 0.9999999999994563,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.005944728851318359,
+    "jac_error": 3.498081824204746e-10
+  },
+  {
+    "p": 3,
+    "n": 3,
+    "width": 4,
+    "start": 2,
+    "ratio": 0.9999999999997344,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.0065691471099853516,
+    "jac_error": 3.498081824204746e-10
+  },
+  {
+    "p": 3,
+    "n": 3,
+    "width": 4,
+    "start": 3,
+    "ratio": 0.9999999999998092,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.009558916091918945,
+    "jac_error": 3.498081824204746e-10
+  },
+  {
+    "p": 3,
+    "n": 3,
+    "width": 4,
+    "start": 4,
+    "ratio": -2.55412177553118e-14,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.003225088119506836,
+    "jac_error": 3.498081824204746e-10
+  },
+  {
+    "p": 3,
+    "n": 3,
+    "width": 4,
+    "start": 5,
+    "ratio": -1.869800610639533e-14,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.003172159194946289,
+    "jac_error": 3.498081824204746e-10
+  },
+  {
+    "p": 3,
+    "n": 4,
+    "width": 5,
+    "start": 0,
+    "ratio": 0.999999999999998,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.002032756805419922,
+    "jac_error": 1.068737986997803e-09
+  },
+  {
+    "p": 3,
+    "n": 4,
+    "width": 5,
+    "start": 1,
+    "ratio": 0.9999999999999708,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.0452580451965332,
+    "jac_error": 1.068737986997803e-09
+  },
+  {
+    "p": 3,
+    "n": 4,
+    "width": 5,
+    "start": 2,
+    "ratio": 0.999999999999987,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.04738926887512207,
+    "jac_error": 1.068737986997803e-09
+  },
+  {
+    "p": 3,
+    "n": 4,
+    "width": 5,
+    "start": 3,
+    "ratio": 0.9999999999999523,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.05828404426574707,
+    "jac_error": 1.068737986997803e-09
+  },
+  {
+    "p": 3,
+    "n": 4,
+    "width": 5,
+    "start": 4,
+    "ratio": -4.0439786041433616e-14,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.015403032302856445,
+    "jac_error": 1.068737986997803e-09
+  },
+  {
+    "p": 3,
+    "n": 4,
+    "width": 5,
+    "start": 5,
+    "ratio": -6.3205342377420815e-15,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "seconds": 0.014248132705688477,
+    "jac_error": 1.068737986997803e-09
+  }
+]

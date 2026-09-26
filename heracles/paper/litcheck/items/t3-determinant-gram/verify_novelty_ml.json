@@ -1,0 +1,22 @@
+{
+ "task": 45,
+ "item_id": "T3-determinant-gram",
+ "lens": "novelty_ml",
+ "upheld": false,
+ "corrected_verdict": "KNOWN (technique and inequality); the application is novel in ML. The steps (Sylvester, principal-minor expansion, Hadamard, the complete-Bernstein integral for x^r) are textbook. The inequality sum|beta_l|^r >= nu^{1-r}|beta|^r follows classically from Weyl's majorant theorem plus Rotfel'd-Thompson concave subadditivity; I re-checked the argument by hand. No ML paper gives a per-frequency neuron lower bound or a nu^{1-r} cancellation cost. Morwani 2024, Li et al. 2025, Doshi et al. 2024 and Tian 2025 all lack one. Tian (NeurIPS 2025) already constructs the nu=3 equality-case configuration: 3 hidden nodes per frequency with cube-root-of-unity phases (z_syn). He proves no minimality or cost result, and it should be cited. The checker's verdict stands, but the Horn-Johnson DOI must be fixed.",
+ "issues": "(1) Wrong bib field in a confirmed citation. hornjohnson2012 is given as edition 2, year 2012, doi 10.1017/CBO9780511810817. Crossref and the Cambridge page show that DOI is the FIRST edition (1985). The 2nd edition is doi 10.1017/CBO9781139020411 (Crossref: edition 2, 2012-10-22). Its section numbers are still unverified. (2) ML prior art the checker missed: Tian, 'Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets', NeurIPS 2025, arXiv 2410.01779. For 2-layer quadratic nets on Abelian groups, its order-3 solution z_syn (u_syn = [omega_3, omega_3, omega_3]) gives 'exactly 3 hidden nodes' per frequency when the R_* term is dropped. That is the nu=3 instance of this paper's equality case and nu-block (roots-of-unity cancellation of the sign-flipped copy). Its Theorem 5 says qualitatively that lower-order solutions are preferred under L2. It has no lower bound, no cost inequality, no minimality claim and no Gram/determinant tools, so it is not a scoop, but it belongs near Prop. block and Lemma cost. (3) The other confirmed citations check out. thompson1976: eq. (1) verified verbatim from the PDF, for n-square matrices, f increasing concave, f(0)=0, due to Rotfel'd. weyl1949: metadata verified via Crossref/PMC, but the scanned text could not be read. bhatia1997: metadata verified via Crossref; Thm II.3.6 and the Ch. V formula unverified, and the Amazon URL should be replaced by the DOI. (4) The ML-lens sweep found no precedent for the lemma itself. Morwani 2024 (b=nu, triangle-inequality regime, width m>=4(p-1)), Li et al. 2025 (2^{2k-1} neurons per frequency, a sufficient width only) and Doshi-He-Das-Gromov 2024 (random-phase approximate cancellation) all lack a lower bound. The representation-cost literature (Dai-Karzand-Srebro 2021; Shang et al. Schatten quasi-norms) gives the framing only, not the result.",
+ "extra_citations": [
+  {
+   "key": "tian2025cogs",
+   "bibtex": "@inproceedings{tian2025cogs,\n  author = {Tian, Yuandong},\n  title = {Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets},\n  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},\n  year = {2025},\n  note = {arXiv:2410.01779}\n}",
+   "url": "https://arxiv.org/abs/2410.01779",
+   "why": "The closest ML precedent. It constructs the nu=3 roots-of-unity cancellation block (order-3 solution z_syn, exactly 3 hidden nodes per frequency with cube-root-of-unity phases) and observes qualitatively that L2 favours low-order solutions (Thm 5). It proves no lower bound and no cost inequality. Cite it at Prop. block and the equality case of Lemma cost."
+  },
+  {
+   "key": "hornjohnson2012",
+   "bibtex": "@book{hornjohnson2012,\n  author = {Horn, Roger A. and Johnson, Charles R.},\n  title = {Matrix Analysis},\n  edition = {2},\n  publisher = {Cambridge University Press},\n  year = {2012},\n  doi = {10.1017/CBO9781139020411}\n}",
+   "url": "https://doi.org/10.1017/CBO9781139020411",
+   "why": "Corrected entry. The checker's DOI (CBO9780511810817) is the 1985 first edition. Cite it for Sylvester's identity, the principal-minor expansion and Hadamard's inequality; section numbers still need checking against the 2nd edition."
+  }
+ ]
+}

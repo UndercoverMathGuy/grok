@@ -1,0 +1,22 @@
+{
+ "task": 43,
+ "item_id": "T2-amgm-quasinorm",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "KNOWN",
+ "issues": "All 5 citations the checker confirmed were re-fetched and check out.\n- Tibshirani: the AM-GM passage and k|c|^{2/k} (eq 9) are verbatim.\n- Hoff: the abstract matches; Crossref confirms CSDA 115:186-198.\n- Kolb: Thm 1 says 'same global and local minima'.\n- Dai et al.: the abstract mentions l_p costs.\n- Gunasekar: Thm 2a is confirmed.\nRefinement: cite Gunasekar Lemma 7 rather than only Thm 2a.\n- arXiv 1806.00468 Lemma 6/7 states R(beta)=min||w||^2=L||beta_hat||_{2/L}^{2/L}.\n- This is the explicit weight-decay representation cost on Fourier coefficients, i.e. our step exactly.\n- The lemma numbers are from the arXiv PDF; the proceedings numbering may differ.\nMissed prior art:\n- Neyshabur-Tomioka-Srebro ICLR-W 2015 (1412.6614), Thm 1: weight decay on a 2-layer ReLU net = l1 on the top layer. The proof is AM-GM plus rescaling of homogeneous units.\n  - This is the nonlinear per-neuron version (b=nu=2), closest to our homogeneous product neurons.\n- Grandvalet 1998 (ICANN 98, pp. 201-206, DOI 10.1007/978-1-4471-1599-1_27). The checker left the bib unconfirmed; it is now confirmed via Crossref.\nNo explicit prior statement of the general L_{2,b} -> exponent b/nu version was found.\n- It is a trivial extension and must not be claimed as new.\n- This search was cut short: the session-wide WebSearch cap is exhausted (200/200 calls), and export.arxiv.org returned HTTP 429.\n- This is likely also why the parallel verify stage is slow and degraded. Every verifier shares the one search budget and arXiv's rate limit.",
+ "extra_citations": [
+  {
+   "key": "neyshabur2015search",
+   "bibtex": "@inproceedings{neyshabur2015search,\n  title={In Search of the Real Inductive Bias: On the Role of Implicit Regularization in Deep Learning},\n  author={Neyshabur, Behnam and Tomioka, Ryota and Srebro, Nathan},\n  booktitle={International Conference on Learning Representations (Workshop Track)},\n  year={2015},\n  eprint={1412.6614},\n  archivePrefix={arXiv}\n}",
+   "url": "https://arxiv.org/abs/1412.6614",
+   "why": "Thm 1: weight decay on a two-layer ReLU network is equivalent to l1 regularisation of the top layer with unit-norm hidden units, proved by AM-GM plus positive-homogeneous rescaling. This is the canonical ML precedent for the per-neuron AM-GM price, in the nonlinear homogeneous setting (b=nu=2, s=1)."
+  },
+  {
+   "key": "grandvalet1998least",
+   "bibtex": "@inproceedings{grandvalet1998least,\n  title={Least Absolute Shrinkage is Equivalent to Quadratic Penalization},\n  author={Grandvalet, Yves},\n  booktitle={ICANN 98: Proceedings of the 8th International Conference on Artificial Neural Networks},\n  pages={201--206},\n  publisher={Springer},\n  year={1998},\n  doi={10.1007/978-1-4471-1599-1_27}\n}",
+   "url": "https://doi.org/10.1007/978-1-4471-1599-1_27",
+   "why": "Earliest source (credited by Kolb et al. 2025) that a quadratic penalty on multiplicative factors equals the lasso penalty. Bib fields confirmed via Crossref DOI metadata."
+  }
+ ]
+}

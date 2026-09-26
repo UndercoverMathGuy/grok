@@ -1,0 +1,337 @@
+\section{Theory: modular addition}
+\subsection{Setting}
+\label{sec:setting}
+
+\paragraph{Modular Addition} In modular addition for an odd prime $p$ with $n\ge 1$ operands, the input is an
+$n$-tuple $a\in\Zp^n$ of residues mod $p$; the result is $s(a)=\sum_{i=1}^n a_i \bmod p$.
+
+
+\paragraph{Margin} On input $a$ the model outputs one score per candidate answer
+$c\in\Zp$; write $Z(a,c)$. So $Z$ is a table with one row per input and one column per candidate.
+The \emph{margin} is the worst-case gap between the right answer and the best wrong one,
+\begin{equation}
+  \marg(Z) \;=\; \min_{a}\ \min_{c\neq s(a)}\ \big[Z(a,s(a)) - Z(a,c)\big].
+\end{equation}
+
+\paragraph{Neuron-additive homogeneous models.} We consider models in which the table is a sum of
+per-neuron tables, each neuron paying its own cost:
+\begin{equation}
+  z=\sum_{i=1}^m z_i,\qquad \Pq(\theta)=\sum_{i=1}^m \|\theta_i\|^q ,
+\end{equation}
+where $\theta_i$ is the weight vector of neuron $i$, $z_i$ depends on $\theta_i$ only, and
+$z_i$ is homogeneous of degree $\nu$: scaling $\theta_i$ by $t$ scales $z_i$ by $t^\nu$. In a
+one-hidden-layer network $z_i$ is the table produced by neuron $i$ alone; the property fails when a
+shared layer precedes the neurons. The exponent $q\in[2,\nu]$ sets the penalty: $q=2$ is plain
+weight decay, $\lambda\|\theta\|^2$; $q=\nu$ is the $L_{2,\nu}$ penalty of \citet{morwani2024feature}.
+Two derived numbers run the section,
+\begin{equation}
+  r:=q/\nu\in(0,1],\qquad s:=\nu/q=1/r\ge 1 :
+\end{equation}
+$r$ is how much cheaper a feature gets per unit of amplitude as it grows, and $s$ is the return on
+concentrating budget into few features ($s=1$, Morwani's penalty, means no return).
+
+\paragraph{Normalised margin.} $\gam(\theta)=\marg(z)/\Pq(\theta)^{\nu/q}$ is unchanged when all
+weights are scaled, so it depends only on the weight \emph{direction}. Its largest value over all
+directions is the quantity the section characterises. By \citet[Thm.~4.1]{wei2019regularization}, the
+global minimiser of cross-entropy plus $\lambda\Pq$ approaches a direction attaining that largest
+value as $\lambda\to 0$; nothing here concerns whether gradient descent finds it.
+
+\paragraph{Instances.} The \emph{product model} $z_i(a,c)=w_i(c)\prod_j e_{ij}(a_j)$ (one lookup
+vector per operand plus a readout; $\nu=n+1$); the \emph{power model}
+$z_i(a,c)=w_i(c)\big(\sum_j e_{ij}(a_j)\big)^n$ of \citet{morwani2024feature,li2025nsum} ($\nu=n+1$);
+and the one-hidden-layer \emph{ReLU model} ($\nu=2$). Appendix~\ref{app:models} checks the
+assumptions for each.
+
+\subsection{Clean part, features, and the programme}
+\label{sec:objects}
+
+The score of the candidate sitting $D$ steps below the right answer, averaged over all inputs, is
+\begin{equation}
+  \clean(D)\;=\;\frac{1}{p^n}\sum_{a} z\big(a,\ s(a)-D\big),\qquad D\in\Zp .
+\end{equation}
+$\clean$ is the part of the table that depends only on (answer $-$ candidate). Everything in $z$
+that is not of this form is \emph{interference}: content that does not depend on whether the
+candidate is right. Since $\clean$ is a function on the cyclic group $\Zp$ it is a sum of cosines,
+\begin{equation}
+  \clean(D)\;=\;\bar{\clean}+\sum_{k\in\Fp} A_k\cos\!\big(2\pi kD/p+\phi_k\big),\qquad
+  \Fp=\{1,\dots,\tfrac{p-1}{2}\},\ A_k\ge 0,
+  \label{eq:spectrum}
+\end{equation}
+and we call $A_k$ the \emph{clean amplitude} and $\phi_k$ the \emph{phase} of frequency $k$. A
+\emph{feature} is a frequency with $A_k>0$; the \emph{feature count} of a table is the number of its
+features. This is the sense in which \citet{nanda2023progress} and \citet{morwani2024feature} count
+features. Because $z=\sum_i z_i$ and $\clean$ is linear in $z$, each neuron has its own amplitudes and
+phases $(a_{ik},\phi_{ik})$ and
+\begin{equation}
+  A_k e^{i\phi_k}=\sum_i a_{ik}e^{i\phi_{ik}},\qquad\text{so}\qquad A_k\le\sum_i a_{ik}.
+  \label{eq:atoms}
+\end{equation}
+We call $c_{ik}:=a_{ik}e^{i\phi_{ik}}$ the \emph{atom} of neuron $i$ at frequency $k$.
+
+Frequency $k$ separates the right answer from the wrong answer $D$ steps away by the
+\emph{coverage}
+\begin{equation}
+  \cov{k}{D}=1-\cos(2\pi kD/p)\ \ge 0,\qquad \sum_{D\neq 0}\cov{k}{D}=p .
+\end{equation}
+A single cosine barely separates offsets with $kD\approx 0 \bmod p$; several frequencies are needed
+so that every offset is covered by someone. The \emph{programme} is
+\begin{equation}
+  \Gam_s(p)\;=\;\max\Big\{\ \min_{D\neq 0}\sum_{k\in\Fp} y_k\,\cov{k}{D}\ :\ y\ge 0,\ \sum_{k\in\Fp} y_k^{1/s}\le 1\ \Big\}.
+  \label{eq:programme}
+\end{equation}
+Read it as: split one unit of budget over frequencies, where a budget share $y_k^{1/s}$ buys clean
+amplitude $y_k$, collect the worst-case coverage over offsets, and maximise. The maximum exists (compact
+constraint set, continuous objective). We write $\Kstar(s,p)=|\supp(y^\star)|$ for the support size of a
+maximiser $y^\star$: the \emph{feature count of the programme}. Restricting to equal shares on a $K$-set,
+with $M_K(p)=\max_{|S|=K}\min_{D\neq 0}\sum_{k\in S}\cov{k}{D}$, gives the lower bound
+$\Gam_s(p)\ge\max_K K^{-s}M_K(p)$; the ladder $K^{-s}M_K$ is a cheap approximation to the programme.
+
+\subsection{The ansatz, derived lightly}
+\label{sec:ansatz}
+
+A feature of a degree-$\nu$ model is carried by $\nu$ weight vectors along the path from input to
+logit. If they have norms $\rho_1,\dots,\rho_\nu$ the amplitude is proportional to $\prod_l\rho_l$ and
+the penalty is $\sum_l\rho_l^q$; at fixed product the sum is smallest when all norms are equal
+(AM--GM), so the cost of amplitude $A$ is proportional to $A^{q/\nu}=A^{1/s}$. Because $q\le\nu$ the
+exponent is at most one: amplitude is cheaper per unit the more of it one feature carries. The
+margin is worst-case coverage, $\min_D\sum_k y_k\cov{k}{D}$. Maximising margin per unit cost is
+therefore exactly \eqref{eq:programme}, and with equal amplitudes on a $K$-set it is $M_K/K^s$:
+coverage grows with $K$, the concentration price $K^{-s}$ falls with $K$, and the feature count is
+where the product peaks. At $s=1$ the budget is linear and the maximiser is every frequency at equal
+share (Corollary~\ref{cor:dense}); for $s>1$ the dense solution loses, since $M_K\le K$ gives
+$K^{-s}M_K\to 0$, and the argmax is a finite $\Kstar$ that falls as $s$ grows, i.e.\ as the degree
+rises or the penalty exponent falls. What the heuristic hides is (i) that the margin can be bounded by
+the clean amplitudes alone although trained tables carry interference, and (ii) that one neuron does not
+produce a clean feature but a feature plus sign-flipped copies of it, whose cancellation costs a
+factor at $q<\nu$. The rest of the section supplies both.
+
+\subsection{Three lemmas for any table}
+\label{sec:lemmas}
+
+\begin{lemma}[interference never helps]
+\label{lem:junk}
+For every table $z$ on the full table and every $D\neq 0$,
+$\ \marg(z)\le\clean(0)-\clean(D)$.
+\end{lemma}
+\begin{proof}
+For every input $a$ the candidate $s(a)-D$ is wrong, so $z(a,s(a))-z(a,s(a)-D)\ge\marg(z)$. Average
+over all $p^n$ inputs.
+\end{proof}
+The worst input is no better than the average input at any fixed offset, and only the clean part
+survives the average. The proof uses every input, which is why all statements are full-table
+statements.
+
+\begin{lemma}[phase lemma]
+\label{lem:phase}
+For every table $z$ and every $D\neq 0$,
+\begin{equation}
+  \marg(z)\;\le\;\sum_{k\in\Fp} A_k\,\cov{k}{D},
+  \qquad\text{hence}\qquad
+  \marg(z)\;\le\;\min_{D\neq 0}\sum_{k\in\Fp} A_k\,\cov{k}{D}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+By \eqref{eq:spectrum}, $\clean(0)-\clean(D)=\sum_k A_k[\cos\phi_k-\cos(2\pi kD/p+\phi_k)]$. This is not
+bounded by $\sum_k A_k\cov{k}{D}$ for a single $D$, but the average of the bracket at $D$ and $-D$ is
+$\cos\phi_k\,\cov{k}{D}\le\cov{k}{D}$. Apply Lemma~\ref{lem:junk} at $D$ and at $-D$ and average.
+\end{proof}
+Equality holds iff every $\phi_k=0$: a network gains nothing from misaligned phases, and the
+bound depends on the network only through its amplitude vector $(A_k)$.
+
+\begin{proposition}[coverage bound]
+\label{prop:coverage}
+With $\|A\|_r:=\big(\sum_{k\in\Fp}A_k^r\big)^{1/r}$ and $s=1/r$,
+$\ \marg(z)\le\Gam_s(p)\,\|A\|_r$.
+\end{proposition}
+\begin{proof}
+If $\|A\|_r=0$ use Lemma~\ref{lem:phase}. Otherwise $y_k=A_k/\|A\|_r$ is feasible for
+\eqref{eq:programme} ($\sum_k y_k^{1/s}=\sum_k y_k^{r}=1$), so $\min_D\sum_k y_k\cov{k}{D}\le\Gam_s(p)$;
+multiply by $\|A\|_r$.
+\end{proof}
+
+\subsection{The universal bound and the dense endpoint}
+\label{sec:universal}
+
+Nothing about the model has been used so far. The one thing a model must supply is how much clean
+amplitude a neuron can buy.
+
+\begin{assumption}[budget]
+\label{ass:budget}
+There is a constant $C_q>0$ such that for every neuron $i$,
+$\ \sum_{k\in\Fp}a_{ik}^{\,q/\nu}\le C_q\,\|\theta_i\|^q$.
+\end{assumption}
+One neuron of weight norm $\|\theta_i\|$ can create only so much clean amplitude, priced with exponent
+$q/\nu$, however it spreads it over frequencies. For the product and power models
+$C_q^{\nu/q}=B:=2(2p\nu)^{-\nu/2}$ up to a model constant (Appendix~\ref{app:models}).
+
+\begin{theorem}[universal margin bound]
+\label{thm:universal}
+For every neuron-additive $\nu$-homogeneous model satisfying Assumption~\ref{ass:budget}, every
+width, and every $q\in[2,\nu]$,
+\begin{equation}
+  \gam(\theta)\;\le\;C_q^{\,\nu/q}\ \Gam_{\nu/q}(p).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Let $r=q/\nu\le 1$. Since $t\mapsto t^r$ is subadditive and $A_k\le\sum_i a_{ik}$ by \eqref{eq:atoms},
+$\sum_k A_k^r\le\sum_i\sum_k a_{ik}^r\le C_q\Pq(\theta)$ by Assumption~\ref{ass:budget}. Raise to the
+power $1/r=\nu/q$, insert into Proposition~\ref{prop:coverage}, and divide by $\Pq^{\nu/q}$.
+\end{proof}
+No hypothesis beyond the budget is used: neurons may mix frequencies, carry interference, or be
+inactive.
+
+\begin{corollary}[the dense endpoint]
+\label{cor:dense}
+$\Gam_1(p)=p/(p-1)$, with the unique maximiser $y_k=2/(p-1)$ for all $k\in\Fp$. Hence at $q=\nu$ any table
+attaining Theorem~\ref{thm:universal} has all $A_k$ equal and all phases aligned; for the product model
+the bound is attained (Proposition~\ref{prop:block} with $r=1$), so the $L_{2,\nu}$ maximum-margin
+product network uses every frequency.
+\end{corollary}
+\begin{proof}
+For feasible $y$, the minimum over $D$ is at most the average over $D\neq 0$, which is
+$\frac{p}{p-1}\sum_k y_k\le\frac{p}{p-1}$. Equality forces $\sum_k y_k=1$ and
+$\sum_k y_k\cos(2\pi kD/p)$ constant on $D\neq 0$; a function equal to $\kappa$ off zero and $1$ at zero
+has all non-zero Fourier coefficients equal, so $y$ is flat (Appendix~\ref{app:dense}).
+\end{proof}
+This is the theorem of \citet{morwani2024feature} recovered as the $s=1$ endpoint of the programme. For
+$q<\nu$ Theorem~\ref{thm:universal} still holds but is \emph{not} attained: a single neuron per frequency
+carries interference (\S\ref{sec:class}), so its atoms cannot be clean and aligned at once.
+Theorem~\ref{thm:ceiling} gives the exact value on the class where interference is absent.
+
+\subsection{The interference-free class}
+\label{sec:class}
+
+Fix a frequency $k$. A neuron carrying the cosine of $k(a_1+\dots+a_n-c)$ in general also carries
+\emph{sign-flipped} copies: for a non-empty set $T$ of operands, the cosine of
+$k\big(\sum_{j\notin T}a_j-\sum_{j\in T}a_j-c\big)$. Such a mode depends on inputs and candidate but not
+on whether the candidate is right; it is interference in the sense of Lemma~\ref{lem:junk}, and it sits
+at the same frequency as the feature. Write $J_{k,T}$ for the table's (complex) coefficient at that mode,
+normalised like the atoms, and $J_{ik,T}$ for neuron $i$'s; then $J_{k,\emptyset}=A_ke^{i\phi_k}$ and
+$J_{k,T}=\sum_iJ_{ik,T}$.
+
+\begin{assumption}[sign rule]
+\label{ass:sign}
+For every neuron $i$ and frequency $k$ there are unimodular $v_{ijk}$ ($j=1..n$) with
+$\ J_{ik,T}=c_{ik}\prod_{j\in T}v_{ijk}$ for every $T\subseteq\{1..n\}$.
+\end{assumption}
+A neuron's sign-flipped copy of its feature has the same size as the feature and a phase obtained by
+flipping the phases of the operands in $T$. This holds whenever the neuron's contribution at these modes
+is a product of one function per operand and one of the candidate (Appendix~\ref{app:models}).
+
+\begin{definition}[interference-free class]
+A table is \emph{interference-free} if $J_{k,T}=0$ for every $k\in\Fp$ and every non-empty $T$.
+\end{definition}
+Equivalently, at every frequency the table's content at the $2^\nu$ modes with entries $\pm k$ is a
+function of (answer $-$ candidate) alone, i.e.\ it is invariant under the task's symmetry
+$(a,c)\mapsto(a+t,\,c+\sum_jt_j)$. The class is a property of the \emph{table}: its neurons may mix
+frequencies. Interference at other modes is not restricted; Lemma~\ref{lem:junk} already discounts it
+and the budget already prices it.
+
+Under the sign rule, an interference-free feature at $k$ is a finite system that involves neither $p$
+nor the task: relabel the neurons with $c_{ik}\neq 0$ as $l=1..N$ and write $A=\sum_lc_l$; then
+\begin{equation}
+  \sum_{l=1}^N c_l\prod_{j\in T}v_{lj}\;=\;A\,[T=\emptyset]\qquad\text{for every }T\subseteq\{1..n\}.
+  \label{eq:JF}
+\end{equation}
+$N$ complex numbers with phases attached, whose plain sum is $A$ and whose sum twisted by any non-empty
+pattern of flips is zero.
+
+\begin{theorem}[feature cost]
+\label{thm:cost}
+Let $v_{lj}$ have modulus $1$ and let $c_1,\dots,c_N$ satisfy \eqref{eq:JF} with total $A$. Then for every
+$r\in(0,1]$,
+\begin{equation}
+  \sum_{l=1}^N|c_l|^r\;\ge\;\nu^{1-r}|A|^r,\qquad\nu=n+1 .
+\end{equation}
+For $r\in(0,1)$ equality holds iff exactly $\nu$ of the $c_l$ are non-zero, all of modulus $|A|/\nu$,
+with pairwise orthogonal chain vectors $m_l=(1,v_{l1},v_{l1}v_{l2},\dots,v_{l1}\cdots v_{ln})$.
+\end{theorem}
+To carry clean amplitude $A$ while cancelling every sign-flipped copy, a feature must be spread over at
+least $\nu$ neurons, evenly, and extra neurons never make it cheaper. At $r=1$ the inequality is the
+triangle inequality and every aligned configuration attains it, which is why the neuron count per
+feature is pinned only for $q<\nu$.
+
+\begin{proof}[Proof sketch; full proof in Appendix~\ref{app:cost}]
+Map each neuron to its chain vector $m_l\in\mathbb{C}^\nu$. The matrix $M=\sum_lc_lm_lm_l^*$ has
+entry $(k,k')$, $k>k'$, equal to the sum in \eqref{eq:JF} for the interval $T=\{k'+1..k\}$, hence
+zero, and diagonal $A$: it is triangular with all eigenvalues $A$. Expanding $\det(I+tM)$ by
+principal minors (Cauchy--Binet) and bounding Gram determinants of unit vectors by one (Hadamard) gives
+$e_k(x)\ge\binom{\nu}{k}$ for the elementary symmetric polynomials of $x_l=\nu|c_l|/|A|$, hence
+$\prod_l(1+x_lt)\ge(1+t)^\nu$. Integrating the logarithm against $t^{-1-r}dt$ and using
+$x^r=\frac{r\sin\pi r}{\pi}\int_0^\infty\log(1+xt)\,t^{-1-r}dt$ yields $\sum_lx_l^r\ge\nu$.
+\end{proof}
+
+\begin{theorem}[margin ceiling in the interference-free class]
+\label{thm:ceiling}
+For every neuron-additive $\nu$-homogeneous model satisfying Assumptions~\ref{ass:budget}
+and~\ref{ass:sign}, every width, every $q\in[2,\nu]$, and every interference-free table,
+\begin{equation}
+  \gam(\theta)\;\le\;\nu^{-(\nu-q)/q}\ C_q^{\,\nu/q}\ \Gam_{\nu/q}(p).
+\end{equation}
+For the product model the bound is attained (Proposition~\ref{prop:block}).
+\end{theorem}
+\begin{proof}
+Let $r=q/\nu$. At each $k$ Theorem~\ref{thm:cost} gives $\sum_ia_{ik}^r\ge\nu^{1-r}A_k^r$; sum over $k$
+and apply the budget neuron by neuron: $\nu^{1-r}\sum_kA_k^r\le C_q\Pq$. Insert into
+Proposition~\ref{prop:coverage}; $(r-1)/r=-(\nu-q)/q$.
+\end{proof}
+The class bound differs from the universal bound by exactly $\nu^{(\nu-q)/q}$ ($\sqrt3$ at $\nu=3$, $4$
+at $\nu=4$, $5^{3/2}$ at $\nu=5$ under plain weight decay, $1$ at $q=\nu$): the price of splitting each
+feature over $\nu$ neurons to cancel its interference.
+
+\begin{corollary}[feature count and structure]
+\label{cor:count}
+Let $q<\nu$. Every interference-free table attaining Theorem~\ref{thm:ceiling} has clean amplitudes
+$A_k\propto y^\star_k$ for a maximiser $y^\star$ of $\Gam_{\nu/q}(p)$, hence exactly $\Kstar(\nu/q,p)$
+features; at each feature exactly $\nu$ neurons carry a non-zero atom, all of modulus $A_k/\nu$, with
+orthonormal chain vectors.
+\end{corollary}
+
+\begin{proposition}[the $\nu$-block attains it]
+\label{prop:block}
+For the product model, fix $k\in\Fp$, $\rho>0$, and for $l=0..n$ let $\varphi_l=\pi l/\nu$,
+$\theta_j=2\pi ka_j/p$, $\theta_c=2\pi kc/p$. The $\nu$ neurons
+$e_{lj}(a)=\rho\cos(\theta_j+\varphi_l)$ (all $j$), $w_l(c)=\rho\cos(\theta_c+n\varphi_l)$ have total table
+$\nu\rho^\nu2^{-n}\cos(\theta_1+\dots+\theta_n-\theta_c)$, a function of (answer $-$ candidate) alone,
+and each costs $\|\theta_l\|^2=\nu\rho^2p/2$. If $y^\star$ maximises $\Gam_{\nu/q}(p)$, placing at each
+$k\in\supp(y^\star)$ a block with $\rho_k^\nu=2^ny^\star_k/\nu$ gives an interference-free network with
+$\gam=\nu^{-(\nu-q)/q}\,B\,\Gam_{\nu/q}(p)$.
+\end{proposition}
+The phases $\varphi_l$ are a rotated copy of the $\nu$-th roots of unity: the equality case of
+Theorem~\ref{thm:cost}. The share weighting $\rho_k^\nu\propto y^\star_k$ is essential; the optimal
+shares are not equal (at $p=59$, $s=3/2$ they range over $0.15$--$0.25$), and an equal-amplitude block on
+the optimal support does not attain the bound. Proof in Appendix~\ref{app:block}.
+
+\paragraph{What the theorems say together.} The programme and its support size $\Kstar$ are the same
+objects in Theorems~\ref{thm:universal} and~\ref{thm:ceiling}; only the constant differs. Under plain
+weight decay the count of the class optimum falls with the degree and grows only slowly with the
+modulus (Table~\ref{tab:kstar}). The dense solution of Corollary~\ref{cor:dense}, evaluated by the same
+machinery, reaches $0.52$--$0.63$ of the class optimum at $\nu=3$, $0.15$--$0.25$ at $\nu=4$ and
+$0.04$--$0.08$ at $\nu=5$: the preference for sparsity sharpens with every rung of the degree.
+
+\begin{table}[t]
+\centering
+\caption{$\Kstar(\nu/q,p)$ at plain weight decay ($q=2$), from the free-share programme. Support
+enumeration is exhaustive for $K\le 8,7,5$ at $p=59,71,113$ and heuristic above, so a missed support can
+only raise $\Kstar$. The equal-share ladder argmax agrees except at $(59,3)$: 6 and $(113,3)$: 5.}
+\label{tab:kstar}
+\begin{tabular}{lccc}
+\toprule
+$p$ & $\nu=3$ ($s=3/2$) & $\nu=4$ ($s=2$) & $\nu=5$ ($s=5/2$)\\
+\midrule
+59  & 5 & 4 & 3\\
+71  & 5 & 4 & 3\\
+113 & 7 & 4 & 4\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Scope.} Three hypotheses are load-bearing. (i) \emph{Full table}: Lemma~\ref{lem:junk}
+averages over every input with a given answer; with a training fraction below one the training-set
+margin need not obey the bound. (ii) \emph{Interference-freeness is a hypothesis on the table, not a
+fact about trained networks}: networks trained with plain weight decay carry interference at the
+sign-flipped modes, and \S\ref{sec:experiments} measures how much and how it moves with $q$.
+(iii) $\Kstar$ is the support size of the free-share programme; the equal-share ladder is an
+approximation, and where adjacent rungs are within a few percent the honest statement is a band of width
+one. Whether any network \emph{outside} the class can exceed the class value is open; Appendix~\ref{app:conjecture}
+states the conjecture and what is known under it.

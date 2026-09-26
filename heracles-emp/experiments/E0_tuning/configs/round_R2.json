@@ -1,0 +1,3263 @@
+{
+ "round": "R2",
+ "batches": [
+  {
+   "batch_id": "R2_prod_nu3_p11_q2_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu3_p11_q2_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu3_p11_q2.5_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu3_p11_q2.5_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2.5_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2.5_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2.5_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2.5_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2.5_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2.5_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q2.5_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu3_p11_q3_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu3_p11_q3_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q3_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q3_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q3_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q3_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q3_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q3_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p11_q3_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu3_p17_q2_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu3_p17_q2_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu3_p17_q2.5_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu3_p17_q2.5_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.5,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2.5_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.5,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2.5_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.5,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2.5_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.5,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2.5_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.5,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2.5_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.5,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2.5_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.5,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q2.5_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 2.5,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu3_p17_q3_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu3_p17_q3_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 3.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q3_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 3.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q3_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 3.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q3_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 3.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 0.0001,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q3_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 3.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q3_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 3.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q3_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 3.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu3_p17_q3_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 17,
+      "q": 3.0,
+      "width": 48,
+      "init_scale": 4.123105625617661,
+      "lam": 1e-05,
+      "lr": 4.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu4_p7_q2_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu4_p7_q2_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 2.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q2_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 2.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q2_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 2.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q2_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 2.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q2_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 2.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q2_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 2.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q2_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 2.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q2_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 2.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu4_p7_q3_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu4_p7_q3_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 3.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q3_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 3.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q3_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 3.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q3_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 3.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q3_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 3.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q3_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 3.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q3_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 3.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q3_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 3.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu4_p7_q4_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu4_p7_q4_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 4.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q4_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 4.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q4_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 4.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q4_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 4.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q4_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 4.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q4_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 4.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q4_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 4.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p7_q4_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 7,
+      "q": 4.0,
+      "width": 24,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu4_p11_q2_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu4_p11_q2_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 2.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q2_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 2.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q2_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 2.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q2_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 2.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q2_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 2.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q2_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 2.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q2_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 2.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q2_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 2.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu4_p11_q3_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu4_p11_q3_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 3.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q3_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 3.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q3_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 3.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q3_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 3.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q3_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 3.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q3_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 3.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q3_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 3.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q3_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 3.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu4_p11_q4_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu4_p11_q4_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 4.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q4_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 4.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q4_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 4.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q4_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 4.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q4_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 4.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q4_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 4.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q4_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 4.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu4_p11_q4_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 3,
+      "p": 11,
+      "q": 4.0,
+      "width": 40,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu5_p7_q2_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu5_p7_q2_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.05,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q2_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q2_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.2,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q2_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.4,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q2_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.05,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q2_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q2_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.2,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q2_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.4,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu5_p7_q3.5_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu5_p7_q3.5_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 3.5,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.05,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q3.5_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 3.5,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q3.5_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 3.5,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.2,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q3.5_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 3.5,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.4,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q3.5_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 3.5,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.05,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q3.5_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 3.5,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q3.5_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 3.5,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.2,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q3.5_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 3.5,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.4,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_prod_nu5_p7_q5_b00",
+   "runs": [
+    {
+     "run_id": "R2_prod_nu5_p7_q5_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 5.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.05,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q5_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 5.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q5_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 5.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.2,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q5_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 5.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 0.0001,
+      "lr": 0.4,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q5_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 5.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.05,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q5_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 5.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q5_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 5.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.2,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_prod_nu5_p7_q5_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "product",
+      "n": 4,
+      "p": 7,
+      "q": 5.0,
+      "width": 30,
+      "init_scale": 2.6457513110645907,
+      "lam": 1e-05,
+      "lr": 0.4,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_pow_nu3_p11_q2_b00",
+   "runs": [
+    {
+     "run_id": "R2_pow_nu3_p11_q2_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_pow_nu3_p11_q2.5_b00",
+   "runs": [
+    {
+     "run_id": "R2_pow_nu3_p11_q2.5_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2.5_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2.5_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2.5_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2.5_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2.5_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2.5_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q2.5_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 2.5,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  },
+  {
+   "batch_id": "R2_pow_nu3_p11_q3_b00",
+   "runs": [
+    {
+     "run_id": "R2_pow_nu3_p11_q3_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q3_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q3_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q3_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 0.0001,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q3_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.25,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q3_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q3_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 1.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    },
+    {
+     "run_id": "R2_pow_nu3_p11_q3_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cpu",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "steps": 40000,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 11,
+      "q": 3.0,
+      "width": 30,
+      "init_scale": 3.3166247903554,
+      "lam": 1e-05,
+      "lr": 2.0,
+      "momentum": 0.9,
+      "seed": 0
+     }
+    }
+   ]
+  }
+ ]
+}

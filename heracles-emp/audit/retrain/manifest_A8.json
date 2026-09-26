@@ -1,0 +1,11 @@
+{
+ "tag": "A8",
+ "runs": {
+  "E8_nu3_p29_s1.25_seed2_audit": {
+   "config.json": "0182522141691950a5844604205502c45851cd5266a80fccae961eea82295c99",
+   "final.pt": "7d2ffe81ebddeb36b912247c98ef7ffb2cd039d0a46e509d7a6092a479b132d1",
+   "log.csv": "729257ce3351d130769ae967691a8ed7bbbadc1c82cb6885e84ad61cd4736713",
+   "metrics.json": "362040d8e2696dde7c484e4309f4d632bb789a79015e881d14f5fdca7e7c287d"
+  }
+ }
+}

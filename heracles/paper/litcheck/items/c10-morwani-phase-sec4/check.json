@@ -1,0 +1,15 @@
+{
+ "id": "C10-morwani-phase-sec4",
+ "verdict": "SUPPORTED",
+ "evidence": "I fetched arXiv 2311.07568 (HTML and abstract pages). Title and authors match refs.bib, and the abstract page says \"Accepted as Spotlight at ICLR 2024\". The paper's sections are: 3 Theoretical Approach (3.2 introduces the class-weighted margin) and 4 Cyclic groups (modular addition). Section 4, Theorem 7, says that every maximum L_{2,3}-margin network has neurons u(a)=lambda cos(theta_u*+2 pi zeta a/p), with v and w of the same form, \"for some phase offsets theta_u*, theta_v*, theta_w* in R satisfying theta_u* + theta_v* = theta_w*\". The fetch tool's summary also says the condition aligns the phases so the neuron's output peaks at c=a+b; I did not check that wording against the paper. So Section 4 is the right location, and \"cosine peaked at the label\" goes the same way as their condition. Their condition is per neuron, on the weight phases. Ours is per network frequency: beta_j is real and positive. \"Analogue\" is therefore accurate. In passing I also checked approach.tex:7, which cites [Section 3] for the class-weighted-margin bound; that citation is correct. Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/c10-morwani-phase-sec4/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "morwani2024feature",
+   "bibtex": "@inproceedings{morwani2024feature,\n  title={Feature emergence via margin maximization: case studies in algebraic tasks},\n  author={Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2024},\n  note={arXiv:2311.07568}\n}",
+   "url": "https://arxiv.org/abs/2311.07568",
+   "confirmed": true,
+   "why": "Theorem 7 (Section 4) states the phase condition theta_u*+theta_v*=theta_w* for maximum L_{2,3}-margin neurons on modular addition."
+  }
+ ],
+ "recommended_change": "Optional, for precision: in approach.tex line 36, replace \"(the analogue of the phase condition of \\citet[Section~4]{morwani2024feature})\" with \"(the analogue of the phase condition $\\theta_u^*+\\theta_v^*=\\theta_w^*$ of \\citet[Theorem~7]{morwani2024feature})\"."
+}

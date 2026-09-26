@@ -1,0 +1,34 @@
+{
+ "item": {
+  "id": "T1-subadditivity",
+  "kind": "our_technique",
+  "location": "approach.tex proof of thm:universal",
+  "statement": "Subadditivity of t^r (r<=1) shows splitting a feature over neurons never makes it cheaper",
+  "what_to_check": "Standard l_p quasi-norm argument; possibly implicit in Morwani/representation-cost papers"
+ },
+ "chk": {
+  "id": "T1-subadditivity",
+  "verdict": "KNOWN",
+  "evidence": "The step in approach.tex l.64-67 is sum_j A_j^r <= sum_{i,j}|beta_ij|^r for r = b/nu <= 1. It uses subadditivity of t^r, which is the p-subadditivity (a+b)^p <= a^p + b^p that defines a p-norm for 0<p<=1. This is textbook material on quasi-Banach spaces; the canonical reference is Kalton-Peck-Roberts, An F-space Sampler, LMS LNS 89 (bibliographic data confirmed via abebooks; the book text was not read).\n\nThe ML version of the same argument is in Ongie & Parhi, arXiv 2606.14954. I fetched the PDF and grepped it:\n- Def 3.5 defines a p-seminorm by Q(f+g)^p <= Q(f)^p + Q(g)^p.\n- Prop 3.6: if K is absolutely p-homogeneous and subadditive, then K^{1/p} is a p-seminorm.\n- Prop 3.13: parameter-level q-subadditivity makes the representation cost subadditive.\n- Sec. 8, after eq. 8.30: \"the subadditivity follows by concatenating neurons\".\n- Thm 9.3: for depth L>=2, R_L is a (2/L)-seminorm.\n\nThis is the statement \"a merged feature costs no more than its split pieces\" for weight-decay costs.\n\nGunasekar-Lee-Soudry-Srebro, arXiv 1806.00468, abstract fetched: depth-L linear conv nets go to \"the l_{2/L} bridge penalty in the frequency domain\". That is the closest precedent for a product parametrisation giving an l_{2/L} quasi-norm on Fourier coefficients.\n\nOur contribution is not the inequality. It is using it so the universal bound holds with no hypothesis on neuron structure (mixing, interference, inactive neurons).\n\nSearches: \"l_p quasi-norm p<1 subadditivity p-normed space\"; \"representation cost weight decay splitting neuron subadditive l_{2/L} quasi-norm\"; \"Kalton Peck Roberts F-space sampler\".\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/t1-subadditivity/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "ongie2026representation",
+    "bibtex": "@article{ongie2026representation,\n  title={Representation Costs in Data Science: Foundations and the Quasi-Banach Spaces of Deep Neural Networks},\n  author={Ongie, Greg and Parhi, Rahul},\n  journal={arXiv preprint arXiv:2606.14954},\n  year={2026}\n}",
+    "url": "https://arxiv.org/abs/2606.14954",
+    "confirmed": true,
+    "why": "Supports approach.tex l.67 ('splitting a feature over several neurons never makes it cheaper'). Prop 3.6/3.13 and Thm 9.3 show that weight-decay representation costs are subadditive, 'by concatenating neurons'. Their roots are p-seminorms, e.g. (2/L)-seminorms for depth L."
+   },
+   {
+    "key": "gunasekar2018implicit",
+    "bibtex": "@inproceedings{gunasekar2018implicit,\n  title={Implicit Bias of Gradient Descent on Linear Convolutional Networks},\n  author={Gunasekar, Suriya and Lee, Jason D. and Soudry, Daniel and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  year={2018}\n}",
+    "url": "https://arxiv.org/abs/1806.00468",
+    "confirmed": true,
+    "why": "Precedent for a product-of-L-factors parametrisation inducing an l_{2/L} bridge (quasi-norm) penalty on Fourier-domain coefficients (abstract). It is the closest analog of pricing a frequency's amplitude A at A^{b/nu}. Venue is NeurIPS 2018; the arXiv page showed only the arXiv listing."
+   }
+  ],
+  "recommended_change": "At approach.tex l.64, after \"As t -> t^r is subadditive\", add a parenthetical: \"(the p-norm inequality, 0<r<=1)\". The textbook reference would be Kalton-Peck-Roberts 1984, An F-space Sampler; add it only if the bib entry is checked, since its bibliographic data was confirmed only through a retailer page. At l.67 add: \"This is the subadditivity that makes weight-decay representation costs of product and deep parametrisations l_{2/L}-type p-norms \\citep{gunasekar2018implicit,ongie2026representation}; the point here is only that it removes every hypothesis on the neurons.\" Do not present the technique as new."
+ },
+ "lens": "novelty_math",
+ "slug": "t1-subadditivity",
+ "task": 42
+}

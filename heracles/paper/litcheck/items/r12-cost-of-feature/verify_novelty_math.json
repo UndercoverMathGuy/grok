@@ -1,0 +1,22 @@
+{
+ "task": 12,
+ "item_id": "R12-cost-of-feature",
+ "lens": "novelty_math",
+ "upheld": false,
+ "corrected_verdict": "KNOWN_TECHNIQUE (inequality) / NEW (chain reduction + equality case). Given the paper's own chain lemma (H = sum beta_l m_l m_l^* upper triangular with diagonal beta), the bound sum|beta_l|^r >= nu^{1-r}|beta|^r follows from the Rotfel'd-Thompson trace inequality sum f(s(A+B)) <= sum f(s(A)) + sum f(s(B)) (f concave increasing, f(0)=0) applied to the N rank-one terms (each with singular value nu|beta_l|), plus AM-GM on the singular values using prod sigma_i(H) = |det H| = |beta|^nu. The count >= nu is rank(H) = nu. The Bernstein 'other penalties' remark is likewise a special case (concave f with f(e^s) convex). Novel: the JF-to-triangular-H reduction and the equality characterisation (nu equal-modulus terms, orthogonal chain vectors).",
+ "issues": "The checker's claim that no weighted l_r (r<1) lower bound is known is wrong. For r<=1, the Rotfel'd (1969) / Thompson (1976) inequality makes the l_r cost of any rank-one decomposition at least the Schatten-r quasi-norm (to the power r) of the sum. For the chain matrix H, whose determinant has modulus |beta|^nu, this is at least nu|beta|^r by AM-GM. Weyl's majorant theorem gives the same bound. So Lemma cost's inequality is a three-line corollary once H is built, and the e_k/Hadamard/Bernstein proof re-derives a classical inequality. The paper should cite Thompson 1976 and credit only the reduction and the equality case. The checker's recommended wording ('Lemma cost proves the lower bound ... and strengthens it to a weighted l_r cost') overclaims. The rank-nu count is trivial from rank(H) = nu. Its value is settling the Mohlenkamp-Monzon minimality question, which they explicitly leave as a belief (quote re-confirmed from their preprint). The real rank of Re(z_1...z_d) in (R^2)^{⊗d} was not re-searched: the WebSearch budget was exhausted and the arXiv and Semantic Scholar APIs returned 429. Checker citations: beylkin2005 and comon2012 metadata match Crossref; their content was not re-read. The mohlenkamp2005 content was re-confirmed.",
+ "extra_citations": [
+  {
+   "key": "thompson1976convex",
+   "bibtex": "@article{thompson1976convex, title={Convex and concave functions of singular values of matrix sums}, author={Thompson, Robert C.}, journal={Pacific Journal of Mathematics}, volume={66}, number={1}, pages={285--290}, year={1976}, doi={10.2140/pjm.1976.66.285}}",
+   "url": "https://msp.org/pjm/1976/66-1/p30.xhtml",
+   "why": "Eq. (1), credited to Rotfel'd: for increasing concave f with f(0)=0 and arbitrary square A, B, sum f(s_i(A+B)) <= sum f(s_i(A)) + sum f(s_i(B)). Applied to H = sum_l beta_l m_l m_l^* with f(x)=x^r, and combined with |det H| = |beta|^nu and AM-GM, it gives Lemma cost's inequality directly. Cite this in the proof idea and in the 'other penalties' remark."
+  },
+  {
+   "key": "bourin2007subadditivity",
+   "bibtex": "@article{bourin2007subadditivity, title={A matrix subadditivity inequality for $f(A+B)$ and $f(A)+f(B)$}, author={Bourin, Jean-Christophe and Uchiyama, Mitsuru}, journal={Linear Algebra and its Applications}, volume={423}, number={2-3}, pages={512--518}, year={2007}, doi={10.1016/j.laa.2007.02.019}}",
+   "url": "https://arxiv.org/abs/math/0702475",
+   "why": "Modern form of concave-function subadditivity: for PSD A, B and every symmetric norm, ||f(A+B)|| <= ||f(A)+f(B)||. Optional secondary citation. It is PSD-only, so Thompson is the one to cite for the non-Hermitian H."
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "E_n2": {
+  "min_ratio": 0.9999999999999998,
+  "where": "('split', 0)",
+  "systems": 5400
+ },
+ "E_n3": {
+  "min_ratio": 0.9999999999999998,
+  "where": "('split', 0)",
+  "systems": 5400
+ },
+ "B_n2_r0.667": {
+  "min_ratio": 1.0734593330709885,
+  "where": "near-block",
+  "cases": 247
+ },
+ "B_n2_r0.500": {
+  "min_ratio": 1.0877816506794273,
+  "where": "near-block",
+  "cases": 243
+ },
+ "B_n2_r0.900": {
+  "min_ratio": 1.0725906539623093,
+  "where": "near-block",
+  "cases": 245
+ },
+ "B_n3_r0.500": {
+  "min_ratio": 1.235714990532791,
+  "where": "near-block",
+  "cases": 96
+ },
+ "drop_n2": {
+  "min_slack": 4.7332325567306377e-07,
+  "systems": 900
+ },
+ "drop_n3": {
+  "min_slack": 1.6118849014862389,
+  "systems": 900
+ },
+ "chain_n2_r0.667": {
+  "min_ratio": 0.9999999999999999,
+  "where": "('zero atoms', 4, 0.3333333333333333, 0.0)",
+  "systems": 4080
+ },
+ "chain_n3_r0.500": {
+  "min_ratio": 1.0,
+  "where": "('zero atoms', 5, 0.25, 0.0)",
+  "systems": 4080
+ },
+ "P1_n2_r0.667": {
+  "min_ratio": 1.0346165653450932,
+  "systems": 4800
+ },
+ "P1_n2_r0.950": {
+  "min_ratio": 1.0038560994589418,
+  "systems": 4800
+ },
+ "P1_n3_r0.500": {
+  "min_ratio": 1.0497385932506456,
+  "systems": 4800
+ }
+}

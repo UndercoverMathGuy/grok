@@ -1,0 +1,198 @@
+{
+  "scope": "Numerical consistency checks supplementary to the analytic all-p proof.",
+  "scalar_phi_checks": 9608,
+  "finite_group_exponential_checks": 1800,
+  "max_floating_inequality_violation": 4.618527782440651e-14,
+  "saved_exact_optimizer_checks": [
+    {
+      "p": 3,
+      "certified_K": 1,
+      "gamma": "1.5",
+      "deletion_condition_passed": true
+    },
+    {
+      "p": 5,
+      "certified_K": 2,
+      "gamma": "0.883883476483184405501055452631",
+      "deletion_condition_passed": true
+    },
+    {
+      "p": 7,
+      "certified_K": 3,
+      "gamma": "0.673575314054563391927340243919",
+      "deletion_condition_passed": true
+    },
+    {
+      "p": 11,
+      "certified_K": 2,
+      "gamma": "0.535725925799505600223473722932",
+      "deletion_condition_passed": true
+    },
+    {
+      "p": 13,
+      "certified_K": 3,
+      "gamma": "0.497772067210050092304534919342",
+      "deletion_condition_passed": true
+    },
+    {
+      "p": 17,
+      "certified_K": 3,
+      "gamma": "0.448340560085396376806893636944",
+      "deletion_condition_passed": true
+    }
+  ],
+  "random_lower_constructions": [
+    {
+      "p": 3,
+      "s": 1.5,
+      "draws": 9,
+      "distinct_frequencies": 1,
+      "budget": 0.4807498567691361,
+      "margin": 0.4999999999999999,
+      "proved_lower_bound": 0.16666666666666666,
+      "all_wrong_offsets_checked": 2
+    },
+    {
+      "p": 3,
+      "s": 2,
+      "draws": 9,
+      "distinct_frequencies": 1,
+      "budget": 0.3333333333333333,
+      "margin": 0.16666666666666663,
+      "proved_lower_bound": 0.05555555555555555,
+      "all_wrong_offsets_checked": 2
+    },
+    {
+      "p": 3,
+      "s": 2.5,
+      "draws": 9,
+      "distinct_frequencies": 1,
+      "budget": 0.26758052058674353,
+      "margin": 0.05555555555555555,
+      "proved_lower_bound": 0.018518518518518517,
+      "all_wrong_offsets_checked": 2
+    },
+    {
+      "p": 11,
+      "s": 1.5,
+      "draws": 20,
+      "distinct_frequencies": 5,
+      "budget": 0.6145947657214172,
+      "margin": 0.21805331763862956,
+      "proved_lower_bound": 0.11180339887498948,
+      "all_wrong_offsets_checked": 10
+    },
+    {
+      "p": 11,
+      "s": 2,
+      "draws": 20,
+      "distinct_frequencies": 5,
+      "budget": 0.4854101966249684,
+      "margin": 0.04875820409593296,
+      "proved_lower_bound": 0.025,
+      "all_wrong_offsets_checked": 10
+    },
+    {
+      "p": 11,
+      "s": 2.5,
+      "draws": 20,
+      "distinct_frequencies": 5,
+      "budget": 0.4226031471369941,
+      "margin": 0.01090266588193148,
+      "proved_lower_bound": 0.005590169943749474,
+      "all_wrong_offsets_checked": 10
+    },
+    {
+      "p": 113,
+      "s": 1.5,
+      "draws": 38,
+      "distinct_frequencies": 28,
+      "budget": 0.8864361567871843,
+      "margin": 0.12136862956835112,
+      "proved_lower_bound": 0.08111071056538127,
+      "all_wrong_offsets_checked": 112
+    },
+    {
+      "p": 113,
+      "s": 2,
+      "draws": 38,
+      "distinct_frequencies": 28,
+      "budget": 0.8407732365625347,
+      "margin": 0.019688591569271004,
+      "proved_lower_bound": 0.013157894736842105,
+      "all_wrong_offsets_checked": 112
+    },
+    {
+      "p": 113,
+      "s": 2.5,
+      "draws": 38,
+      "distinct_frequencies": 28,
+      "budget": 0.8163352266438968,
+      "margin": 0.0031939113044302915,
+      "proved_lower_bound": 0.002134492383299507,
+      "all_wrong_offsets_checked": 112
+    },
+    {
+      "p": 1009,
+      "s": 1.5,
+      "draws": 56,
+      "distinct_frequencies": 54,
+      "budget": 0.985264323284579,
+      "margin": 0.09789950113585646,
+      "proved_lower_bound": 0.0668153104781061,
+      "all_wrong_offsets_checked": 1008
+    },
+    {
+      "p": 1009,
+      "s": 2,
+      "draws": 56,
+      "distinct_frequencies": 54,
+      "budget": 0.9790790557990392,
+      "margin": 0.013082371128087897,
+      "proved_lower_bound": 0.008928571428571428,
+      "all_wrong_offsets_checked": 1008
+    },
+    {
+      "p": 1009,
+      "s": 2.5,
+      "draws": 56,
+      "distinct_frequencies": 54,
+      "budget": 0.975696711099032,
+      "margin": 0.001748205377426008,
+      "proved_lower_bound": 0.0011931305442518946,
+      "all_wrong_offsets_checked": 1008
+    },
+    {
+      "p": 10007,
+      "s": 1.5,
+      "draws": 74,
+      "distinct_frequencies": 74,
+      "budget": 1.0000000000000002,
+      "margin": 0.08455695230722363,
+      "proved_lower_bound": 0.05812381937190964,
+      "all_wrong_offsets_checked": 10006
+    },
+    {
+      "p": 10007,
+      "s": 2,
+      "draws": 74,
+      "distinct_frequencies": 74,
+      "budget": 1.0,
+      "margin": 0.00982954604508849,
+      "proved_lower_bound": 0.006756756756756757,
+      "all_wrong_offsets_checked": 10006
+    },
+    {
+      "p": 10007,
+      "s": 2.5,
+      "draws": 74,
+      "distinct_frequencies": 74,
+      "budget": 0.9999999999999999,
+      "margin": 0.0011426615176651843,
+      "proved_lower_bound": 0.0007854570185393194,
+      "all_wrong_offsets_checked": 10006
+    }
+  ],
+  "penalty_exponent_identities": "passed symbolically",
+  "proof_note": "LOGARITHMIC_SCALING.md"
+}

@@ -1,0 +1,22 @@
+{
+ "id": "C2-morwani-wei-principle",
+ "verdict": "SUPPORTED",
+ "evidence": "Checked Wei, Lee, Liu, Ma, \"Regularization Matters: Generalization and Optimization of Neural Nets v.s. their Induced Kernel\", NeurIPS 2019. I fetched the arXiv 1810.05369 PDF and confirmed the NeurIPS proceedings page.\n\n**Wei et al., Section 4 setting.** f is a-positive-homogeneous and continuous in Theta. The norm can be any general norm. The objective is binary logistic loss + lambda||Theta||^r with r>0 fixed (eq. 4.1).\n\n**Wei et al., Theorem 4.1 (verbatim).** \"Assume the training data is separable by a network f(.;Theta*) in F with an optimal normalized margin gamma*>0. Then, the normalized margin of the global optimum of the weakly-regularized objective (equation 4.1) converges to gamma* as the regularization goes to zero ... gamma_lambda -> gamma* as lambda -> 0.\"\n\n**Wei et al., multi-class version.** Theorem 4.1 is binary only. The multi-class cross-entropy statement is Theorem C.1 in App. C, with margin f_y - max_{j!=y} f_j: \"Assume gamma*>0 in the multi-class setting with cross entropy loss. Then as lambda -> 0, gamma_lambda -> gamma*.\"\n\n**Hypotheses hold in our setting.** L_{2,b} with 2<=b<=nu is a true norm. Here r=b. The polynomial neurons are continuous and nu-homogeneous, and the width is fixed. The result covers global minimizers only, and approach.tex already says so.\n\n**Morwani et al., ICLR 2024 (arXiv 2311.07568, PDF fetched).** Section 2 restates \"Theorem 1 (Wei et al. (2019a), Theorem 4.1). For any norm, a fixed r>0 and any homogeneous function f with homogeneity constant nu>0, if gamma*>0, then lim gamma_lambda = gamma*.\" It continues: \"This provides the motivation behind studying maximum margin classifiers as a proxy for understanding the global minimizers of L_lambda.\" Its abstract says \"the principle of margin maximization alone can be used to fully specify the features learned by the network.\" So the \"one principle\" framing in our sentence is correctly attributed.\n\n**Minor points.**\n- The precise multi-class result is Thm C.1, not Thm 4.1. Morwani cites 4.1 too, so this is not an error.\n- \"Networks approach\" informally means that global minimizers of the regularized loss approach gamma* in normalized margin.\n\n**Bib entries.** Both refs.bib entries match the fetched pages.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/c2-morwani-wei-principle/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "wei2019regularization",
+   "bibtex": "@inproceedings{wei2019regularization,\n  title={Regularization Matters: Generalization and Optimization of Neural Nets v.s. their Induced Kernel},\n  author={Wei, Colin and Lee, Jason D. and Liu, Qiang and Ma, Tengyu},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  volume={32},\n  year={2019}\n}",
+   "url": "https://proceedings.neurips.cc/paper/2019/hash/8744cf92c88433f8cb04a02e6db69a0d-Abstract.html",
+   "confirmed": true,
+   "why": "Thm 4.1 (binary logistic) and Thm C.1 (multi-class cross-entropy): for any norm, r>0 and homogeneous continuous f, the normalized margin of the global minimizer of loss + lambda||Theta||^r converges to gamma* as lambda->0. This supports the vanishing-regularization -> max-margin sentence."
+  },
+  {
+   "key": "morwani2024feature",
+   "bibtex": "@inproceedings{morwani2024feature,\n  title={Feature emergence via margin maximization: case studies in algebraic tasks},\n  author={Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2024}\n}",
+   "url": "https://arxiv.org/abs/2311.07568",
+   "confirmed": true,
+   "why": "Sec 2, Theorem 1 restates Wei Thm 4.1 and gives it as the motivation for studying max-margin solutions as a proxy for global minimizers. The abstract says margin maximization alone specifies the learned features. This supports the 'one principle' attribution."
+  }
+ ],
+ "recommended_change": "approach.tex l.3: replace \"By \\citet[Theorem~4.1]{wei2019regularization}\" with \"By \\citet[Theorem~4.1, and Theorem~C.1 for multi-class cross-entropy]{wei2019regularization}\". Optional intro l.4: \"with vanishing regularization, the global minimizers of the regularized loss approach the maximum margin solution\". No citation change is needed."
+}

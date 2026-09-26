@@ -1,0 +1,41 @@
+{
+ "item": {
+  "id": "U9-product-to-sum-interference",
+  "kind": "uncited_background",
+  "location": "cyclic.tex 'Interference at the feature's own frequency'",
+  "statement": "Products of cosines produce label-independent cos(a-b) copies in trained networks",
+  "what_to_check": "Nanda 2023, Gromov 2023, Morwani discuss these terms"
+ },
+ "chk": {
+  "id": "U9-product-to-sum-interference",
+  "verdict": "CITATION_FOUND",
+  "evidence": "The paragraph in cyclic.tex cites nothing. Three sources support it; Nanda does not.\n\n1. Gromov 2023, arXiv 2301.02679, Sec. 3.1. I read the PDF text directly.\n   - Eq. (10): the squared activation expands to include \"+ cos(2pi k(n-m)/p + phi1 - phi2)\".\n   - Eq. (11): the second-layer preactivation includes cos(2pi k(n-m-q)/p + ...) and cos(2pi k(n-m+q)/p + ...). These are exactly the paper's beta_{j,T} copies.\n   - Eq. (12): phi1 + phi2 = phi3 gives constructive interference.\n   - Eqs. (14)-(15): \"we need to ensure that all other waves (i.e. all terms, but the third term in (11)) interfere destructively\". Random phases achieve this, since sum_k cos(2pi k s/p + phi_k) << N.\n   - The cancellation is approximate. Our condition is exact (Def. if), and our per-neuron sign rule is new.\n\n2. Morwani et al. ICLR 2024, arXiv 2311.07568 (HTML read).\n   - App. F.3: a neuron's DFT is nonzero only if j = 0, k = 0, or \"j,k,l = \u00b1zeta\". That set includes the mixed-sign, label-independent modes.\n   - A max-margin f has f_hat supported only on j = k = -l (plus l = 0).\n   - App. F.2 builds 8 neurons per frequency with paired phases, so the sum is exactly cos(a+b-c) and the rest cancels. This is an implicit interference-free construction; they never name the a-b term.\n\n3. He, Wang, Chen, Yang, arXiv 2602.16849 (Feb 2026), Sec. 4.\n   - Eq. (4.1): a quadratic neuron outputs the signal times cos(omega(x-y)/2)^2, plus \"residual noise\".\n   - Def. 4.1 (full diversification, phase sums exp(i\u00b7iota\u00b7sum phi_m) = 0) and Prop. 4.2: the diversified neurons collectively cancel that noise.\n\n4. Nanda et al. 2023 (PDF text grepped): discusses constructive and destructive interference of the logit cosines only. There is no a-b product-to-sum term, so do not cite it here.\n\nQueries and sources used: arxiv.org/html/2301.02679, arxiv.org/pdf/2301.02679, arxiv.org/html/2311.07568v2, arxiv.org/pdf/2301.05217, arxiv.org/html/2602.16849.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/u9-product-to-sum-interference/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "gromov2023grokking",
+    "bibtex": "@article{gromov2023grokking,\n  title={Grokking modular arithmetic},\n  author={Gromov, Andrey},\n  journal={arXiv preprint arXiv:2301.02679},\n  year={2023}\n}",
+    "url": "https://arxiv.org/abs/2301.02679",
+    "confirmed": true,
+    "why": "Supports the sentence on sign-flipped copies. Eqs. (10)-(11) explicitly contain cos(2pi k(n-m)/p) and cos(2pi k(n-m\u00b1q)/p). Eqs. (14)-(15) cancel them only approximately, through random phases across the width. Already in refs.bib."
+   },
+   {
+    "key": "morwani2024feature",
+    "bibtex": "@inproceedings{morwani2024feature,\n  title={Feature emergence via margin maximization: case studies in algebraic tasks},\n  author={Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2024}\n}",
+    "url": "https://arxiv.org/abs/2311.07568",
+    "confirmed": true,
+    "why": "App. F.3: a single neuron's DFT is nonzero at all sign patterns (j,k,l = \u00b1zeta), while the max-margin f is supported only on j = k = -l. App. F.2 is an 8-neurons-per-frequency construction whose extra terms cancel exactly. This is an implicit interference-free max-margin network. Already in refs.bib."
+   },
+   {
+    "key": "he2026mechanism",
+    "bibtex": "@article{he2026mechanism,\n  title={On the Mechanism and Dynamics of Modular Addition: Fourier Features, Lottery Ticket, and Grokking},\n  author={He, Jianliang and Wang, Leda and Chen, Siyu and Yang, Zhuoran},\n  journal={arXiv preprint arXiv:2602.16849},\n  year={2026}\n}",
+    "url": "https://arxiv.org/abs/2602.16849",
+    "confirmed": true,
+    "why": "Sec. 4, Eq. (4.1): quadratic-neuron product-to-sum output = signal times cos(omega(x-y)/2)^2 plus residual noise. Def. 4.1 (full diversification) and Prop. 4.2: phase-diversified neurons cancel that noise. Supports 'several neurons must cancel each other's copies'."
+   }
+  ],
+  "recommended_change": "In cyclic.tex, after \"...interference at the feature's own frequency.\", add: \"These copies appear explicitly in the analytic solutions of \\citet{gromov2023grokking} (Eqs. 10--11), which cancel them only approximately, through random phases. They are implicit in the exact max-margin construction of \\citet{morwani2024feature} (App. F.2--F.3) and in the phase-diversification condition of \\citet{he2026mechanism} (Def. 4.1).\" Add the he2026mechanism bib entry. Do not cite Nanda et al. 2023 for this point: it does not discuss the a-b term."
+ },
+ "lens": "citation",
+ "slug": "u9-product-to-sum-interference",
+ "task": 97
+}

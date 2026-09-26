@@ -1,0 +1,245 @@
+{
+ "E7_n_ok": 19,
+ "E7_n_nc": 13,
+ "fig1_panels_b": {
+  "shown": [
+   [
+    4,
+    17
+   ],
+   [
+    4,
+    23
+   ],
+   [
+    4,
+    31
+   ],
+   [
+    4,
+    43
+   ],
+   [
+    5,
+    11
+   ],
+   [
+    5,
+    13
+   ],
+   [
+    5,
+    17
+   ]
+  ],
+  "skipped_fewer_than_2_converged_cells": [
+   [
+    4,
+    59
+   ]
+  ]
+ },
+ "fig1_direction_test": {
+  "n_pairs": 36,
+  "right": 30,
+  "tie": 4,
+  "wrong": 2,
+  "frac_right": 0.8333333333333334,
+  "slope_through_origin": 0.49514563106796117,
+  "null_mean": 0.37530555555555556,
+  "null_q95": 0.5277777777777778,
+  "p_one_sided": 0.000999000999000999
+ },
+ "fig2": {
+  "1.25": {
+   "p": [
+    11.0,
+    13.0,
+    17.0,
+    19.0,
+    23.0,
+    29.0,
+    31.0,
+    37.0,
+    43.0,
+    47.0,
+    59.0,
+    71.0,
+    83.0,
+    113.0
+   ],
+   "K_star": [
+    5,
+    6,
+    5,
+    6,
+    7,
+    9,
+    7,
+    6,
+    6,
+    8,
+    8,
+    10,
+    10,
+    10
+   ],
+   "median": [
+    5.0,
+    6.0,
+    5.0,
+    5.0,
+    6.0,
+    7.0,
+    6.5,
+    9.0,
+    8.0,
+    6.0,
+    8.0,
+    10.0,
+    10.5,
+    12.0
+   ],
+   "exact": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  "1.5": {
+   "p": [
+    11.0,
+    13.0,
+    17.0,
+    19.0,
+    23.0,
+    29.0,
+    31.0,
+    37.0,
+    43.0,
+    47.0,
+    59.0,
+    71.0,
+    83.0,
+    113.0
+   ],
+   "K_star": [
+    2,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    6,
+    7
+   ],
+   "median": [
+    3.0,
+    3.0,
+    4.0,
+    4.0,
+    4.0,
+    3.5,
+    5.0,
+    6.0,
+    5.0,
+    6.0,
+    8.0,
+    6.5,
+    8.5,
+    7.0
+   ],
+   "exact": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  },
+  "cells_within_1": 20,
+  "cells": 28,
+  "best_constant_per_s_within_1": 16
+ },
+ "fig3_runs": {
+  "p23_s1.0": {
+   "run": "E3_product_nu3_p23_seed0",
+   "counted": 11,
+   "K_star": 11
+  },
+  "p23_s1.25": {
+   "run": "E1_nu3_p23_s1.25_seed0_r1",
+   "counted": 7,
+   "K_star": 7
+  },
+  "p23_s1.5": {
+   "run": "E1_nu3_p23_s1.5_seed0_r1",
+   "counted": 4,
+   "K_star": 4
+  },
+  "p113_s1.0": {
+   "run": "E3_product_nu3_p113_seed0",
+   "counted": 56,
+   "K_star": 56
+  },
+  "p113_s1.25": {
+   "run": "E1_nu3_p113_s1.25_seed0",
+   "counted": 14,
+   "K_star": 10
+  },
+  "p113_s1.5": {
+   "run": "E1_nu3_p113_s1.5_seed0",
+   "counted": 7,
+   "K_star": 6
+  }
+ },
+ "fig4a": {
+  "pairs": 768,
+  "above": 765,
+  "capped_at_1": 132
+ },
+ "fig4b": {
+  "constructed optimum": {
+   "n": 39,
+   "median": 0.9999999999925879
+  },
+  "trained networks": {
+   "n": 126,
+   "median": 0.871163631126386
+  },
+  "network at initialization": {
+   "n": 39,
+   "median": 0.6667977992686226
+  },
+  "random allocation": {
+   "n": 39,
+   "median": 0.4495586305048379
+  }
+ }
+}

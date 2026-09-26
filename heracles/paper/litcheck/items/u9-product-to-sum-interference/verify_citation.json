@@ -1,0 +1,16 @@
+{
+ "task": 97,
+ "item_id": "U9-product-to-sum-interference",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "CITATION_FOUND",
+ "issues": "I checked all three confirmed citations against the arXiv PDFs. All exist, their bib fields are correct, and each supports the point. Morwani's abs page says 'Accepted as Spotlight at ICLR 2024'.\n\n(1) Gromov 2301.02679, Eqs. (10)-(11), contains the cos(n-m) and cos(n-m-+q) copies. By Eqs. (12)-(15) they cancel only approximately, through random phases. Sec. 4 says trained networks have approximately random phases that satisfy (12). Correct as the checker stated.\n\n(2) Morwani App. F.2 is exact 8-neuron cancellation. F.3 says more than 'implicit': any L_{2,3} max-margin f = F(a,b) + lambda*1[a+b=c] has zero mixed-sign modes with l != 0. So every max-margin net in their setting is interference-free.\n\n(3) The checker overstates He et al. 2602.16849. Def. 4.1(iii) (iota=2) exactly cancels the phase-carrying terms that contain the a-b copies. But Prop. 4.2/(B.1) explicitly KEEPS residual noise at 2x-j and 2y-j (the cos((x-y)/2)^2 'Achilles heel'). So diversification cancels the own-frequency sign-flipped copies, not 'that noise' in full. The recommended wording citing Def. 4.1 is still fine.\n\nNanda 2023 correctly excluded: it has no a-b term.\n\nMISSED: li2025nsum (arXiv 2402.09469, already in refs.bib), App. E.2, generalises Morwani F.2 to k operands. It uses 2^k*2^{k-1} neurons per frequency and computes exactly sum cos(sum a_i - c). This is the right citation for the paper's general-T / n-operand statement, so add it alongside Morwani.\n\nProcess: WebSearch returned 'session has used its web search budget (200 of 200)'. The verify stage shares one session-level search budget, so later verifiers cannot search.",
+ "extra_citations": [
+  {
+   "key": "li2025nsum",
+   "bibtex": "@inproceedings{li2025nsum,\n  title={Fourier circuits in neural networks and transformers: a case study of modular arithmetic with multiple inputs},\n  author={Li, Chenyang and Liang, Yingyu and Shi, Zhenmei and Song, Zhao and Zhou, Tianyi},\n  booktitle={International Conference on Artificial Intelligence and Statistics (AISTATS)},\n  year={2025},\n  note={arXiv:2402.09469}\n}",
+   "url": "https://arxiv.org/abs/2402.09469",
+   "why": "App. E.2 builds 2^k*2^{k-1} neurons per frequency using the identity 2^k k! prod a_i = sum_c (-1)^{...}(sum c_j a_j)^k. The network computes exactly sum_zeta cos_zeta(sum a_i - c), so all sign-flipped copies cancel for general n. It is the n-operand counterpart of Morwani F.2 and matches the paper's 'for each non-empty T subset [n]'. Already in refs.bib."
+  }
+ ]
+}

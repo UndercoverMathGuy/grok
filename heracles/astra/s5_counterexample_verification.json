@@ -1,0 +1,38 @@
+{
+  "exact": {
+    "vector": [
+      -10,
+      -4,
+      1,
+      4,
+      9
+    ],
+    "squared_norm": 214,
+    "even_gap_numerator": 45,
+    "odd_gap_numerator": 9,
+    "beta": "9/107",
+    "margin": "45/214",
+    "rational_ratio_lower_bound": "3072000/2842883",
+    "proven_ratio_greater_than": "27/25"
+  },
+  "full_table": {
+    "neurons": 65,
+    "rows": 1728000,
+    "wrong_gaps": 205632000,
+    "minimum_gap": 0.21028037383177423,
+    "penalty": 7819.210054422576,
+    "gamma": 3.4393231281026493e-09,
+    "symmetric_ceiling": 3.1789143880208335e-09,
+    "ratio": 1.081917506512009,
+    "max_logit_formula_error": 1.5543122344752192e-15,
+    "max_homomorphism_error": 3.3306690738754696e-16,
+    "minimum_witness": {
+      "a": 19,
+      "b": 69,
+      "d": 23,
+      "correct": 27,
+      "wrong": 1
+    }
+  },
+  "same_construction_nu3_ratio_to_schoolbook": 0.5226726954932055
+}

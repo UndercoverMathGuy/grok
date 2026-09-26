@@ -1,0 +1,9 @@
+{
+ "task": 94,
+ "item_id": "U6-cosine-sum-minima",
+ "lens": "citation",
+ "upheld": true,
+ "issues": "All three confirmed citations exist; bib fields match Crossref (alon1994random RSA 5(2):271-284 1994, doi 10.1002/rsa.3240050203; friedman2006spectral JCTB 96(1):111-121 2006, doi 10.1016/j.jctb.2005.06.012; alon2009perturbed CPC 18(1-2):3-15 2009, doi 10.1017/S0963548307008917). Content verified from full PDFs: AR94 Thm 2 (abelian, (1+eps)log2 n random multiset, per-character tail + union bound = exactly the app:scaling argument) and Prop 3 (delta-expander abelian Cayley graph needs |S|>=c log2 n; numbering confirmed by FMT citing '[AR94, Proposition 3, Section 3]'); FMT Thm 2 + naive sphere packing (3) gives the one-sided lambda_2 >= d - O(d n^{-4/d}) uniformly, tightness only for fixed even d (Thm 7). Fixes needed to the recommended paper text: (1) 'm(y) is K minus half the second eigenvalue' holds only for y_j=1; with equal budget shares y_j=K^{-s} it is K^{-s}(K - lambda_2/2). (2) 'pigeonhole alone gives only K=O(log p/log log p)' has the wrong direction: Dirichlet gives m <= 2pi^2 p^{-2/K}, which yields the weaker LOWER bound K=Omega(log p/log log p). (3) 'tight for prime n' should be 'tight for fixed d and prime n'; pin \\citep[Thm.~2, Cor.~3]{friedman2006spectral}. (4) Pin the existing app:scaling sentence as \\citet[Thm.~2]{alon1994random}. alon2009perturbed: Thm 7.1 is real but needs eps >= 2^{-n/2}, is two-sided, Z_2^n only, and credits the uniform case to AGHP; it adds nothing, so drop it. Chowla rejection agreed (opposite tail). No missed prior art for the weighted concave-budget version found in the citation pass.",
+ "corrected_verdict": "CITATION_FOUND: cite alon1994random [Thm 2, Prop 3] and friedman2006spectral [Thm 2, Cor 3] in the thm:scaling discussion; drop alon2009perturbed; fix the y_j=1 scaling, the O->Omega error and the fixed-d tightness in the proposed text",
+ "extra_citations": []
+}

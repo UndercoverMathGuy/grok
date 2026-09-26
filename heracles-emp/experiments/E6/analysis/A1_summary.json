@@ -1,0 +1,604 @@
+{
+ "n_rows": 50,
+ "ok": {
+  "n": 48,
+  "efficiency": {
+   "n": 48,
+   "median": 0.9099091297761539,
+   "median_ci_over_seeds": [
+    0.8915509879737742,
+    0.9356613339797869
+   ],
+   "q10": 0.8250292168617944,
+   "q90": 0.9617625918855073,
+   "frac_ge_0.99": 0.0,
+   "frac_ge_0.95": 0.14583333333333334,
+   "frac_ge_0.90": 0.5833333333333334
+  },
+  "count_K_2pct_vs_Kstar": {
+   "n": 48,
+   "r2_identity": -0.13793103448275867,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 48,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 0.9583333333333334,
+   "tol": 1.0,
+   "frac_exact": 0.4583333333333333,
+   "mean_signed_error": 0.3333333333333333,
+   "mean_abs_error": 0.625,
+   "frac_within_tol_boot_ci_over_seeds": [
+    0.8846153846153846,
+    1.0
+   ]
+  },
+  "count_K_5pct_vs_Kstar": {
+   "n": 48,
+   "r2_identity": -0.0005633802816900069,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 48,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 0.9583333333333334,
+   "tol": 1.0,
+   "frac_exact": 0.4583333333333333,
+   "mean_signed_error": 0.020833333333333332,
+   "mean_abs_error": 0.6041666666666666,
+   "frac_within_tol_boot_ci_over_seeds": [
+    0.8846153846153846,
+    1.0
+   ]
+  },
+  "count_N_05_vs_Kstar": {
+   "n": 48,
+   "r2_identity": -0.0005633802816900069,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 48,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 0.9583333333333334,
+   "tol": 1.0,
+   "frac_exact": 0.4583333333333333,
+   "mean_signed_error": 0.020833333333333332,
+   "mean_abs_error": 0.6041666666666666,
+   "frac_within_tol_boot_ci_over_seeds": [
+    0.8846153846153846,
+    1.0
+   ]
+  },
+  "count_N_10_vs_Kstar": {
+   "n": 48,
+   "r2_identity": -0.26315789473684204,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 48,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 0.9791666666666666,
+   "tol": 1.0,
+   "frac_exact": 0.3333333333333333,
+   "mean_signed_error": -0.4166666666666667,
+   "mean_abs_error": 0.7083333333333334,
+   "frac_within_tol_boot_ci_over_seeds": [
+    0.9285714285714286,
+    1.0
+   ]
+  },
+  "count_thr_10_vs_Kstar": {
+   "n": 48,
+   "r2_identity": -0.19083969465648876,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 48,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 0.8958333333333334,
+   "tol": 1.0,
+   "frac_exact": 0.4791666666666667,
+   "mean_signed_error": 0.4166666666666667,
+   "mean_abs_error": 0.6666666666666666,
+   "frac_within_tol_boot_ci_over_seeds": [
+    0.75,
+    1.0
+   ]
+  },
+  "count_thr_20_vs_Kstar": {
+   "n": 48,
+   "r2_identity": -0.16281690140845062,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 48,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 0.9583333333333334,
+   "tol": 1.0,
+   "frac_exact": 0.4791666666666667,
+   "mean_signed_error": 0.3541666666666667,
+   "mean_abs_error": 0.6041666666666666,
+   "frac_within_tol_boot_ci_over_seeds": [
+    0.8846153846153846,
+    1.0
+   ]
+  },
+  "count_K_2pct_vs_same_def_on_ystar": {
+   "n": 48,
+   "r2_identity": -0.13793103448275867,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 48,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 0.9583333333333334,
+   "tol": 1.0,
+   "frac_exact": 0.4583333333333333,
+   "mean_signed_error": 0.3333333333333333,
+   "mean_abs_error": 0.625,
+   "frac_within_tol_boot_ci_over_seeds": [
+    0.8846153846153846,
+    1.0
+   ]
+  },
+  "count_N_05_vs_same_def_on_ystar": {
+   "n": 48,
+   "r2_identity": -1.3526760563380278,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 48,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 0.75,
+   "tol": 1.0,
+   "frac_exact": 0.2916666666666667,
+   "mean_signed_error": 1.0208333333333333,
+   "mean_abs_error": 1.0208333333333333,
+   "frac_within_tol_boot_ci_over_seeds": [
+    0.5768749999999999,
+    0.8913043478260869
+   ]
+  },
+  "eps0.01": {
+   "n_cached": 48,
+   "frac_K2_in_eps_range": 0.4583333333333333,
+   "median_tv_at_best_cos": 0.371232852808103,
+   "median_tv_min": 0.35036823983767607,
+   "median_cos_best": 0.6753200572721405,
+   "median_tv_to_ystar_registered_same_runs": 0.3682700453716435
+  },
+  "cells": [
+   {
+    "model": "product",
+    "nu": 3,
+    "p": 23,
+    "s": 1.5,
+    "n": 48,
+    "K_star": 4,
+    "runner_up_rel_gap": 0.000763148717362494,
+    "label": "exact (vertex cache)",
+    "median_K_2pct": 4.0,
+    "median_N_05": 4.0,
+    "median_thr_10": 4.0,
+    "median_eff": 0.9099091297761539,
+    "min_eff": 0.7887491166996304,
+    "eps0.01_K_range": [
+     4,
+     4
+    ],
+    "eps0.01_n_orbits": 2,
+    "eps0.01_median_tv_min": 0.35036823983767607
+   }
+  ]
+ },
+ "not_converged": {
+  "n": 2,
+  "efficiency": {
+   "n": 2,
+   "median": 0.8458240069656072,
+   "median_ci_over_seeds": [
+    0.805274206755886,
+    0.8863738071753284
+   ],
+   "q10": 0.8133841667978302,
+   "q90": 0.8782638471333842,
+   "frac_ge_0.99": 0.0,
+   "frac_ge_0.95": 0.0,
+   "frac_ge_0.90": 0.0
+  },
+  "count_K_2pct_vs_Kstar": {
+   "n": 2,
+   "r2_identity": NaN,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 2,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 1.0,
+   "tol": 1.0,
+   "frac_exact": 0.0,
+   "mean_signed_error": 1.0,
+   "mean_abs_error": 1.0,
+   "frac_within_tol_boot_ci_over_seeds": [
+    1.0,
+    1.0
+   ]
+  },
+  "count_K_5pct_vs_Kstar": {
+   "n": 2,
+   "r2_identity": NaN,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 2,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 1.0,
+   "tol": 1.0,
+   "frac_exact": 0.0,
+   "mean_signed_error": 1.0,
+   "mean_abs_error": 1.0,
+   "frac_within_tol_boot_ci_over_seeds": [
+    1.0,
+    1.0
+   ]
+  },
+  "count_N_05_vs_Kstar": {
+   "n": 2,
+   "r2_identity": NaN,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 2,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 1.0,
+   "tol": 1.0,
+   "frac_exact": 0.0,
+   "mean_signed_error": 1.0,
+   "mean_abs_error": 1.0,
+   "frac_within_tol_boot_ci_over_seeds": [
+    1.0,
+    1.0
+   ]
+  },
+  "count_N_10_vs_Kstar": {
+   "n": 2,
+   "r2_identity": NaN,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 2,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 1.0,
+   "tol": 1.0,
+   "frac_exact": 1.0,
+   "mean_signed_error": 0.0,
+   "mean_abs_error": 0.0,
+   "frac_within_tol_boot_ci_over_seeds": [
+    1.0,
+    1.0
+   ]
+  },
+  "count_thr_10_vs_Kstar": {
+   "n": 2,
+   "r2_identity": NaN,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 2,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 1.0,
+   "tol": 1.0,
+   "frac_exact": 0.0,
+   "mean_signed_error": 1.0,
+   "mean_abs_error": 1.0,
+   "frac_within_tol_boot_ci_over_seeds": [
+    1.0,
+    1.0
+   ]
+  },
+  "count_thr_20_vs_Kstar": {
+   "n": 2,
+   "r2_identity": NaN,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 2,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 1.0,
+   "tol": 1.0,
+   "frac_exact": 0.0,
+   "mean_signed_error": 1.0,
+   "mean_abs_error": 1.0,
+   "frac_within_tol_boot_ci_over_seeds": [
+    1.0,
+    1.0
+   ]
+  },
+  "count_K_2pct_vs_same_def_on_ystar": {
+   "n": 2,
+   "r2_identity": NaN,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 2,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 1.0,
+   "tol": 1.0,
+   "frac_exact": 0.0,
+   "mean_signed_error": 1.0,
+   "mean_abs_error": 1.0,
+   "frac_within_tol_boot_ci_over_seeds": [
+    1.0,
+    1.0
+   ]
+  },
+  "count_N_05_vs_same_def_on_ystar": {
+   "n": 2,
+   "r2_identity": NaN,
+   "r2_linear_fit": NaN,
+   "pearson": NaN,
+   "spearman": NaN,
+   "kendall": NaN,
+   "linfit_meas_on_pred": {
+    "n": 2,
+    "slope": NaN,
+    "intercept": NaN,
+    "slope_ci": [
+     NaN,
+     NaN
+    ],
+    "intercept_ci": [
+     NaN,
+     NaN
+    ],
+    "r": NaN
+   },
+   "frac_within_tol": 0.0,
+   "tol": 1.0,
+   "frac_exact": 0.0,
+   "mean_signed_error": 2.0,
+   "mean_abs_error": 2.0,
+   "frac_within_tol_boot_ci_over_seeds": [
+    0.0,
+    0.0
+   ]
+  },
+  "eps0.01": {
+   "n_cached": 2,
+   "frac_K2_in_eps_range": 0.0,
+   "median_tv_at_best_cos": 0.3753548308111277,
+   "median_tv_min": 0.37239202337466815,
+   "median_cos_best": 0.698257052182756,
+   "median_tv_to_ystar_registered_same_runs": 0.37239202337466815
+  },
+  "cells": [
+   {
+    "model": "product",
+    "nu": 3,
+    "p": 23,
+    "s": 1.5,
+    "n": 2,
+    "K_star": 4,
+    "runner_up_rel_gap": 0.000763148717362494,
+    "label": "exact (vertex cache)",
+    "median_K_2pct": 5.0,
+    "median_N_05": 5.0,
+    "median_thr_10": 5.0,
+    "median_eff": 0.8458240069656072,
+    "min_eff": 0.805274206755886,
+    "eps0.01_K_range": [
+     4,
+     4
+    ],
+    "eps0.01_n_orbits": 2,
+    "eps0.01_median_tv_min": 0.37239202337466815
+   }
+  ]
+ },
+ "nulls_and_positive": {
+  "product|3|23|1.5": {
+   "random_allocation_median": 0.469349562266712,
+   "random_allocation_q95": 0.7423335907598678,
+   "eps0.01_random_allocation_median_tv_min": 0.5205351772262918,
+   "eps0.01_random_allocation_median_tv_at_best_cos": 0.5233333549469767,
+   "random_init_net": 0.6428676683739525,
+   "positive_control": 0.9999999999914955,
+   "eps0.01_random_init_net_tv_min": 0.529057643389752
+  }
+ }
+}

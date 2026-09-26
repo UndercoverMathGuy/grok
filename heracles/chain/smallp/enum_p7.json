@@ -1,0 +1,38 @@
+[
+ {
+  "p": 7,
+  "T": [
+   1
+  ],
+  "L": 24,
+  "one_sided": 0.893261,
+  "two_sided": 0.966587,
+  "transfer": 0.57505,
+  "passes": true
+ },
+ {
+  "p": 7,
+  "T": [
+   1,
+   2
+  ],
+  "L": 16,
+  "one_sided": 0.393264,
+  "two_sided": 0.63324,
+  "transfer": 0.418106,
+  "passes": true
+ },
+ {
+  "p": 7,
+  "T": [
+   1,
+   2,
+   3
+  ],
+  "L": 12,
+  "one_sided": 0.160988,
+  "two_sided": 0.425933,
+  "transfer": 0.218497,
+  "passes": false
+ }
+]

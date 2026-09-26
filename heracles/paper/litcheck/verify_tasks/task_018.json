@@ -1,0 +1,55 @@
+{
+ "item": {
+  "id": "R21-nu-block",
+  "kind": "our_result",
+  "location": "cyclic.tex prop:block; appendix app:block",
+  "statement": "nu product neurons with phases alpha_l = pi l/nu produce table nu lambda^nu 2^{-n} cos(2 pi j(sum a - c)/p), norm nu lambda^2 p/2 each; one block per support frequency attains the class value",
+  "what_to_check": "Compare constructions in Morwani, Gromov 2023, Li et al. 2025, Nanda; trig/roots-of-unity cancellation"
+ },
+ "chk": {
+  "id": "R21-nu-block",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "The trigonometric identity behind the nu-block is classical. Mohlenkamp and Monz\u00f3n, \"Trigonometric identities and sums of separable functions\", Math. Intelligencer 27(2):65-69 (2005), DOI 10.1007/BF02985795 (metadata confirmed via Crossref; preprint read at ohiouniversityfaculty.com/mohlenka/research/sine.pdf). Their Thm 2 gives sin(sum_{j=1}^n x_j) = sum_j sin(x_j) prod_{k!=j} sin(x_k+alpha_k-alpha_j)/sin(alpha_k-alpha_j) for any distinct alpha, together with a shifted version with free a_j (sum a_j = 0). They state that sin of a sum \"is exactly separated with separation rank n\", compared with 2^{n-1} terms from the standard trig expansion. Their Fig. 1 (right) uses equally spaced alpha = 0, pi/3, 2pi/3. Minimality is only conjectured (\"We believe...\"). I checked numerically that the choice alpha_k = pi k/nu, a_k = -alpha_k, together with prod_{k=1}^{nu-1} sin(pi k/nu) = nu/2^{nu-1}, gives exactly our identity sum_{l=0}^{nu-1} (-1)^l prod_{k=1}^{nu} cos(x_k + pi l/nu) = nu 2^{1-nu} cos(sum x_k). This matches for nu = 2..7, and our block is that identity with x_nu = -theta_c.\n\nNone of the ML constructions uses a nu-neuron roots-of-unity block:\n- Morwani et al. ICLR 2024, App. F.2 (PDF read): 8 neurons per frequency. They expand cos(a+b-c) into 4 trig terms and implement each with a neuron pair, with phases (0,0,0)/(0,pi,pi), (pi/2,-pi/2,0)/(pi/2,pi/2,pi) and so on. They credit Gromov's scheme.\n- Li, Liang, Shi, Song, Zhou, AISTATS 2025, Lemma E.1 Part 3 and Lemma E.2/E.3: 2^{2k-1} neurons per frequency pair, built by sign-vector polarisation of 2^k trig terms. No roots-of-unity phases.\n- Gromov 2023 (arXiv 2301.02679), Eqs. 6-16: random uniform phases with phi1+phi2=phi3. Spurious terms cancel only approximately (the random phase approximation). Doshi, He, Das, Gromov 2024 (arXiv 2406.03495), Eq. 2 is the same random-phase scheme for S-term sums.\n- He, Wang, Chen, Yang (arXiv 2602.16849), Def 4.1(iii): phase-moment cancellation for iota in {2,4} within each frequency group (roots of unity satisfy it). Their setting is quadratic sum-activation nets, where noise peaks at 2x and 2y survive (Prop 4.2). There is no minimal block and no norm optimality.\n\nThe roots-of-unity filter itself is the textbook series-multisection identity.\n\nWhat remains ours: the product-network norm accounting (nu lambda^2 p/2), the amplitude weighting lambda_j^nu = 2^n y*_j/nu, and the result that one block per support frequency attains Gamma_s. Cost-optimality of nu neurons is the separate lem:cost; the minimal-rank question is only conjectured in Mohlenkamp and Monz\u00f3n.\n\nSearches run: PDFs of Morwani, Li, Gromov, Doshi and He et al. grepped for their constructions and phases; web search for Mohlenkamp and Monz\u00f3n; web search for the tensor rank of sin(x1+...+xd) (no minimality proof found). Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r21-nu-block/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "mohlenkamp2005trig",
+    "bibtex": "@article{mohlenkamp2005trig,\n  title={Trigonometric identities and sums of separable functions},\n  author={Mohlenkamp, Martin J. and Monz{\\'o}n, Lucas},\n  journal={The Mathematical Intelligencer},\n  volume={27},\n  number={2},\n  pages={65--69},\n  year={2005},\n  doi={10.1007/BF02985795}\n}",
+    "url": "http://www.ohiouniversityfaculty.com/mohlenka/research/sine.pdf",
+    "confirmed": true,
+    "why": "Supports prop:block's identity. Thm 2 writes sin of a sum of n variables as n separable terms using phase parameters alpha_j, instead of the 2^{n-1} terms of the standard expansion. With equally spaced alpha = pi k/nu and shifts, it reduces exactly to our nu-block table identity. It should be cited as the source of the 'nu neurons suffice' identity."
+   },
+   {
+    "key": "morwani2024feature",
+    "bibtex": "(already in refs.bib)",
+    "url": "https://arxiv.org/abs/2311.07568",
+    "confirmed": true,
+    "why": "App. F.2 gives the max-margin quadratic construction with 8 neurons per frequency (a trig expansion plus sign-pair neurons). Cite it as a contrast when introducing the block."
+   },
+   {
+    "key": "li2025nsum",
+    "bibtex": "(already in refs.bib)",
+    "url": "https://proceedings.mlr.press/v258/li25b.html",
+    "confirmed": true,
+    "why": "Lemma E.3 builds the k-sum max-margin network with 2^{2k-1} neurons per frequency pair, using Lemma E.1 sign polarisation. Cite it as a contrast: exponential versus our nu neurons per frequency."
+   },
+   {
+    "key": "gromov2023grokking",
+    "bibtex": "(already in refs.bib)",
+    "url": "https://arxiv.org/abs/2301.02679",
+    "confirmed": true,
+    "why": "Eqs. 6-16 use the analytic phases phi1+phi2=phi3 with random phases, so spurious terms cancel only approximately. Our phases make the same cancellation exact."
+   },
+   {
+    "key": "he2026mechanism",
+    "bibtex": "@article{he2026mechanism,\n  title={On the Mechanism and Dynamics of Modular Addition: Fourier Features, Lottery Ticket, and Grokking},\n  author={He, Jianliang and Wang, Leda and Chen, Siyu and Yang, Zhuoran},\n  journal={arXiv preprint arXiv:2602.16849},\n  year={2026}\n}",
+    "url": "https://arxiv.org/abs/2602.16849",
+    "confirmed": true,
+    "why": "Def 4.1(iii) is a phase-moment cancellation condition, which roots-of-unity phases satisfy, found in trained quadratic nets. Cite it for the phase-symmetry intuition near the sentence 'The phases are a rotated copy of the nu-th roots of unity'."
+   }
+  ],
+  "recommended_change": "In cyclic.tex, after prop:block (the sentence \"The phases are a rotated copy of the nu-th roots of unity...\"), add: \"The table identity is the equally spaced case of the nu-term separable expansion of the sine of a sum \\citep{mohlenkamp2005trig} (their Thm 2, which replaces the 2^{nu-1} terms of the standard expansion by nu). Earlier max-margin constructions use 8 neurons per frequency \\citep[App. F]{morwani2024feature} and 2^{2k-1} for k summands \\citep[Lemma E.3]{li2025nsum}. Random-phase constructions cancel only approximately \\citep{gromov2023grokking}. What is new here is the weighting lambda_j^nu proportional to y*_j and the fact that these blocks attain Gamma_s (and, by Lemma cost, are cost-optimal).\" Do not present the roots-of-unity cancellation itself as new. Mohlenkamp and Monz\u00f3n only conjecture minimality of rank n, so our cost lemma is not pre-empted by them."
+ },
+ "lens": "novelty_math",
+ "slug": "r21-nu-block",
+ "task": 18
+}

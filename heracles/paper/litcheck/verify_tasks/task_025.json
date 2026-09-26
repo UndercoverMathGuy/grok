@@ -1,0 +1,48 @@
+{
+ "item": {
+  "id": "R25-log-scaling",
+  "kind": "our_result",
+  "location": "cyclic.tex thm:scaling; appendix app:scaling",
+  "statement": "1/2 ceil(8 ln p)^{1-s} <= Gamma_s(p) <= 3/2 (2a_s)^s (ln p)^{1-s}; maximizers use Theta(ln p) frequencies with share floor; gamma*_b = Theta(p^{-nu/2}(ln p)^{1-nu/b}) over all product networks",
+  "what_to_check": "Highest-risk theory claim: search Chowla cosine problem (Bourgain, Ruzsa, Sanders), small-bias sets, sidelobe/minimax cosine polynomials, McCracken log-n observation"
+ },
+ "chk": {
+  "id": "R25-log-scaling",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "Dictionary: 1-cos(2 pi j delta/p) summed with weights y_j is half the Laplacian eigenvalue at character delta of the weighted Cayley graph Cay(Z_p, {+-j}, y_j). So Gamma_s(p) is half the largest spectral gap under an l_{1/s} budget on the generator weights. With equal shares on K frequencies, the coverage equals K^{1-s} times the normalised gap of a 2K-regular abelian Cayley graph.\n\nSources (all PDFs fetched and read):\n(1) Alon and Roichman, Random Cayley graphs and expanders, RSA 5(2):271-284, 1994.\n- Thm 1: c(delta) log n random generators give an expander.\n- Thm 2: (1+eps) log2 n random elements suffice for any abelian group; for Z_n, eps log2 n suffice.\n- Prop 3 (Sec 3.1): \"If A is an Abelian group of order n, and X(A,S) is a delta-expander, then |S| >= c log2 n.\"\n- Abstract: \"For Abelian groups this is essentially tight.\"\n- Prop 7' uses a closed-walk (trace) count.\n(2) Friedman, Murty and Tillich, Spectral estimates for Abelian Cayley graphs, JCTB 96(1):111-121, 2006.\n- Abstract: \"for fixed d, a d-regular Cayley graph on an Abelian group of order n has second eigenvalue bounded below by d - O(d n^{-4/d}) ... for a large odd prime n, the O(dn^{-4/d}) cannot be improved.\"\n- With d=2K this is a normalised gap of at most C p^{-2/K}. That is the unweighted analogue of our Cor few / eq. (Kbound), which gives the weaker exponent p^{-1/(2 a_s K)} but holds for arbitrary weights.\n- They mention a \"large trace\" approach, which is what our Bessel positive-Fourier inequality is.\n(3) Cioaba, CRAS 342 (2006) 635-638: closed-walk lower bounds for abelian Cayley graphs. This is the combinatorial twin of our \"resonances only add non-negative terms\".\n(4) McCracken et al., arXiv 2505.18266, Sec 4.3. Thm 4.7 and Cor 4.8: \"Learning O(log n) distinct frequencies gives a logit margin Omega(log n)\". The margin is unnormalised and only sufficiency is shown; they write \"we don't know why it occurs\"; no necessity bound; no expander citations.\n\nConsequence: the equal-share restriction of thm:scaling (Theta((log p)^{1-s}), K = Theta(log p)) is essentially a corollary of AR Thm 2 plus FMT. Not found anywhere:\n- the weighted two-sided bound under the concave l_{1/s} budget with explicit constants, for arbitrary weights;\n- the maximiser support Theta(log p) and the share floor;\n- the network statement gamma*_b = Theta(p^{-nu/2}(log p)^{1-nu/b}) over all product networks, and Cor few.\n\nChecked and only related:\n- Chowla cosine problem (Bourgain/Ruzsa/Sanders; Bedert arXiv 2509.05260; arXiv 2509.03490, 2609.05338). It concerns the negative tail of the cosine sum; ours is the near-period/Dirichlet tail.\n- Small-bias sets (two-sided bias).\n- Weighted Cayley sparsification (arXiv 2508.08078).\n\nThe paper already cites alon1994random, but only for the random lower bound; that bib entry is correct (Princeton record: RSA 5(2) 271-284, doi 10.1002/rsa.3240050203). The mccracken2025 bib entry is wrong: the correct first author is Gavin McCracken. Queries run: FMT second eigenvalue abelian; Alon-Roichman abelian log generators; weighted Cayley spectral gap log n; small-bias Z_p; Chowla cosine. Notes and PDFs: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r25-log-scaling/CHECK.md and src/.",
+  "recommended_citations": [
+   {
+    "key": "friedman2006spectral",
+    "bibtex": "@article{friedman2006spectral,\n  title={Spectral estimates for {A}belian {C}ayley graphs},\n  author={Friedman, Joel and Murty, Ram and Tillich, Jean-Pierre},\n  journal={Journal of Combinatorial Theory, Series B},\n  volume={96},\n  number={1},\n  pages={111--121},\n  year={2006},\n  doi={10.1016/j.jctb.2005.06.012}\n}",
+    "url": "https://www.rocq.inria.fr/secret/Jean-Pierre.Tillich/publications/Abelian.pdf",
+    "confirmed": true,
+    "why": "Supports the upper bound and Cor few in the equal-weight case. A d-regular abelian Cayley graph has lambda_2 >= d - O(d n^{-4/d}), tight at odd primes. With K frequencies (d=2K) the normalised coverage is O(p^{-2/K}), so o(log p) generators give a vanishing gap."
+   },
+   {
+    "key": "alon1994random",
+    "bibtex": "@article{alon1994random,\n  title={Random {C}ayley graphs and expanders},\n  author={Alon, Noga and Roichman, Yuval},\n  journal={Random Structures \\& Algorithms},\n  volume={5},\n  number={2},\n  pages={271--284},\n  year={1994},\n  doi={10.1002/rsa.3240050203}\n}",
+    "url": "https://web.math.princeton.edu/~nalon/PDFS/exp1.pdf",
+    "confirmed": true,
+    "why": "Already in refs.bib, but it should be cited for both directions. Thm 2 (with the Z_n remark after it) gives sufficiency of Theta(log p) random generators, which is our lower bound. Prop 3 shows that an abelian delta-expander needs |S| >= c log2 n, which is the unweighted form of the Theta(log p) support claim."
+   },
+   {
+    "key": "mccracken2025",
+    "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+    "url": "https://arxiv.org/abs/2505.18266",
+    "confirmed": true,
+    "why": "Thm 4.7 / Cor 4.8 (Sec 4.3): O(log n) random frequencies give an Omega(log n) unnormalised logit margin. This is prior ML art for the sufficiency half, which is our lower bound on Gamma_s. They state they do not know why log n occurs. The existing bib entry (Andrew McCracken) is wrong and should be replaced."
+   },
+   {
+    "key": "cioaba2006closed",
+    "bibtex": "@article{cioaba2006closed,\n  title={Closed walks and eigenvalues of {A}belian {C}ayley graphs},\n  author={Cioab{\\u{a}}, Sebastian M.},\n  journal={Comptes Rendus Math{\\'e}matique. Acad{\\'e}mie des Sciences. Paris},\n  volume={342},\n  pages={635--638},\n  year={2006},\n  doi={10.1016/j.crma.2006.03.005}\n}",
+    "url": "https://www.numdam.org/item/10.1016/j.crma.2006.03.005.pdf",
+    "confirmed": true,
+    "why": "Optional. Lower-bounds closed walks in abelian Cayley graphs by counting balanced words. This is the combinatorial analogue of our positive-Fourier (heat-trace) inequality eq:posfourier."
+   }
+  ],
+  "recommended_change": "In cyclic.tex after thm:scaling, or at the start of app:scaling, add: \"Equivalently, sum_j y_j(1-cos(2 pi j delta/p)) is half the Laplacian eigenvalue at character delta of the weighted Cayley graph Cay(Z_p,{+-j}) with weights y_j. So Gamma_s(p) is the largest spectral gap of such a graph under an l_{1/s} budget on generator weights. For unweighted generator sets, Theta(log p) generators are known to be sufficient \\citep[Thm. 2]{alon1994random} and necessary \\citep[Prop. 3]{alon1994random}, and K generators leave a normalised gap O(p^{-2/K}) \\citep{friedman2006spectral}. Theorem~\\ref{thm:scaling} extends this to arbitrary weights under the concave budget, locates the maximiser and bounds its shares; the network consequence is new. \\citet{mccracken2025} observed that O(log n) random frequencies give an Omega(log n) unnormalised logit margin; our upper bound shows this order is also necessary.\" In the appendix, next to eq:posfourier, optionally note that it is a heat-trace / closed-walk bound in the spirit of \\citet{friedman2006spectral,cioaba2006closed}. Fix the mccracken2025 bib entry (Gavin McCracken et al., correct title). Keep the existing Alon-Roichman sentence. Do not describe the equal-share case as new: it follows from AR plus FMT."
+ },
+ "lens": "novelty_ml",
+ "slug": "r25-log-scaling",
+ "task": 25
+}

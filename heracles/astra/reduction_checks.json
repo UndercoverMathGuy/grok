@@ -1,0 +1,101 @@
+{
+  "compression": [
+    {
+      "seed": 0,
+      "before_width": 23,
+      "after_width": 18,
+      "tensor_max_error": 5.329070518200751e-15,
+      "cost_ratio": 0.9037846731763889
+    },
+    {
+      "seed": 1,
+      "before_width": 23,
+      "after_width": 18,
+      "tensor_max_error": 1.7763568394002505e-15,
+      "cost_ratio": 0.7866354999564131
+    },
+    {
+      "seed": 2,
+      "before_width": 23,
+      "after_width": 18,
+      "tensor_max_error": 1.1102230246251565e-15,
+      "cost_ratio": 0.8361010276627988
+    },
+    {
+      "seed": 3,
+      "before_width": 23,
+      "after_width": 18,
+      "tensor_max_error": 1.1102230246251565e-15,
+      "cost_ratio": 0.8820887131560519
+    },
+    {
+      "seed": 4,
+      "before_width": 23,
+      "after_width": 18,
+      "tensor_max_error": 1.7763568394002505e-15,
+      "cost_ratio": 0.8463441148553007
+    },
+    {
+      "seed": 5,
+      "before_width": 23,
+      "after_width": 18,
+      "tensor_max_error": 1.7763568394002505e-15,
+      "cost_ratio": 0.900932777689425
+    },
+    {
+      "seed": 6,
+      "before_width": 23,
+      "after_width": 18,
+      "tensor_max_error": 1.7763568394002505e-15,
+      "cost_ratio": 0.8747541799351938
+    },
+    {
+      "seed": 7,
+      "before_width": 23,
+      "after_width": 18,
+      "tensor_max_error": 8.881784197001252e-16,
+      "cost_ratio": 0.8680738213830669
+    },
+    {
+      "seed": 8,
+      "before_width": 23,
+      "after_width": 18,
+      "tensor_max_error": 8.881784197001252e-16,
+      "cost_ratio": 0.9174715316117086
+    },
+    {
+      "seed": 9,
+      "before_width": 23,
+      "after_width": 18,
+      "tensor_max_error": 1.3322676295501878e-15,
+      "cost_ratio": 0.8637604580443525
+    }
+  ],
+  "radial_asymptotic": [
+    {
+      "L": 10,
+      "radial_scale_over_prediction": 0.8244780825107105,
+      "objective_over_prediction": 0.9493058053437536
+    },
+    {
+      "L": 20,
+      "radial_scale_over_prediction": 0.919366916975035,
+      "objective_over_prediction": 0.9794878249895758
+    },
+    {
+      "L": 50,
+      "radial_scale_over_prediction": 0.9718604948939287,
+      "objective_over_prediction": 0.9945972598422729
+    },
+    {
+      "L": 100,
+      "radial_scale_over_prediction": 0.9881345513771432,
+      "objective_over_prediction": 0.998767011585138
+    },
+    {
+      "L": 200,
+      "radial_scale_over_prediction": 0.9952321171274825,
+      "objective_over_prediction": 1.0001575279955701
+    }
+  ]
+}

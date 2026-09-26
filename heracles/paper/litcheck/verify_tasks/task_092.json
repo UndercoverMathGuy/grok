@@ -1,0 +1,41 @@
+{
+ "item": {
+  "id": "U4-matrix-tools",
+  "kind": "uncited_background",
+  "location": "appendix app:cost lem:minor, lem:hadamard, lem:bernstein",
+  "statement": "Sylvester determinant identity, principal-minor expansion, Hadamard's inequality, Beta integral pi/sin(pi a)",
+  "what_to_check": "Cite Horn-Johnson Matrix Analysis; DLMF 5.12; Schilling-Song-Vondracek Bernstein Functions"
+ },
+ "chk": {
+  "id": "U4-matrix-tools",
+  "verdict": "CITATION_FOUND",
+  "evidence": "The tools used in the appendix (lem:minor, lem:hadamard, lem:bernstein and the remark near line 107) are all standard, so textbook citations are enough.\n\n- **Horn & Johnson, Matrix Analysis, 2nd ed.** (CUP, print 2012-10-22, DOI 10.1017/CBO9781139020411): confirmed through Crossref metadata. The 1985 edition's CUP page (10.1017/CBO9780511810817) also loaded. It covers det(I+AB)=det(I+BA), the principal-minor expansion of det(I+tX), and Hadamard's inequality with its equality case. I could not verify section or theorem numbers online. From memory, Hadamard's inequality is Thm 7.8.1.\n- **DLMF Sec. 5.12** (fetched): Eq. 5.12.3 is int_0^inf t^{a-1}(1+t)^{-(a+b)} dt = B(a,b), and Eq. 5.12.1 is B(a,b)=Gamma(a)Gamma(b)/Gamma(a+b). The pi/sin(pi a) form needs b=1-a together with **DLMF 5.5.3** (fetched): Gamma(z)Gamma(1-z)=pi/sin(pi z). Section 5.12 alone does not state pi/sin.\n- **Schilling, Song & Vondracek, Bernstein Functions** (De Gruyter 2012, DOI 10.1515/9783110269338): authors, title, publisher and date confirmed through Crossref. It supports the remark that cx + int log(1+xt) mu(dt) is a Bernstein (Thorin-type) function, and that x^r is complete Bernstein. The edition and series (2nd ed., Studies in Math 37) and the chapter number are from memory.\n\nNotes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/u4-matrix-tools/CHECK.md.",
+  "recommended_citations": [
+   {
+    "key": "horn2012matrix",
+    "bibtex": "@book{horn2012matrix,\n  author = {Horn, Roger A. and Johnson, Charles R.},\n  title = {Matrix Analysis},\n  edition = {2},\n  publisher = {Cambridge University Press},\n  year = {2012},\n  doi = {10.1017/CBO9781139020411}\n}",
+    "url": "https://api.crossref.org/works/10.1017/CBO9781139020411",
+    "confirmed": true,
+    "why": "Sylvester identity det(I+UDU*)=det(I+DU*U) and principal-minor expansion in lem:minor; Hadamard's inequality (PSD det <= product of diagonal, equality iff diagonal) in lem:hadamard. Check theorem numbers (Hadamard ~Thm 7.8.1) before quoting them."
+   },
+   {
+    "key": "dlmf",
+    "bibtex": "@misc{dlmf,\n  key = {DLMF},\n  title = {{NIST} Digital Library of Mathematical Functions},\n  note = {F.~W.~J. Olver et al., eds., \\url{https://dlmf.nist.gov/}, Eqs.~5.5.3 and 5.12.3}\n}",
+    "url": "https://dlmf.nist.gov/5.12",
+    "confirmed": true,
+    "why": "lem:bernstein: int_0^inf u^{a-1}/(1+u) du = B(a,1-a) (Eq. 5.12.3) = Gamma(a)Gamma(1-a) (5.12.1) = pi/sin(pi a) (reflection formula 5.5.3, https://dlmf.nist.gov/5.5)."
+   },
+   {
+    "key": "schilling2012bernstein",
+    "bibtex": "@book{schilling2012bernstein,\n  author = {Schilling, Ren{\\'e} L. and Song, Renming and Vondra{\\v{c}}ek, Zoran},\n  title = {Bernstein Functions: Theory and Applications},\n  edition = {2},\n  series = {De Gruyter Studies in Mathematics},\n  volume = {37},\n  publisher = {De Gruyter},\n  year = {2012},\n  doi = {10.1515/9783110269338}\n}",
+    "url": "https://api.crossref.org/works/10.1515/9783110269338",
+    "confirmed": true,
+    "why": "Optional, for lem:bernstein and the remark near line 107: x^r (0<r<1) is a (complete) Bernstein function and cx+int log(1+xt)mu(dt) is a Thorin-Bernstein function, so the cost lemma extends beyond power penalties. Authors, title, publisher and year are confirmed via Crossref; edition, series and volume are from memory."
+   }
+  ],
+  "recommended_change": "- **lem:minor proof:** \"Sylvester's identity \\citep[Ch.~0--1]{horn2012matrix} gives ...\" and \"Expanding by principal minors \\citep{horn2012matrix}\".\n- **lem:hadamard proof:** \"Hadamard's inequality \\citep[Thm.~7.8.1]{horn2012matrix}\". Verify the theorem number, or cite without it.\n- **lem:bernstein proof:** \"by the Beta integral \\citep[Eqs.~5.12.3, 5.5.3]{dlmf} at a=1-r\".\n- **Remark after Prop (line ~107), optional:** add \"i.e.\\ for every Bernstein function of Thorin type \\citep{schilling2012bernstein}\"."
+ },
+ "lens": "citation",
+ "slug": "u4-matrix-tools",
+ "task": 92
+}

@@ -1,0 +1,28 @@
+{
+  "p": 3,
+  "r": "2/3",
+  "interval_precision": 80,
+  "minimal_polynomial": "_x + 1",
+  "root": "2*cos(2*pi/p)",
+  "candidate_systems": 1,
+  "singular_systems": 0,
+  "feasible_systems": 1,
+  "distinct_enumerated_vertices": 1,
+  "amplitude_multiset_classes": 1,
+  "support": [
+    1
+  ],
+  "K": 1,
+  "amplitudes_descending_polynomial_coefficients": [
+    [
+      "2/3"
+    ]
+  ],
+  "cost_interval": "[0.7631428283688879118720281412931180059439379471919540480660347827104495326828094330053, 0.7631428283688879118720281412931180059439379471919540480660347827104495326828094351137]",
+  "gamma_interval": "[1.499999999999999999999999999999999999999999999999999999999999999999999999999999993675, 1.500000000000000000000000000000000000000000000000000000000000000000000000000000002108]",
+  "strict_separation_from_other_classes": true,
+  "objective_class_intervals": [
+    "[0.7631428283688879118720281412931180059439379471919540480660347827104495326828094330053, 0.7631428283688879118720281412931180059439379471919540480660347827104495326828094351137]"
+  ],
+  "scope": "Complete ansatz optimum, all supports, modulo frequency dilation. Not unrestricted network optimality."
+}

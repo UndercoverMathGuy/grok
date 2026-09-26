@@ -1,0 +1,208 @@
+{
+  "arithmetic": "exact",
+  "checks": {
+    "optimized_young_and_scalar_comparison": true,
+    "depth_uniform_interval_algebra": true,
+    "rational_thresholds": [
+      {
+        "p": 5,
+        "nu": 3,
+        "safe_c": 9,
+        "q_lower_exact": "54/19",
+        "q_lower_decimal": "2.8421052631579"
+      },
+      {
+        "p": 7,
+        "nu": 3,
+        "safe_c": 9,
+        "q_lower_exact": "81/28",
+        "q_lower_decimal": "2.8928571428571"
+      },
+      {
+        "p": 11,
+        "nu": 3,
+        "safe_c": 9,
+        "q_lower_exact": "135/46",
+        "q_lower_decimal": "2.9347826086957"
+      },
+      {
+        "p": 59,
+        "nu": 3,
+        "safe_c": 9,
+        "q_lower_exact": "783/262",
+        "q_lower_decimal": "2.9885496183206"
+      },
+      {
+        "p": 5,
+        "nu": 4,
+        "safe_c": 11,
+        "q_lower_exact": "88/23",
+        "q_lower_decimal": "3.8260869565217"
+      },
+      {
+        "p": 7,
+        "nu": 4,
+        "safe_c": 11,
+        "q_lower_exact": "66/17",
+        "q_lower_decimal": "3.8823529411765"
+      },
+      {
+        "p": 11,
+        "nu": 4,
+        "safe_c": 11,
+        "q_lower_exact": "55/14",
+        "q_lower_decimal": "3.9285714285714"
+      },
+      {
+        "p": 59,
+        "nu": 4,
+        "safe_c": 11,
+        "q_lower_exact": "319/80",
+        "q_lower_decimal": "3.9875000000000"
+      },
+      {
+        "p": 5,
+        "nu": 5,
+        "safe_c": 14,
+        "q_lower_exact": "140/29",
+        "q_lower_decimal": "4.8275862068966"
+      },
+      {
+        "p": 7,
+        "nu": 5,
+        "safe_c": 14,
+        "q_lower_exact": "210/43",
+        "q_lower_decimal": "4.8837209302326"
+      },
+      {
+        "p": 11,
+        "nu": 5,
+        "safe_c": 14,
+        "q_lower_exact": "350/71",
+        "q_lower_decimal": "4.9295774647887"
+      },
+      {
+        "p": 59,
+        "nu": 5,
+        "safe_c": 14,
+        "q_lower_exact": "2030/407",
+        "q_lower_decimal": "4.9877149877150"
+      }
+    ],
+    "fourier_map_masks_and_exact_norm": [
+      {
+        "p": 3,
+        "nu": 3,
+        "selected_masks": 4,
+        "map_norm_squared": "4/3"
+      },
+      {
+        "p": 3,
+        "nu": 4,
+        "selected_masks": 7,
+        "map_norm_squared": "2"
+      },
+      {
+        "p": 3,
+        "nu": 5,
+        "selected_masks": 11,
+        "map_norm_squared": "16/5"
+      },
+      {
+        "p": 3,
+        "nu": 6,
+        "selected_masks": 16,
+        "map_norm_squared": "16/3"
+      },
+      {
+        "p": 3,
+        "nu": 7,
+        "selected_masks": 22,
+        "map_norm_squared": "64/7"
+      },
+      {
+        "p": 5,
+        "nu": 3,
+        "selected_masks": 8,
+        "map_norm_squared": "4/3"
+      },
+      {
+        "p": 5,
+        "nu": 4,
+        "selected_masks": 14,
+        "map_norm_squared": "2"
+      },
+      {
+        "p": 5,
+        "nu": 5,
+        "selected_masks": 22,
+        "map_norm_squared": "16/5"
+      },
+      {
+        "p": 5,
+        "nu": 6,
+        "selected_masks": 32,
+        "map_norm_squared": "16/3"
+      },
+      {
+        "p": 5,
+        "nu": 7,
+        "selected_masks": 44,
+        "map_norm_squared": "64/7"
+      },
+      {
+        "p": 7,
+        "nu": 3,
+        "selected_masks": 12,
+        "map_norm_squared": "4/3"
+      },
+      {
+        "p": 7,
+        "nu": 4,
+        "selected_masks": 21,
+        "map_norm_squared": "2"
+      },
+      {
+        "p": 7,
+        "nu": 5,
+        "selected_masks": 33,
+        "map_norm_squared": "16/5"
+      },
+      {
+        "p": 7,
+        "nu": 6,
+        "selected_masks": 48,
+        "map_norm_squared": "16/3"
+      },
+      {
+        "p": 7,
+        "nu": 7,
+        "selected_masks": 66,
+        "map_norm_squared": "64/7"
+      }
+    ],
+    "exact_mixed_and_dc_matrix_projection_examples": 72,
+    "all_parameter_projection_scalar_factorization": true,
+    "full_feasible_tensor_residuals": [
+      {
+        "p": 3,
+        "nu": 3,
+        "table_entries": 27,
+        "gap_residual_bound": true
+      },
+      {
+        "p": 5,
+        "nu": 3,
+        "table_entries": 125,
+        "gap_residual_bound": true
+      },
+      {
+        "p": 3,
+        "nu": 4,
+        "table_entries": 81,
+        "gap_residual_bound": true
+      }
+    ]
+  },
+  "scope": "Exact checks of proof identities; no empirical optimization or claim of finite-example completeness."
+}

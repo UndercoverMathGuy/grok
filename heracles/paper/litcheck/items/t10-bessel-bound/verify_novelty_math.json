@@ -1,0 +1,16 @@
+{
+  "task": 60,
+  "item_id": "T10-bessel-bound",
+  "lens": "novelty_math",
+  "upheld": true,
+  "corrected_verdict": "KNOWN",
+  "issues": "Checker verdict KNOWN upheld. I re-fetched DLMF 10.32.1, 10.35.2, 10.25.2 and 10.40.1 and all say what the checker claims. I re-derived the z>=1 Laplace bound I_0(z) >= e^{z-1/2}/(pi sqrt z) and checked it numerically: the ratio is 2.41 at z=1 and tends to 2.066. I also checked the psi <= a_s ln(1+z^r) combination with a_s = 3+s/2 and r = 1/s, which uses r<=1 and s*r=1. Minor bib fix: the official DLMF citation (dlmf.nist.gov/help/cite) includes 'Release 1.2.8 of 2026-09-15' in howpublished, and the checker's entry omits it. Caveat: DLMF 10.40(iii) gives rigorous remainder bounds only for K_nu, not I_nu, so the paper should not lean on DLMF for a rigorous I_0 lower bound; its own two-line proof is correct. No prior source was found that states the specific psi bound, and it is ad hoc and needs none. Sharper literature bounds (Baricz, Laforgia-Natalini) could not be fetched: Springer paywall, arXiv API HTTP 429, and the WebSearch session budget was exhausted at 200/200. So no extra citation is added. Infra: the search-budget exhaustion and the arXiv 429s probably contribute to the slow verify stage.",
+  "extra_citations": [
+    {
+      "key": "dlmf",
+      "bibtex": "@misc{dlmf,\n  key = {DLMF},\n  title = {{NIST Digital Library of Mathematical Functions}},\n  howpublished = {\\url{https://dlmf.nist.gov/}, Release 1.2.8 of 2026-09-15},\n  note = {F.~W.~J. Olver, A.~B. {Olde Daalhuis}, D.~W. Lozier, B.~I. Schneider, R.~F. Boisvert, C.~W. Clark, B.~R. Miller, B.~V. Saunders, H.~S. Cohl, and M.~A. McClain, eds.}\n}",
+      "url": "https://dlmf.nist.gov/help/cite",
+      "why": "Corrected form of the checker's DLMF entry, with the release number required by DLMF's own citation guidance. Cite Eq. 10.32.1 (integral rep.), 10.35.2 (Jacobi-Anger) plus 10.25.2 (I_k >= 0), and optionally 10.40.1 (sharp constant 1/sqrt(2 pi))."
+    }
+  ]
+}

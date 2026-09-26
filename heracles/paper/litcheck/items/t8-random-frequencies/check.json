@@ -1,0 +1,36 @@
+{
+ "id": "T8-random-frequencies",
+ "verdict": "KNOWN",
+ "evidence": "The technique is standard. The paper already attributes it correctly (\"cyclic case of the random Cayley graph argument of Alon-Roichman\", appendix.tex l.196). The arithmetic is correct. Hoeffding with range 2 gives exp(-L t^2/2), and the needed deviation is t = 1/2 + 1/(p-1) >= 1/2, so the bound is <= e^{-L/8} <= 1/p. The union bound over p-1 offsets gives (p-1)/p < 1.\n\n(1) Alon & Roichman, RSA 5(2):271-284, 1994. Metadata confirmed via Crossref 10.1002/rsa.3240050203; I read the PDF at https://web.math.princeton.edu/~nalon/PDFS/exp1.pdf.\n- Thm 1: \"For every 1>delta>0 there is a c(delta)>0 such that ... Let G be a group of order n and let S be a set of c(delta) log2 n random elements of G. Then E(|mu1*[X(G,S)]|) < 1-delta.\"\n- Sec 3.1, Thm 2 (Abelian groups): a multiset S of (1+eps) log2 n random elements, chosen with repetitions, gives |mu1*| <= 1-delta almost surely.\n- The proof bounds each nontrivial character separately (Pr(chi(sigma+sigma^-1) >= 1.8) <= 1/2) and then takes a union bound over characters.\n- The eigenvalues of X(Z_p, \u00b1J) are 2 sum_l cos(2 pi J_l delta/p). Our lemma is exactly this for Z_p, with a one-sided threshold of 1/2, explicit constant 8, and a Hoeffding step. The random-multiset model is also the same.\n\n(2) Small-bias sets (explicit constructions over Z_2^n; they supply the eps-biased-set vocabulary):\n- Naor & Naor, SICOMP 22(4):838-856, 1993 (Crossref 10.1137/0222053).\n- Alon, Goldreich, Hastad, Peralta, RSA 3(3):289-304, 1992 (Crossref 10.1002/rsa.3240030308).\n- Azar, Motwani & Naor, Combinatorica 18(2):151-171, 1998 (10.1007/pl00009813), covers small-bias spaces over Z_d. I confirmed its metadata only, not the statement.\n\n(3) Direct ML precedent: McCracken et al., arXiv 2505.18266 (fetched abs and HTML).\n- Thm 4.7 (verbatim as rendered): \"Suppose that an integer m and reals 0<rho,delta<1 satisfy the inequality m>2 log_e n - 2 log_e(2-2rho) log_e(pi/delta) - 1. Then, with probability at least rho, for all k != i+j mod n, we have h(i+j)-h(k) > delta m.\" Here h is a sum of cosines at uniformly random frequencies.\n- Cor 4.8: \"Learning O(log n) distinct frequencies gives a logit margin Omega(log n)\".\n- This is the same random-cosine argument in the modular-addition setting, with an unnormalised margin and no optimality claim.\n\nSearches run:\n- WebSearch for the Alon-Roichman random Cayley graphs PDF.\n- Crossref lookups of the Alon-Roichman, Naor-Naor, AGHP and Azar-Motwani-Naor DOIs.\n- arXiv abs and HTML pages for 2505.18266.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/t8-random-frequencies/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "alon1994random",
+   "bibtex": "@article{alon1994random,\n  title={Random {C}ayley graphs and expanders},\n  author={Alon, Noga and Roichman, Yuval},\n  journal={Random Structures \\& Algorithms},\n  volume={5},\n  number={2},\n  pages={271--284},\n  year={1994},\n  doi={10.1002/rsa.3240050203}\n}",
+   "url": "https://web.math.princeton.edu/~nalon/PDFS/exp1.pdf",
+   "confirmed": true,
+   "why": "Supports appendix l.196. Thm 2 (Sec 3.1, Abelian groups): a random multiset of O(log n) elements has every nontrivial character sum bounded away from its maximum. The proof works per character and then takes a union bound. This is the canonical origin of our lemma. The existing bib entry is correct; the DOI can be added."
+  },
+  {
+   "key": "mccracken2025",
+   "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2505.18266",
+   "confirmed": true,
+   "why": "Thm 4.7 / Cor 4.8: O(log n) uniformly random cosine frequencies give an Omega(log n) (unnormalised) logit margin w.h.p. This is the direct modular-addition precedent for the lower-bound construction and should be cited next to Alon-Roichman at the lemma. The existing bib entry's title and authors are wrong (see sweep item 1)."
+  },
+  {
+   "key": "naor1993small",
+   "bibtex": "@article{naor1993small,\n  title={Small-Bias Probability Spaces: Efficient Constructions and Applications},\n  author={Naor, Joseph and Naor, Moni},\n  journal={SIAM Journal on Computing},\n  volume={22},\n  number={4},\n  pages={838--856},\n  year={1993},\n  doi={10.1137/0222053}\n}",
+   "url": "https://api.crossref.org/works/10.1137/0222053",
+   "confirmed": true,
+   "why": "Optional. Origin of eps-biased sets. Our random frequency multiset is a (one-sided) 1/2-biased multiset of Z_p. Metadata confirmed via Crossref; the construction is over Z_2^n."
+  },
+  {
+   "key": "alon1992simple",
+   "bibtex": "@article{alon1992simple,\n  title={Simple Constructions of Almost k-wise Independent Random Variables},\n  author={Alon, Noga and Goldreich, Oded and H{\\aa}stad, Johan and Peralta, Ren{\\'e}},\n  journal={Random Structures \\& Algorithms},\n  volume={3},\n  number={3},\n  pages={289--304},\n  year={1992},\n  doi={10.1002/rsa.3240030308}\n}",
+   "url": "https://api.crossref.org/works/10.1002/rsa.3240030308",
+   "confirmed": true,
+   "why": "Optional, secondary to Naor-Naor: explicit small-bias sets. Cite only if the eps-biased sentence is added. Metadata confirmed via Crossref."
+  }
+ ],
+ "recommended_change": "In appendix.tex l.196, replace \"This is the cyclic case of the random Cayley graph argument of \\citet{alon1994random}.\" with: \"This is the cyclic case of the random Cayley graph argument of \\citet[Thm 2]{alon1994random}: the frequencies J_ell form a (one-sided) 1/2-biased multiset of Z_p \\citep{naor1993small}. In the modular-addition setting, \\citet[Thm 4.7]{mccracken2025} use the same random-frequency construction to show that O(log p) frequencies suffice for an Omega(log p) unnormalised margin. What is new here is the matching upper bound.\" The McCracken citation requires fixing the mccracken2025 bib entry first. Do not claim novelty for this lemma."
+}

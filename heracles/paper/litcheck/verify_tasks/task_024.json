@@ -1,0 +1,41 @@
+{
+ "item": {
+  "id": "R24-ablation",
+  "kind": "our_result",
+  "location": "cyclic.tex prop:ablation",
+  "statement": "m - 2y_j <= m_{-j} <= (1-w_j)^s m/(1-eps); removing feature j costs at least 1-(1-w_j)^s in [w_j, s w_j] of the margin",
+  "what_to_check": "Compare feature-ablation results in mech interp (Nanda, Chughtai); no known theoretical analogue expected"
+ },
+ "chk": {
+  "id": "R24-ablation",
+  "verdict": "NOVEL_AS_FAR_AS_FOUND",
+  "evidence": "I found no theoretical result that bounds the margin or loss from removing one feature by that feature's share of the regularization budget. The prior work is empirical only.\n\n1. Nanda et al., ICLR 2023 (arXiv 2301.05217; I checked the PDF text).\n   - Sec. 4.4 \"Correctness checks: ablations\": \"ablating any key frequency causes a significant increase in loss. ... In contrast, ablating other frequencies does not hurt the model at all.\"\n   - Fig. 6 shows the loss after ablating each frequency k=1..56.\n   - The intro says: \"ablating key frequencies used by the model reduces performance to chance, while ablating the other 95% of frequencies slightly improves performance.\"\n   - Sec. 5 defines restricted and excluded loss.\n   - None of this is a quantitative law.\n\n2. Chughtai, Chan, Nanda, ICML 2023, PMLR 202:6243-6267 (confirmed on the PMLR page). They confirm the GCR algorithm \"using ablations\". This is empirical, with no bound.\n\n3. McCracken et al., arXiv 2505.18266v1.\n   - App. G.8 \"Noise and ablation studies\", Fig. 38, removes neurons from frequency clusters and reports loss and accuracy. This is empirical.\n   - Their Thm 4.7/Cor 4.8 relate the margin to the number of frequencies, not to removing one frequency.\n\n4. Morwani et al. (arXiv 2311.07568, HTML read): no theorem about the margin effect of removing a frequency or neuron group.\n\n5. Adjacent fields (SVM feature removal, sparse max-margin): I found nothing about a share-to-fractional-loss bound under a concave l_{1/s} budget. The result follows in one line from degree-s homogeneity (rescale the reduced vector back to unit budget) plus |coverage| <= 2. It is elementary, but I found no prior statement of it.\n\nQueries run:\n- \"theoretical bound margin loss ablating a single Fourier frequency modular addition network\"\n- \"Nanda progress measures grokking ablating key frequencies loss restricted excluded loss\"\n- \"Chughtai toy model of universality ablation irreducible representations key representations loss\"\n- \"ablation single frequency grokked network loss increase proportional to its norm share weight decay theory\"\n- \"provable bound effect of removing one feature on max-margin classifier sparse Fourier features lower bound loss fraction of margin\"\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r24-ablation/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "nanda2023progress",
+    "bibtex": "@inproceedings{nanda2023progress,\n  title={Progress measures for grokking via mechanistic interpretability},\n  author={Nanda, Neel and Chan, Lawrence and Lieberum, Tom and Smith, Jess and Steinhardt, Jacob},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2023}\n}",
+    "url": "https://arxiv.org/abs/2301.05217",
+    "confirmed": true,
+    "why": "Supports the sentence after prop:ablation. Sec. 4.4 and Fig. 6 are empirical per-key-frequency logit ablations (ablating any key frequency causes a significant loss increase, while the other frequencies are harmless). The proposition is their theoretical counterpart. The key is already in refs.bib."
+   },
+   {
+    "key": "chughtai2023toy",
+    "bibtex": "@inproceedings{chughtai2023toy,\n  title={A Toy Model of Universality: Reverse Engineering how Networks Learn Group Operations},\n  author={Chughtai, Bilal and Chan, Lawrence and Nanda, Neel},\n  booktitle={Proceedings of the 40th International Conference on Machine Learning},\n  series={PMLR},\n  volume={202},\n  pages={6243--6267},\n  year={2023}\n}",
+    "url": "https://proceedings.mlr.press/v202/chughtai23a.html",
+    "confirmed": true,
+    "why": "Empirical ablations of key-representation directions for group composition. This is the group analogue that reviewers will compare the proposition to. The key is already in refs.bib."
+   },
+   {
+    "key": "mccracken2025",
+    "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+    "url": "https://arxiv.org/abs/2505.18266",
+    "confirmed": true,
+    "why": "Optional. App. G.8 and Fig. 38 give cluster-level (frequency-cluster) neuron ablations with loss and accuracy. Use the corrected bib entry from the sweep (title and authors fixed)."
+   }
+  ],
+  "recommended_change": "In cyclic.tex, after prop:ablation (the paragraph near line 87), add: \"This is the theoretical counterpart of the key-frequency ablations of \\citet[Sec.~4.4, Fig.~6]{nanda2023progress} and the representation ablations of \\citet{chughtai2023toy}: every feature is load-bearing in proportion to its share of the regularization budget.\" Present the proposition as an elementary consequence of homogeneity, not a deep result. No change to the statement itself."
+ },
+ "lens": "novelty_math",
+ "slug": "r24-ablation",
+ "task": 24
+}

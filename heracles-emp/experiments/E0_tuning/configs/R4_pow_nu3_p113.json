@@ -1,0 +1,201 @@
+{
+ "batches": [
+  {
+   "batch_id": "R4_pow_nu3_p113_b00",
+   "runs": [
+    {
+     "run_id": "R4_pow_nu3_p113_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 113,
+      "width": 336,
+      "steps": 40000,
+      "lr": 5.65,
+      "lr_c": 0.05,
+      "lam_tilde": 0.01,
+      "lam": 1.1328840304462664e-06,
+      "q": 3.0,
+      "seed": 0,
+      "init_scale": 10.63014581273465
+     }
+    },
+    {
+     "run_id": "R4_pow_nu3_p113_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 113,
+      "width": 336,
+      "steps": 40000,
+      "lr": 5.65,
+      "lr_c": 0.05,
+      "lam_tilde": 0.01,
+      "lam": 1.1328840304462664e-06,
+      "q": 3.0,
+      "seed": 1,
+      "init_scale": 10.63014581273465
+     }
+    },
+    {
+     "run_id": "R4_pow_nu3_p113_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 113,
+      "width": 336,
+      "steps": 40000,
+      "lr": 5.65,
+      "lr_c": 0.05,
+      "lam_tilde": 0.003,
+      "lam": 3.3986520913387993e-07,
+      "q": 3.0,
+      "seed": 0,
+      "init_scale": 10.63014581273465
+     }
+    },
+    {
+     "run_id": "R4_pow_nu3_p113_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 113,
+      "width": 336,
+      "steps": 40000,
+      "lr": 5.65,
+      "lr_c": 0.05,
+      "lam_tilde": 0.003,
+      "lam": 3.3986520913387993e-07,
+      "q": 3.0,
+      "seed": 1,
+      "init_scale": 10.63014581273465
+     }
+    },
+    {
+     "run_id": "R4_pow_nu3_p113_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 113,
+      "width": 336,
+      "steps": 40000,
+      "lr": 11.3,
+      "lr_c": 0.1,
+      "lam_tilde": 0.01,
+      "lam": 1.1328840304462664e-06,
+      "q": 3.0,
+      "seed": 0,
+      "init_scale": 10.63014581273465
+     }
+    },
+    {
+     "run_id": "R4_pow_nu3_p113_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 113,
+      "width": 336,
+      "steps": 40000,
+      "lr": 11.3,
+      "lr_c": 0.1,
+      "lam_tilde": 0.01,
+      "lam": 1.1328840304462664e-06,
+      "q": 3.0,
+      "seed": 1,
+      "init_scale": 10.63014581273465
+     }
+    },
+    {
+     "run_id": "R4_pow_nu3_p113_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 113,
+      "width": 336,
+      "steps": 40000,
+      "lr": 11.3,
+      "lr_c": 0.1,
+      "lam_tilde": 0.003,
+      "lam": 3.3986520913387993e-07,
+      "q": 3.0,
+      "seed": 0,
+      "init_scale": 10.63014581273465
+     }
+    },
+    {
+     "run_id": "R4_pow_nu3_p113_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "power",
+      "n": 2,
+      "p": 113,
+      "width": 336,
+      "steps": 40000,
+      "lr": 11.3,
+      "lr_c": 0.1,
+      "lam_tilde": 0.003,
+      "lam": 3.3986520913387993e-07,
+      "q": 3.0,
+      "seed": 1,
+      "init_scale": 10.63014581273465
+     }
+    }
+   ]
+  }
+ ]
+}

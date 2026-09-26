@@ -1,0 +1,43 @@
+{
+ "id": "R20-cyclic-theorem",
+ "verdict": "PARTIALLY_KNOWN",
+ "evidence": "Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r20-cyclic-theorem/CHECK.md.\n\n**The theorem itself: not found anywhere.** No paper gives the max-margin value for b<nu. No paper reduces the margin to a budget programme or derives a frequency count from one. No paper proves that exactly nu neurons per frequency is necessary at a norm optimum. No paper prices sparsity by the gap nu-b.\n\n**The construction that attains it (prop:block): known.** It appears in Marchetti, Kunin, Myers, Acosta, Miolane, \"Sequential Group Composition: A Window into the Mechanics of Deep Learning\", arXiv 2602.03655. The arXiv comment field reads \"Accepted at ICML 2026\". The construction is App. B, Lemma B.8 Case 1:\n- N >= (k+1) n_rho^{k+1} sigma-pi-sigma (product) neurons solve the per-irrep cost minimisation.\n- Inputs are multiplied by e^{pi i j/(k+1)} and the output by e^{-pi i j k/(k+1)}/(k+1), for j=1..k+1. For real irreps they take real parts.\n- Cross terms are then scaled by (1/(k+1)) sum_j e^{-2 pi i j (k-|A|)/(k+1)} (their eq. 71). This vanishes \"since A is a proper subset of {1..k}, 0<k-|A|<=k, and thus k-|A| != 0 (mod k+1)\".\n\nFor cyclic groups (n_rho=1) this is exactly our nu-block: nu=k+1 neurons, input phases pi l/nu, output phase n alpha_l. They use it only as a sufficient construction for square-loss minimisation under AGF dynamics. They make no claim that it is norm-optimal or necessary, and give no count. Their Lemma B.6 and Remark B.7 (Waring decomposition, 2^{k-1} powers needed, citing Carlini et al. 2011) explain why power neurons need exponential width (Li et al. need m >= 2^{2k-2}(p-1)) while product neurons need only nu.\n\n**Other related work:**\n- **Tian, NeurIPS 2025** (arXiv 2410.01779 v4, PDF read). Quadratic nets, L2 loss, weight decay.\n  - Corollary 2: global solutions in which \"each frequency [is] affiliated with 6 hidden nodes (order-6)\", built from 3rd/4th roots of unity (Table 1).\n  - Corollaries 4 and 5: order-4 and mixed order-4/6 solutions.\n  - Theorem 5 (\"Occam's Razer\"): \"lower-order solutions are preferred if trained with L2 regularization\".\n  - All frequencies are used. There is no margin and no norm optimum.\n- **Gromov 2023** (arXiv 2301.02679, PDF read):\n  - Uses all frequencies, with random phases under the constraint phi1+phi2=phi3 (Eq. 12).\n  - Cancellation is only approximate at large N (Eq. 15).\n  - Nothing is claimed about norm or margin optimality.\n- **Morwani et al. ICLR 2024** (fetched): Thm 7 is the b=nu=3 dense endpoint.\n- **Li et al. AISTATS 2025** (fetched): Thm 4.1 is the L_{2,k+1} endpoint for power neurons; every frequency is used.\n- **Checked and not relevant:** Huang & Li 2511.23443. Among the citations of Li et al. on Semantic Scholar, only Marchetti et al. is relevant.\n\n**Queries run:**\n- WebSearch: \"max margin sparse Fourier features modular addition L2 regularization fewer frequencies theorem product network\"\n- WebSearch: \"Morwani margin maximization modular addition extension L2 norm sparse frequencies 2025 2026 arXiv\"\n- WebSearch: a query on modular addition max-margin, L_2, sparse, number of frequencies logarithmic in p\n- WebSearch: \"Tian Composing Global Optimizers...\"\n- WebSearch: a query on margin, feature count, norm exponent below homogeneity, quasi-norm\n- Semantic Scholar: citations of arXiv 2402.09469, plus one keyword search",
+ "recommended_citations": [
+  {
+   "key": "marchetti2026sequential",
+   "bibtex": "@inproceedings{marchetti2026sequential,\n  title={Sequential Group Composition: A Window into the Mechanics of Deep Learning},\n  author={Marchetti, Giovanni Luca and Kunin, Daniel and Myers, Adele and Acosta, Francisco and Miolane, Nina},\n  booktitle={International Conference on Machine Learning (ICML)},\n  year={2026},\n  note={arXiv:2602.03655}\n}",
+   "url": "https://arxiv.org/abs/2602.03655",
+   "confirmed": true,
+   "why": "Supports the sentence after prop:block. Lemma B.8 Case 1 builds (k+1) product neurons per irrep with (k+1)-th-root-of-unity phases that cancel every cross term (eq. 71). For cyclic groups this is exactly our nu-block. It is a sufficient construction for square loss, with no norm-optimality or necessity claim. Remark B.7 / Lemma B.6 (Waring) explain why power neurons need 2^{k-1} times as many neurons."
+  },
+  {
+   "key": "tian2025composing",
+   "bibtex": "@inproceedings{tian2025composing,\n  title={Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets},\n  author={Tian, Yuandong},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2025},\n  note={arXiv:2410.01779}\n}",
+   "url": "https://arxiv.org/abs/2410.01779",
+   "confirmed": true,
+   "why": "Related precedent for a fixed number of neurons per frequency from roots-of-unity phases. Corollary 2 gives 6 hidden nodes per frequency, Corollaries 4 and 5 give order-4 and order-4/6. Theorem 5 says weight decay prefers lower-order solutions. The setting is L2 loss on a quadratic net with every frequency used; there is no margin."
+  },
+  {
+   "key": "gromov2023grokking",
+   "bibtex": "(already in refs.bib)",
+   "url": "https://arxiv.org/abs/2301.02679",
+   "confirmed": true,
+   "why": "Analytic ancestor of the block. Its phase constraint (Eq. 12) cancels cross terms only approximately, at large width (Eq. 15), with random phases, all frequencies, and no optimality claim."
+  },
+  {
+   "key": "morwani2024feature",
+   "bibtex": "(already in refs.bib)",
+   "url": "https://arxiv.org/abs/2311.07568",
+   "confirmed": true,
+   "why": "Thm 7: the b=nu=3 dense endpoint that our theorem recovers."
+  },
+  {
+   "key": "li2025nsum",
+   "bibtex": "(already in refs.bib)",
+   "url": "https://arxiv.org/abs/2402.09469",
+   "confirmed": true,
+   "why": "Thm 4.1: the b=nu endpoint for power neurons (L_{2,k+1}), where every frequency is used and m >= 2^{2k-2}(p-1)."
+  }
+ ],
+ "recommended_change": "In cyclic.tex, after prop:block (the paragraph beginning \"The phases are a rotated copy of the nu-th roots of unity...\"), add: \"The same cancellation by (k+1) product neurons with roots-of-unity phases appears as a sufficient construction in \\citet[Lemma B.8]{marchetti2026sequential}; \\citet{gromov2023grokking} achieves it approximately with random phases, and \\citet{tian2025composing} builds L2-loss global solutions from 4-6 neurons per frequency. What is new here is that the block is norm-optimal and that exactly nu equal neurons per frequency is necessary at the optimum (equality in Lemma cost).\" Also, in the discussion of thm:cyclic, state that at b=nu it recovers \\citet[Thm 7]{morwani2024feature} and \\citet[Thm 4.1]{li2025nsum}. The novelty claim stays with the value nu^{-(nu-b)/b} B_p Gamma_{nu/b}(p), the sparsity and count, and the necessity statements. Do not claim the construction itself as new."
+}

@@ -1,0 +1,16 @@
+{
+  "task": 88,
+  "item_id": "C14-alon-roichman",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "SUPPORTED. The bib entry is correct (add the DOI). Pinpoint the cite to Sec. 3, Thm. 2 (the abelian-group character plus union-bound proof, with a Remark on the cyclic Z_n case), not Thm. 1 (trace method).",
+  "issues": "I got the full text myself (Alon's author copy, m.tau.ac.il/~nogaa/PDFS/exp1.pdf). The attribution holds, with three corrections to the checker. (1) AR's mu_1 is the second largest eigenvalue IN ABSOLUTE VALUE: Thms 1 and 2 both bound |mu*_1|, so their bound is two-sided, not one-sided as the checker said. That is stronger than our one-sided need, so the direction is still fine. (2) Thm 1 (general groups) is proved by Wigner's trace method. The character-wise tail bound plus union bound over the n-1 nontrivial characters, which is the analogue of our Hoeffding-plus-union argument, is Sec. 3, Thm 2 (abelian groups, multiset drawn with repetition). The Remark after Thm 2 treats cyclic Z_n explicitly. So cite Sec. 3 / Thm 2. (3) 'Essentially tight for abelian groups' is Prop. 3, a diameter-counting argument for expanders. It is only an analogy to our weighted upper bound, not an implication. Side finding: the refs.bib entry mccracken2025, which the checker recommends citing here, has the WRONG title and authors. The bib says 'Emergence of sparse and dense circuits in modular arithmetic networks' by 'McCracken, Andrew and others'. arXiv 2505.18266 is 'Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks' by Gavin McCracken, Gabriela Moisescu-Pareja, Vincent Letourneau, Doina Precup and Jonathan Love (2025). Its Thm 4.7 and Cor 4.8 (O(log n) random frequencies give an Omega(log n) logit margin) exist as the checker described. Process note: WebSearch reported that the session's budget of 200/200 is exhausted, which is likely slowing every verifier in this workflow.",
+  "extra_citations": [
+    {
+      "key": "mccracken2025",
+      "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+      "url": "https://arxiv.org/abs/2505.18266",
+      "why": "Correction of the existing refs.bib entry (wrong title and authors). Its Thm 4.7 and Cor 4.8 are the ML precedent for O(log p) random frequencies giving a constant normalized margin, which fits at app:scaling l.196."
+    }
+  ]
+}

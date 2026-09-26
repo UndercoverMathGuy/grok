@@ -1,0 +1,16 @@
+{
+ "task": 61,
+ "item_id": "T12-dense-uniqueness",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN, sharpened. The averaging certificate and the Fourier-inversion technique are known for n=2 (Morwani App. F.3) and for general n at b=nu (Li et al. 2402.09469, Lemma F.2). Equal diagonal amplitude (lambda p^n at every j) follows in one line from their decomposition. What is new: uniqueness of the flat maximizer of the reduced LP Gamma_1, network-agnostic via Thm universal (covering product networks), and the one-variable inversion.",
+ "issues": "(1) The checker MISSED Li, Liang, Shi, Song, Zhou, arXiv 2402.09469 (AISTATS 2025; refs.bib key li2025nsum). Its Lemma F.2 ('All Frequencies are Used for General k Version') applies the same argument (uniform class weighting 1/(p-1), f = f1 + lambda*1_{a1+..+ak=c}, DFT lambda p^k on the diagonal) to the k-operand x^k network at L_{2,k+1}, which is this paper's b=nu setting with n operands. The current sections/*.tex never cite li2025nsum; it appears only in refs.bib, the stale paper.bbl and archive_v0. It must be cited at app:dense. (2) The checker overstates 'equal amplitudes' as the new part. In Morwani F.3, f1^ vanishes off l=0, so f^(j,j,-j) = lambda p^2 for EVERY j != 0 (lambda p^k in Li et al.). That is equal aggregate diagonal amplitude G_j, which is exactly this paper's beta_j up to 2p^{-(n+1)}, and it holds in any max-margin network. So the recommended wording 'the stronger conclusion that the amplitudes are equal' should become 'makes explicit'. The genuinely new parts are the unique maximizer of the reduced programme Gamma_1 and network-agnosticism via Thm universal. (3) Morwani citation confirmed: I fetched the abs page myself (ICLR 2024 spotlight, v2 19 Feb 2024; bib fields correct) and read the full text. The tau=1/(p-1) quote, Lemmas 5-6 and App. F.3 are as described. (4) Checked with no closer precedent: Mohamadi et al. 2407.12332 (ICML 2024) and Tian 2509.21519. (5) Process, relevant to the slowness complaint: this session has hit its WebSearch cap ('200 of 200 WebSearch calls' on my first search), so every remaining verifier gets no searches and falls back to WebFetch and shared scratchpad files. Raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION or shard the verify stage across sessions.",
+ "extra_citations": [
+  {
+   "key": "li2025nsum",
+   "bibtex": "@inproceedings{li2025nsum,\n  title={Fourier circuits in neural networks and transformers: a case study of modular arithmetic with multiple inputs},\n  author={Li, Chenyang and Liang, Yingyu and Shi, Zhenmei and Song, Zhao and Zhou, Tianyi},\n  booktitle={International Conference on Artificial Intelligence and Statistics (AISTATS)},\n  year={2025},\n  note={arXiv:2402.09469}\n}",
+   "url": "https://arxiv.org/abs/2402.09469",
+   "why": "Lemma F.2 (App. F.2) is the n-operand version of Morwani F.3 for the x^k network at L_{2,k+1} (b=nu). It uses the same uniform class weighting and the same decomposition f = f1 + lambda*1_{sum=c}, with DFT lambda p^k at every diagonal frequency, so every frequency is used. That is the Fourier-inversion step of app:dense for general n. Already in refs.bib but cited nowhere in the current sections."
+  }
+ ]
+}

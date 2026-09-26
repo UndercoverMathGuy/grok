@@ -1,0 +1,22 @@
+{
+  "task": 75,
+  "item_id": "C1-morwani-dense-baseline",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "PARTIALLY_SUPPORTED",
+  "issues": "Checker verdict and the morwani2024feature confirmation both hold. I fetched the arXiv 2311.07568 e-print and HTML v2. Title, authors and 'ICLR 2024 Spotlight' are correct. Thm 7 gives L_{2,3} gamma*=sqrt(2/27)/(p^{1/2}(p-1)) with m>=4(p-1): each neuron is a single-frequency cosine triple with theta_u+theta_v=theta_w, and every frequency is used. Thm 8 (parity) has support exactly S, so it is not an all-features result. Thm 9 (groups) needs real irreps, m>=2 sum d^3 and sum d^{1.5} chi(C)<0. The discussion says the proof holds only for x^2 (x^k parity) at L_{2,nu}. The value 2B_p p/(p-1)=sqrt(2/27)/(p^{1/2}(p-1)) is exact. The paper.tex para-1 'at L_{2,nu} all features for mod-add or groups' overreaches, since only nu=3 is proved and groups carry conditions. Corrections to the checker: (1) the bib key is li2025nsum, not li2025fourier. (2) Li et al. Thm 4.1 (verified) is k-operand modular addition with power neurons at L_{2,k+1} (nu=k+1 tied to operand count) and m>=2^{2k-1}(p-1)/2; phrase it that way, not 'general nu'. Its gamma* equals the paper's n! B_p p/(p-1) exactly for every n, so the b=nu bound is attained for all n; worth stating. (3) Theorem numbers 7/8/9 are arXiv-v2 numbering. The ICLR camera-ready could not be checked (OpenReview blocked). Live intro.tex issues: 'Morwani introduced the principle of margin maximization' overclaims, since max-margin bias predates them (Wei 2019 is their Thm 1); say they used it to characterise features. 'Wei showed max margin solutions are approached by networks when trained' should say global minimisers. Wei Thm 4.1 is the binary logistic case; the multi-class cross-entropy analogue is Thm C.1 (arXiv v4). Environment: WebSearch returned 'session has used its web search budget (200 of 200)', so every later verifier in this session gets no WebSearch.",
+  "extra_citations": [
+    {
+      "key": "li2025nsum",
+      "bibtex": "@inproceedings{li2025nsum,\n  title={Fourier circuits in neural networks and transformers: a case study of modular arithmetic with multiple inputs},\n  author={Li, Chenyang and Liang, Yingyu and Shi, Zhenmei and Song, Zhao and Zhou, Tianyi},\n  booktitle={International Conference on Artificial Intelligence and Statistics (AISTATS)},\n  year={2025},\n  note={arXiv:2402.09469}\n}",
+      "url": "https://arxiv.org/abs/2402.09469",
+      "why": "Thm 4.1: k-operand modular addition, power neurons at L_{2,k+1}, m>=2^{2k-1}(p-1)/2; gamma*=2k!/((2k+2)^{(k+1)/2}(p-1)p^{(k-1)/2}) with single-frequency neurons and all frequencies used. This is the correct citation for going past nu=3, and it equals the paper's n!B_p p/(p-1) bound at every n. The key already exists in refs.bib."
+    },
+    {
+      "key": "wei2019regularization",
+      "bibtex": "@inproceedings{wei2019regularization,\n  title={Regularization matters: generalization and optimization of neural nets v.s. their induced kernel},\n  author={Wei, Colin and Lee, Jason D. and Liu, Qiang and Ma, Tengyu},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2019}\n}",
+      "url": "https://arxiv.org/abs/1810.05369",
+      "why": "Thm 4.1: the normalized margin of the global optimum of the logistic loss plus lambda*||theta||^r (any norm, homogeneous f) tends to gamma* as lambda->0 (binary). The multi-class cross-entropy analogue is Thm C.1 (arXiv v4). It concerns global minimisers, not trained networks."
+    }
+  ]
+}

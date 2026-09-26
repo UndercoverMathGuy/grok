@@ -1,0 +1,16 @@
+{
+ "task": 8,
+ "item_id": "R9-interference-free-def",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN (unchanged). Exact cancellation of the sign-flipped copies is a known construction device (Morwani, Li, Gromov, He). Mathematically, interference-free at frequency j means the neurons form an exact real separated (CP) representation of cos(2 pi j(sum a - c)/p). The nu-term count of the nu-block matches Beylkin-Mohlenkamp's d-term identity for sin(x_1+...+x_d) (PNAS 2002), against 2^{d-1} from the angle-sum formulas. New: the named class, the sign rule, (JF), the l_r cost lemma with its equality case, and the class-level margin theorem.",
+ "issues": "Checker's citations: I re-read all six in the arXiv PDFs and every one holds, with correct bib fields. Morwani App. F.2 has phases (0,0,0)/(0,pi,pi) and 'same value on all incorrect labels c', satisfying C.1'; the parity section has 'every term other than Pi x_S cancels out'. Li uses 2^{2k-1} neurons per frequency (Condition 3.8 = Morwani C.1). Gromov Eq. (15) is the 'destructive interference condition'. Doshi has 'vanish due to random phase approximation'. He Def. 4.1(iii) has iota in {2,4}, and Prop. 4.2 keeps spurious 2x/2y peaks. Zhong Pizza: H_ab = |cos(w(a-b)/2)|(cos w(a+b), sin w(a+b)). MISSED math precedent: Beylkin and Mohlenkamp, PNAS 2002, Lemma 1 write sin(x_1+...+x_d) exactly as d real separable terms, against 2^{d-1} from the angle-sum formulas. The nu-block is the same kind of identity (nu shifted-cosine products give cos of a sum of nu variables; checked numerically for n=2,3,4). The nu-vs-2^{2n-1} contrast with Li is exactly this. Cite it at prop:block or lem:cost, and do not present the nu-term count itself as new. Found but NOT read (paywalled; metadata verified via Crossref): Mohlenkamp and Monzon, Math. Intelligencer 27(2):65-69 (2005), doi:10.1007/BF02985795, the dedicated paper on these identities. It may address minimality of d terms; the authors should check it before citing. Observation, no citation: the equality case of lem:cost (nu orthogonal unimodular chain vectors) is a complex Hadamard matrix, and the nu-block uses the Fourier matrix. Process note: WebSearch budget was exhausted (200/200), and the arXiv export API and Semantic Scholar returned HTTP 429. I worked from direct PDF fetches plus Crossref and OpenAlex.",
+ "extra_citations": [
+  {
+   "key": "beylkin2002numerical",
+   "bibtex": "@article{beylkin2002numerical,\n  title={Numerical operator calculus in higher dimensions},\n  author={Beylkin, Gregory and Mohlenkamp, Martin J.},\n  journal={Proceedings of the National Academy of Sciences},\n  volume={99},\n  number={16},\n  pages={10246--10251},\n  year={2002},\n  doi={10.1073/pnas.112329799}\n}",
+   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC124898/",
+   "why": "Lemma 1 writes sin(x_1+...+x_d) exactly as a sum of d real separable terms, against 2^{d-1} from the angle-sum formulas. The nu-block (nu neurons whose total is cos of a sum of nu variables) is an identity of this kind, and Li et al.'s 2^{2n-1} neurons per frequency is the naive regime. It is the mathematics precedent for the nu-term cancellation that def:if and lem:cost price."
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "task": 16,
+ "item_id": "R20-cyclic-theorem",
+ "lens": "novelty_math",
+ "upheld": true,
+ "issues": "Checker verdict PARTIALLY_KNOWN upheld; all five confirmed citations re-read by direct PDF this session (Marchetti 2602.03655v2 Lemma B.8 Case 1 + eq. 71 verbatim, a sufficient construction only with no optimality/necessity claim; Tian 2410.01779v4 Cor 2 order-6 + Thm 5 Occam's Razer; Gromov eq 12/15 approximate random-phase cancellation; Morwani Thm 7 m>=4(p-1), gamma*=sqrt(2/27)/(p^{1/2}(p-1)); Li Thm 4.1 m>=2^{2k-1}(p-1)/2). MATH-LENS PRIOR ART MISSED: (1) The r->0 limit of Lemma cost (Prop esym: at least nu non-zero terms, i.e. the real rank of the tensor Re(z_1...z_nu) is at least nu) has a known symmetric analogue. Comon-Ottaviani arXiv 0909.4865 Prop 3.1: a real binary form of degree d with d distinct real roots has real rank d. Causa-Re arXiv 1006.5127 proves the iff. Re((x+iy)^nu) has nu real roots, so its real Waring rank is nu, and its minimal decomposition is the classical equally spaced one. Cite it as the rank counterpart. I did not find the multilinear statement for nu>=4. (2) The equality case (nu unimodular pairwise-orthogonal chain vectors with first entry 1) is exactly a dephased complex Hadamard matrix (Tadej-Zyczkowski quant-ph/0512154). This also forces beta_l=beta/nu with equal phases (H is normal and triangular, so H=beta I), which the paper leaves implicit. Orthogonality alone does not give interference-freeness. At nu=4 the F4^(1)(a) Hadamard family is orthogonal for every a, but the non-interval pattern T={1,3} gives 0.585+0.493i at a=0.7 (numpy check). So the lemma is correct as stated, since JF is a hypothesis, but the appendix remark 'Weaker cancellation suffices' (interval patterns only) admits a larger optimum set that is not interference-free. Say so. (3) The proof tools (Sylvester, Hadamard inequality, Bernstein integral for x^r) are standard and proved inline. NOT FOUND in math or ML: the value nu^{-(nu-b)/b} B_p Gamma_{nu/b}(p), the l_r (0<r<1) cost bound with its equality case, and the count/structure statements. Caveat: WebSearch was unavailable (session budget 200/200 exhausted, shared across verify agents) and the arXiv API returned 429, so the math search used arXiv title queries plus direct PDF reads only. OPERATIONAL NOTE for the workflow owner: this exhausted shared WebSearch budget and arXiv rate-limiting are likely why the verify stage is slow and degraded.",
+ "corrected_verdict": "PARTIALLY_KNOWN (unchanged): construction known (Marchetti et al. Lemma B.8); rank shadow of the cost lemma has a known symmetric analogue (real Waring rank of Re((x+iy)^nu) = nu); equality case is a complex Hadamard matrix; the margin value, l_r cost lemma, splitting price nu^{-(nu-b)/b} and count/structure statements remain novel.",
+ "extra_citations": [
+  {
+   "key": "comon2012typical",
+   "bibtex": "@article{comon2012typical,\n  title={On the typical rank of real binary forms},\n  author={Comon, Pierre and Ottaviani, Giorgio},\n  journal={arXiv preprint arXiv:0909.4865},\n  year={2009}\n}",
+   "url": "https://arxiv.org/abs/0909.4865",
+   "why": "Prop 3.1: a real binary form of degree d with d distinct real roots has real rank d. Re((x+iy)^nu) is such a form, so this is the symmetric counterpart of the r->0 limit of Lemma cost (a clean feature needs nu neurons). Journal version not verified this session, so the bib stays arXiv."
+  },
+  {
+   "key": "causa2011maximum",
+   "bibtex": "@article{causa2011maximum,\n  title={On the maximum rank of a real binary form},\n  author={Causa, Antonio and Re, Riccardo},\n  journal={Annali di Matematica Pura ed Applicata},\n  note={arXiv:1006.5127},\n  year={2011}\n}",
+   "url": "https://arxiv.org/abs/1006.5127",
+   "why": "A real binary form of degree n (distinct roots) has real rank n iff it has n distinct real roots. This is the iff version of the symmetric rank fact. The arXiv comment says 'To appear in Annali di Matematica Pura ed Applicata'; volume and year were not fetched, so check them."
+  },
+  {
+   "key": "tadej2006concise",
+   "bibtex": "@article{tadej2006concise,\n  title={A concise guide to complex {H}adamard matrices},\n  author={Tadej, Wojciech and {\\.Z}yczkowski, Karol},\n  journal={Open Systems \\& Information Dynamics},\n  volume={13},\n  pages={133--177},\n  year={2006},\n  note={arXiv:quant-ph/0512154}\n}",
+   "url": "https://arxiv.org/abs/quant-ph/0512154",
+   "why": "The equality case of Lemma cost (nu pairwise-orthogonal unimodular chain vectors with first entry 1) is a dephased complex Hadamard matrix. The catalogue shows these are unique up to equivalence at orders 2, 3 and 5 (Haagerup) and form a one-parameter family F4^(1)(a) at order 4. That family meets the interval patterns but not the non-interval pattern T={1,3}, which pins down how much of JF the equality case really uses."
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "item": {
+  "id": "F7-log-growth",
+  "kind": "framing_claim",
+  "location": "intro informal theorem bullet 3",
+  "statement": "K* grows as Theta(log p) with modulus and decreases as nu/b grows",
+  "what_to_check": "McCracken log-n observation overlap; empirical frequency-count vs p literature"
+ },
+ "chk": {
+  "id": "F7-log-growth",
+  "verdict": "PARTIALLY_SUPPORTED",
+  "evidence": "The \"grows like log p\" half is supported empirically, and it was known before this paper.\n\nMcCracken, Moisescu-Pareja, Letourneau, Precup, Love, arXiv 2505.18266v1 (fetched https://arxiv.org/html/2505.18266v1):\n- Fig. 3 caption, verbatim: \"The number of frequencies found in clocks, pizzas, and MLPs as the modulus n increases. We plot the data on logarithmic and linear axes, showing logarithmic fits have very high R^2 scores.\" These are nets trained with L2 regularisation (\"We follow prior work in applying L2 regularization\").\n- Sec 4.3, Thm 4.7 / Cor 4.8: \"Learning O(log n) distinct frequencies gives a logit margin Omega(log n)\". This is unnormalised and only a sufficiency result. The same section says \"the maximum margin solution requires all frequencies to be learned\".\n- Sec 4.4 / Fig. 4: \"Adding either depth, or a trainable embedding matrix for inputs, causes the network to transition from learning floor(n/2) types of neurons to much fewer.\" One-hot 1-layer MLPs learn about floor(n/2).\n- Sec 5.1: \"we are the first to point out how to cause a phase transition from O(n) to O(log(n)) learned frequencies (Fig. 4), we don't know why it occurs.\" The paper says nothing about degree or homogeneity.\n\nWhat is new here: nobody else states a two-sided K* = Theta(log p) at the max-margin optimum.\n\nThe \"decreases as nu/b grows\" half has no direct precedent. Two things are qualitatively consistent with it:\n- McCracken's dense one-hot ReLU MLP has nu = b = 2, which matches our s = 1 dense endpoint.\n- Adding depth raises nu at a fixed l2 penalty, and McCracken sees fewer frequencies.\n- Morwani ICLR 2024 (fetched arxiv.org/html/2311.07568) Fig 1a/4b is about per-neuron sparsity (\"nearly 1-sparse in frequency space\"), not the frequency count, so it does not help.\n\nOther sources checked:\n- Zhong et al. NeurIPS 2023 (arxiv.org/abs/2306.17844) is the source of the clock/pizza models; it has no count-versus-p law.\n- A web search for \"number of frequencies vs modulus\" found only McCracken.\n- Nanda 2023 and He et al. 2602.16849 give no count law.\n- Ding et al. 2405.17420 varies width, not p.\n- A Semantic Scholar query returned HTTP 429 and was not retried.\n\nSide flag: intro line 6 says \"the count moves from dense to sparse as the degree of the network changes \\citep{mccracken2025}\". That misparaphrases McCracken: their variable is depth or a trainable embedding, not degree. The bib entry is also wrong (title and authors).\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/f7-log-growth/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "mccracken2025",
+    "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+    "url": "https://arxiv.org/abs/2505.18266",
+    "confirmed": true,
+    "why": "Supports the log-p half of intro bullet 3. Fig. 3 gives empirical log-n fits of the frequency count across clocks, pizzas and MLPs. Cor 4.8 shows O(log n) frequencies are enough for an Omega(log n) unnormalised margin. Sec 5.1 says 'we don't know why it occurs', which our Theta(log p) optimum answers."
+   },
+   {
+    "key": "zhong2023clock",
+    "bibtex": "@inproceedings{zhong2023clock,\n  title={The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks},\n  author={Zhong, Ziqian and Liu, Ziming and Tegmark, Max and Andreas, Jacob},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2023}\n}",
+    "url": "https://arxiv.org/abs/2306.17844",
+    "confirmed": true,
+    "why": "Optional. It is the source of the clock and pizza architectures whose frequency counts McCracken's Fig. 3 fits against n. It has no count law of its own."
+   }
+  ],
+  "recommended_change": "1) In intro bullet 3, credit the observation and present our result as its explanation. After \"increases as $\\Theta(\\log p)$ with the modulus\", add: \"(the logarithmic growth of the learned frequency count was observed empirically by \\citet{mccracken2025}, who note they `don't know why it occurs'; they also show $O(\\log p)$ random frequencies suffice for an unnormalised margin)\".\n2) Fix intro line 6. McCracken's variable is depth or a trainable embedding, not degree. Replace \"and the count moves from dense to sparse as the degree of the network changes \\citep{mccracken2025}\" with \"and one-hot one-layer MLPs use about $p/2$ frequencies while adding depth or a trainable embedding drops the count to $O(\\log p)$ \\citep{mccracken2025}\".\n3) Optionally, one clause in the discussion: adding depth raises the homogeneity nu at a fixed l2 penalty, so nu/b grows, which is consistent with McCracken's dense-to-sparse transition. Label this as consistency, not a test.\n4) Replace the bib entry mccracken2025 with the corrected one."
+ },
+ "lens": "citation",
+ "slug": "f7-log-growth",
+ "task": 71
+}

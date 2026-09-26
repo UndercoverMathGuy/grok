@@ -1,0 +1,22 @@
+{
+ "task": 92,
+ "item_id": "U4-matrix-tools",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "CITATION_FOUND (with refinements: reword 'Sylvester's identity' as Sylvester's determinant theorem; cite Horn-Johnson by chapter, not by an unverified theorem number; use the official DLMF entry; cite SSV Ch. 8)",
+ "issues": "Verdict and all three confirmed citations hold up. Refinements: (1) Name clash at appendix line 55. The paper calls det(I+AB)=det(I+BA) 'Sylvester's identity', but it is Sylvester's DETERMINANT THEOREM (Weinstein-Aronszajn). 'Sylvester's determinant identity' usually means the bordered-minor identity (Wikipedia, fetched). From memory, Horn-Johnson Ch.0's 'Sylvester's identity' is the bordered one too, so the checker's pointer [Ch. 0--1] could send readers to the wrong statement. Reword and cite HJ Ch.1 (AB and BA share their non-zero eigenvalues). (2) I could not verify the Horn-Johnson theorem numbers (Hadamard = Thm 7.8.1 is from memory; web search was unavailable). Crossref confirms Ch.7 'Positive Definite and Semidefinite Matrices' pp.425-516 and Ch.1 pp.43-82, so cite by chapter. (3) DLMF: 5.12 alone does not give pi/sin; you need 5.12.3 (b=1-a), 5.12.1 and 5.5.3, all fetched. Replace the checker's @misc with the official NIST:DLMF entry (Release 1.2.8 of 2026-09-15, editors Olver et al.), with the equation numbers in the \\citep optional argument. (4) SSV: 2nd ed., De Gruyter Studies in Mathematics 37, confirmed (Open Library + Crossref 'Preface to the second edition'). Crossref chapter records confirm 'Chapter 8. Thorin-Bernstein functions', so cite Ch.8 for the other-penalties remark. Math of lem:bernstein and lem:minor re-derived: correct. OPERATIONAL: WebSearch is exhausted for this session (200/200 calls), so every later verifier runs without search and falls back to slow guessed-URL WebFetch. Raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION or split the run.",
+ "extra_citations": [
+  {
+   "key": "dlmf",
+   "bibtex": "@misc{dlmf,\n  key = {DLMF},\n  title = {{NIST} Digital Library of Mathematical Functions},\n  howpublished = {\\url{https://dlmf.nist.gov/}, Release 1.2.8 of 2026-09-15},\n  url = {https://dlmf.nist.gov/},\n  note = {F.~W.~J. Olver, A.~B. {Olde Daalhuis}, D.~W. Lozier, B.~I. Schneider, R.~F. Boisvert, C.~W. Clark, B.~R. Miller, B.~V. Saunders, H.~S. Cohl, and M.~A. McClain, eds.}\n}",
+   "url": "https://dlmf.nist.gov/help/cite",
+   "why": "This is the official DLMF citation form and replaces the checker's entry. Cite as \\citep[Eqs.~5.12.1, 5.12.3, 5.5.3]{dlmf} for int_0^inf u^{a-1}/(1+u)du = B(a,1-a) = Gamma(a)Gamma(1-a) = pi/sin(pi a)."
+  },
+  {
+   "key": "schilling2012bernstein",
+   "bibtex": "@book{schilling2012bernstein,\n  author = {Schilling, Ren{\\'e} L. and Song, Renming and Vondra{\\v{c}}ek, Zoran},\n  title = {Bernstein Functions: Theory and Applications},\n  edition = {2},\n  series = {De Gruyter Studies in Mathematics},\n  volume = {37},\n  publisher = {De Gruyter},\n  year = {2012},\n  doi = {10.1515/9783110269338}\n}",
+   "url": "https://openlibrary.org/isbn/9783110252293.json",
+   "why": "The edition, series and volume are now verified (Open Library + Crossref). Chapter 8 'Thorin-Bernstein functions' is verified (DOI 10.1515/9783110269338.109), so use \\citep[Ch.~8]{schilling2012bernstein} in the other-penalties remark."
+  }
+ ]
+}

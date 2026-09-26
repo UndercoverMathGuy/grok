@@ -1,0 +1,57 @@
+{
+  "arithmetic": "exact symbolic / rational / algebraic",
+  "checks": {
+    "phase_frame_eigenvectors": [
+      {
+        "nu": 3,
+        "geometric_eigenvector": true
+      },
+      {
+        "nu": 4,
+        "geometric_eigenvector": true
+      },
+      {
+        "nu": 5,
+        "geometric_eigenvector": true
+      },
+      {
+        "nu": 6,
+        "geometric_eigenvector": true
+      },
+      {
+        "nu": 7,
+        "geometric_eigenvector": true
+      },
+      {
+        "nu": 8,
+        "geometric_eigenvector": true
+      },
+      {
+        "nu": 9,
+        "geometric_eigenvector": true
+      }
+    ],
+    "cubic_phase_remainder": true,
+    "gap_norm_and_uniform_cutoff": true,
+    "p5_q_five_halves_positive_polynomial_certificate": true,
+    "matrix_only_obstruction": {
+      "full_centered_table_entries": 125,
+      "all_100_wrong_class_gaps_verified": true,
+      "reflection_symmetry_and_real_fourier_coefficients": true,
+      "all_retained_matrix_entries_verified": true,
+      "psd_eigenvalues": [
+        "0",
+        "0",
+        "1+u",
+        "2",
+        "2",
+        "u"
+      ],
+      "u": "(1+3/sqrt(5))/2",
+      "spectral_power_sum_strict_upper": "299/50 < 6",
+      "cheap_matching_network_violated_gap": "1-1/sqrt(5) < 1",
+      "not_a_counterexample_to_network_global_optimality": true
+    }
+  },
+  "scope": "Exact verification of analytic proof identities and a relaxation obstruction; the full q=2 network theorem remains open."
+}

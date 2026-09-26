@@ -1,0 +1,28 @@
+{
+ "task": 9,
+ "item_id": "R10-sign-rule",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN (unchanged). The attribution needs amending: the mechanism predates He et al. 2026.",
+ "issues": "The verdict stands, but the checker missed the earlier prior art and credited only He et al. 2026. (1) He et al. themselves write, right after Eq. 4.1, 'Similar results have also been reported in Gromov (2023); Zhong et al. (2023); Nanda et al. (2023); Doshi et al. (2023)'. (2) Gromov 2023 (arXiv 2301.02679; already in refs.bib as gromov2023grokking but uncited) is the original: a quadratic net with phase constraint (12) phi1+phi2=phi3, where every other term keeps a phase and 'interferes destructively' across neurons, eqs. (14)-(15), under random phases. The checker read only the abstract. (3) Doshi, He, Das, Gromov 2024 (arXiv 2406.03495) covers S-operand addition with x^S power neurons. Mixed-sign extra terms carry phases and are suppressed by 1/N under the random-phase approximation (App. A.2, Eq. 18). This is the n-operand power-neuron precedent the checker said was not found; it is approximate and does not state the per-operand unit-factor identity. (4) Morwani et al. 2024, App. F.2, cancels the sign-flipped product-to-sum terms exactly with 8 neurons per frequency, and uses hat u(-j)=conj(hat u(j)). He et al. check: authors confirmed as Jianliang He, Leda Wang, Siyu Chen, Zhuoran Yang (arXiv 2602.16849, 18 Feb 2026); Eq. 4.1 is quoted correctly. Def. 4.1(iii) is typeset literally as exp(i iota sum_m phi_m)=0, a typo; the intended sum_m exp(i iota phi_m)=0 appears in their Sec. 4 display, so cite 'Sec. 4' rather than 'Def. 4.1(iii)'. Not found anywhere: the exact one-unit-factor-per-operand product over T, for product and power neurons. The lemma is a trivial generalisation of Hermitian symmetry; keep it as bookkeeping. Recommended sentence: 'The lemma is Hermitian symmetry of the weights' Fourier transform. Per-neuron sign-flipped copies that must cancel across neurons are the mechanism of \\citet{gromov2023grokking} (approximately, by random phases), extended to many-operand power networks by \\citet{doshi2024grokking}, and made exact for two-operand quadratic networks by \\citet[App.~F.2]{morwani2024feature} and \\citet[Sec.~4]{he2026mechanism}; Lemma~\\ref{lem:cost} prices that cancellation.' Infra note: WebSearch refused with 'session has used its web search budget (200 of 200)'. Later verify tasks in this workflow session have no WebSearch.",
+ "extra_citations": [
+  {
+   "key": "gromov2023grokking",
+   "bibtex": "@article{gromov2023grokking,\n  title={Grokking modular arithmetic},\n  author={Gromov, Andrey},\n  journal={arXiv preprint arXiv:2301.02679},\n  year={2023}\n}",
+   "url": "https://arxiv.org/abs/2301.02679",
+   "why": "Original source of per-neuron phase-shifted copies (quadratic net, phase constraint (12)) that cancel destructively across neurons, eqs. (14)-(15). Already in refs.bib but uncited; He et al. credit it for the same decomposition."
+  },
+  {
+   "key": "doshi2024grokking",
+   "bibtex": "@article{doshi2024grokking,\n  title={Grokking Modular Polynomials},\n  author={Doshi, Darshil and He, Tianyu and Das, Aritra and Gromov, Andrey},\n  journal={arXiv preprint arXiv:2406.03495},\n  year={2024}\n}",
+   "url": "https://arxiv.org/abs/2406.03495",
+   "why": "The n-operand power-neuron precedent: S-term modular addition with x^S activation, where mixed-sign extra terms carry phases and cancel across neurons (1/N, random phases; App. A.2, Eq. 18). Approximate only, with no per-operand unit-factor identity."
+  },
+  {
+   "key": "he2026mechanism",
+   "bibtex": "@article{he2026mechanism,\n  title={On the Mechanism and Dynamics of Modular Addition: Fourier Features, Lottery Ticket, and Grokking},\n  author={He, Jianliang and Wang, Leda and Chen, Siyu and Yang, Zhuoran},\n  journal={arXiv preprint arXiv:2602.16849},\n  year={2026}\n}",
+   "url": "https://arxiv.org/abs/2602.16849",
+   "why": "The checker's recommendation, now verified: full author names confirmed on the abs page, and Eq. 4.1 shows the (x+y+j)+4phi_m copy. Cite Sec. 4 rather than Def. 4.1(iii), whose typeset form is a typo."
+  }
+ ]
+}

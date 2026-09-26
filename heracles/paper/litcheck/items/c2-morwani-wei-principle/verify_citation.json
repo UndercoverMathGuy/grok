@@ -1,0 +1,16 @@
+{
+ "task": 76,
+ "item_id": "C2-morwani-wei-principle",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "SUPPORTED (citations are correct), but the current intro.tex l.4 wording is broken and overclaims; fix it",
+ "issues": "Both confirmed citations check out against the primary PDFs. Wei et al. Thm 4.1 is binary logistic + lambda||Theta||^r, any norm, r>0, a-homogeneous continuous f, global optimum. Thm C.1 is the multi-class cross-entropy version. Morwani Sec. 2 Thm 1 restates Wei Thm 4.1 and calls max margin 'a proxy for understanding the global minimizers'. Both bib entries are correct; optionally add volume 32 to the Wei entry. Problems the checker missed: intro.tex changed after the check (mtime 09-25 18:29), and it changed again while I was reading it. (1) The current text 'This is backed \\citep{wei2019regularization}, showed that such maximum margin solutions are approached with vanishing regularization' is ungrammatical. It has no subject, and \\citep renders parenthetically. Use '\\citet{wei2019regularization} showed that the global minimizers of weakly regularized cross-entropy approach maximum margin as the regularization vanishes'. (2) '\\citet{morwani2024feature} introduced the principle of margin maximization' overclaims. Morwani's own related work credits Soudry 2018, Wei 2019, Lyu & Li, Ji & Telgarsky and Chizat & Bach, and Wei credits Rosset et al. for the linear case. Morwani's contribution, per their abstract, is that margin maximization ALONE fully specifies the learned features. Say 'showed that margin maximization alone determines ...'. (3) Wei states convergence of the margin value. 'Solutions are approached' is a one-line compactness corollary; that is fine informally. (4) The approach.tex l.3 recommendation stands: cite Theorem 4.1 together with Theorem C.1 (multi-class). Optional lineage citation: Rosset, Zhu, Hastie, NIPS 2003. Harness note: WebSearch reported that the session-wide budget is exhausted (200 of 200 calls). Verifiers after this point get no web search, which may explain the slow or degraded verify stage.",
+ "extra_citations": [
+  {
+   "key": "rosset2003margin",
+   "bibtex": "@inproceedings{rosset2003margin,\n  title={Margin Maximizing Loss Functions},\n  author={Rosset, Saharon and Zhu, Ji and Hastie, Trevor J.},\n  booktitle={Advances in Neural Information Processing Systems (NIPS)},\n  volume={16},\n  year={2003}\n}",
+   "url": "https://proceedings.neurips.cc/paper/2003/hash/0fe473396242072e84af286632d3f0ff-Abstract.html",
+   "why": "Optional. The linear-model precursor: solutions of regularized losses (logistic, exponential, hinge; multi-class too) converge to margin-maximizing separators as the regularization vanishes. Wei et al. say their Thm 4.1 is inspired by it. Useful if the intro wants the lineage; not required."
+  }
+ ]
+}

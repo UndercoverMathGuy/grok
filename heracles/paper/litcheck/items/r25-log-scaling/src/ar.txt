@@ -1,0 +1,663 @@
+Random Cayley Graphs and Expanders
+Noga Alon∗ Yuval Roichman†
+February 22, 2002
+Abstract
+For every 1>δ > 0 there exists a c =c(δ)> 0 such that for every
+group G of order n, and for a set S of c(δ) logn random elements in
+the group, the expected value of the second largest eigenvalue of the
+normalized adjacency matrix of the Cayley graph X(G,S ) is at most
+(1−δ). This implies that almost every such a graph is anε(δ)-expander.
+For Abelian groups this is essentially tight, and explicit constructions
+can be given in some cases.
+∗Department of Mathematics, Raymond and Beverly Sackler Faculty of Exact Sciences,
+Tel Aviv University, Ramat Aviv, Tel Aviv, Israel. Research supported in part by a
+U.S.A.-Israeli BSF grant.
+†Department of Mathematics, Hebrew University of Jerusalem, Givat Ram, Jerusalem,
+Israel
+0
+1. INTRODUCTION.
+The (undirected) Cayley Graph X(G,S ) of a group G with respect to
+the setS of elements in the group is the graph whose set of vertices isG and
+whose set of edges is the set of all (unordered) pairs {{g,gs}|g∈G,s∈S}.
+Obviously, this is a regular graph of degree |S∪S−1| ≤2|S| and hence
+its diameter is at least log2|S||G|. Babai and Erd¨ os [BE] proved that every
+group of ordern has log2n+O(log logn) elementsx1,...,x t such that every
+group element is a product of the form xε1
+1 ...x εt
+t ,εi∈{ 0, 1}. It follows that
+G has a set of log2n +O(log logn) generators such that the resulting Cayley
+graph has a logarithmic diameter. In [ABM] it is proved that the diameter
+is almost surely logarithmic with respect to c logn random elements, for an
+appropriate absolute constant c. For more details see [BE] and [ABM]. For
+a general survey on Cayley graphs with small diameters see [BHKLS].
+Deﬁnition. A graphH is called a c-expander if for every set of vertices
+S,|Γ(S)|>c|S|(1−|S|/|H|)), where Γ(S) is the set of all neighbours of S.
+It is obvious that any c-expander (for some ﬁxed c > 0) has a loga-
+rithmic diameter, but the converse does not hold, as shown, for example,
+by the Cayley graph of the symmetric group with respect to the set of all
+transpositions. For a graph H, let µ1[H] denote the second largest eigen-
+value in absolute value of the adjacency matrix AH ofH. If H isd-regular,
+the normalized adjacency matrix A∗
+H of H is the doubly stochastic matrix
+1
+dAH. Let µ∗
+1[H] denote the second largest eigenvalue in absolute value of
+A∗
+H. Clearly µ∗
+1[H] = 1
+dµ1[H]. Here we prove the following:
+Theorem 1: For every 1 > δ >0 there is a c(δ) > 0 such that the
+following holds. Let G be a group of order n and letS be a set of c(δ) log2n
+random elements of G. Then
+E(|µ∗
+1[X(G,S )]|)< 1−δ.
+Note that the weaker statement that asserts that the expectation of the
+second normalized eigenvalue of a graph as above is at most 1−O((logn)−3)
+can be derived easily from the result of Babai in [Ba] which bounds the
+second eigenvalue of a vertex transitive graph as a function of its diameter.
+By considering an appropriate martingale as done in [BS] and by the
+easy direction of the well known connection between the second eigenvalue
+of a graph and its expansion properties (see [AM] and [Ta]), this implies the
+following.
+Corollary 1: For every 1>ε> 0 there exists a c(ε)> 0 such that the
+following holds. Let G be a group of order n, and let S be a random set of
+1
+c(ε) log2n elements of G, then the Cayley graph X(G,S ) is an ε-expander
+almost surely. (I.e., the probability it is such an expander tends to 1 as n
+tends to inﬁnity.)
+Simple examples (together with some techniques from the theory of error
+correcting codes) show that the best possible constant c(δ) in Theorem 1 is
+at least 1 + Ω(δ log(1/δ))) for any small positive δ. In our proof of Theorem
+1 we make no attempt to optimize the upper bound for c(δ) and the proof
+gives that for 0 < δ < 1− 1
+e, c(δ)≤ (1 + o(1))2e4 ln 2/[(1−δ)e− 1]2.
+We give sharper bounds for Abelian groups and for some related groups.
+We also discuss some explicit constructions for the groups Zm
+2 by applying
+techniques from the theory of error correcting codes in order to estimate the
+relevant eigenvalues.
+The rest of the paper is organized as follows. In Section 2 we consider
+random Cayley graphs of arbitrary ﬁnite groups and present the proofs of
+Theorem 1 and Corollary 1. The special case of Abelian groups is considered
+in Section 3.
+2. RANDOM CAYLEY GRAPHS OF GENERAL GROUPS.
+2.1.Proof of Theorem 1.
+To simplify the notation we omit all ﬂoor and ceiling signs whenever these
+are not crucial. We use Wigner’s method of proving the semi-circle-law, see
+[Wi], [Wi1]. We bound the traces of the powers of the adjacency matrix,
+by estimating the probability of a random walk to be closed. Broder and
+Shamir ([BS]) were the ﬁrst to apply this method to estimate the eigenvalues
+of sparse random graphs. See also [Fr] and [FK]. Let A be a real matrix,
+with eigenvalues|µ0|≥| µ1|... ≥|µn−1|. Then for every natural number m:
+|µ1|≤ (Tr (A2m)−µ2m
+0 )1/2m
+The probability space considered is that consisting of all the normalized
+adjacency matrices of the Cayley graphs of a given group G with respect to
+c log2n elements chosen randomly in the group. By Jensen’s Inequality, for
+every positive integer m:
+E(|µ∗
+1|)≤ (E(Tr (A2m))− 1)1/2m
+Denote byn the order ofG and byP2m the probability of a walk of length 2m
+in our Cayley graph to be closed. Since a Cayley graph is vertex transitive
+E(Tr (A2m)) =nE(P2m), and hence:
+E(|µ∗
+1|)≤ (nE(P2m)− 1)1/2m (1)
+2
+Lemma 1.
+E(P2m)≤ 22m(2/c log2n)m ln ln 2m/ ln 2m+
++2l(w)(m/c log2n)l(w)/2+
++1/n +O(m/n2)
+where
+l(w) = 2m(1− ln ln 2m/ ln 2m)
+Proof: As in [BS] we consider a dynamic process for choosing the ran-
+dom set S and the random walk on X(G,S ). This is done as follows.
+a We choose in the free monoid M2c log2n (generated by c log2n distinct
+letters and their inverses) a random word of length 2 m.
+b We reduce this word in the free group Fc log2n.
+c We assign to each letter an element of the group G at random.
+It is easy to see that this process is equivalent to the one in which a random
+Cayley graph X(G,S ) with|S| =c log2n is chosen ﬁrst and a random walk
+of length 2m in it is chosen afterwards.
+In order to obtain an upper bound for E(P2m) we estimate the probabil-
+ities of the following three events whose union includes the event that our
+walk of length 2m is closed.
+A The reduced word in the free group has length l(W ) and
+l(W )<l (w) = 2m(1− ln ln 2m/ ln 2m)
+B The reduced word has length at least 2m(1− ln ln 2m/ ln 2m), and there
+is no letter which appeares exactly once in this word.
+C (A) and (B) do not hold, but after the assignment of the chosen elements
+in the group G to the corresponding letters the word is reduced to the
+unity.
+Obviously
+E(P2m)≤Pr (A) +Pr (B) +Pr (C) (2)
+In order to estimate Pr (A) we need the following simple fact whose proof
+can be found in [BS] or in [Lu] §4.5.
+Fact: Let U be a random word of length 2 t in the free monoid M2d, then
+3
+(2/d)t≥Pr (U is an identity sequence).
+The number of possibilities to place the subset which is reduced to the
+identity is at most 2 2m. The length of this subset is at least
+2m ln ln 2m/ ln 2m
+and d =c log2n. Hence, by the fact above,
+Pr (A)≤ 22m(2/c log2n)m ln ln 2m/ ln 2m (3)
+In order to obtain an upper bound to Pr (B) we have to estimate the
+probability of a reduced word of length l(W ) in Fc log2n to satisfy the con-
+dition of (B), i.e., to have no letter which appears exactly once. For our
+purposes a rough estimate suﬃces. Assume that the word W satisﬁes the
+conditions of (B). Obviously, the number of distinct letters that appear in
+W is at most l(W )/2. We expose the letters of W in the following order:
+First, we expose the subset consisting of the ﬁrst occurrence of each letter
+that appears in the word. Second, we expose the other letters. The proba-
+bility of each letter of the latter to be one which has appeared in the ﬁrst
+subset is at most l(W )/2c log2n. The number of possiblities to place the
+ﬁrst subset is at most 2 l(W ). Hence
+Pr (B)≤ 2l(W )(l(W )/2c log2n)l(W )/2≤ 2l(W )(m/c log2n)l(W )/2, (4)
+where
+l(W )≥ 2m(1− ln ln 2m/ ln 2m).
+It remains to bound Pr (C). Let τ be a letter that appears only once in the
+reduced word. We expose the assignments of all the letters except that of
+τ . Denote by x(τ) the assignment of τ. The event whose probability we
+wish to estimate is now the event gx(τ)h = 1 where g,h are some known
+elements in G. The probability that x(τ) solves this equation is at most
+1/(n− 2m) = 1/n +O(m/n2). Therefore
+Pr (C)≤ 1/n +O(m/n2) (5)
+The assertion of Lemma 1 now follows by substituting (3), (4) and (5) in (2).
+(Observe that in case the right hand side of (4) is at most 1, it is a monotone
+decreasing function of l(W ) and hence its maximum is obtained for the
+minimum possible value of l(W ) which is l(w). Otherwise, the estimate in
+Lemma 1 is trivial.) 2
+4
+Combining Lemma 1 (and its proof) with (1) we obtain
+E(|µ∗
+1|)≤ (nE(P2m)− 1)1/2m≤ (n(Pr (A) +Pr (B) +Pr (C))− 1)1/2m
+≤n1/2m(Pr (A)1/2m +Pr (B)1/2m) + (nPr (C)− 1)1/2m
+≤n1/2m(2( 2
+c log2n)
+1
+2 ln ln 2m/ ln 2m + 21−o(1)( m
+c log2n)
+1
+2−o(1)) + (O(m/n))1/2m.
+Setting 2m∼ lnn
+b , where b is an absolute constant, we conclude that for
+large n the above upper bound for E(|µ∗
+1|) is
+(1 +o(1))(eb(ln 4
+cb )1/2 + 1
+eb ).
+For every ﬁxed 1 >δ > 0 one can obviously choose b and c so that the last
+quantity is smaller than 1 −δ. In particular, if δ <1− 1
+e then b = 1 and
+c≥ (1 +o(1))2e4 ln 2/[(1−δ)e− 1]2 imply E|µ∗
+1|≤ 1−δ. This completes
+the proof of Theorem 1. 2
+Remark The group structure is not essential in the last proof, and it
+is easy to modify it and obtain the following result, whose detailed proof is
+omitted.
+Proposition 1. For every 1 > δ >0 there is a c(δ) > 0 such that the
+following holds. Let K be a complete graph on n vertices whose edges are
+colored by n− 1 colors so that each color class forms a perfect matching.
+LetH be the subgraph ofK consisting of all edges ofK whose colors belong
+to a randomly chosen set of c(δ) log2n colors. Then
+E(|µ1[H]|)< (1−δ)c(δ) log2n.
+2.2 Proof of Corollary 1.
+Broder and Shamir [BS] proved, by considering an appropriate martin-
+gale, that the second eigenvalue (in absolute value) of the adjacency matrix
+of a randomd regular graph is concentrated around its mean. Their method
+easily implies the following result.
+Lemma 2. Let G be a group and let S be a random set of d elements
+in G. Put µ1 =µ1[X(G,S )]. Then:
+Pr (|µ1−Eµ1|≥ 2cd1/2)≤ 4e−c2/2
+Proof. It is convenient to choose the elements x1,...,x d of the random
+set S one by one, in the order of their indices. Let X(G,S ) denote the
+5
+Cayley graph of G with respect to S and let d = λ0≥ λ1≥ ... ≥ λn−1
+denote its eigenvalues. Fix j, 1 ≤ j≤ n− 1 and let Fj
+i = Fj
+i (x1,...,x i)
+denote the expectation of λj(X(G,S )), given the values of x1,...,x i. It is
+not too diﬃcult to check that for every ﬁxed j the sequence (Fj
+0,...,F j
+d ) is
+a martingale. Moreover, by the variational deﬁnition of the jth eigenvalue
+it is easy to see that|Fj
+i+1−Fj
+i|≤ 2. Therefore, by Azuma’s Inequality, (cf.
+e.g., [AS]), for every admissible ﬁxed j
+Pr (|λj−Eλj|≥ 2cd1/2) =Pr (|Fj
+d−Fj
+0|≥ 2cd1/2)≤ 2e−c2/2.
+Since the second largest eigenvalue in absolute value is eitherλ1 orλn−1 the
+desired result follows. 2
+Recall that a regular graph Γ of constant degree is a δ-expander if and
+only if the second largest eigenvalue of its normalized adjacency matrix is
+at most 1−ε(δ). (The easy direction of this fact is proved in [Ta] and [AM];
+the more diﬃcult one is established in [Al]). The easy direction of this fact
+(which works for non-constant degrees as well), the last lemma and Theorem
+1 imply Corollary 1. It is worth noting that as pointed out by one of the
+referees an alternative way to prove the corollary is by replacing Lemma 2
+by the observation that the argument in Theorem 1 can be used to bound
+higher moments of the second eigenvalue and not only its ﬁrst moment. 2
+3. CAYLEY GRAPHS OF ABELIAN GROUPS.
+3.1 Random Cayley graphs.
+It is trivial to see that the log2n term appearing in Theorem 1 is best
+possible; in fact, for the special case of the groupsG =Zm
+2 , which are simply
+the vector spaces overZ2, any connected Cayley graph X(G,S ) has at least
+m = log2|G| elements in S, and hence S is at least of that cardinality for
+every Cayley graph on such a group whose second eigenvalue diﬀers from
+the ﬁrst. A closer inspection of the eigenvalues of the Cayley graphs of these
+groups implies that the best possible constant c(δ) in Theorem 1 satisﬁes,
+for small δ >0;
+c(δ)≥ 1 + Ω(δ log(1
+δ )).
+This is proved in the following proposition.
+Proposition 2. Suppose G = Zm
+2 and let X(G,S ) be a Cayley graph
+ofG whose second largest eigenvalue in absolute value is at most (1−δ)|S|.
+Then
+|S|≥ (1 + Ω(δ log(1
+δ )))m.
+6
+Proof. As is well known (see, e.g., [Lo]), the eigenvalues of X(G,S ) are
+simply all the quantities ∑
+s∈S∪S−1
+χ(s),
+where χ ranges over all characters of G. For the groups Zm
+2 these can be
+interpreted in the following convenient way. Let B = (bij) be a binary
+matrix with m rows and|S| columns whose columns are the elements of S.
+Put l =|S| and let U be the subspace of Zl
+2 generated by the rows of B.
+For each vector u∈ U let e(u) denote the diﬀerence between the number
+of 0-entries and the number of 1-entries of u. Then {e(u) : u∈ U} is the
+set of all eigenvalues of the graph X(G,S ). Therefore, if we consider B as
+the generating matrix of a linear error correcting code it follows that for our
+graph|µ1| < (1−δ)l if and only if the Hamming weight of every nonzero
+code word is between δl/2 and l−δl/2. In particular, the distance of the
+code is at least δl/2. Therefore, by the sphere packing bound (see, e.g.,
+[MS])
+∑
+j<δl/4
+(
+l
+j
+)
+2m< 2l,
+and this implies the desired estimate. 2
+Surprisingly, the above lower estimate for c(δ) that holds for Zm
+2 is es-
+sentially sharp as an upper estimate for every Abelian group. This is proved
+in the following theorem. (In this section it is more convenient to consider
+the model in which the members of the generating set S are chosen with
+repetitions. This does not make any essential diﬀerence, since a random
+sequence of O(logn) elements in a group of order n consists, almost surely,
+of distinct members.)
+Theorem 2. For each small δ > 0 there exists an ε = O(δ log(1/δ))
+such that for any Abelian group A of order n the Cayley graph X(A,S )
+of A with respect to a (multi-) subset S of (1 + ε) log2n (not necessarily
+distinct) random elements satisﬁes|µ∗
+1[X(A,S )]|≤ 1−δ almost surely (i.e.,
+with probability that tends to 1 as n tends to inﬁnity).
+Proof. Let A be an Abelian group. Then A = Zp1⊕Zp2⊕···⊕ Zpk.
+Each nontrivial character ofA is simply a product of characters of the cyclic
+groups Zpi, and at least one of these is non-trivial. It is therefore easy to
+see that for each ﬁxed nontrivial character χ as above
+Pr (χ(σ +σ−1)≥ 1.8)≤ 1/2
+7
+where σ is a random element of A. (Here 1 .8 is not optimal; the essential
+fact is merely that it is an absolute constant which is strictly smaller than
+2. Note that if σ is an element of order 2 then σ =σ−1 and then the above
+inequality simply means that χ(σ) is−1 and not 1.)
+The same reasoning implies that for each nontrivial character χ
+Pr (χ(σ +σ−1)≤− 1.8)≤ 1/2.
+AsA is an Abelian group, the eigenvalues of the adjacency matrix are the
+sums of the characters ∑
+s∈S∪S−1χ(s). Since the members of S are chosen
+independently, the above two inequalities imply that for each ﬁxed nontrivial
+characterχ the probability that the corresponding normalized eigenvalueµ∗
+has absolute value strictly greater than 1−δ satisﬁes:
+Pr (|µ∗|≥ 1−δ)≤ 2
+
+
+(1 +ε) log2n
+cδ(1 +ε) log2n
+
+ (1/2)(1−cδ)(1+ε) log2n,
+where c is some absolute constant.
+There are n− 1 nontrivial characters and hence the probability that at
+least one of them gives a normalized eigenvalue whose absolute value exceeds
+(1−δ) is at most
+2(n− 1)
+
+
+(1 +ε) log2n
+cδ(1 +ε) log2n
+
+ (1/2)(1−cδ)(1+ε) log2n.
+The upper bound tends to zero when n tends to inﬁnity provided ε is at
+least c′δ log(1/δ) for an appropriately chosen c′ =c′(c). This completes the
+proof. 2
+Remark. A simple modiﬁcation of the proof above implies that for
+certain Abelian groups the multiplicative constant of the logarithm of the
+size of the group can be reduced considerably and still imply the conclusion
+of Theorem 2. In particular, it is easy see that for every small ϵ >0 there
+exists a δ = δ(ϵ) > 0 such that the Cayley graph X(Zn,S ) of the cyclic
+group Zn with respect to a subset S of ϵ log2n random elements satisﬁes
+|µ∗
+1[X(A,S )]|≤ 1−δ almost surely (i.e., with probability that tends to 1 as
+n tends to inﬁnity). We omit the details.
+We conclude this subsection with the following simple observation show-
+ing that the log n term in Theorem 1 is necessary for every Abelian group.
+8
+Proposition 3. For every ﬁxed δ >0 there is a constant c =c(δ)> 0
+such that the following holds; If A is an Abelian group of order n, and
+X(A,S ) is a δ-expander, then|S|≥ c log2n.
+Proof: Suppose|S| = d and let the diameter of the Cayley graph
+X(A,S ) be D. Then every element of A is a product of of the form
+sa1
+1 ·sa2
+2 ...s ad
+d ,
+where S ={s1,...,s d}, each ai is an integer and ∑d
+i=1|ai|≤ D. It is easy
+to see that the total number of products of this form is at most
+2d
+(
+D +d
+d
+)
+,
+since there are at most
+(D+d
+d
+)
+possibilities to choose the absolute values|ai|,
+and for each such choice there are at most 2 d ways to assign signs to the
+non-zero numbers ai. Therefore,
+n≤ 2d
+(
+D +d
+d
+)
+. (6)
+IfX(A,S ) is a δ-expander then its diameter D clearly satisﬁesD≤c′ log2n
+for some c′ =c′(δ). This, together with (6) implies that d≥c log2n for an
+appropriate c =c(c′), completing the proof. 2
+Remark. If G is a group, S⊂G and H is a factor of G then trivialy the
+diameter of the Cayley graph of H with respect to the set S′ of images of
+the elements of S is at most that of X(G,S ). Therfore, if G has an Abelian
+factor of order q the diameter D ofX(G,S ) is at least that of X(H,S′) and
+hence
+2d
+(
+D +d
+d
+)
+≥q,
+where d =|S|. It follows that if X(G,S ) is a δ-expander and q≥| G|ϵ for
+some ﬁxed δ > 0 and ϵ >0, then |S|≥ c(δ,ϵ ) log|G|. Thus, for example,
+since Gl(n,q )/Sl(n,q )∼=Zq−1 the following claim holds.
+Claim. For every ﬁxedn andδ >0 there exists a constant c =c(δ,n ) such
+that ifGq =Gl(n,q ),Sq⊂Gq and the family of Cayley graphs{X(Gq,Sq)}
+is a family of δ-expanders then|Sq|≥ c log|Gq|.
+3.2 Some explicit constructions.
+Since expanders have numerous applications in theoretical computer sci-
+ence, the problem of constructing them explicitly received a considerable
+9
+amount of attention. Although the most useful expanders are the constant
+degree ones, expanders with higher degrees (that may be polylogarithmic in
+the number of vertices or even a small ﬁxed power of this number) are also
+useful and have been applied extensively in the design of eﬃcient parallel
+comparison algorithms (see, e.g., [Al1]) as well as in various other algorith-
+mic applications. By Theorem 1, expanders with degrees greater than the
+logarithm of the number of vertices can be constructed from any ﬁnite group,
+and it is natural to try the simplest possible groups. The expanders in [Al1]
+are Cayley graphs of the cyclic groups Zm. However, their degrees are at
+least the square root of the number of vertices. In [AIKPS] the authors con-
+struct explicit expanders with degrees d = O(logm(log∗m)13 log∗m) (and
+second eigenvalueO(d/ log∗m) =o(d) ) which are also Cayley graphs of the
+cyclic groups Zm. Here we consider the groups Zm
+2 where we can construct
+explicitly Cayley graphs that are expanders of any degree that exceeds some
+absolute constant times the logarithm of the order of the group. The tech-
+nique can be easily extended to the more general case of Fm
+q where Fq is
+any ﬁnite ﬁeld but we prefer to discuss only the case q = 2 here.
+It is well known (see [Al], [Ni], [Fr1], [Ka]) that the second largest eigen-
+value of any regular graph with n vertices and degree d is at least
+2
+√
+d− 1(1−O( log2d
+log2n))
+and this estimate is essentially optimal as shown by the Ramanujan graphs
+([LPS], [Ma]) or by random regular graphs ([Fr],[FKS]). Here we describe,
+explicitly, for every ﬁxedk≥ 1 a Cayley graph of degreed =mk ofZm
+2 , every
+nontrivial eigenvalue of which is, in absolute value, at mostO(d0.5+1/k). Non
+explicitly this can be improved to O(d0.5+1/2k). We further show that the
+second eigenvalue of any Cayley graph of degree d = mk of Zm
+2 is at least
+Ω(d0.5+1/2k/√logd). Thus the nontrivial eigenvalues of such graphs can be
+separated quite well from the ﬁrst one, but not as well as the eigenvalues of
+random graphs or Ramanujan graphs. Similar results are proved in the end
+of the paper for general Abelian groups.
+Most of the results in this subsection are all rather simple consequences
+of known results concerning error correcting codes. For a subset S of Zm
+2
+let B = B(S) denote the m by|S| binary matrix whose columns are the
+elements of S. Put |S| = l. As observed in the proof of Proposition 2,
+the Cayley graph H = X(Zm
+2 ,S ) satisﬁes |µ1[H]|≤ ϵl if and only if the
+Hamming weight of every nonzero code word in the linear error correcting
+code generated by the rows of B is between 1−ϵ
+2 l and 1+ϵ
+2 l. Although this
+10
+is not precisely the common notation used in Coding Theory, let us call a
+code an [l,m,ϵ ]-code if it is a linear code of length l, dimension m and the
+weight of each nontrivial codeword is between 1−ϵ
+2 l and 1+ϵ
+2 l. By the above
+remark, explicit codes as above can be used to obtain explicit expanders.
+In [ABNNR] the basic idea in the well known construction of Justesen (see,
+e.g., [MS]) is combined with certain explicit Ramanujan graphs to obtain
+explicitly the generating matrices of [ l,m,ϵ ] codes for each ﬁxed 1 > ϵ >0
+and for each m, where l =O( 1
+ϵ3m). This gives the following.
+Proposition 4. There exists an absolute constant c >0 such that for
+every ﬁxedϵ> 0 and for everym one can describe explicitly a Cayley graph
+H =X(Zm
+2 ,Sm) where
+|Sm|≤ c 1
+ϵ3m (=c 1
+ϵ3 log2|Zm
+2|),
+so that|µ1[H]|≤ ϵ|Sm|.
+Note that in this construction bounded degree expanders which are Cay-
+ley graphs of noncommutative groups are used to obtain expanders of loga-
+rithmic degrees which are Cayley graphs of commutative groups.
+In [AGHP] there are three explicit constructions of [l,m,ϵ ] codes (where
+nowϵ is not necessarily ﬁxed), and all of them satisfy l≤O(m2/ϵ2). (The
+best one in fact satisﬁes
+l≤O( m2
+ϵ2(log(m/ϵ))2.)
+Here is the description of the generating matrix B of one of these construc-
+tions, which is extremely simple to describe. Let l be a prime,l≥ ( 2m
+ϵ +1) 2,
+and deﬁne B = (bij) as follows. For 1 ≤ i≤ m, 1≤ j≤ l, bij = 0 if i−j,
+considered as an element of the ﬁnite ﬁeld Zl , is a quadratic residue, and
+bij = 1 otherwise. By this construction (as well as by the other constructions
+given in [AGHP]) we obtain:
+Proposition 5. There exists an absolute constant c >0 such that for
+everyϵ> 0 and for everym one can describe explicitly a Cayley graph H =
+X(Zm
+2 ,Sm) where l =|Sm|≤ cm2/ϵ2, so that|µ1[H]|≤ ϵ|Sm| =O(
+√
+lm).
+Note that when the degree l of the expander above is mk = (log2|Zm
+2|)k
+then|µ1|≤ O(l0.5+1/k).
+By the Gilbert-Varshamov bound (see, e.g., [MS]), or , in fact, by the
+obvious modiﬁcation of it needed to obtain a code where the weight of
+each code-word is very close to half of its length, is is easy to obtain (non-
+constructively) the following result:
+11
+Proposition 6. There exists an absolute constant c >0 such that for
+every 1>ϵ> 0 and for everym there exists a Cayley graphH =X(Zm
+2 ,Sm)
+where l =|Sm|≤ cm/ϵ2, so that|µ1[H]|≤ ϵ|Sm| =O(
+√
+l√m).
+Finally, we observe that by the McEliece- Rodemich- Rumsey- Welch
+bound (see [MS], page 559, where the proof for ﬁxed ϵ is given, and note
+that this proof can be extended, as mentioned in [AGHP], for the case of
+much smaller ϵ as well), if ϵ≥ 2−γm for some small ﬁxed γ > 0, and the
+weight of each nontrivial code word in a linear code of lengthl and dimension
+m is at least 1−ϵ
+2 l then l≥ Ω( m
+ϵ2 log(1/ϵ)). This implies the following.
+Proposition 7. There exists an absolute constant γ > 0 such that
+for every m≤ l≤ 2γm, the second largest eigenvalue of any Cayley graph
+X(Zm
+2 ,S ) with|S| =l is at least Ω(
+√
+lm/√logl).
+Note that this shows that for large m no such graph H in which the
+degree is at most some small power of the number of vertices can be a
+Ramanujan graph, i.e., satisfy|µ1[H]|≤ 2
+√
+l− 1.
+Proposition 6, as well as a slightly weaker version of Proposition 7, can be
+generalized to arbitrary Abelian groups. Indeed, if G is an arbitrary Abelian
+group of order n, χ is a ﬁxed nontrivial character, and S is a sequence of l
+random members of G, then the value of the eigenvalue
+∑
+s∈S∪S−1
+χ(s)
+of X(G,S ) can be estimated as a sum of l independent random variables
+each of which has a bounded absolute value. Thus, by the estimates in, e.g.,
+[AS], the following assertion holds.
+Proposition 6’. For every Abelian group G of order n and for every l,
+if S is a set of l random members of G then almost surely |µ1[X(G,S )]|≤
+O(
+√
+l√logn).
+A lower bound for |µ1[X(G,S )]| can be derived for Abelian groups as
+follows. Let G be an Abelian group of order n, and let S be an arbitrary
+set of l members of G. Suppose l≥ 2m and consider the number of closed
+walks of length 2m in X(G,S ). This number is clearly at least the number
+of vertices times the number of words of length 2 m consisting of a single
+appearance of xi and a single appearance of x−1
+i form distinct members xi
+of S. Hence this number is at least
+n(2m)!
+2mm!l(l− 1)··· (l−m + 1)≥n(ml
+4 )m.
+(Here n is the number of vertices and (2m)!
+2mm! is the number of ways to split
+a sequence of length 2 m into m subsequences of size 2 each, where each
+12
+subsequence will be that consisting of the occurrence of xi and x−1
+i . The
+last term, l(l− 1)··· (l−m + 1) is a lower bound on the number of ways to
+choose the actual elements xi, where an extra factor of 2 m could be added
+in case no element is of order 2.) Therefore
+|µ1[X(G,S )]|≥ (n(ml/4)m− (2l)2m
+n− 1 )1/2m.
+By taking 2m∼ logn
+log 2l (which is less than l as long as l≥ c logn/ log logn
+for an appropriate c> 0) this gives the following.
+Proposition 7’. For every Abelian group G of order n and for every
+l = Ω(logn/ log logn), if S is an arbitrary set of l members of G then
+|µ1[X(G,S )]|≥ Ω(
+√
+l
+√
+logn
+logl ).
+Note that unlike Proposition 7 this only supplies a lower bound for the
+maximum absolute value of a nontrivial eigenvalue, and not for the second
+eigenvalue. Still, it shows that Cayley graphs of Abelian groups in which
+the degree is at most some small power of the number of vertices cannot be
+Ramanujan graphs. (As shown in [Al1] they can be Ramanujan graphs for
+degrees which are about the square root of the number of vertices.)
+Acknowledgments. We would like to thank A. Lubotzky for suggesting
+some of the problems considered here. We also thank A. Frumkin for useful
+discussions and E. Shamir for helpful remarks.
+References
+[AIKPS] M. Ajtai, H. Iwaniec, J. Koml´ os, J. Pintz and E. Szemer´ edi,
+Construction of a thin set with small Fourier coeﬃcients, Bull.
+London Math. Soc. 22 (1990), 583-590.
+[Al] N. Alon, Eigenvalues and expanders, Combinatorica 6(1986), 83-
+96.
+[Al1] N. Alon, Eigenvalues, geometric expanders, sorting in rounds and
+Ramsey Theory, Combinatorica 6(1986), 207-219.
+[ABM] N. Alon, A. Barak and U. Manber, On disseminating informa-
+tion reliably without broadcasting, Proc. of the 7th International
+Conference on Distributed Computing Systems (ICDS), Berlin,
+September 1987, pp. 74-81.
+13
+[ABNNR] N. Alon, J. Bruck, J. Naor, M. Naor and R. Roth, Construction
+of asymptotically good, low-rate error-correcting codes through
+pseudo-random graphs, IEEE Transactions on Information The-
+ory 38 (1992), 509-516.
+[AM] N. Alon and V. D. Milman, λ1, isoperimetric inequalities for
+graphs and superconcentrators, J. Comb. Theory, Ser.B, 38
+(1985), 73–88. See also: N. Alon and V. D. Milman, Eigenval-
+ues, expanders and superconcentrators, Proc. 25 th IEEE FOCS,
+Singer Island, Florida, IEEE(1984), 320-322.
+[AGHP] N. Alon, O. Goldreich, J. Hastad and R. Peralta, Simple con-
+structions of almost k-wise independent random variables, Proc.
+31st IEEE FOCS, St. Louis, Missouri, IEEE (1990), 544-553. See
+also: Random Structures and Algorithms 3 (1992), 289-304.
+[AS] N. Alon and J. H. Spencer, The Probabilistic Method, Wiley,
+1991.
+[Ba] L. Babai, Local expansion of vertex transitive graphs and random
+generation of ﬁnite groups, Proc. 23rd Annual ACM STOC, ACM
+Press (1991), 164-174.
+[BE] L. Babai and P. Erd¨ os, Representation of group elements as
+short products, in: Theory and Practice of Combinatorics, G.
+Sabidussi, editor, Ann. Disc. Math. 12 (1982), 27–30.
+[BHKLS] L. Babai, G. Hetyei, W. M. Kantor, A. Lubotzky and A. Seress,
+On the diameter of ﬁnite groups, Proc. 31 st IEEE FOCS, IEEE
+(1990), 857-865.
+[BS] A. Broder and E. Shamir, On the second eigenvalue of random
+regular graphs, Proc. 28th IEEE FOCS, IEEE (1987), 286–294.
+[Fr] J. Friedman, On the second eigenvalue and random walks in ran-
+dom d-regular graphs, Combinatorica 11 (1991), 331-362.
+[Fr1] J. Friedman, Some geometric aspects of graphs and their eigen-
+functions, Duke Mathematical Journal 69 (1993), 487-525.
+[FK] Z. F¨ uredi and J. Koml´ os, The eigenvalues of random symmetric
+matrices, Combinatorica 1(1981), 233–241.
+14
+[FKS] J. Friedman, J. Kahn and E. Szemer´ edi, On the second eigenvalue
+in random regular graphs, Proc. 21 st ACM STOC, ACM Press
+(1989), 587–598.
+[Ka] N. Kahale, On the second eigenvalue and linear expansion of
+regular graphs, Proc. 33 rd Annual IEEE FOCS, IEEE (1992),
+296-303.
+[Lo] L. Lov´ asz, Combinatorial Problems and Exercises, North Hol-
+land, Amsterdam, 1979, Problem 11.8.
+[Lu] A. Lubotzky, Discrete Groups, Expanding Graphs and Invariant
+Measures, to appear.
+[LPS] A. Lubotzky, R. Phillips and P. Sarnak, Explicit expanders and
+the Ramanujan conjectures, Proc. 18th ACM STOC (1986), 240-
+246. See also: A. Lubotzky, R. Phillips and P. Sarnak, Ramanu-
+jan graphs, Combinatorica 8 (1988), 261-277.
+[Ma] G. A. Margulis, Explicit group-theoretical constructions of com-
+binatorial schemes and their application to the design of ex-
+panders and superconcentrators, Problemy Peredachi Informatsii
+24(1988), 51-60 (in Russian). English translation in Problems of
+Information Transmission 24(1988), 39-46.
+[MS] F. J. MacWilliams and N. J. A. Sloane, The Theory of Error-
+Correcting Codes, North Holland, Amsterdam, 1977.
+[Ni] A. Nilli, On the second eigenvalue of a graph, Discrete Mathe-
+matics 91 (1991), 207-210.
+[Ta] R. M. Tanner, Explicit construction of concentrators from gen-
+eralized N-gons, SIAM J. Alg. Disc. Meth. 5 (1984), 287-293.
+[Wi] E. P. Wigner, Characteristic vectors of bordered matrices with
+inﬁnite dimensions, Ann. Math. 62 (1955), 548–564.
+[Wi1] E. P. Wigner, On the distribution of the roots of certain sym-
+metric matrices, Ann. Math. 67 (1958), 325-327.
+15

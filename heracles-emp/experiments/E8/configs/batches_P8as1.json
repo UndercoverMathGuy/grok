@@ -1,0 +1,165 @@
+{
+ "batches": [
+  {
+   "batch_id": "E8_nu3_p11_b00",
+   "runs": [
+    {
+     "run_id": "E8_nu3_p11_s1.25_seed0",
+     "config": {
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.4,
+      "width": 30,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 4.4,
+      "lr_c": 0.4,
+      "lam": 3.4236749764528887e-05,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 3.3166247903554,
+      "seed": 0,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.25
+     }
+    },
+    {
+     "run_id": "E8_nu3_p11_s1.25_seed1",
+     "config": {
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.4,
+      "width": 30,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 4.4,
+      "lr_c": 0.4,
+      "lam": 3.4236749764528887e-05,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 3.3166247903554,
+      "seed": 1,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.25
+     }
+    },
+    {
+     "run_id": "E8_nu3_p11_s1.25_seed2",
+     "config": {
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.4,
+      "width": 30,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 4.4,
+      "lr_c": 0.4,
+      "lam": 3.4236749764528887e-05,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 3.3166247903554,
+      "seed": 2,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.25
+     }
+    },
+    {
+     "run_id": "E8_nu3_p11_s1.5_seed0",
+     "config": {
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 4.4,
+      "lr_c": 0.4,
+      "lam": 7.215459327128182e-05,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 3.3166247903554,
+      "seed": 0,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.5
+     }
+    },
+    {
+     "run_id": "E8_nu3_p11_s1.5_seed1",
+     "config": {
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 4.4,
+      "lr_c": 0.4,
+      "lam": 7.215459327128182e-05,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 3.3166247903554,
+      "seed": 1,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.5
+     }
+    },
+    {
+     "run_id": "E8_nu3_p11_s1.5_seed2",
+     "config": {
+      "model": "product",
+      "n": 2,
+      "p": 11,
+      "q": 2.0,
+      "width": 30,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 4.4,
+      "lr_c": 0.4,
+      "lam": 7.215459327128182e-05,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 3.3166247903554,
+      "seed": 2,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.5
+     }
+    }
+   ]
+  }
+ ]
+}

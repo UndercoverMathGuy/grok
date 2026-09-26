@@ -1,0 +1,235 @@
+\section{Proofs}
+\label{app:proofs}
+
+Throughout, $\omega=e^{2\pi i/p}$, and for $f\in\mathbb{R}^p$ we write $\hat f(k)=\sum_af(a)\omega^{-ka}$,
+so $f(a)=p^{-1}\sum_k\hat f(k)\omega^{ka}$, $\sum_k|\hat f(k)|^2=p\|f\|^2$ (Parseval), $\hat f(-k)=\overline{\hat f(k)}$,
+and $\sum_{k\in\Fp}|\hat f(k)|^2\le\tfrac p2\|f\|^2$.
+
+\subsection{The spectrum in exponential form}
+\label{app:spectrum}
+
+Write the clean part as $\clean(D)=p^{-\nu}\sum_{k\in\Zp}G_k\omega^{kD}$ with $G_{-k}=\overline{G_k}$. Then
+$\clean(0)-\clean(D)=2p^{-\nu}\sum_{k\in\Fp}\mathrm{Re}[G_k(1-\omega^{kD})]$, and \eqref{eq:spectrum} holds with
+$A_k=2p^{-\nu}|G_k|$ and $\phi_k=\arg G_k$. The averaged form used in Lemma~\ref{lem:phase} is
+$\tfrac12[(\clean(0)-\clean(D))+(\clean(0)-\clean(-D))]=2p^{-\nu}\sum_{k\in\Fp}\mathrm{Re}(G_k)\,\cov{k}{D}$,
+since $1-\tfrac12(\omega^{kD}+\omega^{-kD})=\cov{k}{D}$. The atoms of \S\ref{sec:objects} are
+$c_{ik}=2p^{-\nu}G_{ik}$ with $G_{ik}$ the corresponding coefficient of neuron $i$'s table.
+
+\subsection{Proof of Corollary~\ref{cor:dense}}
+\label{app:dense}
+
+For feasible $y$, $\min_{D\neq0}\sum_ky_k\cov{k}{D}\le\frac1{p-1}\sum_{D\neq0}\sum_ky_k\cov{k}{D}=\frac p{p-1}\sum_ky_k\le\frac p{p-1}$,
+using $\sum_{D\neq0}\cov{k}{D}=p$. Equality forces $\sum_ky_k=1$ and $h(D):=\sum_{k\in\Fp}y_k\cos(2\pi kD/p)$
+constant, say $\kappa$, on $D\neq0$, with $h(0)=1$. Then $h=\kappa+(1-\kappa)\delta_0$, whose Fourier
+coefficients are $(1-\kappa)/p$ at every $k\neq0$ and $\kappa+(1-\kappa)/p$ at $k=0$. Since $\hat h(0)=0$ and
+$\hat h(\pm k)=y_k/2$, we get $\kappa=-1/(p-1)$ and $y_k=2(1-\kappa)/p=2/(p-1)$. Attainment is
+Proposition~\ref{prop:block} at $r=1$ with $y^\star$ flat; the equality conditions are those of
+Proposition~\ref{prop:coverage} (flat $A$) and of subadditivity at $r=1$ (aligned atoms at each $k$).
+\qed
+
+\subsection{Proof of Theorem~\ref{thm:cost}}
+\label{app:cost}
+
+If $A=0$ there is nothing to prove; assume $A\neq0$ and normalise $A=1$.
+
+\begin{lemma}[chain lemma]
+\label{lem:chain}
+Let $m_l=(1,v_{l1},v_{l1}v_{l2},\dots,v_{l1}\cdots v_{ln})\in\mathbb{C}^\nu$, indexed $0..n$. Then $\|m_l\|^2=\nu$
+and $M:=\sum_lc_lm_lm_l^*$ is upper triangular with every diagonal entry equal to $A$.
+\end{lemma}
+\begin{proof}
+Every entry of $m_l$ has modulus $1$, so $\|m_l\|^2=\nu$ and the diagonal of $m_lm_l^*$ is $1$; the diagonal
+of $M$ is $\sum_lc_l=A$, the $T=\emptyset$ equation of \eqref{eq:JF}. For $k>k'$, since $\bar v=1/v$ for
+unimodular $v$, $(m_lm_l^*)_{k,k'}=\prod_{j\le k}v_{lj}\,\overline{\prod_{j\le k'}v_{lj}}=\prod_{j=k'+1}^kv_{lj}$,
+the monomial of the non-empty interval $T=\{k'+1,\dots,k\}$; summing against $c_l$ gives $0$ by \eqref{eq:JF}.
+\end{proof}
+Only the $\binom\nu2$ interval patterns are used. The entries above the diagonal are not controlled and are
+generically non-zero, so $M\neq AI$ in general; triangularity is all that is needed.
+
+\begin{lemma}[minor expansion]
+\label{lem:minor}
+For $u_1,\dots,u_N\in\mathbb{C}^\nu$, $d\in\mathbb{C}^N$ and $M'=\sum_ld_lu_lu_l^*$,
+$\det(I+tM')=\sum_{L\subseteq\{1..N\}}t^{|L|}\big(\prod_{l\in L}d_l\big)\det\mathrm{Gram}(u_l:l\in L)$.
+\end{lemma}
+\begin{proof}
+With $U=[u_1\cdots u_N]$ and $\Delta=\mathrm{diag}(d)$, $M'=U\Delta U^*$ and Sylvester's identity gives
+$\det(I_\nu+tU\Delta U^*)=\det(I_N+t\Delta U^*U)$. Expanding by principal minors,
+$\det(I_N+tX)=\sum_Lt^{|L|}\det X_{L,L}$, and $\det((\Delta U^*U)_{L,L})=\prod_{l\in L}d_l\cdot\det(U^*U)_{L,L}$,
+where $(U^*U)_{L,L}$ is the Gram matrix of $(u_l)_{l\in L}$.
+\end{proof}
+
+\begin{lemma}[Hadamard]
+\label{lem:hadamard}
+If the $u_l$ are unit vectors, $0\le\det\mathrm{Gram}(u_l:l\in L)\le1$, with value $1$ iff $(u_l)_{l\in L}$ is
+orthonormal.
+\end{lemma}
+\begin{proof}
+A Gram matrix is positive semidefinite, so its determinant is non-negative; Hadamard's inequality bounds it
+by the product of its diagonal entries, all $1$, with equality iff the matrix is diagonal.
+\end{proof}
+
+\begin{proposition}[symmetric-function bounds]
+\label{prop:esym}
+Under \eqref{eq:JF} with $A=1$, put $d_l=\nu c_l$ and $x_l=|d_l|$. Then $e_k(x)\ge\binom\nu k$ for every
+$k=0,\dots,\nu$, where $e_k$ is the $k$-th elementary symmetric polynomial. In particular $e_\nu(x)\ge1$ forces
+at least $\nu$ non-zero atoms.
+\end{proposition}
+\begin{proof}
+With $u_l=m_l/\sqrt\nu$ (unit vectors), $c_lm_lm_l^*=d_lu_lu_l^*$, so $M=\sum_ld_lu_lu_l^*$. By
+Lemma~\ref{lem:chain} $M$ is upper triangular with diagonal $1$, so all its eigenvalues are $1$ and
+$\det(I+tM)=(1+t)^\nu$. Comparing the coefficient of $t^k$ with Lemma~\ref{lem:minor} and taking moduli,
+\[
+\binom\nu k=\Big|\sum_{|L|=k}\Big(\prod_{l\in L}d_l\Big)G_L\Big|\le\sum_{|L|=k}\Big(\prod_{l\in L}x_l\Big)G_L\le\sum_{|L|=k}\prod_{l\in L}x_l=e_k(x),
+\]
+using $0\le G_L\le1$ (Lemma~\ref{lem:hadamard}).
+\end{proof}
+
+\begin{proposition}[generating inequality]
+\label{prop:gen}
+$\prod_{l=1}^N(1+x_lt)\ge(1+t)^\nu$ for every $t\ge0$.
+\end{proposition}
+\begin{proof}
+$\prod_l(1+x_lt)=\sum_{k=0}^Ne_k(x)t^k$ with every $e_k(x)\ge0$, and $e_k(x)\ge\binom\nu k$ for $k\le\nu$ by
+Proposition~\ref{prop:esym}. So the sum is at least $\sum_{k=0}^\nu\binom\nu kt^k=(1+t)^\nu$.
+\end{proof}
+
+\begin{lemma}[Bernstein integral]
+\label{lem:bernstein}
+For $0<r<1$ and $x\ge0$, $x^r=\frac{r\sin(\pi r)}\pi\int_0^\infty\log(1+xt)\,t^{-1-r}\,dt$, the integral
+converging absolutely.
+\end{lemma}
+\begin{proof}
+Near $t=0$ the integrand is $O(t^{-r})$, near $\infty$ it is $O(t^{-1-r}\log t)$; both are integrable for
+$0<r<1$. Integrating by parts (boundary terms vanish) and substituting $u=xt$,
+$\int_0^\infty\log(1+xt)t^{-1-r}dt=\frac1r\int_0^\infty\frac{xt^{-r}}{1+xt}dt=\frac{x^r}r\int_0^\infty\frac{u^{-r}}{1+u}du=\frac{x^r}r\cdot\frac\pi{\sin(\pi r)}$,
+by the Beta integral $\int_0^\infty u^{\alpha-1}/(1+u)\,du=\pi/\sin(\pi\alpha)$ at $\alpha=1-r$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:cost}]
+For $r=1$, Proposition~\ref{prop:esym} at $k=1$ gives $\sum_lx_l\ge\nu$, i.e.\ $\sum_l|c_l|\ge|A|$. For
+$0<r<1$, apply Lemma~\ref{lem:bernstein} to each $x_l$ and integrate the logarithm of
+Proposition~\ref{prop:gen} against the positive measure $t^{-1-r}dt$:
+\[
+\sum_lx_l^r=\frac{r\sin\pi r}\pi\int_0^\infty\Big[\sum_l\log(1+x_lt)\Big]t^{-1-r}dt
+\ \ge\ \frac{r\sin\pi r}\pi\int_0^\infty\nu\log(1+t)\,t^{-1-r}dt=\nu\cdot1^r=\nu .
+\]
+Unwinding $x_l=\nu|c_l|/|A|$ gives $\sum_l|c_l|^r\ge\nu^{1-r}|A|^r$.
+
+\emph{Equality, $0<r<1$.} The integrand $\sum_l\log(1+x_lt)-\nu\log(1+t)$ is continuous and non-negative
+(Proposition~\ref{prop:gen}) and integrates to zero against a strictly positive density, so
+$\prod_l(1+x_lt)=(1+t)^\nu$ for all $t>0$, hence as polynomials. By unique factorisation the non-zero $x_l$ are
+exactly $\nu$ copies of $1$: exactly $\nu$ atoms, each of modulus $|A|/\nu$. Then $e_\nu(x)=1=\binom\nu\nu$ and
+Proposition~\ref{prop:esym} is tight at $k=\nu$; the only $\nu$-subset with all $d_l\neq0$ is the support $L_0$,
+so $|\prod_{l\in L_0}d_l|\,G_{L_0}=1$ with $|\prod d_l|=1$, giving $G_{L_0}=1$: the $\nu$ chain vectors are
+orthonormal (Lemma~\ref{lem:hadamard}). Conversely any $\nu$ atoms of modulus $|A|/\nu$ satisfying \eqref{eq:JF}
+give $\sum_l|c_l|^r=\nu(|A|/\nu)^r=\nu^{1-r}|A|^r$.
+\end{proof}
+
+\begin{remark}[orthogonality as roots of unity]
+Two chain vectors are orthogonal iff $\sum_{k=0}^n\prod_{j\le k}(v_{l'j}\overline{v_{lj}})=0$. If the slot ratios
+$v_{l'j}\overline{v_{lj}}=\zeta$ agree across slots this reads $1+\zeta+\dots+\zeta^n=0$: $\zeta$ is a non-trivial
+$\nu$-th root of unity, which is the configuration of Proposition~\ref{prop:block}.
+\end{remark}
+
+\begin{remark}[other penalties]
+$x\mapsto x^r$ is a positive average of $x\mapsto\log(1+xt)$, so the same proof gives
+$\sum_lf(\nu|c_l|/|A|)\ge\nu f(1)$ for every $f(x)=bx+\int_0^\infty\log(1+xt)\,\mu(dt)$ with $b,\mu\ge0$. The
+result is not special to power penalties.
+\end{remark}
+
+\subsection{Proof of Proposition~\ref{prop:block}}
+\label{app:block}
+
+\emph{Identity.} Expand each cosine into exponentials. Neuron $l$ contributes
+$2^{-\nu}\rho^\nu\sum_{\varepsilon\in\{\pm1\}^n,\,\delta=\pm1}\exp\big(i(\varepsilon\cdot\theta+\delta\theta_c)\big)\exp\big(i\varphi_l(\sum_j\varepsilon_j+\delta n)\big)$.
+With $t=|\{j:\varepsilon_j=-1\}|$, $\sum_j\varepsilon_j=n-2t$, so the $l$-dependent phase is
+$\exp(2\pi i\,lu/\nu)$ with $u=n-t$ if $\delta=+1$ and $u=-t$ if $\delta=-1$. Summing over $l=0..n$ gives
+$\nu[u\equiv0\bmod\nu]$; as $0\le t\le n$ this happens only for $(t=n,\delta=+1)$ and $(t=0,\delta=-1)$, i.e.\
+$e^{\mp i(\sum_j\theta_j-\theta_c)}$, whose sum is $2\cos(\sum_j\theta_j-\theta_c)$. For the cost,
+$\sum_a\cos^2(2\pi ka/p+\varphi)=p/2$ for $k\not\equiv0$, so each of the $\nu$ vectors of neuron $l$ has squared
+norm $\rho^2p/2$.
+
+\emph{Attainment.} Let $r=q/\nu$, $s=1/r$. Scaling $y^\star$ up increases the objective, so
+$\sum_k(y^\star_k)^r=1$. With $x_k:=\nu\rho_k^\nu2^{-n}=y^\star_k$ the table is exactly
+$z(a,c)=\sum_ky^\star_k\cos(2\pi k(s(a)-c)/p)$, so it is interference-free and, on every input,
+$z(a,s(a))-z(a,s(a)-D)=\sum_ky^\star_k\cov{k}{D}$; hence $\marg=\min_{D\neq0}\sum_ky^\star_k\cov{k}{D}=\Gam_s(p)$.
+The cost is $\Pq=\sum_k\nu(\nu\rho_k^2p/2)^{q/2}=\nu(\nu p/2)^{q/2}\sum_k\rho_k^q$, and
+$\rho_k^q=(\rho_k^\nu)^r=(2^n/\nu)^r(y^\star_k)^r$, so $\Pq=\nu(\nu p/2)^{q/2}(2^n/\nu)^r$ and
+$\Pq^{\nu/q}=\nu^{\nu/q}(\nu p/2)^{\nu/2}\,2^n/\nu$. Therefore
+\[
+\gam=\frac{\Gam_s}{\nu^{\nu/q-1}(\nu p/2)^{\nu/2}2^n}=\nu^{-(\nu-q)/q}\cdot2^{1-\nu/2}(p\nu)^{-\nu/2}\,\Gam_s=\nu^{-(\nu-q)/q}\,B\,\Gam_s ,
+\]
+using $-n+\nu/2=1-\nu/2$ and $B=2(2p\nu)^{-\nu/2}$. (Every constant here was checked numerically to
+$10^{-10}$ at $p\in\{7,11\}$, $n\in\{2,3\}$, $q\in\{2,2.5,3\}$.)
+\qed
+
+\section{Checking the assumptions for the concrete models}
+\label{app:models}
+
+\paragraph{Product model} $z_i(a,c)=w_i(c)\prod_je_{ij}(a_j)$, $\nu=n+1$, $\|\theta_i\|^2=\sum_j\|e_{ij}\|^2+\|w_i\|^2$.
+Inserting the inverse transforms into $\clean$ and averaging over inputs kills every Fourier term unless all
+operand frequencies equal $k$ and the candidate frequency is $-k$; so, in the normalisation of
+Appendix~\ref{app:spectrum}, $G_{ik}=\prod_j\hat e_{ij}(k)\,\overline{\hat w_i(k)}$. The coefficient at the mode
+flipping $T$ is $\prod_{j\notin T}\hat e_{ij}(k)\prod_{j\in T}\hat e_{ij}(-k)\,\hat w_i(-k)$, and
+$\hat e_{ij}(-k)=v_{ijk}\hat e_{ij}(k)$ with $v_{ijk}=\overline{\hat e_{ij}(k)}/\hat e_{ij}(k)$ ($:=1$ if
+$\hat e_{ij}(k)=0$), so Assumption~\ref{ass:sign} holds. For Assumption~\ref{ass:budget}, let
+$m_{ik}=\sum_j|\hat e_{ij}(k)|^2+|\hat w_i(k)|^2$. AM--GM over the $\nu$ factors gives
+$|G_{ik}|\le(m_{ik}/\nu)^{\nu/2}$, so $|G_{ik}|^{q/\nu}\le(m_{ik}/\nu)^{q/2}$; since $q/2\ge1$, $t\mapsto t^{q/2}$ is
+superadditive, so $\sum_km_{ik}^{q/2}\le(\sum_km_{ik})^{q/2}$; and Parseval gives
+$\sum_{k\in\Fp}m_{ik}\le\tfrac p2\|\theta_i\|^2$. Hence $\sum_{k\in\Fp}|G_{ik}|^{q/\nu}\le(p/2\nu)^{q/2}\|\theta_i\|^q$,
+and with $a_{ik}=2p^{-\nu}|G_{ik}|$ this is Assumption~\ref{ass:budget} with
+$C_q^{\nu/q}=2p^{-\nu}(p/2\nu)^{\nu/2}=2(2p\nu)^{-\nu/2}=B$. Equality holds iff the neuron is balanced (all $\nu$
+Fourier magnitudes equal at each frequency it uses) and, for $q>2$, single-frequency; at $q=2$ the
+superadditivity step is an identity, so a neuron may carry several frequencies at no extra cost.
+
+\paragraph{Power model} $z_i(a,c)=w_i(c)\big(\sum_je_{ij}(a_j)\big)^n$, $\nu=n+1$. Expand the power into monomials
+$\prod_je_{ij}(a_j)^{m_j}$, $\sum_jm_j=n$. A monomial with some $m_j=0$ has no Fourier content in slot $j$, and
+one with some $m_j\ge2$ has some other $m_{j'}=0$; so only the multilinear monomial, with coefficient $n!$,
+reaches any mode with all $\nu$ entries non-zero. Hence $G_{ik}=n!\prod_j\hat e_{ij}(k)\overline{\hat w_i(k)}$,
+Assumption~\ref{ass:sign} holds with the same $v_{ijk}$, and Assumption~\ref{ass:budget} holds with
+$C_q^{\nu/q}=n!\,B$. Theorems~\ref{thm:universal} and~\ref{thm:ceiling} apply; Proposition~\ref{prop:block} does
+not, because the block's squared terms are interference at modes with a zero slot, so the block is not
+interference-free (Appendix~\ref{app:conjecture}).
+
+\paragraph{ReLU model} $z_i(a,c)=w_i(c)\,\sigma(\sum_je_{ij}(a_j))$, $\sigma=\mathrm{ReLU}$, $\nu=2$. With
+$h_i=\sigma(\sum_je_{ij}(a_j))$ the atom is $G_{ik}=\hat h_i(k,\dots,k)\overline{\hat w_i(k)}$ (diagonal multi-index).
+Cauchy--Schwarz over $k$, Parseval for the diagonal coefficients, and $\mathrm{Var}(h_i)\le\mathrm{Var}(\sum_je_{ij})$
+because $\sigma$ is $1$-Lipschitz give $\sum_{k\in\Fp}|G_{ik}|\le\tfrac p4\|\theta_i\|^2$, i.e.\
+Assumption~\ref{ass:budget} at $q=\nu=2$. So Theorem~\ref{thm:universal} and the flat maximiser of
+Corollary~\ref{cor:dense} apply: plain weight decay on this degree-$2$ model \emph{is} the $q=\nu$ endpoint.
+Assumption~\ref{ass:sign} is not claimed for ReLU and the bound is not known to be attained, so density of
+the max-margin ReLU network is a statement about the bound's maximiser, not a theorem about the network.
+
+\paragraph{Where the assumptions fail.} A model with a shared linear layer in front of the neurons does not
+decompose into neurons paying their own cost: the pre-layer is priced by a nuclear norm that rewards carrying
+many frequencies in one neuron, and Assumption~\ref{ass:budget} does not hold per neuron. Such models are
+outside this section.
+
+\section{The global conjecture, and what is known}
+\label{app:conjecture}
+
+\begin{conjecture}
+For odd prime $p$, $n\ge1$ and $q\in[2,\nu]$, the largest normalised margin over \emph{all} product networks equals
+the interference-free value of Theorem~\ref{thm:ceiling}: no interference-carrying network beats it.
+\end{conjecture}
+
+\emph{Known.} True at $p=3$ for every $n$. True in the window $\nu-4/(3(p-1))\le q\le\nu$ for every $p$, and
+for $q\ge5/2$ at $p=5$. True on the class of single-frequency neurons at $n=2$, $q=2$ for every support whose
+certified aiming depth is at least $0.3476$, which includes the $\Kstar$ supports at $p\in\{59,71,97,113,127\}$.
+The interference-free optimum is a strict local maximum of $\gam$, and no ascent from any start at $p\le23$
+has exceeded it. \emph{Also known:} an interference-carrying \emph{local} maximum exists at $p=5$, $n=2$,
+$q=2$ at $0.837$ of the class value, so no local-to-global argument can prove the conjecture; and the group
+analogue is \emph{false} on $\mathbb{Z}_{12}$, $D_3$ and $S_4$, where structured interference beats the
+interference-free ceiling by factors $1.06$--$1.62$ (\S\ref{sec:groups}). Any proof must be genuinely global
+and specific to prime modulus.
+
+\emph{Attainment for the power model.} Theorems~\ref{thm:universal} and~\ref{thm:ceiling} hold; no
+interference-free population of power neurons is known to attain the class bound. The smallest known
+interference-free population at $n=2$ uses $6$ neurons and reaches $0.408$ of the universal bound, against
+the product model's $3^{-1/2}=0.577$. With tied embeddings ($e_{i1}=e_{i2}$) no interference-free population
+exists.
+
+\emph{$q$ outside $[2,\nu]$.} For $q>\nu$ the ratio is unbounded at unbounded width. For $q<2$ the
+superadditivity step of Assumption~\ref{ass:budget} fails for the product model (one neuron carrying every
+frequency violates it by $|\Fp|^{1-q/2}$); the available bound is the $q=2$ programme with a rescaled budget,
+not attained, so nothing about the count is claimed there.

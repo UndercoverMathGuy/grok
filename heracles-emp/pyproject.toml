@@ -1,0 +1,21 @@
+[project]
+name = "heracles-emp"
+version = "0.1.0"
+description = "Isolated empirical package: sparse Fourier features under weight decay on modular addition (product / power networks)."
+requires-python = "==3.12.*"
+dependencies = [
+    "torch==2.13.0",
+    "numpy==2.5.1",
+    "scipy==1.18.0",
+    "pandas",
+    "pytest",
+    "matplotlib",
+]
+
+[tool.uv]
+# Not a distributable package: `uv run` only syncs the pinned dependencies into heracles-emp/.venv.
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

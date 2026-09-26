@@ -1,0 +1,34 @@
+{
+ "task": 48,
+ "item_id": "T4-roots-of-unity-phases",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN (sharpened). The identity is known: it is Mohlenkamp-Monzon 2005 Thm 2 with equally spaced alpha, and equivalently a symmetric real Waring decomposition of Re((x+iy)^nu). Its norm-optimality at nu=3 in the r=1 (nuclear-norm, b=nu) case is known from Friedland-Lim 2018, Lemma 6.1. That nu terms are necessary is known for symmetric decompositions: real rank = nu for a binary form with nu distinct real roots. What stays new: the l_r (r<1) cost lemma for general nu with its equality characterisation (exactly nu equal-modulus terms, orthogonal chain vectors, i.e. roots of unity), for general rank-one neurons, and its use to certify the interference-free margin optimum.",
+ "issues": "(1) The checker missed two pieces of mathematical prior art.\n  (a) Friedland & Lim, Math. Comp. 2018, Lemma 6.1, eq. (31). Their symmetric real nuclear decomposition of B=(1/2)Im((e1+ie2)^{(x)3}) uses three equal-weight vectors at 30/150/270 degrees. This is exactly the nu=3 equally-spaced block, and it is proved norm-minimal (||B||_{*,R}=2). The paper's cost Sum|beta_l|^r is the l_r quasi-nuclear norm of Re(w^{(x)nu}), so this is the r=1, nu=3 case of the paper's equality claim.\n  (b) Real Waring rank of binary forms with all real roots. Comon-Ottaviani 2012 Prop 3.1 (completed by Causa-Re 2011), and Reznick 2013 Cor 4.11: real length = d. Their example 2x^3-6xy^2 = 2Re((x+iy)^3) has real rank 3. The block equals Re((x+iy)^nu) = (2^{nu-1}/nu) Sum_l (-1)^l (x cos(pi l/nu) - y sin(pi l/nu))^nu (verified numerically for nu=2..7), so the minimal count nu is classical in the symmetric setting.\n(2) All four confirmed citations check out on re-reading. Mohlenkamp-Monzon: Thm 2, and Fig 1 uses alpha=0, pi/3, 2pi/3 'amplitude equidistributed'. Gromov: eqs 12-15, random uniform phases, approximate. Morwani: App F.2, 8 neurons, sign pairs. Li: Lemma E.3, 2^{2k-1} = 2^{2nu-3} neurons.\n(3) The recommended text's '8 / 2^{2nu-3} vs nu' contrast is not like-for-like. Morwani and Li build quadratic and power networks, whose sign pairs also cancel squared and zero-slot monomials, and the paper's own appendix says the product block does not give an attaining power network. Say that these counts are for quadratic/power networks, and that in the product network the plain product-to-sum expansion needs 2^{nu-1}.\n(4) cyclic.tex l.58, 'the phases are a rotated copy of the nu-th roots of unity', is imprecise. e^{i pi l/nu} are 2nu-th roots of unity; it is the doubled phases e^{2 i alpha_l} (the xi ratios of the appendix remark) that are the nu-th roots of unity.",
+ "extra_citations": [
+  {
+   "key": "friedland2018nuclear",
+   "bibtex": "@article{friedland2018nuclear,\n  title={Nuclear norm of higher-order tensors},\n  author={Friedland, Shmuel and Lim, Lek-Heng},\n  journal={Mathematics of Computation},\n  volume={87},\n  number={311},\n  pages={1255--1281},\n  year={2018},\n  doi={10.1090/mcom/3239}\n}",
+   "url": "https://arxiv.org/abs/1410.6072",
+   "why": "Lemma 6.1, eq. (31) (arXiv v3). The equally spaced 3-term decomposition of (1/2)Im((e1+ie2)^{(x)3}) is a symmetric nuclear decomposition over R, with ||B||_{*,R}=2. This is the nu=3, b=nu case of the claim that the roots-of-unity block is norm-optimal. Cite next to 'nu neurons per feature are also norm-optimal', and state that the r<1 equality case for general nu is new."
+  },
+  {
+   "key": "reznick2013length",
+   "bibtex": "@incollection{reznick2013length,\n  title={On the length of binary forms},\n  author={Reznick, Bruce},\n  booktitle={Quadratic and Higher Degree Forms},\n  series={Developments in Mathematics},\n  pages={207--232},\n  publisher={Springer},\n  year={2013},\n  doi={10.1007/978-1-4614-7488-3_8}\n}",
+   "url": "https://arxiv.org/abs/1007.5485",
+   "why": "Cor. 4.11: a real binary form that is a product of d real linear forms has real length (real Waring rank) exactly d. Re((x+iy)^nu) is such a form, and the nu-block is a symmetric nu-term decomposition of it, so 'nu terms are needed' is classical for symmetric decompositions. Thm 5.5/Cor 5.6 give roots-of-unity decompositions of the same kind."
+  },
+  {
+   "key": "comon2012typical",
+   "bibtex": "@article{comon2012typical,\n  title={On the typical rank of real binary forms},\n  author={Comon, Pierre and Ottaviani, Giorgio},\n  journal={Linear and Multilinear Algebra},\n  volume={60},\n  number={6},\n  pages={657--667},\n  year={2012},\n  doi={10.1080/03081087.2011.624097}\n}",
+   "url": "https://arxiv.org/abs/0909.4865",
+   "why": "Prop. 3.1: a real binary form of degree d with d distinct real roots has real rank d. Its Section 2 example shows 2Re((x+iy)^3) with complex rank 2 and real rank 3. Alternative to Reznick for the symmetric minimal-count fact; pair it with Causa-Re 2011, which completes the argument."
+  },
+  {
+   "key": "causa2011maximum",
+   "bibtex": "@article{causa2011maximum,\n  title={On the maximum rank of a real binary form},\n  author={Causa, Antonio and Re, Riccardo},\n  journal={Annali di Matematica Pura ed Applicata},\n  volume={190},\n  number={1},\n  pages={55--59},\n  year={2011},\n  doi={10.1007/s10231-010-0137-2}\n}",
+   "url": "https://arxiv.org/abs/1006.5127",
+   "why": "The abstract says the result 'allows to complete their [Comon-Ottaviani] argument to show that f has symmetric rank n if and only if it has n distinct real roots'. Needed only if comon2012typical is cited."
+  }
+ ]
+}

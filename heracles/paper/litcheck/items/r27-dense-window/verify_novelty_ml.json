@@ -1,0 +1,16 @@
+{
+ "task": 29,
+ "item_id": "R27-dense-window",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "NOVEL_AS_FAR_AS_FOUND",
+ "issues": "No missed prior art found. Searches: arxiv.org abstract search via WebFetch (dense/sparse frequencies, margin, number of frequencies, weight decay, homogeneous max-margin). Nothing gives a norm-exponent dense window. Newest related: Pracher et al. 2609.26679 (lr*wd product, no count window); Jacobs-Montufar 2605.19458 (mirror-map sparse/dense, no dimension threshold); Kam et al. 2609.17926 (uniform optimal under l2 budget, no threshold). McCracken 2505.18266 re-verified: title, authors and date correct, and the quotes are accurate ('transition from learning floor(n/2) types of neurons to much fewer types'; 'we don't know why it occurs'). Nits: (1) keep the existing bib key mccracken2025 and fix its fields; the recommended new key mccracken2025universal would orphan the existing \\cite calls. (2) arXiv spells 'Letourneau' with no accent. The constant mismatch is real: the theorem floor 4^{-1/(s-1)}/(9 ln p) gives 18 ln p, while the text uses the proof-internal floor with L=ceil(8 ln p). Numerics rerun and match at p=7/11/13. Search tooling was degraded: WebSearch budget exhausted (200/200 for the session), arXiv API throttled (empty responses), Semantic Scholar 429. The ML search was therefore thinner than intended, and this is a likely cause of verify-stage slowness across parallel agents.",
+ "extra_citations": [
+  {
+   "key": "mccracken2025",
+   "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2505.18266",
+   "why": "Corrected fields under the EXISTING key used in the paper (the current refs.bib entry has the wrong title and author). This is the empirical dense-to-sparse transition the dense-window sentence should cite as context."
+  }
+ ]
+}

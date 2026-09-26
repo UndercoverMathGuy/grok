@@ -1,0 +1,863 @@
+% refs.bib -- rebuilt 2026-09-26 from the pre-litcheck refs.bib (4 unchanged entries kept)
+% plus litcheck/refs_additions.bib (7 replacements + 68 verified additions). Old file: archive_pre_litfix_20260926/refs.bib
+
+@inproceedings{nanda2023progress,
+  title={Progress measures for grokking via mechanistic interpretability},
+  author={Nanda, Neel and Chan, Lawrence and Lieberum, Tom and Smith, Jess and Steinhardt, Jacob},
+  booktitle={International Conference on Learning Representations (ICLR)},
+  year={2023},
+  note={arXiv:2301.05217}
+}
+
+
+@inproceedings{lyu2020gradient,
+  title={Gradient descent maximizes the margin of homogeneous neural networks},
+  author={Lyu, Kaifeng and Li, Jian},
+  booktitle={International Conference on Learning Representations (ICLR)},
+  year={2020}
+}
+
+
+@article{gromov2023grokking,
+  title={Grokking modular arithmetic},
+  author={Gromov, Andrey},
+  journal={arXiv preprint arXiv:2301.02679},
+  year={2023}
+}
+
+
+@article{power2022grokking,
+  title={Grokking: generalization beyond overfitting on small algorithmic datasets},
+  author={Power, Alethea and Burda, Yuri and Edwards, Harri and Babuschkin, Igor and Misra, Vedant},
+  journal={arXiv preprint arXiv:2201.02177},
+  year={2022}
+}
+
+
+% refs_additions.bib -- literature-check synthesis (2026-09-26)
+% This file holds ONLY entries that a checker or verifier recorded as fetched,
+% or that the synthesis fetched itself on 2026-09-26 (marked [synth]).
+% It is deduplicated against iclr2027/refs.bib: new keys never collide with
+% existing keys, except in the REPLACES block below.
+% Every entry has a url or doi field.
+% AUDIT 2026-09-26: all 75 entries were re-fetched (Crossref API for every DOI;
+% arXiv abs pages; PMLR, NeurIPS, JMLR, ToC, dml.cz, transformer-circuits, DLMF,
+% Stanford and Berkeley pages; the TMLR accepted-papers list; Open Library for the
+% Schmidt and Schilling ISBNs). Title, authors, year and venue match for all 75.
+% Changes: ye2018structured upgraded to the FoCM 2018 journal version;
+% olah2020zoom gained volume/number; fan2023euclidean gained the OpenReview url.
+% No entry was deleted. See the "Audit log" in LITCHECK.md.
+% Theorem and section locators belong in \citep[...] arguments. See LITCHECK.md
+% section (d) for where each key is used.
+
+% =====================================================================
+% REPLACEMENTS FOR EXISTING refs.bib ENTRIES
+% Delete the old entry and paste the new one under the same key.
+% =====================================================================
+
+% REPLACES existing key mccracken2025.
+% The old title ("Emergence of sparse and dense circuits in modular arithmetic
+% networks") and author ("McCracken, Andrew and others") are wrong.
+% [synth] Crossref 10.52202/085713-1476 and arXiv 2505.18266 checked.
+@inproceedings{mccracken2025,
+  title     = {Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},
+  author    = {McCracken, Gavin and Moisescu-Pareja, Gabriela and L{\'e}tourneau, Vincent and Precup, Doina and Love, Jonathan},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {38},
+  pages     = {49512--49573},
+  year      = {2025},
+  doi       = {10.52202/085713-1476},
+  url       = {https://openreview.net/forum?id=zuHs6RHQwT},
+  note      = {arXiv:2505.18266}
+}
+
+% REPLACES existing key li2025nsum. Adds the PMLR volume and pages; same paper.
+@inproceedings{li2025nsum,
+  title     = {Fourier Circuits in Neural Networks and Transformers: A Case Study of Modular Arithmetic with Multiple Inputs},
+  author    = {Li, Chenyang and Liang, Yingyu and Shi, Zhenmei and Song, Zhao and Zhou, Tianyi},
+  booktitle = {Proceedings of The 28th International Conference on Artificial Intelligence and Statistics},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {258},
+  pages     = {523--531},
+  year      = {2025},
+  url       = {https://proceedings.mlr.press/v258/li25b.html},
+  note      = {arXiv:2402.09469}
+}
+
+% REPLACES existing key chughtai2023toy. Adds the PMLR volume and pages.
+@inproceedings{chughtai2023toy,
+  title     = {A Toy Model of Universality: Reverse Engineering how Networks Learn Group Operations},
+  author    = {Chughtai, Bilal and Chan, Lawrence and Nanda, Neel},
+  booktitle = {Proceedings of the 40th International Conference on Machine Learning},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {202},
+  pages     = {6243--6267},
+  year      = {2023},
+  url       = {https://proceedings.mlr.press/v202/chughtai23a.html},
+  note      = {arXiv:2302.03025}
+}
+
+% REPLACES existing key wei2019regularization. Adds the volume and a url.
+% Cite the multi-class result as [Thm.~4.1; Thm.~C.1].
+@inproceedings{wei2019regularization,
+  title     = {Regularization Matters: Generalization and Optimization of Neural Nets v.s.\ their Induced Kernel},
+  author    = {Wei, Colin and Lee, Jason D. and Liu, Qiang and Ma, Tengyu},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {32},
+  year      = {2019},
+  url       = {https://proceedings.neurips.cc/paper/2019/hash/8744cf92c88433f8cb04a02e6db69a0d-Abstract.html},
+  note      = {arXiv:1810.05369}
+}
+
+% REPLACES existing key alon1994random. Adds the DOI (Crossref-confirmed).
+@article{alon1994random,
+  title   = {Random {C}ayley graphs and expanders},
+  author  = {Alon, Noga and Roichman, Yuval},
+  journal = {Random Structures \& Algorithms},
+  volume  = {5},
+  number  = {2},
+  pages   = {271--284},
+  year    = {1994},
+  doi     = {10.1002/rsa.3240050203}
+}
+
+% REPLACES existing key hoeffding1963probability. Adds the DOI (Crossref-confirmed).
+@article{hoeffding1963probability,
+  title   = {Probability inequalities for sums of bounded random variables},
+  author  = {Hoeffding, Wassily},
+  journal = {Journal of the American Statistical Association},
+  volume  = {58},
+  number  = {301},
+  pages   = {13--30},
+  year    = {1963},
+  doi     = {10.1080/01621459.1963.10500830}
+}
+
+% REPLACES existing key morwani2024feature. Optional: adds a url only; the
+% existing fields are correct (ICLR 2024 spotlight).
+@inproceedings{morwani2024feature,
+  title     = {Feature emergence via margin maximization: case studies in algebraic tasks},
+  author    = {Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2311.07568},
+  note      = {arXiv:2311.07568}
+}
+
+% =====================================================================
+% NEW ENTRIES: ML
+% =====================================================================
+
+@inproceedings{gunasekar2018implicit,
+  title     = {Implicit Bias of Gradient Descent on Linear Convolutional Networks},
+  author    = {Gunasekar, Suriya and Lee, Jason D. and Soudry, Daniel and Srebro, Nathan},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {31},
+  year      = {2018},
+  url       = {https://proceedings.neurips.cc/paper/2018/hash/0e98aeeb54acf612b9eb4e48a269814c-Abstract.html},
+  note      = {arXiv:1806.00468}
+}
+
+@inproceedings{dai2021representation,
+  title     = {Representation Costs of Linear Neural Networks: Analysis and Design},
+  author    = {Dai, Zhen and Karzand, Mina and Srebro, Nathan},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {34},
+  pages     = {26884--26896},
+  year      = {2021},
+  url       = {https://proceedings.neurips.cc/paper/2021/hash/e22cb9d6bbb4c290a94e4fff4d68a831-Abstract.html}
+}
+
+@article{hoff2017lasso,
+  title   = {Lasso, fractional norm and structured sparse estimation using a {H}adamard product parametrization},
+  author  = {Hoff, Peter D.},
+  journal = {Computational Statistics \& Data Analysis},
+  volume  = {115},
+  pages   = {186--198},
+  year    = {2017},
+  doi     = {10.1016/j.csda.2017.06.007}
+}
+
+@misc{tibshirani2021equivalences,
+  title        = {Equivalences Between Sparse Models and Neural Networks},
+  author       = {Tibshirani, Ryan J.},
+  year         = {2021},
+  howpublished = {Working notes, April 15, 2021},
+  url          = {https://www.stat.berkeley.edu/~ryantibs/papers/sparsitynn.pdf}
+}
+
+@inproceedings{kolb2025deep,
+  title     = {Deep Weight Factorization: Sparse Learning Through the Lens of Artificial Symmetries},
+  author    = {Kolb, Chris and Weber, Tobias and Bischl, Bernd and R{\"u}gamer, David},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2502.02496},
+  note      = {arXiv:2502.02496}
+}
+
+@inproceedings{grandvalet1998least,
+  title     = {Least Absolute Shrinkage is Equivalent to Quadratic Penalization},
+  author    = {Grandvalet, Yves},
+  booktitle = {ICANN 98: Proceedings of the 8th International Conference on Artificial Neural Networks},
+  series    = {Perspectives in Neural Computing},
+  pages     = {201--206},
+  publisher = {Springer},
+  year      = {1998},
+  doi       = {10.1007/978-1-4471-1599-1_27}
+}
+
+% Concurrent work: posted 15 Sep 2026, under review at NeurReps 2026.
+@article{kam2026symmetry,
+  title   = {Symmetry without a manifold: intrinsic dimension on orbits},
+  author  = {Kam, Chon-Fai and Bessafi, Miloud and Cadet, Fr{\'e}d{\'e}ric},
+  journal = {arXiv preprint arXiv:2609.17926},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2609.17926}
+}
+
+% [synth] The arXiv comment reads "NeurIPS 2025 camera ready".
+@inproceedings{tian2025composing,
+  title     = {Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets},
+  author    = {Tian, Yuandong},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2410.01779},
+  note      = {arXiv:2410.01779}
+}
+
+@inproceedings{kunin2025alternating,
+  title     = {Alternating Gradient Flows: A Theory of Feature Learning in Two-layer Neural Networks},
+  author    = {Kunin, Daniel and Marchetti, Giovanni Luca and Chen, Feng and Karkada, Dhruva and Simon, James B. and DeWeese, Michael R. and Ganguli, Surya and Miolane, Nina},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2506.06489},
+  note      = {arXiv:2506.06489}
+}
+
+@article{he2026mechanism,
+  title   = {On the Mechanism and Dynamics of Modular Addition: {F}ourier Features, Lottery Ticket, and Grokking},
+  author  = {He, Jianliang and Wang, Leda and Chen, Siyu and Yang, Zhuoran},
+  journal = {arXiv preprint arXiv:2602.16849},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2602.16849}
+}
+
+@article{he2026spectral,
+  title   = {Neural Networks Provably Learn Spectral Representations for Group Composition},
+  author  = {He, Jianliang and Wang, Leda and Zhang, Fengzhuo and Chen, Siyu and Yang, Zhuoran},
+  journal = {arXiv preprint arXiv:2606.02993},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2606.02993}
+}
+
+@inproceedings{marchetti2026sequential,
+  title     = {Sequential Group Composition: A Window into the Mechanics of Deep Learning},
+  author    = {Marchetti, Giovanni Luca and Kunin, Daniel and Myers, Adele and Acosta, Francisco and Miolane, Nina},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2602.03655},
+  note      = {arXiv:2602.03655}
+}
+
+% The PDF running header reads "ICLR 2024 Workshop BGPT" (re-checked in the audit);
+% OpenReview lists it only as CoRR.
+@article{doshi2024grokking,
+  title   = {Grokking Modular Polynomials},
+  author  = {Doshi, Darshil and He, Tianyu and Das, Aritra and Gromov, Andrey},
+  journal = {arXiv preprint arXiv:2406.03495},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2406.03495},
+  note    = {ICLR 2024 Workshop on Bridging the Gap Between Practice and Theory in Deep Learning}
+}
+
+@inproceedings{zhong2023clock,
+  title     = {The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks},
+  author    = {Zhong, Ziqian and Liu, Ziming and Tegmark, Max and Andreas, Jacob},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2023},
+  url       = {https://arxiv.org/abs/2306.17844},
+  note      = {arXiv:2306.17844}
+}
+
+@inproceedings{liu2022towards,
+  title     = {Towards Understanding Grokking: An Effective Theory of Representation Learning},
+  author    = {Liu, Ziming and Kitouni, Ouail and Nolte, Niklas and Michaud, Eric J. and Tegmark, Max and Williams, Mike},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2022},
+  url       = {https://arxiv.org/abs/2205.10343},
+  note      = {arXiv:2205.10343}
+}
+
+% The exponent here is that of the mirror potential (optimizer geometry), not the
+% network's homogeneity degree.
+@article{jacobs2026mirror,
+  title   = {Implicit Bias of Mirror Flow in Homogeneous Neural Networks: Sparse and Dense Feature Learning},
+  author  = {Jacobs, Tom and Mont{\'u}far, Guido},
+  journal = {arXiv preprint arXiv:2605.19458},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2605.19458}
+}
+
+@inproceedings{lyu2024dichotomy,
+  title     = {Dichotomy of Early and Late Phase Implicit Biases Can Provably Induce Grokking},
+  author    = {Lyu, Kaifeng and Jin, Jikai and Li, Zhiyuan and Du, Simon S. and Lee, Jason D. and Hu, Wei},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2311.18817},
+  note      = {arXiv:2311.18817}
+}
+
+@inproceedings{vardi2022margin,
+  title     = {On Margin Maximization in Linear and {ReLU} Networks},
+  author    = {Vardi, Gal and Shamir, Ohad and Srebro, Nathan},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {35},
+  pages     = {37024--37036},
+  year      = {2022},
+  doi       = {10.52202/068431-2683},
+  url       = {https://arxiv.org/abs/2110.02732}
+}
+
+@inproceedings{ji2020directional,
+  title     = {Directional convergence and alignment in deep learning},
+  author    = {Ji, Ziwei and Telgarsky, Matus},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2020},
+  url       = {https://arxiv.org/abs/2006.06657},
+  note      = {arXiv:2006.06657}
+}
+
+@inproceedings{stander2024grokking,
+  title     = {Grokking Group Multiplication with Cosets},
+  author    = {Stander, Dashiell and Yu, Qinan and Fan, Honglu and Biderman, Stella},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {235},
+  pages     = {46441--46467},
+  year      = {2024},
+  url       = {https://proceedings.mlr.press/v235/stander24a.html},
+  note      = {arXiv:2312.06581}
+}
+
+@inproceedings{wu2025unified,
+  title     = {Towards a unified and verified understanding of group-operation networks},
+  author    = {Wu, Wilson and Jaburi, Louis and Drori, Jacob and Gross, Jason},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2410.07476},
+  note      = {arXiv:2410.07476}
+}
+
+@article{shutman2025words,
+  title   = {Learning words in groups: fusion algebras, tensor ranks and grokking},
+  author  = {Shutman, Maor and Louidor, Oren and Tessler, Ran},
+  journal = {arXiv preprint arXiv:2509.06931},
+  year    = {2025},
+  url     = {https://arxiv.org/abs/2509.06931}
+}
+
+@article{elhage2022superposition,
+  title   = {Toy Models of Superposition},
+  author  = {Elhage, Nelson and Hume, Tristan and Olsson, Catherine and Schiefer, Nicholas and Henighan, Tom and Kravec, Shauna and Hatfield-Dodds, Zac and Lasenby, Robert and Drain, Dawn and Chen, Carol and Grosse, Roger and McCandlish, Sam and Kaplan, Jared and Amodei, Dario and Wattenberg, Martin and Olah, Christopher},
+  journal = {Transformer Circuits Thread},
+  year    = {2022},
+  url     = {https://transformer-circuits.pub/2022/toy_model/index.html}
+}
+
+% Published version (TMLR 2025, Survey Certification). [audit] Title, 29-author
+% order and certification confirmed on the TMLR accepted-papers list
+% (jmlr.org/tmlr/papers, "September 2025"); arXiv 2501.16496 has the same 29 authors.
+@article{sharkey2025open,
+  title   = {Open Problems in Mechanistic Interpretability},
+  author  = {Sharkey, Lee and Chughtai, Bilal and Batson, Joshua and Lindsey, Jack and Wu, Jeffrey and Bushnaq, Lucius and Goldowsky-Dill, Nicholas and Heimersheim, Stefan and Ortega, Alejandro and Bloom, Joseph Isaac and Biderman, Stella and Garriga-Alonso, Adri{\`a} and Conmy, Arthur and Nanda, Neel and Rumbelow, Jessica Mary and Wattenberg, Martin and Schoots, Nandi and Miller, Joseph and Saunders, William and Michaud, Eric J. and Casper, Stephen and Tegmark, Max and Bau, David and Todd, Eric and Geiger, Atticus and Geva, Mor and Hoogland, Jesse and Murfet, Daniel and McGrath, Thomas},
+  journal = {Transactions on Machine Learning Research},
+  issn    = {2835-8856},
+  year    = {2025},
+  url     = {https://openreview.net/forum?id=91H76m9Z94},
+  note    = {Survey Certification}
+}
+
+@article{olah2020zoom,
+  title   = {Zoom In: An Introduction to Circuits},
+  author  = {Olah, Chris and Cammarata, Nick and Schubert, Ludwig and Goh, Gabriel and Petrov, Michael and Carter, Shan},
+  journal = {Distill},
+  volume  = {5},
+  number  = {3},
+  year    = {2020},
+  doi     = {10.23915/distill.00024.001}
+}
+
+@article{elhage2021mathematical,
+  title   = {A Mathematical Framework for Transformer Circuits},
+  author  = {Elhage, Nelson and Nanda, Neel and Olsson, Catherine and Henighan, Tom and Joseph, Nicholas and Mann, Ben and Askell, Amanda and Bai, Yuntao and Chen, Anna and Conerly, Tom and others},
+  journal = {Transformer Circuits Thread},
+  year    = {2021},
+  url     = {https://transformer-circuits.pub/2021/framework/index.html}
+}
+
+@inproceedings{srebro2004mmmf,
+  title     = {Maximum-Margin Matrix Factorization},
+  author    = {Srebro, Nathan and Rennie, Jason and Jaakkola, Tommi S.},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {17},
+  year      = {2004},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2004/hash/e0688d13958a19e087e123148555e4b4-Abstract.html}
+}
+
+@article{parkinson2025linear,
+  title   = {{ReLU} Neural Networks with Linear Layers Are Biased towards Single- and Multi-index Models},
+  author  = {Parkinson, Suzanna and Ongie, Greg and Willett, Rebecca},
+  journal = {SIAM Journal on Mathematics of Data Science},
+  volume  = {7},
+  number  = {3},
+  pages   = {1021--1052},
+  year    = {2025},
+  doi     = {10.1137/24M1672158}
+}
+
+@inproceedings{neyshabur2015norm,
+  title     = {Norm-Based Capacity Control in Neural Networks},
+  author    = {Neyshabur, Behnam and Tomioka, Ryota and Srebro, Nathan},
+  booktitle = {Proceedings of The 28th Conference on Learning Theory},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {40},
+  pages     = {1376--1401},
+  year      = {2015},
+  url       = {https://proceedings.mlr.press/v40/Neyshabur15.html}
+}
+
+@article{guyon2002gene,
+  title   = {Gene Selection for Cancer Classification using Support Vector Machines},
+  author  = {Guyon, Isabelle and Weston, Jason and Barnhill, Stephen and Vapnik, Vladimir},
+  journal = {Machine Learning},
+  volume  = {46},
+  number  = {1--3},
+  pages   = {389--422},
+  year    = {2002},
+  doi     = {10.1023/A:1012487302797}
+}
+
+% [synth] Title, author and date confirmed on the arXiv abs page (14 Sep 2026).
+% The content of Sec. 4.3 (open problem MAIS-O5) comes from a sweep only; read it
+% before citing for that.
+@article{levine2026math,
+  title   = {Math for {AI} safety: an invitation for mathematicians},
+  author  = {Levine, Lionel},
+  journal = {arXiv preprint arXiv:2609.15289},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2609.15289}
+}
+
+@article{rosset2004boosting,
+  title   = {Boosting as a Regularized Path to a Maximum Margin Classifier},
+  author  = {Rosset, Saharon and Zhu, Ji and Hastie, Trevor},
+  journal = {Journal of Machine Learning Research},
+  volume  = {5},
+  pages   = {941--973},
+  year    = {2004},
+  url     = {https://www.jmlr.org/papers/volume5/rosset04a/rosset04a.pdf}
+}
+
+% =====================================================================
+% NEW ENTRIES: MATHEMATICS
+% =====================================================================
+
+% FMT is a fixed-degree statement; do not call its constant absolute or uniform in K.
+@article{friedman2006spectral,
+  title   = {Spectral estimates for {A}belian {C}ayley graphs},
+  author  = {Friedman, Joel and Murty, Ram and Tillich, Jean-Pierre},
+  journal = {Journal of Combinatorial Theory, Series B},
+  volume  = {96},
+  number  = {1},
+  pages   = {111--121},
+  year    = {2006},
+  doi     = {10.1016/j.jctb.2005.06.012}
+}
+
+@article{cioaba2006closed,
+  title   = {Closed walks and eigenvalues of {A}belian {C}ayley graphs},
+  author  = {Cioab{\u{a}}, Sebastian M.},
+  journal = {Comptes Rendus Math{\'e}matique. Acad{\'e}mie des Sciences. Paris},
+  volume  = {342},
+  pages   = {635--638},
+  year    = {2006},
+  doi     = {10.1016/j.crma.2006.03.005}
+}
+
+% [synth] Title, authors and date confirmed on the arXiv abs page.
+% Cited for Thm 4.6 and Prop 4.5 (the verifier read these).
+@article{wang2025positive,
+  title   = {An estimate for positive definite functions on finite abelian groups and its applications},
+  author  = {Wang, Lixia and Ye, Ke},
+  journal = {arXiv preprint arXiv:2503.06908},
+  year    = {2025},
+  url     = {https://arxiv.org/abs/2503.06908}
+}
+
+% Simultaneous Dirichlet approximation. Thm 1B, p. 27, per a secondary source
+% (unverified); cite without a number.
+@book{schmidt1980diophantine,
+  title     = {Diophantine Approximation},
+  author    = {Schmidt, Wolfgang M.},
+  series    = {Lecture Notes in Mathematics},
+  volume    = {785},
+  publisher = {Springer},
+  address   = {Berlin, Heidelberg},
+  year      = {1980},
+  doi       = {10.1007/978-3-540-38645-2}
+}
+
+% Minkowski's linear-forms theorem (weighted Dirichlet). Theorem number unverified.
+@book{cassels1959introduction,
+  title     = {An Introduction to the Geometry of Numbers},
+  author    = {Cassels, J. W. S.},
+  publisher = {Springer},
+  address   = {Berlin, Heidelberg},
+  year      = {1959},
+  doi       = {10.1007/978-3-642-62035-5}
+}
+
+% Cite ONLY for "local minimizers are vertices" and for NP-hardness. The converse
+% ("vertices are exactly the local minimizers") fails for the inequality-form P_p.
+@article{ge2011note,
+  title   = {A note on the complexity of {$L_p$} minimization},
+  author  = {Ge, Dongdong and Jiang, Xiaoye and Ye, Yinyu},
+  journal = {Mathematical Programming},
+  volume  = {129},
+  number  = {2},
+  pages   = {285--299},
+  year    = {2011},
+  doi     = {10.1007/s10107-011-0470-2}
+}
+
+@article{hirsch1961extreme,
+  title   = {Extreme varieties, concave functions, and the fixed charge problem},
+  author  = {Hirsch, Warren M. and Hoffman, Alan J.},
+  journal = {Communications on Pure and Applied Mathematics},
+  volume  = {14},
+  number  = {3},
+  pages   = {355--369},
+  year    = {1961},
+  doi     = {10.1002/cpa.3160140313}
+}
+
+% Cite as [Sec.~32]; the corollary number was not read.
+@book{rockafellar1970convex,
+  title     = {Convex Analysis},
+  author    = {Rockafellar, R. Tyrrell},
+  series    = {Princeton Mathematical Series},
+  publisher = {Princeton University Press},
+  year      = {1970},
+  doi       = {10.1515/9781400873173}
+}
+
+@article{jameson2006counting,
+  title   = {Counting zeros of generalised polynomials: {D}escartes' rule of signs and {L}aguerre's extensions},
+  author  = {Jameson, G. J. O.},
+  journal = {The Mathematical Gazette},
+  volume  = {90},
+  number  = {518},
+  pages   = {223--234},
+  year    = {2006},
+  doi     = {10.1017/S0025557200179628}
+}
+
+% Cite as [Part V]; the problem number is unverified.
+@book{polya1998problems,
+  title     = {Problems and Theorems in Analysis {II}: Theory of Functions. Zeros. Polynomials. Determinants. Number Theory. Geometry},
+  author    = {P{\'o}lya, George and Szeg{\H{o}}, Gabor},
+  series    = {Classics in Mathematics},
+  publisher = {Springer},
+  address   = {Berlin, Heidelberg},
+  year      = {1998},
+  doi       = {10.1007/978-3-642-61905-2}
+}
+
+@article{fung2011equivalence,
+  title   = {Equivalence of Minimal {$\ell_0$}- and {$\ell_p$}-Norm Solutions of Linear Equalities, Inequalities and Linear Programs for Sufficiently Small $p$},
+  author  = {Fung, Glenn M. and Mangasarian, Olvi L.},
+  journal = {Journal of Optimization Theory and Applications},
+  volume  = {151},
+  number  = {1},
+  pages   = {1--10},
+  year    = {2011},
+  doi     = {10.1007/s10957-011-9871-x}
+}
+
+% Crossref gives 1951 (a placeholder) and pp. 27--36; the volume is usually cited as 1950.
+@incollection{shapley1950basic,
+  title     = {Basic Solutions of Discrete Games},
+  author    = {Shapley, L. S. and Snow, R. N.},
+  booktitle = {Contributions to the Theory of Games, Volume {I}},
+  editor    = {Kuhn, H. W. and Tucker, A. W.},
+  series    = {Annals of Mathematics Studies},
+  number    = {24},
+  publisher = {Princeton University Press},
+  pages     = {27--36},
+  year      = {1950},
+  doi       = {10.1515/9781400881727-004}
+}
+
+% Cor 1.10: nuclear norm of <p,q,r> = pqr (schoolbook). Cor 1.12: ||T_G||_* = sqrt|G| sum d^{5/2}.
+@article{derksen2016nuclear,
+  title   = {On the Nuclear Norm and the Singular Value Decomposition of Tensors},
+  author  = {Derksen, Harm},
+  journal = {Foundations of Computational Mathematics},
+  volume  = {16},
+  number  = {3},
+  pages   = {779--811},
+  year    = {2016},
+  doi     = {10.1007/s10208-015-9264-x}
+}
+
+@article{christandl2019surgery,
+  title   = {Tensor surgery and tensor rank},
+  author  = {Christandl, Matthias and Zuiddam, Jeroen},
+  journal = {Computational Complexity},
+  volume  = {28},
+  pages   = {27--56},
+  year    = {2019},
+  doi     = {10.1007/s00037-018-0164-8}
+}
+
+% [audit] TMLR January 2023 confirmed on the TMLR accepted-papers list (OpenReview Grhi800jVz).
+@article{fan2023euclidean,
+  title   = {Euclidean-Norm-Induced {S}chatten-p Quasi-Norm Regularization for Low-Rank Tensor Completion and Tensor Robust Principal Component Analysis},
+  author  = {Fan, Jicong and Ding, Lijun and Yang, Chengrun and Zhang, Zhao and Udell, Madeleine},
+  journal = {Transactions on Machine Learning Research},
+  issn    = {2835-8856},
+  year    = {2023},
+  url     = {https://openreview.net/forum?id=Grhi800jVz},
+  note    = {arXiv:2012.03436}
+}
+
+@article{strassen1969,
+  title   = {Gaussian elimination is not optimal},
+  author  = {Strassen, Volker},
+  journal = {Numerische Mathematik},
+  volume  = {13},
+  number  = {4},
+  pages   = {354--356},
+  year    = {1969},
+  doi     = {10.1007/BF02165411}
+}
+
+@article{blaser2013,
+  title   = {Fast Matrix Multiplication},
+  author  = {Bl{\"a}ser, Markus},
+  journal = {Theory of Computing Library, Graduate Surveys},
+  number  = {5},
+  pages   = {1--60},
+  year    = {2013},
+  doi     = {10.4086/toc.gs.2013.005}
+}
+
+% [audit] Published version, Crossref 10.1007/s10208-016-9332-x (online 2016-09-26,
+% print Feb 2018). The verifier's "Sec. 3.2" pointer was read on arXiv 1601.00292.
+@article{ye2018structured,
+  title   = {Fast Structured Matrix Computations: Tensor Rank and {C}ohn--{U}mans Method},
+  author  = {Ye, Ke and Lim, Lek-Heng},
+  journal = {Foundations of Computational Mathematics},
+  volume  = {18},
+  number  = {1},
+  pages   = {45--95},
+  year    = {2018},
+  doi     = {10.1007/s10208-016-9332-x},
+  url     = {https://arxiv.org/abs/1601.00292},
+  note    = {arXiv:1601.00292}
+}
+
+@article{mohlenkamp2005trig,
+  title   = {Trigonometric identities and sums of separable functions},
+  author  = {Mohlenkamp, Martin J. and Monz{\'o}n, Lucas},
+  journal = {The Mathematical Intelligencer},
+  volume  = {27},
+  number  = {2},
+  pages   = {65--69},
+  year    = {2005},
+  doi     = {10.1007/BF02985795}
+}
+
+@article{comon2012typical,
+  title   = {On the typical rank of real binary forms},
+  author  = {Comon, Pierre and Ottaviani, Giorgio},
+  journal = {Linear and Multilinear Algebra},
+  volume  = {60},
+  number  = {6},
+  pages   = {657--667},
+  year    = {2012},
+  doi     = {10.1080/03081087.2011.624097}
+}
+
+% [synth] Crossref 10.1090/mcom/3239 checked (Crossref lists online year 2017; volume 87 is 2018).
+@article{friedland2018nuclear,
+  title   = {Nuclear norm of higher-order tensors},
+  author  = {Friedland, Shmuel and Lim, Lek-Heng},
+  journal = {Mathematics of Computation},
+  volume  = {87},
+  number  = {311},
+  pages   = {1255--1281},
+  year    = {2018},
+  doi     = {10.1090/mcom/3239}
+}
+
+% Eq. (1), due to Rotfel'd: concave subadditivity of singular values.
+@article{thompson1976convex,
+  title   = {Convex and concave functions of singular values of matrix sums},
+  author  = {Thompson, Robert C.},
+  journal = {Pacific Journal of Mathematics},
+  volume  = {66},
+  number  = {1},
+  pages   = {285--290},
+  year    = {1976},
+  doi     = {10.2140/pjm.1976.66.285}
+}
+
+@article{seiler1975inequality,
+  title   = {An inequality among determinants},
+  author  = {Seiler, E. and Simon, B.},
+  journal = {Proceedings of the National Academy of Sciences of the USA},
+  volume  = {72},
+  number  = {9},
+  pages   = {3277--3278},
+  year    = {1975},
+  doi     = {10.1073/pnas.72.9.3277}
+}
+
+@article{weyl1949,
+  title   = {Inequalities between the Two Kinds of Eigenvalues of a Linear Transformation},
+  author  = {Weyl, Hermann},
+  journal = {Proceedings of the National Academy of Sciences of the USA},
+  volume  = {35},
+  number  = {7},
+  pages   = {408--411},
+  year    = {1949},
+  doi     = {10.1073/pnas.35.7.408}
+}
+
+@article{rajan2015stochastic,
+  title   = {Stochastic Ordering of Fading Channels Through the {S}hannon Transform},
+  author  = {Rajan, Adithya and Tepedelenlioglu, Cihan},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {61},
+  number  = {4},
+  pages   = {1619--1628},
+  year    = {2015},
+  doi     = {10.1109/TIT.2015.2400432}
+}
+
+% Ch. 8, "Thorin--Bernstein functions".
+@book{schilling2012bernstein,
+  title     = {Bernstein Functions: Theory and Applications},
+  author    = {Schilling, Ren{\'e} L. and Song, Renming and Vondra{\v{c}}ek, Zoran},
+  edition   = {2},
+  series    = {De Gruyter Studies in Mathematics},
+  volume    = {37},
+  publisher = {De Gruyter},
+  year      = {2012},
+  doi       = {10.1515/9783110269338}
+}
+
+% Second edition. The DOI 10.1017/CBO9780511810817 proposed by one checker is the
+% 1985 first edition; do not use it. Cite by chapter only.
+@book{horn2012matrix,
+  title     = {Matrix Analysis},
+  author    = {Horn, Roger A. and Johnson, Charles R.},
+  edition   = {2},
+  publisher = {Cambridge University Press},
+  year      = {2012},
+  doi       = {10.1017/CBO9781139020411}
+}
+
+% Official DLMF citation form (dlmf.nist.gov/help/cite).
+@misc{dlmf,
+  key          = {DLMF},
+  year         = {2026},
+  title        = {{NIST} Digital Library of Mathematical Functions},
+  howpublished = {\url{https://dlmf.nist.gov/}, Release 1.2.8 of 2026-09-15},
+  url          = {https://dlmf.nist.gov/},
+  note         = {F.~W.~J. Olver, A.~B. {Olde Daalhuis}, D.~W. Lozier, B.~I. Schneider, R.~F. Boisvert, C.~W. Clark, B.~R. Miller, B.~V. Saunders, H.~S. Cohl, and M.~A. McClain, eds.}
+}
+
+@article{rankin1955closest,
+  title   = {The closest packing of spherical caps in n dimensions},
+  author  = {Rankin, R. A.},
+  journal = {Proceedings of the Glasgow Mathematical Association},
+  volume  = {2},
+  number  = {3},
+  pages   = {139--144},
+  year    = {1955},
+  doi     = {10.1017/S2040618500033219}
+}
+
+% [synth] Crossref DOI checked.
+@article{slepian1968group,
+  title   = {Group Codes for the {G}aussian Channel},
+  author  = {Slepian, David},
+  journal = {Bell System Technical Journal},
+  volume  = {47},
+  number  = {4},
+  pages   = {575--602},
+  year    = {1968},
+  doi     = {10.1002/j.1538-7305.1968.tb02486.x}
+}
+
+@article{fiedler1973algebraic,
+  title   = {Algebraic connectivity of graphs},
+  author  = {Fiedler, Miroslav},
+  journal = {Czechoslovak Mathematical Journal},
+  volume  = {23},
+  number  = {2},
+  pages   = {298--305},
+  year    = {1973},
+  url     = {https://dml.cz/handle/10338.dmlcz/101168}
+}
+
+@article{sun2006fastest,
+  title   = {The Fastest Mixing {M}arkov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem},
+  author  = {Sun, Jun and Boyd, Stephen and Xiao, Lin and Diaconis, Persi},
+  journal = {SIAM Review},
+  volume  = {48},
+  number  = {4},
+  pages   = {681--699},
+  year    = {2006},
+  doi     = {10.1137/S0036144504443821}
+}
+
+@inproceedings{boyd2006convex,
+  title     = {Convex Optimization of Graph {L}aplacian Eigenvalues},
+  author    = {Boyd, Stephen},
+  booktitle = {Proceedings of the International Congress of Mathematicians},
+  volume    = {3},
+  pages     = {1311--1319},
+  year      = {2006},
+  url       = {https://web.stanford.edu/~boyd/papers/cvx_opt_graph_lapl_eigs.html}
+}
+
+% Pages 6605--6611 per Crossref; one checker had 6605--6610.
+@inproceedings{ghosh2006growing,
+  title     = {Growing Well-connected Graphs},
+  author    = {Ghosh, Arpita and Boyd, Stephen},
+  booktitle = {Proceedings of the 45th IEEE Conference on Decision and Control},
+  pages     = {6605--6611},
+  year      = {2006},
+  doi       = {10.1109/CDC.2006.377282}
+}
+
+@article{tadej2006concise,
+  title   = {A concise guide to complex {H}adamard matrices},
+  author  = {Tadej, Wojciech and {\.Z}yczkowski, Karol},
+  journal = {Open Systems \& Information Dynamics},
+  volume  = {13},
+  pages   = {133--177},
+  year    = {2006},
+  url     = {https://arxiv.org/abs/quant-ph/0512154}
+}
+
+@book{odonnell2014analysis,
+  title     = {Analysis of Boolean Functions},
+  author    = {O'Donnell, Ryan},
+  publisher = {Cambridge University Press},
+  year      = {2014},
+  url       = {https://arxiv.org/abs/2105.10386}
+}

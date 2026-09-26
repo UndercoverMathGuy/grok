@@ -1,0 +1,22 @@
+{
+ "id": "F9-scope-gd",
+ "verdict": "SUPPORTED",
+ "evidence": "The claim is at approach.tex line 3. It cites Wei et al. 2019 Thm 4.1 for \"regularized global minimizers tend to max margin\" and states that GD is out of scope. refs.bib has lyu2020gradient, but grep shows it is never cited.\n\nLyu & Li, ICLR 2020 (arXiv 1906.05890). I read the PDF text.\n- Thm 4.1 (Cor. of A.7): under gradient flow, a smoothed normalized margin is non-decreasing.\n- Thm 4.4 (Cor. of A.8/E.3): for gradient flow, or GD under (S1),(A2)-(A4),(S5), \"any limit point of theta(t)/||theta(t)||_2 is along the direction of a KKT point of (P): min 1/2||theta||^2 s.t. q_n(theta)>=1\".\n- App. G extends this to multi-class cross-entropy with the logit-difference margin.\n- Sec. 4.3 says directly: \"it is easy to construct examples that gradient descent does not lead to a normalized margin that is globally optimal. Thus, proving the convergence to KKT points is perhaps the best we can hope for\".\n- Caveat: this is the plain L2 norm (b=2 only). For b != 2, GD targets KKT points of the L2 problem, not of the L_{2,b} problem.\n\nJi & Telgarsky, NeurIPS 2020 (arXiv 2006.06657). I read the PDF. Thm 3.1: under Assumptions 2.1 and 2.3 (homogeneous, definable network), for exp/logistic loss, W_t/||W_t|| converges. The result covers binary classification and gradient flow only.\n\nVardi, Shamir & Srebro (arXiv 2110.02732). The abstract says \"in many cases, the KKT point is not even a local optimum of the max margin problem\". This backs the decision not to claim that GD finds global max-margin solutions. The venue is unconfirmed: the proceedings page returned 404, the arXiv page has no journal-ref, and Semantic Scholar was rate-limited.\n\nSearch note: the WebSearch budget was exhausted, so I used direct fetches only. Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/f9-scope-gd/CHECK.md.",
+ "recommended_citations": [
+  {
+   "key": "lyu2020gradient",
+   "bibtex": "@inproceedings{lyu2020gradient,\n  title={Gradient Descent Maximizes the Margin of Homogeneous Neural Networks},\n  author={Lyu, Kaifeng and Li, Jian},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2020}\n}",
+   "url": "https://arxiv.org/abs/1906.05890",
+   "confirmed": true,
+   "why": "Supports the sentence that GF/GD on (multi-class, App. G) cross-entropy converges in direction to KKT points of the L2 max-margin problem (Thm 4.4). Sec 4.3 says these need not be globally optimal. The entry is already in refs.bib but is uncited. It is exact only for b=2."
+  },
+  {
+   "key": "ji2020directional",
+   "bibtex": "@inproceedings{ji2020directional,\n  title={Directional convergence and alignment in deep learning},\n  author={Ji, Ziwei and Telgarsky, Matus},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2020}\n}",
+   "url": "https://arxiv.org/abs/2006.06657",
+   "confirmed": true,
+   "why": "Thm 3.1: gradient-flow iterates of homogeneous definable nets converge in direction under exp/logistic loss, so the margin distribution converges. This supports 'GD converges in direction'. The result is binary and gradient-flow only."
+  }
+ ],
+ "recommended_change": "In approach.tex line 3, replace the final sentence with: \"Gradient flow and descent on cross-entropy converge in direction to KKT points of the $L_2$ maximum-margin problem \\citep{lyu2020gradient,ji2020directional}, which need not be global maximizers; nothing here concerns whether gradient descent finds them.\" Add ji2020directional to refs.bib. If you want to add Vardi-Shamir-Srebro (\"KKT point is not even a local optimum\"), cite the arXiv 2110.02732 version: its venue is still unconfirmed."
+}

@@ -1,0 +1,9 @@
+{
+  "task": 86,
+  "item_id": "C12-morwani-constant",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "SUPPORTED",
+  "issues": "None substantive; the checker's verdict holds.\n\nWhat I confirmed directly:\n- I curled the arXiv v2 HTML and grepped it. Morwani et al. Theorem 7 (Sec. 4) covers prime p>2, width m>=4(p-1) and the neuron (u_a+v_b)^2 w. It states verbatim: maximum L_{2,3}-margin gamma* = sqrt(2/27)*1/(p^{1/2}(p-1)).\n- The same theorem gives single-frequency neurons with phase condition theta_u+theta_v=theta_w, and every frequency 1..(p-1)/2 used.\n- The arXiv abs page confirms the bib fields; its comment reads \"Accepted as Spotlight at ICLR 2024\". The OpenReview page was bot-blocked.\n\nIndependent check of the constant:\n- 2B_p p/(p-1) = 4(6p)^{-3/2} p/(p-1) = sqrt(2/27)/(p^{1/2}(p-1)).\n- Rederived from Morwani App. F eq. (8): one frequency at |u^|=|v^|=|w^|=sqrt(p/6).\n- Agrees to 2e-16 at p=3, 5, 7, 113, 1009.\n\nThe C_3=2B_p argument is valid:\n- The upper bound C_3<=2B_p comes from the power neuron via Thm universal.\n- The lower bound comes from Morwani's attainment at some width. C_3 is width-free, so one width is enough.\n\nSmall precision suggestions:\n- (a) Add [Theorem~7] and 'attained at width m>=4(p-1)' in cor:dense and app:dense.\n- (b) At approach.tex:11, eta_{u,v,w}(delta) is defined in Morwani Appendix F.1, not the main text, so a pinpoint [Appendix~F.1] would help.\n- The Section 3 (class-weighted margin; it is Sec. 3.2) and Section 4 (phase condition) pinpoints are accurate.\n\nOperational: WebSearch reported the session budget exhausted (200/200), so later verifier tasks cannot search.",
+  "extra_citations": []
+}

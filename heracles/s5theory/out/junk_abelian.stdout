@@ -1,0 +1,16 @@
+Z(7,) nu 3: (H)-ceiling 2.85747e-03 on ['f1', 'f2', 'f3']; ascent gamma/ceiling best 1.00000 (seeds 0.9782, 1.0000, 0.9780, 1.0000); G1/ceiling 1.732
+Z(7,) nu 4: (H)-ceiling 7.49561e-05 on ['f2', 'f3']; ascent gamma/ceiling best 0.99885 (seeds 0.9989, 0.9986, 0.9983, 0.9987); G1/ceiling 4.000
+Z(9,) nu 3: (H)-ceiling 1.68003e-03 on ['f1', 'f2', 'f4']; ascent gamma/ceiling best 1.00000 (seeds 0.9951, 1.0000, 1.0000, 1.0000); G1/ceiling 1.732
+Z(9,) nu 4: (H)-ceiling 3.92986e-05 on ['f3', 'f4']; ascent gamma/ceiling best 0.99751 (seeds 0.8790, 0.9973, 0.9975, 0.6447); G1/ceiling 4.000
+Z(3, 3) nu 3: (H)-ceiling 1.68003e-03 on ['f1+0', 'f1+1', 'f1+2']; ascent gamma/ceiling best 1.00000 (seeds 1.0000, 1.0000, 1.0000, 1.0000); G1/ceiling 1.732
+Z(3, 3) nu 4: (H)-ceiling 3.61690e-05 on ['f1+1', 'f1+2']; ascent gamma/ceiling best 1.00000 (seeds 1.0000, 1.0000, 1.0000, 1.0000); G1/ceiling 4.000
+Z(6,) nu 3: (H)-ceiling 5.13109e-03 on ['f1', 'sgn3']; ascent gamma/ceiling best 0.99798 (seeds 0.9979, 0.8906, 0.8908, 0.9980); G1/ceiling 1.473
+Z(6,) nu 4: (H)-ceiling 2.08333e-04 on ['f1', 'sgn3']; ascent gamma/ceiling best 0.99674 (seeds 0.9967, 0.9139, 0.8710, 0.9960); G1/ceiling 2.778
+Z(8,) nu 3: (H)-ceiling 2.45523e-03 on ['f1', 'f3']; ascent gamma/ceiling best 1.00000 (seeds 0.9692, 0.9986, 0.9767, 1.0000); G1/ceiling 1.732
+Z(8,) nu 4: (H)-ceiling 8.33448e-05 on ['f3', 'sgn4']; ascent gamma/ceiling best 0.99581 (seeds 0.9958, 0.7574, 0.9955, 0.8420); G1/ceiling 2.929
+Z(10,) nu 3: (H)-ceiling 1.72783e-03 on ['f1', 'f3', 'sgn5']; ascent gamma/ceiling best 0.91890 (seeds 0.8751, 0.8516, 0.9189, 0.8744); G1/ceiling 1.575
+Z(10,) nu 4: (H)-ceiling 3.89825e-05 on ['f3', 'sgn5']; ascent gamma/ceiling best 0.92848 (seeds 0.9285, 0.8338, 0.9281, 0.8298); G1/ceiling 3.207
+Z(12,) nu 3: (H)-ceiling 1.09121e-03 on ['f1', 'f3', 'f5']; ascent gamma/ceiling best 0.94458 (seeds 0.9265, 0.9036, 0.9446, 0.9357); G1/ceiling 1.732
+Z(12,) nu 4: (H)-ceiling 2.16284e-05 on ['f3', 'f5', 'sgn6']; ascent gamma/ceiling best 1.06364 (seeds 1.0445, 0.8258, 0.8402, 1.0636); G1/ceiling 3.763
+Z(2, 4) nu 3: (H)-ceiling 3.15147e-03 on ['sgn1+0', 'f1+1', 'sgn1+2']; ascent gamma/ceiling best 0.99480 (seeds 0.8659, 0.9617, 0.9608, 0.9948); G1/ceiling 1.349
+Z(2, 4) nu 4: (H)-ceiling 1.08507e-04 on ['sgn1+0', 'f1+1', 'sgn1+2']; ascent gamma/ceiling best 0.94123 (seeds 0.9245, 0.9412, 0.8632, 0.9138); G1/ceiling 2.250

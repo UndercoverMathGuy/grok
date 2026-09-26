@@ -1,0 +1,34 @@
+{
+  "task": 46,
+  "item_id": "T3-determinant-gram",
+  "lens": "novelty_math",
+  "upheld": false,
+  "corrected_verdict": "KNOWN, in technique as well as result. Step 1 (|det(I+tH)| <= prod(1+t|d_l|), and the coefficientwise e_k(x) >= C(nu,k)) is the Seiler-Simon 1975 determinant inequality (Thms 1, 1'', 2'), iterated over the rank-one summands. Step 2 (integrate the log of a generating-function comparison to reach power sums) is Weyl's own 1949 proof device (kernel log max(1,lambda z), eqs. 8-10); the paper's kernel log(1+xt) is the Thorin-Bernstein kernel, and Remark 'other penalties' describes exactly the Thorin-Bernstein functions. The inequality also follows from Weyl majorant + Rotfel'd-Thompson, as the checker said. What the paper actually works out is the equality characterization: nu equal-modulus terms with orthonormal chain vectors, i.e. rows of a dephased complex Hadamard matrix. The checker's verdict stands, but its Horn-Johnson bib entry carries the wrong DOI.",
+  "issues": "(1) The confirmed citation hornjohnson2012 has a wrong DOI. 10.1017/CBO9780511810817 is the 1985 1st edition: the cambridge.org page the checker cited shows print year 1985, and Crossref lists edition 1. The 2nd edition (2012) is 10.1017/CBO9781139020411 (Crossref edition 2, 2012-10-22). Also, 'Sylvester's identity' in Horn-Johnson usually names the bordered-minor identity, so the paper should write det(I+AB)=det(I+BA) explicitly; section numbers are unverified. (2) bhatia1997: metadata confirmed via Crossref, but the checker's confirming URL was Amazon, and the locators Thm II.3.6 and Ch. V are unverified. Do not print them unchecked. (3) Missed prior art for the technique itself: Seiler & Simon, PNAS 72(9):3277-3278 (1975), is exactly Step 1 and uses the same coefficient-domination proof. Weyl 1949 pp. 409-411 is exactly Step 2 (generating-function comparison g(z) <= f(z), then phi = int log max(1,lambda z) d psi). Weyl also remarks that prod(1+lambda_i^s z) is majorized coefficientwise. (4) The 'generating-function-to-power-sum transfer' that the checker said had no named precedent has one: Weyl's device, plus the Thorin-Bernstein class (Schilling-Song-Vondracek 2012, Ch. 8, 'Thorin-Bernstein functions', pp. 109-116 per Crossref; chapter text not fetched). (5) thompson1976 and weyl1949 are confirmed from primary sources (Thompson PDF text; Weyl page images). The Bernstein constant r sin(pi r)/pi was checked numerically.",
+  "extra_citations": [
+    {
+      "key": "seiler1975inequality",
+      "bibtex": "@article{seiler1975inequality,\n  author = {Seiler, E. and Simon, B.},\n  title = {An inequality among determinants},\n  journal = {Proceedings of the National Academy of Sciences of the USA},\n  volume = {72},\n  number = {9},\n  pages = {3277--3278},\n  year = {1975},\n  doi = {10.1073/pnas.72.9.3277}\n}",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC432972/",
+      "why": "Thm 1'' gives |det(1+A+B)| <= det(1+|A|)det(1+|B|), and Thm 2' is the coefficientwise version |d_m(A+B)| <= sum_k d_k(|A|)d_{m-k}(|B|). Iterated over the rank-one summands t d_l u_l u_l^*, these are exactly Step 1 of app:cost: eq. (cost-generating) and e_k(x) >= C(nu,k). Their proof also compares polynomial coefficients. Cite at Step 1."
+    },
+    {
+      "key": "hornjohnson2012",
+      "bibtex": "@book{hornjohnson2012,\n  author = {Horn, Roger A. and Johnson, Charles R.},\n  title = {Matrix Analysis},\n  edition = {2},\n  publisher = {Cambridge University Press},\n  year = {2012},\n  doi = {10.1017/CBO9781139020411}\n}",
+      "url": "https://www.cambridge.org/highereducation/product/9781139020411/book",
+      "why": "Corrected entry: the 2nd-edition DOI, verified on cambridge.org and Crossref. Use it for det(I+AB)=det(I+BA), the principal-minor expansion, and Hadamard's inequality. The checker's DOI points to the 1985 1st edition."
+    },
+    {
+      "key": "schilling2012bernstein",
+      "bibtex": "@book{schilling2012bernstein,\n  author = {Schilling, Ren{\\'e} L. and Song, Renming and Vondra{\\v{c}}ek, Zoran},\n  title = {Bernstein Functions: Theory and Applications},\n  edition = {2},\n  publisher = {De Gruyter},\n  year = {2012},\n  doi = {10.1515/9783110269338}\n}",
+      "url": "https://api.crossref.org/works/10.1515/9783110269338",
+      "why": "Ch. 8, 'Thorin-Bernstein functions' (pp. 109-116, per Crossref chapter records), is the class a + bx + int log(1+x/t) sigma(dt). That is exactly the class in Remark 'other penalties' and the kernel of Lemma bernstein. Metadata and chapter title are verified; the theorem number inside the chapter is not. Series and volume (De Gruyter Studies in Mathematics 37) are not verified, so they are omitted."
+    },
+    {
+      "key": "tadej2006hadamard",
+      "bibtex": "@article{tadej2006hadamard,\n  author = {Tadej, Wojciech and {\\.Z}yczkowski, Karol},\n  title = {A concise guide to complex {H}adamard matrices},\n  journal = {Open Systems \\& Information Dynamics},\n  volume = {13},\n  pages = {133--177},\n  year = {2006},\n  eprint = {quant-ph/0512154},\n  archivePrefix = {arXiv}\n}",
+      "url": "https://arxiv.org/abs/quant-ph/0512154",
+      "why": "Optional. The equality case of Lemma cost (nu pairwise-orthogonal unimodular chain vectors in C^nu) says the m_l are the rows of a dephased complex Hadamard matrix; the nu-block is the Fourier matrix. One clause in Remark 'orthogonality as roots of unity' would name the object."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+ "task": 68,
+ "item_id": "F4-margin-peaks",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_SUPPORTED",
+ "issues": "The checker's verdict and both confirmed citations survive.\n\nmorwani2024feature: exists, ICLR 2024 Spotlight per arXiv comments. Theorem 7 gives gamma* = sqrt(2/27)/(p^{1/2}(p-1)), which matches Cor. dense. Figs 1(c), 5 and 6(a) show margin approaching the maximum over TRAINING TIME; there is no plot against feature count, so 'peaks at the predicted optimum ... matching Morwani' is not something Morwani shows. Only the dense-endpoint value matches. For groups, the paper would also need to reproduce Theorem 9 (gamma* = 2/(3 sqrt(3|G|))/sum d^{2.5}, all non-trivial irreps present), and groups.tex does not do this yet.\n\nchughtai2023toy: PMLR 202:6243-6267, confirmed. The existing refs.bib entry lacks volume and pages; use the recommended bib. All table rows the checker quoted are exact:\n- S5 MLP: {sign,std-sign,std,5d-a}, {sign,std}, {sign,std,5d-b}, {sign,std}.\n- A5 MLP: always includes std; the Galois pair alone in 0/4.\n- A5 transformer: the pair alone in 2/4; one seed is {standard} only, and seed 3 is unconverged (test loss 0.195).\n- C113: MLP 13/11/15/10 frequencies, transformer 3/4/4/3.\n- The Fig 7 and Sec 6 standard-vs-standard_sign quotes are verbatim.\n\nThe checker missed one point: the S5 transformer rows are 4/4 'sign + one 4d faithful irrep', which is the strongest support and should be stated.\n\nPrior art the checker missed: Stander et al. (ICML 2024). On 128 S5 seeds they find every model has sign-circuit neurons, and they attribute irrep concentration to coset circuits rather than realized matrix representations. Since the paper counts features as irreps, cite this next to Chughtai.\n\nInternal: experiments.tex is still TODO and groups.tex a skeleton, so the empirical 'peaks' claim has no support in the paper yet.",
+ "extra_citations": [
+  {
+   "key": "stander2024grokking",
+   "bibtex": "@inproceedings{stander2024grokking,\n  title={Grokking Group Multiplication with Cosets},\n  author={Stander, Dashiell and Yu, Qinan and Fan, Honglu and Biderman, Stella},\n  booktitle={Proceedings of the 41st International Conference on Machine Learning},\n  series={Proceedings of Machine Learning Research},\n  volume={235},\n  pages={46441--46467},\n  year={2024}\n}",
+   "url": "https://proceedings.mlr.press/v235/stander24a.html",
+   "why": "A second empirical source for S5 feature counts: 128 S5 seeds, and every model has sign-circuit neurons. It is also the known challenge to Chughtai's irrep mechanism: they say irrep concentration comes from coset circuits. The paper counts features as irreps and says they are 'consistent with Chughtai', so a reviewer will expect this to be addressed."
+  }
+ ]
+}

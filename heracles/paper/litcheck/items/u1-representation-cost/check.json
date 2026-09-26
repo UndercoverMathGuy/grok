@@ -1,0 +1,43 @@
+{
+ "id": "U1-representation-cost",
+ "verdict": "CITATION_FOUND",
+ "evidence": "The sentence in question is approach.tex line 45: \"The exponent comes from homogeneity ... AM--GM, so amplitude A costs a multiple of A^{b/nu}\". It currently has no citation.\n\nClosest match is Tibshirani, \"Equivalences Between Sparse Models and Neural Networks\" (note dated 15 Apr 2021). I read the full PDF text at https://www.stat.berkeley.edu/~ryantibs/papers/sparsitynn.pdf.\n- Sec 2.2 (Multi-layer case), eqs (8)->(9): min_{prod a_l=c} sum a_l^2 = k|c|^{2/k}, with the minimum at |a_l|=|c|^{1/k}. The note says \"we can interpret this as saying that the AM-GM inequality ... is tight when a_1=...=a_k\".\n- So a k-layer net with weight decay equals l_p-penalised regression with p=2/k<1, which is \"nonconvex\" and gives sparse solutions, \"even more so for greater depth\".\n- Sec 3.2 gives the group-lasso l_{2/k} version.\n- This is exactly our statement for b=2. Ours is the one-line generalisation to an L_{2,b} cost, which gives A^{b/nu}.\n\nOther sources, each confirmed on a fetched page:\n- Hoff, arXiv 1611.00040. Abstract: \"a subclass of L_q penalties with q<=1 can be expressed as sums of L_2 penalties\".\n- Dai, Karzand, Srebro, NeurIPS 2021 (proceedings page). The representation cost that l2 on parameters induces, including which l_p and group norms arise.\n- Gunasekar, Lee, Soudry, Srebro, NeurIPS 2018 (papers.nips.cc). Gradient descent on depth-L linear conv nets converges to a predictor related to the \"l_{2/L} bridge penalty in the frequency domain\". This is a Fourier-sparsity parallel, but it is implicit bias, not weight decay.\n- Kolb et al., ICLR 2025 (arXiv 2502.02496). L2 on factors is equivalent to nonconvex sparse regularisation.\n- Ongie-Parhi, arXiv 2606.14954. Weight-decay cost of deep ReLU nets is a quasi-norm with a nonconvex ball for L>2.\n\nRejected as off-point:\n- Woodworth et al. 2020 (arXiv 2002.09277): kernel vs rich regimes and init scale; no weight-decay quasi-norm identity.\n- Jacobs-Montufar: better placed in related work.\n\nLimits: WebSearch budget was exhausted and Semantic Scholar returned 429. Tibshirani's venue is not shown in the PDF, so cite it as a technical note. Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/u1-representation-cost/CHECK.md.",
+ "recommended_citations": [
+  {
+   "key": "tibshirani2021equivalences",
+   "bibtex": "@misc{tibshirani2021equivalences,\n  title={Equivalences Between Sparse Models and Neural Networks},\n  author={Tibshirani, Ryan J.},\n  year={2021},\n  note={Technical note, April 15, 2021},\n  howpublished={\\url{https://www.stat.berkeley.edu/~ryantibs/papers/sparsitynn.pdf}}\n}",
+   "url": "https://www.stat.berkeley.edu/~ryantibs/papers/sparsitynn.pdf",
+   "confirmed": true,
+   "why": "Supports the AM-GM exponent sentence. Sec 2.2, eqs (8)-(9): min over prod a_l=c of sum a_l^2 = k|c|^{2/k}, which is AM-GM tight at equal factors, so a k-factor ridge penalty becomes an l_{2/k} quasi-norm that induces sparsity. Sec 3.2 gives the group version. This is our statement at b=2. The venue is not shown in the PDF, so cite it as a technical note."
+  },
+  {
+   "key": "hoff2017lasso",
+   "bibtex": "@article{hoff2017lasso,\n  title={Lasso, fractional norm and structured sparse estimation using a {H}adamard product parametrization},\n  author={Hoff, Peter D.},\n  journal={arXiv preprint arXiv:1611.00040},\n  year={2017}\n}",
+   "url": "https://arxiv.org/abs/1611.00040",
+   "confirmed": true,
+   "why": "The abstract says a subclass of L_q penalties (q<=1) can be written as sums of L_2 penalties under a multiplicative (Hadamard) reparametrisation. This is the scalar version of our AM-GM step. The journal ref CSDA 115:186-198 (2017) comes from the sweep and was not shown on the fetched arXiv page."
+  },
+  {
+   "key": "dai2021representation",
+   "bibtex": "@inproceedings{dai2021representation,\n  title={Representation Costs of Linear Neural Networks: Analysis and Design},\n  author={Dai, Zhen and Karzand, Mina and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={34},\n  year={2021}\n}",
+   "url": "https://proceedings.neurips.cc/paper/2021/hash/e22cb9d6bbb4c290a94e4fff4d68a831-Abstract.html",
+   "confirmed": true,
+   "why": "The general framework: the representation cost in predictor space induced by l2 regularisation on parameters, including which l_p and group norms arise from a parameterisation. Our A^{b/nu} price is a representation cost in this sense."
+  },
+  {
+   "key": "gunasekar2018implicit",
+   "bibtex": "@inproceedings{gunasekar2018implicit,\n  title={Implicit Bias of Gradient Descent on Linear Convolutional Networks},\n  author={Gunasekar, Suriya and Lee, Jason and Soudry, Daniel and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={31},\n  year={2018}\n}",
+   "url": "https://papers.nips.cc/paper/2018/hash/0e98aeeb54acf612b9eb4e48a269814c-Abstract.html",
+   "confirmed": true,
+   "why": "Optional 'cf.' citation. Gradient descent on depth-L linear conv nets converges to a predictor related to the l_{2/L} bridge penalty in the frequency domain. This is the closest earlier instance of a 2/depth exponent producing sparsity over Fourier frequencies, but it is implicit bias, not explicit weight decay."
+  },
+  {
+   "key": "kolb2025deep",
+   "bibtex": "@inproceedings{kolb2025deep,\n  title={Deep Weight Factorization: Sparse Learning Through the Lens of Artificial Symmetries},\n  author={Kolb, Chris and Weber, Tobias and Bischl, Bernd and R{\\\"u}gamer, David},\n  booktitle={International Conference on Learning Representations},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2502.02496",
+   "confirmed": true,
+   "why": "Depth-D weight factorisation with L2 on the factors is provably equivalent to nonconvex sparse regularisation. This is the modern ML statement of the same mechanism. The ICLR 2025 venue is from the arXiv page."
+  }
+ ],
+ "recommended_change": "In approach.tex line 45, replace the last sentence with: \"The exponent comes from homogeneity: a feature is a product of $\\nu$ weight factors, and at fixed product their total $L_{2,b}$ cost is least when they are equal (AM--GM), so amplitude $A$ costs a multiple of $A^{b/\\nu}=A^{1/s}$. This is the familiar fact that weight decay on a product of factors acts as a nonconvex $\\ell_{q}$ quasi-norm with $q<1$ \\citep{hoff2017lasso,tibshirani2021equivalences,dai2021representation,kolb2025deep}, here with $q=b/\\nu$; the new ingredient is what this concave price does to the coverage programme.\" Optionally add \"cf. the $\\ell_{2/L}$ bridge penalty in the frequency domain for linear convolutional networks \\citep{gunasekar2018implicit}\". Do not present the AM-GM exponent as new."
+}

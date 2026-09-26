@@ -1,0 +1,22 @@
+{
+ "task": 34,
+ "item_id": "R31-groups",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN",
+ "issues": "TOOLING (why the verify stage is slow): WebSearch refused every call: 'session has used its web search budget (200 of 200 WebSearch calls)'. The budget is shared by the session, so every later verifier gets zero searches. The arXiv export API and the Semantic Scholar API returned HTTP 429, DuckDuckGo returned a CAPTCHA, and Bing returned irrelevant results. Only the arxiv.org/search HTML page and abs/pdf fetches worked. PDFs over 10 MB fail in WebFetch. MISSED PRIOR ART: (1) Ye & Lim arXiv 1601.00292, Sec 3.2. It defines sum|lambda_i| over unit-factor decompositions as a bilinear algorithm's numerical-stability measure and the nuclear norm as the optimal stability. It shows that the rank-optimal Gauss complex-multiplication algorithm (2(1+sqrt2)) loses to the usual algorithm (norm 4, Friedland-Lim Prop 6.1). This is the canonical 'rank-optimal != norm-optimal' statement, and N_r is its r<1 version. (2) Dumas-Pernet-Sedoglavic arXiv 2402.05630 minimise a norm growth factor along the orbit of Strassen's decomposition, the same technique as the paper's polished-Strassen-orbit numerics (10 > 8). (3) Morwani Thm 9 requires width m >= 2 sum d^3, so Morwani's own L_{2,3} construction already uses ~d^nu neurons per irrep at nu=3. The d^nu count has precedent beyond Marchetti. CITATION FIXES: Derksen's nuclear-norm formula for T_G is Cor 1.12 (Thm 1.11 gives the singular values). Shutman's experiments use 'AdamW optimizer without weight decay', not plain GD. The Cheng Thm 1 number, the Marchetti Lemma B.8 label (the (k+1)n_rho^{k+1} count is confirmed), Marchetti's ICML 2026 venue, and the Chughtai/Stander PMLR volume and pages were not independently verified (abs pages show no journal-ref). Everything else the checker confirmed checks out: Derksen Thm 1.9, Cor 1.10 and the Strassen remark verbatim; CZ eqs 7-8 with bipartite equality; Fan Def 3/Thm 1 in TMLR 01/2023; Shutman Prop 5.2; Morwani Thm 9; Wu ICLR 2025. NOVELTY: K2 is a three-line assembly (CZ max-cut flattening + McCarthy/Rotfel'd p-subadditivity), so present it as a lemma. An arXiv abstract search found no Schatten-p<1 computation for matmul, cycle or iterated-matmul tensors. The group-level count claims remain unfound, but search coverage was reduced.",
+ "extra_citations": [
+  {
+   "key": "ye2018structured",
+   "bibtex": "@article{ye2018structured,\n  title={Fast structured matrix computations: tensor rank and {Cohn}--{Umans} method},\n  author={Ye, Ke and Lim, Lek-Heng},\n  journal={arXiv preprint arXiv:1601.00292},\n  year={2016}\n}",
+   "url": "https://arxiv.org/abs/1601.00292",
+   "why": "Sec 3.2: the nuclear norm of a bilinear map's structure tensor is its optimal numerical stability (sum |lambda_i| over unit-factor decompositions). The rank-optimal Gauss algorithm loses to the usual algorithm under this measure. This is the r=1 precedent for 'Strassen costs more than schoolbook under the norm'; cite next to Derksen's remark. (Published version in Found. Comput. Math. not verified; arXiv bibtex given.)"
+  },
+  {
+   "key": "dumas2024strassen",
+   "bibtex": "@article{dumas2024strassen,\n  title={Strassen's algorithm is not optimally accurate},\n  author={Dumas, Jean-Guillaume and Pernet, Cl{\\'e}ment and Sedoglavic, Alexandre},\n  journal={arXiv preprint arXiv:2402.05630},\n  year={2024}\n}",
+   "url": "https://arxiv.org/abs/2402.05630",
+   "why": "Minimises a norm-based growth factor along the orbit of Strassen's 2x2 decomposition. This is a methodological precedent for the paper's polished-Strassen-orbit numerics (Strassen costs 10 > schoolbook 8 at q=2)."
+  }
+ ]
+}

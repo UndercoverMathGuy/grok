@@ -1,0 +1,224 @@
+{
+ "kernel": [
+  {
+   "n": 1,
+   "min_Re": 2.0282331369969597e-11,
+   "identity_err": 8.881784197001252e-16,
+   "value_at_one": 2.0
+  },
+  {
+   "n": 2,
+   "min_Re": 4.1207866325887466e-06,
+   "identity_err": 2.220446049250313e-15,
+   "value_at_one": 3.0
+  },
+  {
+   "n": 3,
+   "min_Re": 1.0299401425051258e-06,
+   "identity_err": 2.6645352591003757e-15,
+   "value_at_one": 4.0
+  },
+  {
+   "n": 4,
+   "min_Re": 1.573115218286847e-05,
+   "identity_err": 3.552713678800501e-15,
+   "value_at_one": 5.0
+  },
+  {
+   "n": 5,
+   "min_Re": 1.1512786394177188e-05,
+   "identity_err": 4.440892098500626e-15,
+   "value_at_one": 6.0
+  },
+  {
+   "n": 6,
+   "min_Re": 1.3513172584744826e-05,
+   "identity_err": 6.217248937900877e-15,
+   "value_at_one": 7.0
+  }
+ ],
+ "frame": [
+  {
+   "n": 1,
+   "nblocks": 1,
+   "N": 2,
+   "systems": 40,
+   "max_dev_from_AI": 2.8033131371785203e-14,
+   "max_weight_times_np1": 1.000000000000028
+  },
+  {
+   "n": 1,
+   "nblocks": 2,
+   "N": 4,
+   "systems": 40,
+   "max_dev_from_AI": 2.003706992131894e-15,
+   "max_weight_times_np1": 1.000000000000002
+  },
+  {
+   "n": 1,
+   "nblocks": 3,
+   "N": 6,
+   "systems": 40,
+   "max_dev_from_AI": 7.2377686124476805e-16,
+   "max_weight_times_np1": 1.0000000000000007
+  },
+  {
+   "n": 1,
+   "nblocks": 5,
+   "N": 10,
+   "systems": 40,
+   "max_dev_from_AI": 1.0329400704738531e-15,
+   "max_weight_times_np1": 1.0000000000000002
+  },
+  {
+   "n": 2,
+   "nblocks": 1,
+   "N": 3,
+   "systems": 40,
+   "max_dev_from_AI": 2.0007607452605179e-13,
+   "max_weight_times_np1": 1.0000000000002478
+  },
+  {
+   "n": 2,
+   "nblocks": 2,
+   "N": 6,
+   "systems": 40,
+   "max_dev_from_AI": 1.5565409952966686e-15,
+   "max_weight_times_np1": 1.0000000000000033
+  },
+  {
+   "n": 2,
+   "nblocks": 3,
+   "N": 9,
+   "systems": 40,
+   "max_dev_from_AI": 1.7772239894833365e-15,
+   "max_weight_times_np1": 1.0000000000000027
+  },
+  {
+   "n": 2,
+   "nblocks": 5,
+   "N": 15,
+   "systems": 40,
+   "max_dev_from_AI": 2.0738355726737314e-15,
+   "max_weight_times_np1": 1.0000000000000004
+  },
+  {
+   "n": 3,
+   "nblocks": 1,
+   "N": 4,
+   "systems": 40,
+   "max_dev_from_AI": 6.5855367430397815e-15,
+   "max_weight_times_np1": 1.0000000000000122
+  },
+  {
+   "n": 3,
+   "nblocks": 2,
+   "N": 8,
+   "systems": 40,
+   "max_dev_from_AI": 1.8214468292979822e-14,
+   "max_weight_times_np1": 1.0000000000000184
+  },
+  {
+   "n": 3,
+   "nblocks": 3,
+   "N": 12,
+   "systems": 40,
+   "max_dev_from_AI": 2.5280438934984104e-15,
+   "max_weight_times_np1": 1.0000000000000109
+  },
+  {
+   "n": 3,
+   "nblocks": 5,
+   "N": 20,
+   "systems": 40,
+   "max_dev_from_AI": 2.849816482246977e-15,
+   "max_weight_times_np1": 1.000000000000004
+  },
+  {
+   "n": 4,
+   "nblocks": 1,
+   "N": 5,
+   "systems": 40,
+   "max_dev_from_AI": 1.6525642683844704e-15,
+   "max_weight_times_np1": 1.0000000000000033
+  },
+  {
+   "n": 4,
+   "nblocks": 2,
+   "N": 10,
+   "systems": 40,
+   "max_dev_from_AI": 6.249553285086278e-13,
+   "max_weight_times_np1": 1.0000000000013904
+  },
+  {
+   "n": 4,
+   "nblocks": 3,
+   "N": 15,
+   "systems": 40,
+   "max_dev_from_AI": 9.526953764582863e-15,
+   "max_weight_times_np1": 1.0000000000000142
+  },
+  {
+   "n": 4,
+   "nblocks": 5,
+   "N": 25,
+   "systems": 40,
+   "max_dev_from_AI": 6.77311996383223e-15,
+   "max_weight_times_np1": 1.0000000000000127
+  },
+  {
+   "n": 5,
+   "nblocks": 1,
+   "N": 6,
+   "systems": 40,
+   "max_dev_from_AI": 4.082341588689023e-14,
+   "max_weight_times_np1": 1.0000000000000795
+  },
+  {
+   "n": 5,
+   "nblocks": 2,
+   "N": 12,
+   "systems": 40,
+   "max_dev_from_AI": 2.1336258172760745e-14,
+   "max_weight_times_np1": 1.000000000000045
+  },
+  {
+   "n": 5,
+   "nblocks": 3,
+   "N": 18,
+   "systems": 40,
+   "max_dev_from_AI": 1.2713139449905597e-13,
+   "max_weight_times_np1": 1.00000000000007
+  },
+  {
+   "n": 5,
+   "nblocks": 5,
+   "N": 30,
+   "systems": 40,
+   "max_dev_from_AI": 7.086544342030922e-14,
+   "max_weight_times_np1": 1.0000000000001346
+  }
+ ],
+ "lp": [
+  {
+   "n": 1,
+   "max_weight": 0.5000000000000001,
+   "bound": 0.5
+  },
+  {
+   "n": 2,
+   "max_weight": 0.33333333333333354,
+   "bound": 0.3333333333333333
+  },
+  {
+   "n": 3,
+   "max_weight": 0.2500000000000001,
+   "bound": 0.25
+  },
+  {
+   "n": 4,
+   "max_weight": 0.20000000000002036,
+   "bound": 0.2
+  }
+ ]
+}

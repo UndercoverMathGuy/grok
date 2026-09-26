@@ -1,0 +1,330 @@
+\textbf{Appendix organization.} Appendix~\ref{app:approach} proves the results of Section~\ref{sec:approach}, including the price of a feature (Lemma~\ref{lem:price}). Appendix~\ref{app:cyclic} proves the results of Section~\ref{sec:cyclic}: the cost of a feature (Lemma~\ref{lem:cost}), Theorem~\ref{thm:cyclic}, the $\nu$-block (Proposition~\ref{prop:block}), two facts about the programme (Lemmas~\ref{lem:vertex} and~\ref{lem:ablation}) and logarithmic scaling (Theorems~\ref{thm:scaling} and~\ref{thm:count}, Corollary~\ref{cor:few}). Appendix~\ref{app:models} computes the single-neuron budget and checks the sign rule for the product and power networks. Appendix~\ref{app:conjecture} states the conjecture that the interference-free value is the global maximum, and what is known about it.
+
+Throughout, for $v:\sZ_p\to\R$ we use $\hat v(j)=\sum_av(a)\rho^{-ja}$, so that $v(a)=p^{-1}\sum_j\hat v(j)\rho^{ja}$, $\sum_{j\in\sZ_p}|\hat v(j)|^2=p\|v\|_2^2$ (Parseval), $\hat v(-j)=\overline{\hat v(j)}$, and hence $\sum_{j\in\Fp}|\hat v(j)|^2\le\frac p2\|v\|_2^2$.
+
+\section{Proofs for Section~\ref{sec:approach}}\label{app:approach}
+
+\subsection{The spectrum of the averaged logit}\label{app:spectrum}
+
+Write the logit table through its multidimensional Fourier transform,
+$f(\theta,x)[c]=p^{-(n+1)}\sum_{k_1,\dots,k_n,l}\hat f_\theta(k_1,\dots,k_n;l)\,\rho^{k_1a_1+\dots+k_na_n+lc}$. Substituting $c=y(x)-\delta=a_1+\dots+a_n-\delta$ and averaging over $x$,
+\[
+\eta_\theta(\delta)=p^{-(n+1)}\sum_{k,l}\hat f_\theta(k;l)\,\rho^{-l\delta}\prod_{t=1}^n\E_{a_t}\big[\rho^{(k_t+l)a_t}\big].
+\]
+Each average is $1$ if $k_t=-l$ and $0$ otherwise, so only the modes $(j,\dots,j;-j)$ survive (with $j=-l$):
+\[
+\eta_\theta(\delta)=p^{-(n+1)}\sum_{j\in\sZ_p}G_j\,\rho^{j\delta},\qquad G_j:=\hat f_\theta(j,\dots,j;-j).
+\]
+Since the table is real, $G_{-j}=\overline{G_j}$, and pairing $j$ with $-j$ gives \eqref{eq:spectrum} with $\bar\eta_\theta=p^{-(n+1)}G_0$ and $\beta_j=2p^{-(n+1)}G_j$. The averaged form used in Lemma~\ref{lem:phase} is
+\[
+\eta_\theta(0)-\tfrac12\big(\eta_\theta(\delta)+\eta_\theta(-\delta)\big)=\sum_{j\in\Fp}\mathrm{Re}(\beta_j)\big(1-\cos(2\pi j\delta/p)\big)=\sum_{j\in\Fp}\mathrm{Re}(\beta_j)\,\cov{j}{\delta},
+\]
+because $\mathrm{Re}(\beta\rho^{j\delta})+\mathrm{Re}(\beta\rho^{-j\delta})=2\,\mathrm{Re}(\beta)\cos(2\pi j\delta/p)$. The same computation for one neuron defines $\beta_{ij}$. For a product neuron $\hat f$ factorizes, so $G_{ij}=\hat u_{i1}(j)\cdots\hat u_{in}(j)\,\hat w_i(-j)$, and $p^{-(n+1)}=p^{-\nu}$.
+
+\subsection{Proof of Lemma~\ref{lem:phase}}\label{app:phase}
+
+Fix $\delta\neq0$. Then $-\delta\neq0$ as well, so Lemma~\ref{lem:avg} applies at both offsets:
+\[
+h(\theta)\le\eta_\theta(0)-\eta_\theta(\delta),\qquad h(\theta)\le\eta_\theta(0)-\eta_\theta(-\delta).
+\]
+Averaging the two and using the identity of Appendix~\ref{app:spectrum},
+\[
+h(\theta)\le\eta_\theta(0)-\tfrac12\big(\eta_\theta(\delta)+\eta_\theta(-\delta)\big)=\sum_{j\in\Fp}\mathrm{Re}(\beta_j)\,\cov{j}{\delta}.
+\]
+This is the first inequality. For the second, $\cov{j}{\delta}=1-\cos(2\pi j\delta/p)\ge0$ and $\mathrm{Re}(\beta_j)\le|\beta_j|=A_j$, so each term is at most $A_j\cov{j}{\delta}$. Equality in the second step requires $\mathrm{Re}(\beta_j)=A_j$, i.e.\ $\beta_j$ real and non-negative, at every $j$ with $\cov{j}{\delta}>0$.
+\qed
+
+\subsection{The price of a feature}\label{app:price}
+
+This makes precise the price used in Section~\ref{sec:programme}; Appendix~\ref{app:models} proves the general single-neuron budget, of which this is the single-frequency case.
+
+\begin{lemma}[price of an amplitude]\label{lem:price}
+Let $\omega=(u_1,\dots,u_n,w)$ be a product neuron whose $\nu=n+1$ weight vectors are real and supported on the frequencies $\pm j$ for one $j\in\Fp$, and let $A=|\beta_j(\omega)|$. Then for every $b>0$,
+\[
+\|\omega\|_2^b\ \ge\ \big(A/B_p\big)^{b/\nu},\qquad B_p=2(2p\nu)^{-\nu/2},
+\]
+with equality if and only if the $\nu$ weight vectors have equal norm. So the least $L_{2,b}$ penalty that buys amplitude $A$ is $B_p^{-1/s}A^{1/s}$ with $s=\nu/b$.
+\end{lemma}
+\begin{proof}
+Write $v_1,\dots,v_\nu$ for $u_1,\dots,u_n,w$ and $x_t=\|v_t\|_2$. A real vector supported on $\pm j$ has $|\hat v(-j)|=|\hat v(j)|$ and no other Fourier content, so Parseval gives $x_t^2=\frac2p|\hat v_t(j)|^2$. By Appendix~\ref{app:spectrum}, $A=2p^{-\nu}\prod_t|\hat v_t(j)|=2p^{-\nu}(p/2)^{\nu/2}\prod_tx_t$. By AM--GM, $\|\omega\|_2^2=\sum_tx_t^2\ge\nu\big(\prod_tx_t\big)^{2/\nu}$, with equality if and only if all $x_t$ are equal. Hence
+\[
+\|\omega\|_2^2\ \ge\ \nu\Big(\frac{A}{2p^{-\nu}(p/2)^{\nu/2}}\Big)^{2/\nu}=\Big(\frac{A}{2p^{-\nu}(p/(2\nu))^{\nu/2}}\Big)^{2/\nu}=\big(A/B_p\big)^{2/\nu},
+\]
+and raising to the power $b/2$ gives the claim, since $t\mapsto t^{b/2}$ is increasing.
+\end{proof}
+
+For a power neuron with the same weight vectors, only the multilinear term of $\big(\sum_tu_t(a_t)\big)^n$ reaches the mode $(j,\dots,j;-j)$, so $A=n!\cdot2p^{-\nu}\prod_t|\hat v_t(j)|$ (Appendix~\ref{app:models}); the same proof gives $\|\omega\|_2^b\ge\big(A/(n!\,B_p)\big)^{b/\nu}$.
+
+The inner norm of $L_{2,b}$ must be $\ell_2$ for this argument: Parseval converts it to Fourier magnitudes, and AM--GM then acts on the squared factor norms. The outer exponent $b$ only raises each neuron's cost to the power $b/2$, which turns the product of $\nu$ factors into the exponent $b/\nu=1/s$.
+
+\subsection{The dense endpoint \texorpdfstring{$b=\nu$}{b = nu}}\label{app:dense}
+
+\begin{corollary}[$b=\nu$: every frequency is used]\label{cor:dense}
+$\Gamma_1(p)=p/(p-1)$, with unique maximizer $y_j=2/(p-1)$ for all $j$, so at $b=\nu$ any network attaining Theorem~\ref{thm:universal} has equal amplitude on every frequency. For the quadratic network of \citet{morwani2024feature} the bound is $2B_p\frac p{p-1}=\sqrt{2/27}\,/\,(p^{1/2}(p-1))$, exactly their maximum $L_{2,3}$-margin \citep[Thm.~7; width $m\ge4(p-1)$]{morwani2024feature}.
+\end{corollary}
+For the $n$-operand power network, $n!\,B_p\,p/(p-1)$ is the maximum $L_{2,n+1}$-margin of \citet[Thm.~4.1]{li2025nsum}, and equal amplitude on every frequency is already implicit in \citet[App.~F.3]{morwani2024feature}. The value $\Gamma_1(p)=p/(p-1)$ and its flat maximizer are the regular-simplex bound for cyclic codes \citep{rankin1955closest,slepian1968group}.
+
+\emph{Proof of Corollary~\ref{cor:dense}.}
+
+For feasible $y$ (at $s=1$, $\sum_jy_j\le1$),
+\[
+\min_{\delta\neq0}\sum_jy_j\cov{j}{\delta}\le\frac1{p-1}\sum_{\delta\neq0}\sum_jy_j\cov{j}{\delta}=\frac p{p-1}\sum_jy_j\le\frac p{p-1},
+\]
+using $\sum_{\delta\neq0}\cov{j}{\delta}=p$. The flat choice $y_j=2/(p-1)$ attains this, as we now show together with uniqueness (the averaging step is the regular-simplex bound of \citealp{rankin1955closest}; cf.\ \citealp[\S3.5--3.6]{fiedler1973algebraic}; the inversion step parallels \citealp[App.~F.3]{morwani2024feature} and \citealp[Lemma~F.2]{li2025nsum}). Equality forces $\sum_jy_j=1$ and the coverage $\sum_jy_j\cov{j}{\delta}$ to be constant in $\delta\neq0$, i.e.\ $\zeta(\delta):=\sum_{j\in\Fp}y_j\cos(2\pi j\delta/p)$ equals a constant $c_0$ for $\delta\neq0$, with $\zeta(0)=1$. So $\zeta=c_0+(1-c_0)[\delta=0]$. Its normalized Fourier coefficients $\frac1p\sum_\delta\zeta(\delta)\rho^{-k\delta}$ are $c_0+(1-c_0)/p$ at $k=0$ and $(1-c_0)/p$ at $k\neq0$. From the cosine form they are $0$ at $k=0$ and $y_j/2$ at $k=\pm j$. Hence $c_0=-1/(p-1)$ and $y_j=2(1-c_0)/p=2/(p-1)$ for every $j$.
+
+For the product network, attainment is Proposition~\ref{prop:block} at $b=\nu$ with $y^*$ flat. The equality conditions are those of Proposition~\ref{prop:coverage} (flat amplitudes) and of the triangle inequality (at each $j$, all non-zero $\beta_{ij}$ have the same phase). For the quadratic network of \citet{morwani2024feature}, $C_3=2B_p$ (Appendix~\ref{app:models}), and $2B_p\cdot\frac p{p-1}=4(6p)^{-3/2}\frac p{p-1}=\frac{2}{3\sqrt6}\cdot\frac1{p^{1/2}(p-1)}=\sqrt{\frac2{27}}\cdot\frac1{p^{1/2}(p-1)}$.
+\qed
+
+\section{Proofs for Section~\ref{sec:cyclic}}\label{app:cyclic}
+
+\subsection{Proof of Lemma~\ref{lem:cost}}\label{app:cost}
+
+\begin{lemma}[chain lemma]\label{lem:chain}
+$\|m_l\|_2^2=\nu$, and $H:=\sum_l\beta_lm_lm_l^*$ is upper triangular with every diagonal entry equal to $\beta$.
+\end{lemma}
+\begin{proof}
+Index the chain coordinates by $0,\dots,n$. Every entry of $m_l$ has modulus $1$, so $\|m_l\|_2^2=\nu$ and the diagonal of $H$ is $\sum_l\beta_l=\beta$. For $t>t'$, the $(t,t')$ entry of $m_lm_l^*$ is $\prod_{u=t'+1}^{t}\xi_{lu}$. Its sum against $\beta_l$ vanishes by \eqref{eq:JF}, applied to the non-empty interval $T=\{t'+1,\dots,t\}$.
+\end{proof}
+The entries above the diagonal need not vanish: $H$ is triangular, not necessarily Hermitian. Triangularity is all the proof needs.
+
+\begin{proof}[Proof of Lemma~\ref{lem:cost}]
+If $\beta=0$, the inequality is immediate, with equality exactly when every $\beta_l=0$. Otherwise divide the coefficients by $\beta$; \eqref{eq:JF} is preserved with total $1$. We prove the normalized claim and restore the factor $|\beta|^r$ at the end. For $r=1$, the claim is simply $\sum_l|\beta_l|\ge|\sum_l\beta_l|=1$. Henceforth let $0<r<1$.
+
+\emph{Step 1: compare determinants.} Put $u_l=m_l/\sqrt\nu$, $d_l=\nu\beta_l$ and $x_l=|d_l|$, so that the $u_l$ are unit vectors and $H=\sum_ld_lu_lu_l^*$. Let $U=[u_1\cdots u_N]$ and $\Delta=\mathrm{diag}(d_1,\dots,d_N)$. Sylvester's determinant theorem $\det(I+AB)=\det(I+BA)$ \citep[Ch.~1]{horn2012matrix} and expansion by principal minors give
+\begin{equation}
+\det(I_\nu+tH)=\det(I_N+t\Delta U^*U)
+=\sum_{L\subseteq[N]}t^{|L|}\Big(\prod_{l\in L}d_l\Big)G_L,
+\qquad G_L:=\det\mathrm{Gram}(u_l:l\in L).
+\label{eq:cost-minors}
+\end{equation}
+Gram positivity and Hadamard's inequality \citep[Ch.~7]{horn2012matrix} give $0\le G_L\le1$, with $G_L=1$ exactly when the vectors in $L$ are orthonormal. By Lemma~\ref{lem:chain}, $\det(I+tH)=(1+t)^\nu$. Taking absolute values in \eqref{eq:cost-minors} therefore yields, for $t\ge0$,
+\begin{equation}
+(1+t)^\nu\le\sum_{L\subseteq[N]}t^{|L|}\prod_{l\in L}x_l
+=\prod_{l=1}^N(1+tx_l).
+\label{eq:cost-generating}
+\end{equation}
+The same comparison coefficient by coefficient gives $e_k(x)\ge\binom\nu k$ for $0\le k\le\nu$, where $e_k$ is the $k$th elementary symmetric polynomial; in particular, at least $\nu$ coefficients are non-zero.
+
+\emph{Step 2: integrate the logarithm.} Define
+\[
+J_r(x):=\int_0^\infty\log(1+xt)\,t^{-1-r}\,dt,\qquad x\ge0.
+\]
+For $x>0$ the integrand is $O(t^{-r})$ near zero and $O(t^{-1-r}\log t)$ near infinity, so the integral converges. Substitution gives $J_r(x)=x^rJ_r(1)$, also valid at $x=0$, with $0<J_r(1)<\infty$. Integrating the logarithm of \eqref{eq:cost-generating} against $t^{-1-r}dt$ and cancelling $J_r(1)$ gives
+\[
+J_r(1)\sum_lx_l^r=\sum_lJ_r(x_l)\ge\nu J_r(1),
+\qquad\text{hence}\qquad \sum_lx_l^r\ge\nu.
+\]
+Restoring the original coefficients, $x_l=\nu|\beta_l|/|\beta|$, proves $\sum_l|\beta_l|^r\ge\nu^{1-r}|\beta|^r$.
+
+\emph{Step 3: characterize equality.} At equality, the continuous non-negative function $\sum_l\log(1+x_lt)-\nu\log(1+t)$ has zero integral against a strictly positive density, so it vanishes for every $t>0$. Thus $\prod_l(1+x_lt)=(1+t)^\nu$ as polynomials. Their roots show that the non-zero $x_l$ are exactly $\nu$ copies of $1$. Let $L_0$ be their support. Comparing the coefficient of $t^\nu$ in \eqref{eq:cost-minors} gives $1=(\prod_{l\in L_0}d_l)G_{L_0}$. Since $|\prod_{l\in L_0}d_l|=1$, we have $G_{L_0}=1$: the corresponding $u_l$ are orthonormal, and the chain vectors $m_l$ are orthogonal. Conversely, exactly $\nu$ non-zero coefficients of modulus $|\beta|/\nu$ satisfying \eqref{eq:JF} give $\sum_l|\beta_l|^r=\nu^{1-r}|\beta|^r$.
+\end{proof}
+
+\begin{remark}[orthogonality as roots of unity]
+Two chain vectors $m_l,m_{l'}$ are orthogonal if and only if $\sum_{t=0}^n\prod_{u\le t}\xi_{l'u}\overline{\xi_{lu}}=0$. If the ratios $\xi_{l'u}\overline{\xi_{lu}}=\zeta$ agree across operands, this reads $1+\zeta+\dots+\zeta^n=0$: $\zeta$ is a non-trivial $\nu$\textsuperscript{th} root of unity. This is the configuration of Proposition~\ref{prop:block}.
+\end{remark}
+
+\begin{remark}[other penalties]
+For $0<r<1$, $x\mapsto x^r$ is a positive integral of the functions $x\mapsto\log(1+xt)$. The same proof, together with $\sum_lx_l\ge\nu$, gives $\sum_l\psi(\nu|\beta_l|/|\beta|)\ge\nu\,\psi(1)$ for every $\psi(x)=cx+\int_0^\infty\log(1+xt)\,\mu(dt)$ with $c\ge0$ and $\mu\ge0$, whenever these integrals are finite and $\beta\neq0$. The result is not special to power penalties (the admissible $\psi$ are Thorin--Bernstein functions, \citealp[Ch.~8]{schilling2012bernstein}; for the inequality alone see also \citealp{thompson1976convex}).
+\end{remark}
+
+\subsection{Proof of Theorem~\ref{thm:cyclic}}\label{app:thm}
+
+Let $r=b/\nu$, so $1/r=s$.
+
+\emph{Upper bound.} Let $\theta$ be interference-free. At each $j\in\Fp$, the coefficients $(\beta_{ij})_i$ satisfy \eqref{eq:JF} with total $\beta_j$: for $T=\emptyset$ this is $\beta_j=\sum_i\beta_{ij}$, and for $T\neq\emptyset$ it is $0=\beta_{j,T}=\sum_i\beta_{ij}\prod_{t\in T}\xi_{itj}$ by Lemma~\ref{lem:sign}. Lemma~\ref{lem:cost} gives $\sum_i|\beta_{ij}|^r\ge\nu^{1-r}A_j^r$. Summing over $j$ and using the single-neuron budget,
+\begin{equation}
+\nu^{1-r}\sum_jA_j^r\ \le\ \sum_i\sum_j|\beta_{ij}|^r\ \le\ C_b\sum_i\|\omega_i\|_2^b=C_b\|\theta\|_{2,b}^b .
+\label{eq:chain}
+\end{equation}
+Raising to the power $1/r$, $\|A\|_{1/s}\le\nu^{(r-1)/r}C_b^{1/r}\|\theta\|_{2,b}^{b/r}=\nu^{-(\nu-b)/b}B_p\|\theta\|_{2,b}^{\nu}$, and Proposition~\ref{prop:coverage} gives $h(\theta)\le\nu^{-(\nu-b)/b}B_p\Gamma_s(p)\|\theta\|_{2,b}^\nu$.
+
+\emph{Attainment.} Proposition~\ref{prop:block} gives an interference-free network with $\nu|\spt(y^*)|$ neurons attaining the value; any further neurons are set to zero.
+
+\emph{Structure ($b<\nu$).} Let $\theta$ be interference-free and attain the value. The value is positive, so $h(\theta)>0$ and $A\neq0$. The two inequalities $h(\theta)\le\Gamma_s(p)\|A\|_{1/s}$ and $\|A\|_{1/s}\le\nu^{-(\nu-b)/b}B_p\|\theta\|_{2,b}^\nu$ must both be equalities. For the first, write $y=A/\|A\|_{1/s}$; by Lemma~\ref{lem:phase}, $h(\theta)\le\|A\|_{1/s}\min_{\delta\neq0}\sum_jy_j\cov{j}{\delta}\le\|A\|_{1/s}\Gamma_s(p)$, so equality forces $\min_\delta\sum_jy_j\cov{j}{\delta}=\Gamma_s(p)$: $y$ is a maximizer of \eqref{eq:programme}, which is condition~1 with $c=\|A\|_{1/s}$. For the second, the first inequality of \eqref{eq:chain} is an equality. It is a sum over $j$ of the inequalities $\sum_i|\beta_{ij}|^r\ge\nu^{1-r}A_j^r$, so each of these is an equality. At a frequency with $A_j>0$, the equality case of Lemma~\ref{lem:cost} ($r<1$) is condition~2. At a frequency with $A_j=0$ it forces $\beta_{ij}=0$ for every $i$: no neuron carries an unused frequency.
+\qed
+
+\subsection{Proof of Proposition~\ref{prop:block}}\label{app:block}
+
+\emph{Identity.} Write $\vartheta_t=2\pi ja_t/p$ and $\vartheta_c=2\pi jc/p$, and expand each cosine into exponentials. Neuron $l$ contributes
+\[
+2^{-\nu}\lambda^\nu\sum_{\varepsilon\in\{\pm1\}^n,\ \varepsilon_c=\pm1}\exp\!\big(i(\varepsilon\cdot\vartheta+\varepsilon_c\vartheta_c)\big)\,\exp\!\Big(i\alpha_l\big(\textstyle\sum_t\varepsilon_t+n\varepsilon_c\big)\Big).
+\]
+With $N_-=|\{t:\varepsilon_t=-1\}|$ we have $\sum_t\varepsilon_t=n-2N_-$, so the $l$-dependent phase is $\exp(2\pi i\,lu/\nu)$ with $u=n-N_-$ if $\varepsilon_c=+1$ and $u=-N_-$ if $\varepsilon_c=-1$. Summing over $l=0,\dots,n$ gives $\nu\,[u\equiv0\bmod\nu]$. As $0\le N_-\le n$, this happens only for $(N_-=n,\varepsilon_c=+1)$ and $(N_-=0,\varepsilon_c=-1)$, i.e.\ for $e^{\mp i(\sum_t\vartheta_t-\vartheta_c)}$, whose sum is $2\cos(\sum_t\vartheta_t-\vartheta_c)$. The block's table is therefore $\nu\lambda^\nu2^{-n}\cos\big(2\pi j(a_1+\dots+a_n-c)/p\big)$. For the cost, $\sum_a\cos^2(2\pi ja/p+\alpha)=p/2$ for $j\not\equiv0$, so each of the $\nu$ weight vectors of neuron $l$ has squared norm $\lambda^2p/2$.
+
+\emph{Attainment.} Let $r=b/\nu$ and $s=1/r$. Scaling $y^*$ up increases the objective, so $\sum_j(y^*_j)^r=1$. With $\nu\lambda_j^\nu2^{-n}=y^*_j$ the network's table is exactly
+$f(\theta,x)[c]=\sum_jy^*_j\cos\big(2\pi j(y(x)-c)/p\big)$. It depends only on $y(x)-c$, so it is interference-free, and on every input $f(\theta,x)[y(x)]-f(\theta,x)[y(x)-\delta]=\sum_jy^*_j\cov{j}{\delta}$; hence $h(\theta)=\min_{\delta\neq0}\sum_jy^*_j\cov{j}{\delta}=\Gamma_s(p)$. For any non-negative allocation $y$, the same construction has penalty
+\[
+P_b:=\|\theta\|_{2,b}^b
+=\sum_j\nu(\nu p/2)^{b/2}(2^ny_j/\nu)^r
+=\nu^{1-r}B_p^{-r}\sum_jy_j^r.
+\]
+For $y=y^*$ the last sum is one. Thus $\|\theta\|_{2,b}^\nu=P_b^{1/r}=\nu^{s-1}B_p^{-1}$, and
+\[
+\frac{h(\theta)}{\|\theta\|_{2,b}^\nu}
+=\nu^{1-s}B_p\Gamma_s(p),
+\]
+as claimed. More generally, any $y$ with $\sum_jy_j^r=1$ gives normalized margin $\nu^{1-s}B_p\min_{\delta\neq0}\sum_jy_j\cov{j}{\delta}$.
+\qed
+
+\subsection{Two facts about the programme}\label{app:shape}
+
+Throughout, $s>1$, $r=1/s<1$, and $\phi(v):=\sum_jv_j^r$. Rescaling a feasible $y$ so that its worst coverage is one puts it in the polyhedron
+\[
+\curlyp_p:=\Big\{v\in\R_{\ge0}^{\Fp}:\ \textstyle\sum_{j\in\Fp}v_j\,\cov{j}{\delta}\ge1\ \text{ for all }\delta\neq0\Big\}.
+\]
+If $y$ is feasible for \eqref{eq:programme} with worst coverage $m>0$, then $v=y/m\in\curlyp_p$ and $\phi(v)=m^{-r}\sum_jy_j^r\le m^{-r}$. Conversely, for $v\in\curlyp_p$ the vector $y=v/\phi(v)^s$ is feasible with worst coverage at least $\phi(v)^{-s}$. Hence $\Gamma_s(p)=(\min_{\curlyp_p}\phi)^{-s}$. A maximizer has $\sum_jy_j^r=1$, since scaling up raises the objective. So $y$ is a maximizer if and only if $y=\Gamma_s(p)\,v$ with $v$ a minimizer of $\phi$ over $\curlyp_p$.
+
+\begin{lemma}[maximizers are vertices]\label{lem:vertex}
+Let $s>1$. Every maximizer of \eqref{eq:programme} is $y=\Gamma_s(p)\,v$ for a vertex $v$ of $\curlyp_p$ that minimizes $\sum_jv_j^{1/s}$.
+\end{lemma}
+\begin{proof}
+This is the classical fact that concave functions attain their minima over a polyhedron at vertices \citep[\S32]{hirsch1961extreme,rockafellar1970convex}. The polyhedron $\curlyp_p$ is nonempty and closed. Since $v_j\le\phi(v)^{1/r}$ for every $j$, the sublevel sets of $\phi$ in $\curlyp_p$ are compact, so a minimum exists. If a minimizer $v$ were not a vertex, it would be the midpoint of distinct $v',v''\in\curlyp_p$. Strict concavity of $t\mapsto t^r$ on $[0,\infty)$ would give $\phi(v)>\frac12(\phi(v')+\phi(v''))\ge\min\phi$, a contradiction.
+\end{proof}
+The vertex set is finite, so $\Kstar$ can be computed exactly by enumerating the supports of vertices (Table~\ref{tab:kstar}); in general this minimization is NP-hard \citep{ge2011note}.
+
+\begin{lemma}[removing a feature]\label{lem:ablation}
+Let $s>1$. Let $y$ be feasible for \eqref{eq:programme} with $\sum_jy_j^{1/s}=1$ and worst coverage $m\ge(1-\varepsilon)\,\Gamma_s(p)$, where $\varepsilon\in[0,1)$. For $j\in\spt(y)$, let $w_j:=y_j^{1/s}$ be the share of the budget spent on $j$, and let $m_{-j}$ be the worst coverage after setting $y_j=0$. Then
+\[
+m-2y_j\ \le\ m_{-j}\ \le\ \frac{(1-w_j)^s}{1-\varepsilon}\,m .
+\]
+In particular, removing feature $j$ from a maximizer costs at least the fraction $1-(1-w_j)^s\in[w_j,s\,w_j]$ of the worst coverage.
+\end{lemma}
+\begin{proof}
+Removing frequency $j$ decreases every offset's coverage by at most $2y_j$, proving the lower bound. For the upper bound, if $w_j=1$ then $m_{-j}=0$. Otherwise, set $y_j=0$ and multiply the remaining amplitudes by $(1-w_j)^{-s}$. The resulting allocation has budget one, so its worst coverage obeys $(1-w_j)^{-s}m_{-j}\le\Gamma_s(p)\le m/(1-\varepsilon)$. Finally, $(1-w)^s\le1-w$ and Bernoulli's inequality $(1-w)^s\ge1-sw$ give $w\le1-(1-w)^s\le sw$.
+\end{proof}
+In the network of Proposition~\ref{prop:block}, deleting the $\nu$ neurons of frequency $j$ removes exactly $y_j\cos(2\pi j(a_1+\dots+a_n-c)/p)$ from the table, so these bounds apply to its margin directly. Lemma~\ref{lem:ablation} is used in the proof of Theorem~\ref{thm:count}.
+
+\subsection{Proof of Theorems~\ref{thm:scaling} and~\ref{thm:count} and Corollary~\ref{cor:few}}\label{app:scaling}
+
+Write $F_y(\delta):=\sum_{j\in\Fp}y_j\cov{j}{\delta}$ and $m(y):=\min_{\delta\neq0}F_y(\delta)$. Let $r=1/s$ and $a_s=3+s/2$; logarithms are natural. The constants below are chosen for simplicity, not sharpness.
+
+\emph{Lower bound.} Let $L=\lceil8\ln p\rceil$ and draw $J_1,\dots,J_L$ independently and uniformly from $\Fp$. For fixed $\delta\neq0$,
+\[
+\E\cos(2\pi J_1\delta/p)=\frac2{p-1}\sum_{j\in\Fp}\cos(2\pi j\delta/p)=-\frac1{p-1}.
+\]
+By Hoeffding's inequality for variables in $[-1,1]$ \citep[Thm.~2]{hoeffding1963probability}, $\Pr\big[\frac1L\sum_\ell\cos(2\pi J_\ell\delta/p)>\frac12\big]\le e^{-L/8}\le\frac1p$. A union bound over the $p-1$ offsets leaves positive probability that $\sum_\ell\cov{J_\ell}{\delta}\ge L/2$ for every $\delta\neq0$; fix such a draw.
+Let $n_j$ be the multiplicity of $j$ in the draw and set $y_j=n_jL^{-s}$. Then
+\[
+q:=\sum_jy_j^r=L^{-1}\sum_jn_j^r\le1,
+\qquad
+F_y(\delta)=L^{-s}\sum_\ell\cov{J_\ell}{\delta}\ge\tfrac12L^{1-s}.
+\]
+Here $q>0$. Replacing $y$ by $y/q^s$ makes the budget exactly one, preserves its support, and can only increase coverage. Thus the lower bound is achieved by a feasible allocation using at most $L$ frequencies. Since $L\le9\ln p$ for $p\ge3$, also $\Gamma_s(p)\ge\frac12(9\ln p)^{1-s}$. This is the cyclic case of the random Cayley graph argument of \citet[Sec.~3, Thm.~2]{alon1994random}; cf.\ \citet[Thm.~4.7]{mccracken2025}.
+
+\emph{A positive-Fourier inequality.} If every non-zero offset had large coverage, the average of $e^{-tF_y(\delta)}$ would be small. Positivity of Fourier coefficients forces the same average to remain large under a bounded amplitude budget; comparing the two estimates will bound the margin.
+
+Let $I_0(z)=\frac1\pi\int_0^\pi e^{z\cos\vartheta}d\vartheta$ and $\psi(z)=z-\ln I_0(z)$. For $z\ge0$, the identity
+\[
+e^{z\cos\vartheta}=\exp\big((z/2)e^{i\vartheta}\big)\exp\big((z/2)e^{-i\vartheta}\big)
+\]
+and the absolutely convergent exponential series show that all Fourier coefficients are non-negative, with constant coefficient $I_0(z)$ \citep[Eqs.~10.32.1, 10.35.2]{dlmf}. Expand each factor of $e^{-tF_y(\delta)}=\prod_je^{-ty_j}e^{ty_j\cos(2\pi j\delta/p)}$ and average over $\delta\in\sZ_p$. The average keeps the products whose frequencies sum to $0\bmod p$. All are non-negative, and they include the product of the constant terms. Hence, for $t\ge0$,
+\begin{equation}
+\frac1p\sum_{\delta\in\sZ_p}e^{-tF_y(\delta)}\ \ge\ \prod_je^{-ty_j}I_0(ty_j)=\exp\Big(-\sum_j\psi(ty_j)\Big).
+\label{eq:posfourier}
+\end{equation}
+No independence of the phases $j\delta$ is used: resonances only add non-negative terms (cf.\ the closed-walk comparison of \citealp{cioaba2006closed}).
+
+\emph{A scalar bound.} We claim $0\le\psi(z)\le a_s\ln(1+z^r)$ for $z\ge0$.
+\begin{itemize}
+\item Non-negativity: $I_0(z)\le e^z$.
+\item For $z\le1$: $I_0\ge1$ gives $\psi(z)\le z$. Also $\ln(1+z^r)\ge z^r/2\ge z/2$ and $a_s\ge2$.
+\item For $z\ge1$: integrating only over $\vartheta\le z^{-1/2}$ and using $\cos\vartheta\ge1-\vartheta^2/2$ gives $I_0(z)\ge e^{z-1/2}/(\pi\sqrt z)$, so $\psi(z)\le\ln\pi+\frac12+\frac12\ln z$. Meanwhile $3\ln(1+z^r)\ge3\ln2>\ln\pi+\frac12$, and $\frac s2\ln(1+z^r)\ge\frac12\ln z$.
+\end{itemize}
+
+If $K\ge1$ and $y$ has at most $K$ non-zero entries and $\sum_jy_j^r\le1$, concavity of the logarithm then gives
+\begin{equation}
+\sum_j\psi(ty_j)\ \le\ a_s\sum_j\ln(1+t^ry_j^r)\ \le\ a_sK\ln(1+t^r/K)\ \le\ a_st^r .
+\label{eq:psisum}
+\end{equation}
+
+\emph{Upper bounds.} Since $F_y(0)=0$ and $F_y(\delta)\ge m(y)$ otherwise,
+\begin{equation}
+\frac1p\sum_\delta e^{-tF_y(\delta)}\le\frac1p+e^{-tm(y)}.
+\label{eq:twoterms}
+\end{equation}
+\begin{itemize}
+\item Take $t=(\ln p/(2a_s))^s$. By \eqref{eq:posfourier}--\eqref{eq:twoterms}, $e^{-tm}\ge p^{-1/2}-p^{-1}\ge p^{-1/2}/3$, so $m(y)\le(\frac12\ln p+\ln3)/t\le\frac32(2a_s)^s(\ln p)^{1-s}$ for every feasible $y$.
+\item Keeping $K$ in \eqref{eq:psisum} and taking $t^r=K(p^{1/(2a_sK)}-1)$ instead gives, for every feasible $y$ with at most $K$ non-zero entries,
+\end{itemize}
+\begin{equation}
+m(y)\ \le\ \tfrac32(\ln p)^{1-s}\Big(\frac{x}{e^{x/(2a_s)}-1}\Big)^s,\qquad x=\ln p/K.
+\label{eq:Kbound}
+\end{equation}
+
+\emph{Number of frequencies (Theorem~\ref{thm:count}).}
+\begin{itemize}
+\item Lower bound. A maximizer has $m=\Gamma_s(p)\ge\tfrac12\,9^{1-s}(\ln p)^{1-s}$. With \eqref{eq:Kbound} and $e^z-1\ge z^2/2$ this gives $\tfrac12\,9^{1-s}\le\frac32(8a_s^2/x)^s$, i.e.\ $K=\ln p/x\ge\ln p/\big(8a_s^2(3\cdot9^{s-1})^{1/s}\big)$.
+\item Upper bound. Lemma~\ref{lem:ablation} with $\varepsilon=0$ gives $m-2y_j\le(1-w_j)^sm$. So $2y_j\ge m(1-(1-w_j)^s)\ge m\,w_j=m\,y_j^r$, i.e.\ $w_j\ge(m/2)^{1/(s-1)}$. As $\sum_jw_j=1$, $K\le(2/m)^{1/(s-1)}\le4^{1/(s-1)}L\le9\cdot4^{1/(s-1)}\ln p$, and every share is at least $4^{-1/(s-1)}/L\ge4^{-1/(s-1)}/(9\ln p)$. Keeping $L=\lceil8\ln p\rceil$ gives the dense-regime bound in the main text whenever $|\Fp|>L$.
+\end{itemize}
+
+\emph{Networks.} Write $\gamma^*_{b,m}(p)$ for the maximum margin at width $m$. The universal bound gives $\gamma^*_{b,m}(p)\le B_p\Gamma_s(p)$ for every $m$. The normalized random allocation above uses at most $L$ frequencies, so the block construction gives, for every $m\ge\nu L$,
+\[
+\tfrac12\nu^{1-s}B_pL^{1-s}\le\gamma^*_{b,m}(p)\le B_p\Gamma_s(p).
+\]
+Together with the programme upper bound and $B_p=2(2p\nu)^{-\nu/2}$, this proves the stated order uniformly over these widths. If $m$ is also large enough to realize a programme maximizer, Theorem~\ref{thm:cyclic} gives the stronger lower bound $\nu^{1-s}B_p\Gamma_s(p)$.
+
+\emph{Corollary~\ref{cor:few}.} If $A=0$, Lemma~\ref{lem:phase} gives $h(\theta)\le0$, so the claim is immediate. Otherwise $y=A/\|A\|_{1/s}$ has budget one and at most $K$ non-zero entries. Lemma~\ref{lem:phase}, the budget estimate in Theorem~\ref{thm:universal}, and \eqref{eq:Kbound} give
+\[
+h(\theta)\le\|A\|_{1/s}m(y),\qquad
+\|A\|_{1/s}\le C_b^{\nu/b}\|\theta\|_{2,b}^\nu,
+\]
+which prove the displayed bound. For product networks, $C_b^{\nu/b}=B_p$. At any comparison width $m\ge\nu L$, the lower bound just proved shows that the ratio to $\gamma^*_{b,m}(p)$ is at most
+\[
+3(9\nu)^{s-1}\Big(\frac{x}{e^{x/(2a_s)}-1}\Big)^s.
+\]
+This tends to zero as $x=\ln p/K\to\infty$. \qed
+
+\subsection{Further remarks on Section~\ref{sec:cyclic}}\label{app:remarks}
+
+\paragraph{Equal shares.} Restricting \eqref{eq:programme} to equal shares on a set of $K$ frequencies, with $M_K(p):=\max_{|S|=K}\min_{\delta\neq0}\sum_{j\in S}\cov{j}{\delta}$, gives $\Gamma_s(p)\ge\max_KK^{-s}M_K(p)$, a cheap approximation. Since the worst offset is no better than the average, $M_K\le pK/(p-1)$ (cf.\ \citealp[Thm.~2]{slepian1968group}), so $K^{-s}M_K\le\frac p{p-1}K^{1-s}$ decays in $K$ for $s>1$. In Table~\ref{tab:kstar} the equal-share argmax agrees with $\Kstar$ except at $(p,\nu)=(59,3)$, where it gives $6$, and $(113,3)$, where it gives $5$; where adjacent equal-share values are within a few percent, the honest statement is a band of width one.
+
+\paragraph{Shares in the block.} Optimal shares are not equal (at $p=59$, $s=3/2$ they range over $0.15$--$0.25$), and a $\nu$-block with equal amplitudes on the optimal support does not attain Theorem~\ref{thm:cyclic}.
+
+\paragraph{Weaker cancellation suffices.} The inequality of Lemma~\ref{lem:cost} uses only the $\binom\nu2$ interval patterns $T=\{t'+1,\dots,t\}$ of \eqref{eq:JF}. The structure statement of Theorem~\ref{thm:cyclic} still needs the full condition: under the interval patterns alone, the equality set contains configurations that are not interference-free (at $\nu=4$, the pattern $T=\{1,3\}$ can be non-zero at equality).
+
+\paragraph{Other networks.} The upper bound of Theorem~\ref{thm:cyclic} uses only the single-neuron budget and the sign rule. For the power network it holds with $B_p$ replaced by $n!\,B_p$; the product-network attainment construction does not establish sharpness for the power network (Appendix~\ref{app:conjecture}). For a network whose neurons satisfy the sign rule with $n$ operand factors, the factor $\nu^{-(\nu-b)/b}$ becomes $(n+1)^{-(\nu-b)/b}$: it counts factors, not degree.
+
+\paragraph{Scope.} (i) Lemma~\ref{lem:avg} averages over every input; with a training fraction below one, the training-set margin need not obey the bound. (ii) Interference-freeness is a condition on the network, not a fact about trained networks, which carry interference at the sign-flipped modes (Section~\ref{sec:experiments}). (iii) $\Kstar$ is the support size of a maximizer of \eqref{eq:programme}.
+
+\section{The single-neuron budget and the sign rule for concrete networks}\label{app:models}
+
+\paragraph{Product neuron.} $\phi(\{u_1,\dots,u_n,w\},x)=u_1(a_1)\cdots u_n(a_n)\,w$, $\nu=n+1$. By Appendix~\ref{app:spectrum}, $\beta_j=2p^{-\nu}\prod_t\hat u_t(j)\,\overline{\hat w(j)}$. The coefficient at the mode flipping $T$ is $2p^{-\nu}\prod_{t\notin T}\hat u_t(j)\prod_{t\in T}\hat u_t(-j)\,\overline{\hat w(j)}$, and $\hat u_t(-j)=\xi_{tj}\hat u_t(j)$ with $\xi_{tj}=\overline{\hat u_t(j)}/\hat u_t(j)$ ($:=1$ if $\hat u_t(j)=0$); this is Lemma~\ref{lem:sign}. For the budget, let $m_j=\sum_t|\hat u_t(j)|^2+|\hat w(j)|^2$. AM--GM over the $\nu$ factors gives $|\prod_t\hat u_t(j)\hat w(j)|\le(m_j/\nu)^{\nu/2}$. Since $b/2\ge1$, $t\mapsto t^{b/2}$ is superadditive, so $\sum_jm_j^{b/2}\le(\sum_jm_j)^{b/2}$; and Parseval gives $\sum_{j\in\Fp}m_j\le\frac p2\|\omega\|_2^2$. Hence
+\[
+\begin{aligned}
+\sum_{j\in\Fp}|\beta_j(\omega)|^{b/\nu}
+&\le(2p^{-\nu})^{b/\nu}\Big(\frac p{2\nu}\Big)^{b/2}\|\omega\|_2^b,\\
+C_b^{\nu/b}&\le2p^{-\nu}\Big(\frac p{2\nu}\Big)^{\nu/2}=B_p.
+\end{aligned}
+\]
+For a non-zero neuron, equality in the budget inequality holds if and only if it is balanced (all $\nu$ Fourier magnitudes equal at every $j\in\Fp$), has no constant component, and, for $b>2$, uses a single frequency; at $b=2$ the superadditivity step is an identity, so a neuron may carry several frequencies at no extra cost. The zero neuron also gives equality. A neuron whose $\nu$ weight vectors are cosines of one frequency with equal norms attains the budget, so $C_b^{\nu/b}=B_p$.
+
+\paragraph{Power neuron.} $\phi(\{u_1,\dots,u_n,w\},x)=\big(\sum_tu_t(a_t)\big)^n w$, $\nu=n+1$. Expand the power into monomials $\prod_tu_t(a_t)^{e_t}$ with $\sum_te_t=n$. A monomial with some $e_t=0$ has no Fourier content in slot $t$, and one with some $e_t\ge2$ has some other $e_{t'}=0$; so only the multilinear monomial, with coefficient $n!$, reaches a mode with all $\nu$ entries non-zero. Hence $\beta_j=n!\cdot2p^{-\nu}\prod_t\hat u_t(j)\,\overline{\hat w(j)}$, Lemma~\ref{lem:sign} holds with the same $\xi_{tj}$, and $C_b^{\nu/b}=n!\,B_p$: the upper bound follows from the product budget, and a balanced single-frequency cosine neuron attains it. In particular $C_3=2B_p$ at $n=2$. This is a single-neuron budget identity, not a network-level attainment claim. Theorem~\ref{thm:universal} and the upper bound of Theorem~\ref{thm:cyclic} apply. Attainment requires additional control of the monomials with a zero operand slot: Definition~\ref{def:if} permits them, but they can reduce the worst-case margin. Consequently the product-block identity alone does not give an attaining power network.
+
+% Deferred: the stated ReLU constant is refuted in lean/Heracles/ReluCounter.lean.
+% \paragraph{ReLU neuron.} $\phi(\{u_1,\dots,u_n,w\},x)=\sigma\big(\sum_tu_t(a_t)\big)\,w$, $\nu=2$. With $h(x)=\sigma(\sum_tu_t(a_t))$, $\beta_j=2p^{-(n+1)}\hat h(j,\dots,j)\,\overline{\hat w(j)}$ (diagonal multi-index). Cauchy--Schwarz over $j$, Parseval for the diagonal coefficients, and $\mathrm{Var}(h)\le\mathrm{Var}(\sum_tu_t)$ (because $\sigma$ is $1$-Lipschitz) give $\sum_{j\in\Fp}|\hat h(j,\dots,j)\hat w(j)|\le\frac p4\|\omega\|_2^2$, i.e.\ $C_2\le2p^{-(n+1)}\cdot\frac p4=\frac{p^{-n}}2$ at $b=\nu=2$. So Theorem~\ref{thm:universal} and the flat maximizer of Corollary~\ref{cor:dense} apply: weight decay on this degree-$2$ network \emph{is} the $b=\nu$ endpoint. Lemma~\ref{lem:sign} is not claimed for ReLU and the bound is not known to be attained, so density of the maximum margin ReLU network is a statement about the bound's maximizer, not a theorem about the network.
+
+\paragraph{Where the approach does not apply.} A network with a shared linear layer in front of the neurons is not a sum of neurons each paying its own norm: the shared layer is priced by a nuclear norm \citep{srebro2004mmmf}, which does not penalize carrying many frequencies in one neuron, and the single-neuron budget does not bound it. Such networks are outside this paper.
+
+\section{The global conjecture, and what is known}\label{app:conjecture}
+
+\begin{conjecture}
+For odd prime $p$, $n\ge1$ and $2\le b\le\nu$, the maximum $L_{2,b}$-margin over \emph{all} product networks equals the interference-free value of Theorem~\ref{thm:cyclic}: no network carrying interference exceeds it.
+\end{conjecture}
+
+\emph{Proved here.} At $b=\nu$, Corollary~\ref{cor:dense} and Proposition~\ref{prop:block} give matching unrestricted upper and lower bounds (at sufficient width). For $2\le b<\nu$, Theorem~\ref{thm:scaling} determines the order of the unrestricted optimum, while Theorem~\ref{thm:cyclic} gives the exact interference-free value. Equality of these two optima throughout this range remains open.
+
+\emph{Power networks.} The universal and interference-free upper bounds apply with single-neuron constant $C_b^{\nu/b}=n!B_p$. Their attainment is a separate question from the product-network result. At $b=\nu$ the bound is attained for every $n$ \citep[Thm.~4.1]{li2025nsum} (at $n=2$, \citealp[Thm.~7]{morwani2024feature}), with the value of Corollary~\ref{cor:dense}.
+
+% Deferred research-status claims: restore only with precise hypotheses and proof pointers.
+% The six-neuron minimality and tied-embedding impossibility claims also conflict
+% with Definition~\ref{def:if}, which permits zero-slot modes.
+% % TODO(user): every item below needs a proof in the appendix or a pointer to supplementary material;
+% % "certified aiming depth" is not defined anywhere in the paper.
+% \emph{Known.} The conjecture is true at $p=3$ for every $n$. It is true in the window $\nu-4/(3(p-1))\le b\le\nu$ for every $p$, and for $b\ge5/2$ at $p=5$. It is true on the class of single-frequency neurons at $n=2$, $b=2$ for every support whose certified aiming depth is at least $0.3476$, which includes the $\Kstar$ supports at $p\in\{59,71,97,113,127\}$. The interference-free optimum is a strict local maximum of the normalized margin, and no ascent from any start at $p\le23$ has exceeded it.
+% 
+% \emph{Also known.} A local maximum carrying interference exists at $p=5$, $n=2$, $b=2$, at $0.837$ of the class value, so no local-to-global argument can prove the conjecture. The analogue for groups is \emph{false} on $\sZ_{12}$, $D_3$ and $S_4$, where structured interference beats the interference-free ceiling by factors $1.06$--$1.62$ (Section~\ref{sec:groups}). Any proof must be global and specific to prime modulus.
+% 
+% \emph{Attainment for the power network.} Theorems~\ref{thm:universal} and~\ref{thm:cyclic} (upper bound) hold, but no interference-free power network is known to attain the class bound. The smallest known interference-free population at $n=2$ uses $6$ neurons and reaches $0.408$ of the universal bound, against $3^{-1/2}=0.577$ for the product network. With tied embeddings ($u_1=u_2$) no interference-free population exists.
+% 
+
+\emph{$b$ outside $[2,\nu]$.} For $b>\nu$ the normalized margin is unbounded as the width grows (cf.\ the unit-duplication argument of \citealp[Sec.~3.2]{neyshabur2015norm}). For $b<2$ the superadditivity step of Appendix~\ref{app:models} fails for the product network (one neuron carrying every frequency exceeds it by $|\Fp|^{1-b/2}$). The available bound is the $b=2$ problem with a rescaled budget, which is not attained, so nothing about the number of features is claimed there.

@@ -1,0 +1,27 @@
+{
+ "item": {
+  "id": "R10-sign-rule",
+  "kind": "our_result",
+  "location": "cyclic.tex lem:sign; appendix app:models",
+  "statement": "For product and power neurons, beta_{ij,T} = beta_{ij} prod_{t in T} xi_{itj} with unit xi",
+  "what_to_check": "Elementary; confirm not stated elsewhere in the same form"
+ },
+ "chk": {
+  "id": "R10-sign-rule",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r10-sign-rule/CHECK.md.\n\n(1) The lemma is textbook Hermitian symmetry of the DFT of real weights: hat u(-j) = conj(hat u(j)) = xi * hat u(j), with |xi| = 1.\n\n(2) He, Wang, Chen, Yang, arXiv 2602.16849 (2026), Sec. 4 (fetched from arxiv.org/html/2602.16849).\n- Eq. 4.1 splits one quadratic neuron with phase phi_m into three parts: the signal cos(omega(x+y-j)); cos(omega j + 2 phi_m); and cos(omega(x+y+j) + 4 phi_m). The last is a sign-flipped copy with a unit phase factor.\n- Def. 4.1(iii) requires, for each frequency k and iota in {2,4}, that exp(i iota phi_m) summed over the neurons of frequency k is 0. That is cancellation of these copies across neurons, the 2-input quadratic analogue of our eq:JF.\n\n(3) Morwani et al. ICLR 2024 (arXiv 2311.07568 HTML) uses hat u(j) hat v(j) hat w(-j) with conjugate symmetry and states the phase condition theta_u + theta_v = theta_w (Thm 7). It gives no per-operand sign-flip factor.\n\n(4) Li et al. AISTATS 2025 (arXiv 2402.09469 HTML): the neurons are one-sparse cosines (Lemma 4.2), and the paper has no sign-flip or conjugate lemma.\n\n(5) Gromov 2023 (arXiv 2301.02679): the abstract does not cover this.\n\nWeb search on \"modular addition Fourier conjugate phases cancel spurious terms cos(a-b-c) sum over neurons roots of unity\" returned only He et al.\n\nConclusion: the general n-operand form was not found anywhere, i.e. one unit factor per operand, multiplied over the flipped set T, for both product and power neurons. That form is a trivial generalisation of Hermitian symmetry, and its quadratic special case, including cross-neuron cancellation, is in He et al.",
+  "recommended_citations": [
+   {
+    "key": "he2026mechanism",
+    "bibtex": "@article{he2026mechanism,\n  title={On the Mechanism and Dynamics of Modular Addition: Fourier Features, Lottery Ticket, and Grokking},\n  author={He, Jianliang and Wang, Leda and Chen, Siyu and Yang, Zhuoran},\n  journal={arXiv preprint arXiv:2602.16849},\n  year={2026}\n}",
+    "url": "https://arxiv.org/abs/2602.16849",
+    "confirmed": false,
+    "why": "This supports the sentence after lem:sign saying that a single neuron is never interference-free and that sign-flipped copies must cancel across neurons. Eq. 4.1 shows one quadratic neuron producing the flipped-mode term cos(omega(x+y+j)+4phi_m), and Def. 4.1(iii) requires phase sums over neurons to vanish. The title, the arXiv id and the surnames He, Wang, Chen, Yang were confirmed on the fetched HTML page. The first names were not checked on the page, so confirmed is false; verify them before use."
+   }
+  ],
+  "recommended_change": "In cyclic.tex, after lem:sign, at the paragraph starting \"So a single neuron is never interference-free...\", add this sentence:\n\n\"The lemma is Hermitian symmetry of the weights' Fourier transform; for two-input quadratic networks these sign-flipped copies, and their cancellation by phase symmetry across neurons, appear in \\citet[Eq.~4.1, Def.~4.1(iii)]{he2026mechanism}, and Lemma~\\ref{lem:cost} prices that cancellation.\"\n\nAdd he2026mechanism to refs.bib; no He et al. key is there yet. Keep lem:sign presented as an elementary bookkeeping lemma, not a contribution."
+ },
+ "lens": "novelty_ml",
+ "slug": "r10-sign-rule",
+ "task": 9
+}

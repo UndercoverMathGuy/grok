@@ -1,0 +1,34 @@
+{
+ "item": {
+  "id": "T5-concave-vertex",
+  "kind": "our_technique",
+  "location": "appendix app:shape (i)",
+  "statement": "Concave nondecreasing function over a line-free polyhedron is minimized at a vertex; strict concavity forces all minimizers to be vertices",
+  "what_to_check": "Classical (Rockafellar Convex Analysis Sec 32; Horst-Tuy); cite"
+ },
+ "chk": {
+  "id": "T5-concave-vertex",
+  "verdict": "KNOWN",
+  "evidence": "This is a classical textbook fact. The proof in appendix.tex:151 is correct and self-contained.\n\nWhat I could confirm:\n- **Rockafellar, Convex Analysis (Princeton UP 1970).** Metadata confirmed from the Princeton UP page and Crossref (DOI 10.1515/9781400873173). A search snippet names Sec. 32 \"The Maximum of a Convex Function\", pp. 342-346. I could not fetch the theorem text: JSTOR, Google Books and De Gruyter were all blocked. From memory, Thm 32.3 is the version for closed convex sets containing no lines and Cor. 32.3.x the polyhedral case, but the number is unverified. Cite the section, not a theorem number.\n- **Horst & Tuy, Global Optimization: Deterministic Approaches (Springer 1996).** Crossref-confirmed, DOI 10.1007/978-3-662-03199-5. It is the standard concave-minimization reference. Theorem number not confirmed.\n- **Benson, \"Concave Minimization: Theory, Applications and Algorithms\".** Handbook of Global Optimization, 1995, pp. 43-148. Crossref-confirmed, DOI 10.1007/978-1-4615-2025-2_3. It is a survey of this property.\n- **vom Dahl & Loehne, arXiv 1905.11228.** I fetched the full text. The proof of their Thm 1 uses exactly our argument. They write the polyhedron as Q + 0^+ (polytope plus recession cone) and state \"Concavity of f implies that f attains its minimum at a vertex (x0,r0) of Q\". Monotonicity along recession directions (their eq. 5) then finishes it. So the technique is standard.\n\nProof check:\n- Every recession direction of P, which lies in R_{>=0}^F, is nonnegative, so the nondecreasing phi handles that part.\n- The strictness step is valid: t^r with 0<r<1 is strictly concave, and at least one coordinate varies along any nondegenerate segment.\n- The strictness half is folklore and needs no citation.\n\nSearches run: Rockafellar Thm 32.3 contains-no-lines (several variants), Horst-Tuy concave minimization vertex, Bauer maximum principle (Wikipedia; compact case only), Benson Handbook chapter, Crossref lookups.\n\nNotes are at /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/t5-concave-vertex/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "rockafellar1970convex",
+    "bibtex": "@book{rockafellar1970convex,\n  title={Convex Analysis},\n  author={Rockafellar, R. Tyrrell},\n  series={Princeton Mathematical Series},\n  volume={28},\n  publisher={Princeton University Press},\n  year={1970},\n  doi={10.1515/9781400873173}\n}",
+    "url": "https://press.princeton.edu/books/paperback/9780691015866/convex-analysis",
+    "confirmed": true,
+    "why": "Sec. 32 ('The Maximum of a Convex Function') covers a convex function reaching its supremum at an extreme point of a closed convex set with no lines, which is the same as a concave function reaching its minimum there. Supports 'Hence the minimum is attained at a vertex' in app:shape (i). Book metadata is confirmed. The exact theorem number (32.3) is NOT verified, so cite the section."
+   },
+   {
+    "key": "horst1996global",
+    "bibtex": "@book{horst1996global,\n  title={Global Optimization: Deterministic Approaches},\n  author={Horst, Reiner and Tuy, Hoang},\n  edition={3},\n  publisher={Springer},\n  address={Berlin, Heidelberg},\n  year={1996},\n  doi={10.1007/978-3-662-03199-5}\n}",
+    "url": "https://api.crossref.org/works/10.1007/978-3-662-03199-5",
+    "confirmed": true,
+    "why": "The standard monograph on concave minimization over polyhedra, where the vertex property is basic. Metadata confirmed through Crossref. The specific theorem number is not confirmed."
+   }
+  ],
+  "recommended_change": "In sections/appendix.tex, proof of Prop. shapes (i), change \"Hence the minimum is attained at a vertex.\" to \"Hence the minimum is attained at a vertex (a classical fact; see \\citet[Sec.~32]{rockafellar1970convex} and \\citet{horst1996global}).\" Add the two bib entries. Keep the self-contained proof and the strictness argument as they are. Do not cite a theorem number unless someone checks the book."
+ },
+ "lens": "novelty_math",
+ "slug": "t5-concave-vertex",
+ "task": 50
+}

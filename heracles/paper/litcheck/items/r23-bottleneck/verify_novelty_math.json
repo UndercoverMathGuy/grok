@@ -1,0 +1,16 @@
+{
+ "task": 22,
+ "item_id": "R23-bottleneck",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN",
+ "issues": "Checker verdict upheld; the confirmed citations exist and say what is claimed, with two refinements. (1) The checker missed the most direct known statement of steps (a)-(b): Ge, Jiang and Ye (Math. Program. 2011), Theorem 3, says that for min sum x_j^p with 0<p<1 over {Ax=b, x>=0}, the local minimizers are exactly the basic feasible solutions. Their argument is the same strict-concavity midpoint argument as Prop shapes (i). They assume a bounded polytope, while P_p is unbounded, but the argument is unchanged. Cite it next to Shapley-Snow for 'minimisers are basic solutions'. (2) The Morwani Lemma 6 quote is verbatim. However, Lemma 6 is about data points in spt(q*) being on the margin. The statement that all wrong classes are equally hard is made in the proof of Theorem 7 (App. F): 'equal margin across different inputs and across different classes for the same input'. Cite it as Lemma 6 plus App. F. (3) At s=1 (F={1..(p-1)/2}) the unique maximizer is uniform y with Gamma_1=p/(p-1). All (p-1)/2 offsets are tight, and the coverage matrix is full rank (checked for p=5..113). So the s=1 Shapley-Snow kernel is the whole game, and it reproduces Morwani's dense 'every wrong answer tied'. The recommended sentence should say this; it makes the contrast precise. (4) Shapley-Snow metadata: Crossref gives an issued date of 1951-12-31 (a placeholder) and pages 27-36. Attia and Oliu-Barton, and common usage, give 1950 and pp. 27-35. The editors (Kuhn, Tucker) are confirmed. Either year is defensible; keep it consistent. (5) Chebyshev: I agree it is an analogy only. Goldsztejn 2310.01851 exists (a multivariate Chebyshev optimality survey). No programme-specific prior art was found via arXiv API searches (modular addition + margin/frequencies/sparse, 2020-2026). WebSearch budget was exhausted, so searching was done via the arXiv and Crossref APIs and primary PDFs.",
+ "extra_citations": [
+  {
+   "key": "ge2011note",
+   "bibtex": "@article{ge2011note,\n  author = {Ge, Dongdong and Jiang, Xiaoye and Ye, Yinyu},\n  title = {A note on the complexity of {$L_p$} minimization},\n  journal = {Mathematical Programming},\n  volume = {129},\n  number = {2},\n  pages = {285--299},\n  year = {2011},\n  doi = {10.1007/s10107-011-0470-2}\n}",
+   "url": "https://doi.org/10.1007/s10107-011-0470-2",
+   "why": "Theorem 3: the local minimizers of sum_j x_j^p (0<p<1) over {Ax=b, x>=0} are exactly the basic feasible solutions, proved by the same strict-concavity midpoint argument. This is the standard reference for 'l_r-cost minimisers are vertices with independent active constraints', which is steps (a)-(b) of prop:shapes and prop:bottleneck."
+  }
+ ]
+}

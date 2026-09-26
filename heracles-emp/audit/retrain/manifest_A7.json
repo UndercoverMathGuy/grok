@@ -1,0 +1,11 @@
+{
+ "tag": "A7",
+ "runs": {
+  "E7_nu4_p37_q2.7586_seed0_audit": {
+   "config.json": "1c8c07183edf110341575088270603c306ead3f65432b14ee15bebb935dd0f6f",
+   "final.pt": "1c50009b806b06c8020ea4a08130b36611470800e23d0801c25ff175284680e9",
+   "log.csv": "aecae27e2aa5f81f3654d783cb730f4da34271dfd3b04328ed964461a9d86be0",
+   "metrics.json": "399a549b6dcd7ffd2616e268b9581957857ee2e67fb92ca37461d75bd538614e"
+  }
+ }
+}

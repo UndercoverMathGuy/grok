@@ -1,0 +1,42 @@
+====================================================================================================
+p=19 h=9: 961 vertices; Gamma_1.5 = 0.442149 (programme() 0.442149)
+  C1 plateaus over s in [1.0001, 4] (modulo dilation): 5 (switches 4)
+     s 1.0001-1.1920: K=9 [1, 2, 3, 4, 5, 6, 7, 8, 9] ratios [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+     s 1.1968-1.3372: K=6 [4, 5, 6, 7, 8, 9] ratios [0.421, 0.381, 0.591, 0.903, 0.754, 1.0]
+     s 1.3421-1.3663: K=5 [5, 6, 7, 8, 9] ratios [0.687, 0.56, 0.726, 0.893, 1.0]
+     s 1.3711-2.1796: K=3 [6, 8, 9] ratios [1.0, 0.7, 0.985]
+     s 2.1845-4.0000: K=2 [7, 9] ratios [0.681, 1.0]
+  C4 dense window: optimum uses all 9 frequencies up to s = 1.1919866444073457  (s_c - 1 = 0.192; (s_c-1)*log p = 0.565)
+  C7 bottlenecks: K=3, tight offsets 3 (claim: >= K)  budget check sum w = 1.000000
+  C3 ablation (loss >= 1-(1-w)^s; also loss <= 2y/m): min loss/bound = 1.268
+     k= 1 share w=0.356  loss 0.613  lower bound 0.484  upper 2y/m 0.962
+     k= 3 share w=0.284  loss 0.679  lower bound 0.394  upper 2y/m 0.684
+     k= 7 share w=0.360  loss 0.819  lower bound 0.488  upper 2y/m 0.977
+  C2 degeneracy: 9 distinct optimal supports; dilation orbit of the optimum has 9 supports (bound (p-1)/(2K) = 3.00); all dilates optimal: True
+  C5 certificate Gamma(S) >= Gamma/sqrt3 survivors by size: K=1:0/9  K=2:27/36  K=3:84/84  K=4:126/126  K=5:126/126  K=6:84/84  K=7:36/36  K=8:9/9  K=9:1/1
+  C6 progressions: violations 0; best progression (K <= max(2,h/3)) reaches 0.680 of Gamma
+  C8 gauge: max |table change| = 2.90e-15 (table scale 0.58); cost change 0.00e+00
+----------------------------------------------------------------------------------------------------
+p=23 h=11: 4951 vertices; Gamma_1.5 = 0.402933 (programme() nan)
+  C1 plateaus over s in [1.0001, 4] (modulo dilation): 9 (switches 8)
+     s 1.0001-1.1581: K=11 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] ratios [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+     s 1.1629-1.1629: K=9 [3, 4, 5, 6, 7, 8, 9, 10, 11] ratios [0.145, 0.21, 0.393, 0.493, 0.67, 0.767, 0.895, 0.953, 1.0]
+     s 1.1678-1.2259: K=8 [4, 5, 6, 7, 8, 9, 10, 11] ratios [0.299, 0.31, 0.472, 0.712, 0.74, 0.896, 0.999, 1.0]
+     s 1.2307-1.3130: K=7 [5, 6, 7, 8, 9, 10, 11] ratios [0.499, 0.398, 0.546, 0.75, 0.922, 0.851, 1.0]
+     s 1.3179-1.3469: K=6 [6, 7, 8, 9, 10, 11] ratios [0.768, 0.525, 0.665, 0.805, 0.946, 1.0]
+     s 1.3518-1.6955: K=4 [7, 8, 10, 11] ratios [1.0, 0.388, 0.975, 0.978]
+     s 1.7003-1.9521: K=3 [7, 10, 11] ratios [0.866, 0.985, 1.0]
+     s 1.9569-2.0876: K=3 [7, 10, 11] ratios [1.0, 0.554, 0.734]
+     s 2.0925-4.0000: K=2 [9, 11] ratios [1.0, 0.953]
+  C4 dense window: optimum uses all 11 frequencies up to s = 1.1580968280467447  (s_c - 1 = 0.1581; (s_c-1)*log p = 0.496)
+  C7 bottlenecks: K=4, tight offsets 4 (claim: >= K)  budget check sum w = 1.000000
+  C3 ablation (loss >= 1-(1-w)^s; also loss <= 2y/m): min loss/bound = 1.286
+     k= 4 share w=0.152  loss 0.282  lower bound 0.219  upper 2y/m 0.294
+     k= 5 share w=0.281  loss 0.656  lower bound 0.390  upper 2y/m 0.739
+     k= 6 share w=0.281  loss 0.584  lower bound 0.391  upper 2y/m 0.741
+     k= 8 share w=0.286  loss 0.673  lower bound 0.396  upper 2y/m 0.758
+  C2 degeneracy: 11 distinct optimal supports; dilation orbit of the optimum has 11 supports (bound (p-1)/(2K) = 2.75); all dilates optimal: True
+  C5 certificate Gamma(S) >= Gamma/sqrt3 survivors by size: K=1:0/11  K=2:22/55  K=3:154/165  K=4:330/330  K=5:462/462  K=6:462/462  K=7:330/330  K=8:165/165  K=9:55/55  K=10:11/11  K=11:1/1
+  C6 progressions: violations 0; best progression (K <= max(2,h/3)) reaches 0.538 of Gamma
+  C8 gauge: max |table change| = 3.25e-15 (table scale 0.51); cost change 0.00e+00
+----------------------------------------------------------------------------------------------------

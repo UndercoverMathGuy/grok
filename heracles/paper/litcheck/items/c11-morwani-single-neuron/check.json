@@ -1,0 +1,15 @@
+{
+ "id": "C11-morwani-single-neuron",
+ "verdict": "PARTIALLY_SUPPORTED",
+ "evidence": "I read Morwani et al., ICLR 2024 Spotlight, arXiv 2311.07568 v2, in full from the arXiv PDF and checked the venue on the abs page.\n\nSec 3.1, Lemma 3 (binary; proof in App E.1) and Sec 3.2, Lemma 5 (multi-class, class-weighted; App E.2) each have a 'Single neuron optimization' bullet. It says that for a fixed distribution q, any theta in argmax_{||theta||_{a,b}<=1} E_q[g(theta)] 'has directional support only on' Omega*_q = argmax_{||omega||_a<=1} E_q[psi(omega)]. The justification is that 'the expected margin of the network decomposes into the sum of expected margin of individual neurons', so E_q g = sum_i ||omega_i||^nu E_q psi(omega_i/||omega_i||) <= gamma max_{||w||_b<=1} ||w||_nu^nu. Combining neurons needs b = nu, and the Remark in App E.1 says other b values do not give the flexibility needed to satisfy Eq. 1. These lemmas serve the certificate-pair method (Lemma 2 / Lemma 6). Thm 7 applies it by maximising sum_j u^(j) v^(j) w^(-j) over one unit neuron.\n\nWhat is shared: a network sum is reduced by homogeneity to a single unit-norm neuron problem.\n\nWhat differs:\n- Morwani's per-neuron objective is a linear expected margin under a dual q, used for a primal-dual certificate at b = nu.\n- The paper's C_b = max_{||omega||<=1} sum_j |beta_j(omega)|^{b/nu} is a concave l_{b/nu} budget. It feeds a subadditivity upper bound for all 2 <= b <= nu and uses no dual distribution.\n\nSo 'as in Morwani' fits the decomposition idea but not their lemma as stated. Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/c11-morwani-single-neuron/CHECK.md.",
+ "recommended_citations": [
+  {
+   "key": "morwani2024feature",
+   "bibtex": "@inproceedings{morwani2024feature,\n  title={Feature emergence via margin maximization: case studies in algebraic tasks},\n  author={Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2024},\n  note={arXiv:2311.07568}\n}",
+   "url": "https://arxiv.org/abs/2311.07568",
+   "confirmed": true,
+   "why": "Lemmas 3 and 5 ('Single neuron optimization') support the reduction of a network-level objective to a unit-norm single-neuron maximisation via per-neuron additivity and homogeneity. Keep the citation, but point to those lemmas and say the objective differs."
+  }
+ ],
+ "recommended_change": "In approach.tex line 54, replace \"It remains to price amplitudes in norm, which, as in \\citet{morwani2024feature}, is a single-neuron optimization.\" with \"It remains to price amplitudes in norm. As in the single-neuron step of \\citet[Lemmas 3 and 5]{morwani2024feature}, homogeneity reduces this to one neuron. Here the per-neuron quantity is an $\\ell_{b/\\nu}$ budget of its Fourier coefficients rather than an expected margin under a dual distribution.\""
+}

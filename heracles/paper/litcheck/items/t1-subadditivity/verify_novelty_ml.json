@@ -1,0 +1,16 @@
+{
+  "task": 41,
+  "item_id": "T1-subadditivity",
+  "lens": "novelty_ml",
+  "upheld": true,
+  "corrected_verdict": "KNOWN: the elementary p-norm (0<r<=1) subadditivity, the same fact that makes weight-decay representation costs (2/L)-seminorms (Ongie-Parhi Lemma 9.2/Thm 9.3). Novel only in use: the bound is uniform over mixed, interfering or inactive neurons.",
+  "issues": "Both confirmed citations exist and say roughly what is claimed, with precision fixes needed. (1) Ongie-Parhi 2606.14954 (v5 5 Sep 2026, math.FA, unrefereed): Def 3.5, Prop 3.6, Prop 3.13, Sec. 8 'concatenating neurons' and Thm 9.3 were all verified in the PDF text. The 'concatenating neurons' sentence is the shallow ReLU case with q=p=1 (plain subadditivity, r=1). The r<1 analogue is Lemma 9.2 plus Thm 9.3, so cite those. (2) Gunasekar et al. 1806.00468 (NeurIPS 2018, confirmed from the PDF footer): the precise support is Sec. 5, Lemma 6 (diagonal) and Lemma 7 (conv/Fourier), min||w||^2 = L||beta_hat||_{2/L}^{2/L}. This is an explicit representation cost that supports the AM-GM pricing step (approach.tex l.~49), not the splitting/subadditivity step: diagonal nets have no splitting across neurons. Move the citation to l.~49 or cite it as 'Lemmas 6-7'. (3) The checker missed a closer explicit-regularisation precedent: Kolb et al., ICLR 2025, Lemma 1/Thm 1 (D-factor weight factorisation plus L2 is equivalent to an L_{2/D} quasi-norm). (4) Kalton-Peck-Roberts was never read by the checker or by me. Drop it, since the inequality is elementary. Dai-Karzand-Srebro (NeurIPS 2021), cited by Kolb for L_{2/D} on diagonal nets, is probably canonical but was NOT fetched, so it is not recommended here. (5) No ML paper found that states the exact step: an L_{2,b}, b<nu margin bound uniform over mixed or interfering neurons via l_r subadditivity. Jacobs-Montufar 2605.19458 was grepped and has no such argument. Process: the WebSearch budget is exhausted (200/200), and arXiv export and Semantic Scholar returned 429s. This is why the verify stage is slow.",
+  "extra_citations": [
+    {
+      "key": "kolb2025deep",
+      "bibtex": "@inproceedings{kolb2025deep,\n  title={Deep Weight Factorization: Sparse Learning Through the Lens of Artificial Symmetries},\n  author={Kolb, Chris and Weber, Tobias and Bischl, Bernd and R{\\\"u}gamer, David},\n  booktitle={International Conference on Learning Representations},\n  year={2025}\n}",
+      "url": "https://arxiv.org/abs/2502.02496",
+      "why": "Lemma 1 and Thm 1: a D-factor Hadamard weight factorisation under an L2 penalty is equivalent to an L_{2/D} quasi-norm penalty, with the same global and local minima, attained at balanced factors. This is the explicit weight-decay precedent for the AM-GM step (amplitude A costs A^{b/nu}), and closer than Gunasekar's GD-implicit-bias framing."
+    }
+  ]
+}

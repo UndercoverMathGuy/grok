@@ -1,0 +1,9 @@
+{
+  "task": 84,
+  "item_id": "C10-morwani-phase-sec4",
+  "lens": "citation",
+  "upheld": true,
+  "issues": "None substantive. I fetched arXiv 2311.07568 myself (abs page plus v2 HTML). Section 4 is 'Cyclic groups (modular addition)'. Its Theorem 7 states the phase condition theta_u*+theta_v*=theta_w* for every neuron of a maximum L_{2,3}-margin quadratic network (m >= 4(p-1)). Direction: with that condition, the frequency-zeta term is a cosine in (a+b-c) with zero phase offset, peaked at c=a+b. That matches 'beta_j real positive, cosine peaked at the label'. Their condition is per neuron, on weight phases, so 'analogue' is accurate. The bib fields match: title, 5 authors, ICLR 2024 (Spotlight per the arXiv comments). A more precise pointer is Theorem 7 rather than Section 4 alone, as the checker recommended. eta_{u,v,w}(delta), cited at approach.tex:11, is defined in Appendix F.1. Operational: my WebSearch returned 'used its web search budget (200 of 200 WebSearch calls)', so the verifiers share one exhausted session-wide search cap, which probably explains the slow verify stage.",
+  "corrected_verdict": "SUPPORTED",
+  "extra_citations": []
+}

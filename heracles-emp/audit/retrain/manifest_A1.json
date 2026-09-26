@@ -1,0 +1,11 @@
+{
+ "tag": "A1",
+ "runs": {
+  "E1_nu5_p13_s1.25_seed2_audit": {
+   "config.json": "190006b856d56ae992ea985bd2cbfad40cde8098b5e8d369be20cd4da83b3133",
+   "final.pt": "537b477a1aa50ffd5db9959e9f8642f2a23a458e1cf6540e14b9951f09d89565",
+   "log.csv": "7de77339e3cc58835559c110cacafc167f04b29b2c6b8b97c4e780ca6a0db9da",
+   "metrics.json": "731d811ad2a73fce979889db0b1ad048c89f07dec9dfac02c78cf0cd34f1d65f"
+  }
+ }
+}

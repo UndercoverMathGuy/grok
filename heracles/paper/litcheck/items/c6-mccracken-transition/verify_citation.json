@@ -1,0 +1,16 @@
+{
+ "task": 80,
+ "item_id": "C6-mccracken-transition",
+ "lens": "citation",
+ "upheld": false,
+ "corrected_verdict": "PARTIALLY_SUPPORTED: McCracken et al. (NeurIPS 2025) do show a dense (floor(n/2)) to sparse (few, O(log n)) transition in the number of frequencies. The trigger is adding depth or a trainable embedding, not 'degree' or regularization. Replace the fabricated bib entry with the NeurIPS 2025 inproceedings entry.",
+ "issues": "1. The paper and the checker's evidence are right, but the checker's bibtex is out of date. arXiv 2505.18266 was accepted at NeurIPS 2025 as a poster (OpenReview zuHs6RHQwT, venueid NeurIPS.cc/2025/Conference). Cite it as @inproceedings NeurIPS 2025, not @article arXiv preprint. The fourth author (Vincent Letourneau in the checker's bib) should be spelled L{\\'e}tourneau. The checker's line 'no venue' is wrong.\n2. The checker says McCracken 'never vary weight decay'. That is overstated: App. G.9 / Fig 41 shows average-frequency heat maps over learning rate x weight decay, and G.9.1 says the count 'can be shifted based on hyperparameters'. What they never report is a regularization-driven dense-to-sparse transition, so recommended change 3 (don't credit them with a regularization transition) still stands.\n3. The checker's proposed intro clause 'both of which raise its homogeneity degree' is unsupported by McCracken. The paper never uses 'homogeneity', and its construction uses neuron biases (Sec 4.2), so the nets are probably not homogeneous. Drop the clause, or mark it as our own reading for bias-free models.\n4. Confirmed verbatim in arXiv v1: Sec 4.4 / Fig 4 (depth or a trainable embedding moves the count from floor(n/2) to much fewer), Thm 4.7 / Cor 4.8 (O(log n) frequencies are sufficient for an Omega(log n) logit margin; sufficiency only), and Sec 5.1 ('we don't know why it occurs'). I could not fetch the NeurIPS camera-ready (OpenReview bot challenge), so re-check section and theorem numbers against it before citing by number.\nHarness note for the slowness question: WebSearch refused on this subagent's first call with 'used its web search budget (200 of 200 WebSearch calls)', so the verifiers appear to share one exhausted budget. Semantic Scholar returned 429 and dblp timed out at 60s.",
+ "extra_citations": [
+  {
+   "key": "mccracken2025",
+   "bibtex": "@inproceedings{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and L{\\'e}tourneau, Vincent and Precup, Doina and Love, Jonathan},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2025},\n  url={https://openreview.net/forum?id=zuHs6RHQwT}\n}",
+   "url": "https://openreview.net/forum?id=zuHs6RHQwT",
+   "why": "This is the canonical published version of arXiv 2505.18266 (NeurIPS 2025 poster; official OpenReview bibtex, fetched through the API). It replaces both the fabricated refs.bib entry and the checker's arXiv @article."
+  }
+ ]
+}

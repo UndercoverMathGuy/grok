@@ -1,0 +1,48 @@
+{
+ "item": {
+  "id": "T3-determinant-gram",
+  "kind": "our_technique",
+  "location": "appendix app:cost",
+  "statement": "det(I+tH)=(1+t)^nu via triangularity, Sylvester/principal-minor expansion, Hadamard bound on Gram determinants, then Bernstein integral x^r = (r sin pi r/pi) int log(1+xt) t^{-1-r} dt to pass to power sums",
+  "what_to_check": "Cite Horn-Johnson for Sylvester/Hadamard; check majorization literature (Bhatia; Marshall-Olkin) for the generating-function-to-power-sum transfer"
+ },
+ "chk": {
+  "id": "T3-determinant-gram",
+  "verdict": "KNOWN",
+  "evidence": "Every step of the technique in app:cost is standard. The inequality it proves, sum_l|beta_l|^r >= nu^{1-r}|beta|^r for 0<r<=1, also has a two-line classical proof.\n\n(a) Sylvester's determinant identity, the principal-minor expansion of det(I+tX), and Hadamard's inequality for Gram/PSD matrices are textbook results in Horn & Johnson, Matrix Analysis, 2nd ed. I confirmed the book on cambridge.org. I did not verify section numbers.\n\n(b) The integral x^r = (r sin(pi r)/pi) \u222b log(1+xt) t^{-1-r} dt is the Stieltjes/complete-Bernstein representation of x^r. The operator-monotone chapter of Bhatia gives x^r = (sin r pi/pi) \u222b x/(x+lambda) lambda^{r-1} dlambda, and integrating by parts gives the log form. I did not verify Bhatia's section or equation numbers. I could not fetch the de Gruyter page for the Schilling-Song-Vondracek monograph.\n\n(c) The step from the generating function to power sums (prod(1+x_l t) >= (1+t)^nu for all t implies sum x^r >= nu) has no named majorization-literature precedent that I found. It is not ordinary weak majorization, but it is elementary.\n\n(d) Main finding: the lemma follows from two classical theorems.\n- Weyl's majorant theorem: Weyl, PNAS 35:408-411, 1949, fetched via PMC; also Bhatia Thm II.3.6 per secondary sources. It says sum phi(|lambda_i|) <= sum phi(sigma_i) when phi(e^s) is convex. H is upper triangular with unit diagonal, so all its eigenvalues are 1, and with phi = x^r this gives nu <= sum sigma_i(H)^r.\n- The Rotfel'd/Thompson inequality: R.C. Thompson, Pacific J. Math 66(1):285-290, 1976. I fetched the PDF. Its eq. (1) reads: \"f(\u03b31)+...+f(\u03b3n) <= f(\u03b11)+...+f(\u03b1n)+f(\u03b21)+...+f(\u03b2n) when f is an increasing concave function of a nonnegative real variable, with f(0)=0\", where \u03b1, \u03b2, \u03b3 are the singular values of A, B, A+B. Apply it to the rank-one summands d_l u_l u_l^* with f = x^r. This gives sum sigma_i(H)^r <= sum_l |d_l|^r.\n- Together these give sum|d_l|^r >= nu, which is the lemma.\n\nThe paper's own route is still valuable because it gives the equality case cleanly. Searches run: Thompson 1976 title; Rotfel'd concave singular values; Weyl majorant Bhatia II.3.6; Weyl 1949 PNAS; Bernstein integral representation of x^r; Schilling-Song-Vondracek. Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/t3-determinant-gram/CHECK.md.",
+  "recommended_citations": [
+   {
+    "key": "hornjohnson2012",
+    "bibtex": "@book{hornjohnson2012,\n  author = {Horn, Roger A. and Johnson, Charles R.},\n  title = {Matrix Analysis},\n  edition = {2},\n  publisher = {Cambridge University Press},\n  year = {2012},\n  doi = {10.1017/CBO9780511810817}\n}",
+    "url": "https://www.cambridge.org/core/books/matrix-analysis/9CF2CB491C9E97948B15FAD835EF9A8B",
+    "confirmed": true,
+    "why": "Standard reference for the three facts used in Lemma minor and Lemma hadamard: Sylvester's identity det(I+U\u0394U*) = det(I+\u0394U*U), the principal-minor expansion of det(I+tX), and Hadamard's inequality (Gram determinant <= product of diagonal entries, with equality iff the matrix is diagonal). Section numbers not verified."
+   },
+   {
+    "key": "thompson1976",
+    "bibtex": "@article{thompson1976,\n  author = {Thompson, Robert C.},\n  title = {Convex and concave functions of singular values of matrix sums},\n  journal = {Pacific Journal of Mathematics},\n  volume = {66},\n  number = {1},\n  pages = {285--290},\n  year = {1976},\n  doi = {10.2140/pjm.1976.66.285}\n}",
+    "url": "https://projecteuclid.org/euclid.pjm/1102818240",
+    "confirmed": true,
+    "why": "Eq. (1), due to Rotfel'd: for increasing concave f with f(0)=0, sum f(sigma(A+B)) <= sum f(sigma(A)) + sum f(sigma(B)). With f = x^r and the rank-one summands d_l u_l u_l^*, this gives sum sigma_i(H)^r <= sum|d_l|^r, which is half of an alternative proof of Lemma cost."
+   },
+   {
+    "key": "weyl1949",
+    "bibtex": "@article{weyl1949,\n  author = {Weyl, Hermann},\n  title = {Inequalities between the Two Kinds of Eigenvalues of a Linear Transformation},\n  journal = {Proceedings of the National Academy of Sciences of the USA},\n  volume = {35},\n  number = {7},\n  pages = {408--411},\n  year = {1949},\n  doi = {10.1073/pnas.35.7.408}\n}",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1063049/",
+    "confirmed": true,
+    "why": "Weyl's majorant theorem: sum phi(|lambda_i|) <= sum phi(sigma_i) for phi with phi(e^s) convex. Since H is triangular with unit eigenvalues, this gives nu <= sum sigma_i(H)^r. Combined with Thompson/Rotfel'd it yields the inequality of Lemma cost."
+   },
+   {
+    "key": "bhatia1997",
+    "bibtex": "@book{bhatia1997,\n  author = {Bhatia, Rajendra},\n  title = {Matrix Analysis},\n  series = {Graduate Texts in Mathematics},\n  volume = {169},\n  publisher = {Springer},\n  year = {1997},\n  doi = {10.1007/978-1-4612-0653-8}\n}",
+    "url": "https://www.amazon.com/Matrix-Analysis-Graduate-Texts-Mathematics/dp/0387948465",
+    "confirmed": true,
+    "why": "Textbook source for Weyl's majorant theorem (Thm II.3.6, per secondary sources) and for the integral representation of x^r (0<r<1) in the operator-monotone chapter (Ch. V). The log-kernel form in Lemma bernstein follows from that representation by integration by parts. Title, author and series were confirmed; the year 1997 comes from search metadata; theorem and equation numbers were not verified."
+   }
+  ],
+  "recommended_change": "In app:cost, cite Horn-Johnson [hornjohnson2012] at \"Sylvester's identity\", \"Expanding by principal minors\" and in Lemma hadamard (\"Hadamard's inequality\"). In Lemma bernstein, add \"(the classical Stieltjes/complete-Bernstein representation of x^r; cf. [bhatia1997, Ch. V])\". After the proof of Lemma cost, add one sentence: \"The inequality (though not the equality case as we use it) also follows from Weyl's majorant theorem [weyl1949], which gives nu = sum|lambda_i(H)|^r <= sum sigma_i(H)^r, combined with the Rotfel'd-Thompson concave subadditivity of singular values [thompson1976], which gives sum sigma_i(H)^r <= sum_l |d_l|^r.\" Do not present the determinant/Gram technique as new."
+ },
+ "lens": "novelty_ml",
+ "slug": "t3-determinant-gram",
+ "task": 45
+}

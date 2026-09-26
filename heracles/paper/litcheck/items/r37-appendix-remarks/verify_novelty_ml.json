@@ -1,0 +1,9 @@
+{
+  "task": 39,
+  "item_id": "R37-appendix-remarks",
+  "lens": "novelty_ml",
+  "upheld": true,
+  "corrected_verdict": "RELATED_ONLY",
+  "issues": "The search was limited. WebSearch was exhausted for the whole session (200/200 calls), and the arXiv API and Semantic Scholar both returned HTTP 429. So the check relied on fetching the candidate papers directly. Neyshabur-Tomioka-Srebro COLT 2015 is re-confirmed from the PMLR page and the arXiv 1503.00036v2 text. Sec. 3.1 says width-independence holds only when 1/p+1/q>=1. The Thm 3 proof duplicates the top unit H times with an averaging unit, reducing the norm by H^{1/q-1/p*}. It is the same mechanism in a different construction: ReLU, depth >= 3 and an averaging layer, against our single-layer H^{-1/nu} rescaling. The sentence should say 'same splitting mechanism as', not attribute our argument to them. Savarese et al. COLT 2019 (PMLR 99:2667-2690) is re-confirmed, with the bib correct, and is irrelevant to these remarks (optional). Morwani App. E.1 is the only prior remark on b != nu, and it says nothing about b>nu being unbounded or about b<2. Li et al. 2402.09469 uses only b=k+1 and never considers sparse or equal-share subsets. No ML precedent was found for the equal-share bound, the interval patterns, the operand-factor count or the power-net population facts. Internal flag: App. B says Morwani's power net attains the class bound at n=2, b=3, but App. conjecture says no interference-free power net is known to attain it. Reconcile the two, for example by restricting the sentence to b<nu or by saying that Morwani's net carries interference.",
+  "extra_citations": []
+}

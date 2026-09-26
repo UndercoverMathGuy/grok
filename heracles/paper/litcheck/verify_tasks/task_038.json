@@ -1,0 +1,34 @@
+{
+ "item": {
+  "id": "R34-conjecture-known",
+  "kind": "our_result",
+  "location": "appendix app:conjecture",
+  "statement": "Conjecture: interference-free value is the global max for product nets; known true at p=3, in window b >= nu-4/(3(p-1)), b>=5/2 at p=5, single-frequency class at n=2,b=2 above 'certified aiming depth' 0.3476; strict local max; interfering local max at p=5 (0.837) so no local-to-global proof; group analogue false on Z12,D3,S4 (1.06-1.62x)",
+  "what_to_check": "Internal; 'certified aiming depth' undefined and proofs absent; check nothing external settles it"
+ },
+ "chk": {
+  "id": "R34-conjecture-known",
+  "verdict": "NOVEL_AS_FAR_AS_FOUND",
+  "evidence": "Searches run on 2026-09-25:\n(1) global maximum margin modular addition network sparse Fourier features conjecture interference proof;\n(2) \"modular addition\" max-margin \"local maximum\" not global multilinear network Fourier sparse optimum 2026 arXiv;\n(3) max-min trigonometric polynomial nonnegative coefficients l_q budget maximize minimum sum beta_k(1-cos k s) optimal support;\n(4) MAIS open problem maximum margin modular addition global optimum weight decay Levine 2026.\n\nNo paper found proves or refutes the claim that the interference-free (sparse) value is the global max of the L_{2,b} margin for b < nu. None exhibits an interfering local max, and none gives a group counterexample.\n\nThe one partial overlap is the endpoint b = nu of the paper's \"window\". There the global optimum over all networks, interference included, is already known:\n- Morwani et al., ICLR 2024 (arXiv 2311.07568, fetched), Thm 7: the L_{2,3} maximum for the quadratic net, certified by a dual (Lemma 2/6), which uses all frequencies.\n- Li et al., AISTATS 2025, PMLR 258:523-531 (fetched), Thm 4.1: the same for power neurons at L_{2,k+1}.\nThe paper's own appendix (l.279) already says the Morwani net attains the bound at n=2, b=3. The window result for product nets, nu-4/(3(p-1)) <= b <= nu, therefore reads as extending the Morwani/Li certificate method a distance O(1/p) below b = nu. The endpoint should be credited to them.\n\nOther results checked:\n- arXiv 2608.04451 (Memana, Aug 2026) is a counterexample to MAIS-O60 about single-neuron ReLU dynamics. It is irrelevant here.\n- Harmonic-analysis hits are Littlewood/Fejer cosine-polynomial extremal results, and none settles the programme.\n\nInternal problems (not literature):\n- \"certified aiming depth\" is undefined. The source flags this itself with a TODO at sections/appendix.tex l.294.\n- The \"Known\" claims (p=3, the window, b>=5/2 at p=5, the 0.3476 class result, the 0.837 local max, the group counterexamples) have no proofs or pointers in the appendix.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r34-conjecture-known/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "morwani2024feature",
+    "bibtex": "@inproceedings{morwani2024feature,\n  title={Feature emergence via margin maximization: case studies in algebraic tasks},\n  author={Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2024}\n}",
+    "url": "https://arxiv.org/abs/2311.07568",
+    "confirmed": true,
+    "why": "Thm 7 gives the global maximum L_{2,3} margin over all quadratic networks, which is dense and certified by a dual. This is the b = nu endpoint of the conjecture's 'window', where the global max is already known. Cite it in app:conjecture next to the window claim."
+   },
+   {
+    "key": "li2025fourier",
+    "bibtex": "@inproceedings{li2025fourier,\n  title={Fourier Circuits in Neural Networks and Transformers: A Case Study of Modular Arithmetic with Multiple Inputs},\n  author={Li, Chenyang and Liang, Yingyu and Shi, Zhenmei and Song, Zhao and Zhou, Tianyi},\n  booktitle={Proceedings of The 28th International Conference on Artificial Intelligence and Statistics},\n  series={PMLR},\n  volume={258},\n  pages={523--531},\n  year={2025}\n}",
+    "url": "https://proceedings.mlr.press/v258/li25b.html",
+    "confirmed": true,
+    "why": "Thm 4.1 gives the global maximum L_{2,k+1} margin for power neurons with k inputs, i.e. b = nu for the power model. This is prior art for the endpoint of the window, and relevant to the appendix remark that no interference-free power net attains n! B_p."
+   }
+  ],
+  "recommended_change": "Three edits to app:conjecture:\n(a) Add after the window sentence: \"At the endpoint b = nu the global maximum over all networks is known and dense (Morwani et al., 2024, Thm 7; Li et al., 2025, Thm 4.1). The window result extends that certificate O(1/p) below b = nu.\"\n(b) Define \"certified aiming depth\", or delete the single-frequency-class clause (sections/appendix.tex l.294-295).\n(c) Give a proof sketch or an explicit pointer for each \"Known\" item (p=3, the window, b>=5/2 at p=5, the strict local max, the 0.837 interfering local max, the Z12/D3/S4 counterexamples). Where only numerical evidence exists, mark it \"verified numerically\"."
+ },
+ "lens": "novelty_math",
+ "slug": "r34-conjecture-known",
+ "task": 38
+}

@@ -1,0 +1,16 @@
+{
+ "task": 59,
+ "item_id": "T10-bessel-bound",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "KNOWN",
+ "issues": "Checker verdict KNOWN upheld. I independently fetched DLMF 10.32.1 (integral repr of I_0), 10.35.2 (Jacobi-Anger, Fourier coefficients I_k) and 10.40.1 (e^z/sqrt(2 pi z) asymptotic): all say what is claimed. Derivation of I_0(z) >= e^{z-1/2}/(pi sqrt z) for z>=1 re-done and checked numerically (ratio -> 2.07); constant chain with a_s = 3+s/2 (cyclic.tex:112) is consistent. Only bib fix: the checker's dlmf entry omits the release; DLMF's own cite page (https://dlmf.nist.gov/help/cite) gives 'Release 1.2.8 of 2026-09-15' and braces {Olde Daalhuis}; editor list is exact. refs.bib currently has no DLMF entry, so it must be added. ML-lens: no ML paper makes this scalar bound novel (textbook Laplace estimate); no ML precedent fetched, none cited. Baricz 2010 (PEMS 53:575-599, doi 10.1017/S0013091508001016) exists (Crossref) but its fetched abstract does not state the specific bound, so not recommended. Tooling: WebSearch budget exhausted (200/200) and arXiv/Semantic Scholar APIs returned HTTP 429 during this task.",
+ "extra_citations": [
+  {
+   "key": "dlmf",
+   "bibtex": "@misc{dlmf,\n  key = {DLMF},\n  title = {{NIST Digital Library of Mathematical Functions}},\n  howpublished = {\\url{https://dlmf.nist.gov/}, Release 1.2.8 of 2026-09-15},\n  note = {F.~W.~J. Olver, A.~B. {Olde Daalhuis}, D.~W. Lozier, B.~I. Schneider, R.~F. Boisvert, C.~W. Clark, B.~R. Miller, B.~V. Saunders, H.~S. Cohl, and M.~A. McClain, eds.}\n}",
+   "url": "https://dlmf.nist.gov/help/cite",
+   "why": "Corrected DLMF entry per DLMF's own recommended citation (adds Release 1.2.8 of 2026-09-15); cite Eq. 10.32.1, 10.35.2, 10.40.1 at appendix lines 198/214."
+  }
+ ]
+}

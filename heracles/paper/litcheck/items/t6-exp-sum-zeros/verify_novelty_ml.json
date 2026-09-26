@@ -1,0 +1,9 @@
+{
+ "task": 51,
+ "item_id": "T6-exp-sum-zeros",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "KNOWN",
+ "issues": "Checker's KNOWN verdict and all three confirmed citations survive. (1) Jameson 2006: author PDF fetched. Corollary 3.2 says 'A generalized polynomial, or a Dirichlet polynomial [sum a_j e^{p_j x}], of length n, has at most n-1 zeros (counted with their orders)', and its remark gives the paper's exact proof (multiply by e^{-p_k x}, differentiate, Rolle). Jameson also says Laguerre's results appear in Polya-Szego Part V, Ch. 1, which backs the checker's pinpoint. Cite Jameson as [Cor. 3.2]. (2) Polya-Szego II: Crossref and Springer confirm the metadata and subtitle; 'The Location of Zeros' is pp. 36-70. The problem number (V.75) is still unverified, so cite by Part/Ch. (3) Borwein-Erdelyi: the Springer page shows GTM volume 161, which resolves the checker's caveat. Erdelyi arXiv 1602.02315 confirms 'stated and proved on page 102'. Minor: arXiv 1709.06891, which the checker used as evidence, is a kinetic-scheme numerics paper, a tangential source that is not recommended for citation. ML-lens novelty: the lemma is textbook (Laguerre, Polya-Szego, Descartes systems) and the paper does not claim it as new, so no ML priority issue. Process note: WebSearch returned 'session has used its web search budget (200 of 200 WebSearch calls)'. This verifier ran no new searches and relied on Crossref, Springer, the arXiv PDF and the author PDF via curl/WebFetch. The shared search budget is likely exhausted for the other litcheck verify tasks too, which would explain the slow or degraded verify stage.",
+ "extra_citations": []
+}

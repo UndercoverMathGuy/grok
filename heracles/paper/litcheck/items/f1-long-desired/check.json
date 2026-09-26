@@ -1,0 +1,29 @@
+{
+ "id": "F1-long-desired",
+ "verdict": "PARTIALLY_SUPPORTED",
+ "evidence": "refs.bib currently has no Olah, Elhage or Sharkey entry, so the sentence has no citation. I checked it with grep.\n\n(1) Elhage et al. 2022, Toy Models of Superposition (Transformer Circuits Thread, page fetched):\n- The Open Questions section asks: \"How many features should we expect to be stored in superposition? ... results from compressed sensing should be able to give us useful upper-bounds, but it would be nice to have a clearer understanding \u2013 and perhaps tighter bounds!\"\n- The main text says: \"one question is just how many features the model learns to represent\" (measured by ||W||_F^2).\n- The SAE replication section says: \"we ultimately want to count the features used by real neural networks, where the number of features is unknown.\"\n\n(2) Sharkey et al. 2025, Open Problems in Mechanistic Interpretability (arXiv 2501.16496, fetched HTML), Sec. 2.1 on reverse-engineering/decomposition. It says conceptual work \"may ... provide bounds on the number of features we should expect models to be capable of learning (H\u00e4nni et al., 2024; Adler & Shavit, 2024; Bushnaq & Mendel, 2024)\".\n\n(3) Olah et al. 2020, Zoom In (Distill, doi 10.23915/distill.00024.001), Claim 1: \"Features are the fundamental unit of neural networks.\" This supports only that features are central.\n\nAssessment: the question is explicitly posed as open, so the sentence is supported in substance. \"Long-desired result\" overstates things, though. The question has been posed since about 2022, and in mech interp \"number of features\" means superposition capacity or SAE feature counts, not Fourier frequencies or irreps. Search method: fetched the arXiv/Distill/transformer-circuits pages and grepped the full texts for \"how many features\" and \"number of features\". Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/f1-long-desired/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "elhage2022superposition",
+   "bibtex": "@article{elhage2022superposition,\n  title={Toy Models of Superposition},\n  author={Elhage, Nelson and Hume, Tristan and Olsson, Catherine and Schiefer, Nicholas and Henighan, Tom and Kravec, Shauna and Hatfield-Dodds, Zac and Lasenby, Robert and Drain, Dawn and Chen, Carol and Grosse, Roger and McCandlish, Sam and Kaplan, Jared and Amodei, Dario and Wattenberg, Martin and Olah, Christopher},\n  year={2022},\n  journal={Transformer Circuits Thread},\n  note={https://transformer-circuits.pub/2022/toy_model/index.html}\n}",
+   "url": "https://transformer-circuits.pub/2022/toy_model/index.html",
+   "confirmed": true,
+   "why": "Supports abstract sentence 1. Its Open Questions section asks 'How many features should we expect to be stored in superposition?' and calls for tighter bounds. It also states 'we ultimately want to count the features used by real neural networks'."
+  },
+  {
+   "key": "sharkey2025open",
+   "bibtex": "@article{sharkey2025open,\n  title={Open Problems in Mechanistic Interpretability},\n  author={Sharkey, Lee and Chughtai, Bilal and Batson, Joshua and Lindsey, Jack and Wu, Jeff and Bushnaq, Lucius and Goldowsky-Dill, Nicholas and Heimersheim, Stefan and Ortega, Alejandro and Bloom, Joseph and Biderman, Stella and Garriga-Alonso, Adria and Conmy, Arthur and Nanda, Neel and Rumbelow, Jessica and Wattenberg, Martin and Schoots, Nandi and Miller, Joseph and Michaud, Eric J. and Casper, Stephen and Tegmark, Max and Saunders, William and Bau, David and Todd, Eric and Geiger, Atticus and Geva, Mor and Hoogland, Jesse and Murfet, Daniel and McGrath, Tom},\n  journal={arXiv preprint arXiv:2501.16496},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2501.16496",
+   "confirmed": true,
+   "why": "Sec. 2.1 lists as an open problem the need to 'provide bounds on the number of features we should expect models to be capable of learning'. This directly supports calling the question open in the field."
+  },
+  {
+   "key": "olah2020zoom",
+   "bibtex": "@article{olah2020zoom,\n  author = {Olah, Chris and Cammarata, Nick and Schubert, Ludwig and Goh, Gabriel and Petrov, Michael and Carter, Shan},\n  title = {Zoom In: An Introduction to Circuits},\n  journal = {Distill},\n  year = {2020},\n  doi = {10.23915/distill.00024.001},\n  note = {https://distill.pub/2020/circuits/zoom-in}\n}",
+   "url": "https://distill.pub/2020/circuits/zoom-in/",
+   "confirmed": true,
+   "why": "Optional. Claim 1, 'Features are the fundamental unit of neural networks', supports the idea that features are central. It does not ask about how many there are."
+  }
+ ],
+ "recommended_change": "Replace abstract sentence 1 with: \"How many features a network learns is a central open question in mechanistic interpretability \\citep{elhage2022superposition,sharkey2025open}.\" (Olah et al. 2020 is optional and supports only the notion of a feature.) Drop \"long-desired result\". In the intro, add one clause linking superposition-style feature counts to this paper's features (Fourier frequencies/irreps), so the framing does not suggest mech interp asked for exactly this."
+}

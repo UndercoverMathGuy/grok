@@ -1,0 +1,35 @@
+{
+ "batches": [
+  {
+   "batch_id": "audit_A1",
+   "runs": [
+    {
+     "run_id": "E1_nu5_p13_s1.25_seed2_audit",
+     "config": {
+      "model": "product",
+      "n": 4,
+      "p": 13,
+      "q": 4.0,
+      "width": 60,
+      "steps": 300000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 0.45500000000000007,
+      "lr_c": 0.035,
+      "lam": 3.0907120590394925e-07,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 3.605551275463989,
+      "seed": 2,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.25
+     }
+    }
+   ]
+  }
+ ]
+}

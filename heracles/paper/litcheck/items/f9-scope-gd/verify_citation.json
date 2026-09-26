@@ -1,0 +1,22 @@
+{
+  "task": 73,
+  "item_id": "F9-scope-gd",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "SUPPORTED (scope statement; citations optional). Refine the checker's replacement sentence as described in issues.",
+  "issues": "Both confirmed citations check out from primary sources.\n\n- Lyu-Li (ICLR 2020, arXiv 1906.05890): Thm 4.4, App G and the Sec 4.3 'best we can hope for' quote are verbatim. It is unregularized, L2 (b=2) only, and gives limit points along KKT directions, not directional convergence.\n- Ji-Telgarsky (NeurIPS 2020, arXiv 2006.06657): Thm 3.1 covers binary gradient flow only. Sec 5 says cross-entropy and GD are not handled.\n\nThe checker's recommended sentence therefore overstates the result as 'gradient flow and descent on cross-entropy converge in direction to KKT points'. Reword it to 'every limit direction ... is a KKT point (b=2, unregularized)', with directional convergence credited only for binary gradient flow.\n\nVardi-Shamir-Srebro's venue, which the checker left unconfirmed, is now confirmed. DOI 10.52202/068431-2683 resolves to NeurIPS 35 (2022), pp. 37024-37036.\n\nThe checker missed one better-fitting citation: Lyu, Jin, Li, Du, Lee, Hu (ICLR 2024, arXiv 2311.18817). Its Thm 3.5 covers gradient flow with weight decay from large init reaching a KKT point of the L2 max-margin problem. That is the regularized, grokking-setting analogue (binary, L2 only).\n\nOperational: the session WebSearch budget is exhausted (200/200), so verifiers must rely on direct fetches.",
+  "extra_citations": [
+    {
+      "key": "vardi2022margin",
+      "bibtex": "@inproceedings{vardi2022margin,\n  title={On Margin Maximization in Linear and {ReLU} Networks},\n  author={Vardi, Gal and Shamir, Ohad and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  volume={35},\n  pages={37024--37036},\n  year={2022}\n}",
+      "url": "https://arxiv.org/abs/2110.02732",
+      "why": "The abstract says 'in many cases, the KKT point is not even a local optimum of the max margin problem', which justifies not claiming that GD finds max-margin solutions. The venue is confirmed via DOI 10.52202/068431-2683 (NeurIPS 35, 2022)."
+    },
+    {
+      "key": "lyu2024dichotomy",
+      "bibtex": "@inproceedings{lyu2024dichotomy,\n  title={Dichotomy of Early and Late Phase Implicit Biases Can Provably Induce Grokking},\n  author={Lyu, Kaifeng and Jin, Jikai and Li, Zhiyuan and Du, Simon S. and Lee, Jason D. and Hu, Wei},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2024}\n}",
+      "url": "https://arxiv.org/abs/2311.18817",
+      "why": "Thm 3.5: gradient flow with small weight decay from large init reaches, at some time in [log(alpha)/lambda, (1+c)log(alpha)/lambda], a KKT point of min ||theta||_2^2 s.t. y_i f_i >= 1. This is the weight-decay, grokking analogue of Lyu-Li (binary, L2 only), and it fits a paper whose proxy is regularized minimizers."
+    }
+  ]
+}

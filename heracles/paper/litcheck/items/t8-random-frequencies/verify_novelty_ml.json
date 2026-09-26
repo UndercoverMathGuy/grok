@@ -1,0 +1,16 @@
+{
+ "task": 55,
+ "item_id": "T8-random-frequencies",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "KNOWN (upheld). The Alon-Roichman random Cayley graph argument, specialised to Z_p with a Hoeffding tail. McCracken et al. 2025 (Thm 4.7/Cor 4.8) is the direct modular-addition ML precedent. Only the budget normalisation into Gamma_s is ours.",
+ "issues": "No missed prior art found beyond what the checker already has. McCracken et al. arXiv 2505.18266 Thm 4.7 is the direct ML precedent (random uniform frequencies from {1..n/2}, margin delta*m for all wrong k). Minor corrections: (a) The checker's transcription of Thm 4.7 is garbled. The actual condition is m > [2 ln n - 2 ln(2-2rho)] / [ln(pi/delta) - 1]. At delta=1/2 this needs m ~ 2.4 ln n versus our 8 ln p, so our constant is loose, which a reviewer may notice. (b) The existing mccracken2025 bib entry is wrong: the title is 'Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks' and the authors are Gavin McCracken, Gabriela Moisescu-Pareja, Vincent Letourneau, Doina Precup, Jonathan Love (abs page fetched). (c) Alon-Roichman Thm 2 is confirmed from the PDF text: a multiset of (1+eps)log2 n elements chosen with repetition, a per-character bound, then a union over the n-1 nontrivial characters. Their per-character tail is binomial/Chernoff, not Hoeffding, so 'cyclic case of the argument' is fair. The bib is correct; add doi 10.1002/rsa.3240050203. (d) Naor-Naor and AGHP metadata are confirmed via Crossref, but both constructions are over Z_2^n and small-bias is two-sided (|E chi|<=eps). Calling our one-sided condition a '1/2-biased multiset of Z_p \\citep{naor1993small}' stretches the definition. Keep it optional, phrased as 'a one-sided analogue of small-bias sets', or drop it. (e) The Hoeffding 1963 JASA 58(301):13-30 bib is confirmed via Crossref. PROCESS NOTE (why verify is slow): WebSearch returned 'session has used its web search budget (200 of 200)' on this agent's first call, so the shared budget is exhausted for all verifiers. export.arxiv.org and api.semanticscholar.org also returned HTTP 429 from parallel agents. Raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION and/or reduce verify concurrency.",
+ "extra_citations": [
+  {
+   "key": "hoeffding1963probability",
+   "bibtex": "@article{hoeffding1963probability,\n  title={Probability inequalities for sums of bounded random variables},\n  author={Hoeffding, Wassily},\n  journal={Journal of the American Statistical Association},\n  volume={58},\n  number={301},\n  pages={13--30},\n  year={1963},\n  doi={10.1080/01621459.1963.10500830}\n}",
+   "url": "https://api.crossref.org/works/10.1080/01621459.1963.10500830",
+   "why": "Existing bib confirmed via Crossref. Add the DOI. Supports the Hoeffding step in the lower-bound lemma (range-2 variables give exp(-L t^2/2))."
+  }
+ ]
+}

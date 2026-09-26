@@ -1,0 +1,41 @@
+{
+ "item": {
+  "id": "R3-phase-lemma",
+  "kind": "our_result",
+  "location": "approach.tex lem:phase",
+  "statement": "h(theta) <= sum_j Re(beta_j) kappa_j(delta) <= sum_j A_j kappa_j(delta) with coverage kappa_j(delta)=1-cos(2 pi j delta/p)",
+  "what_to_check": "Analogue of Morwani Sec 4 phase condition; check whether anyone states the amplitude-coverage bound"
+ },
+ "chk": {
+  "id": "R3-phase-lemma",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "Morwani et al. ICLR 2024 (arXiv 2311.07568v2 HTML, fetched):\n- Sec 3.2 / Lemma 5 gives the class-weighted margin.\n- The Sec 4 proof outline uses uniform class weighting tau = 1/(p-1), which gives E[psi'] = 2/((p-1)p^2) sum_{j!=0} u^(j)v^(j)w^(-j).\n- The phase condition theta_u* + theta_v* = theta_w* is part of Theorem 7, which is in Section 4. So the paper's \"Section 4\" pointer is correct, and this settles the open point in LIT_cite.md.\n- Our lemma puts all the weight on a single offset delta. Averaged uniformly over delta, it reduces to Morwani's quantity (p/(p-1)) sum Re beta_j, so it strictly refines their bound.\n\nThe 1-cos separation for idealized phase-aligned cosine logits is known:\n- Nanda et al. 2023: logits are proportional to sum alpha_k cos(w_k(a+b-c)).\n- McCracken et al. arXiv 2505.18266 Thm 4.7: h(k) = sum_l cos(2 pi f_l (k-i-j)/n), with a bound on h(i+j)-h(k). This is an idealized model, not a bound for arbitrary networks.\n- Kam, Bessafi, Cadet arXiv 2609.17926 (15 Sep 2026, NeurReps review), App. A.3.2 Eq. 15: Delta_S(beta) = min_s sum_k beta_k(1-cos(omega_k s)). It is introduced as a definition or heuristic (\"the logit separation ... at offset s is ...\"; loss <= log(1+(p-1)e^{-Delta})). It is amplitude-only, with no phases and no statement for arbitrary networks.\n\nNot found anywhere: a rigorous upper bound on the min-margin of an arbitrary network (with interference and misaligned phases) by the amplitude-weighted coverage at each offset. The lemma is elementary, though, and should be presented as an adaptation.\n\nQuery run: \"modular addition margin upper bound Fourier amplitude 1-cos offset logit separation neural network lemma\", plus targeted HTML reads. Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r3-phase-lemma/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "kam2026symmetry",
+    "bibtex": "@article{kam2026symmetry,\n  title={Symmetry without a manifold: intrinsic dimension on orbits},\n  author={Kam, Chon-Fai and Bessafi, Miloud and Cadet, Fr{\\'e}d{\\'e}ric},\n  journal={arXiv preprint arXiv:2609.17926},\n  year={2026}\n}",
+    "url": "https://arxiv.org/abs/2609.17926",
+    "confirmed": true,
+    "why": "App. A.3.2 Eq. 15 defines the worst-case amplitude-weighted coverage min_s sum beta_k(1-cos(omega_k s)) as a heuristic loss proxy. It is concurrent and is the closest statement of the RHS of lem:phase."
+   },
+   {
+    "key": "mccracken2025",
+    "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+    "url": "https://arxiv.org/abs/2505.18266",
+    "confirmed": true,
+    "why": "Thm 4.7 uses the idealized logit h(k)=sum cos(2 pi f_l(k-i-j)/n), whose separation h(i+j)-h(k) is the equal-amplitude coverage sum (1-cos). It supports the sentence that the lemma's RHS is the familiar separation for aligned logits. Title and authors confirmed from the arXiv HTML; replaces the wrong entry in refs.bib."
+   },
+   {
+    "key": "morwani2024feature",
+    "bibtex": "(already in refs.bib)",
+    "url": "https://arxiv.org/abs/2311.07568",
+    "confirmed": true,
+    "why": "Sec 3.2 Lemma 5 gives the class-weighted margin. The Sec 4 uniform weighting yields sum u^v^w^. The phase condition theta_u+theta_v=theta_w is in Theorem 7 (Sec 4). Sharpen the citation to 'Theorem 7, Section 4'."
+   }
+  ],
+  "recommended_change": "After lem:phase, replace \"(the analogue of the phase condition of \\citet[Section~4]{morwani2024feature})\" with:\n\n\"(the analogue of the phase condition of \\citet[Theorem~7, Section~4]{morwani2024feature}; averaging the bound uniformly over $\\delta\\neq0$ recovers their uniformly class-weighted quantity). For idealized phase-aligned cosine logits the right-hand side is the familiar logit separation $\\sum_jA_j(1-\\cos(2\\pi j\\delta/p))$ \\citep{nanda2023progress,mccracken2025}; concurrently, \\citet{kam2026symmetry} use its worst case as a heuristic loss proxy.\"\n\nAlso fix the mccracken2025 bib entry (correct title and authors above), and add kam2026symmetry."
+ },
+ "lens": "novelty_ml",
+ "slug": "r3-phase-lemma",
+ "task": 0
+}

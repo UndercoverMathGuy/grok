@@ -1,0 +1,58 @@
+[
+ {
+  "n": 1,
+  "q": 2.0,
+  "r": 1.0,
+  "beta_eigen": 0.0,
+  "beta_measured": null
+ },
+ {
+  "n": 2,
+  "q": 2.0,
+  "r": 0.6666666666666666,
+  "beta_eigen": 0.07692307691571998,
+  "beta_measured": 0.076946
+ },
+ {
+  "n": 2,
+  "q": 2.5,
+  "r": 0.8333333333333334,
+  "beta_eigen": 0.04716981131379381,
+  "beta_measured": 0.047181
+ },
+ {
+  "n": 2,
+  "q": 3.0,
+  "r": 1.0,
+  "beta_eigen": 0.0,
+  "beta_measured": null
+ },
+ {
+  "n": 3,
+  "q": 2.0,
+  "r": 0.5,
+  "beta_eigen": 0.07142857142132653,
+  "beta_measured": 0.071429
+ },
+ {
+  "n": 3,
+  "q": 3.0,
+  "r": 0.75,
+  "beta_eigen": 0.04999999999415558,
+  "beta_measured": 0.05
+ },
+ {
+  "n": 3,
+  "q": 4.0,
+  "r": 1.0,
+  "beta_eigen": 0.0,
+  "beta_measured": null
+ },
+ {
+  "n": 4,
+  "q": 2.0,
+  "r": 0.4,
+  "beta_eigen": 0.061224489788027456,
+  "beta_measured": null
+ }
+]

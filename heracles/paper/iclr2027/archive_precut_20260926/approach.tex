@@ -1,0 +1,72 @@
+\section{Theoretical approach}\label{sec:approach}
+
+\paragraph{Maximum margin} As in \citet{morwani2024feature}, the margin of a datapoint $x$ where the correct answer is $y$ is $g(\theta,x,y)=f(\theta,x)[y]-\max_{y'\neq y}f(\theta,x)[y']$. 
+The margin of the dataset is $h(\theta)=\min_{(x,y)\in D_p}g(\theta,x,y)$, and the maximum margin under $L_{2,b}$ norm is $\gamma^*_b:=\max_{\|\theta\|_{2,b}\le1}h(\theta)$. 
+By homogeneity the normalized margin of any $\theta$ is $h(\theta)/\|\theta\|_{2,b}^\nu$. 
+By \citet[Thm.~4.1; Thm.~C.1 for multi-class cross-entropy]{wei2019regularization}, the global minimizers of cross-entropy plus $\lambda\|\theta\|_{2,b}^b$ attain normalized margin tending to $\gamma^*_b$ as $\lambda\to0$.
+Hence, we study maximum margin solutions as ideal, theoretically achievable solutions for the network, without considering empirical achievability. Gradient flow on cross-entropy converges in direction to KKT points of the $L_2$ margin problem, which need not be global maxima \citep{lyu2020gradient,vardi2022margin}; with small weight decay see \citet{lyu2024dichotomy}.
+
+\subsection{Averaged margins and Fourier amplitudes}\label{sec:avg}
+
+The minimum margin is at most any averaged class-weighted margin \citep[Section~3.2]{morwani2024feature}; see also \citet[Def.~3.6]{li2025nsum}. We average over $D_p$ and put all weight on the candidate with offset $\delta$ from the answer. Let
+\[
+\eta_\theta(\delta):=\E_x\big[f(\theta,x)[y(x)-\delta]\big],\qquad\delta\in\sZ_p,
+\]
+
+\begin{lemma}[average margin]\label{lem:avg}
+For every $\theta$ and $\delta\neq0$, $h(\theta)\le\eta_\theta(0)-\eta_\theta(\delta)$.
+\end{lemma}
+\begin{proof}
+For every $x$, $y(x)-\delta$ is an incorrect candidate, so $f(\theta,x)[y(x)]-f(\theta,x)[y(x)-\delta]\ge h(\theta)$. Average over $x$.
+\end{proof}
+
+Averaging over inputs keeps only the part of the logit table that is a function of the offset $y(x)-c$ between label and candidate. Write $f(\theta,x)[c]=\eta_\theta(y(x)-c)+r_\theta(x,c)$. The remainder $r_\theta$ averages to zero over inputs at every fixed offset, so it carries no systematic preference for the correct answer; it is termed \emph{interference} (`destructive interference' seen in \citealp{gromov2023grokking}). Interference cannot raise the margin: a network whose table is $\eta_\theta(y(x)-c)$ alone has margin exactly $\min_{\delta\neq0}\big(\eta_\theta(0)-\eta_\theta(\delta)\big)$, and by Lemma~\ref{lem:avg} adding $r_\theta$ can only lower it.
+
+$\eta_\theta$ is a real function on $\sZ_p$, hence a sum of cosines (Appendix~\ref{app:spectrum}):
+\begin{equation}
+  \eta_\theta(\delta)=\bar\eta_\theta+\sum_{j\in\Fp}\mathrm{Re}\big(\beta_j\rho^{j\delta}\big),\qquad\beta_j:=2p^{-(n+1)}\hat f_\theta(j,\dots,j;-j).
+  \label{eq:spectrum}
+\end{equation}
+We call $A_j:=|\beta_j|$ the \emph{amplitude} of frequency $j$; a frequency with $A_j>0$ is a \emph{feature}; this is the exact counterpart of the `key frequencies' of \citet{nanda2023progress} and of the frequencies neurons `use' in \citet{morwani2024feature}. Since $f$ is a sum over neurons, $\beta_j=\sum_i\beta_{ij}$ with $\beta_{ij}$ computed from neuron $i$ alone; for a product neuron $\beta_{ij}=2p^{-\nu}\overline{\hat w_i(j)}\prod_{t=1}^{n}\hat u_{it}(j)$. Frequency $j$ separates the label from the candidate $\delta$ away by the \emph{coverage} $\cov{j}{\delta}:=1-\cos(2\pi j\delta/p)$, which satisfies $\sum_{\delta\neq0}\cov{j}{\delta}=p$ and is small where $j\delta$ is near a multiple of $p$. Hence, several frequencies are needed to cover every offset to maximize margin.
+
+\begin{lemma}[amplitude bound]\label{lem:phase}
+For every $\theta$ and $\delta\neq0$, $\ h(\theta)\le\sum_{j\in\Fp}\mathrm{Re}(\beta_j)\,\cov{j}{\delta}\le\sum_{j\in\Fp}A_j\,\cov{j}{\delta}$. (Proof: Appendix~\ref{app:phase}.)
+\end{lemma}
+
+The margin is thus bounded from above by the amplitudes of the frequencies alone, and hence, is largest when each $\beta_j$ is real and positive and each frequency contributes a cosine peaked at the label. Averaging over $\delta$ recovers the uniformly class-weighted margin of \citet[App.~F.1]{morwani2024feature}; for aligned cosine logits the right-hand side is the familiar separation of \citet[Sec.~4.2]{nanda2023progress} and \citet[Thm.~4.7]{mccracken2025}.
+
+
+\subsection{The budget-splitting problem}\label{sec:programme}
+
+For a model with homogeneity degree $\nu$ and regularization $L_{2,b}$, let $s:=\nu/b\in[1,\nu/2]$.
+
+\emph{The price of a feature.} In a product neuron, the amplitude $A$ of a frequency is proportional to the product of the Fourier magnitudes of the neuron's $\nu$ weight vectors at that frequency, while its $L_{2,b}$ penalty is the sum of their squared norms, raised to the power $b/2$. At a fixed product, the sum of squares is least when the $\nu$ factors have equal norm (AM--GM). So the least penalty that buys amplitude $A$ is a constant multiple of $A^{b/\nu}=A^{1/s}$ (Appendix~\ref{app:price}). This is the familiar fact that $\ell_2$ weight decay on a product of $k$ factors acts as an $\ell_{2/k}$ quasi-norm on the product \citep{hoff2017lasso,tibshirani2021equivalences,dai2021representation,kolb2025deep}, found in the Fourier domain for linear convolutional networks by \citet{gunasekar2018implicit}; here the exponent is $1/s=b/\nu\le1$, and the new ingredient is its interaction with the coverage of offsets.
+
+\emph{Splitting the budget.} A network therefore splits one unit of budget over frequencies: spending $y_j^{1/s}$ on frequency $j$ buys amplitude $y_j$, and by Lemma~\ref{lem:phase} the margin is at most the coverage of the worst offset. Since $1/s\le1$, concentrating the budget is discounted, which favours few features, while every offset must be covered, which favours many. The best split is
+\begin{equation}
+  \Gamma_s(p):=\max\Big\{\min_{\delta\neq0}\sum_{j\in\Fp}y_j\,\cov{j}{\delta}\ :\ y\in\R_{\ge0}^{\Fp},\ \sum_{j\in\Fp}y_j^{1/s}\le1\Big\}.
+  \label{eq:programme}
+\end{equation}
+For a maximizer $y^*$ we write $\Kstar(s,p)=|\spt(y^*)|$ for its number of features.\footnote{We have not proved that all maximizers have the same support size; every statement is made for ``a maximizer'' and holds for each.} Equivalently, $\Gamma_s$ is the largest spectral gap of a weighted circulant graph on $\sZ_p$ under an $\ell_{1/s}$ budget on edge weights; at $s=1$ this is convex edge-weight design \citep{boyd2006convex,sun2006fastest}, and minimizing $\sum_jv_j^{1/s}$ over a polyhedron is a standard concave ($\ell_q$, $q<1$) problem \citep{ge2011note}. Concurrently, \citet{kam2026symmetry} study the same worst-offset separation under an $\ell_2$ budget, where the full-support optimum is uniform.
+
+\begin{proposition}[coverage bound]\label{prop:coverage}
+With $\|A\|_{1/s}:=\big(\sum_jA_j^{1/s}\big)^s$, every $\theta$ satisfies $h(\theta)\le\Gamma_s(p)\,\|A\|_{1/s}$.
+\end{proposition}
+\begin{proof}
+If $A=0$, Lemma~\ref{lem:phase} gives $h(\theta)\le0$. Otherwise $y:=A/\|A\|_{1/s}$ is feasible for \eqref{eq:programme}; apply Lemma~\ref{lem:phase} and multiply by $\|A\|_{1/s}$.
+\end{proof}
+
+Let $\beta_j(\omega)$ be the coefficient of the single neuron $\phi(\omega,\cdot)$ and
+\[
+C_b:=\max_{\|\omega\|_2\le1}\sum_{j\in\Fp}|\beta_j(\omega)|^{b/\nu},
+\]
+so that, by homogeneity, $\sum_j|\beta_j(\omega)|^{b/\nu}\le C_b\|\omega\|_2^b$ for every neuron. For the product neuron $C_b^{\nu/b}=B_p:=2(2p\nu)^{-\nu/2}$ for all $2\le b\le\nu$, and for the power neuron $C_b^{\nu/b}=n!\,B_p$ (Appendix~\ref{app:models}). At $b=\nu$ this is the single-neuron computation of \citet[App.~F.1]{morwani2024feature} ($n=2$) and \citet[Lemmas~D.7--D.8]{li2025nsum}; at $b=2$ it is the Fourier-domain representation cost of \citet[Lemma~7]{gunasekar2018implicit}.
+
+\begin{theorem}[universal bound]\label{thm:universal}
+For any one-hidden-layer network with homogeneity constant $\nu$, any width, and any $2\le b\le\nu$, $\ \gamma^*_b\le C_b^{\,\nu/b}\,\Gamma_{\nu/b}(p)$.
+\end{theorem}
+\begin{proof}
+Let $r=b/\nu\le1$. As $t\mapsto t^r$ is subadditive and $A_j\le\sum_i|\beta_{ij}|$, $\ \sum_jA_j^r\le\sum_{i,j}|\beta_{ij}|^r\le C_b\|\theta\|_{2,b}^b$. Raise to the power $1/r$ and apply Proposition~\ref{prop:coverage}. Taking the maximum with $\|\theta\|_{2,b}$ gives the result.
+\end{proof}
+
+At $b=\nu$ the bound recovers the results of \citet[Thm.~7]{morwani2024feature} and \citet[Thm.~4.1]{li2025nsum}: $\Gamma_1(p)=p/(p-1)$ with equal amplitude on every frequency, and the resulting value is exactly their maximum margin (Corollary~\ref{cor:dense}, Appendix~\ref{app:dense}). For $b<\nu$, including weight decay, we are not aware of an earlier upper bound. 

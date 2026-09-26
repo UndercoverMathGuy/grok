@@ -1,0 +1,16 @@
+{
+  "task": 33,
+  "item_id": "R31-groups",
+  "lens": "novelty_ml",
+  "upheld": false,
+  "corrected_verdict": "PARTIALLY_KNOWN",
+  "issues": "Verdict PARTIALLY_KNOWN is upheld. No ML paper found that prices irreps by the L_{2,b} / Schatten-(b/nu) cost of the matmul tensor or predicts one irrep on S5 / the Galois pair on A5. Closest is He-Wang-Zhang-Chen-Yang arXiv 2606.02993 (Thm 4.3(ii): single-irrep neurons with rank-one compression; no non-abelian count prediction, no norm). It is not in refs.bib; add it. Three confirmed-citation details are wrong, so upheld=false. (1) Derksen: ||T_G||_* = sqrt(n) sum d^{5/2} is Corollary 1.12; Thm 1.11 gives only the singular values. (2) Chughtai: the quoted sentence is wrong. The actual text is 'Representations with more degrees of freedom may also offer better performance for fixed total weight norm, so which the model may prefer, and thus which is least complex, is unclear.' Their S5 nets (50 seeds) mostly learn sign+standard, with standard_sign/5d_a/5d_b less often, i.e. several reps per net. The 'as observed' in groups.tex must cite own runs and address this tension. (3) Marchetti 2602.03655: the verifiable statement is Thm 4.3 (Cost Minimization): an MSE restricted-loss bound achievable for N >= (k+1)2^k n_rho^{k+1}. The (k+1)n^{k+1} count is for sigma-pi-sigma neurons; plain power neurons need the Waring 2^k factor. Lemma B.8 text could not be verified (html truncated). Cite Thm 4.3/App. B.3, and do not equate it with d^nu without the Waring factor. Minor: Shutman's experiments are mostly pure GD/MSE with some AdamW. Christandl-Zuiddam is online 2018, vol 28 (2019), which is fine. Tian CoGS (NeurIPS 2025, 2410.01779) is abelian-only. Unverified lead: Chen & Luo SSRN 7331940 'Scaffold, Not Seed - Except One' (403, no abstract). Search was constrained: the WebSearch session cap was hit (200/200) and the arXiv API returned 429, so OpenAlex was used instead.",
+  "extra_citations": [
+    {
+      "key": "he2026spectral",
+      "bibtex": "@article{he2026spectral,\n  title={Neural Networks Provably Learn Spectral Representations for Group Composition},\n  author={He, Jianliang and Wang, Leda and Zhang, Fengzhuo and Chen, Siyu and Yang, Zhuoran},\n  journal={arXiv preprint arXiv:2606.02993},\n  year={2026}\n}",
+      "url": "https://arxiv.org/abs/2606.02993",
+      "why": "Thm 4.3(ii): under gradient flow on group composition, each neuron aligns to one irrep with rank-one Fourier coefficients. This is the dynamics-side counterpart of the per-irrep structure. It makes no prediction of which or how many irreps on non-abelian groups and has no norm pricing, so it sharpens the novelty statement."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "task": 81,
+  "item_id": "C7-morwani-definitions",
+  "lens": "citation",
+  "upheld": true,
+  "issues": "Every attribution was re-checked directly against the arXiv 2311.07568v2 PDF. The L_{a,b} norm is in Sec 2, and the L_{2,nu} focus in Sec 3.2. The quadratic neuron (u_a+v_b)^2 w, with one-hot inputs and no biases, is in Sec 2. g, h and gamma* = max_{||theta||<=1} h are in Sec 3; Morwani's normalized margin h(theta/||theta||) equals the paper's h(theta)/||theta||^nu by homogeneity. g' >= g is in Sec 3.2. eta_{u,v,w}(delta) is defined only in App F.1. The phase condition is Thm 7 part 1, in Sec 4. Thm 7 gives gamma* = sqrt(2/27)/(p^{1/2}(p-1)) under the width condition m >= 4(p-1); the paper's 4*6^{-3/2} = sqrt(2/27) is correct. The bib entry is correct: the arXiv comment and OpenReview forum i9wDX850jR both give ICLR 2024 spotlight. The checker's precision edits are all confirmed: Section 3 -> 3.2, add App. F.1 for eta, and add the m >= 4(p-1) width condition. Two issues outside this item's scope: intro.tex l.4 has a truncated sentence ('under a specific .'), and it overcredits Morwani with 'introduced the principle of margin maximization'; max-margin analysis predates them (Wei et al. 2019, Lyu & Li 2019), and they used it to characterize the features learned. Process note: the session WebSearch budget is exhausted (200/200), so later verifiers relying on WebSearch will fail.",
+  "corrected_verdict": "SUPPORTED",
+  "extra_citations": []
+}

@@ -1,0 +1,90 @@
+{
+ "item": {
+  "id": "R31-groups",
+  "kind": "our_result",
+  "location": "groups.tex",
+  "statement": "Irrep analogue: ceiling priced by decomposition cost of the matrix-multiplication tensor (schoolbook at even degree, d^nu neurons); one irrep on S5, Galois pair on A5; structured interference beats ceiling on D3, S4, Z12",
+  "what_to_check": "Compare Chughtai, Morwani group theorem, Stander et al. 2024; matrix multiplication tensor rank (Strassen, Blaser); no proofs in appendix yet"
+ },
+ "chk": {
+  "id": "R31-groups",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r31-groups/CHECK.md. The claim was checked against heracles/s5theory/S5_THEORY.md \u00a74-5 and \u00a79, because groups.tex is only a skeleton.\n\nWhat is known (all fetched this session):\n\n(1) Derksen, FoCM 16:779-811 (2016), arXiv 1308.3860.\n- Thm 1.9: the schoolbook decomposition sum e_ij(x)e_jk(x)e_ki of M_{p,q,r} is a diagonal SVD, with all pqr singular values equal to 1.\n- Cor 1.10: ||M_{p,q,r}||_* = pqr.\n- He remarks that Strassen's decomposition has length 2sqrt2+12 > 8: \"minimization of the rank, and minimization of the nuclear norm do not always coincide\".\n- Thm 1.11: the group-algebra tensor T_G has singular values sqrt(n/d_i), each with multiplicity d_i^3. So ||T_G||_* = sqrt|G| sum d_i^{2.5}, which is exactly the d^{2.5} in Morwani Thm 9.\n- Consequences: our K1 at r=1 (kappa=1) is Derksen Cor 1.10, and our \"Strassen costs 10 > schoolbook 8\" is the quasi-norm analogue of his remark.\n\n(2) Christandl & Zuiddam, Comput. Complexity 28:27-56 (2019), arXiv 1606.04085.\n- Eqs. 7-8: the max-cut flattening gives n^{f(G)} <= R(T_n(G)). \"For bipartite graphs, each inequality in (8) is an equality.\"\n- Even cycles are bipartite, so the rank of tr(A1...Ak) is d^k for even k. Our rank corollary (tr(ABCD) has rank d^4) is known, and the proof of K2 uses the same cut argument.\n\n(3) Fan, Ding, Yang, Zhang, Udell, TMLR 01/2023, arXiv 2012.03436.\n- Def 3 defines the tensor Schatten-p quasi-norm.\n- Thm 1: ||X||_{S_{q/d}}^{q/d} = inf (1/d) sum_i sum_j ||x_i^(j)||^q.\n- Our price N_r(T) is exactly ||T||_{S_r}^r with r = q/nu.\n\n(4) Cheng et al., arXiv 2506.22134, Thm 1: the variational S_p quasi-norm upper-bounds ||T_(D)||_{S_p}^p for every unfolding. This is our flattening bound, Lemma F applied to a flattening. Hu, LAA 478:188-199 (2015), proves the p=1 case; that entry was confirmed through the Crossref API only.\n\n(5) Shutman-Louidor-Tessler, arXiv 2509.06931. Prop 5.2: the single-irrep projection has rank <= m_d, 3m_{d/2} or 8m_{d/2}, where m_d is the tensor rank of dxd matrix multiplication. The net \"effectively implements efficient matrix multiplication in the sense of Strassen\". Their setting is plain GD with no weight decay, and the price is width (rank), not a norm.\n\n(6) Marchetti-Kunin-Myers-Acosta-Miolane, ICML 2026, arXiv 2602.03655. Lemma B.8: (k+1) n_rho^{k+1} sigma-pi-sigma (product) neurons suffice for one irrep. The construction is the schoolbook, with s_w = E_{a0a1} and S = E_{a_h a_{h+1}}, i.e. d^nu terms. It is an existence construction only.\n\n(7) Morwani et al., ICLR 2024, Thm 9: at L_{2,3} with quadratic nets, gamma* = 2/(3sqrt(3|G|)) / sum d^{2.5}, and every non-trivial irrep is used (S_k, k<=5). This is our dense endpoint at b=nu.\n\n(8) Chughtai-Chan-Nanda, ICML 2023. On S5 (50 seeds), \"the 1d sign and 4d standard representations are most commonly learned... 6d is never learned\", and the number of reps varies. They write: \"standard sign offers better performance for fixed weight norm... models are trading off weight against performance... which is least complex, is unclear\". This is the question our price answers. It is also a tension: they observed variable counts, not one irrep.\n\n(9) Stander-Yu-Fan-Biderman, ICML 2024: S5/S6 nets use coset circuits. Our \u00a79.3(a) coset-relaxation mechanism, by which interference beats the ceiling on D3/S4/Z12, is the margin-side counterpart. Wu-Jaburi-Drori-Gross (ICLR 2025) unify the irrep and coset accounts.\n\n(10) Levine, arXiv 2609.15289, MAIS-O5 poses exactly \"which irreps are learned ... as a function of width and decay strength\".\n\nWhat was not found:\n- A computation of the Schatten-r (r<1) quasi-norm of <d,...,d> or of cycle tensors (our K2). It is, however, a short combination of (2) with (3)/(4) and McCarthy/Rotfel'd.\n- The main claim: the L_{2,b}, b<nu, ceiling fixes the count at one faithful irrep (+ sign) on S5 and the Galois pair on A5, and structured interference exceeds the ceiling on D3/S4/Z12. This is novel as far as found.\n\nSearches run: nuclear norm of matmul tensor Derksen; Morwani group d^{2.5}; Chughtai S5 sign/standard; tensor rank of iterated matmul/trace flattening; tensor Schatten-p quasi-norm matmul; Hu nuclear norm flattenings; Schatten-p flattening lower bound CP; weight decay group irrep cost schoolbook Strassen; nuclear norm of the cyclic trace tensor; max-margin group composition irreps weight decay 2025-2026. I also grepped full texts of Kam 2609.17926, He 2606.02993, Marchetti 2602.03655 and Levine 2609.15289; none prices irreps by a norm.",
+  "recommended_citations": [
+   {
+    "key": "derksen2016nuclear",
+    "bibtex": "@article{derksen2016nuclear,\n  title={On the Nuclear Norm and the Singular Value Decomposition of Tensors},\n  author={Derksen, Harm},\n  journal={Foundations of Computational Mathematics},\n  volume={16},\n  pages={779--811},\n  year={2016},\n  doi={10.1007/s10208-015-9264-x}\n}",
+    "url": "https://arxiv.org/abs/1308.3860",
+    "confirmed": true,
+    "why": "Cor 1.10: ||<p,q,r>||_* = pqr, and the schoolbook is a diagonal SVD (Thm 1.9). This is our r=1 price (kappa=1, schoolbook optimal) and supports the remark that Strassen loses under the norm. Thm 1.11: ||T_G||_* = sqrt|G| sum d^{2.5}, which explains Morwani Thm 9's d^{2.5}. Cite at 'schoolbook algorithm'."
+   },
+   {
+    "key": "christandl2019surgery",
+    "bibtex": "@article{christandl2019surgery,\n  title={Tensor surgery and tensor rank},\n  author={Christandl, Matthias and Zuiddam, Jeroen},\n  journal={Computational Complexity},\n  volume={28},\n  pages={27--56},\n  year={2019},\n  doi={10.1007/s00037-018-0164-8}\n}",
+    "url": "https://arxiv.org/abs/1606.04085",
+    "confirmed": true,
+    "why": "Eqs. (7)-(8): max-cut flattening, with equality for bipartite graphs. The even-cycle tensor tr(A1...Ak) has rank d^k. This is the cut argument behind our even-nu theorem (K2) and its rank corollary."
+   },
+   {
+    "key": "fan2023schatten",
+    "bibtex": "@article{fan2023schatten,\n  title={Euclidean-Norm-Induced Schatten-p Quasi-Norm Regularization for Low-Rank Tensor Completion and Tensor Robust Principal Component Analysis},\n  author={Fan, Jicong and Ding, Lijun and Yang, Chengrun and Zhang, Zhao and Udell, Madeleine},\n  journal={Transactions on Machine Learning Research},\n  year={2023}\n}",
+    "url": "https://arxiv.org/abs/2012.03436",
+    "confirmed": true,
+    "why": "Thm 1: L_q penalties on CP factors equal the tensor Schatten-(q/d) quasi-norm. Our irrep price N_r = ||T_rho||_{S_r}^r with r = q/nu is this quantity. Cite where the price is defined."
+   },
+   {
+    "key": "cheng2025variational",
+    "bibtex": "@article{cheng2025variational,\n  title={Low-Rank Tensor Recovery via Variational Schatten-p Quasi-Norm and Jacobian Regularization},\n  author={Cheng, Zhengyun and Zhang, Ruizhe and Zhang, Guanwen and Xu, Yi and Ji, Xiangyang and Zhou, Wei},\n  journal={arXiv preprint arXiv:2506.22134},\n  year={2025}\n}",
+    "url": "https://arxiv.org/abs/2506.22134",
+    "confirmed": true,
+    "why": "Thm 1: the variational Schatten-p quasi-norm upper-bounds the Schatten-p quasi-norm of every unfolding. This is our flattening inequality N_r(T) >= sum sigma_k(flat T)^r. Optional; the journal venue is unconfirmed, so cite as arXiv."
+   },
+   {
+    "key": "shutman2025words",
+    "bibtex": "@article{shutman2025words,\n  title={Learning words in groups: fusion algebras, tensor ranks and grokking},\n  author={Shutman, Maor and Louidor, Oren and Tessler, Ran},\n  journal={arXiv preprint arXiv:2509.06931},\n  year={2025}\n}",
+    "url": "https://arxiv.org/abs/2509.06931",
+    "confirmed": true,
+    "why": "Prop 5.2: the per-irrep rank is at most the tensor rank m_d of matrix multiplication (Strassen). This is the no-norm, width-priced version of our 'irrep price = cost of writing the matmul tensor as a sum of products'."
+   },
+   {
+    "key": "marchetti2026sequential",
+    "bibtex": "@inproceedings{marchetti2026sequential,\n  title={Sequential Group Composition: A Window into the Mechanics of Deep Learning},\n  author={Marchetti, Giovanni Luca and Kunin, Daniel and Myers, Adele and Acosta, Francisco and Miolane, Nina},\n  booktitle={International Conference on Machine Learning (ICML)},\n  year={2026}\n}",
+    "url": "https://arxiv.org/abs/2602.03655",
+    "confirmed": true,
+    "why": "Lemma B.8: (k+1) n_rho^{k+1} product (sigma-pi-sigma) neurons implement one irrep via the schoolbook E_{a_h a_{h+1}} construction. This gives prior existence of our d^nu-neuron construction; our addition is its optimality under weight decay."
+   },
+   {
+    "key": "morwani2024feature",
+    "bibtex": "@inproceedings{morwani2024feature,\n  title={Feature emergence via margin maximization: case studies in algebraic tasks},\n  author={Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2024}\n}",
+    "url": "https://arxiv.org/abs/2311.07568",
+    "confirmed": true,
+    "why": "Thm 9: the L_{2,3} max margin for groups is 2/(3sqrt(3|G|))/sum d^{2.5}, and every non-trivial irrep is used. This is our dense b=nu endpoint, contrasted with one irrep at b<nu."
+   },
+   {
+    "key": "chughtai2023toy",
+    "bibtex": "@inproceedings{chughtai2023toy,\n  title={A Toy Model of Universality: Reverse Engineering how Networks Learn Group Operations},\n  author={Chughtai, Bilal and Chan, Lawrence and Nanda, Neel},\n  booktitle={International Conference on Machine Learning (ICML)},\n  series={PMLR}, volume={202}, pages={6243--6267},\n  year={2023}\n}",
+    "url": "https://arxiv.org/abs/2302.03025",
+    "confirmed": true,
+    "why": "S5 nets mostly learn sign + 4d standard, and the count varies. The paper explicitly leaves open which rep is preferred under the weight-norm trade-off. This is the empirical data and the question our price answers."
+   },
+   {
+    "key": "stander2024cosets",
+    "bibtex": "@inproceedings{stander2024cosets,\n  title={Grokking Group Multiplication with Cosets},\n  author={Stander, Dashiell and Yu, Qinan and Fan, Honglu and Biderman, Stella},\n  booktitle={International Conference on Machine Learning (ICML)},\n  series={PMLR}, volume={235}, pages={46441--46467},\n  year={2024}\n}",
+    "url": "https://arxiv.org/abs/2312.06581",
+    "confirmed": true,
+    "why": "S5/S6 nets use subgroup and coset circuits. This is the empirical counterpart of our coset-structured interference, which exceeds the symmetric ceiling on D3/S4/Z12."
+   },
+   {
+    "key": "wu2025unified",
+    "bibtex": "@inproceedings{wu2025unified,\n  title={Towards a unified and verified understanding of group-operation networks},\n  author={Wu, Wilson and Jaburi, Louis and Drori, Jacob and Gross, Jason},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2025}\n}",
+    "url": "https://arxiv.org/abs/2410.07476",
+    "confirmed": true,
+    "why": "Unifies the irrep (Chughtai) and coset (Stander) accounts. Cite alongside Stander at the interference sentence."
+   }
+  ],
+  "recommended_change": "In groups.tex:\n\n(a) After \"written as a sum of products\", add: \"Without a norm, this is the tensor-rank bound of Shutman et al. (2025, Prop. 5.2). Under weight decay the relevant quantity is the tensor Schatten-(b/nu) quasi-norm (Fan et al., 2023, Thm 1).\"\n\n(b) After \"the schoolbook algorithm\", add: \"At b = nu this is Derksen's (2016, Cor. 1.10) ||<d,d,d>||_* = d^3. The same computation for the group-algebra tensor (Thm 1.11) produces the sum d^{2.5} in Morwani et al. (Thm 9). At even nu, optimality follows from the bipartite-cut flattening (Christandl & Zuiddam, 2019) together with the Schatten flattening inequality. The d^nu-neuron construction itself appears in Marchetti et al. (2026, Lemma B.8). What we add is its optimality under the norm and the count that follows. Unlike rank, the norm prefers the schoolbook to Strassen (Derksen's remark; our numerics at nu = 3).\"\n\n(c) Change \"one representation on S_5\" to \"one faithful representation (with a sign patch) on S_5\". Add: \"consistent with the sign+standard circuits of Chughtai et al. (2023), and answering their open question of which representation the weight-norm trade-off prefers\". Also note the contrast with Morwani Thm 9, where every irrep is used at b = nu.\n\n(d) After the D_3/S_4/Z_12 sentence, add: \"the excess comes from coset-structured interference, the margin-side counterpart of the coset circuits of Stander et al. (2024); see also Wu et al. (2025).\"\n\n(e) Present the even-nu schoolbook theorem as a lemma assembled from known pieces, not as a headline. Do not claim the rank corollary (tr(ABCD) has rank d^4) as new."
+ },
+ "lens": "novelty_ml",
+ "slug": "r31-groups",
+ "task": 33
+}

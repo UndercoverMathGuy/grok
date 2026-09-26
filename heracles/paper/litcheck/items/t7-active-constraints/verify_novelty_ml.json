@@ -1,0 +1,16 @@
+{
+  "task": 53,
+  "item_id": "T7-active-constraints",
+  "lens": "novelty_ml",
+  "upheld": true,
+  "corrected_verdict": "KNOWN",
+  "issues": "Checker's verdict holds: KNOWN, a textbook LP basic-solution fact. The bertsimas1997 citation is confirmed by my own fetches. arXiv 2302.12364 (PDF text extracted) quotes 'basic feasible solutions are precisely extreme points (vertices) ... (Bertsimas and Tsitsiklis, 1997, Theorem 2.3)', with bib 'Athena Scientific, 1st edition, 1997, ISBN 1886529191'. Wikipedia 'Basic solution (linear programming)' gives the n-linearly-independent-active-constraints definition and cites B&T p. 50, ISBN 978-1-886529-19-9. The book itself was not fetched (athenasc.com SSL failure). ML-lens prior art the checker missed: Rosset, Zhu & Hastie 2004 (JMLR 5:941-973), App. B Thm 3 and Sec. 5.1.1. They prove l1-margin-maximising solutions have at most n (number of observations) non-zero coefficients by the same rank argument. Our s=1 programme is exactly this l1-margin/LP-boosting problem, with offsets as observations, so the step has an ML precedent too. That is optional to cite. The Chebyshev analogy checks out against Wikipedia 'Remez algorithm' (n+1 coefficients plus the level pinned by n+2 reference points; here the level is normalised, giving K). It is only loosely apt for s>1 (concave objective) and has no canonical source, so drop the optional remark. The interpretation 'tight offsets = simultaneous hardest wrong answers' is not found in ML work, but it is interpretive. LIMITATION and workflow note: WebSearch was unavailable. The session's 200-search budget was exhausted ('200 of 200 WebSearch calls') before this verifier started, so every later verifier in this run is limited to direct WebFetch. That likely explains part of the verify-stage slowness (only 12 of 98 verify outputs on disk when checked).",
+  "extra_citations": [
+    {
+      "key": "rosset2004boosting",
+      "bibtex": "@article{rosset2004boosting,\n  author  = {Rosset, Saharon and Zhu, Ji and Hastie, Trevor},\n  title   = {Boosting as a Regularized Path to a Maximum Margin Classifier},\n  journal = {Journal of Machine Learning Research},\n  volume  = {5},\n  pages   = {941--973},\n  year    = {2004}\n}",
+      "url": "https://www.jmlr.org/papers/volume5/rosset04a/rosset04a.pdf",
+      "why": "ML precedent for the same rank argument. App. B Thm 3 and Sec. 5.1.1 show that l1-margin-maximising solutions have at most n (number of observations) non-zero coefficients because H_A has rank at most n. Our s=1 programme is this l1-margin problem with offsets as observations. Optional one-clause pointer; B&T Thm 2.3 remains the primary citation."
+    }
+  ]
+}

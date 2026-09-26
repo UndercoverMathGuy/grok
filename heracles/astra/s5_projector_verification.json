@@ -1,0 +1,28 @@
+{
+  "nu3": {
+    "neurons": 49,
+    "input_rows": 14400,
+    "wrong_gaps": 1713600,
+    "exact_margin": "13/6",
+    "expanded_margin": 2.1666666666666647,
+    "penalty": 4546.7857889810775,
+    "gamma": 7.067004388792486e-06,
+    "schoolbook_reference": 6.862581727795962e-06,
+    "ratio_to_schoolbook": 1.0297880111457962,
+    "reference_is_proven_full_symmetric_ceiling": false,
+    "max_expanded_logit_error": 1.9984014443252818e-15
+  },
+  "nu4": {
+    "neurons": 193,
+    "input_rows": 1728000,
+    "wrong_gaps": 205632000,
+    "exact_margin": "13/6",
+    "expanded_margin": 2.1666666666666616,
+    "penalty": 23379.411254969542,
+    "gamma": 3.963920730415762e-09,
+    "schoolbook_reference": 3.1789143880208335e-09,
+    "ratio_to_schoolbook": 1.2469416431449314,
+    "reference_is_proven_full_symmetric_ceiling": true,
+    "max_expanded_logit_error": 4.440892098500626e-15
+  }
+}

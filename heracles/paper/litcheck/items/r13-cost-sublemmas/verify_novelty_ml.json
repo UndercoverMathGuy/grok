@@ -1,0 +1,22 @@
+{
+ "task": 13,
+ "item_id": "R13-cost-sublemmas",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN",
+ "issues": "Checker citations verified: Rajan & Tepedelenlioglu Def. 1, eq. (6) TBF, Property S1 and App. A eqs. 28-31 match the claim; Crossref gives TIT 61(4):1619-1628. Schilling et al. p. 73 is confirmed via Rajan's own citation and Crossref (online 2009-12-24, print 2010). Missed ML precedent: Tian (arXiv 2410.01779, NeurIPS 2025), App. eqs. 86-96. For a quadratic-activation mod-add net (nu=3), under the sign-cancellation constraint sum m_j e^{i theta_j} = 0 and an l2 penalty, the optimum has equal weights and cube-root-of-unity phases [1, w3, w3bar]. This is the nu=3 equality case of Lemma cost, but only a Lagrangian stationarity computation, not the inequality, and not general nu. Tian's Thm 5 proof uses the trivial no-cancellation version (AM-GM + concavity). Cite Tian as a special case. Wording fix: the transfer holds only for Thorin-Bernstein penalties, not all Bernstein ones. Counterexample: nu=2, x=(4,1/4) satisfies prod(1+x t) >= (1+t)^2, but EXP psi=1-e^{-x} gives 1.2029 < 1.2642. Zhang's Bernstein-penalty family (arXiv 1312.4719) therefore is not all covered. No ML statement of the chain lemma or of the general-nu e_k bound was found. Infra: WebSearch budget exhausted (200/200 this session) and arXiv API 429, so search coverage was limited.",
+ "extra_citations": [
+  {
+   "key": "tian2025composing",
+   "bibtex": "@inproceedings{tian2025composing,\n  title={Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets},\n  author={Tian, Yuandong},\n  booktitle={Advances in Neural Information Processing Systems},\n  year={2025},\n  note={arXiv:2410.01779}\n}",
+   "url": "https://arxiv.org/abs/2410.01779",
+   "why": "App. eqs. 86-96: for a nu=3 quadratic mod-add net, the cancellation constraint plus l2 penalty makes the optimal per-frequency weights equal with cube-root-of-unity phases. This is a special case of the equality configuration of Lemma cost / Remark 'orthogonality as roots of unity'. Cite it as a prior special case."
+  },
+  {
+   "key": "zhang2013bernstein",
+   "bibtex": "@misc{zhang2013bernstein,\n  title={The Bernstein Function: A Unifying Framework of Nonconvex Penalization in Sparse Estimation},\n  author={Zhang, Zhihua},\n  year={2013},\n  eprint={1312.4719},\n  archivePrefix={arXiv},\n  primaryClass={stat.ML}\n}",
+   "url": "https://arxiv.org/abs/1312.4719",
+   "why": "ML precedent for Bernstein functions as a unified sparsity-penalty family (LOG, l_q). Cite it only with the caveat that Remark 'other penalties' covers the Thorin-Bernstein subclass: EXP is Bernstein but fails the transfer."
+  }
+ ]
+}

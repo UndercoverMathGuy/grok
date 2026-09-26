@@ -1,0 +1,29 @@
+{
+ "tag": "p7dense",
+ "A_in": 0.4399184678087844,
+ "A_out": 0.16627355185237294,
+ "lam": [
+  0.0,
+  0.397,
+  0.0,
+  0.092,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.161,
+  0.35,
+  0.0
+ ],
+ "cmin": 0.15640593589228458,
+ "corner_x0": 0.2,
+ "corner_eta0": 0.14635630916373896,
+ "corner_ok": true,
+ "boxes_processed": 1758927,
+ "boxes_ok": 879464,
+ "unresolved": 0,
+ "mpmath_replayed": 5612,
+ "mpmath_replay_failures": 0,
+ "CERTIFIED": true
+}

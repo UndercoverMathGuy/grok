@@ -1,0 +1,22 @@
+{
+ "task": 96,
+ "item_id": "U8-nuclear-norm",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "CITATION_FOUND (prefer Parkinson-Ongie-Willett SIMODS 2025 over the unpublished Ongie-Willett 2022 arXiv; Srebro 2004 Lemma 1 is the load-bearing citation)",
+ "issues": "All three checker citations exist, have correct bib fields and say what is claimed. Srebro-Rennie-Jaakkola NIPS 17 (2004): Lemma 1 is the trace norm = min over X=UV' of 1/2(||U||_F^2+||V||_F^2). Ongie-Willett arXiv 2202.00856: Lemma 3.2, q=2/(L-1), and L=3 gives the nuclear norm. It is arXiv-only (v1, no journal-ref), so the checker's 'venue unconfirmed' is right. Gunasekar 2017 is correct but tangential (implicit gradient-descent bias, not an explicit price). MISSED: the peer-reviewed successor, Parkinson, Ongie, Willett, SIAM J. Math. Data Sci. 7(3):1021-1052 (2025), DOI 10.1137/24M1672158, arXiv 2305.15598. Its Lemma 2.1 is the same result and it cites Srebro 2004 for the two-factor case, so cite it instead of or next to the 2022 preprint. Recht-Fazel-Parrilo SIAM Rev. 2010, Lemma 5.1 / problem (5.1), is an optional canonical alternative to Srebro. SCOPE: the Ongie/Parkinson formulas are for 1-homogeneous ReLU units, so their a-vs-W rebalancing does not transfer to degree-nu product neurons. Only the linear-algebra fact (shared layer times neuron weights under Frobenius cost gives a nuclear norm, Srebro Lemma 1) transfers, so Srebro is load-bearing. GLOSS: no source says the nuclear norm 'rewards carrying many frequencies in one neuron'. The nuclear norm is invariant under left-orthogonal mixing, so it is indifferent to how frequencies are spread over neurons, and 'rewards' overstates it. Consider 'does not penalize'. TOOLING (workflow slowness): the session WebSearch budget is exhausted (200/200), so every remaining verifier runs without search. dblp times out at 60 s, Semantic Scholar returns 429, WebFetch cannot parse PDFs, and all verifiers share one scratchpad with colliding file names.",
+ "extra_citations": [
+  {
+   "key": "parkinson2025linear",
+   "bibtex": "@article{parkinson2025linear,\n  title={{ReLU} Neural Networks with Linear Layers Are Biased towards Single- and Multi-index Models},\n  author={Parkinson, Suzanna and Ongie, Greg and Willett, Rebecca},\n  journal={SIAM Journal on Mathematics of Data Science},\n  volume={7},\n  number={3},\n  pages={1021--1052},\n  year={2025},\n  doi={10.1137/24M1672158}\n}",
+   "url": "https://doi.org/10.1137/24M1672158",
+   "why": "Peer-reviewed successor of Ongie-Willett 2022 (arXiv 2305.15598). Lemma 2.1: weight decay on L-1 linear layers in front of ReLU units equals a Schatten-q price, q=2/(L-1), on the virtual inner weight matrix, so one linear layer gives the nuclear norm. The intro states the nuclear-norm equivalence explicitly."
+  },
+  {
+   "key": "recht2010guaranteed",
+   "bibtex": "@article{recht2010guaranteed,\n  title={Guaranteed Minimum-Rank Solutions of Linear Matrix Equations via Nuclear Norm Minimization},\n  author={Recht, Benjamin and Fazel, Maryam and Parrilo, Pablo A.},\n  journal={SIAM Review},\n  volume={52},\n  number={3},\n  pages={471--501},\n  year={2010}\n}",
+   "url": "https://arxiv.org/abs/0706.4138",
+   "why": "Optional canonical alternative to Srebro 2004: problem (5.1), min 1/2(||L||_F^2+||R||_F^2) s.t. A(LR')=b, is equivalent to nuclear-norm minimization (Lemma 5.1)."
+  }
+ ]
+}

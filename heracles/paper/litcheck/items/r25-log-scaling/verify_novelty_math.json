@@ -1,0 +1,22 @@
+{
+ "task": 26,
+ "item_id": "R25-log-scaling",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN (upheld). Known: the equal-share Theta(log p) law (Alon-Roichman Thm 2 + Prop 3; Friedman-Murty-Tillich); the fixed-K arbitrary-weight vanishing gap p^{-2/K} (simultaneous Dirichlet / pigeonhole); ML sufficiency (McCracken et al. Cor 4.8). Not found (search-limited pass): the two-sided concave l_{1/s}-budget bound with constants, maximiser support Theta(ln p) plus share floor, Cor few for ln p/ln ln p << K = o(ln p), and the network rate gamma*_b = Theta(p^{-nu/2}(ln p)^{1-nu/b}).",
+ "issues": "OPERATIONAL: WebSearch reported that the session budget was exhausted ('200 of 200'), and the export.arxiv.org API returned HTTP 429. So no new searches were possible in this pass; I checked by direct fetches of primary URLs only. Every later verifier in the workflow will hit the same WebSearch cap.\nCONTENT:\n(1) The checker missed the classical simultaneous Dirichlet (pigeonhole) bound. For ANY K frequencies there is a delta != 0 with ||j delta/p|| <= ~p^{-1/K} for all of them. So F_y(delta) <= 2 pi^2 p^{-2/K} sum y_j <= 2 pi^2 p^{-2/K} for arbitrary weights under the budget. This gives the fixed-K 'arbitrary weights' version of Cor few for free, and with a sharper exponent (2/K vs 1/(2 a_s K)). The recommended sentence 'Theorem extends this to arbitrary weights' should therefore be narrowed. What is new is the uniform concave-budget (ln p)^{1-s} two-sided bound, the maximiser support and share floor, Cor few in the regime ln p/ln ln p << K = o(ln p) (pigeonhole alone does not give this), and the network rate.\n(2) The checker missed a mixing-time analogue: Hildebrand, Probab. Surveys 2005, Sec 3.2 Thm 2 (after Greenhalgh). On an abelian group, any k generators need >= gamma n^{2/(k-1)} steps. This is optional context.\n(3) The current refs.bib mccracken2025 entry has the wrong author AND the wrong title (the arXiv 2505.18266 title is 'Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks', by Gavin McCracken et al.). The checker flagged only the author. Also check whether intro.tex's use of mccracken2025 for 'dense to sparse as degree changes' is supported; I did not verify it.\n(4) Minor: FMT issue number (1) is not printed in the fetched PDF; volume, pages and DOI match. AR Prop 3 is a diameter/vertex-expansion argument for unweighted S, not a spectral one.\nAll four citations the checker confirmed (FMT, AR Thm 2/Prop 3 in Sec 3.1, Cioaba Thm 1.2, McCracken Cor 4.8 plus the 'we don't know why' quote) were re-fetched and say what is claimed.",
+ "extra_citations": [
+  {
+   "key": "schmidt1980diophantine",
+   "bibtex": "@book{schmidt1980diophantine,\n  title={Diophantine Approximation},\n  author={Schmidt, Wolfgang M.},\n  series={Lecture Notes in Mathematics},\n  publisher={Springer},\n  address={Berlin, Heidelberg},\n  year={1980},\n  doi={10.1007/978-3-540-38645-2}\n}",
+   "url": "https://en.wikipedia.org/wiki/Dirichlet%27s_approximation_theorem",
+   "why": "Simultaneous Dirichlet approximation (Thm 1B, p.27, per Wikipedia; the book record was checked via Crossref DOI 10.1007/978-3-540-38645-2). For any K frequencies it gives delta != 0 with all ||j delta/p|| <= ~p^{-1/K}, hence coverage <= 2 pi^2 p^{-2/K} for ARBITRARY weights. This is the classical source of the fixed-K form of Cor few; cite it next to FMT and do not claim the arbitrary-weight fixed-K statement as new. Author and LNM volume come from memory (Crossref gave no author); check them before use."
+  },
+  {
+   "key": "hildebrand2005survey",
+   "bibtex": "@article{hildebrand2005survey,\n  title={A survey of results on random random walks on finite groups},\n  author={Hildebrand, Martin},\n  journal={Probability Surveys},\n  volume={2},\n  pages={33--63},\n  year={2005},\n  doi={10.1214/154957805100000087}\n}",
+   "url": "https://projecteuclid.org/journals/probability-surveys/volume-2/issue-none/A-survey-of-results-on-random-random-walks-on-finite-groups/10.1214/154957805100000087.full",
+   "why": "Optional. Sec 3.2 Thm 2 (after Greenhalgh): on an abelian group of order n, any k generators need >= gamma n^{2/(k-1)} steps to mix (an exercise covers unequal weights). Sec 3.3 treats k ~ (log n)^a. This is the random-walk twin of the few-generators bound."
+  }
+ ]
+}

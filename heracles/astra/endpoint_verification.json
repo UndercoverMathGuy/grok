@@ -1,0 +1,45 @@
+{
+  "arithmetic": "exact rational / cyclotomic / symbolic",
+  "checks": {
+    "all_sign_patterns_and_chain_frames": {
+      "3": 4,
+      "4": 8,
+      "5": 16,
+      "6": 32,
+      "7": 64,
+      "8": 128,
+      "9": 256,
+      "10": 512,
+      "11": 1024,
+      "12": 2048
+    },
+    "average_gap_on_entire_fourier_basis": {
+      "p=3,nu=3": 27,
+      "p=5,nu=3": 125,
+      "p=7,nu=3": 343,
+      "p=3,nu=4": 81,
+      "p=5,nu=4": 625
+    },
+    "full_dense_logit_tables": {
+      "p=3,nu=3": 27,
+      "p=5,nu=3": 125,
+      "p=7,nu=3": 343,
+      "p=3,nu=4": 81,
+      "p=5,nu=4": 625
+    },
+    "frame_inversion_away_from_endpoint": [
+      {
+        "nu": 3,
+        "nonorthogonal": true,
+        "inverse_identity": true
+      },
+      {
+        "nu": 4,
+        "nonorthogonal": true,
+        "inverse_identity": true
+      }
+    ],
+    "normalization_entropy_and_local_comparison": true
+  },
+  "scope": "Exact checks of the analytic proof's identities, not empirical evidence or a finite-prime proof of the endpoint-neighborhood theorem."
+}

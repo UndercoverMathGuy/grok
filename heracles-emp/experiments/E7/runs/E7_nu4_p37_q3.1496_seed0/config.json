@@ -1,0 +1,99 @@
+{
+ "run_id": "E7_nu4_p37_q3.1496_seed0",
+ "batch_size": null,
+ "convergence": null,
+ "device": "cuda",
+ "dtype": "float32",
+ "init_relabel_u": 1,
+ "init_scale": 6.082762530298219,
+ "init_scheme": "normal",
+ "lam": 6.642855067549496e-07,
+ "lam_schedule": {
+  "kind": "constant"
+ },
+ "lam_tilde": 0.003,
+ "log_every": 1000,
+ "lr": 10.360000000000001,
+ "lr_c": 0.28,
+ "lr_schedule": {
+  "kind": "constant"
+ },
+ "max_seconds": 7200.0,
+ "measure_ablation": true,
+ "model": "product",
+ "momentum": 0.9,
+ "n": 3,
+ "nesterov": false,
+ "nu": 4,
+ "optimizer": "gd",
+ "p": 37,
+ "q": 3.149606299212598,
+ "recipe_id": "FROZEN-2026-09-25-1755",
+ "s": 1.27,
+ "s_target": 1.27,
+ "score_predictions": false,
+ "seed": 0,
+ "steps": 150000,
+ "width": 144,
+ "precision_flags": {
+  "torch.backends.cuda.matmul.allow_tf32": false,
+  "torch.backends.cudnn.allow_tf32": false,
+  "float32_matmul_precision": "highest"
+ },
+ "environment": {
+  "python": "3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]",
+  "torch": "2.13.0+cu130",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "hostname": "18f195de9d28",
+  "platform": "Linux-6.8.0-134-generic-x86_64-with-glibc2.39",
+  "torch_num_threads": 16,
+  "OMP_NUM_THREADS": null,
+  "cuda_available": true,
+  "cuda_device": "NVIDIA GeForce RTX 4090",
+  "cuda_version": "13.0"
+ },
+ "code_sha256": {
+  "core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "core/construct.py": "e0f35a6ca4e03559f113777090601e5fceb1db0807a935f89dc9a7b8b2b886f7",
+  "core/measure.py": "dde64b168e6ea148dcecf402b6b68b9a63f6f2be7bcb293ad3e3bd17c87b5ca2",
+  "core/metrics.py": "88b71b65e561678dfd7016a26fa706573790b36ff861b79c0edcd35a605113bc",
+  "core/models.py": "63b74b8b0fff5e3eb4dfcb9ebb3ab486308a7d39bd34195c0bde9e1d16f59b64",
+  "core/programme.py": "5180c58e2e3f53e790e2f55eecf3e0c390728b371d0865c05c1c97a86be122a8",
+  "core/remote.py": "081138b6727454c652bd6e39298bc447e138363c1a528c4869d6120755118970",
+  "core/runner.py": "95db61f7526e497e6247d309b4f3d5943951f01096e618e88ea94482baf8474a",
+  "core/train.py": "981249d3d708d07476a7a653fa8fe78af90154cd028ed6d23c795ffbd74a7143"
+ },
+ "batch": {
+  "size": 16,
+  "run_ids": [
+   "E7_nu4_p37_q4.0000_seed0",
+   "E7_nu4_p37_q4.0000_seed1",
+   "E7_nu4_p37_q3.8095_seed0",
+   "E7_nu4_p37_q3.8095_seed1",
+   "E7_nu4_p37_q3.5305_seed0",
+   "E7_nu4_p37_q3.5305_seed1",
+   "E7_nu4_p37_q3.4483_seed0",
+   "E7_nu4_p37_q3.4483_seed1",
+   "E7_nu4_p37_q3.2626_seed0",
+   "E7_nu4_p37_q3.2626_seed1",
+   "E7_nu4_p37_q3.1496_seed0",
+   "E7_nu4_p37_q3.1496_seed1",
+   "E7_nu4_p37_q3.0303_seed0",
+   "E7_nu4_p37_q3.0303_seed1",
+   "E7_nu4_p37_q2.9133_seed0",
+   "E7_nu4_p37_q2.9133_seed1"
+  ]
+ },
+ "start_time": "2026-09-25 12:27:21 UTC",
+ "argv": [
+  "/workspace/heracles-emp/core/remote.py",
+  "queue",
+  "experiments/E7",
+  "experiments/E7/configs/batches_P4s0.json",
+  "--tag",
+  "P4s0"
+ ],
+ "end_time": "2026-09-25 12:42:40 UTC",
+ "wall_seconds_batch": 919.4048602581024
+}

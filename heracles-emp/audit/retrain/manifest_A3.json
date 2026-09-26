@@ -1,0 +1,11 @@
+{
+ "tag": "A3",
+ "runs": {
+  "E3_product_nu5_p11_seed1_audit": {
+   "config.json": "6e8c258f64ce8ec5f9968b052d3124a0e88bd8d83584ed6098d8672ea7ee047c",
+   "final.pt": "9a55c96357ce2329829ebb385f164b5924ad4f137cf3192f6f97b891451a8125",
+   "log.csv": "111f2a57fb461bba964cf214191dec4b1cb2d2e3de51d908b7f33f87b53a0991",
+   "metrics.json": "64435a9395ae0ab009eed7e0ce755d172fcac209300cde8f1ee9037b205d045f"
+  }
+ }
+}

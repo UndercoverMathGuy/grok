@@ -33,6 +33,9 @@ compiler/arms/*.log
 *.log
 *.safetensors
 *.npy
+heracles/paper/iclr2027_supplementary/
+heracles/paper/iclr2027_supplementary.zip
+heracles/paper/iclr2027_supplementary.tar.gz
 *.pt
 
 runs_clean

@@ -1,0 +1,16 @@
+{
+ "task": 6,
+ "item_id": "R8-dense-corollary",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "KNOWN",
+ "issues": "Checker's KNOWN verdict and both confirmed citations survive an independent check. Morwani et al. arXiv 2311.07568v2, Theorem 7 (m>=4(p-1), gamma*=sqrt(2/27)/(p^{1/2}(p-1))), and App. F.3 (Lemma 6 gives f=F(a,b)+lambda 1[a+b=c], so every frequency has the same diagonal amplitude) were both read in the PDF text. ICLR 2024 spotlight confirmed. Li et al. Theorem 4.1 (gamma*=2(k!)/((2k+2)^{(k+1)/2}(p-1)p^{(k-1)/2}), every frequency used) was read in the PMLR PDF. PMLR v258 pp.523-531 confirmed. I checked the algebra myself: n! B_p p/(p-1) equals Li's gamma* (ratio 1 to 1e-16 for p in {5,7,113} and n in {2..5}). An LP solve of Gamma_1 at p=5,7,113 gives p/(p-1) with a flat maximizer. The app:dense uniqueness proof is correct. Mathematics-lens addition: the Gamma_1 lemma, uniqueness included, is itself classical. With x_delta=(sqrt(y_j)cos(2pi j delta/p), sqrt(y_j)sin(...)), ||x_0-x_delta||^2=2 sum_j y_j kappa_j(delta), so Gamma_1 is the best minimum distance of a p-point cyclic group code on the sphere. The averaging step is the Rankin simplex bound, ||sum x_delta||^2>=0 => max <x_0,x_delta> >= -1/(p-1). Equality means a regular simplex, whose circulant Gram matrix forces flat Fourier weights. So even the 'explicit uniqueness' that the checker credited as new is a textbook fact. Only the framing (dense endpoint = s=1 member of a family that is sparse for s>1) is new. Suggest a one-line remark in app:dense. The Rankin page was fetched and its bib fields confirmed, but the theorem text was not visible, so no theorem number is given. Slepian 1968 could not be fetched (IEEE page empty) and is not recommended. The li2025nsum bib still needs series/volume 258/pages 523--531. Process note: WebSearch reported that the session budget is exhausted (200/200 calls), so this and later verify tasks cannot run web searches. They fall back to WebFetch or direct downloads, which likely explains why the verify stage is slow and degraded.",
+ "extra_citations": [
+  {
+   "key": "rankin1955closest",
+   "bibtex": "@article{rankin1955closest,\n  title={The closest packing of spherical caps in n dimensions},\n  author={Rankin, R. A.},\n  journal={Glasgow Mathematical Journal (Proceedings of the Glasgow Mathematical Association)},\n  volume={2},\n  number={3},\n  pages={139--144},\n  year={1955},\n  doi={10.1017/S2040618500033219}\n}",
+   "url": "https://doi.org/10.1017/S2040618500033219",
+   "why": "Optional math-side attribution. The averaging bound Gamma_1 <= p/(p-1) is the simplex bound for p unit vectors, max off-diagonal inner product >= -1/(p-1), applied to the cyclic code x_delta. Equality (regular simplex) forces flat y. I fetched the page and confirmed the bib fields; the theorem statement was not visible in the extract, so cite it without a theorem number, or just say 'the simplex bound' in words."
+  }
+ ]
+}

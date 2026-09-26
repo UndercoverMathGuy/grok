@@ -1,0 +1,16 @@
+{
+ "task": 27,
+ "item_id": "R26-few-features",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN",
+ "issues": "ML lens: I found no ML-literature precedent for the necessity direction (K=o(log p) gives a vanishing fraction of the max normalized margin). The closest is McCracken et al. arXiv 2505.18266, Thm 4.7 / Cor 4.8: O(log n) random frequencies give logit margin Omega(log n). That is SUFFICIENCY only, with no lower bound. The checker missed it; it should be cited at cor:few as the complementary direction. refs.bib mccracken2025 is wrong: title 'Emergence of sparse and dense circuits...' and author 'Andrew'. The real paper is 'Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks' by Gavin McCracken et al. He et al. 2602.16849 (full diversification, Prop 4.2) has no count bound. alon1994random is confirmed: Prop 3 verbatim, with bib fields checked via Crossref. However, Prop 3 is qualitative (vertex expansion). For s>1 the equal-share ratio is x^{s-1} times the gap, so Prop 3 alone does not give cor:few; call it the qualitative analogue. friedman2006spectral metadata is confirmed via Crossref and zbMATH. But the zbMATH review (Zbl 1083.05024) states lambda_2 >= d - C_d d n^{-4/d} + o(d n^{-4/d}), a fixed-d asymptotic with a d-indexed constant. The checker's 'absolute constant' and the recommended uniform-in-K sentence '2K - O(K p^{-2/K})' are not supported by it. Use instead the elementary Dirichlet pigeonhole bound lambda_2 >= 2K cos(2 pi p^{-1/K}) >= 2K - 4pi^2 K p^{-2/K}, which is uniform in K with the same exponent. Soften 'the positive-Fourier inequality is needed' to 'we use': a weighted Minkowski/geometry-of-numbers Dirichlet may also reach K=o(log p). That is unchecked and left to the math lens. [infra, for orchestrator/user] The session WebSearch budget is exhausted (200/200), and the arXiv export API and Semantic Scholar API return HTTP 429. Parallel verifiers share one quota and rate limit, which likely explains the slow verify stage.",
+ "extra_citations": [
+  {
+   "key": "mccracken2025",
+   "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2505.18266",
+   "why": "Thm 4.7 / Cor 4.8 show O(log n) random frequencies suffice for logit margin Omega(log n). This is the ML sufficiency counterpart of cor:few's necessity; cite them together. The existing refs.bib entry under this key has the wrong title and author."
+  }
+ ]
+}

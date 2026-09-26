@@ -1,0 +1,16 @@
+{
+ "task": 35,
+ "item_id": "R32-relu-endpoint",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN",
+ "issues": "Checker's verdict and all three confirmed citations hold up; each was re-verified from full text (Morwani 2311.07568v2 Fig. 7a caption, App. C text, Fig. 4b caption and conclusion; Gromov 2301.02679 Sec. 3.1 and App. B 'We do not have an analytic proof'; He et al. 2602.16849v1 Obs. 3(ii) and Def. 4.1). Minor slip in the evidence: Morwani's b=nu neuron-combining step is Lemma 3 in arXiv v2, not 'Thm 2'. Missed canonical citation: Wei et al. 2019 (already in refs.bib as wei2019regularization), App. B.4 / Prop. B.11, states the classical fact that the max margin of an l2-regularized two-layer ReLU net equals the l1-SVM margin over lifted ReLU features. That is exactly why ReLU+L2 is the b=nu=2 endpoint, so cite it rather than present the point as new. Adversarial search found no prior per-neuron frequency-budget bound for ReLU and no theorem that ReLU max-margin nets are dense. Near neighbours, none overlapping: Tian 2509.21519 (ReLU 'spreading' of memorisation solutions over data probabilities, not frequencies); Huang & Li 2511.23443 (ReLU modular-addition margin lower bound via a Pizza/aCRT construction, no upper bound, no density); Mohamadi et al. 2407.12332 (quadratic/l_inf only). Incidental: refs.bib mccracken2025 has the wrong title and first author. arXiv 2505.18266 is 'Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks' by Gavin McCracken, Gabriela Moisescu-Pareja, Vincent Letourneau, Doina Precup, Jonathan Love. Tooling: the session WebSearch budget is exhausted (200/200) and the arXiv API and Semantic Scholar return 429, which slows every remaining verifier.",
+ "extra_citations": [
+  {
+   "key": "wei2019regularization",
+   "bibtex": "@inproceedings{wei2019regularization,\n  title={Regularization matters: generalization and optimization of neural nets v.s. their induced kernel},\n  author={Wei, Colin and Lee, Jason D. and Liu, Qiang and Ma, Tengyu},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2019}\n}",
+   "url": "https://arxiv.org/abs/1810.05369",
+   "why": "App. B.4 'Connection to the l1-SVM', Prop. B.11 (arXiv v4): the max normalized margin of an l2-regularized two-layer ReLU net equals the l1-SVM margin over lifted ReLU features. This is the classical equivalence behind 'weight decay on this degree-2 network is the b=nu endpoint'. Already in refs.bib; add the pinpoint in the ReLU paragraph next to Morwani Lemma 3."
+  }
+ ]
+}

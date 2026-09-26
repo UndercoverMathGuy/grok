@@ -1,0 +1,62 @@
+{
+ "item": {
+  "id": "R9-interference-free-def",
+  "kind": "our_result",
+  "location": "cyclic.tex def:if",
+  "statement": "A network is interference-free if beta_{j,T}=0 for all j in F and nonempty T subset [n] (sign-flipped modes at a used frequency cancel in the logit table)",
+  "what_to_check": "Check related notions in Morwani/Gromov/Nanda (cos(a-b) terms) and any 'clean' circuit definitions"
+ },
+ "chk": {
+  "id": "R9-interference-free-def",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "I read the full texts, pulling the PDFs and grepping them for cancel/interference/phase/a-b terms.\n\n(1) Morwani et al., ICLR 2024 (arXiv 2311.07568), App. F.2. The max-margin witness uses 8 neurons per frequency: pairs of neurons with phases (0,0,0) and (0,pi,pi), and so on, so that the sum is exactly sum_zeta cos_zeta(a+b-c). They write: \"for each input (a,b), f takes the same value on all incorrect labels c', satisfying C.1.\" Their network is therefore interference-free, but they never isolate that property. Condition C.1 is stronger than ours. Their sparse-parity construction (Thm 8, App. G) uses 2^{k-1} sign-pattern neurons, and \"every term other than Pi x_{S_i} cancels out in the sum\". This is the Boolean analogue.\n\n(2) Li, Liang, Shi, Song, Zhou, AISTATS 2025 (arXiv 2402.09469), App. E. They build an explicit k-input network with 2^k * 2^{k-1} neurons per frequency, using sign-pattern polarisation. It computes exactly sum cos(sum a_i - c) and satisfies Condition 3.8. So an interference-free construction exists for every k, at 2^{2k-1} neurons per frequency against our nu. It is a construction only; there is no class and no cost lemma.\n\n(3) Gromov, arXiv 2301.02679. Eq. 11 lists the sign-flipped waves cos(n-m-q) etc. Eq. 12 is the phase constraint phi1+phi2=phi3, which gives \"constructive interference\". The paper says \"we need to ensure that all other waves ... interfere destructively\", and Eq. 15 is the \"destructive interference condition\", satisfied only approximately by random phases. This is the closest conceptual precedent and even uses the same word.\n\n(4) Doshi, He, Das, Gromov, \"Grokking Modular Polynomials\" (ICLR 2024 BGPT workshop, arXiv 2406.03495). The multi-operand version of Gromov: \"all other terms will vanish due to random phase approximation\".\n\n(5) He, Wang, Chen, Yang, arXiv 2602.16849. Def. 4.1(iii) is an exact phase-moment cancellation: sum_{m in N_k} exp(i*iota*phi_m)=0 for iota in {2,4}. It kills the \"residual noise\" terms of Eq. 4.1. In Prop. 4.2 spurious peaks at 2x and 2y survive, so their condition is not interference-free in our sense. It is nonetheless a close cousin of our Eq. (JF).\n\n(6) Zhong, Liu, Tegmark, Andreas, NeurIPS 2023 (arXiv 2306.17844). Clock logits are cos(w(a+b-c)). Pizza logits are |cos(w(a-b)/2)| cos(w(a+b-c)). The a-b factor is label-independent same-frequency interference, so informally Clock is interference-free and Pizza is not.\n\nConclusion: exact or approximate cancellation of the sign-flipped copies across neurons is a known construction device. Not found in any of these papers: interference-freeness as a named class over which the margin is maximised, the sign rule, the finite system (JF), and the nu-neuron cost. Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r9-interference-free-def/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "morwani2024feature",
+    "bibtex": "(already in refs.bib)",
+    "url": "https://arxiv.org/abs/2311.07568",
+    "confirmed": true,
+    "why": "Cite at def:if. App. F.2 builds an interference-free max-margin network: 8 neurons per frequency, sum = sum cos(a+b-c), Condition C.1. The sparse-parity construction in App. G cancels sign patterns in the same way."
+   },
+   {
+    "key": "li2025nsum",
+    "bibtex": "(already in refs.bib)",
+    "url": "https://arxiv.org/abs/2402.09469",
+    "confirmed": true,
+    "why": "Cite at def:if. App. E gives an exact interference-free k-input construction with 2^{2k-1} neurons per frequency, built by sign-pattern polarisation. It is the natural comparison for the nu-neuron nu-block."
+   },
+   {
+    "key": "gromov2023grokking",
+    "bibtex": "(already in refs.bib)",
+    "url": "https://arxiv.org/abs/2301.02679",
+    "confirmed": true,
+    "why": "Eqs. 11-15: the sign-flipped waves must 'interfere destructively' (the 'destructive interference condition', Eq. 15), which holds only approximately under random phases. This is the conceptual precedent for the term 'interference'."
+   },
+   {
+    "key": "he2026mechanism",
+    "bibtex": "@article{he2026mechanism,\n  title={On the Mechanism and Dynamics of Modular Addition: Fourier Features, Lottery Ticket, and Grokking},\n  author={He, Jianliang and Wang, Leda and Chen, Siyu and Yang, Zhuoran},\n  journal={arXiv preprint arXiv:2602.16849},\n  year={2026}\n}",
+    "url": "https://arxiv.org/abs/2602.16849",
+    "confirmed": true,
+    "why": "Def. 4.1(iii) is an exact phase-moment cancellation, sum exp(i*iota*phi_m)=0 for iota in {2,4}, that removes the residual noise terms. It is the closest exact cancellation condition in the literature, but spurious 2x/2y peaks survive (Prop. 4.2)."
+   },
+   {
+    "key": "zhong2023clock",
+    "bibtex": "@inproceedings{zhong2023clock,\n  title={The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks},\n  author={Zhong, Ziqian and Liu, Ziming and Tegmark, Max and Andreas, Jacob},\n  booktitle={Advances in Neural Information Processing Systems},\n  year={2023}\n}",
+    "url": "https://arxiv.org/abs/2306.17844",
+    "confirmed": true,
+    "why": "Clock logits cos(w(a+b-c)) against Pizza logits |cos(w(a-b)/2)|cos(w(a+b-c)). The Pizza a-b factor is the kind of label-independent interference that def:if excludes."
+   },
+   {
+    "key": "doshi2024polynomials",
+    "bibtex": "@inproceedings{doshi2024polynomials,\n  title={Grokking Modular Polynomials},\n  author={Doshi, Darshil and He, Tianyu and Das, Aritra and Gromov, Andrey},\n  booktitle={ICLR 2024 Workshop on Bridging the Gap Between Practice and Theory in Deep Learning},\n  year={2024},\n  note={arXiv:2406.03495}\n}",
+    "url": "https://arxiv.org/abs/2406.03495",
+    "confirmed": true,
+    "why": "Optional. The multi-operand random-phase construction, in which all non-target terms 'vanish due to random phase approximation'."
+   }
+  ],
+  "recommended_change": "After def:if (cyclic.tex, line 11), add: \"Exact cancellation of these copies across neurons is how the max-margin constructions of \\citet{morwani2024feature} (App. F.2) and \\citet{li2025nsum} (App. E, with $2^{2n-1}$ neurons per frequency) reach logits that depend only on $a_1+\\dots+a_n-c$. It is the exact form of the `destructive interference' that \\citet{gromov2023grokking} obtains approximately from random phases (see also \\citealp{he2026mechanism}, Def. 4.1, and the Clock/Pizza contrast of \\citealp{zhong2023clock}). We isolate it as a class and price it (Lemma~\\ref{lem:cost}).\" Add bib entries for he2026mechanism and zhong2023clock. Do not claim the cancellation idea as new; claim only the class-level maximisation and the nu-neuron cost."
+ },
+ "lens": "novelty_math",
+ "slug": "r9-interference-free-def",
+ "task": 8
+}

@@ -1,0 +1,36 @@
+== d3: gamma_school(G2) 3.943180e-03 on {'sign': 0.166666666667, 'rho1': 0.333333333333}; gamma_unres(G1) 9.259259e-03
+   random init m   6 seed 0: gamma/school 0.724570  gamma/unres 0.308568
+   random init m   6 seed 1: gamma/school 1.100678  gamma/unres 0.468739
+   random init m   6 seed 2: gamma/school 0.724615  gamma/unres 0.308587
+   random init m   6 seed 3: gamma/school 1.100323  gamma/unres 0.468587
+   random init m  12 seed 0: gamma/school 1.164674  gamma/unres 0.495992
+   random init m  12 seed 1: gamma/school 1.164685  gamma/unres 0.495997
+   random init m  12 seed 2: gamma/school 1.164871  gamma/unres 0.496076
+   random init m  12 seed 3: gamma/school 1.164843  gamma/unres 0.496064
+   random init m  24 seed 0: gamma/school 1.164714  gamma/unres 0.496009
+   random init m  24 seed 1: gamma/school 1.100582  gamma/unres 0.468698
+   random init m  24 seed 2: gamma/school 1.164678  gamma/unres 0.495994
+   random init m  24 seed 3: gamma/school 1.101116  gamma/unres 0.468925
+   schoolbook + noise 0.001: gamma/school after ascent 1.163991
+   schoolbook + noise 0.01: gamma/school after ascent 1.100372
+   schoolbook + noise 0.05: gamma/school after ascent 1.163745
+== d7: gamma_school(G2) 6.063213e-04 on {'rho2': 0.193842266842, 'rho3': 0.349291695416}; gamma_unres(G1) 1.714936e-03
+   random init m  16 seed 0: gamma/school 1.060702  gamma/unres 0.375015
+   random init m  16 seed 1: gamma/school 1.107959  gamma/unres 0.391723
+   random init m  16 seed 2: gamma/school 1.095762  gamma/unres 0.387410
+   random init m  32 seed 0: gamma/school 1.237891  gamma/unres 0.437661
+   random init m  32 seed 1: gamma/school 1.102718  gamma/unres 0.389870
+   random init m  32 seed 2: gamma/school 0.910617  gamma/unres 0.321952
+   schoolbook + noise 0.001: gamma/school after ascent 0.995003
+   schoolbook + noise 0.01: gamma/school after ascent 1.014073
+   schoolbook + noise 0.05: gamma/school after ascent 1.014721
+== s4: gamma_school(G2) 1.643182e-04 on {'sign': 0.166666666667, 'std_sign': 0.333333333333}; gamma_unres(G1) 7.100185e-04
+   random init m  40 seed 0: gamma/school 1.135033  gamma/unres 0.262679
+   random init m  40 seed 1: gamma/school 1.053121  gamma/unres 0.243722
+   random init m  40 seed 2: gamma/school 1.119513  gamma/unres 0.259087
+   random init m  90 seed 0: gamma/school 1.128882  gamma/unres 0.261255
+   random init m  90 seed 1: gamma/school 1.109747  gamma/unres 0.256827
+   random init m  90 seed 2: gamma/school 1.077269  gamma/unres 0.249310
+   schoolbook + noise 0.001: gamma/school after ascent 1.095195
+   schoolbook + noise 0.01: gamma/school after ascent 1.163954
+   schoolbook + noise 0.05: gamma/school after ascent 1.164796

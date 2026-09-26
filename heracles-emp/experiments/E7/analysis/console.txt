@@ -1,0 +1,37 @@
+/Users/ruhaanrajadhyaksha/projects/grok/heracles-emp/core/metrics.py:225: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  lf = linfit_ci(ys, yhat)
+{'not_converged': 13, 'ok': 19}
+ok n 19 plateau match 0.105 thr10==K* 0.263 within/adj 0.112 0.101
+   {'s': 1.0, 'seed': 0, 'K*': 18, 'thr10': 18, 'plateau_pred': 0, 'plateau_best': 0, 'tv_pred': 0.0867, 'tv_best': 0.0867, 'share_tv_aligned': 0.0867}
+   {'s': 1.05, 'seed': 0, 'K*': 18, 'thr10': 15, 'plateau_pred': 0, 'plateau_best': 2, 'tv_pred': 0.3708, 'tv_best': 0.2068, 'share_tv_aligned': 0.3708}
+   {'s': 1.05, 'seed': 1, 'K*': 18, 'thr10': 12, 'plateau_pred': 0, 'plateau_best': 4, 'tv_pred': 0.4446, 'tv_best': 0.1711, 'share_tv_aligned': 0.4446}
+   {'s': 1.133, 'seed': 1, 'K*': 14, 'thr10': 10, 'plateau_pred': 2, 'plateau_best': 6, 'tv_pred': 0.3765, 'tv_best': 0.2837, 'share_tv_aligned': 0.3765}
+   {'s': 1.16, 'seed': 0, 'K*': 13, 'thr10': 9, 'plateau_pred': 3, 'plateau_best': 5, 'tv_pred': 0.3766, 'tv_best': 0.3499, 'share_tv_aligned': 0.3766}
+   {'s': 1.16, 'seed': 1, 'K*': 13, 'thr10': 7, 'plateau_pred': 3, 'plateau_best': 6, 'tv_pred': 0.4184, 'tv_best': 0.3666, 'share_tv_aligned': 0.4184}
+   {'s': 1.226, 'seed': 1, 'K*': 9, 'thr10': 6, 'plateau_pred': 6, 'plateau_best': 6, 'tv_pred': 0.3909, 'tv_best': 0.3909, 'share_tv_aligned': 0.3909}
+   {'s': 1.27, 'seed': 1, 'K*': 6, 'thr10': 6, 'plateau_pred': 7, 'plateau_best': 6, 'tv_pred': 0.5333, 'tv_best': 0.3926, 'share_tv_aligned': 0.5333}
+   {'s': 1.32, 'seed': 0, 'K*': 6, 'thr10': 12, 'plateau_pred': 7, 'plateau_best': 3, 'tv_pred': 0.5761, 'tv_best': 0.2934, 'share_tv_aligned': 0.6059}
+   {'s': 1.32, 'seed': 1, 'K*': 6, 'thr10': 5, 'plateau_pred': 7, 'plateau_best': 11, 'tv_pred': 0.5298, 'tv_best': 0.4393, 'share_tv_aligned': 0.5298}
+   {'s': 1.45, 'seed': 1, 'K*': 5, 'thr10': 5, 'plateau_pred': 9, 'plateau_best': 6, 'tv_pred': 0.5542, 'tv_best': 0.4625, 'share_tv_aligned': 0.5542}
+   {'s': 1.55, 'seed': 1, 'K*': 5, 'thr10': 5, 'plateau_pred': 9, 'plateau_best': 6, 'tv_pred': 0.5507, 'tv_best': 0.4618, 'share_tv_aligned': 0.5507}
+   {'s': 1.6, 'seed': 0, 'K*': 5, 'thr10': 8, 'plateau_pred': 9, 'plateau_best': 3, 'tv_pred': 0.5891, 'tv_best': 0.3745, 'share_tv_aligned': 0.5891}
+   {'s': 1.6, 'seed': 1, 'K*': 5, 'thr10': 5, 'plateau_pred': 9, 'plateau_best': 6, 'tv_pred': 0.5497, 'tv_best': 0.462, 'share_tv_aligned': 0.5497}
+   {'s': 1.68, 'seed': 1, 'K*': 4, 'thr10': 5, 'plateau_pred': 10, 'plateau_best': 11, 'tv_pred': 0.4896, 'tv_best': 0.4605, 'share_tv_aligned': 0.4896}
+   {'s': 1.76, 'seed': 1, 'K*': 4, 'thr10': 3, 'plateau_pred': 10, 'plateau_best': 11, 'tv_pred': 0.4623, 'tv_best': 0.3844, 'share_tv_aligned': 0.4623}
+   {'s': 1.86, 'seed': 0, 'K*': 3, 'thr10': 7, 'plateau_pred': 11, 'plateau_best': 3, 'tv_pred': 0.6396, 'tv_best': 0.3781, 'share_tv_aligned': 0.7436}
+   {'s': 1.93, 'seed': 0, 'K*': 3, 'thr10': 7, 'plateau_pred': 11, 'plateau_best': 3, 'tv_pred': 0.6418, 'tv_best': 0.3784, 'share_tv_aligned': 0.7467}
+   {'s': 2.0, 'seed': 0, 'K*': 3, 'thr10': 7, 'plateau_pred': 11, 'plateau_best': 3, 'tv_pred': 0.6438, 'tv_best': 0.3789, 'share_tv_aligned': 0.7495}
+not_converged n 13 plateau match 0.308 thr10==K* 0 within/adj 0.0476 0.0636
+   {'s': 1.0, 'seed': 1, 'K*': 18, 'thr10': 17, 'plateau_pred': 0, 'plateau_best': 0, 'tv_pred': 0.1795, 'tv_best': 0.1795, 'share_tv_aligned': 0.1795}
+   {'s': 1.133, 'seed': 0, 'K*': 14, 'thr10': 11, 'plateau_pred': 2, 'plateau_best': 5, 'tv_pred': 0.3434, 'tv_best': 0.3348, 'share_tv_aligned': 0.352}
+   {'s': 1.226, 'seed': 0, 'K*': 9, 'thr10': 10, 'plateau_pred': 6, 'plateau_best': 5, 'tv_pred': 0.3866, 'tv_best': 0.2589, 'share_tv_aligned': 0.3866}
+   {'s': 1.27, 'seed': 0, 'K*': 6, 'thr10': 12, 'plateau_pred': 7, 'plateau_best': 6, 'tv_pred': 0.5927, 'tv_best': 0.319, 'share_tv_aligned': 0.6111}
+   {'s': 1.373, 'seed': 0, 'K*': 6, 'thr10': 13, 'plateau_pred': 8, 'plateau_best': 3, 'tv_pred': 0.5409, 'tv_best': 0.2591, 'share_tv_aligned': 0.5409}
+   {'s': 1.373, 'seed': 1, 'K*': 6, 'thr10': 7, 'plateau_pred': 8, 'plateau_best': 6, 'tv_pred': 0.4694, 'tv_best': 0.3525, 'share_tv_aligned': 0.4694}
+   {'s': 1.45, 'seed': 0, 'K*': 5, 'thr10': 11, 'plateau_pred': 9, 'plateau_best': 3, 'tv_pred': 0.604, 'tv_best': 0.2663, 'share_tv_aligned': 0.737}
+   {'s': 1.55, 'seed': 0, 'K*': 5, 'thr10': 8, 'plateau_pred': 9, 'plateau_best': 3, 'tv_pred': 0.5924, 'tv_best': 0.3571, 'share_tv_aligned': 0.5924}
+   {'s': 1.68, 'seed': 0, 'K*': 4, 'thr10': 7, 'plateau_pred': 10, 'plateau_best': 3, 'tv_pred': 0.6114, 'tv_best': 0.3909, 'share_tv_aligned': 0.6114}
+   {'s': 1.76, 'seed': 0, 'K*': 4, 'thr10': 7, 'plateau_pred': 10, 'plateau_best': 3, 'tv_pred': 0.6105, 'tv_best': 0.3909, 'share_tv_aligned': 0.6105}
+   {'s': 1.86, 'seed': 1, 'K*': 3, 'thr10': 5, 'plateau_pred': 11, 'plateau_best': 11, 'tv_pred': 0.3255, 'tv_best': 0.3255, 'share_tv_aligned': 0.3255}
+   {'s': 1.93, 'seed': 1, 'K*': 3, 'thr10': 5, 'plateau_pred': 11, 'plateau_best': 11, 'tv_pred': 0.3292, 'tv_best': 0.3292, 'share_tv_aligned': 0.3292}
+   {'s': 2.0, 'seed': 1, 'K*': 3, 'thr10': 5, 'plateau_pred': 11, 'plateau_best': 11, 'tv_pred': 0.3332, 'tv_best': 0.3332, 'share_tv_aligned': 0.3332}

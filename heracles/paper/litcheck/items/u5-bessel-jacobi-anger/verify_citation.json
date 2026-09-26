@@ -1,0 +1,16 @@
+{
+ "task": 93,
+ "item_id": "U5-bessel-jacobi-anger",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "CITATION_FOUND",
+ "issues": "No errors. Fetched DLMF 10.35 (10.35.1/10.35.2 Jacobi-Anger for I_k), 10.32 (10.32.1 = paper's I_0 definition, 10.32.3), 10.25 (10.25.2 power series, all terms >=0 for z>=0 so I_k(z)>=0). The editor list and release the checker left unconfirmed are confirmed by https://dlmf.nist.gov/help/cite: 10 editors as listed, Release 1.2.8 of 2026-09-15. Improvement: use DLMF's official BibTeX (adds release/date) instead of the checker's editor-field entry. Precision note: in cosine form the cos(k theta) coefficient is 2 I_k(z); 'Fourier coefficients are I_k(z)' is exact in the e^{ik theta} convention (10.35.1 with t=e^{i theta}), which is the one the proof uses; nonnegativity holds either way.",
+ "extra_citations": [
+  {
+   "key": "dlmf",
+   "bibtex": "@misc{dlmf,\n  key          = {{\\relax DLMF}},\n  title        = {{\\it NIST Digital Library of Mathematical Functions}},\n  howpublished = {\\url{https://dlmf.nist.gov/}, Release 1.2.8 of 2026-09-15},\n  url          = {https://dlmf.nist.gov/},\n  note         = {F.~W.~J. Olver, A.~B. {Olde Daalhuis}, D.~W. Lozier, B.~I. Schneider, R.~F. Boisvert, C.~W. Clark, B.~R. Miller, B.~V. Saunders, H.~S. Cohl, and M.~A. McClain, eds.}\n}",
+   "url": "https://dlmf.nist.gov/help/cite",
+   "why": "Official DLMF citation (fetched): same 10 editors, Release 1.2.8 of 2026-09-15; cite eqs (10.32.1), (10.35.2), (10.25.2) for appendix positive-Fourier inequality."
+  }
+ ]
+}

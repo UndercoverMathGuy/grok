@@ -1,0 +1,14 @@
+\section{Introduction}\label{sec:intro}
+
+\citet{morwani2024feature} use margin maximization \citep{wei2019regularization,lyu2020gradient} to characterize exactly the features of maximum-margin networks on algebraic tasks, and to bound the margin of the network. However, their arguments remain limited to the specific regularization ($L_{2, \nu}$, matched to the homogeneity degree $\nu$) and architecture (quadratic models) chosen and remain hard to extend to more conventional regularizations; \citet{li2025nsum} extend the modular-addition result to $n$-operand power networks, again at the matched norm $L_{2,n+1}$. Their theory shows that under this configuration, the margin maximal solution would use all frequencies (dense) in the solution.
+
+However, as observed by \citet{nanda2023progress}, \citet{chughtai2023toy} and \citet{zhong2023clock}, under different architectures and regularizations, a sparse subset of frequencies (or irreducible representations) are utilized by the model, while shallow networks on one-hot inputs can use all of them \citep{morwani2024feature,mccracken2025}. \citet{mccracken2025} similarly see the number of features transition from dense to sparse when depth or a trainable embedding is added to the network.
+
+This paper generalizes the maximum-margin analysis of \citet{morwani2024feature} to every $L_{2,b}$ norm with $2\le b\le\nu$, including ordinary weight decay ($b=2$), and across multilinear and polynomial architectures (homogeneity degree $\nu=n+1$) for every network where the there is no interference at the frequencies they use (no component of the logits at a used frequency that depends on anything other than the offset between a candidate and the correct answer; Definition~\ref{def:if}).
+
+This paper shows:
+\begin{itemize}[label={}]
+  \item The explanation of the sparsity phenomenon and the optimal number of frequencies for a certain configuration
+  \item A global upper and lower bound on the normalized margin of models
+  \item A general scaling law for the optimal number of frequencies for a certain prime $p$ (cf.\ the logarithmic growth observed empirically by \citet{mccracken2025})
+\end{itemize}

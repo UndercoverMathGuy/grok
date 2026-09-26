@@ -1,0 +1,30 @@
+{
+ "item": {
+  "id": "C13-hoeffding",
+  "kind": "cited_claim",
+  "location": "appendix app:scaling 'By Hoeffding's inequality'",
+  "current_citations": [
+   "hoeffding1963probability"
+  ],
+  "statement": "Hoeffding tail bound for averages of variables in [-1,1]",
+  "what_to_check": "Bib details JASA 58(301):13-30, 1963"
+ },
+ "chk": {
+  "id": "C13-hoeffding",
+  "verdict": "SUPPORTED",
+  "evidence": "Bib metadata checked with Crossref (https://api.crossref.org/works/10.1080/01621459.1963.10500830): \"Probability Inequalities for Sums of Bounded Random Variables\", Wassily Hoeffding, Journal of the American Statistical Association 58(301):13-30, March 1963. The refs.bib entry matches exactly. The tandfonline DOI page returned 403. The scanned PDF mirror (userpages.cs.umbc.edu) had no text layer, so I have no verbatim quote. The standard statement of Hoeffding 1963 Thm 2 is: for independent a_i <= X_i <= b_i, P(Xbar - E Xbar >= t) <= exp(-2n^2 t^2 / sum(b_i-a_i)^2). I checked the paper's use of it (appendix.tex:189): X_l = cos(2 pi J_l delta/p) in [-1,1], i.i.d. J_l, mean -1/(p-1), so t > 1/2 and the bound is exp(-L t^2/2) <= e^{-L/8} <= 1/p for L = ceil(8 ln p). The union bound over p-1 offsets gives failure probability < 1. All correct. Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/c13-hoeffding/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "hoeffding1963probability",
+    "bibtex": "@article{hoeffding1963probability,\n  title={Probability inequalities for sums of bounded random variables},\n  author={Hoeffding, Wassily},\n  journal={Journal of the American Statistical Association},\n  volume={58},\n  number={301},\n  pages={13--30},\n  year={1963},\n  doi={10.1080/01621459.1963.10500830}\n}",
+    "url": "https://api.crossref.org/works/10.1080/01621459.1963.10500830",
+    "confirmed": true,
+    "why": "Supports the tail bound in app:scaling (Thm 2: bounded independent summands). Metadata confirmed via Crossref."
+   }
+  ],
+  "recommended_change": "None needed. Optional: add doi={10.1080/01621459.1963.10500830} to the bib entry, and write \"Hoeffding's inequality (Thm 2 of \\citet{hoeffding1963probability})\"."
+ },
+ "lens": "citation",
+ "slug": "c13-hoeffding",
+ "task": 87
+}

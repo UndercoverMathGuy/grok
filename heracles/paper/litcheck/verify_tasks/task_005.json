@@ -1,0 +1,34 @@
+{
+ "item": {
+  "id": "R8-dense-corollary",
+  "kind": "our_result",
+  "location": "approach.tex cor:dense; appendix app:dense",
+  "statement": "Gamma_1(p)=p/(p-1) with unique flat maximizer y_j=2/(p-1); recovers Morwani's max L_{2,3} margin sqrt(2/27)/(p^{1/2}(p-1)) exactly",
+  "what_to_check": "Verify the constant against Morwani's quadratic theorem; check Li et al. 2025 general-nu dense endpoint overlap"
+ },
+ "chk": {
+  "id": "R8-dense-corollary",
+  "verdict": "KNOWN",
+  "evidence": "The constant matches exactly, and the result is known. I read the full PDF text of arXiv 2311.07568v2 and 2402.09469v4 with pdftotext.\n\n(1) Morwani et al., ICLR 2024 spotlight, Theorem 7 (Sec. 4): \"Consider one-hidden layer networks f(theta,a,b) of the form given in section 2 with m >= 4(p-1) neurons. The maximum L2,3-margin of such a network on the dataset D_p is gamma* = sqrt(2/27)\u00b71/(p^{1/2}(p-1)).\" The neuron is (u_a+v_b)^2 w. Every neuron uses a single frequency, and \"For every frequency zeta ... at least one neuron in the network uses this frequency.\"\n\n(2) Li, Liang, Shi, Song, Zhou, AISTATS 2025 (PMLR 258:523-531), Theorem 4.1 (informal version of Thm G.2): neurons (sum_i u_i(a_i))^k w, L_{2,k+1}, m >= 2^{2k-1}(p-1)/2, gamma* = 2(k!)/((2k+2)^{(k+1)/2}(p-1)p^{(k-1)/2}), and every frequency is used. Our b=nu bound n!\u00b7B_p\u00b7Gamma_1(p), with B_p=2(2p nu)^{-nu/2} and nu=n+1, simplifies algebraically to Li's gamma*. I checked it numerically for n=2,3,4 and p=7,113: the ratio is 1 to 1e-15. At n=2 it equals sqrt(2/27)/(p^{1/2}(p-1)). The general-nu dense endpoint is therefore Li et al.'s result.\n\n(3) The flat maximizer is implicit in Morwani. In App. F.3 (\"Proof that all frequencies are used\"), Lemma 6 splits any max-margin f into F(a,b) plus lambda\u00b71[a+b=c]. So f-hat(j,j,-j) = lambda\u00b7p^2 at every nonzero j, which is the same amplitude on every frequency. Their F.2 construction and Li's Lemma 4.3 are also flat.\n\n(4) Our averaging step (1/(p-1))\u00b7sum over delta\u22600 is the coverage-space version of Morwani's and Li's uniform class weighting tau[c'] = 1/(p-1).\n\nWhat is new: only the explicit uniqueness proof of the flat maximizer within the programme Gamma_1, which is elementary Fourier inversion, and the framing of this endpoint as the s=1 case of a family that is sparse for s>1.\n\nInternal wording issue: app:models justifies C_3=2B_p by citing Cor. dense, and app:dense then uses C_3=2B_p. This is not a real circularity: C_3 <= 2B_p is proved, and Morwani Thm 7 supplies attainment. The text should say so.\n\nSearches: an adversarial harmonic-analysis search for the l1 max-min cosine problem found nothing; it is a trivial averaging bound. A second search for margin plus equal-amplitude results on modular addition turned up only Morwani, McCracken, Kam (l2 budget, Prop 5 uniform), He et al., and Huang-Li 2511.23443 (sine activations, related only). Venues were confirmed at iclr.cc/virtual/2024/poster/18073 and proceedings.mlr.press/v258/li25b.html. Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r8-dense-corollary/CHECK.md.",
+  "recommended_citations": [
+   {
+    "key": "morwani2024feature",
+    "bibtex": "@inproceedings{morwani2024feature,\n  title={Feature emergence via margin maximization: case studies in algebraic tasks},\n  author={Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2024},\n  note={arXiv:2311.07568}\n}",
+    "url": "https://iclr.cc/virtual/2024/poster/18073",
+    "confirmed": true,
+    "why": "Theorem 7 gives the exact max L_{2,3} margin sqrt(2/27)/(p^{1/2}(p-1)) that Cor. dense recovers. App. F.3 (via Lemma 6) implies that every max-margin net has the same diagonal Fourier amplitude at every frequency, which is the flat maximizer. It also supplies the attainment that makes C_3 = 2B_p."
+   },
+   {
+    "key": "li2025nsum",
+    "bibtex": "@inproceedings{li2025nsum,\n  title={Fourier Circuits in Neural Networks and Transformers: A Case Study of Modular Arithmetic with Multiple Inputs},\n  author={Li, Chenyang and Liang, Yingyu and Shi, Zhenmei and Song, Zhao and Zhou, Tianyi},\n  booktitle={Proceedings of the 28th International Conference on Artificial Intelligence and Statistics (AISTATS)},\n  series={Proceedings of Machine Learning Research},\n  volume={258},\n  pages={523--531},\n  year={2025},\n  note={arXiv:2402.09469}\n}",
+    "url": "https://proceedings.mlr.press/v258/li25b.html",
+    "confirmed": true,
+    "why": "Theorem 4.1 gives gamma* = 2(k!)/((2k+2)^{(k+1)/2}(p-1)p^{(k-1)/2}) for power-k neurons under L_{2,k+1}, with every frequency used. It equals our n! B_p Gamma_1(p) exactly for every n (checked algebraically, and numerically for n=2,3,4), so the general-nu dense endpoint is theirs."
+   }
+  ],
+  "recommended_change": "In approach.tex Cor. dense, after \"exactly their maximum L_{2,3}-margin\", add: \"More generally, for the power network n!B_p \u0393_1(p)=2(n!)/((2n+2)^{(n+1)/2}(p-1)p^{(n-1)/2}), which is the maximum L_{2,n+1}-margin of \\citet[Theorem 4.1]{li2025nsum}. Equal amplitude on every frequency is also implicit in \\citet[App. F.3]{morwani2024feature}. What we add is that this dense endpoint is the s=1 case of a programme that is sparse for every s>1.\" Change \"exactly their maximum\" to \"exactly their maximum (\\citealp[Theorem 7]{morwani2024feature})\".\n\nIn appendix app:models (power neuron), replace \"At n=2, b=3 the bound is attained by the network of \\citet{morwani2024feature} (Corollary~\\ref{cor:dense}), so C_3=2B_p there\" with \"At b=nu the bound n!B_p \u0393_1(p) equals the maximum margin of \\citet[Theorem 7]{morwani2024feature} (n=2) and \\citet[Theorem 4.1]{li2025nsum} (general n). Their networks attain it, so C_\\nu^{1}=n!B_p there.\" This removes the apparent circularity with app:dense.\n\nUpdate the li2025nsum bib entry to include the PMLR volume 258 and pages 523-531."
+ },
+ "lens": "novelty_ml",
+ "slug": "r8-dense-corollary",
+ "task": 5
+}

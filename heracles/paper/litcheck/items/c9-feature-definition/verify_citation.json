@@ -1,0 +1,9 @@
+{
+ "task": 83,
+ "item_id": "C9-feature-definition",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_SUPPORTED",
+ "issues": "Checker verdict upheld. Both citations exist and their bib fields are correct: Nanda et al. is ICLR 2023 per the PDF header, with correct authors; Morwani et al. is ICLR 2024 with correct author order. The checker's quotes were re-verified verbatim. Morwani's abstract explicitly calls Fourier frequencies 'features' ('utilize Fourier features'), but its notion of use is spectral support per neuron (Thm 7), not a network-level logit amplitude. Nanda never uses 'feature' for frequencies, and its 'key frequencies' are thresholded: a 6th frequency with non-negligible W_E norm is excluded. So 'as in' overstates the match, and the checker's rewording to 'exact counterpart of key frequencies / frequencies neurons use' is right. No better citation is needed. SIDE FINDING, outside this item: the refs.bib entry mccracken2025 is wrong. arXiv 2505.18266 (v1 is the only version) is 'Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks' by Gavin McCracken, Moisescu-Pareja, Letourneau, Precup and Love, not 'Emergence of sparse and dense circuits...' by 'Andrew McCracken'.",
+ "extra_citations": []
+}

@@ -1,0 +1,41 @@
+{
+ "item": {
+  "id": "T6-exp-sum-zeros",
+  "kind": "our_technique",
+  "location": "appendix app:shape (ii)",
+  "statement": "A real exponential sum with N distinct exponents has at most N-1 real zeros (Rolle induction)",
+  "what_to_check": "Classical (Polya-Szego Part V; generalized Descartes rule of signs); cite"
+ },
+ "chk": {
+  "id": "T6-exp-sum-zeros",
+  "verdict": "KNOWN",
+  "evidence": "The claim, in the appendix (app:shape (ii), sections/appendix.tex around line 156): a real exponential sum sum_k c_k e^{lambda_k u} with N distinct exponents, not all c_k zero, has at most N-1 real zeros. The paper proves it by Rolle induction.\n\nThis is classical. It is the generalized Descartes rule of signs (Laguerre): substitute t = e^u, and the number of zeros is at most the number of sign changes in (c_k), which is at most N-1. Equivalently, the functions e^{lambda_k u} form a Chebyshev (Descartes) system.\n\nSources I checked:\n- arXiv 1709.06891, App. 3.1 (fetched). It titles the result \"Elementary proof of the P\u00f3lya-Szeg\u0151 estimate\" and gives the same Rolle induction \"following [37, page 10]\", where [37] is Karlin-Studden, Tchebycheff Systems (1966). Its general form: sum_i P_i(x) exp(mu_i x) has at most sum_i (1+deg P_i) - 1 real roots.\n- Erd\u00e9lyi, arXiv 1602.02315 (fetched). It says \"Descartes' Rule of Signs is stated and proved on page 102 of [3]\", where [3] = Borwein-Erd\u00e9lyi, Polynomials and Polynomial Inequalities (1995). It also points to Section 3.2 of [1] for Descartes systems.\n- Crossref confirmed the metadata for:\n  - P\u00f3lya-Szeg\u0151, Problems and Theorems in Analysis II (DOI 10.1007/978-3-642-61905-2)\n  - Borwein-Erd\u00e9lyi, GTM 1995 (DOI 10.1007/978-1-4612-0793-1)\n  - Jameson, Math. Gazette 90(518):223-234 (2006), \"Counting zeros of generalised polynomials: Descartes' rule of signs and Laguerre's extensions\" (DOI 10.1017/S0025557200179628)\n- The Part Five title \"The Location of Zeros\" and its Ch. 1 \"Rolle's Theorem and Descartes' Rule of Signs\" come from a search-result summary. I could not open the book, so the problem number that is commonly quoted (V.75) is not verified.\n\nSearches run:\n- \"exponential sum at most n-1 real zeros Polya Szego Part V ... generalized Descartes rule of signs Laguerre\"\n- \"P\u00f3lya Szeg\u0151 Problems and Theorems in Analysis II Springer 1976 Part Five\"\n- \"Problem 75 P\u00f3lya Szeg\u0151 exponential polynomial real zeros Part V\"\n\nNotes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/t6-exp-sum-zeros/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "polya1998problems",
+    "bibtex": "@book{polya1998problems,\n  author    = {P{\\'o}lya, George and Szeg{\\H{o}}, Gabor},\n  title     = {Problems and Theorems in Analysis {II}: Theory of Functions. Zeros. Polynomials. Determinants. Number Theory. Geometry},\n  series    = {Classics in Mathematics},\n  publisher = {Springer},\n  address   = {Berlin, Heidelberg},\n  year      = {1998},\n  doi       = {10.1007/978-3-642-61905-2}\n}",
+    "url": "https://api.crossref.org/works/10.1007/978-3-642-61905-2",
+    "confirmed": true,
+    "why": "Canonical classical source for the claim in app:shape (ii) that a real exponential sum with N distinct exponents has at most N-1 real zeros. Part V, Ch. 1, 'Rolle's Theorem and Descartes' Rule of Signs'. Title, authors, year and publisher confirmed via Crossref. The exact problem number (often quoted as V.75) was not verified, so cite by Part/Chapter."
+   },
+   {
+    "key": "jameson2006counting",
+    "bibtex": "@article{jameson2006counting,\n  author  = {Jameson, G. J. O.},\n  title   = {Counting zeros of generalised polynomials: {D}escartes' rule of signs and {L}aguerre's extensions},\n  journal = {The Mathematical Gazette},\n  volume  = {90},\n  number  = {518},\n  pages   = {223--234},\n  year    = {2006},\n  doi     = {10.1017/S0025557200179628}\n}",
+    "url": "https://api.crossref.org/works/10.1017/S0025557200179628",
+    "confirmed": true,
+    "why": "Modern, accessible exposition of the Descartes/Laguerre rule of signs for generalized polynomials sum a_k x^{lambda_k} with real exponents. Substituting x = e^u gives exactly the N-1 zero bound used in app:shape (ii)."
+   },
+   {
+    "key": "borwein1995polynomials",
+    "bibtex": "@book{borwein1995polynomials,\n  author    = {Borwein, Peter and Erd{\\'e}lyi, Tam{\\'a}s},\n  title     = {Polynomials and Polynomial Inequalities},\n  series    = {Graduate Texts in Mathematics},\n  volume    = {161},\n  publisher = {Springer},\n  address   = {New York},\n  year      = {1995},\n  doi       = {10.1007/978-1-4612-0793-1}\n}",
+    "url": "https://api.crossref.org/works/10.1007/978-1-4612-0793-1",
+    "confirmed": true,
+    "why": "Optional alternative. A standard reference for Descartes systems and the rule of signs for exponential sums; Erd\u00e9lyi (arXiv 1602.02315) cites it for Descartes' rule 'stated and proved on page 102'. Title, authors, year and series confirmed via Crossref. The GTM volume number 161 comes from memory and was not shown by Crossref, so check it before use."
+   }
+  ],
+  "recommended_change": "In appendix app:shape (ii), in the bullet \"Otherwise the function has at most N-1 real zeros.\", insert a citation: \"Otherwise the function has at most N-1 real zeros (this is classical, via the generalized Descartes rule of signs; see \\citet[Part V, Ch. 1]{polya1998problems} or \\citet{jameson2006counting}).\" Keep the one-line Rolle induction so the paper stays self-contained. Do not claim the lemma as new."
+ },
+ "lens": "novelty_ml",
+ "slug": "t6-exp-sum-zeros",
+ "task": 51
+}

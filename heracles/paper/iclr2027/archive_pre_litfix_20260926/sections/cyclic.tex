@@ -1,0 +1,134 @@
+\section{Modular addition}\label{sec:cyclic}
+
+% FIGURE (suggested): normalized margin over training vs the class value of Theorem 4.4, and the
+% ladder K^{-s} M_K against K for s = 1, 3/2, 2, 5/2 at p = 113.
+
+\paragraph{Interference at the feature's own frequency.}
+A product neuron builds $\cos(2\pi j(a_1+\dots+a_n-c)/p)$ by multiplying one cosine per operand, and the product-to-sum formulas also produce \emph{sign-flipped} copies: for $n=2$, $\cos\frac{2\pi ja}p\cos\frac{2\pi jb}p=\frac12\cos\frac{2\pi j(a+b)}p+\frac12\cos\frac{2\pi j(a-b)}p$, and the second term does not depend on the label. In general, for each non-empty $T\subseteq[n]$ the neuron carries the cosine of $2\pi j(\sum_{t\notin T}a_t-\sum_{t\in T}a_t-c)/p$, interference at the feature's own frequency. We measure it by $\beta_{j,T}:=2p^{-(n+1)}\hat f_\theta(k_1,\dots,k_n;-j)$ with $k_t=-j$ for $t\in T$ and $k_t=j$ otherwise, so $\beta_{j,\emptyset}=\beta_j$ and $\beta_{j,T}=\sum_i\beta_{ij,T}$.
+
+\begin{definition}[interference-free network]\label{def:if}
+A network is \emph{interference-free} if $\beta_{j,T}=0$ for every $j\in\Fp$ and every non-empty $T\subseteq[n]$.
+\end{definition}
+
+The condition is on the network's logit table, not its neurons: neurons may carry several frequencies and interference, provided it cancels in the sum. Interference at other modes is unrestricted; Lemma~\ref{lem:avg} discounts it and $C_b$ prices it. For one neuron the copies are rigidly tied to the feature.
+
+\begin{lemma}[sign rule]\label{lem:sign}
+For product and power neurons, for each neuron $i$ and frequency $j$ there are unit complex numbers $\xi_{i1j},\dots,\xi_{inj}$ with $\beta_{ij,T}=\beta_{ij}\prod_{t\in T}\xi_{itj}$ for every $T\subseteq[n]$. (Proof: Appendix~\ref{app:models}.)
+\end{lemma}
+
+So a single neuron is never interference-free at a frequency it uses, and several neurons must cancel each other's copies. Relabel the neurons with $\beta_{ij}\neq0$ as $l=1,\dots,N$, with unit factors $\xi_{lt}$ and total $\beta=\beta_j$. The network is interference-free at $j$ exactly when
+\begin{equation}
+  \sum_{l=1}^N\beta_l\prod_{t\in T}\xi_{lt}\;=\;\beta\,[T=\emptyset]\qquad\text{for every }T\subseteq[n],
+  \label{eq:JF}
+\end{equation}
+a finite system that involves neither $p$ nor the task.
+
+\begin{lemma}[cost of a feature]\label{lem:cost}
+Let $\nu=n+1$, $|\xi_{lt}|=1$, and let $\beta_1,\dots,\beta_N$ satisfy \eqref{eq:JF}. Then for every $r\in(0,1]$, $\ \sum_l|\beta_l|^r\ge\nu^{1-r}|\beta|^r$. If $\beta=0$, equality holds exactly when all $\beta_l=0$. If $\beta\neq0$ and $r<1$, equality holds if and only if exactly $\nu$ of the $\beta_l$ are non-zero, all of modulus $|\beta|/\nu$, with pairwise orthogonal chain vectors $m_l:=(1,\xi_{l1},\xi_{l1}\xi_{l2},\dots,\xi_{l1}\cdots\xi_{ln})\in\sC^\nu$.
+\end{lemma}
+
+A non-zero clean feature requires at least $\nu$ contributing neurons; for $r<1$, its least cost is attained by exactly $\nu$ equal-magnitude contributions, and more neurons never make it cheaper; the cancellation costs a factor $\nu^{1-r}$ over a single (interfering) neuron. At $r=1$ the inequality is the triangle inequality, which is why the neuron count is pinned only for $b<\nu$.
+
+\begin{proof}[Proof idea (Appendix~\ref{app:cost})]
+For $\beta\neq0$, the matrix $H=\sum_l\beta_lm_lm_l^*$ has below-diagonal entries equal to twisted sums of \eqref{eq:JF} over intervals of operands, hence zero, and diagonal $\beta$; so $\det(I+tH/\beta)=(1+t)^\nu$. Expanding the determinant over subsets of neurons and bounding Gram determinants by one (Hadamard) gives $\prod_l(1+x_lt)\ge(1+t)^\nu$ with $x_l=\nu|\beta_l|/|\beta|$, and integrating the logarithm against $t^{-1-r}dt$ gives $\sum_lx_l^r\ge\nu$.
+\end{proof}
+
+\begin{theorem}\label{thm:cyclic}
+Consider product networks with $n$ operands ($\nu=n+1$), let $2\le b\le\nu$, $s=\nu/b$, and let $y^*$ maximize $\Gamma_s(p)$. For width $m\ge\nu|\spt(y^*)|$, the maximum $L_{2,b}$-margin over interference-free networks on $D_p$ is
+\[
+\gamma^*_{b,\mathrm{IF}}=\nu^{-(\nu-b)/b}\,B_p\,\Gamma_{\nu/b}(p).
+\]
+For $b<\nu$, any interference-free network achieving it satisfies:
+\begin{enumerate}
+  \item its amplitudes are proportional to a maximizer $y^\star$ of \eqref{eq:programme}, so it uses exactly $|\spt(y^\star)|$ frequencies;
+  \item every frequency it uses is carried by exactly $\nu$ neurons, with $|\beta_{ij}|=A_j/\nu$ and pairwise orthogonal chain vectors; no neuron carries an unused frequency.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof outline (Appendix~\ref{app:thm})]
+By Lemmas~\ref{lem:sign} and~\ref{lem:cost}, $\sum_i|\beta_{ij}|^r\ge\nu^{1-r}A_j^r$ at each $j$ ($r=b/\nu$); summing and applying the single-neuron budget gives $\nu^{1-r}\sum_jA_j^r\le C_b\|\theta\|_{2,b}^b$, and Proposition~\ref{prop:coverage} gives the bound. Attainment is Proposition~\ref{prop:block}. At equality, Proposition~\ref{prop:coverage} is tight (condition 1) and Lemma~\ref{lem:cost} is tight at each frequency (condition 2).
+\end{proof}
+
+The class value is the universal bound divided by $\nu^{(\nu-b)/b}$ ($\sqrt3$, $4$, $5^{3/2}$ at $\nu=3,4,5$ under weight decay; $1$ at $b=\nu$): the price of splitting each feature over $\nu$ neurons. The budget-splitting problem, and so the number of features, is the same in both results.
+
+\begin{proposition}[the $\nu$-block]\label{prop:block}
+For $j\in\Fp$, $\lambda>0$ and $\alpha_l=\pi l/\nu$ ($l=0,\dots,n$), the $\nu$ product neurons $u^{(l)}_t(a)=\lambda\cos(2\pi ja/p+\alpha_l)$, $w^{(l)}(c)=\lambda\cos(2\pi jc/p+n\alpha_l)$ have total logit table $\nu\lambda^\nu2^{-n}\cos(2\pi j(a_1+\dots+a_n-c)/p)$ and $\|\omega^{(l)}\|_2^2=\nu\lambda^2p/2$. One block per $j\in\spt(y^*)$, with $\lambda_j^\nu=2^ny^*_j/\nu$, attains Theorem~\ref{thm:cyclic}. (Proof: Appendix~\ref{app:block}.)
+\end{proposition}
+
+The phases are a rotated copy of the $\nu$\textsuperscript{th} roots of unity, the equality case of Lemma~\ref{lem:cost}: summed over the block, they cancel every sign-flipped copy. The weights $\lambda_j^\nu\propto y^*_j$ matter, since optimal shares are not equal.
+
+\paragraph{The shape of the optimum.}
+Theorem~\ref{thm:cyclic} reduces the optimal interference-free network to a maximizer of \eqref{eq:programme}, and the maximizer's structure can be read off exactly. Rescaling a feasible $y$ so that its worst coverage is one puts it in the polyhedron
+\[
+\curlyp_p:=\Big\{v\in\R_{\ge0}^{\Fp}:\ \textstyle\sum_{j\in\Fp}v_j\,\cov{j}{\delta}\ge1\ \text{ for all }\delta\neq0\Big\},
+\]
+and $\Gamma_s(p)^{-1/s}=\min_{v\in\curlyp_p}\sum_jv_j^{1/s}$. The polyhedron depends on $p$ only, not on $\nu$, $b$ or $n$: the exponent $s$ decides which of its points is cheapest, and nothing else.
+
+\begin{proposition}[finitely many shapes]\label{prop:shapes}
+Let $s>1$. Every maximizer of \eqref{eq:programme} is $y=\Gamma_s(p)\,v$ for a vertex $v$ of $\curlyp_p$ that minimizes $\sum_jv_j^{1/s}$. There is a finite set $E\subset(1,\infty)$ such that the set of minimizing vertices is constant on each component of $(1,\infty)\setminus E$. Vertices whose non-zero entries agree as multisets (such as images under multiplication by a non-zero residue, identifying $j$ with $-j$) tie for every $s$. Along a fixed minimizing vertex branch $y=\Gamma_s(p)v$, the support and non-zero amplitude ratios are constant, and the budget shares $y_j^{1/s}=v_j^{1/s}/\sum_kv_k^{1/s}$ vary continuously. Shares may jump when the branch changes; an arbitrary choice among tied vertices need not be continuous or have fixed support. (Proof: Appendix~\ref{app:shape}.)
+\end{proposition}
+
+Thus the available optimal shapes change only at finitely many exponents; following one branch keeps its frequencies and amplitude ratios fixed until a switch. At $p=13$, for $s\in(1,5/2]$, the maximizer uses $6$, $4$, $3$ and then $2$ frequencies, switching at $s=1.285$, $1.407$ and $1.678$. At $p=23$ there are eight switches on $(1,5/2]$; at one of them ($s=1.955$) the three frequencies stay the same and only their ratios change.
+
+\begin{proposition}[bottleneck offsets]\label{prop:bottleneck}
+Let $s>1$ and let $y$ be a maximizer with $K=|\spt(y)|$. There are offsets $\delta_1,\dots,\delta_K\in\{1,\dots,\frac{p-1}2\}$ with $\sum_jy_j\cov{j}{\delta_i}=\Gamma_s(p)$ for every $i$, whose coverage vectors restricted to $\spt(y)$ are linearly independent. On its support, $y$ is the unique solution of these $K$ equations. In the network of Proposition~\ref{prop:block}, the gap between the label and the candidate $\delta$ below it is $\sum_jy_j\cov{j}{\delta}$ on every input, so the $2K$ candidates at offsets $\pm\delta_i$ from the label are, on every input, all hardest wrong answers at once. (Proof: Appendix~\ref{app:shape}.)
+\end{proposition}
+
+An optimal network is therefore held in place by at least as many equally hard wrong answers as it has features, and its amplitude ratios are exactly those that make these wrong answers equally hard. In every exact computation at $p\le23$ and $s=3/2$ the number of such offsets is exactly $K$.
+
+\begin{proposition}[removing a feature]\label{prop:ablation}
+Let $s>1$. Let $y$ be feasible for \eqref{eq:programme} with $\sum_jy_j^{1/s}=1$ and worst coverage $m\ge(1-\varepsilon)\,\Gamma_s(p)$, where $\varepsilon\in[0,1)$. For $j\in\spt(y)$, let $w_j:=y_j^{1/s}$ be the share of the budget spent on $j$, and let $m_{-j}$ be the worst coverage after setting $y_j=0$. Then
+\[
+m-2y_j\ \le\ m_{-j}\ \le\ \frac{(1-w_j)^s}{1-\varepsilon}\,m .
+\]
+In particular, removing feature $j$ from a maximizer costs at least the fraction $1-(1-w_j)^s$ of the margin, which lies between $w_j$ and $s\,w_j$. (Proof: Appendix~\ref{app:shape}.)
+\end{proposition}
+
+In the network of Proposition~\ref{prop:block}, deleting the $\nu$ neurons of frequency $j$ removes exactly $y_j\cos(2\pi j(a_1+\dots+a_n-c)/p)$ from the table, so these bounds apply to that network directly. Every feature is load-bearing in proportion to its share of the regularization budget. At exact maximizers with $p\le23$, the actual loss is $1.15$--$1.72$, $1.04$--$1.41$ and $1.00$--$1.18$ times the lower bound at $s=3/2$, $2$ and $5/2$.
+
+\begin{table}[t]
+\centering
+\caption{$\Kstar(\nu/b,p)$ under weight decay ($b=2$). Support enumeration is exhaustive for $K\le8,7,5$ at $p=59,71,113$ and heuristic above.}
+\label{tab:kstar}
+\begin{tabular}{lccc}
+\toprule
+$p$ & $\nu=3$ ($s=3/2$) & $\nu=4$ ($s=2$) & $\nu=5$ ($s=5/2$)\\
+\midrule
+59 & 5 & 4 & 3\\
+71 & 5 & 4 & 3\\
+113 & 7 & 4 & 4\\
+\bottomrule
+\end{tabular}
+\end{table}
+% NOTE: (113, nu=3) K*=7 lies above the exhaustive range (K<=5 at p=113), so it is heuristic.
+
+\paragraph{How many features.} Under weight decay the count falls as the degree rises and grows only slowly with $p$ (Table~\ref{tab:kstar}). The dense network of Corollary~\ref{cor:dense} reaches $0.52$--$0.63$ of the interference-free optimum at $\nu=3$, $0.15$--$0.25$ at $\nu=4$ and $0.04$--$0.08$ at $\nu=5$: the preference for few features sharpens with each step in degree. Whether a network carrying interference can beat the class value is open (Appendix~\ref{app:conjecture}); trained networks do carry interference, which Section~\ref{sec:experiments} measures.
+
+\paragraph{How the count grows with $p$.}
+For fixed $2\le b<\nu$, every programme maximizer uses $\Theta(\log p)$ frequencies. The same bounds also determine the order of the unrestricted maximum margin. For unrestricted networks, we obtain an $\Omega(\log p)$ requirement on the number of features in a constant-factor optimal network, but no matching support upper bound.
+
+\begin{theorem}[logarithmic scaling]\label{thm:scaling}
+Fix $s>1$ and let $a_s:=3+s/2$. For every odd prime $p$,
+\[
+\tfrac12\lceil8\ln p\rceil^{1-s}\ \le\ \Gamma_s(p)\ \le\ \tfrac32(2a_s)^s(\ln p)^{1-s}.
+\]
+Every maximizer of \eqref{eq:programme} uses between $c_s\ln p$ and $9\cdot4^{1/(s-1)}\ln p$ frequencies, where $c_s=\big(8a_s^2(3\cdot9^{s-1})^{1/s}\big)^{-1}$, and spends a share of at least $4^{-1/(s-1)}/(9\ln p)$ of its budget on each of them. Consequently, for product networks with $2\le b<\nu$, write $\gamma^*_{b,m}(p)$ for the maximum $L_{2,b}$-margin at width $m$, with interference allowed. Uniformly over $m\ge\nu\lceil8\ln p\rceil$,
+\[
+\gamma^*_{b,m}(p)=\Theta_{\nu,b}\big(p^{-\nu/2}(\ln p)^{1-\nu/b}\big).
+\]
+(Proof: Appendix~\ref{app:scaling}.)
+\end{theorem}
+
+The last statement needs no answer to the open question of Appendix~\ref{app:conjecture}. The universal upper bound and a block construction using at most $\nu\lceil8\ln p\rceil$ neurons give the same dependence on $p$, with constants depending only on $\nu,b$. If the width also realizes a programme maximizer, the sharper comparison is $\nu^{1-s}B_p\Gamma_s(p)\le\gamma^*_{b,m}(p)\le B_p\Gamma_s(p)$. Even with interference, a near-optimal network must use sufficiently many features:
+
+\begin{corollary}[few features cannot be optimal]\label{cor:few}
+Let $2\le b<\nu$, $s=\nu/b>1$, $a_s=3+s/2$, and $K\ge1$. Let $\theta\neq0$ be any network (product or power, any width, interference allowed) whose amplitudes $A_j$ are non-zero on at most $K$ frequencies, and let $x:=\ln p/K$. Then
+\[
+\frac{h(\theta)}{\|\theta\|_{2,b}^\nu}\ \le\ C_b^{\nu/b}\cdot\tfrac32\Big(\frac{x}{e^{x/(2a_s)}-1}\Big)^{s}(\ln p)^{1-s}.
+\]
+For fixed $\nu,b$, product networks with $K=o(\log p)$ therefore attain a vanishing fraction of $\gamma^*_{b,m}(p)$ at any comparison width $m\ge\nu\lceil8\ln p\rceil$. (Proof: Appendix~\ref{app:scaling}.)
+\end{corollary}
+
+The constants are loose, about two orders of magnitude apart at $s=3/2$. The theorem fixes the growth rate, not the count at a given $p$; Table~\ref{tab:kstar} gives the counts.
+
+The theorem also shows how narrow the dense regime is. By Corollary~\ref{cor:dense} every frequency is used at $b=\nu$. By the share floor of Theorem~\ref{thm:scaling}, however, for $(p-1)/2>\lceil8\ln p\rceil$, a programme maximizer can use all $\frac{p-1}2$ frequencies only if $s-1\le\ln4/\ln\big(\frac{p-1}{2\lceil8\ln p\rceil}\big)=O(1/\log p)$. So the range of $b$ below $\nu$ on which the programme optimum stays dense shrinks as $p$ grows. Computed exactly, the optimum is dense up to $s=1.548$, $1.345$, $1.285$, $1.217$, $1.194$ and $1.160$ at $p=7$, $11$, $13$, $17$, $19$ and $23$.

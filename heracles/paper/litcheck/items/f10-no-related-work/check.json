@@ -1,0 +1,64 @@
+{
+ "id": "F10-no-related-work",
+ "verdict": "SUPPORTED",
+ "evidence": "Source check (grep):\n- intro.tex:22 has the placeholder `% TODO(user): related work (Gromov 2023; Li et al. 2025; McCracken et al. 2025; Lyu & Li 2020)`. There is no related-work section.\n- These bib entries are never cited in paper.tex or sections/: lyu2020gradient, gromov2023grokking, li2025nsum, power2022grokking. li2025nsum appears only in archive_v0.\n- The mccracken2025 bib entry has the wrong title and author. The item's claim is accurate.\n\nAll pages below were fetched this session:\n- Li et al. (arXiv 2402.09469v4, \"AIStats 2025\"), Thm 4.1: power neurons (u_1^T x_1+...+u_k^T x_k)^k w with ||theta||_{2,k+1} <= 1. gamma* = 2(k!)/((2k+2)^{(k+1)/2}(p-1)p^{(k-1)/2}). \"For each frequency zeta in {1,...,(p-1)/2}, there exists one neuron using this frequency only\", so the solution is dense. This is the b=nu endpoint, and they own the general-nu dense result.\n- McCracken, Moisescu-Pareja, Letourneau, Precup, Love (arXiv 2505.18266). Cor 4.8: \"Learning O(log n) distinct frequencies gives a logit margin Omega(log n)\". The margin is unnormalised and the result is sufficiency only. One-hot one-hidden-layer MLPs learn floor(n/2) neuron types, and depth or embeddings cause a transition to \"much fewer\". They write \"we don't know why it occurs\".\n- Jacobs-Montufar (arXiv 2605.19458, May 2026), Thm 4.9: max-margin reformulated as min sum |a_j|^{alpha/2}. alpha=1 gives sparse and alpha>=2 gives dense. No modular or Fourier content.\n- Tian (arXiv 2410.01779, NeurIPS 2025 camera ready): semi-ring structure for quadratic 2-layer nets. \"weight decay favors simpler solutions\". No count law.\n- Zhong et al. (arXiv 2306.17844, NeurIPS 2023): Clock vs Pizza algorithms, which depend on hyperparameters and initialisation.\n- Doshi, He, Das, Gromov (arXiv 2406.03495; venue unconfirmed because Semantic Scholar returned 429): analytic many-term modular sum with phi(x)=x^S and cosine weights. Cross-terms vanish by random phase approximation as width grows. No norm or margin.\n- Gromov (arXiv 2301.02679): analytic feature maps, found by GD and AdamW.\n- Lyu-Li (arXiv 1906.05890, ICLR 2020): smoothed normalised margin increases under GD on logistic/CE loss, with convergence to KKT points of L2 max-margin.\n\nWebSearch budget was exhausted (200/200). Primary pages were fetched directly.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/f10-no-related-work/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "li2025nsum",
+   "bibtex": "@inproceedings{li2025nsum,\n  title={Fourier Circuits in Neural Networks and Transformers: A Case Study of Modular Arithmetic with Multiple Inputs},\n  author={Li, Chenyang and Liang, Yingyu and Shi, Zhenmei and Song, Zhao and Zhou, Tianyi},\n  booktitle={Proceedings of the 28th International Conference on Artificial Intelligence and Statistics (AISTATS)},\n  series={PMLR}, volume={258}, pages={523--531}, year={2025}\n}",
+   "url": "https://arxiv.org/abs/2402.09469",
+   "confirmed": true,
+   "why": "Thm 4.1: dense max L_{2,k+1} margin for power neurons, with every frequency used. This is the b=nu endpoint that our universal bound recovers. Cite where the intro and approach discuss the b=nu recovery."
+  },
+  {
+   "key": "mccracken2025",
+   "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2505.18266",
+   "confirmed": true,
+   "why": "Cor 4.8: O(log n) frequencies give Omega(log n) unnormalised margin. Dense-to-sparse transition observed but unexplained. Replace the wrong bib entry, and cite at the intro count sentence and the log-scaling theorem."
+  },
+  {
+   "key": "jacobs2026mirror",
+   "bibtex": "@article{jacobs2026mirror,\n  title={Implicit Bias of Mirror Flow in Homogeneous Neural Networks: Sparse and Dense Feature Learning},\n  author={Jacobs, Tom and Mont{\\'u}far, Guido},\n  journal={arXiv preprint arXiv:2605.19458}, year={2026}\n}",
+   "url": "https://arxiv.org/abs/2605.19458",
+   "confirmed": true,
+   "why": "Thm 4.9: a potential homogeneity exponent decides sparse vs dense max-margin neurons in general. Credit it for the generic idea; ours is the specific count for this task."
+  },
+  {
+   "key": "tian2025composing",
+   "bibtex": "@inproceedings{tian2025composing,\n  title={Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets},\n  author={Tian, Yuandong},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)}, year={2025}\n}",
+   "url": "https://arxiv.org/abs/2410.01779",
+   "confirmed": true,
+   "why": "Algebraic (semi-ring) solution structure for quadratic nets on abelian groups; weight decay favors simpler solutions. Related work on solution structure, with no count law."
+  },
+  {
+   "key": "zhong2023clock",
+   "bibtex": "@inproceedings{zhong2023clock,\n  title={The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks},\n  author={Zhong, Ziqian and Liu, Ziming and Tegmark, Max and Andreas, Jacob},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)}, year={2023}\n}",
+   "url": "https://arxiv.org/abs/2306.17844",
+   "confirmed": true,
+   "why": "Trained modular-addition nets vary in algorithm (Clock/Pizza) with hyperparameters and initialisation. Background for 'trained networks do not look like this'."
+  },
+  {
+   "key": "doshi2024polynomials",
+   "bibtex": "@article{doshi2024polynomials,\n  title={Grokking Modular Polynomials},\n  author={Doshi, Darshil and He, Tianyu and Das, Aritra and Gromov, Andrey},\n  journal={arXiv preprint arXiv:2406.03495},\n  year={2024}\n}",
+   "url": "https://arxiv.org/abs/2406.03495",
+   "confirmed": true,
+   "why": "Analytic solution for the many-term modular sum with x^S activation, where cross-terms cancel by random phases. Precedent for our n-operand (nu=n+1) constructions. Venue is unconfirmed, so it is cited as arXiv."
+  },
+  {
+   "key": "gromov2023grokking",
+   "bibtex": "@article{gromov2023grokking,\n  title={Grokking modular arithmetic},\n  author={Gromov, Andrey},\n  journal={arXiv preprint arXiv:2301.02679},\n  year={2023}\n}",
+   "url": "https://arxiv.org/abs/2301.02679",
+   "confirmed": true,
+   "why": "Analytic weights and feature maps for modular arithmetic, found by GD and AdamW. Precedent for the phase construction. Currently uncited."
+  },
+  {
+   "key": "lyu2020gradient",
+   "bibtex": "@inproceedings{lyu2020gradient,\n  title={Gradient descent maximizes the margin of homogeneous neural networks},\n  author={Lyu, Kaifeng and Li, Jian},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2020}\n}",
+   "url": "https://arxiv.org/abs/1906.05890",
+   "confirmed": true,
+   "why": "GD on CE loss increases the normalised margin and converges to KKT points of L2 max-margin (not the global optimum). Justifies the max-margin endpoint. Currently uncited."
+  }
+ ],
+ "recommended_change": "1. Replace the TODO at intro.tex:22 with a related-work paragraph (move it to the appendix if space is short). Suggested text: \"Max-margin feature theory. \\citet{morwani2024feature} characterise the maximum $L_{2,3}$ margin of quadratic networks, and \\citet{li2025nsum} extend this to $k$-th power neurons at $L_{2,k+1}$; in both, every frequency is used. Our bound recovers these at $b=\\nu$. Why margins: gradient descent on cross-entropy converges to KKT points of the $L_2$ max-margin problem \\citep{lyu2020gradient}, and weak regularisation approaches the global maximum \\citep{wei2019regularization}; we make no claim that training finds the optimum. Constructions: analytic Fourier solutions go back to \\citet{gromov2023grokking} and extend to many-term sums \\citep{doshi2024polynomials}. Counts in trained networks: \\citet{nanda2023progress,chughtai2023toy} report few frequencies or irreps, \\citet{zhong2023clock} report algorithm diversity, and \\citet{mccracken2025} show that $O(\\log n)$ frequencies suffice for an $\\Omega(\\log n)$ logit margin while leaving the dense-to-sparse transition unexplained; our Theorem [scaling] supplies the matching upper bound and the norm-exponent explanation. That a homogeneity exponent separates sparse from dense max-margin solutions in general is shown for mirror flow by \\citet{jacobs2026mirror}; \\citet{tian2025composing} gives algebraic structure for quadratic-network solutions.\"\n2. Fix the mccracken2025 bib entry: correct title, Gavin McCracken et al.\n3. Add the bib entries jacobs2026mirror, tian2025composing, zhong2023clock and doshi2024polynomials.\n4. Either cite power2022grokking or delete it."
+}

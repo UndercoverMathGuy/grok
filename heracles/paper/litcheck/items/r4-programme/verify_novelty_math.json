@@ -1,0 +1,22 @@
+{
+ "task": 2,
+ "item_id": "R4-programme",
+ "lens": "novelty_math",
+ "upheld": false,
+ "corrected_verdict": "PARTIALLY_KNOWN (unchanged). The programme's form is a standard object and its instance and solution are new. Inverted, Gamma_s(p)^{-1/s} = min{sum_j y_j^{1/s} : sum_j y_j(1-cos(2 pi j delta/p)) >= 1 for all delta != 0, y >= 0}. That is l_q quasi-norm minimisation (q=1/s<1) over a covering polyhedron, as in Ge-Jiang-Ye 2011, whose Thm 3 says basic feasible solutions are exactly the local minimisers. So the claim that a concave budget gives a sparse optimum is classical. The new part is the circulant cosine-coverage instance, the bound on every network, and K*=Theta(log p).",
+ "issues": "(1) Bib error: ghosh2006growing pages are 6605-6611 per Crossref (DOI 10.1109/CDC.2006.377282), not 6605-6610. Add the DOI. This is why upheld=false; every other checker citation survived.\n(2) Missed optimisation precedent: the programme inverts to l_{1/s}-quasi-norm minimisation over {y>=0: K y >= 1}. Ge, Jiang & Ye 2011 (Math. Program. 129:285-299) treat exactly this class. I read the preprint: Thm 3 says basic feasible solutions = local minimisers, and global minimisation is strongly NP-hard. Present the programme as an instance of this, not as a new optimisation form. Item r22 also recommends it; cite once.\n(3) Boyd ICM 2006 does not treat circulants explicitly. Write 'a special case of (via group averaging)', not 'its circulant case'.\n(4) Kam et al. confirmed: App. A.3.2 Eq. 15 uses ||beta||_2=B and Prop. 5 says uniform is optimal. In our notation that is s=1/2, outside s in [1, nu/2], which explains the dense optimum. Gunasekar 2018 is confirmed via the arXiv abstract ('l_{2/L} bridge penalty in the frequency domain'). Jagadeesan 2022 and Boyd 2006 metadata are confirmed.\n(5) Chowla cosine problem: a different extremum, no overlap. This agrees with the checker.\n(6) Limits: the WebSearch budget was exhausted (200/200), and arXiv, Semantic Scholar and dblp returned 429. So I ran no fresh keyword search for l_p (p<1)-budgeted algebraic-connectivity design or concave-cost E-optimal design. Residual risk is low: any hit would be generic, not the circulant log p result.\n[Harness note] The verify phase is slow because it runs at effort xhigh over 98 tasks (16 done at the time of writing) after the session WebSearch cap ran out, while scholarly APIs rate-limit the parallel agents (429s).",
+ "extra_citations": [
+  {
+   "key": "ge2011note",
+   "bibtex": "@article{ge2011note,\n  title={A note on the complexity of {$L_p$} minimization},\n  author={Ge, Dongdong and Jiang, Xiaoye and Ye, Yinyu},\n  journal={Mathematical Programming},\n  volume={129},\n  pages={285--299},\n  year={2011},\n  doi={10.1007/s10107-011-0470-2}\n}",
+   "url": "https://web.stanford.edu/~yyye/lpmin_v14.pdf",
+   "why": "Gamma_s inverts to min sum y_j^{1/s} over the covering polyhedron {y>=0: Ky>=1}, which is their Lp problem (1) with p=1/s<1. Their Thm 3 (basic feasible solutions = local minimisers) is the standard reason a concave budget gives sparse vertex optima. Their strong NP-hardness also justifies enumerating supports. Cite at eq:programme or at the shape proposition; do not duplicate the r22 entry."
+  },
+  {
+   "key": "ghosh2006growing",
+   "bibtex": "@inproceedings{ghosh2006growing,\n  title={Growing Well-connected Graphs},\n  author={Ghosh, Arpita and Boyd, Stephen},\n  booktitle={Proceedings of the 45th IEEE Conference on Decision and Control},\n  pages={6605--6611},\n  year={2006},\n  doi={10.1109/CDC.2006.377282}\n}",
+   "url": "https://api.crossref.org/works?query.title=Growing+well-connected+graphs&query.author=Ghosh+Boyd",
+   "why": "Corrected entry for the checker's recommendation: pages 6605-6611 and the DOI, per Crossref. Cardinality-constrained lambda_2 maximisation is the s->infinity endpoint."
+  }
+ ]
+}

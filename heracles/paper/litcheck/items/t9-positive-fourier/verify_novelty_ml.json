@@ -1,0 +1,16 @@
+{
+ "task": 57,
+ "item_id": "T9-positive-fourier",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "issues": "Checker verdict and both confirmed citations survive. Cioaba 2006 (CRAS 342:635-638, doi 10.1016/j.crma.2006.03.005): Sec. 2, eq. (2) and Lemma 2.1 are as described, and our inequality is their weighted exponential-generating-function form. Friedman-Murty-Tillich 2006 (JCTB 96:111-121, doi 10.1016/j.jctb.2005.06.012): the abstract, Sec. 3 covering argument and folklore sentence are as described. Minor corrections to the checker: (a) FMT's 'large trace' reference [Ci05] is Cioaba's 2005 PhD thesis, not the CRAS note; (b) FMT cite AR94 Prop. 3, Sec. 3 for the folklore, while the checker cites AR Prop. 2; I did not re-fetch AR94, so check the numbering before quoting. ML prior art the checker missed: McCracken et al. arXiv 2505.18266. Its Thm 4.7 and Cor 4.8 show that O(log n) random frequencies give an Omega(log n) margin, by a heuristic Taylor + volume union bound. That is the SUFFICIENCY direction only. It says max margin uses all frequencies and never uses Bessel or positive-Fourier arguments. The necessity/upper-margin direction of eq:posfourier is not there. Cite it beside Thm scaling. BIB ERROR: refs.bib mccracken2025 is wrong. arXiv 2505.18266 is 'Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks' by Gavin McCracken, Moisescu-Pareja, Letourneau, Precup and Love, not 'Emergence of sparse and dense circuits...' by 'Andrew McCracken'. Morwani 2311.07568, Gromov 2301.02679 and He et al. 2602.16849: no log-p necessity and no Bessel inequality. PIPELINE NOTE (the user asked why the verify stage is slow): WebSearch reports its per-session budget is used up ('200 of 200 WebSearch calls'), so every remaining verifier has no web search. export.arxiv.org also returns HTTP 429 to parallel queries, and WebFetch cannot parse the numdam/Tillich PDFs, so each needs a local pdftotext pass. I had to fall back to HF paper search plus curl/pdftotext. Raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION or run fewer verifiers at once, and throttle arXiv API calls.",
+ "corrected_verdict": "PARTIALLY_KNOWN (unchanged): mechanism = known closed-walk/free-cover comparison (Cioaba 2006; FMT 2006) + textbook Jacobi-Anger positivity; weighted l_{1/s}-budget version and log-p necessity not found in ML or fetched math sources; ML precedent McCracken et al. 2025 covers only the sufficiency direction heuristically.",
+ "extra_citations": [
+  {
+   "key": "mccracken2025",
+   "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2505.18266",
+   "why": "Replaces the wrong existing bib entry: the current title and first author do not match arXiv:2505.18266. Cite it beside Thm scaling as the ML precedent for log n frequencies. Thm 4.7 and Cor 4.8 show that O(log n) random frequencies achieve an Omega(log n) margin, by a heuristic volume/union bound, which is sufficiency only. Our eq:posfourier gives the complementary necessity direction."
+  }
+ ]
+}

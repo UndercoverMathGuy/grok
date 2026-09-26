@@ -1,0 +1,48 @@
+{
+ "item": {
+  "id": "F6-where-dense-stops",
+  "kind": "framing_claim",
+  "location": "intro 'Where the dense theorem stops'",
+  "statement": "Morwani find best individual neurons then combine; combining is free exactly at L_{2,nu}; for b<nu output amplitude is cheaper when concentrated so features have a price",
+  "what_to_check": "Verify Morwani's proof structure; check whether Morwani or others already remark on b<nu"
+ },
+ "chk": {
+  "id": "F6-where-dense-stops",
+  "verdict": "SUPPORTED",
+  "evidence": "Source: Morwani et al. (arXiv 2311.07568, ICLR 2024), fetched as arXiv HTML.\n- Sec 3.3 blueprint: (1) take a uniform q, (2) find the optimal single neurons with Lemma 5 \"Single neuron optimization\", (3) combine them with Lemma 5 \"Combining neurons\".\n- Lemma 3 (binary; Lemma 5 is the multi-class version), verbatim: \"If b=\u03bd (the homogeneity constant of the network) and \u03c91*,...,\u03c9m*\u2208\u03a9q*, then for any neuron scaling factors \u03a3\u03bbi^\u03bd=1, \u03bbi\u22650 we have that \u03b8={\u03bbi\u03c9i*} belongs to \u0398q*.\" Combining is free exactly at b=\u03bd.\n- Sec 3.2: \"we will primarily focus on maximum margin with respect to L_{2,\u03bd} norm\".\n- App. E.1 remark, verbatim: \"the analysis can be used to compute optimal norms for b\u2260\u03bd however, for any such b we would not get the same flexibility to build a \u03b8* satisfying Equation [1]\".\n- Sec 7: \"Our proof holds for ... x\u00b2 activations ... and L_{2,\u03bd} norm\".\n- Fig 4b: an L2-trained ReLU net is \"nearly 1-sparse\" per neuron. That is neuron-level, not a frequency count.\n\nWhat this means for the claim:\n- The paper's description of Morwani's proof structure is accurate.\n- Morwani do notice that b\u2260\u03bd breaks the combining step, but they say nothing about the direction of the effect: that concentrated amplitude is cheaper, that sparsity follows, or that each feature has a price. That part is new here.\n- The generic mechanism is known. L2 on a product of D factors equals a concave l_{2/D} quasi-norm cost: Hoff 2017 (CSDA; arXiv 1611.00040) and Kolb et al. ICLR 2025 (2502.02496, abstract: L2 on D factors is equivalent to l_{2/D} sparse regularisation). Dai-Karzand-Srebro NeurIPS 2021 covers the representation-cost framework.\n- The sweep found no one applying this to margin or Fourier features. Kam et al. 2609.17926 use a convex l2 amplitude budget and get a dense allocation.\n\nSearches and fetches: arXiv HTML of 2311.07568 (3 targeted reads), 1611.00040 abstract, 2502.02496 abstract, and the NeurIPS 2021 proceedings page for Dai-Karzand-Srebro.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/f6-where-dense-stops/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "morwani2024feature",
+    "bibtex": "(already in refs.bib)",
+    "url": "https://arxiv.org/abs/2311.07568",
+    "confirmed": true,
+    "why": "Lemma 3/5 'Combining neurons' requires b=nu; App. E.1 remark says the combining flexibility is lost for b != nu. Supports 'combining is free exactly at L_{2,nu}'."
+   },
+   {
+    "key": "hoff2017lasso",
+    "bibtex": "@article{hoff2017lasso,\n  title={Lasso, fractional norm and structured sparse estimation using a {H}adamard product parametrization},\n  author={Hoff, Peter D.},\n  journal={Computational Statistics \\& Data Analysis},\n  volume={115},\n  pages={186--198},\n  year={2017}\n}",
+    "url": "https://arxiv.org/abs/1611.00040",
+    "confirmed": true,
+    "why": "L_q (q<=1) penalties arise as L2 penalties on multiplicative factors. Precedent for 'output amplitude is cheaper when concentrated' under L2 with b<nu. Journal volume/pages taken from the sweep, not re-read on the fetched page."
+   },
+   {
+    "key": "kolb2025deep",
+    "bibtex": "@inproceedings{kolb2025deep,\n  title={Deep Weight Factorization: Sparse Learning Through the Lens of Artificial Symmetries},\n  author={Kolb, Chris and Weber, Tobias and Bischl, Bernd and R{\\\"u}gamer, David},\n  booktitle={International Conference on Learning Representations},\n  year={2025}\n}",
+    "url": "https://arxiv.org/abs/2502.02496",
+    "confirmed": true,
+    "why": "L2 on D factors is equivalent to l_{2/D} non-convex sparse regularisation. The same AM-GM mechanism behind the per-feature price."
+   },
+   {
+    "key": "dai2021representation",
+    "bibtex": "@inproceedings{dai2021representation,\n  title={Representation Costs of Linear Neural Networks: Analysis and Design},\n  author={Dai, Zhen and Karzand, Mina and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={34},\n  year={2021}\n}",
+    "url": "https://proceedings.neurips.cc/paper/2021/hash/e22cb9d6bbb4c290a94e4fff4d68a831-Abstract.html",
+    "confirmed": true,
+    "why": "Representation cost of l2 parameter regularisation (l_p / quasi-norm costs). General framework for the price."
+   }
+  ],
+  "recommended_change": "Keep the paragraph. Change the first sentences to: \"\\citet{morwani2024feature} find the best individual neurons and then combine them; their combining lemma requires the norm exponent to equal $\\nu$ (their Lemma 3/5), and they remark that for $b\\neq\\nu$ this flexibility is lost (their App. E.1).\" After \"output amplitude is cheaper per unit the more of it one feature carries\", add \"(the familiar fact that $\\ell_2$ on multiplicative factors induces a concave $\\ell_{2/D}$ cost; \\citealp{hoff2017lasso,kolb2025deep})\". This credits the generic mechanism and keeps our novelty claim: its consequences for feature count and margin."
+ },
+ "lens": "citation",
+ "slug": "f6-where-dense-stops",
+ "task": 70
+}

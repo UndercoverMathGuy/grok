@@ -1,0 +1,9 @@
+{
+  "task": 91,
+  "item_id": "U3-n-operand",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "CITATION_FOUND",
+  "issues": "No errors in the checker's verdict or citations. Each was fetched this session: PMLR v258 li25b (pages 523-531, correct fields), arXiv 2402.09469v4 (Sec 3.1 neuron/L_{2,k+1} and Thm 4.1 as quoted), and arXiv 2406.03495 (Sec 2 Eq. 1, phi(x)=x^S, no margin theorem; the OpenReview API lists it only as CoRR 2024, so the preprint bib is correct). Additions: (1) Li Thm 4.1 gamma* equals n! B_p * p/(p-1) exactly, so at b=nu the paper's universal bound is attained for every n, not just n=2. appendix.tex l.279 ('C_3=2B_p there') can be generalised to C_nu = n! B_p for all n, citing Li Thm 4.1 with its width condition m >= 2^{2n-1}(p-1)/2. Cor. dense can quote the general-n value. (2) The existing li2025nsum bib entry lacks volume/pages/series; replace it with the PMLR fields. (3) Process note for the orchestrator: this session's WebSearch budget is exhausted (200/200 calls), so later verifiers in the same session cannot search and fall back to WebFetch. This probably contributes to the verify stage's slowness.",
+  "extra_citations": []
+}

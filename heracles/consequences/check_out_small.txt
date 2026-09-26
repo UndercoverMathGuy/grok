@@ -1,0 +1,72 @@
+====================================================================================================
+p=7 h=3: 7 vertices; Gamma_1.5 = 0.673575 (programme() 0.673575)
+  C1 plateaus over s in [1.0001, 4] (modulo dilation): 3 (switches 2)
+     s 1.0001-1.5454: K=3 [1, 2, 3] ratios [1.0, 1.0, 1.0]
+     s 1.5503-2.3200: K=2 [2, 3] ratios [0.555, 1.0]
+     s 2.3249-4.0000: K=1 [3] ratios [1.0]
+  C4 dense window: optimum uses all 3 frequencies up to s = 1.545409015025042  (s_c - 1 = 0.5454; (s_c-1)*log p = 1.061)
+  C7 bottlenecks: K=3, tight offsets 3 (claim: >= K)  budget check sum w = 1.000000
+  C3 ablation (loss >= 1-(1-w)^s; also loss <= 2y/m): min loss/bound = 1.192
+     k= 1 share w=0.333  loss 0.543  lower bound 0.456  upper 2y/m 0.571
+     k= 2 share w=0.333  loss 0.543  lower bound 0.456  upper 2y/m 0.571
+     k= 3 share w=0.333  loss 0.543  lower bound 0.456  upper 2y/m 0.571
+  C2 degeneracy: 1 distinct optimal supports; dilation orbit of the optimum has 1 supports (bound (p-1)/(2K) = 1.00); all dilates optimal: True
+  C5 certificate Gamma(S) >= Gamma/sqrt3 survivors by size: K=1:0/3  K=2:3/3  K=3:1/1
+  C6 progressions: violations 0; best progression (K <= max(2,h/3)) reaches 0.980 of Gamma
+  C8 gauge: max |table change| = 1.75e-15 (table scale 0.58); cost change 0.00e+00
+----------------------------------------------------------------------------------------------------
+p=11 h=5: 31 vertices; Gamma_1.5 = 0.535726 (programme() 0.535726)
+  C1 plateaus over s in [1.0001, 4] (modulo dilation): 4 (switches 3)
+     s 1.0001-1.3421: K=5 [1, 2, 3, 4, 5] ratios [1.0, 1.0, 1.0, 1.0, 1.0]
+     s 1.3469-1.4873: K=3 [3, 4, 5] ratios [0.567, 0.728, 1.0]
+     s 1.4922-3.2641: K=2 [4, 5] ratios [1.0, 0.657]
+     s 3.2689-4.0000: K=1 [5] ratios [1.0]
+  C4 dense window: optimum uses all 5 frequencies up to s = 1.3420701168614357  (s_c - 1 = 0.3421; (s_c-1)*log p = 0.820)
+  C7 bottlenecks: K=2, tight offsets 2 (claim: >= K)  budget check sum w = 1.000000
+  C3 ablation (loss >= 1-(1-w)^s; also loss <= 2y/m): min loss/bound = 1.277
+     k= 2 share w=0.431  loss 0.873  lower bound 0.570  upper 2y/m 1.055
+     k= 5 share w=0.569  loss 0.916  lower bound 0.717  upper 2y/m 1.604
+  C2 degeneracy: 5 distinct optimal supports; dilation orbit of the optimum has 5 supports (bound (p-1)/(2K) = 2.50); all dilates optimal: True
+  C5 certificate Gamma(S) >= Gamma/sqrt3 survivors by size: K=1:0/5  K=2:10/10  K=3:10/10  K=4:5/5  K=5:1/1
+  C6 progressions: violations 0; best progression (K <= max(2,h/3)) reaches 0.714 of Gamma
+  C8 gauge: max |table change| = 2.50e-15 (table scale 0.71); cost change 7.11e-15
+----------------------------------------------------------------------------------------------------
+p=13 h=6: 87 vertices; Gamma_1.5 = 0.497772 (programme() 0.497772)
+  C1 plateaus over s in [1.0001, 4] (modulo dilation): 5 (switches 4)
+     s 1.0001-1.2840: K=6 [1, 2, 3, 4, 5, 6] ratios [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+     s 1.2888-1.4050: K=4 [3, 4, 5, 6] ratios [0.435, 0.585, 0.915, 1.0]
+     s 1.4098-1.6761: K=3 [4, 5, 6] ratios [0.819, 0.66, 1.0]
+     s 1.6810-3.5159: K=2 [4, 6] ratios [1.0, 1.0]
+     s 3.5207-4.0000: K=1 [6] ratios [1.0]
+  C4 dense window: optimum uses all 6 frequencies up to s = 1.2839732888146913  (s_c - 1 = 0.284; (s_c-1)*log p = 0.728)
+  C7 bottlenecks: K=3, tight offsets 3 (claim: >= K)  budget check sum w = 1.000000
+  C3 ablation (loss >= 1-(1-w)^s; also loss <= 2y/m): min loss/bound = 1.149
+     k= 1 share w=0.332  loss 0.673  lower bound 0.455  upper 2y/m 0.770
+     k= 2 share w=0.288  loss 0.458  lower bound 0.399  upper 2y/m 0.621
+     k= 5 share w=0.380  loss 0.822  lower bound 0.511  upper 2y/m 0.940
+  C2 degeneracy: 6 distinct optimal supports; dilation orbit of the optimum has 6 supports (bound (p-1)/(2K) = 2.00); all dilates optimal: True
+  C5 certificate Gamma(S) >= Gamma/sqrt3 survivors by size: K=1:0/6  K=2:15/15  K=3:20/20  K=4:15/15  K=5:6/6  K=6:1/1
+  C6 progressions: violations 0; best progression (K <= max(2,h/3)) reaches 0.606 of Gamma
+  C8 gauge: max |table change| = 3.69e-15 (table scale 0.58); cost change 1.42e-14
+----------------------------------------------------------------------------------------------------
+p=17 h=8: 391 vertices; Gamma_1.5 = 0.448341 (programme() 0.448341)
+  C1 plateaus over s in [1.0001, 4] (modulo dilation): 8 (switches 7)
+     s 1.0001-1.2162: K=8 [1, 2, 3, 4, 5, 6, 7, 8] ratios [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+     s 1.2210-1.2452: K=6 [3, 4, 5, 6, 7, 8] ratios [0.262, 0.369, 0.646, 0.77, 0.947, 1.0]
+     s 1.2501-1.3421: K=5 [4, 5, 6, 7, 8] ratios [0.505, 0.499, 0.677, 1.0, 0.905]
+     s 1.3469-1.4679: K=4 [5, 6, 7, 8] ratios [0.81, 0.589, 0.612, 1.0]
+     s 1.4728-2.1699: K=3 [6, 7, 8] ratios [1.0, 0.513, 0.575]
+     s 2.1748-3.4771: K=2 [6, 7] ratios [1.0, 1.0]
+     s 3.4820-3.8548: K=2 [7, 8] ratios [1.0, 0.317]
+     s 3.8596-4.0000: K=1 [8] ratios [1.0]
+  C4 dense window: optimum uses all 8 frequencies up to s = 1.2161936560934892  (s_c - 1 = 0.2162; (s_c-1)*log p = 0.613)
+  C7 bottlenecks: K=3, tight offsets 3 (claim: >= K)  budget check sum w = 1.000000
+  C3 ablation (loss >= 1-(1-w)^s; also loss <= 2y/m): min loss/bound = 1.404
+     k= 2 share w=0.429  loss 0.798  lower bound 0.568  upper 2y/m 1.253
+     k= 3 share w=0.296  loss 0.666  lower bound 0.410  upper 2y/m 0.720
+     k= 8 share w=0.275  loss 0.637  lower bound 0.382  upper 2y/m 0.642
+  C2 degeneracy: 8 distinct optimal supports; dilation orbit of the optimum has 8 supports (bound (p-1)/(2K) = 2.67); all dilates optimal: True
+  C5 certificate Gamma(S) >= Gamma/sqrt3 survivors by size: K=1:0/8  K=2:20/28  K=3:56/56  K=4:70/70  K=5:56/56  K=6:28/28  K=7:8/8  K=8:1/1
+  C6 progressions: violations 0; best progression (K <= max(2,h/3)) reaches 0.445 of Gamma
+  C8 gauge: max |table change| = 3.30e-15 (table scale 0.59); cost change 1.42e-14
+----------------------------------------------------------------------------------------------------

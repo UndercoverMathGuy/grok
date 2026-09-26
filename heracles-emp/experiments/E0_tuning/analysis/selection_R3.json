@@ -1,0 +1,456 @@
+{
+ "round": "R3",
+ "n_runs": 128,
+ "selection": {
+  "power_nu3": {
+   "c": 0.1,
+   "lam_key": 0.0001,
+   "n_ok": 1,
+   "n": 4
+  },
+  "product_nu3": {
+   "c": 0.2,
+   "lam_key": 0.0001,
+   "n_ok": 3,
+   "n": 4
+  },
+  "product_nu4": {
+   "c": 0.28,
+   "lam_key": 1e-05,
+   "n_ok": 1,
+   "n": 4
+  },
+  "product_nu5": {
+   "c": 0.035,
+   "lam_key": 0.0001,
+   "n_ok": 1,
+   "n": 4
+  }
+ },
+ "table": {
+  "power_nu3": [
+   {
+    "c": 0.05,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.0023945790147716912,
+    "statuses": [
+     "p113 q3 not_converged loss_plateau,gamma_stable",
+     "p113 q3 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p23 q3 not_converged grad_rel,loss_plateau",
+     "p23 q3 not_converged grad_rel,loss_plateau,gamma_stable"
+    ]
+   },
+   {
+    "c": 0.05,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.00016314856256165983,
+    "statuses": [
+     "p113 q3 not_converged loss_plateau,gamma_stable",
+     "p113 q3 not_converged loss_plateau,gamma_stable",
+     "p23 q3 not_converged gamma_stable",
+     "p23 q3 not_converged gamma_stable"
+    ]
+   },
+   {
+    "c": 0.1,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.0011769053823720932,
+    "statuses": [
+     "p113 q3 not_converged gamma_stable",
+     "p113 q3 not_converged loss_plateau,gamma_stable",
+     "p23 q3 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p23 q3 not_converged grad_rel,loss_plateau,gamma_stable"
+    ]
+   },
+   {
+    "c": 0.1,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 1,
+    "median_grad_rel": 3.864241907587394e-05,
+    "statuses": [
+     "p113 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p113 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q3 not_converged gamma_stable",
+     "p23 q3 ok "
+    ]
+   },
+   {
+    "c": 0.2,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": Infinity,
+    "statuses": [
+     "p113 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p113 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.2,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": Infinity,
+    "statuses": [
+     "p113 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p113 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.4,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": Infinity,
+    "statuses": [
+     "p113 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p113 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.4,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": Infinity,
+    "statuses": [
+     "p113 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p113 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q3 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin"
+    ]
+   }
+  ],
+  "product_nu3": [
+   {
+    "c": 0.05,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 2,
+    "median_grad_rel": 0.0036055165528502326,
+    "statuses": [
+     "p113 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p113 q3 ok ",
+     "p23 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p23 q3 ok "
+    ]
+   },
+   {
+    "c": 0.05,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 1,
+    "median_grad_rel": 0.0003145926666098394,
+    "statuses": [
+     "p113 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p113 q3 not_converged loss_plateau,gamma_stable,positive_margin",
+     "p23 q2 not_converged gamma_stable",
+     "p23 q3 ok "
+    ]
+   },
+   {
+    "c": 0.1,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 2,
+    "median_grad_rel": 0.0006255220157963839,
+    "statuses": [
+     "p113 q2 not_converged grad_rel",
+     "p113 q3 ok ",
+     "p23 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p23 q3 ok "
+    ]
+   },
+   {
+    "c": 0.1,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 2,
+    "median_grad_rel": 0.00010705632102983455,
+    "statuses": [
+     "p113 q2 not_converged gamma_stable",
+     "p113 q3 not_converged loss_plateau,gamma_stable,positive_margin",
+     "p23 q2 ok ",
+     "p23 q3 ok "
+    ]
+   },
+   {
+    "c": 0.2,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 2,
+    "median_grad_rel": 4.6369462206913974e-05,
+    "statuses": [
+     "p113 q2 not_converged gamma_stable",
+     "p113 q3 ok ",
+     "p23 q2 not_converged gamma_stable",
+     "p23 q3 ok "
+    ]
+   },
+   {
+    "c": 0.2,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 3,
+    "median_grad_rel": 8.389937236725958e-06,
+    "statuses": [
+     "p113 q2 ok ",
+     "p113 q3 not_converged loss_plateau,gamma_stable,positive_margin",
+     "p23 q2 ok ",
+     "p23 q3 ok "
+    ]
+   },
+   {
+    "c": 0.4,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 2,
+    "median_grad_rel": 0.00011891954879957388,
+    "statuses": [
+     "p113 q2 not_converged gamma_stable",
+     "p113 q3 not_converged loss_plateau,gamma_stable",
+     "p23 q2 ok ",
+     "p23 q3 ok "
+    ]
+   },
+   {
+    "c": 0.4,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 2,
+    "median_grad_rel": 6.32639466204409e-06,
+    "statuses": [
+     "p113 q2 not_converged gamma_stable",
+     "p113 q3 not_converged loss_plateau,gamma_stable,positive_margin",
+     "p23 q2 ok ",
+     "p23 q3 ok "
+    ]
+   }
+  ],
+  "product_nu4": [
+   {
+    "c": 0.035,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 1,
+    "median_grad_rel": 0.012677426277326816,
+    "statuses": [
+     "p23 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p23 q4 ok ",
+     "p43 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p43 q4 not_converged loss_plateau,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.035,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.4611547040924435,
+    "statuses": [
+     "p23 q2 not_converged gamma_stable",
+     "p23 q4 not_converged grad_rel,gamma_stable,positive_margin",
+     "p43 q2 not_converged gamma_stable,positive_margin",
+     "p43 q4 not_converged grad_rel,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.07,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 1,
+    "median_grad_rel": 0.01154725102571721,
+    "statuses": [
+     "p23 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p23 q4 ok ",
+     "p43 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p43 q4 not_converged grad_rel,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.07,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.7638248580791855,
+    "statuses": [
+     "p23 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p23 q4 not_converged grad_rel,gamma_stable,positive_margin",
+     "p43 q2 not_converged grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p43 q4 not_converged grad_rel,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.14,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 1,
+    "median_grad_rel": 0.0026700844994337653,
+    "statuses": [
+     "p23 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p23 q4 ok ",
+     "p43 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p43 q4 not_converged grad_rel,loss_plateau,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.14,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.4177762199914565,
+    "statuses": [
+     "p23 q2 not_converged gamma_stable",
+     "p23 q4 not_converged grad_rel,gamma_stable,positive_margin",
+     "p43 q2 not_converged positive_margin",
+     "p43 q4 not_converged grad_rel,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.28,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 1,
+    "median_grad_rel": 0.00011664285910140376,
+    "statuses": [
+     "p23 q2 not_converged grad_rel,gamma_stable",
+     "p23 q4 ok ",
+     "p43 q2 not_converged gamma_stable",
+     "p43 q4 not_converged loss_plateau,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.28,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 1,
+    "median_grad_rel": 0.00015135819180447718,
+    "statuses": [
+     "p23 q2 not_converged gamma_stable",
+     "p23 q4 not_converged grad_rel,gamma_stable,positive_margin",
+     "p43 q2 ok ",
+     "p43 q4 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin"
+    ]
+   }
+  ],
+  "product_nu5": [
+   {
+    "c": 0.0175,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.5293269739622387,
+    "statuses": [
+     "p13 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p13 q5 not_converged grad_rel,gamma_stable,positive_margin",
+     "p23 q2 not_converged grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q5 not_converged grad_rel,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.0175,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 1,
+    "median_grad_rel": 0.49713851031480555,
+    "statuses": [
+     "p13 q2 ok ",
+     "p13 q5 not_converged grad_rel,gamma_stable,positive_margin",
+     "p23 q2 not_converged positive_margin",
+     "p23 q5 not_converged grad_rel,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.035,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.8760484781930092,
+    "statuses": [
+     "p13 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p13 q5 not_converged grad_rel,gamma_stable,positive_margin",
+     "p23 q2 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q5 not_converged grad_rel,positive_margin"
+    ]
+   },
+   {
+    "c": 0.035,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 1,
+    "median_grad_rel": 0.49713209110238205,
+    "statuses": [
+     "p13 q2 ok ",
+     "p13 q5 not_converged grad_rel,gamma_stable,positive_margin",
+     "p23 q2 not_converged positive_margin",
+     "p23 q5 not_converged grad_rel,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.07,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.1509679295290826,
+    "statuses": [
+     "p13 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p13 q5 not_converged grad_rel,gamma_stable,positive_margin",
+     "p23 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p23 q5 not_converged grad_rel,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.07,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.9969249165550758,
+    "statuses": [
+     "p13 q2 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p13 q5 not_converged grad_rel,gamma_stable,positive_margin",
+     "p23 q2 not_converged grad_rel,positive_margin",
+     "p23 q5 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.14,
+    "lam_key": 1e-05,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.029006221454097234,
+    "statuses": [
+     "p13 q2 not_converged grad_rel,loss_plateau,gamma_stable",
+     "p13 q5 not_converged positive_margin",
+     "p23 q2 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p23 q5 not_converged grad_rel,gamma_stable,positive_margin"
+    ]
+   },
+   {
+    "c": 0.14,
+    "lam_key": 0.0001,
+    "n": 4,
+    "n_ok": 0,
+    "median_grad_rel": 0.537933655993974,
+    "statuses": [
+     "p13 q2 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin",
+     "p13 q5 not_converged grad_rel,gamma_stable,positive_margin",
+     "p23 q2 not_converged grad_rel,gamma_stable,positive_margin",
+     "p23 q5 diverged finite,grad_rel,loss_plateau,gamma_stable,positive_margin"
+    ]
+   }
+  ]
+ }
+}

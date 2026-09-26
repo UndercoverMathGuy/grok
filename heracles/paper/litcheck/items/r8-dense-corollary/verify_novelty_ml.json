@@ -1,0 +1,9 @@
+{
+ "task": 5,
+ "item_id": "R8-dense-corollary",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "KNOWN",
+ "issues": "None substantive. Independent re-check confirms both citations. Morwani 2311.07568 Thm 7 gives gamma*=sqrt(2/27)/(p^{1/2}(p-1)) with all frequencies used, and App. F.3 via Lemma 6 gives f-hat(j,j,-j)=lambda p^2 at every j, which is the flat maximizer. Li et al. 2402.09469 Thm 4.1 (PMLR v258 pp. 523-531, confirmed on the PMLR page) gives 2(k!)/((2k+2)^{(k+1)/2}(p-1)p^{(k-1)/2}), and my own check shows it equals n!B_p p/(p-1) to machine precision for n=2..5 and p=7/113/1009. The adversarial arXiv search (abstract search through Sept 2026) found no other max-margin dense-endpoint result. Tian 2410.01779 (NeurIPS 2025, CoGO) is L2-loss global optimizers with no margin or equal-amplitude statement, so it does not overlap with R8. Only the uniqueness proof inside Gamma_1 and the s=1 framing are new. Tooling: the session-wide WebSearch budget is exhausted (200/200), and the arXiv export API and Semantic Scholar both return HTTP 429. Parallel verifiers are being throttled, which probably explains why the verify stage is slow. arxiv.org/search via WebFetch still works.",
+ "extra_citations": []
+}

@@ -1,0 +1,27 @@
+{
+ "item": {
+  "id": "U5-bessel-jacobi-anger",
+  "kind": "uncited_background",
+  "location": "appendix app:scaling positive-Fourier inequality",
+  "statement": "Fourier coefficients of e^{z cos theta} are I_k(z) >= 0",
+  "what_to_check": "DLMF 10.35 (Jacobi-Anger / generating function)"
+ },
+ "chk": {
+  "id": "U5-bessel-jacobi-anger",
+  "verdict": "CITATION_FOUND",
+  "evidence": "Pages fetched on 2026-09-25:\n- DLMF \u00a710.35 \"Generating Function and Associated Series\" (https://dlmf.nist.gov/10.35). Eq. 10.35.2 reads e^{z cos \u03b8} = I_0(z) + 2 \u03a3_{k\u22651} I_k(z) cos(k\u03b8). This is the Jacobi\u2013Anger expansion for modified Bessel functions, so the Fourier coefficients of e^{z cos \u03b8} are I_k(z).\n- DLMF \u00a710.32 (https://dlmf.nist.gov/10.32). Eq. 10.32.1, I_0(z) = (1/\u03c0)\u222b_0^\u03c0 e^{\u00b1z cos \u03b8} d\u03b8, is exactly the definition the paper uses. Eq. 10.32.3 gives I_n(z) = (1/\u03c0)\u222b_0^\u03c0 e^{z cos \u03b8} cos(n\u03b8) d\u03b8.\n- DLMF \u00a710.25 (https://dlmf.nist.gov/10.25). Eq. 10.25.2 is the power series I_\u03bd(z) = (z/2)^\u03bd \u03a3_k (z\u00b2/4)^k / (k! \u0393(\u03bd+k+1)). Every term is nonnegative when z \u2265 0 and \u03bd is a nonnegative integer, so I_k(z) \u2265 0.\n\nThe claim is at sections/appendix.tex line 198. refs.bib has no DLMF, Abramowitz\u2013Stegun or Watson entry.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/u5-bessel-jacobi-anger/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "dlmf",
+    "bibtex": "@misc{dlmf,\n  key          = {DLMF},\n  title        = {{NIST Digital Library of Mathematical Functions}},\n  editor       = {Olver, F. W. J. and Olde Daalhuis, A. B. and Lozier, D. W. and Schneider, B. I. and Boisvert, R. F. and Clark, C. W. and Miller, B. R. and Saunders, B. V. and Cohl, H. S. and McClain, M. A.},\n  howpublished = {\\url{https://dlmf.nist.gov/}},\n  note         = {Chapter 10, \\S\\S 10.25, 10.32, 10.35}\n}",
+    "url": "https://dlmf.nist.gov/10.35",
+    "confirmed": true,
+    "why": "Supports appendix line 198. Eq. 10.35.2 gives the Fourier expansion of e^{z cos \u03b8} with coefficients I_k(z). Eq. 10.32.1 matches the paper's integral definition of I_0. Eq. 10.25.2 is the power series, whose terms are all nonnegative, so I_k(z) \u2265 0 for z \u2265 0. Confirmed: the section titles and equations were fetched. Not confirmed: the editor list and the release number/date were not on the fetched pages, so check them on the DLMF front page before submission."
+   }
+  ],
+  "recommended_change": "In appendix.tex line 198, change the text to: \"...the Fourier coefficients of $\\vartheta\\mapsto e^{z\\cos\\vartheta}$ are the modified Bessel values $I_k(z)\\ge0$ \\citep[Eqs.~10.32.1, 10.35.2, 10.25.2]{dlmf}.\" Then add the dlmf entry to refs.bib with the current DLMF release number and date."
+ },
+ "lens": "citation",
+ "slug": "u5-bessel-jacobi-anger",
+ "task": 93
+}

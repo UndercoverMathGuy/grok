@@ -1,0 +1,14 @@
+\section{Introduction}\label{sec:intro}
+
+\citet{morwani2024feature} uses the pioneering principle of margin-maximization to enable the bounding of the margin of the network. However, their arguments remain limited to the specific regularization ($L_{2, \nu}$) and architecture (quadratic models) chosen and remain hard to extend to further architectures and to more conventional regularizations. Their theory shows that under their configuration, the margin maximal solution would use all frequencies (dense) in the solution. 
+
+However, as observed by \citet{nanda2023progress} and \citet{chughtai2023toy}, under different architectures and regularizations, a sparse subset of frequencies (or irreducible representations) are utilized by the model. \citet{mccracken2025} similarly sees that under different architectures, the number of features transitions from dense to sparse.
+
+This paper serves to generalize the \emph{margin-maximization} principle introduced by \citet{morwani2024feature} to arbitrary $L_{q}; 2\le q \le \nu$ norms and across multilinear and polynomial architectures (homogeneity degree $\nu=n+1$) in models that contain no intereference (no signal in the logits not dependent on the offset between a candidate and the correct answer). 
+
+This paper shows:
+\begin{itemize}[label={}]
+  \item The explanation of the sparsity phenomenon and the optimal number of frequencies for a certain configuration
+  \item A global upper and lower bound on the normalized margin of models
+  \item A general scaling law for the optimal number of frequencies for a certain prime $p$
+\end{itemize}

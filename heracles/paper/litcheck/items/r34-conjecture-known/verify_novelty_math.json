@@ -1,0 +1,16 @@
+{
+ "task": 38,
+ "item_id": "R34-conjecture-known",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "NOVEL_AS_FAR_AS_FOUND",
+ "issues": "The verdict holds and both cited theorems are confirmed. (1) The recommended edit (a) is inaccurate. Morwani Thm 7 and Li Thm 4.1 are about the POWER network (sum then power), but the conjecture is about PRODUCT networks. For product nets the b=nu endpoint is the paper's own Corollary cor:dense, which uses Morwani's Section-3 averaged-margin certificate. Reword to: 'At b=nu the conjecture holds by Corollary cor:dense (the certificate of Morwani et al., Sec. 3); the analogous power-network global maxima are Morwani Thm 7 (n=2) and Li et al. Thm 4.1.' (2) The recommended key li2025fourier duplicates the existing refs.bib key li2025nsum (same paper). Use li2025nsum; morwani2024feature already exists. (3) Tian, arXiv 2410.01779 (NeurIPS 2025), is not cited. It is the nearest ML neighbour: global optimizers of MSE for quadratic nets on Abelian groups, composed per frequency. It does not treat the L_{2,b} margin or interference, so it does not settle the conjecture; cite it as optional related work. (4) No math source found on max-min cosine sums under an l_q budget; the Chowla hits are about minimizing. (5) SEARCH CHANNELS BLOCKED: WebSearch refused ('used its web search budget (200 of 200 WebSearch calls)'), the arXiv API and Semantic Scholar returned HTTP 429, and DuckDuckGo returned a CAPTCHA. Only arxiv.org/search via WebFetch worked. The WebSearch budget is session-wide, so every remaining verify task will hit the same wall; this likely explains the verify-stage slowdown. Internal issues confirmed: 'certified aiming depth' undefined, and the Known items lack proofs or pointers.",
+ "extra_citations": [
+  {
+   "key": "tian2025cogs",
+   "bibtex": "@inproceedings{tian2025cogs,\n  title={Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets},\n  author={Tian, Yuandong},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2025},\n  note={arXiv:2410.01779}\n}",
+   "url": "https://arxiv.org/abs/2410.01779",
+   "why": "Nearest prior work on the structure of GLOBAL optima for 2-layer quadratic nets on Abelian groups: global solutions are composed per frequency, and weight decay favours low-order ones. It uses MSE, not the L_{2,b} margin, and never compares interfering with interference-free networks, so it does not settle the conjecture. Optional related-work citation."
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+[
+  {
+    "p": 3,
+    "K": 1,
+    "positive_dual_offsets": [
+      1
+    ],
+    "critical_dimension": 13,
+    "positive_eigenvalues": 0,
+    "nullity": 2,
+    "largest_eigenvalue_scaled": 2.9518295596411103e-17,
+    "largest_negative_eigenvalue_scaled": -0.9999999999999993,
+    "stationarity_error": 1.942890293094024e-16,
+    "expected_phase_nullity": 2
+  },
+  {
+    "p": 5,
+    "K": 2,
+    "positive_dual_offsets": [
+      1,
+      2
+    ],
+    "critical_dimension": 26,
+    "positive_eigenvalues": 0,
+    "nullity": 4,
+    "largest_eigenvalue_scaled": 8.98925283494741e-16,
+    "largest_negative_eigenvalue_scaled": -0.9999999999999997,
+    "stationarity_error": 6.245004513516506e-17,
+    "expected_phase_nullity": 4
+  },
+  {
+    "p": 7,
+    "K": 3,
+    "positive_dual_offsets": [
+      1,
+      2,
+      3
+    ],
+    "critical_dimension": 39,
+    "positive_eigenvalues": 0,
+    "nullity": 6,
+    "largest_eigenvalue_scaled": 7.801631014135565e-16,
+    "largest_negative_eigenvalue_scaled": -0.9999999999999989,
+    "stationarity_error": 6.245004513516506e-17,
+    "expected_phase_nullity": 6
+  },
+  {
+    "p": 11,
+    "K": 2,
+    "positive_dual_offsets": [
+      1,
+      4
+    ],
+    "critical_dimension": 26,
+    "positive_eigenvalues": 0,
+    "nullity": 4,
+    "largest_eigenvalue_scaled": 1.4080302725599158e-15,
+    "largest_negative_eigenvalue_scaled": -0.9999999999999989,
+    "stationarity_error": 5.724587470723463e-17,
+    "expected_phase_nullity": 4
+  },
+  {
+    "p": 13,
+    "K": 3,
+    "positive_dual_offsets": [
+      1,
+      2,
+      5
+    ],
+    "critical_dimension": 39,
+    "positive_eigenvalues": 0,
+    "nullity": 6,
+    "largest_eigenvalue_scaled": 7.754528647728801e-16,
+    "largest_negative_eigenvalue_scaled": -0.9999999999999978,
+    "stationarity_error": 8.153200337090993e-17,
+    "expected_phase_nullity": 6
+  },
+  {
+    "p": 17,
+    "K": 3,
+    "positive_dual_offsets": [
+      1,
+      3,
+      7
+    ],
+    "critical_dimension": 39,
+    "positive_eigenvalues": 0,
+    "nullity": 6,
+    "largest_eigenvalue_scaled": 1.5829098746633066e-14,
+    "largest_negative_eigenvalue_scaled": -0.9999999999999983,
+    "stationarity_error": 1.43982048506075e-16,
+    "expected_phase_nullity": 6
+  }
+]

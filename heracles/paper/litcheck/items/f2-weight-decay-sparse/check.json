@@ -1,0 +1,50 @@
+{
+ "id": "F2-weight-decay-sparse",
+ "verdict": "PARTIALLY_SUPPORTED",
+ "evidence": "Supporting evidence, all fetched this session:\n- Nanda et al., ICLR 2023 (arXiv 2301.05217). Sec 3 uses AdamW with weight decay lambda=1. Sec 4.1: \"only 5 appear to be used significantly (k in {14,35,41,42,52})\", and W_E \"only has significant nonnegligible norm at 6 frequencies\". Sec 4.4: ablating everything except the key frequencies improves performance.\n- Chughtai, Chan, Nanda, ICML 2023, PMLR 202:6243-6267. App C uses AdamW with weight decay lambda=1. Sec 5.1: the logits are explained by \"a very sparse set of directions ... 'standard' and 'sign' representations\". Sec 6: \"different numbers of representations are learned\" across seeds.\n- Zhong et al., Clock and Pizza, NeurIPS 2023. App F.1 uses AdamW with weight decay 2. Sec 3.3: \"first six principal components (three circles)\" give 91.4% accuracy. Models use a few circles, but the paper gives no count law.\n- Stander et al., ICML 2024, PMLR 235:46441-46467. S5/S6 MLPs decompose the task through subgroups and cosets.\n\nContradicting evidence:\n- McCracken et al., arXiv 2505.18266. Sec 4.4 / Fig 4: \"Previous work shows floor(n/2) types of neurons are found, each specializing to a sinusoid with one frequency with 1 hidden layer ... adding either depth, or a trainable embedding matrix ... causes the network to transition from learning floor(n/2) types of neurons to much fewer types\". Also: \"The presence of the trainable embeddings is why the models trained in [prior work] ... learn handfuls of frequencies (3-7) instead of floor(n/2)\". App E.4 Table 5: the one-hot 1-hidden-layer MLP (1024 neurons) was trained with L2 regularization 1e-5. That is a weight-decayed network that is dense.\n- Gromov (arXiv 2301.02679): the quadratic 2-layer MLP uses the full set of frequencies. Its main setup has no explicit regularisation.\n- The paper's own theory and experiments (nu=2 dense window, dense ReLU 2-operand MLP) also contradict \"consistently\".\n\nSo \"consistently sparse\" is false as stated. Sparsity holds for transformers, embedding or deeper MLPs, and group MLPs, but not for one-hot one-hidden-layer MLPs.\n\nSecondary issue: the intro says the dense-to-sparse move happens \"as the degree of the network changes\" and cites McCracken. McCracken attributes it to depth or a trainable embedding. Both raise the homogeneity degree, so the reading can be defended, but the text must say so explicitly.\n\nSearches: fetched arXiv HTML for 2505.18266 (grepped App E for the L2 coefficients), 2301.05217, 2302.03025, 2306.17844 and 2301.02679, plus the PMLR pages for chughtai23a and stander24a. Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/f2-weight-decay-sparse/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "nanda2023progress",
+   "bibtex": "@inproceedings{nanda2023progress,\n  title={Progress measures for grokking via mechanistic interpretability},\n  author={Nanda, Neel and Chan, Lawrence and Lieberum, Tom and Smith, Jess and Steinhardt, Jacob},\n  booktitle={International Conference on Learning Representations},\n  year={2023}\n}",
+   "url": "https://arxiv.org/abs/2301.05217",
+   "confirmed": true,
+   "why": "Supports the sparse claim: the AdamW (wd=1) transformer uses 5 key frequencies (Sec 4.1), and ablating everything else improves performance (Sec 4.4). The title and authors were confirmed on arXiv. The ICLR 2023 venue comes from the sweep notes, not from a page fetched here."
+  },
+  {
+   "key": "chughtai2023toy",
+   "bibtex": "@inproceedings{chughtai2023toy,\n  title={A Toy Model of Universality: Reverse Engineering how Networks Learn Group Operations},\n  author={Chughtai, Bilal and Chan, Lawrence and Nanda, Neel},\n  booktitle={Proceedings of the 40th International Conference on Machine Learning},\n  series={PMLR},\n  volume={202},\n  pages={6243--6267},\n  year={2023}\n}",
+   "url": "https://proceedings.mlr.press/v202/chughtai23a.html",
+   "confirmed": true,
+   "why": "Supports the few-irreps claim: with AdamW (wd=1), a very sparse set of directions (standard and sign irreps) explains the logits (Sec 5.1). The number learned varies across seeds (Sec 6)."
+  },
+  {
+   "key": "zhong2023clock",
+   "bibtex": "@inproceedings{zhong2023clock,\n  title={The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks},\n  author={Zhong, Ziqian and Liu, Ziming and Tegmark, Max and Andreas, Jacob},\n  booktitle={Advances in Neural Information Processing Systems},\n  year={2023}\n}",
+   "url": "https://arxiv.org/abs/2306.17844",
+   "confirmed": true,
+   "why": "Supports the few-frequencies claim: AdamW (wd=2) models use a few circles, and three circles give 91.4% accuracy (Sec 3.3)."
+  },
+  {
+   "key": "stander2024grokking",
+   "bibtex": "@inproceedings{stander2024grokking,\n  title={Grokking Group Multiplication with Cosets},\n  author={Stander, Dashiell and Yu, Qinan and Fan, Honglu and Biderman, Stella},\n  booktitle={Proceedings of the 41st International Conference on Machine Learning},\n  series={PMLR},\n  volume={235},\n  pages={46441--46467},\n  year={2024}\n}",
+   "url": "https://proceedings.mlr.press/v235/stander24a.html",
+   "confirmed": true,
+   "why": "Supports the group-composition half: S5/S6 MLPs converge on circuits built from subgroups and cosets."
+  },
+  {
+   "key": "mccracken2025",
+   "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2505.18266",
+   "confirmed": true,
+   "why": "Qualifies and contradicts 'consistently'. One-hot 1-hidden-layer MLPs trained with L2 1e-5 (App E.4 Table 5) learn floor(n/2) frequencies, i.e. dense. Depth or a trainable embedding moves them to a few (Sec 4.4, Fig 4). The existing bib entry has the wrong title and authors; replace it with this one."
+  },
+  {
+   "key": "gromov2023grokking",
+   "bibtex": "@article{gromov2023grokking,\n  title={Grokking modular arithmetic},\n  author={Gromov, Andrey},\n  journal={arXiv preprint arXiv:2301.02679},\n  year={2023}\n}",
+   "url": "https://arxiv.org/abs/2301.02679",
+   "confirmed": true,
+   "why": "Dense counterexample: the 2-layer quadratic MLP uses the full set of frequencies (k from 0 to (p-1)/2), with copies at different phases. Its main setup has no explicit regularisation."
+  }
+ ],
+ "recommended_change": "Abstract: replace \"networks trained with ordinary weight decay consistently show a sparse selection of features\" with \"networks trained with ordinary weight decay often use only a handful of features, although shallow one-hot networks can use all of them\". Intro (intro.tex l.6): replace the first two sentences with \"Trained networks often do not look like this. With ordinary weight decay, transformers and embedding networks use a handful of frequencies \\citep{nanda2023progress,zhong2023clock} or a few irreducible representations \\citep{chughtai2023toy,stander2024grokking}. One-hot one-hidden-layer MLPs use all $\\lfloor p/2\\rfloor$ \\citep{gromov2023grokking,mccracken2025}. Adding depth or a trainable embedding, both of which raise the homogeneity degree, moves the count from dense to sparse \\citep{mccracken2025}.\" Also fix the mccracken2025 bib entry (wrong title and authors)."
+}

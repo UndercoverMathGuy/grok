@@ -1,0 +1,8062 @@
+{
+ "s5": {
+  "nu3_q2": {
+   "unres": {
+    "Gamma": 0.375,
+    "gamma_bound": 5.49006538223677e-05,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.9541,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.9541,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "6"
+      ],
+      "rel": 0.9072,
+      "amp_rel": {
+       "6": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.8369,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "6"
+      ],
+      "rel": 0.8042,
+      "amp_rel": {
+       "std_sign": 0.3333,
+       "6": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.803,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "6"
+      ],
+      "rel": 0.7972,
+      "amp_rel": {
+       "std": 0.2222,
+       "6": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "5b"
+      ],
+      "rel": 0.7901,
+      "amp_rel": {
+       "std": 0.8,
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "6"
+      ],
+      "rel": 0.7511,
+      "amp_rel": {
+       "sign": 0.0417,
+       "std": 0.3333,
+       "6": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.046875,
+    "gamma_bound": 6.862581727795962e-06,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9437,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.74,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.7155,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.6947,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.6947,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.683,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.6827,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.6827,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6667,
+      "amp_rel": {
+       "std": 1.0
+      }
+     }
+    ]
+   },
+   "lower": {
+    "Gamma": 0.09375000000000001,
+    "gamma_bound": 1.3725163455591927e-05,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9131,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.7632,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.7632,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.7554,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.74,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.7199,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.7199,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.7003,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "5b"
+      ],
+      "rel": 0.6952,
+      "amp_rel": {
+       "std": 0.8,
+       "5b": 1.0
+      }
+     }
+    ]
+   },
+   "box": {
+    "corner_winners": {
+     "(0, 0, 0)": [
+      "std_sign"
+     ],
+     "(0, 0, 1)": [
+      "std_sign"
+     ],
+     "(0, 1, 0)": [
+      "std_sign"
+     ],
+     "(0, 1, 1)": [
+      "std_sign"
+     ],
+     "(1, 0, 0)": [
+      "5b"
+     ],
+     "(1, 0, 1)": [
+      "5b"
+     ],
+     "(1, 1, 0)": [
+      "6"
+     ],
+     "(1, 1, 1)": [
+      "std_sign"
+     ]
+    },
+    "robust": false,
+    "grid_winners": {
+     "std_sign": 575,
+     "5b": 131,
+     "6": 23
+    },
+    "sizes": [
+     1
+    ]
+   }
+  },
+  "nu3_q2.5": {
+   "unres": {
+    "Gamma": 0.38536052559804723,
+    "gamma_bound": 5.641745283377082e-05,
+    "argmax": {
+     "support": [
+      "std_sign",
+      "5b"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "std_sign": 1.0,
+      "5b": 0.625
+     },
+     "shares": {
+      "std_sign": 0.5741,
+      "5b": 0.4259
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.9731,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "5b"
+      ],
+      "rel": 0.9444,
+      "amp_rel": {
+       "std": 0.8,
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.9357,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.9357,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.9341,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333,
+       "5b": 0.8333
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "6"
+      ],
+      "rel": 0.9337,
+      "amp_rel": {
+       "std_sign": 0.3333,
+       "6": 1.0
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.9284,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.9284,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.9217,
+      "amp_rel": {
+       "std": 0.8,
+       "std_sign": 0.8,
+       "5a": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.16322823061802333,
+    "gamma_bound": 2.3896897555193864e-05,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.9689,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9436,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.9383,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.9383,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.9156,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.9079,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333,
+       "5b": 0.8333
+      }
+     },
+     {
+      "support": [
+       "std",
+       "5b"
+      ],
+      "rel": 0.8976,
+      "amp_rel": {
+       "std": 0.8,
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.8964,
+      "amp_rel": {
+       "std": 0.8,
+       "std_sign": 0.8,
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.8902,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     }
+    ]
+   },
+   "lower": {
+    "Gamma": 0.2153809415619441,
+    "gamma_bound": 3.153214536700773e-05,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.9885,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.9488,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.9488,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9298,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.9253,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333,
+       "5b": 0.8333
+      }
+     },
+     {
+      "support": [
+       "std",
+       "5b"
+      ],
+      "rel": 0.9217,
+      "amp_rel": {
+       "std": 0.8,
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.9198,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.9134,
+      "amp_rel": {
+       "std": 0.8,
+       "std_sign": 0.8,
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.8902,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     }
+    ]
+   },
+   "box": {
+    "corner_winners": {
+     "(0, 0, 0)": [
+      "std_sign"
+     ],
+     "(0, 0, 1)": [
+      "std_sign"
+     ],
+     "(0, 1, 0)": [
+      "std_sign"
+     ],
+     "(0, 1, 1)": [
+      "std_sign"
+     ],
+     "(1, 0, 0)": [
+      "5b"
+     ],
+     "(1, 0, 1)": [
+      "5b"
+     ],
+     "(1, 1, 0)": [
+      "std_sign",
+      "6"
+     ],
+     "(1, 1, 1)": [
+      "std_sign"
+     ]
+    },
+    "robust": false,
+    "grid_winners": {
+     "std_sign": 452,
+     "std_sign+5b": 238,
+     "5b": 27,
+     "std_sign+6": 12
+    },
+    "sizes": [
+     1,
+     2
+    ]
+   }
+  },
+  "nu4_q2": {
+   "unres": {
+    "Gamma": 0.18750000000000003,
+    "gamma_bound": 8.138020833333335e-07,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.8533,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.8533,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "6"
+      ],
+      "rel": 0.7407,
+      "amp_rel": {
+       "6": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.7221,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6667,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.5635,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.5359,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "std",
+       "5b"
+      ],
+      "rel": 0.5267,
+      "amp_rel": {
+       "std": 0.8,
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "6"
+      ],
+      "rel": 0.515,
+      "amp_rel": {
+       "std": 0.2222,
+       "6": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.0007324218750000001,
+    "gamma_bound": 3.178914388020834e-09,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9783,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6667,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.5359,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.3528,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.3495,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.3495,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.3495,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.3495,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.3482,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     }
+    ]
+   }
+  },
+  "nu4_q3": {
+   "unres": {
+    "Gamma": 0.18750000000000003,
+    "gamma_bound": 8.138020833333335e-07,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9088,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.8929,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.8533,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.8533,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.8467,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.8467,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "5b"
+      ],
+      "rel": 0.831,
+      "amp_rel": {
+       "std": 0.8,
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.8209,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.8176,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.0295293996069111,
+    "gamma_bound": 1.2816579690499609e-07,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9758,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.8209,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.7737,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.7644,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.7644,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.7581,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.6997,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333,
+       "5b": 0.8333
+      }
+     },
+     {
+      "support": [
+       "std",
+       "5b"
+      ],
+      "rel": 0.6932,
+      "amp_rel": {
+       "std": 0.8,
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.6873,
+      "amp_rel": {
+       "std": 0.8,
+       "std_sign": 0.8,
+       "5a": 1.0
+      }
+     }
+    ]
+   }
+  },
+  "nu5_q2": {
+   "unres": {
+    "Gamma": 0.09375,
+    "gamma_bound": 1.0631465897496433e-08,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.7632,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.7632,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6667,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.6481,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "6"
+      ],
+      "rel": 0.6048,
+      "amp_rel": {
+       "6": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.3845,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.378,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "5b"
+      ],
+      "rel": 0.3512,
+      "amp_rel": {
+       "std": 0.8,
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "6"
+      ],
+      "rel": 0.33,
+      "amp_rel": {
+       "std": 0.2222,
+       "6": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 2.86102294921875e-06,
+    "gamma_bound": 3.2444659111012063e-13,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9926,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6667,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.3845,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.1458,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.1454,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.1454,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.1453,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.1432,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.1432,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     }
+    ]
+   },
+   "lower": {
+    "Gamma": 2.2888183593750007e-05,
+    "gamma_bound": 2.595572728880966e-12,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9832,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6667,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.3845,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.2001,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.2001,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.1803,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.1791,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.1791,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.1787,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     }
+    ]
+   },
+   "box": {
+    "corner_winners": {
+     "(0, 0, 0)": [
+      "std_sign"
+     ],
+     "(0, 0, 1)": [
+      "std_sign"
+     ],
+     "(0, 1, 0)": [
+      "std_sign"
+     ],
+     "(0, 1, 1)": [
+      "std_sign"
+     ],
+     "(1, 0, 0)": [
+      "5b"
+     ],
+     "(1, 0, 1)": [
+      "5b"
+     ],
+     "(1, 1, 0)": [
+      "std_sign"
+     ],
+     "(1, 1, 1)": [
+      "std_sign"
+     ]
+    },
+    "robust": false,
+    "grid_winners": {
+     "std_sign": 702,
+     "5b": 27
+    },
+    "sizes": [
+     1
+    ]
+   }
+  },
+  "nu6_q2": {
+   "unres": {
+    "Gamma": 0.04687500000000001,
+    "gamma_bound": 1.2558674125514404e-10,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.6827,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.6827,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6667,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.581,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "6"
+      ],
+      "rel": 0.4938,
+      "amp_rel": {
+       "6": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.2746,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.253,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "5b"
+      ],
+      "rel": 0.2341,
+      "amp_rel": {
+       "std": 0.8,
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "6"
+      ],
+      "rel": 0.2106,
+      "amp_rel": {
+       "std": 0.2222,
+       "6": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 2.793967723846436e-09,
+    "gamma_bound": 7.485553101011756e-18,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9977,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6667,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.2746,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.0499,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.0499,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.0499,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.0499,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.0469,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.0469,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     }
+    ]
+   }
+  },
+  "nu6_q4": {
+   "unres": {
+    "Gamma": 0.046875,
+    "gamma_bound": 1.2558674125514404e-10,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9437,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.74,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.7155,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.6947,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.6947,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.683,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "5b"
+      ],
+      "rel": 0.6827,
+      "amp_rel": {
+       "5b": 1.0
+      }
+     },
+     {
+      "support": [
+       "5a"
+      ],
+      "rel": 0.6827,
+      "amp_rel": {
+       "5a": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6667,
+      "amp_rel": {
+       "std": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.000732421875,
+    "gamma_bound": 1.9622928321116257e-12,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9963,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.74,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6667,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.4946,
+      "amp_rel": {
+       "std_sign": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.4939,
+      "amp_rel": {
+       "sign": 0.125,
+       "std_sign": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5b"
+      ],
+      "rel": 0.4939,
+      "amp_rel": {
+       "sign": 0.125,
+       "std": 1.0,
+       "5b": 0.625
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std",
+       "5a"
+      ],
+      "rel": 0.4935,
+      "amp_rel": {
+       "sign": 0.25,
+       "std": 1.0,
+       "5a": 0.625
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign",
+       "5b"
+      ],
+      "rel": 0.4361,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 0.3333,
+       "5b": 0.8333
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign",
+       "5a"
+      ],
+      "rel": 0.4273,
+      "amp_rel": {
+       "std": 0.8,
+       "std_sign": 0.8,
+       "5a": 1.0
+      }
+     }
+    ]
+   }
+  }
+ },
+ "s5_vertices": [
+  {
+   "support": [
+    "6"
+   ],
+   "y": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "1/5"
+   ]
+  },
+  {
+   "support": [
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "1/10",
+    "1/10"
+   ]
+  },
+  {
+   "support": [
+    "5b"
+   ],
+   "y": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "1/4",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "5a",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "0",
+    "0",
+    "1/20",
+    "1/10",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "5a",
+    "6"
+   ],
+   "y": [
+    "0",
+    "0",
+    "0",
+    "1/10",
+    "0",
+    "1/10"
+   ]
+  },
+  {
+   "support": [
+    "5a",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "0",
+    "0",
+    "1/10",
+    "1/20",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "5a"
+   ],
+   "y": [
+    "0",
+    "0",
+    "0",
+    "1/4",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "std_sign",
+    "5a",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "0",
+    "1/30",
+    "1/20",
+    "1/15",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "std_sign",
+    "6"
+   ],
+   "y": [
+    "0",
+    "0",
+    "1/15",
+    "0",
+    "0",
+    "2/15"
+   ]
+  },
+  {
+   "support": [
+    "std_sign",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "0",
+    "1/15",
+    "0",
+    "1/30",
+    "1/10"
+   ]
+  },
+  {
+   "support": [
+    "std_sign",
+    "5b"
+   ],
+   "y": [
+    "0",
+    "0",
+    "1/6",
+    "0",
+    "1/12",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "std_sign"
+   ],
+   "y": [
+    "0",
+    "0",
+    "1/3",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "5a",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "1/40",
+    "0",
+    "1/20",
+    "3/40",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "std_sign",
+    "5a",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "1/40",
+    "1/40",
+    "1/20",
+    "1/20",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "std_sign",
+    "5a",
+    "6"
+   ],
+   "y": [
+    "0",
+    "1/30",
+    "1/30",
+    "1/30",
+    "0",
+    "1/10"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "std_sign",
+    "5a",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "1/30",
+    "1/30",
+    "1/30",
+    "1/30",
+    "1/15"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "std_sign",
+    "5a",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "1/24",
+    "1/24",
+    "1/24",
+    "1/24",
+    "1/24"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "6"
+   ],
+   "y": [
+    "0",
+    "1/20",
+    "0",
+    "0",
+    "0",
+    "3/20"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "1/20",
+    "0",
+    "0",
+    "1/20",
+    "1/10"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "std_sign",
+    "6"
+   ],
+   "y": [
+    "0",
+    "1/20",
+    "1/60",
+    "0",
+    "0",
+    "2/15"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "std_sign",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "0",
+    "1/20",
+    "1/60",
+    "0",
+    "1/30",
+    "1/10"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "std_sign",
+    "5a"
+   ],
+   "y": [
+    "0",
+    "1/12",
+    "1/12",
+    "1/12",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "5b"
+   ],
+   "y": [
+    "0",
+    "1/8",
+    "0",
+    "0",
+    "1/8",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "std_sign",
+    "5b"
+   ],
+   "y": [
+    "0",
+    "1/8",
+    "1/24",
+    "0",
+    "1/12",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "std_sign"
+   ],
+   "y": [
+    "0",
+    "1/4",
+    "1/12",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "std"
+   ],
+   "y": [
+    "0",
+    "1/2",
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std",
+    "std_sign",
+    "5a",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "1/120",
+    "1/30",
+    "1/30",
+    "1/24",
+    "1/24",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std_sign",
+    "5a",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "1/40",
+    "0",
+    "1/15",
+    "1/40",
+    "7/120",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std",
+    "6"
+   ],
+   "y": [
+    "1/30",
+    "1/15",
+    "0",
+    "0",
+    "0",
+    "2/15"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "1/30",
+    "1/15",
+    "0",
+    "0",
+    "1/15",
+    "1/15"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std",
+    "5a",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "1/24",
+    "1/15",
+    "0",
+    "1/120",
+    "3/40",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "1/24",
+    "1/12",
+    "0",
+    "0",
+    "1/12",
+    "1/24"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "1/20",
+    "0",
+    "0",
+    "0",
+    "3/20",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "5a",
+    "6"
+   ],
+   "y": [
+    "1/20",
+    "0",
+    "0",
+    "3/20",
+    "0",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std_sign",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "1/20",
+    "0",
+    "1/15",
+    "0",
+    "1/12",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std",
+    "std_sign",
+    "5a",
+    "6"
+   ],
+   "y": [
+    "1/20",
+    "1/30",
+    "1/30",
+    "1/12",
+    "0",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std",
+    "5b",
+    "6"
+   ],
+   "y": [
+    "1/20",
+    "1/15",
+    "0",
+    "0",
+    "1/12",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std_sign",
+    "5a",
+    "6"
+   ],
+   "y": [
+    "1/12",
+    "0",
+    "1/15",
+    "1/12",
+    "0",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std_sign",
+    "5a"
+   ],
+   "y": [
+    "1/12",
+    "0",
+    "1/6",
+    "1/12",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std",
+    "5b"
+   ],
+   "y": [
+    "1/12",
+    "1/6",
+    "0",
+    "0",
+    "1/12",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std",
+    "5a",
+    "6"
+   ],
+   "y": [
+    "7/60",
+    "1/15",
+    "0",
+    "1/12",
+    "0",
+    "1/20"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std",
+    "5a"
+   ],
+   "y": [
+    "1/6",
+    "1/6",
+    "0",
+    "1/12",
+    "0",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std"
+   ],
+   "y": [
+    "1/6",
+    "1/3",
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  }
+ ],
+ "s4": {
+  "nu3_q2": {
+   "unres": {
+    "Gamma": 0.4337788783307545,
+    "gamma_bound": 0.0007100184870443769,
+    "argmax": {
+     "support": [
+      "sign",
+      "std_sign"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "sign": 0.1667,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.1735,
+      "std_sign": 0.8265
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.9411,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8979,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.8979,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.8873,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.8873,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8248,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8248,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.8151,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.10038862235812963,
+    "gamma_bound": 0.00016431823060974288,
+    "argmax": {
+     "support": [
+      "sign",
+      "std_sign"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "sign": 0.1667,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0654,
+      "std_sign": 0.9346
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.9974,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.9974,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8501,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8501,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7975,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7826,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7723,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.7379,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "lower": {
+    "Gamma": 0.16659656680224755,
+    "gamma_bound": 0.00027268880117654377,
+    "argmax": {
+     "support": [
+      "sign",
+      "std_sign"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "sign": 0.1667,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0917,
+      "std_sign": 0.9083
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.9638,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.9638,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8311,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8311,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.8168,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7958,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7752,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.7701,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "box": {
+    "corner_winners": {
+     "(0, 0)": [
+      "sign",
+      "std_sign"
+     ],
+     "(0, 1)": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "(1, 0)": [
+      "sign",
+      "std_sign"
+     ],
+     "(1, 1)": [
+      "sign",
+      "std_sign"
+     ]
+    },
+    "robust": false,
+    "grid_winners": {
+     "sign+std_sign": 56,
+     "sign+2+std_sign": 25
+    },
+    "sizes": [
+     2,
+     3
+    ]
+   }
+  },
+  "nu3_q2.5": {
+   "unres": {
+    "Gamma": 0.5051768046258714,
+    "gamma_bound": 0.0008268841302062624,
+    "argmax": {
+     "support": [
+      "sign",
+      "2",
+      "std",
+      "std_sign"
+     ],
+     "K": 4,
+     "amp_rel": {
+      "sign": 0.1111,
+      "2": 0.4444,
+      "std": 1.0,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0401,
+      "2": 0.1698,
+      "std": 0.3951,
+      "std_sign": 0.3951
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.9989,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.9989,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.9949,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 0.9744,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9744,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.9672,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8654,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8654,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.7619,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.29033047720387845,
+    "gamma_bound": 0.00047521909540738146,
+    "argmax": {
+     "support": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "K": 3,
+     "amp_rel": {
+      "sign": 0.2222,
+      "2": 0.2222,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0802,
+      "2": 0.1513,
+      "std_sign": 0.7685
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.9549,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 0.9358,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9358,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.9171,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.8955,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8487,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8487,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.6858,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "lower": {
+    "Gamma": 0.3504222378873359,
+    "gamma_bound": 0.0005735785664090294,
+    "argmax": {
+     "support": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "K": 3,
+     "amp_rel": {
+      "sign": 0.2222,
+      "2": 0.2222,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0938,
+      "2": 0.1577,
+      "std_sign": 0.7485
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.968,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 0.9484,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9484,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.9311,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.9243,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8523,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8523,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.7078,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "box": {
+    "corner_winners": {
+     "(0, 0)": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "(0, 1)": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "(1, 0)": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "(1, 1)": [
+      "sign",
+      "2",
+      "std_sign"
+     ]
+    },
+    "robust": true,
+    "grid_winners": {
+     "sign+2+std_sign": 81
+    },
+    "sizes": [
+     3
+    ]
+   }
+  },
+  "nu4_q2": {
+   "unres": {
+    "Gamma": 0.22222222222222218,
+    "gamma_bound": 2.411265432098765e-05,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 0.9823,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9823,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.75,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.7284,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.7284,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.72,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.72,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.5625,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.003907859110935878,
+    "gamma_bound": 4.2402985144703536e-07,
+    "argmax": {
+     "support": [
+      "sign",
+      "std_sign"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "sign": 0.1667,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0255,
+      "std_sign": 0.9745
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.9729,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.9729,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8356,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8356,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.702,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.702,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.5482,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.5326,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     }
+    ]
+   }
+  },
+  "nu4_q3": {
+   "unres": {
+    "Gamma": 0.2890577038320148,
+    "gamma_bound": 3.13647682109391e-05,
+    "argmax": {
+     "support": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "K": 3,
+     "amp_rel": {
+      "sign": 0.2222,
+      "2": 0.2222,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.1028,
+      "2": 0.1729,
+      "std_sign": 0.7242
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 0.9981,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9981,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.9153,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.9131,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.8853,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8613,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8613,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.7688,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.07997253630826043,
+    "gamma_bound": 8.67757555428173e-06,
+    "argmax": {
+     "support": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "K": 3,
+     "amp_rel": {
+      "sign": 0.2222,
+      "2": 0.2222,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0392,
+      "2": 0.1319,
+      "std_sign": 0.8288
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 0.9164,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9164,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.85,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.85,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.8482,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.8162,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7646,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.6422,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     }
+    ]
+   }
+  },
+  "nu5_q2": {
+   "unres": {
+    "Gamma": 0.12830005981991685,
+    "gamma_bound": 8.133430195906326e-07,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 0.8542,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.8542,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.5577,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.5577,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.5303,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.5207,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.5207,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.3445,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 4.963608151992213e-05,
+    "gamma_bound": 3.1466205456743823e-10,
+    "argmax": {
+     "support": [
+      "sign",
+      "std_sign"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "sign": 0.1667,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0093,
+      "std_sign": 0.9907
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.9883,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.9883,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8696,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8696,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.6824,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6824,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.3908,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.3813,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "lower": {
+    "Gamma": 0.00025242243463632674,
+    "gamma_bound": 1.6002021003552027e-09,
+    "argmax": {
+     "support": [
+      "sign",
+      "std_sign"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "sign": 0.1667,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0178,
+      "std_sign": 0.9822
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.9168,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.9168,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.7951,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.7951,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.6972,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6972,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.3757,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.3698,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "box": {
+    "corner_winners": {
+     "(0, 0)": [
+      "sign",
+      "std_sign"
+     ],
+     "(0, 1)": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "(1, 0)": [
+      "sign",
+      "std_sign"
+     ],
+     "(1, 1)": [
+      "sign",
+      "std_sign"
+     ]
+    },
+    "robust": false,
+    "grid_winners": {
+     "sign+std_sign": 58,
+     "sign+2+std_sign": 23
+    },
+    "sizes": [
+     2,
+     3
+    ]
+   }
+  },
+  "nu6_q2": {
+   "unres": {
+    "Gamma": 0.07407407407407404,
+    "gamma_bound": 2.480725753188029e-08,
+    "argmax": {
+     "support": [
+      "std_sign"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "std_sign": 1.0
+     },
+     "shares": {
+      "std_sign": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 0.7418,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.7418,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.432,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.432,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.375,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.371,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.371,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.2109,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 2.1238099077223424e-07,
+    "gamma_bound": 7.112596409499656e-14,
+    "argmax": {
+     "support": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "K": 3,
+     "amp_rel": {
+      "sign": 0.2222,
+      "2": 0.2222,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0033,
+      "2": 0.0834,
+      "std_sign": 0.9133
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 0.9749,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.9749,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.9056,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.9056,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.6563,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std"
+      ],
+      "rel": 0.6563,
+      "amp_rel": {
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.2763,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.271,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     }
+    ]
+   }
+  },
+  "nu6_q4": {
+   "unres": {
+    "Gamma": 0.10038862235812963,
+    "gamma_bound": 3.361994650946878e-08,
+    "argmax": {
+     "support": [
+      "sign",
+      "std_sign"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "sign": 0.1667,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0654,
+      "std_sign": 0.9346
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.9974,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 0.9974,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8501,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8501,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7975,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7826,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7723,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.7379,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.0047277231607237204,
+    "gamma_bound": 1.5833049208313642e-09,
+    "argmax": {
+     "support": [
+      "sign",
+      "2",
+      "std_sign"
+     ],
+     "K": 3,
+     "amp_rel": {
+      "sign": 0.2222,
+      "2": 0.2222,
+      "std_sign": 1.0
+     },
+     "shares": {
+      "sign": 0.0085,
+      "2": 0.086,
+      "std_sign": 0.9055
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "sign",
+       "2",
+       "std_sign"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "sign": 0.2222,
+       "2": 0.2222,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std_sign"
+      ],
+      "rel": 0.8856,
+      "amp_rel": {
+       "2": 0.6667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std"
+      ],
+      "rel": 0.8856,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std_sign"
+      ],
+      "rel": 0.8604,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "std"
+      ],
+      "rel": 0.8604,
+      "amp_rel": {
+       "sign": 0.1667,
+       "std": 1.0
+      }
+     },
+     {
+      "support": [
+       "sign",
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7329,
+      "amp_rel": {
+       "sign": 0.1111,
+       "2": 0.4444,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "2",
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.7125,
+      "amp_rel": {
+       "2": 0.6667,
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std",
+       "std_sign"
+      ],
+      "rel": 0.6155,
+      "amp_rel": {
+       "std": 1.0,
+       "std_sign": 1.0
+      }
+     },
+     {
+      "support": [
+       "std_sign"
+      ],
+      "rel": 0.5803,
+      "amp_rel": {
+       "std_sign": 1.0
+      }
+     }
+    ]
+   }
+  }
+ },
+ "s4_vertices": [
+  {
+   "support": [
+    "std_sign"
+   ],
+   "y": [
+    "0",
+    "0",
+    "0",
+    "1/2"
+   ]
+  },
+  {
+   "support": [
+    "std",
+    "std_sign"
+   ],
+   "y": [
+    "0",
+    "0",
+    "1/6",
+    "1/6"
+   ]
+  },
+  {
+   "support": [
+    "std"
+   ],
+   "y": [
+    "0",
+    "0",
+    "1/2",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "2",
+    "std",
+    "std_sign"
+   ],
+   "y": [
+    "0",
+    "1/8",
+    "1/8",
+    "1/8"
+   ]
+  },
+  {
+   "support": [
+    "2",
+    "std_sign"
+   ],
+   "y": [
+    "0",
+    "1/4",
+    "0",
+    "1/4"
+   ]
+  },
+  {
+   "support": [
+    "2",
+    "std"
+   ],
+   "y": [
+    "0",
+    "1/4",
+    "1/4",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "2",
+    "std",
+    "std_sign"
+   ],
+   "y": [
+    "1/24",
+    "1/12",
+    "1/8",
+    "1/8"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std_sign"
+   ],
+   "y": [
+    "1/6",
+    "0",
+    "0",
+    "1/3"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "std"
+   ],
+   "y": [
+    "1/6",
+    "0",
+    "1/3",
+    "0"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "2",
+    "std_sign"
+   ],
+   "y": [
+    "1/6",
+    "1/12",
+    "0",
+    "1/4"
+   ]
+  },
+  {
+   "support": [
+    "sign",
+    "2",
+    "std"
+   ],
+   "y": [
+    "1/6",
+    "1/12",
+    "1/4",
+    "0"
+   ]
+  }
+ ],
+ "a5": {
+  "nu3_q2": {
+   "unres": {
+    "Gamma": 0.375000000000375,
+    "gamma_bound": 0.00015528249843764068,
+    "argmax": {
+     "support": [
+      "4"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "4": 1.0
+     },
+     "shares": {
+      "4": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "5"
+      ],
+      "rel": 0.9541,
+      "amp_rel": {
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 0.9072,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.8788,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.8788,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.8735,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.8735,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "4",
+       "5"
+      ],
+      "rel": 0.8369,
+      "amp_rel": {
+       "4": 1.0,
+       "5": 0.625
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.8042,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "5"
+      ],
+      "rel": 0.803,
+      "amp_rel": {
+       "3a": 0.2,
+       "3b": 0.2,
+       "5": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.0654728501098655,
+    "gamma_bound": 2.7111433986354417e-05,
+    "argmax": {
+     "support": [
+      "3a",
+      "3b"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "3a": 1.0,
+      "3b": 1.0
+     },
+     "shares": {
+      "3a": 0.5,
+      "3b": 0.5
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 0.7818,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 0.7818,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.7699,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.7568,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.7568,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.7159,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "5"
+      ],
+      "rel": 0.5216,
+      "amp_rel": {
+       "3a": 0.2,
+       "3b": 0.2,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.5206,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.5206,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     }
+    ]
+   },
+   "lower": {
+    "Gamma": 0.1134023029066286,
+    "gamma_bound": 4.695838113041547e-05,
+    "argmax": {
+     "support": [
+      "3a",
+      "3b"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "3a": 1.0,
+      "3b": 1.0
+     },
+     "shares": {
+      "3a": 0.5,
+      "3b": 0.5
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.8267,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.8245,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.8245,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.8094,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 0.7818,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 0.7818,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.6434,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.6434,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "5"
+      ],
+      "rel": 0.631,
+      "amp_rel": {
+       "5": 1.0
+      }
+     }
+    ]
+   },
+   "box": {
+    "corner_winners": {
+     "(0, 0, 0)": [
+      "3a",
+      "3b"
+     ],
+     "(0, 0, 1)": [
+      "3a",
+      "3b"
+     ],
+     "(0, 1, 0)": [
+      "3a",
+      "3b"
+     ],
+     "(0, 1, 1)": [
+      "3a",
+      "3b"
+     ],
+     "(1, 0, 0)": [
+      "4"
+     ],
+     "(1, 0, 1)": [
+      "4"
+     ],
+     "(1, 1, 0)": [
+      "5"
+     ],
+     "(1, 1, 1)": [
+      "3a",
+      "3b"
+     ]
+    },
+    "robust": false,
+    "grid_winners": {
+     "3a+3b": 576,
+     "4": 143,
+     "5": 10
+    },
+    "sizes": [
+     1,
+     2
+    ]
+   }
+  },
+  "nu3_q2.5": {
+   "unres": {
+    "Gamma": 0.41884383505183137,
+    "gamma_bound": 0.00017343764576529706,
+    "argmax": {
+     "support": [
+      "3a",
+      "3b"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "3a": 1.0,
+      "3b": 1.0
+     },
+     "shares": {
+      "3a": 0.5,
+      "3b": 0.5
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.9999,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.9677,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.9677,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.9361,
+      "amp_rel": {
+       "3b": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4",
+       "5"
+      ],
+      "rel": 0.9361,
+      "amp_rel": {
+       "3a": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.9343,
+      "amp_rel": {
+       "3a": 0.36,
+       "3b": 0.36,
+       "4": 0.64,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "5"
+      ],
+      "rel": 0.9325,
+      "amp_rel": {
+       "3a": 0.2,
+       "3b": 0.2,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "4",
+       "5"
+      ],
+      "rel": 0.9201,
+      "amp_rel": {
+       "4": 1.0,
+       "5": 0.625
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.9147,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.21666031719563988,
+    "gamma_bound": 8.971614764372544e-05,
+    "argmax": {
+     "support": [
+      "3a",
+      "3b"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "3a": 1.0,
+      "3b": 1.0
+     },
+     "shares": {
+      "3a": 0.5,
+      "3b": 0.5
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.9492,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.878,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.878,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.7759,
+      "amp_rel": {
+       "3a": 0.36,
+       "3b": 0.36,
+       "4": 0.64,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.7648,
+      "amp_rel": {
+       "3b": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4",
+       "5"
+      ],
+      "rel": 0.7648,
+      "amp_rel": {
+       "3a": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.7534,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "5"
+      ],
+      "rel": 0.7459,
+      "amp_rel": {
+       "3a": 0.2,
+       "3b": 0.2,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "4",
+       "5"
+      ],
+      "rel": 0.7299,
+      "amp_rel": {
+       "4": 1.0,
+       "5": 0.625
+      }
+     }
+    ]
+   },
+   "lower": {
+    "Gamma": 0.2699004605175205,
+    "gamma_bound": 0.00011176218090290257,
+    "argmax": {
+     "support": [
+      "3a",
+      "3b"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "3a": 1.0,
+      "3b": 1.0
+     },
+     "shares": {
+      "3a": 0.5,
+      "3b": 0.5
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.9664,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.9076,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.9076,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.8267,
+      "amp_rel": {
+       "3a": 0.36,
+       "3b": 0.36,
+       "4": 0.64,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.819,
+      "amp_rel": {
+       "3b": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4",
+       "5"
+      ],
+      "rel": 0.819,
+      "amp_rel": {
+       "3a": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "5"
+      ],
+      "rel": 0.8049,
+      "amp_rel": {
+       "3a": 0.2,
+       "3b": 0.2,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.798,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "4",
+       "5"
+      ],
+      "rel": 0.7888,
+      "amp_rel": {
+       "4": 1.0,
+       "5": 0.625
+      }
+     }
+    ]
+   },
+   "box": {
+    "corner_winners": {
+     "(0, 0, 0)": [
+      "3a",
+      "3b"
+     ],
+     "(0, 0, 1)": [
+      "3a",
+      "3b"
+     ],
+     "(0, 1, 0)": [
+      "3a",
+      "3b"
+     ],
+     "(0, 1, 1)": [
+      "3a",
+      "3b"
+     ],
+     "(1, 0, 0)": [
+      "3a",
+      "3b",
+      "4"
+     ],
+     "(1, 0, 1)": [
+      "3a",
+      "3b",
+      "4"
+     ],
+     "(1, 1, 0)": [
+      "3a",
+      "3b"
+     ],
+     "(1, 1, 1)": [
+      "3a",
+      "3b"
+     ]
+    },
+    "robust": false,
+    "grid_winners": {
+     "3a+3b": 639,
+     "3a+3b+4": 90
+    },
+    "sizes": [
+     2,
+     3
+    ]
+   }
+  },
+  "nu4_q2": {
+   "unres": {
+    "Gamma": 0.18750000000018752,
+    "gamma_bound": 3.2552083333365887e-06,
+    "argmax": {
+     "support": [
+      "4"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "4": 1.0
+     },
+     "shares": {
+      "4": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "5"
+      ],
+      "rel": 0.8533,
+      "amp_rel": {
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 0.8189,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 0.8189,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 0.7407,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.6649,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.6649,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.6276,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.6276,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "4",
+       "5"
+      ],
+      "rel": 0.5635,
+      "amp_rel": {
+       "4": 1.0,
+       "5": 0.625
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.0018957009756516664,
+    "gamma_bound": 3.291147527173032e-08,
+    "argmax": {
+     "support": [
+      "3b"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "3b": 1.0
+     },
+     "shares": {
+      "3b": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 0.9045,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.4016,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.4003,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.4003,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.3864,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.1453,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.1453,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "5"
+      ],
+      "rel": 0.1442,
+      "amp_rel": {
+       "3a": 0.2,
+       "3b": 0.2,
+       "5": 1.0
+      }
+     }
+    ]
+   }
+  },
+  "nu4_q3": {
+   "unres": {
+    "Gamma": 0.2204723683289166,
+    "gamma_bound": 3.827645283488135e-06,
+    "argmax": {
+     "support": [
+      "3a",
+      "3b"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "3a": 1.0,
+      "3b": 1.0
+     },
+     "shares": {
+      "3a": 0.5,
+      "3b": 0.5
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.9075,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.894,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.894,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.8504,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "5"
+      ],
+      "rel": 0.7666,
+      "amp_rel": {
+       "3a": 0.2,
+       "3b": 0.2,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.7645,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.7645,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "4",
+       "5"
+      ],
+      "rel": 0.7593,
+      "amp_rel": {
+       "4": 1.0,
+       "5": 0.625
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.7567,
+      "amp_rel": {
+       "3b": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.050955667421213366,
+    "gamma_bound": 8.846470038405098e-07,
+    "argmax": {
+     "support": [
+      "3a",
+      "3b"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "3a": 1.0,
+      "3b": 1.0
+     },
+     "shares": {
+      "3a": 0.5,
+      "3b": 0.5
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.7947,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.7095,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.7095,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 0.6965,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 0.6965,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.5795,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.4801,
+      "amp_rel": {
+       "3a": 0.36,
+       "3b": 0.36,
+       "4": 0.64,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.4726,
+      "amp_rel": {
+       "3b": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4",
+       "5"
+      ],
+      "rel": 0.4726,
+      "amp_rel": {
+       "3a": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     }
+    ]
+   }
+  },
+  "nu5_q2": {
+   "unres": {
+    "Gamma": 0.09375000000009377,
+    "gamma_bound": 6.014065304064618e-08,
+    "argmax": {
+     "support": [
+      "4"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "4": 1.0
+     },
+     "shares": {
+      "4": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 0.9456,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 0.9456,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "5"
+      ],
+      "rel": 0.7632,
+      "amp_rel": {
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 0.6048,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.5029,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.5029,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.4482,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.4482,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "4",
+       "5"
+      ],
+      "rel": 0.378,
+      "amp_rel": {
+       "4": 1.0,
+       "5": 0.625
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 2.340371574878601e-05,
+    "gamma_bound": 1.5013490652887877e-11,
+    "argmax": {
+     "support": [
+      "3b"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "3b": 1.0
+     },
+     "shares": {
+      "3b": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 0.6396,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.134,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.1304,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.1304,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.1222,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "5"
+      ],
+      "rel": 0.0198,
+      "amp_rel": {
+       "3a": 0.2,
+       "3b": 0.2,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.0196,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.0196,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     }
+    ]
+   },
+   "lower": {
+    "Gamma": 0.00012160927428839181,
+    "gamma_bound": 7.801238582928673e-11,
+    "argmax": {
+     "support": [
+      "3b"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "3b": 1.0
+     },
+     "shares": {
+      "3b": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 0.6396,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.1882,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.1785,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.1785,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.168,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.0392,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.0392,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "5"
+      ],
+      "rel": 0.0377,
+      "amp_rel": {
+       "5": 1.0
+      }
+     }
+    ]
+   },
+   "box": {
+    "corner_winners": {
+     "(0, 0, 0)": [
+      "3b"
+     ],
+     "(0, 0, 1)": [
+      "3b"
+     ],
+     "(0, 1, 0)": [
+      "3b"
+     ],
+     "(0, 1, 1)": [
+      "3b"
+     ],
+     "(1, 0, 0)": [
+      "3b"
+     ],
+     "(1, 0, 1)": [
+      "3b"
+     ],
+     "(1, 1, 0)": [
+      "3b"
+     ],
+     "(1, 1, 1)": [
+      "3b"
+     ]
+    },
+    "robust": true,
+    "grid_winners": {
+     "3b": 729
+    },
+    "sizes": [
+     1
+    ]
+   }
+  },
+  "nu6_q2": {
+   "unres": {
+    "Gamma": 0.05118392634259502,
+    "gamma_bound": 1.0970491757243445e-09,
+    "argmax": {
+     "support": [
+      "3b"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "3b": 1.0
+     },
+     "shares": {
+      "3b": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.9158,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "5"
+      ],
+      "rel": 0.6252,
+      "amp_rel": {
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 0.4523,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.3483,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.3483,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.2922,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.2922,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "4",
+       "5"
+      ],
+      "rel": 0.2317,
+      "amp_rel": {
+       "4": 1.0,
+       "5": 0.625
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 9.631158744356384e-08,
+    "gamma_bound": 2.064291569006427e-15,
+    "argmax": {
+     "support": [
+      "3b"
+     ],
+     "K": 1,
+     "amp_rel": {
+      "3b": 1.0
+     },
+     "shares": {
+      "3b": 1.0
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 0.4523,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.0355,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.0328,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.0328,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.029,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "5"
+      ],
+      "rel": 0.0017,
+      "amp_rel": {
+       "3a": 0.2,
+       "3b": 0.2,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.0016,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.0016,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     }
+    ]
+   }
+  },
+  "nu6_q4": {
+   "unres": {
+    "Gamma": 0.0654728501098655,
+    "gamma_bound": 1.4033104018746894e-09,
+    "argmax": {
+     "support": [
+      "3a",
+      "3b"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "3a": 1.0,
+      "3b": 1.0
+     },
+     "shares": {
+      "3a": 0.5,
+      "3b": 0.5
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 0.7818,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 0.7818,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.7699,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.7568,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.7568,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.7159,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "5"
+      ],
+      "rel": 0.5216,
+      "amp_rel": {
+       "3a": 0.2,
+       "3b": 0.2,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "5"
+      ],
+      "rel": 0.5206,
+      "amp_rel": {
+       "3b": 0.2292,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "5"
+      ],
+      "rel": 0.5206,
+      "amp_rel": {
+       "3a": 0.2292,
+       "5": 1.0
+      }
+     }
+    ]
+   },
+   "school": {
+    "Gamma": 0.0024249203744394626,
+    "gamma_bound": 5.197445932869219e-11,
+    "argmax": {
+     "support": [
+      "3a",
+      "3b"
+     ],
+     "K": 2,
+     "amp_rel": {
+      "3a": 1.0,
+      "3b": 1.0
+     },
+     "shares": {
+      "3a": 0.5,
+      "3b": 0.5
+     }
+    },
+    "ladder": [
+     {
+      "support": [
+       "3a",
+       "3b"
+      ],
+      "rel": 1.0,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b"
+      ],
+      "rel": 0.7818,
+      "amp_rel": {
+       "3b": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a"
+      ],
+      "rel": 0.7818,
+      "amp_rel": {
+       "3a": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4"
+      ],
+      "rel": 0.5321,
+      "amp_rel": {
+       "3a": 1.0,
+       "3b": 1.0,
+       "4": 0.6667
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4"
+      ],
+      "rel": 0.4238,
+      "amp_rel": {
+       "3b": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4"
+      ],
+      "rel": 0.4238,
+      "amp_rel": {
+       "3a": 0.9271,
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "4"
+      ],
+      "rel": 0.302,
+      "amp_rel": {
+       "4": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.1661,
+      "amp_rel": {
+       "3a": 0.36,
+       "3b": 0.36,
+       "4": 0.64,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3b",
+       "4",
+       "5"
+      ],
+      "rel": 0.1611,
+      "amp_rel": {
+       "3b": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     },
+     {
+      "support": [
+       "3a",
+       "4",
+       "5"
+      ],
+      "rel": 0.1611,
+      "amp_rel": {
+       "3a": 0.4975,
+       "4": 0.9367,
+       "5": 1.0
+      }
+     }
+    ]
+   }
+  }
+ },
+ "a5_vertices": [
+  {
+   "support": [
+    "5"
+   ],
+   "y": [
+    "0.0",
+    "0.0",
+    "0.0",
+    "0.25"
+   ]
+  },
+  {
+   "support": [
+    "4",
+    "5"
+   ],
+   "y": [
+    "0.0",
+    "0.0",
+    "0.166666666667",
+    "0.083333333333"
+   ]
+  },
+  {
+   "support": [
+    "4"
+   ],
+   "y": [
+    "0.0",
+    "0.0",
+    "0.333333333333",
+    "0.0"
+   ]
+  },
+  {
+   "support": [
+    "3b",
+    "5"
+   ],
+   "y": [
+    "0.0",
+    "0.069098300563",
+    "0.0",
+    "0.180901699437"
+   ]
+  },
+  {
+   "support": [
+    "3b",
+    "4",
+    "5"
+   ],
+   "y": [
+    "0.0",
+    "0.069098300563",
+    "0.097568366104",
+    "0.083333333333"
+   ]
+  },
+  {
+   "support": [
+    "3b",
+    "4"
+   ],
+   "y": [
+    "0.0",
+    "0.184262134833",
+    "0.1490711985",
+    "0.0"
+   ]
+  },
+  {
+   "support": [
+    "3b"
+   ],
+   "y": [
+    "0.0",
+    "0.72360679775",
+    "0.0",
+    "0.0"
+   ]
+  },
+  {
+   "support": [
+    "3a",
+    "3b",
+    "5"
+   ],
+   "y": [
+    "0.05",
+    "0.05",
+    "0.0",
+    "0.15"
+   ]
+  },
+  {
+   "support": [
+    "3a",
+    "3b",
+    "4",
+    "5"
+   ],
+   "y": [
+    "0.05",
+    "0.05",
+    "0.066666666667",
+    "0.083333333333"
+   ]
+  },
+  {
+   "support": [
+    "3a",
+    "5"
+   ],
+   "y": [
+    "0.069098300563",
+    "0.0",
+    "0.0",
+    "0.180901699437"
+   ]
+  },
+  {
+   "support": [
+    "3a",
+    "4",
+    "5"
+   ],
+   "y": [
+    "0.069098300563",
+    "0.0",
+    "0.097568366104",
+    "0.083333333333"
+   ]
+  },
+  {
+   "support": [
+    "3a",
+    "3b",
+    "4"
+   ],
+   "y": [
+    "0.133333333333",
+    "0.133333333333",
+    "0.066666666667",
+    "0.0"
+   ]
+  },
+  {
+   "support": [
+    "3a",
+    "4"
+   ],
+   "y": [
+    "0.184262134833",
+    "0.0",
+    "0.1490711985",
+    "0.0"
+   ]
+  },
+  {
+   "support": [
+    "3a",
+    "3b"
+   ],
+   "y": [
+    "0.2",
+    "0.2",
+    "0.0",
+    "0.0"
+   ]
+  },
+  {
+   "support": [
+    "3a"
+   ],
+   "y": [
+    "0.72360679775",
+    "0.0",
+    "0.0",
+    "0.0"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+  "task": 37,
+  "item_id": "R34-conjecture-known",
+  "lens": "novelty_ml",
+  "upheld": true,
+  "corrected_verdict": "NOVEL_AS_FAR_AS_FOUND",
+  "issues": "Checker verdict stands. arXiv abstract searches, the Semantic Scholar citer lists of Morwani (40) and Li (22), and fetched abstracts (Tian 2410.01779 CoGS, Tian 2509.21519, 2602.04548, 2602.03655, 2606.08985, 2511.23443) turned up nothing that proves or refutes interference-free global optimality for 2<=b<nu. None gives an interfering local max or a Z12/D3/S4-type counterexample. Both confirmed citations check out (PDFs read). Morwani Thm 7 gives the L_{2,3} max margin sqrt(2/27)/(p^{1/2}(p-1)) with m>=4(p-1), every frequency used, via the Lemma 6/Lemma 2 certificate. Li Thm 4.1 gives the L_{2,k+1} max margin with m>=2^{2k-1}(p-1)/2; the PMLR 258:523-531 fields were verified on the proceedings page. Corrections: (1) Both theorems are about POWER/quadratic neurons, but the conjecture is about PRODUCT networks. For product nets the b=nu endpoint is the paper's own Cor. cor:dense + Prop. block, so edit (a) should credit Morwani/Li for power nets and cor:dense for product nets. The 'extends the certificate O(1/p) below b=nu' description is the checker's own reading and cannot be confirmed without a proof. (2) refs.bib already has this paper as li2025nsum. Reuse that key instead of adding li2025fourier; optionally add volume 258 and pages 523--531. (3) The internal gaps stand ('certified aiming depth' undefined; Known items have no proofs). Tooling: WebSearch hit its session-wide cap (200/200) and the arXiv API returned 429. Search used WebFetch on arxiv.org/search plus Semantic Scholar. My first PMLR PDF download overwrote the shared scratchpad/li.pdf with a 404 page.",
+  "extra_citations": []
+}

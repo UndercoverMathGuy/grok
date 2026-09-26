@@ -1,0 +1,28 @@
+[
+ {
+  "variant": {
+   "seed": 1,
+   "lr": 1.0
+  },
+  "max_abs_weight_diff": 5.960464477539062e-07,
+  "bit_identical": false
+ },
+ {
+  "variant": {
+   "seed": 2,
+   "lr": 0.5,
+   "q": 2.5
+  },
+  "max_abs_weight_diff": 2.980232238769531e-07,
+  "bit_identical": false
+ },
+ {
+  "variant": {
+   "seed": 3,
+   "lr": 0.7,
+   "lam": 0.003
+  },
+  "max_abs_weight_diff": 3.8743019104003906e-07,
+  "bit_identical": false
+ }
+]

@@ -1,0 +1,16 @@
+{
+ "task": 71,
+ "item_id": "F7-log-growth",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_SUPPORTED",
+ "issues": "Both citations exist and support the claims. All checker quotes are verbatim in arXiv 2505.18266v1: Fig 3 log fits, L2 reg, Thm 4.7 with random frequencies, Cor 4.8, Sec 4.4 depth/embedding transition, Sec 5.1 'we don't know why it occurs'; no 'degree'/'homogeneity'. (1) Canonical form: McCracken et al. is a NeurIPS 2025 poster (OpenReview zuHs6RHQwT), so cite @inproceedings NeurIPS 2025, not the arXiv @article. The camera-ready PDF was blocked by an OpenReview challenge, so the Fig/Thm numbers and verbatim quotes are verified only on arXiv v1. (2) Earlier version: the same authors' ICLR 2025 submission 'Interpreting neural networks depends on the level of abstraction: Revisiting modular addition' (OpenReview Y71rktd4oT) already proposed 'a constant logit margin, predicting O(log(n)) frequencies'. Same work, not new prior art. (3) Nuance: McCracken Sec 4.3 says, following Morwani, 'the maximum margin solution requires all frequencies to be learned' for 1-layer one-hot ReLU nets. Frame Theta(log p) at b<nu as the plain-l2 counterpart of that dense endpoint (b=nu), not as contradicting it. (4) refs.bib mccracken2025 has wrong title and author ('Emergence of sparse and dense circuits...', 'McCracken, Andrew'). The intro/prior line 6 'degree' misparaphrase is confirmed. OPERATIONAL: this session's WebSearch budget is exhausted (200/200) and Semantic Scholar returns 429, so later verifiers cannot search. This likely explains the slow verify stage.",
+ "extra_citations": [
+  {
+   "key": "mccracken2025",
+   "bibtex": "@inproceedings{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and L{\\'e}tourneau, Vincent and Precup, Doina and Love, Jonathan},\n  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},\n  year={2025},\n  note={arXiv:2505.18266}\n}",
+   "url": "https://openreview.net/forum?id=zuHs6RHQwT",
+   "why": "Published (NeurIPS 2025 poster) version of the checker's recommended arXiv entry; canonical form. Replaces the wrong refs.bib entry."
+  }
+ ]
+}

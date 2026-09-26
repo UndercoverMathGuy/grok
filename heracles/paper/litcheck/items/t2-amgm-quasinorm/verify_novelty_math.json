@@ -1,0 +1,28 @@
+{
+ "task": 44,
+ "item_id": "T2-amgm-quasinorm",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "KNOWN",
+ "issues": "Verdict KNOWN upheld. I re-fetched all 5 confirmed citations myself and they check out:\n- Tibshirani 2021: AM-GM named in Sec 2.1; eq 8-9 give k|c|^{2/k}.\n- Hoff 2017: Crossref confirms CSDA 115:186-198.\n- Kolb ICLR 2025: Thm 1 says 'same global and local minima'.\n- Dai NeurIPS 2021: vol 34, pp 26884-26896; abstract covers l_p costs.\n- Gunasekar NeurIPS 2018: vol 31, Thm 2a.\n\n(1) Gunasekar anchor should be Lemmas 6-7 (arXiv v2 numbering). Lemma 7 gives min ||w||^2 = L||beta_hat||_{2/L}^{2/L}.\n- This is an explicit l2 cost on Fourier coefficients, proved by AM-GM (App D eq 83).\n- So the checker's 'implicit bias rather than explicit wd' understates it.\n\n(2) Missed in-domain precedent: Morwani et al. 2024, already in refs.bib as morwani2024feature.\n- Location: arXiv 2311.07568v2, App F.1, proof of Thm 7, eqs 7-9.\n- It uses Plancherel on the l2 budget, then per-frequency QM-GM |u^||v^||w^| <= ((|u^|^2+|v^|^2+|w^|^2)/3)^{3/2}, then Cauchy-Schwarz over frequencies.\n- Our app:models product-neuron budget (per-frequency AM-GM, t^{b/2} superadditivity, Parseval) is this argument generalised from (nu,b)=(3,3).\n- It must be credited at app:models and at approach.tex.\n\n(3) The step is also optimisation folklore. Poon-Peyre, Math Programming 2023, Sec 4.1: 'It is well known that quadratic variational forms exist for ... l_q'.\n- Their Lemma 4 (mixed-exponent Hadamard form) and Prop 10 (3 factors) are more general than our equal-exponent step.\n\n(4) Neyshabur-Tomioka-Srebro 2015 Thm 1: AM-GM plus homogeneous rescaling gives weight decay = l1 on the top layer. This is the per-neuron b=nu=2 case.\n\n(5) The L_{2,b} exponent b/nu is the b=2 identity raised to the power b/2, since the per-neuron cost is (sum_t ||u_t||^2)^{b/2}. It is a trivial corollary and not a contribution.\n\n(6) Live text problems:\n- The checker's anchor, approach.tex:45, is now a commented-out '%Original' line (line 67). The citation sentence must go into the live paragraph at lines 52-54.\n- That paragraph says 'minimum penalty (sum of the weights)'. It should be the sum of squared factor norms, raised to b/2.\n- It says 'weights ... exactly equal'. Equality is in the factor norms/magnitudes, not the weights.\n- 'A^{b/v}' is a typo for \\nu.\n- The constant is dropped: 'least penalty ... is A^{b/nu}' should read 'a constant multiple of'.\n\nSearch limits: WebSearch budget exhausted (200/200). All sources were fetched directly (arXiv, NeurIPS proceedings, Crossref).",
+ "extra_citations": [
+  {
+   "key": "morwani2024feature",
+   "bibtex": "@inproceedings{morwani2024feature,\n  title={Feature emergence via margin maximization: case studies in algebraic tasks},\n  author={Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2024},\n  note={arXiv:2311.07568}\n}",
+   "url": "https://arxiv.org/abs/2311.07568",
+   "why": "Already in refs.bib, but not cited for this step. App. F.1, eqs. 7-9 (arXiv v2) runs the same argument for the quadratic network: Plancherel, then per-frequency QM-GM on the product of 3 Fourier magnitudes, then a sum over frequencies. app:models generalises this to (nu,b), so cite it there, e.g. 'generalising the single-neuron argument of \\citet[App.~F.1]{morwani2024feature}'."
+  },
+  {
+   "key": "poon2023smooth",
+   "bibtex": "@article{poon2023smooth,\n  title={Smooth over-parameterized solvers for non-smooth structured optimization},\n  author={Poon, Clarice and Peyr{\\'e}, Gabriel},\n  journal={Mathematical Programming},\n  volume={201},\n  pages={897--952},\n  year={2023},\n  doi={10.1007/s10107-022-01923-3}\n}",
+   "url": "https://arxiv.org/abs/2205.01385",
+   "why": "Optional optimisation-literature citation. Sec 4.1 calls quadratic variational forms of l_q 'well known'. Lemma 4 and Prop. 10 give Hadamard (multi-factor) variational forms of l_q quasi-norms, including mixed exponents, which contain the equal-exponent AM-GM step. Bib fields come from Crossref."
+  },
+  {
+   "key": "neyshabur2015search",
+   "bibtex": "@inproceedings{neyshabur2015search,\n  title={In Search of the Real Inductive Bias: On the Role of Implicit Regularization in Deep Learning},\n  author={Neyshabur, Behnam and Tomioka, Ryota and Srebro, Nathan},\n  booktitle={International Conference on Learning Representations (Workshop Track)},\n  year={2015},\n  note={arXiv:1412.6614}\n}",
+   "url": "https://arxiv.org/abs/1412.6614",
+   "why": "Thm 1: l2 weight decay on a two-layer ReLU net equals l1 on the top layer. The proof is AM-GM plus positive-homogeneous rescaling, i.e. the per-neuron AM-GM price at b=nu=2."
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+frac=1.0: acc A 1.000 B 1.000 C(control) 1.000
+  relative drift B vs relabelled A every 500 steps: 0e+00 4e-16 4e-16 4e-16 5e-16 6e-16 6e-16 7e-16 8e-16 1e-15 1e-15 2e-15 2e-15
+  control (relabelled init, ORIGINAL mask) final distance: 0.000
+  frequencies A [1, 2, 3, 4, 5] -> predicted B [1, 2, 4, 5, 6]; observed B [1, 2, 4, 5, 6]
+frac=0.5: acc A 0.621 B 0.621 C(control) 0.568
+  relative drift B vs relabelled A every 500 steps: 0e+00 4e-16 7e-16 7e-16 8e-16 8e-16 8e-16 9e-16 9e-16 8e-16 7e-16 8e-16 8e-16
+  control (relabelled init, ORIGINAL mask) final distance: 1.568
+  frequencies A [1, 2, 3, 4, 5, 6] -> predicted B [1, 2, 3, 4, 5, 6]; observed B [1, 2, 3, 4, 5, 6]

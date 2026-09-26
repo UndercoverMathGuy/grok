@@ -1,0 +1,9 @@
+{
+  "task": 77,
+  "item_id": "C3-wei-thm41",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "PARTIALLY_SUPPORTED (substance fully supported; pointer should be Theorem C.1, the multi-class CE form of Thm 4.1)",
+  "issues": "Independently verified from arXiv 1810.05369v4 and the NeurIPS 2019 camera-ready. Thm 4.1 (same number in both) is binary logistic loss + lambda||Theta||^r for any norm, any r>0, any a-positive-homogeneous continuous f, global minimizers only. Theorem C.1 (App. C.1, eqs. C.1-C.2) is the multi-class softmax-CE version with margin f_y - max_{j!=y} f_j, and Thm 4.1 is proved by reduction to it. Hypotheses match the paper: a=nu, r=b, L_{2,b} (b>=2) is a norm so b!=nu is covered, gamma*_b>0, and the normalized margin definitions coincide by homogeneity. The only defect is the theorem pointer (4.1 is binary). The checker's fix and verdict stand. Bib: add volume={32} per the official NeurIPS bibtex. Separate issue: intro.tex:4, the sentence citing wei2019regularization, is grammatically broken ('...without training dynamics as \\citep{wei2019regularization}, showed that such maximum margin solutions are approached with.'), with a missing clause. It needs a rewrite (item c2).",
+  "extra_citations": []
+}

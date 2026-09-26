@@ -1,0 +1,55 @@
+{
+ "item": {
+  "id": "T2-amgm-quasinorm",
+  "kind": "our_technique",
+  "location": "approach.tex para after eq:programme; app:models",
+  "statement": "AM-GM over nu weight factors makes amplitude A cost A^{b/nu}: weight decay on degree-nu products acts as an l_{b/nu} quasi-norm on amplitudes",
+  "what_to_check": "HIGH risk: well known in representation-cost / implicit-bias literature (Gunasekar 2018 linear convnets, Woodworth 2020 diagonal nets, Dai-Karzand-Srebro 2021, Tibshirani 2021, Jacobs-Montufar); must cite"
+ },
+ "chk": {
+  "id": "T2-amgm-quasinorm",
+  "verdict": "KNOWN",
+  "evidence": "The AM-GM step is standard, and the paper gives no citation for it at approach.tex:45 (the sentence ending \"(AM--GM), so amplitude A costs a multiple of A^{b/nu}=A^{1/s}\"). Sources, all fetched this session:\n\n(1) Tibshirani 2021, \"Equivalences Between Sparse Models and Neural Networks\" (working notes, stat.cmu.edu/~ryantibs/papers/sparsitynn.pdf).\n- Sec 2.1 states min_{ab=c}(a^2+b^2)=2|c| and adds that \"this is just saying that the arithmetic mean-geometric mean (AM-GM) inequality ... is tight when a = b.\"\n- The k-layer case states min_{prod a_l=c} sum a_l^2 = k|c|^{2/k}, so a k-layer diagonal network with weight decay equals an l_p penalty with p=2/k<1, which is \"nonconvex\" (eqs. 8-9).\n- This is our step verbatim at b=2.\n\n(2) Hoff 2017, CSDA 115:186-198 (arXiv 1611.00040; DOI 10.1016/j.csda.2017.06.007). Abstract: \"a subclass of L_q penalties with q<=1 can be expressed as sums of L_2 penalties\" via a Hadamard reparametrisation.\n\n(3) Gunasekar, Lee, Soudry, Srebro, NeurIPS 2018 (arXiv 1806.00468). Thm 2a: GD on depth-L linear convolutional networks converges in direction to a first-order stationary point of min ||beta_hat||_{2/L} s.t. y_n<beta,x_n> >= 1, where beta_hat is the Fourier transform. This is the closest analogue to our setting: max-margin, an l_{2/L} quasi-norm on Fourier coefficients, and sparsity in frequency. It is an implicit-bias result rather than explicit wd.\n\n(4) Dai, Karzand, Srebro, NeurIPS 2021 (proceedings page fetched). Studies the representation cost that l2 on parameters induces, including l_p norms.\n\n(5) Kolb, Weber, Bischl, Rugamer, ICLR 2025 (arXiv 2502.02496). Thm 1: L2 on D Hadamard factors has the same global and local minima as L_{2/D} on the collapsed weights. They credit Hoff 2017, Grandvalet 1998 and Tibshirani 2021.\n\nOnly related, not cited for this step:\n- Woodworth et al. 2020 (arXiv 2002.09277): implicit bias from init scale.\n- Grandvalet 1998 ICANN: found by search only, bib unconfirmed.\n\nWhat is ours:\n- The L_{2,b} generalisation (exponent b/nu). This is a trivial one-line extension of the same step.\n- Pricing Fourier amplitudes of multilinear/power neurons through the single-neuron constant C_b, plus the subadditivity sum that makes it hold for all networks.\n- Coupling the l_{1/s} budget to the worst-offset coverage programme. K* and the log p law come from this coupling, not from the quasi-norm.\n\nSearches run: Tibshirani equivalences sparse models neural networks; Hoff Hadamard product parametrization CSDA; Grandvalet least absolute shrinkage quadratic penalization; plus direct arXiv/proceedings fetches for 1611.00040, 2502.02496, 1806.00468 (the PDF text was grepped for Thm 2a), 2002.09277, 1412.6614, and NeurIPS 2021/2018 pages.\n\nNotes file: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/t2-amgm-quasinorm/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "tibshirani2021equivalences",
+    "bibtex": "@misc{tibshirani2021equivalences,\n  title={Equivalences Between Sparse Models and Neural Networks},\n  author={Tibshirani, Ryan J.},\n  year={2021},\n  note={Working notes},\n  howpublished={\\url{https://www.stat.cmu.edu/~ryantibs/papers/sparsitynn.pdf}}\n}",
+    "url": "https://www.stat.cmu.edu/~ryantibs/papers/sparsitynn.pdf",
+    "confirmed": true,
+    "why": "Supports the AM-GM sentence at approach.tex:45. The k-layer section proves min_{prod a_l=c} sum a_l^2 = k|c|^{2/k} via AM-GM by name, so weight decay on a k-fold product is an l_{2/k} quasi-norm penalty. This is our step at b=2. The source is a working note (April 2021), not peer reviewed."
+   },
+   {
+    "key": "hoff2017lasso",
+    "bibtex": "@article{hoff2017lasso,\n  title={Lasso, fractional norm and structured sparse estimation using a {H}adamard product parametrization},\n  author={Hoff, Peter D.},\n  journal={Computational Statistics \\& Data Analysis},\n  volume={115},\n  pages={186--198},\n  year={2017},\n  doi={10.1016/j.csda.2017.06.007}\n}",
+    "url": "https://arxiv.org/abs/1611.00040",
+    "confirmed": true,
+    "why": "Earliest statistics source for the step: L_q penalties with q<=1 are expressible as sums of L_2 penalties under a multiplicative (Hadamard) reparametrisation."
+   },
+   {
+    "key": "gunasekar2018implicit",
+    "bibtex": "@inproceedings{gunasekar2018implicit,\n  title={Implicit Bias of Gradient Descent on Linear Convolutional Networks},\n  author={Gunasekar, Suriya and Lee, Jason and Soudry, Daniel and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={31},\n  year={2018}\n}",
+    "url": "https://proceedings.neurips.cc/paper/2018/hash/0e98aeeb54acf612b9eb4e48a269814c-Abstract.html",
+    "confirmed": true,
+    "why": "Thm 2a: depth-L linear convnets trained by GD converge to a stationary point of max-margin under the l_{2/L} bridge quasi-norm of the Fourier coefficients. This is the closest precedent for 'a product of factors gives a sparsity-inducing quasi-norm on frequency amplitudes in a margin problem'."
+   },
+   {
+    "key": "dai2021representation",
+    "bibtex": "@inproceedings{dai2021representation,\n  title={Representation Costs of Linear Neural Networks: Analysis and Design},\n  author={Dai, Zhen and Karzand, Mina and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={34},\n  year={2021}\n}",
+    "url": "https://proceedings.neurips.cc/paper/2021/hash/e22cb9d6bbb4c290a94e4fff4d68a831-Abstract.html",
+    "confirmed": true,
+    "why": "General framework for the representation cost that l2 on parameters induces, including l_p costs. This is the 'representation cost' framing of the AM-GM price."
+   },
+   {
+    "key": "kolb2025deep",
+    "bibtex": "@inproceedings{kolb2025deep,\n  title={Deep Weight Factorization: Sparse Learning Through the Lens of Artificial Symmetries},\n  author={Kolb, Chris and Weber, Tobias and Bischl, Bernd and R{\\\"u}gamer, David},\n  booktitle={International Conference on Learning Representations},\n  year={2025}\n}",
+    "url": "https://arxiv.org/abs/2502.02496",
+    "confirmed": true,
+    "why": "Thm 1: L2 regularisation on D Hadamard factors has the same global and local minima as L_{2/D} regularisation of the collapsed weight. A modern peer-reviewed statement of the depth-D quasi-norm equivalence."
+   }
+  ],
+  "recommended_change": "In approach.tex:45, after \"...so amplitude $A$ costs a multiple of $A^{b/\\nu}=A^{1/s}$.\" add:\n\n\"This is the familiar fact that $\\ell_2$ weight decay on a product of $k$ factors is an $\\ell_{2/k}$ quasi-norm penalty on the product \\citep{hoff2017lasso,tibshirani2021equivalences,dai2021representation,kolb2025deep}. \\citet{gunasekar2018implicit} find the same bridge penalty on Fourier coefficients as the implicit bias of deep linear convolutional networks. What is new here is pairing it with the worst-offset coverage of \\eqref{eq:programme}.\"\n\nDo not present the AM-GM exponent (or its L_{2,b} variant) as a contribution anywhere, including in the intro and the abstract. Add the 5 bib entries to refs.bib. hoff2017lasso, dai2021representation and kolb2025deep already appear in litcheck/sweep/LIT_ml.md; gunasekar2018implicit and tibshirani2021equivalences are new."
+ },
+ "lens": "novelty_math",
+ "slug": "t2-amgm-quasinorm",
+ "task": 44
+}

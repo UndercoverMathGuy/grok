@@ -1,0 +1,9 @@
+{
+  "task": 87,
+  "item_id": "C13-hoeffding",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "SUPPORTED",
+  "issues": "None substantive. I confirmed the bib entry against Crossref: JASA 58(301):13-30, March 1963, exact match. It has no doi field, and adding doi={10.1080/01621459.1963.10500830} is optional. The paper uses the bound correctly (appendix.tex:189): variables in [-1,1], deviation t >= 1/2, giving exp(-L t^2/2) <= e^{-L/8} <= 1/p. The mean -1/(p-1) is right for F = {1..(p-1)/2}. Hoeffding 1963 is the canonical source. Optional: cite it as 'Thm. 2 of'. I could not read the original scan's text, so the Theorem 2 attribution rests on a secondary source (Wikipedia, fetched). Orchestrator note: WebSearch has hit the session budget of 200/200 calls, so later verifiers cannot search.",
+  "extra_citations": []
+}

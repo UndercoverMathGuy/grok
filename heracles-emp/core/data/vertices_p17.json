@@ -1,0 +1,88 @@
+{
+ "p": 17,
+ "h": 8,
+ "enum_version": "vertex-enum-v1",
+ "tolerances": {
+  "TOL_POS": 1e-10,
+  "TOL_FEAS": 1e-09,
+  "TOL_TIGHT": 1e-07,
+  "TOL_FINAL": 1e-11,
+  "TOL_RANK": 1e-10,
+  "ROUND_DIGITS": 9
+ },
+ "n_orbit_reps": 52,
+ "n_vertices": 391,
+ "npz_sha256": "0e61febeaaffc85b5dfcebcbe1bae3cf11673a9290a7d79290143ef10aba1aca",
+ "programme_py_sha256": "94309426a85f87fe925482a7ba19fe473e0494fac8e298b89c27035c5ecb53b2",
+ "stats": {
+  "p": 17,
+  "h": 8,
+  "n_supports": 35,
+  "per_K": {
+   "1": {
+    "n_supports": 1,
+    "n_T": 8,
+    "n_solved": 8,
+    "n_candidates": 1,
+    "seconds": 0.00012111663818359375
+   },
+   "2": {
+    "n_supports": 4,
+    "n_T": 28,
+    "n_solved": 112,
+    "n_candidates": 5,
+    "seconds": 0.00011110305786132812
+   },
+   "3": {
+    "n_supports": 7,
+    "n_T": 56,
+    "n_solved": 392,
+    "n_candidates": 11,
+    "seconds": 0.0002079010009765625
+   },
+   "4": {
+    "n_supports": 10,
+    "n_T": 70,
+    "n_solved": 700,
+    "n_candidates": 18,
+    "seconds": 0.0003483295440673828
+   },
+   "5": {
+    "n_supports": 7,
+    "n_T": 56,
+    "n_solved": 392,
+    "n_candidates": 11,
+    "seconds": 0.0002751350402832031
+   },
+   "6": {
+    "n_supports": 4,
+    "n_T": 28,
+    "n_solved": 112,
+    "n_candidates": 5,
+    "seconds": 0.00014591217041015625
+   },
+   "7": {
+    "n_supports": 1,
+    "n_T": 8,
+    "n_solved": 8,
+    "n_candidates": 1,
+    "seconds": 6.818771362304688e-05
+   },
+   "8": {
+    "n_supports": 1,
+    "n_T": 1,
+    "n_solved": 1,
+    "n_candidates": 1,
+    "seconds": 6.198883056640625e-05
+   }
+  },
+  "n_candidates_total": 53,
+  "n_rejected_in_refinement": 0,
+  "n_vertices_raw": 53,
+  "seconds_refine": 0.002022981643676758,
+  "seconds_total": 0.003437042236328125,
+  "seconds_orbits": 0.003964900970458984
+ },
+ "seconds_wall": 0.008234024047851562,
+ "created": "2026-09-25 16:45:24 IST"
+}

@@ -1,0 +1,3 @@
+== s5: gamma_school 6.862582e-06 on {'std_sign': 0.333333333333}; gamma_unres 5.490065e-05
+   m 80 seed 0 init school: gamma/school 0.86102; sign: A +0.000 junk 0.00 mass 0.00  std: A +0.000 junk 0.99 mass 0.00  std_sign: A +1.000 junk 0.05 mass 0.98  5a: A +0.000 junk 0.99 mass 0.00  5b: A +0.001 junk 0.98 mass 0.01  6: A +0.000 junk 1.00 mass 0.01
+   m 80 seed 1 init school: gamma/school 0.98943; sign: A -0.000 junk 0.00 mass 0.00  std: A -0.000 junk 1.00 mass 0.00  std_sign: A +1.000 junk 0.00 mass 1.00  5a: A -0.000 junk 1.00 mass 0.00  5b: A -0.000 junk 1.00 mass 0.00  6: A +0.000 junk 1.00 mass 0.00

@@ -1,0 +1,200 @@
+[
+ {
+  "run_id": "E1_nu5_p13_s1.25_seed2",
+  "status": [
+   "ok",
+   "ok"
+  ],
+  "gamma": [
+   2.7327546524048493e-06,
+   2.7327530942439597e-06
+  ],
+  "gamma_rel_diff": 5.701795762148398e-07,
+  "margin": [
+   4.961755280382066,
+   4.961752457014028
+  ],
+  "thr10": [
+   3,
+   3
+  ],
+  "thr20": [
+   3,
+   3
+  ],
+  "K_2pct": [
+   3,
+   3
+  ],
+  "support10_same": true,
+  "A_max_diff_rel": 1.0685073003957787e-07,
+  "share_tv": 5.888533144568949e-08,
+  "audit_vs_metrics_retrained_gamma": 0.0,
+  "device": "NVIDIA GeForce RTX 4090"
+ },
+ {
+  "run_id": "E3_product_nu5_p11_seed1",
+  "status": [
+   "ok",
+   "ok"
+  ],
+  "gamma": [
+   1.7287903226620584e-05,
+   1.7287902200939024e-05
+  ],
+  "gamma_rel_diff": 5.9329436727012264e-08,
+  "margin": [
+   8.182233936756038,
+   8.1822334638001
+  ],
+  "thr10": [
+   5,
+   5
+  ],
+  "thr20": [
+   5,
+   5
+  ],
+  "K_2pct": [
+   5,
+   5
+  ],
+  "support10_same": true,
+  "A_max_diff_rel": 5.053785173431297e-08,
+  "share_tv": 1.2255212483713862e-08,
+  "audit_vs_metrics_retrained_gamma": 0.0,
+  "device": "NVIDIA GeForce RTX 4090"
+ },
+ {
+  "run_id": "E6_marg_seed108",
+  "status": [
+   "ok",
+   "ok"
+  ],
+  "gamma": [
+   0.000180073180957715,
+   0.000180073180957715
+  ],
+  "gamma_rel_diff": 0.0,
+  "margin": [
+   5.8620899587129935,
+   5.8620899587129935
+  ],
+  "thr10": [
+   6,
+   6
+  ],
+  "thr20": [
+   6,
+   6
+  ],
+  "K_2pct": [
+   6,
+   6
+  ],
+  "support10_same": true,
+  "A_max_diff_rel": 0.0,
+  "share_tv": 0.0,
+  "audit_vs_metrics_retrained_gamma": 0.0,
+  "device": "NVIDIA GeForce RTX 4090"
+ },
+ {
+  "run_id": "E6_marg_seed114",
+  "status": [
+   "not_converged",
+   "not_converged"
+  ],
+  "gamma": [
+   0.0001689005766393279,
+   0.0001689005766393279
+  ],
+  "gamma_rel_diff": 0.0,
+  "margin": [
+   5.4392951084698495,
+   5.4392951084698495
+  ],
+  "thr10": [
+   5,
+   5
+  ],
+  "thr20": [
+   5,
+   5
+  ],
+  "K_2pct": [
+   5,
+   5
+  ],
+  "support10_same": true,
+  "A_max_diff_rel": 0.0,
+  "share_tv": 0.0,
+  "audit_vs_metrics_retrained_gamma": 0.0,
+  "device": "NVIDIA GeForce RTX 4090"
+ },
+ {
+  "run_id": "E7_nu4_p37_q2.7586_seed0",
+  "status": [
+   "not_converged",
+   "not_converged"
+  ],
+  "gamma": [
+   1.1657363579591543e-06,
+   1.165726388256856e-06
+  ],
+  "gamma_rel_diff": 8.552278763621823e-06,
+  "margin": [
+   2.7157785666275007,
+   2.7157550898724665
+  ],
+  "thr10": [
+   11,
+   11
+  ],
+  "thr20": [
+   8,
+   8
+  ],
+  "K_2pct": [
+   8,
+   8
+  ],
+  "support10_same": true,
+  "A_max_diff_rel": 1.1119238367333725e-06,
+  "share_tv": 5.019914625980575e-07,
+  "audit_vs_metrics_retrained_gamma": 0.0,
+  "device": "NVIDIA GeForce RTX 4090"
+ },
+ {
+  "run_id": "E8_nu3_p29_s1.25_seed2",
+  "status": [
+   "ok",
+   "ok"
+  ],
+  "gamma": [
+   0.0003616217902775727,
+   0.0003616218149521242
+  ],
+  "gamma_rel_diff": 6.823303276498735e-08,
+  "margin": [
+   8.286447173856775,
+   8.286447707378835
+  ],
+  "thr10": [
+   5,
+   5
+  ],
+  "thr20": [
+   5,
+   5
+  ],
+  "K_2pct": [
+   5,
+   5
+  ],
+  "support10_same": true,
+  "A_max_diff_rel": 7.537064923560391e-08,
+  "share_tv": 1.763194535308599e-08,
+  "audit_vs_metrics_retrained_gamma": 0.0,
+  "device": "NVIDIA GeForce RTX 4090"
+ }
+]

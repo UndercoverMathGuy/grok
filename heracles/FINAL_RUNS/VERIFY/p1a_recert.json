@@ -1,0 +1,176 @@
+{
+ "main_n2_q2": {
+  "certified": true,
+  "boxes": 125,
+  "eps": 0.016976627560567524,
+  "tau_max": 1.7320508075688772,
+  "Dh_le_same": true,
+  "certified_without_Dn_skip": true,
+  "certified_without_staircase": true,
+  "C_lower_independent": 2.7255914502668914
+ },
+ "main_n3_q2": {
+  "certified": true,
+  "boxes": 81,
+  "eps": 0.014692378328741965,
+  "tau_max": 4.0,
+  "Dh_le_same": true,
+  "certified_without_Dn_skip": false,
+  "certified_without_staircase": true,
+  "C_lower_independent": 3.999903997695668
+ },
+ "sweep_n2": [
+  {
+   "r": 0.35,
+   "q": 1.0499999999999998,
+   "certified": true
+  },
+  {
+   "r": 0.4,
+   "q": 1.2000000000000002,
+   "certified": true
+  },
+  {
+   "r": 0.5,
+   "q": 1.5,
+   "certified": true
+  },
+  {
+   "r": 0.6,
+   "q": 1.7999999999999998,
+   "certified": true
+  },
+  {
+   "r": 0.6666666666666666,
+   "q": 2.0,
+   "certified": true
+  },
+  {
+   "r": 0.7,
+   "q": 2.0999999999999996,
+   "certified": true
+  },
+  {
+   "r": 0.75,
+   "q": 2.25,
+   "certified": true
+  },
+  {
+   "r": 0.78,
+   "q": 2.34,
+   "certified": true
+  },
+  {
+   "r": 0.8,
+   "q": 2.4000000000000004,
+   "certified": true
+  },
+  {
+   "r": 0.82,
+   "q": 2.46,
+   "certified": true
+  },
+  {
+   "r": 0.84,
+   "q": 2.52,
+   "certified": true
+  },
+  {
+   "r": 0.86,
+   "q": 2.58,
+   "certified": false
+  },
+  {
+   "r": 0.88,
+   "q": 2.64,
+   "certified": false
+  },
+  {
+   "r": 0.9,
+   "q": 2.7,
+   "certified": false
+  },
+  {
+   "r": 0.95,
+   "q": 2.8499999999999996,
+   "certified": false
+  }
+ ],
+ "sweep_n3": [
+  {
+   "r": 0.35,
+   "q": 1.4,
+   "certified": true
+  },
+  {
+   "r": 0.4,
+   "q": 1.6,
+   "certified": true
+  },
+  {
+   "r": 0.5,
+   "q": 2.0,
+   "certified": true
+  },
+  {
+   "r": 0.6,
+   "q": 2.4,
+   "certified": true
+  },
+  {
+   "r": 0.6666666666666666,
+   "q": 2.6666666666666665,
+   "certified": false
+  },
+  {
+   "r": 0.7,
+   "q": 2.8,
+   "certified": false
+  },
+  {
+   "r": 0.75,
+   "q": 3.0,
+   "certified": false
+  },
+  {
+   "r": 0.78,
+   "q": 3.12,
+   "certified": false
+  },
+  {
+   "r": 0.8,
+   "q": 3.2,
+   "certified": false
+  },
+  {
+   "r": 0.82,
+   "q": 3.28,
+   "certified": false
+  },
+  {
+   "r": 0.84,
+   "q": 3.36,
+   "certified": false
+  },
+  {
+   "r": 0.86,
+   "q": 3.44,
+   "certified": false
+  },
+  {
+   "r": 0.88,
+   "q": 3.52,
+   "certified": false
+  },
+  {
+   "r": 0.9,
+   "q": 3.6,
+   "certified": false
+  },
+  {
+   "r": 0.95,
+   "q": 3.8,
+   "certified": false
+  }
+ ]
+}

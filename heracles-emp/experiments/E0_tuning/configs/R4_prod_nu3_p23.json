@@ -1,0 +1,201 @@
+{
+ "batches": [
+  {
+   "batch_id": "R4_prod_nu3_p23_b00",
+   "runs": [
+    {
+     "run_id": "R4_prod_nu3_p23_000",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 23,
+      "width": 66,
+      "steps": 40000,
+      "lr": 4.6000000000000005,
+      "lr_c": 0.2,
+      "lam_tilde": 0.01,
+      "lam": 0.00011502906173682609,
+      "q": 2.0,
+      "seed": 0,
+      "init_scale": 4.795831523312719
+     }
+    },
+    {
+     "run_id": "R4_prod_nu3_p23_001",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 23,
+      "width": 66,
+      "steps": 40000,
+      "lr": 4.6000000000000005,
+      "lr_c": 0.2,
+      "lam_tilde": 0.01,
+      "lam": 1.2337051170416646e-05,
+      "q": 3.0,
+      "seed": 0,
+      "init_scale": 4.795831523312719
+     }
+    },
+    {
+     "run_id": "R4_prod_nu3_p23_002",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 23,
+      "width": 66,
+      "steps": 40000,
+      "lr": 4.6000000000000005,
+      "lr_c": 0.2,
+      "lam_tilde": 0.003,
+      "lam": 3.4508718521047825e-05,
+      "q": 2.0,
+      "seed": 0,
+      "init_scale": 4.795831523312719
+     }
+    },
+    {
+     "run_id": "R4_prod_nu3_p23_003",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 23,
+      "width": 66,
+      "steps": 40000,
+      "lr": 4.6000000000000005,
+      "lr_c": 0.2,
+      "lam_tilde": 0.003,
+      "lam": 3.701115351124994e-06,
+      "q": 3.0,
+      "seed": 0,
+      "init_scale": 4.795831523312719
+     }
+    },
+    {
+     "run_id": "R4_prod_nu3_p23_004",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 23,
+      "width": 66,
+      "steps": 40000,
+      "lr": 9.200000000000001,
+      "lr_c": 0.4,
+      "lam_tilde": 0.01,
+      "lam": 0.00011502906173682609,
+      "q": 2.0,
+      "seed": 0,
+      "init_scale": 4.795831523312719
+     }
+    },
+    {
+     "run_id": "R4_prod_nu3_p23_005",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 23,
+      "width": 66,
+      "steps": 40000,
+      "lr": 9.200000000000001,
+      "lr_c": 0.4,
+      "lam_tilde": 0.01,
+      "lam": 1.2337051170416646e-05,
+      "q": 3.0,
+      "seed": 0,
+      "init_scale": 4.795831523312719
+     }
+    },
+    {
+     "run_id": "R4_prod_nu3_p23_006",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 23,
+      "width": 66,
+      "steps": 40000,
+      "lr": 9.200000000000001,
+      "lr_c": 0.4,
+      "lam_tilde": 0.003,
+      "lam": 3.4508718521047825e-05,
+      "q": 2.0,
+      "seed": 0,
+      "init_scale": 4.795831523312719
+     }
+    },
+    {
+     "run_id": "R4_prod_nu3_p23_007",
+     "config": {
+      "optimizer": "gd",
+      "dtype": "float32",
+      "device": "cuda",
+      "measure_ablation": false,
+      "init_scheme": "normal",
+      "momentum": 0.9,
+      "log_every": 1000,
+      "model": "product",
+      "n": 2,
+      "p": 23,
+      "width": 66,
+      "steps": 40000,
+      "lr": 9.200000000000001,
+      "lr_c": 0.4,
+      "lam_tilde": 0.003,
+      "lam": 3.701115351124994e-06,
+      "q": 3.0,
+      "seed": 0,
+      "init_scale": 4.795831523312719
+     }
+    }
+   ]
+  }
+ ]
+}

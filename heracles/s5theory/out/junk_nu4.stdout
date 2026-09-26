@@ -1,0 +1,17 @@
+== d3 n=3 (nu 4) q=2: symmetric ceiling (EXACT at even nu) 6.869910e-05 on ['sign', 'rho1']; G1 8.680556e-04
+   m 16 seed 0: gamma/ceiling 1.60462   gamma/G1 0.12699
+   m 16 seed 1: gamma/ceiling 1.70451   gamma/G1 0.13490
+   m 16 seed 2: gamma/ceiling 1.60498   gamma/G1 0.12702
+   m 32 seed 0: gamma/ceiling 1.59710   gamma/G1 0.12640
+   m 32 seed 1: gamma/ceiling 1.60275   gamma/G1 0.12684
+   m 32 seed 2: gamma/ceiling 1.62140   gamma/G1 0.12832
+== z7 n=3 (nu 4) q=2: symmetric ceiling (EXACT at even nu) 7.495613e-05 on ['f2', 'f3']; G1 7.495613e-05
+   m 16 seed 0: gamma/ceiling 0.99791   gamma/G1 0.99791
+   m 16 seed 1: gamma/ceiling 0.99838   gamma/G1 0.99838
+   m 16 seed 2: gamma/ceiling 0.99863   gamma/G1 0.99863
+   m 32 seed 0: gamma/ceiling 0.99883   gamma/G1 0.99883
+   m 32 seed 1: gamma/ceiling 0.99887   gamma/G1 0.99887
+   m 32 seed 2: gamma/ceiling 0.99856   gamma/G1 0.99856
+== s4 n=3 (nu 4) q=2: symmetric ceiling (EXACT at even nu) 4.240299e-07 on ['sign', 'std_sign']; G1 2.411265e-05
+   m 96 seed 0: gamma/ceiling -0.00531   gamma/G1 -0.00009
+   m 96 seed 1: gamma/ceiling -0.00405   gamma/G1 -0.00007

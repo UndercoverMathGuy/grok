@@ -1,0 +1,30 @@
+{
+ "item": {
+  "id": "C4-nanda-handful",
+  "kind": "cited_claim",
+  "location": "intro para 2 'use a handful of frequencies'",
+  "current_citations": [
+   "nanda2023progress"
+  ],
+  "statement": "Trained networks with weight decay use a handful of frequencies",
+  "what_to_check": "Nanda: 5 key frequencies, one-layer transformer, p=113, AdamW wd=1"
+ },
+ "chk": {
+  "id": "C4-nanda-handful",
+  "verdict": "SUPPORTED",
+  "evidence": "Fetched https://arxiv.org/abs/2301.05217 and the HTML version (https://arxiv.org/html/2301.05217): Nanda, Chan, Lieberum, Smith, Steinhardt, \"Progress measures for grokking via mechanistic interpretability\", ICLR 2023. The title and authors match the bib entry.\n\nWhat the paper reports:\n- Sec 3 (setup): a one-layer ReLU transformer with d=128, 4 heads and 512 MLP units, P=113, trained with AdamW at lr 1e-3 and weight decay lambda=1.\n- Sec 4.1: \"the five key frequencies\", k in {14,35,41,42,52}. Also: \"The embedding matrix W_E is sparse in the Fourier basis -- it only has significant nonnegligible norm at 6 frequencies.\"\n- Sec 4.2: W_L is approximately rank 10, which is 5 frequencies times sin and cos.\n- App C.2.1: other seeds use other small sets, for example {2,9,19,31}.\n- Sec 5.3: \"our networks do not grok on the modular arithmetic task without weight decay or some other form of regularization\".\n\nSo \"a handful of frequencies with weight decay\" is accurate.\n\nMinor caveats:\n- The weight decay is AdamW's decoupled decay, not an explicit l2 penalty on the loss.\n- The model is a transformer, not the paper's one-hidden-layer model. The sentence says \"trained networks\", so it stays correct.\n\nNotes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/c4-nanda-handful/CHECK.md.",
+  "recommended_citations": [
+   {
+    "key": "nanda2023progress",
+    "bibtex": "@inproceedings{nanda2023progress,\n  title={Progress measures for grokking via mechanistic interpretability},\n  author={Nanda, Neel and Chan, Lawrence and Lieberum, Tom and Smith, Jess and Steinhardt, Jacob},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2023},\n  note={arXiv:2301.05217}\n}",
+    "url": "https://arxiv.org/abs/2301.05217",
+    "confirmed": true,
+    "why": "Supports 'use a handful of frequencies'. Sec 4.1 reports five key frequencies {14,35,41,42,52} in a one-layer transformer at p=113 trained with AdamW, wd=1. Sec 5.3 says the networks do not grok without weight decay."
+   }
+  ],
+  "recommended_change": "Nothing needs to change. Optionally make it concrete: \"With ordinary weight decay they use a handful of frequencies (five, in a one-layer transformer at p=113 trained with AdamW) \\citep{nanda2023progress}\"."
+ },
+ "lens": "citation",
+ "slug": "c4-nanda-handful",
+ "task": 78
+}

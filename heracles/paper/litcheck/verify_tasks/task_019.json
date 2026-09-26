@@ -1,0 +1,41 @@
+{
+ "item": {
+  "id": "R22-finitely-many-shapes",
+  "kind": "our_result",
+  "location": "cyclic.tex prop:shapes; appendix app:shape",
+  "statement": "For s>1 maximizers are Gamma_s(p) times vertices of polyhedron P_p minimizing sum v^{1/s}; minimizing vertex set piecewise constant on finitely many s-intervals; support and amplitude ratios piecewise constant",
+  "what_to_check": "Relies on classical concave minimisation and exponential-sum zero counts; novelty only in application"
+ },
+ "chk": {
+  "id": "R22-finitely-many-shapes",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "Both proof ingredients are classical, and step (i) is almost a direct specialisation of a known theorem. I found no prior work that applies them to Gamma_s(p) or states that the shape is piecewise constant in the exponent s.\n\n(i) Minimisers of sum v^{1/s} over P_p are vertices, and every minimiser is a vertex.\n- Hirsch & Hoffman, CPAM 14(3):355-369, 1961: a concave function on a polyhedron attains its minimum at an extreme point. Metadata confirmed via Crossref, DOI 10.1002/cpa.3160140313. The Wiley page returned 403, so I did not read the body.\n- Ge, Jiang & Ye, Math. Program. 129(2):285-299, 2011 (DOI 10.1007/s10107-011-0470-2, confirmed via Crossref). I read the preprint at web.stanford.edu/~yyye/lpmin_v14.pdf. Problem (1) is: minimise sum x_j^p subject to Ax=b, x>=0, with 0<p<1. Preprint Theorem 3 reads: \"The set of all basic feasible solutions of (1) or (2) is exactly the set of local minimizers.\" Its proof that a non-vertex cannot be a minimiser uses the same strict-concavity-along-a-segment argument as ours. Our P_p = {v>=0 : Cv>=1} reduces to their standard form once slack variables are added. Their Thm 1 also shows that lp minimisation over a polyhedron is strongly NP-hard.\n\n(ii) Finitely many switches, via a Rolle-induction bound on the real zeros of an exponential sum.\n- This is Laguerre's extension of Descartes' rule of signs to generalised polynomials (Polya-Szego, Part V).\n- Expository source: Jameson, Math. Gazette 90(518):223-234, 2006, DOI 10.1017/S0025557200179628. Metadata confirmed via Crossref and Cambridge Core. The body is paywalled, so only the title and abstract (which cover generalised polynomials) are confirmed.\n\nSearches for the combined statement found nothing: \"lp quasi-norm minimization polyhedron piecewise constant in p\", \"concave minimization polytope parametric exponent optimal vertex changes finitely many times\", and the parametric-LP literature. Parametric-LP work covers only linear parametric costs. The ML sweep papers (Morwani, Li et al., Kam et al., McCracken) contain nothing on how the shape depends on s.\n\nProof check: (i) and (ii) are correct.\n- Minor wording issue: at a switch value of s, the minimising set is the union of the two neighbouring sets. The statement should allow one-point intervals, or say \"outside finitely many values of s\".\n- Optional sharpening: the zero count can be bounded by the number of sign changes of c_k.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r22-finitely-many-shapes/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "hirsch1961extreme",
+    "bibtex": "@article{hirsch1961extreme,\n  title={Extreme varieties, concave functions, and the fixed charge problem},\n  author={Hirsch, Warren M. and Hoffman, Alan J.},\n  journal={Communications on Pure and Applied Mathematics},\n  volume={14},\n  number={3},\n  pages={355--369},\n  year={1961},\n  doi={10.1002/cpa.3160140313}\n}",
+    "url": "https://doi.org/10.1002/cpa.3160140313",
+    "confirmed": true,
+    "why": "Supports appendix app:shape step (i): a concave function attains its minimum over a line-free polyhedron at a vertex. The metadata is confirmed via Crossref. The article body was not readable (403); the vertex-minimum content comes from the search-result summary, which says the paper is about minimising a concave function over a convex polyhedron."
+   },
+   {
+    "key": "ge2011note",
+    "bibtex": "@article{ge2011note,\n  title={A note on the complexity of {$L_p$} minimization},\n  author={Ge, Dongdong and Jiang, Xiaoye and Ye, Yinyu},\n  journal={Mathematical Programming},\n  volume={129},\n  number={2},\n  pages={285--299},\n  year={2011},\n  doi={10.1007/s10107-011-0470-2}\n}",
+    "url": "https://web.stanford.edu/~yyye/lpmin_v14.pdf",
+    "confirmed": true,
+    "why": "Supports step (i) of prop:shapes directly. For min sum x_j^p subject to Ax=b, x>=0 with 0<p<1, the basic feasible solutions (vertices) are exactly the local minimisers (Theorem 3 of the preprint; the proof uses strict concavity along a segment). Also Thm 1: global Lp minimisation is strongly NP-hard, which justifies exhaustive support enumeration only at small K."
+   },
+   {
+    "key": "jameson2006counting",
+    "bibtex": "@article{jameson2006counting,\n  title={Counting zeros of generalised polynomials: {D}escartes' rule of signs and {L}aguerre's extensions},\n  author={Jameson, G. J. O.},\n  journal={The Mathematical Gazette},\n  volume={90},\n  number={518},\n  pages={223--234},\n  year={2006},\n  doi={10.1017/S0025557200179628}\n}",
+    "url": "https://doi.org/10.1017/S0025557200179628",
+    "confirmed": true,
+    "why": "Supports step (ii). The number of real zeros of sum c_k e^{lambda_k u} is at most the number of sign changes, and hence at most N-1. This is Laguerre's generalisation of Descartes' rule to real exponents. The metadata and scope are confirmed; the theorem number was not seen because the body is paywalled."
+   }
+  ],
+  "recommended_change": "In appendix app:shape, add one sentence to the proof of Proposition prop:shapes:\n\n\"Step (i) is the classical fact that a concave function attains its minimum over a polyhedron at a vertex \\citep{hirsch1961extreme}; for $\\ell_p$ objectives with $0<p<1$, the vertices are exactly the local minimisers \\citep{ge2011note}. Step (ii) is Laguerre's extension of Descartes' rule of signs to exponential sums \\citep{jameson2006counting}.\"\n\nAlso fix the wording in the statement: replace \"constant on each of finitely many intervals covering $(1,\\infty)$\" with \"constant on each of the finitely many open intervals into which finitely many switch values divide $(1,\\infty)$\". In the main text, present the proposition as standard concave-minimisation facts applied to $\\Gamma_s$. The new content is the consequence: the optimum keeps a fixed frequency set and fixed amplitude ratios, then jumps."
+ },
+ "lens": "novelty_ml",
+ "slug": "r22-finitely-many-shapes",
+ "task": 19
+}

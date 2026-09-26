@@ -1,0 +1,43 @@
+{
+ "id": "R4-programme",
+ "verdict": "PARTIALLY_KNOWN",
+ "evidence": "Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r4-programme/CHECK.md.\n\nThe general shape of the programme is known. The specific programme is not: a cosine-coverage max-min over Z_p under a concave l_{1/s} budget with 1/s = b/nu, used to bound the margin of every network and to count its features. No paper found states it.\n\nReviewers are likely to recognise three reformulations:\n\n(1) **Max-margin under an l_q quasi-norm on Fourier coefficients (q < 1), with the exponent set by homogeneity.**\n- Source: Gunasekar, Lee, Soudry, Srebro, NeurIPS 2018 (arXiv 1806.00468). I read Theorem 2a in the PDF.\n- For depth-L linear convolutional nets, the GD limit direction is \"a scaling of a first order stationary point of min_beta ||beta_hat||_{2/L} s.t. forall n, y_n<beta,x_n> >= 1\". Here beta_hat is the vector of DFT coefficients.\n- Theorem 2 covers L=2 and gives ||beta_hat||_1. The paper notes that p=2/L<1 is non-convex.\n- The template is the same as ours: homogeneity gives an l_{2/depth} bridge penalty in frequency space, and that gives frequency sparsity.\n- Differences: generic data, linear convnets only, no coverage or modular structure, no bound over all networks, no K* or log p count.\n- Related: Jagadeesan, Razenshteyn, Gunasekar, COLT 2022 (arXiv 2102.12238). In multichannel linear convnets, the l2 weight norm induces a nuclear norm or an l_{2,1} norm on the Fourier coefficients.\n\n(2) **Laplacian spectral gap of a weighted circulant graph.**\n- sum_j y_j(1-cos(2 pi j delta/p)) is the delta-th Laplacian eigenvalue of the weighted Cayley graph Cay(Z_p, {\u00b1j}). So Gamma_s is the largest algebraic connectivity reachable under an l_{1/s} weight budget.\n- The s=1 endpoint is the convex edge-weight problem in Boyd, \"Convex Optimization of Graph Laplacian Eigenvalues\", Proc. ICM 2006, 3:1311-1319 (confirmed on Boyd's page).\n- The s->infinity endpoint is the cardinality problem in Ghosh & Boyd, \"Growing Well-connected Graphs\", 45th IEEE CDC 2006. From the PDF: \"maximize lambda_2(L(E_base u E)) subject to |E|=k, E subset E_cand\", solved with an SDP relaxation.\n- Alon-Roichman (already cited) covers random O(log p) generators.\n- I found no version with an interpolating l_q budget with q<1, and no result for circulants of the form K* = Theta(log p).\n\n(3) **The same coverage objective in modular-addition ML work.**\n- Kam, Bessafi, Cadet, arXiv 2609.17926 (15 Sep 2026). I fetched the HTML of App. A.3.2.\n- Eq. 15: Delta_S(beta) = min_{s!=0} sum_k beta_k(1-cos(omega_k s)), with ||beta||_2 = B.\n- Prop. 5: the uniform allocation is optimal at full frequency content.\n- This is our objective with a convex l2 budget in place of l_{1/s}, which is why their optimum is dense. Treat it as concurrent work.\n- Morwani et al. 2024 is the s=1 endpoint.\n\n**Adjacent problems, no overlap:**\n- The Chowla cosine problem asks for the minimum of an unweighted cosine sum, which is a different extremum.\n- Ge-Jiang-Ye 2011 is generic theory for l_p minimisation with p<1.\n- LPBoost covers l1 margins only.\n- Thinned-array sidelobe design is an unweighted analogue. I did not fetch a source for it, so it has no bib entry.\n\n**Searches run:**\n- \"maximizing algebraic connectivity edge weights convex optimization Ghosh Boyd\"\n- \"maximize minimum nonzero Laplacian eigenvalue circulant graph weights sparse concave cost\"\n- \"max-min cosine sum nonnegative coefficients l_p quasi-norm p<1 sparse optimal support\"\n- \"linear programming boosting margin maximization l_q quasi-norm q<1\"\n- \"frequency selection nonnegative weights maximize worst-case 1-cos offset cyclic group sparse log p\": nothing relevant\n- \"maximum margin l_p quasi-norm p<1 support size bound\"\n- \"weighted Cayley graph cyclic group maximize spectral gap budget on weights sparse generating set\": nothing relevant",
+ "recommended_citations": [
+  {
+   "key": "gunasekar2018implicit",
+   "bibtex": "@inproceedings{gunasekar2018implicit,\n  title={Implicit Bias of Gradient Descent on Linear Convolutional Networks},\n  author={Gunasekar, Suriya and Lee, Jason D. and Soudry, Daniel and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={31},\n  year={2018}\n}",
+   "url": "https://proceedings.neurips.cc/paper/2018/hash/0e98aeeb54acf612b9eb4e48a269814c-Abstract.html",
+   "confirmed": true,
+   "why": "Cite at eq:programme. Its Thm 2a shows homogeneity producing a max-margin problem under an l_{2/L} bridge quasi-norm on Fourier coefficients, the same template that gives our l_{1/s} budget with 1/s = b/nu. Reviewers will expect this precedent for 'depth or homogeneity gives frequency sparsity'."
+  },
+  {
+   "key": "kam2026symmetry",
+   "bibtex": "@article{kam2026symmetry,\n  title={Symmetry without a Manifold: Intrinsic Dimension on Orbits},\n  author={Kam, Chon-Fai and Bessafi, Miloud and Cadet, Fr{\\'e}d{\\'e}ric},\n  journal={arXiv preprint arXiv:2609.17926},\n  year={2026}\n}",
+   "url": "https://arxiv.org/abs/2609.17926",
+   "confirmed": true,
+   "why": "Concurrent work with the same coverage max-min objective (App. A.3.2, Eq. 15) under a convex ||beta||_2=B budget. Their Prop. 5 finds the uniform (dense) allocation optimal, which contrasts with our concave budget."
+  },
+  {
+   "key": "boyd2006convex",
+   "bibtex": "@inproceedings{boyd2006convex,\n  title={Convex Optimization of Graph Laplacian Eigenvalues},\n  author={Boyd, Stephen},\n  booktitle={Proceedings of the International Congress of Mathematicians},\n  volume={3},\n  pages={1311--1319},\n  year={2006}\n}",
+   "url": "https://web.stanford.edu/~boyd/papers/cvx_opt_graph_lapl_eigs.html",
+   "confirmed": true,
+   "why": "Gamma_s is the largest spectral gap of a weighted circulant graph. At s=1 (l1 budget) this is Boyd's convex edge-weight problem for algebraic connectivity. Supports the sentence placing Cor. dense as its circulant case."
+  },
+  {
+   "key": "ghosh2006growing",
+   "bibtex": "@inproceedings{ghosh2006growing,\n  title={Growing Well-connected Graphs},\n  author={Ghosh, Arpita and Boyd, Stephen},\n  booktitle={Proceedings of the 45th IEEE Conference on Decision and Control},\n  pages={6605--6610},\n  year={2006}\n}",
+   "url": "https://www-leland.stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf",
+   "confirmed": true,
+   "why": "The s->infinity (cardinality) endpoint: choose k edges to maximise lambda_2 (their Eq. 2), which is combinatorial, with an SDP relaxation. Our l_{1/s} budget interpolates between this and the s=1 convex problem. The first page (6605) was read from the PDF; the last page, 6610, is inferred and not confirmed, so check it before submission."
+  },
+  {
+   "key": "jagadeesan2022inductive",
+   "bibtex": "@inproceedings{jagadeesan2022inductive,\n  title={Inductive Bias of Multi-Channel Linear Convolutional Networks with Bounded Weight Norm},\n  author={Jagadeesan, Meena and Razenshteyn, Ilya and Gunasekar, Suriya},\n  booktitle={Conference on Learning Theory (COLT)},\n  year={2022}\n}",
+   "url": "https://arxiv.org/abs/2102.12238",
+   "confirmed": true,
+   "why": "Optional. Shows that the l2 weight norm induces nuclear or l_{2,1} group-sparse norms on Fourier coefficients: an explicit representation cost pushing toward frequency sparsity, like our AM-GM pricing."
+  }
+ ],
+ "recommended_change": "Add after eq:programme (approach.tex, after the AM-GM sentence): \"Equivalently, Gamma_s is the l_{1/s}-quasi-norm maximum margin of a nonnegative separator of the coverage vectors kappa(delta). The same reduction, from homogeneity to an l_{2/L} bridge penalty on Fourier coefficients, appears for depth-L linear convolutional networks \\citep{gunasekar2018implicit}. It is also the largest Laplacian spectral gap of a weighted circulant graph on Z_p under an l_{1/s} weight budget, which interpolates between the convex l_1 edge-weight problem at s=1 \\citep{boyd2006convex} and the cardinality-constrained problem as s->infinity \\citep{ghosh2006growing}. Concurrently, \\citet{kam2026symmetry} study the same coverage objective under a convex l_2 amplitude budget and find the uniform (dense) allocation optimal; the concave budget that homogeneity forces is what makes ours sparse.\" Do not claim the programme's form is new. Claim that it is derived from L_{2,b} homogeneity and bounds every network, and claim its solution (K* = Theta(log p), shapes, offsets)."
+}

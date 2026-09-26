@@ -1,0 +1,22 @@
+('power', 3) -> {'c': 0.1, 'lam_key': 0.01, 'n_ok': 1, 'n': 4}
+    0.05 0.003 0/4 1.3e-02 | p113 q3 not_converged grad_rel,loss_plateau,gamma_stable; p113 q3 not_converged grad_rel,loss_plateau,gamma_stable; p23 q3 not_converged grad_rel,loss_plateau; p23 q3 not_converged grad_rel,loss_plateau,gamma_stable
+    0.05 0.01 0/4 6.2e-03 | p113 q3 not_converged grad_rel,loss_plateau,gamma_stable; p113 q3 not_converged grad_rel,loss_plateau,gamma_stable; p23 q3 not_converged grad_rel,loss_plateau,gamma_stable; p23 q3 not_converged grad_rel,loss_plateau,gamma_stable
+    0.1 0.003 0/4 2.7e-03 | p113 q3 not_converged grad_rel,loss_plateau,gamma_stable; p113 q3 not_converged grad_rel,loss_plateau,gamma_stable; p23 q3 not_converged grad_rel,loss_plateau,gamma_stable; p23 q3 not_converged grad_rel,loss_plateau,gamma_stable
+    0.1 0.01 1/4 1.2e-03 | p113 q3 not_converged grad_rel,loss_plateau,gamma_stable; p113 q3 not_converged loss_plateau,gamma_stable; p23 q3 not_converged grad_rel,loss_plateau,gamma_stable; p23 q3 ok 
+('product', 3) -> {'c': 0.4, 'lam_key': 0.003, 'n_ok': 3, 'n': 4}
+    0.2 0.003 2/4 1.1e-03 | p113 q2 not_converged grad_rel,loss_plateau,gamma_stable; p113 q3 not_converged grad_rel,loss_plateau,gamma_stable; p23 q2 ok ; p23 q3 ok 
+    0.2 0.01 3/4 3.4e-06 | p113 q2 not_converged gamma_stable; p113 q3 ok ; p23 q2 ok ; p23 q3 ok 
+    0.4 0.003 3/4 2.2e-05 | p113 q2 not_converged gamma_stable; p113 q3 ok ; p23 q2 ok ; p23 q3 ok 
+    0.4 0.01 3/4 1.4e-06 | p113 q2 not_converged gamma_stable; p113 q3 ok ; p23 q2 ok ; p23 q3 ok 
+('product', 4) -> {'c': 0.28, 'lam_key': 0.003, 'n_ok': 2, 'n': 4}
+    0.07 0.003 0/4 5.3e-03 | p23 q2 not_converged grad_rel,loss_plateau,gamma_stable; p23 q4 not_converged grad_rel,loss_plateau,gamma_stable; p43 q2 not_converged grad_rel,loss_plateau,gamma_stable; p43 q4 not_converged grad_rel,loss_plateau,gamma_stable
+    0.07 0.01 1/4 1.2e-03 | p23 q2 not_converged gamma_stable; p23 q4 ok ; p43 q2 not_converged grad_rel,loss_plateau,gamma_stable; p43 q4 not_converged grad_rel,loss_plateau,gamma_stable
+    0.14 0.003 1/4 1.5e-03 | p23 q2 not_converged grad_rel,loss_plateau,gamma_stable; p23 q4 ok ; p43 q2 not_converged gamma_stable; p43 q4 not_converged grad_rel,loss_plateau,gamma_stable
+    0.14 0.01 2/4 1.4e-04 | p23 q2 not_converged gamma_stable; p23 q4 ok ; p43 q2 ok ; p43 q4 not_converged gamma_stable
+    0.28 0.003 2/4 4.7e-04 | p23 q2 not_converged gamma_stable; p23 q4 ok ; p43 q2 ok ; p43 q4 not_converged grad_rel,loss_plateau,gamma_stable
+    0.28 0.01 2/4 4.9e-05 | p23 q2 ok ; p23 q4 ok ; p43 q2 not_converged gamma_stable; p43 q4 not_converged loss_plateau,gamma_stable
+('product', 5) -> {'c': 0.035, 'lam_key': 0.003, 'n_ok': 1, 'n': 6}
+    0.0175 0.003 0/6 1.0e-02 | p13 q2 not_converged grad_rel,loss_plateau; p13 q5 not_converged grad_rel,loss_plateau,gamma_stable; p17 q2 not_converged grad_rel,loss_plateau,gamma_stable; p17 q5 not_converged grad_rel,loss_plateau,gamma_stable; p23 q2 not_converged grad_rel,loss_plateau,gamma_stable,positive_margin; p23 q5 not_converged grad_rel,loss_plateau,gamma_stable
+    0.0175 0.01 1/6 3.5e-03 | p13 q2 ok ; p13 q5 not_converged grad_rel,loss_plateau; p17 q2 not_converged grad_rel,loss_plateau,gamma_stable,positive_margin; p17 q5 not_converged grad_rel,loss_plateau,gamma_stable; p23 q2 not_converged grad_rel,loss_plateau,gamma_stable,positive_margin; p23 q5 not_converged grad_rel,loss_plateau,gamma_stable
+    0.035 0.003 1/6 7.5e-03 | p13 q2 not_converged gamma_stable; p13 q5 not_converged grad_rel,loss_plateau,gamma_stable; p17 q2 ok ; p17 q5 not_converged grad_rel,loss_plateau,gamma_stable; p23 q2 not_converged grad_rel,loss_plateau,gamma_stable,positive_margin; p23 q5 not_converged grad_rel,loss_plateau,gamma_stable
+    0.035 0.01 0/6 1.4e-03 | p13 q2 not_converged gamma_stable,positive_margin; p13 q5 not_converged grad_rel,loss_plateau,gamma_stable; p17 q2 not_converged positive_margin; p17 q5 not_converged grad_rel,loss_plateau; p23 q2 not_converged grad_rel,loss_plateau,gamma_stable,positive_margin; p23 q5 not_converged grad_rel,loss_plateau,gamma_stable

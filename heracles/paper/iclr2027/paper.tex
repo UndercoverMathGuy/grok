@@ -1,0 +1,94 @@
+\documentclass{article} % For LaTeX2e
+\usepackage[T1]{fontenc}
+\usepackage{iclr2027_conference,times}
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+\input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{placeins}
+
+% theorem environments (as in Morwani et al., 2024)
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{informalthm}{Theorem (informal)}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+
+% notation
+\newcommand{\Fp}{F}                                % positive frequencies {1,...,(p-1)/2}
+\newcommand{\spt}{\mathrm{spt}}
+\newcommand{\cov}[2]{\kappa_{#1}(#2)}              % coverage of frequency #1 at offset #2
+\newcommand{\Kstar}{K^{*}}
+\newcommand{\curlyx}{\mathcal{X}}
+\newcommand{\curlyy}{\mathcal{Y}}
+\newcommand{\curlyp}{\mathcal{P}}
+\newcommand{\lnorm}[2]{\Vert #1 \Vert_{#2}}
+
+\title{Feature Sparsity via Margin Maximization}
+
+% Authors must not appear in the submitted version.
+\author{Anonymous authors}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+%\iclrfinalcopy % Uncomment for camera-ready version, but NOT for submission.
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Explaining the number of features in a network has been a long-desired result in mechanistic interpretability. \citet{morwani2024feature} laid the baseline through their margin-maximization analysis, proving that quadratic networks maximizing margin under matched $L_{2,\nu}$ regularization use every frequency for modular addition. This restriction, however, excludes most models conventionally trained using $L_2$ regularization or a non-quadratic architecture, which are empirically sparse.
+
+Our inquiry focuses specifically on modular addition in polynomial and multilinear models. Our primary theoretical finding centers on the cost of new frequencies---a trade-off between the margin of the solution and regularization. For interference-free product networks, we use this to characterize the maximum normalized margin and an optimal number of frequencies for a particular configuration of homogeneity degree ($\nu$) and regularization. This recovers the dense frequency allocation seen in \citet{morwani2024feature}.
+
+Beyond the interference-free class of models, we also prove upper and lower bounds on the maximum normalized margin of product networks. We also establish matching bounds on the optimal number of frequencies, and prove that an optimal spectral allocation uses $\Theta(\log p)$ frequencies. Finally, we prove a general asymptotic scaling law for normalized margin over product models.
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/prelim}
+\input{sections/approach}
+\input{sections/cyclic}
+% \input{sections/groups} 
+\input{sections/experiments}
+\input{sections/discussion}
+
+\clearpage
+\input{sections/ai_use}
+
+\section*{Reproducibility statement}
+All theorems are stated with their hypotheses in Sections~\ref{sec:approach} and~\ref{sec:cyclic} and proved in full in Appendices~\ref{app:approach} and~\ref{app:cyclic}; Appendix~\ref{app:models} checks the assumptions for concrete networks. The data are the full table $D_p$ of Section~\ref{sec:prelim}, with no split or preprocessing. Appendix~\ref{app:exp} gives the training recipe, the convergence criterion and the definition of the feature count. The anonymized supplementary material contains the code, with scripts that regenerate the predictions, runs and analyses; the trained weights and full configuration of every run; a list of every launched run with its status; the preregistrations, with the post-hoc analyses reported separately; an audit of the training code against the stated recipe; and a file, \texttt{results.json}, that links every number in the paper, including the numerical checks of Section~\ref{sec:cyclic}, to the script that computes it.
+
+\clearpage
+\bibliography{refs}
+\bibliographystyle{iclr2027_conference}
+
+\newpage
+\appendix
+\section*{Appendix}
+\input{sections/appendix}
+\input{sections/appendix_experiments}
+
+\end{document}
+
+
+%Explaining the number of features in a network has been a long-desired result in mechanistic interpretability. [Morwani et al. (2024)](https://arxiv.org/abs/2311.07568v2) laid the baseline with their principle of margin-maximization, showing provably that in networks where the regularization ($\mathcal{L_{2,\text{ }\nu}}$) matches its homogeneity degree ($\mathcal{\nu}$), all features would be used for modular addition or group composition tasks. This limitation, however, 
+
+%Our inquiry focuses specifically on modular addition and group composition tasks in polynomial and multilinear models. Our primary theoretical finding centers on the cost of new features - a tradeoff between the logit margin of the solution and regularization. While more features improve margin, they cost the model in regularization. Hence we show that an optimal number of features can be calculated for networks based on the task, their homogeneity degree and the regularization. Further, our theory explains the transition in the number of features from dense to sparse - as seen empirically in [McCracken et al. (2025)](https://arxiv.org/abs/2505.18266) - by showing that this transition arises on changing either the homogeneity degree or regularization of the network.
+
+% Additionally, we empirically show that the normalized margin attained by these networks peaks at the predicted optimum for the network, matching the result of [Morwani et al. (2024)](https://arxiv.org/abs/2311.07568v2) for their specific case. The optimums are also consistent with the empirical results seen in [Chughtai et al. (2023)](https://arxiv.org/abs/2302.03025).

@@ -1,0 +1,34 @@
+{
+ "item": {
+  "id": "R37-appendix-remarks",
+  "kind": "our_result",
+  "location": "appendix app:remarks and app:conjecture (power attainment; b outside [2,nu])",
+  "statement": "Equal-share approximation Gamma_s >= max_K K^{-s} M_K; only interval patterns needed in (JF); factor counts operand factors not degree; power-net IF population facts (6 neurons, 0.408); for b>nu margin unbounded in width, for b<2 superadditivity fails by |F|^{1-b/2}",
+  "what_to_check": "Mostly internal; check known remarks on L_{2,b} norms beyond homogeneity (Morwani, Savarese et al.)"
+ },
+ "chk": {
+  "id": "R37-appendix-remarks",
+  "verdict": "RELATED_ONLY",
+  "evidence": "Remarks checked one by one. Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r37-appendix-remarks/CHECK.md.\n\n(1) The equal-share bound Gamma_s >= max_K K^{-s} M_K, and the averaging bound M_K <= pK/(p-1), follow directly from the programme. They are internal. M_K = K(1 - Fourier bias of S) links to small-bias sets, which Alon-Roichman already covers in app. B.\n\n(2) Only interval patterns are needed in (JF). Internal.\n\n(3) The factor counts operand factors, not degree. Internal.\n\n(4) Power-net interference-free population facts (6 neurons, 0.408; none exists with tied embeddings). Internal computations. Li et al. AISTATS 2025 Thm 4.1 covers only b = nu.\n\n(5) b > nu gives a margin unbounded in width. Split a neuron into H copies scaled by H^{-1/nu}: the output is unchanged and sum ||.||^b ~ H^{1-b/nu} -> 0. This is the classical width-splitting argument for group norms in Neyshabur, Tomioka, Srebro, COLT 2015 (PMLR 40:1376-1401; read in full from arXiv 1503.00036v2).\n- Sec. 3.1, after Thm 1: \"the dependence on the width H disappears ... as long as q <= p* (i.e. 1/p+1/q >= 1)\".\n- Sec. 3.2, Thm 3 proof: \"replacing the top unit with H copies of it ... we have reduced the norm by factor H^{1/q-1/p*}\".\n- Sec. 3.2 also says: \"we can shatter an arbitrarily large number of points with arbitrarily low gamma by using enough hidden units\".\nTheir setting (ReLU, mu_{p,q}) differs from ours, but the mechanism is the same, so our remark is a trivial specialisation.\n\n(6) b < 2: superadditivity fails by |F|^{1-b/2}. Elementary.\n\nMorwani et al. (arxiv.org/html/2311.07568):\n- Sec. 3.2: \"we will primarily focus on maximum margin with respect to L_{2,nu} norm\".\n- App. E.1: \"the analysis ... can be used to compute optimal norms for b != nu as well -- however, for any such b we would not get the same flexibility to build a theta*\".\nThey make no remark about b > nu being unbounded or about b < 2.\n\nSavarese-Evron-Soudry-Srebro COLT 2019 (PMLR 99:2667-2690) is about the representation cost of weight decay on infinite-width ReLU networks. It is relevant only to the ReLU paragraph, not to these remarks.\n\nSources read: the Morwani HTML, the Neyshabur PDF, and the PMLR pages for Neyshabur and Savarese.",
+  "recommended_citations": [
+   {
+    "key": "neyshabur2015norm",
+    "bibtex": "@inproceedings{neyshabur2015norm,\n  title={Norm-Based Capacity Control in Neural Networks},\n  author={Neyshabur, Behnam and Tomioka, Ryota and Srebro, Nathan},\n  booktitle={Proceedings of The 28th Conference on Learning Theory},\n  series={Proceedings of Machine Learning Research},\n  volume={40},\n  pages={1376--1401},\n  year={2015}\n}",
+    "url": "https://proceedings.mlr.press/v40/Neyshabur15.html",
+    "confirmed": true,
+    "why": "Supports 'For b>nu the normalized margin is unbounded as the width grows'. Sec. 3.2 / Thm 3: duplicating units H times reduces the mu_{p,q} group norm by H^{1/q-1/p*} with the output unchanged, so width-independence holds only when 1/p+1/q>=1. It is the same splitting mechanism."
+   },
+   {
+    "key": "savarese2019infinite",
+    "bibtex": "@inproceedings{savarese2019infinite,\n  title={How do infinite width bounded norm networks look in function space?},\n  author={Savarese, Pedro and Evron, Itay and Soudry, Daniel and Srebro, Nathan},\n  booktitle={Proceedings of the Thirty-Second Conference on Learning Theory},\n  series={Proceedings of Machine Learning Research},\n  volume={99},\n  pages={2667--2690},\n  year={2019}\n}",
+    "url": "https://proceedings.mlr.press/v99/savarese19a.html",
+    "confirmed": true,
+    "why": "Optional. It is the standard reference for the representation cost of weight decay (via rescaling balance) on 2-layer ReLU networks. Relevant to the ReLU-neuron paragraph (b=nu=2), not needed for the remarks themselves."
+   }
+  ],
+  "recommended_change": "In app:conjecture, paragraph \"b outside [2,nu]\", change the first sentence to: \"For b>nu the normalized margin is unbounded as the width grows: replacing a neuron by H copies scaled by H^{-1/nu} leaves f unchanged and multiplies its contribution to ||theta||_{2,b}^b by H^{1-b/nu} (the width-splitting argument of \\citet{neyshabur2015norm}, Sec. 3.2).\" No other changes are needed. Optionally, in the Equal shares paragraph, note that M_K = K - max_{delta!=0} sum_{j in S} cos(2 pi j delta/p), i.e. K times one minus the Fourier bias of S."
+ },
+ "lens": "novelty_math",
+ "slug": "r37-appendix-remarks",
+ "task": 40
+}

@@ -1,0 +1,41 @@
+{
+ "item": {
+  "id": "R12-cost-of-feature",
+  "kind": "our_result",
+  "location": "cyclic.tex lem:cost; appendix app:cost",
+  "statement": "Under the interference-free system (JF), sum_l |beta_l|^r >= nu^{1-r} |beta|^r for r in (0,1]; for r<1 equality iff exactly nu terms of modulus |beta|/nu with pairwise orthogonal chain vectors",
+  "what_to_check": "Key lemma; search tensor/Waring rank of products of cosines, multilinear cancellation, majorization via Bernstein functions, polyphase code cancellation"
+ },
+ "chk": {
+  "id": "R12-cost-of-feature",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "Reframing (the paper does not say this): on one frequency block, (JF) asks for an exact real rank-1 (separated) decomposition of cos(theta_1+...+theta_n-theta_0), which is the tensor Re(z_1...z_n conj z_0) in (R^2)^{\u2297nu}. Over C this tensor has rank 2. The count part of the lemma (at least nu neurons) is therefore a real-rank lower bound, and the nu-block is a known trig identity.\n\n(1) Beylkin & Mohlenkamp, SIAM J. Sci. Comput. 26(6):2133-2159, 2005. I read the PDF and confirmed the metadata on Crossref.\n- \u00a72.1.1 \"Sine of a sum\", Lemma 2.4 (eq. 2.9): sin(sum x_j) = sum_j sin(x_j) prod_{k\u2260j} sin(x_k+alpha_k-alpha_j)/sin(alpha_k-alpha_j). That is d real separable terms, against 2^{d-1} from the angle-addition formulas.\n- Def. 2.2 defines an l2 coefficient condition number, kappa = (sum s_l^2)^{1/2}/||F||.\n- \u00a73 observes that \"choosing alpha_j equally spaced in the identity leads to kappa \u2248 7\". This is a numerical remark with no proof and uses an l2 cost, not l_r.\n\n(2) Mohlenkamp & Monz\u00f3n, Math. Intelligencer 27(2):65-69, 2005. I read the preprint PDF and confirmed the metadata on Crossref.\n- Thm 2 is the n-variable identity.\n- On minimality they write: \"to find a minimal rank representation ... is still an open problem. We believe that our Theorems 2 and 5 are an example of such minimal representations.\" So the lower bound is NOT proved there.\n\n(3) Comon & Ottaviani, Linear Multilinear Algebra 60(6):657-667, 2012 (arXiv 0909.4865; abstract fetched, Crossref-confirmed).\n- The abstract states \"a real binary form of degree d with d real roots has rank d\". This gives real Waring rank d for Re((x+iy)^d), which is the symmetric (power-neuron) analogue of the count. It carries no weights.\n- Related: Blekherman arXiv 1205.3257 (typical ranks), and Huang-Tang-Ye-Zhu arXiv 2601.03560 (harmonic binary forms have Waring rank equal to their degree).\n\n(4) The transfer from Thorin-Bernstein functions to x^r is known (Rajan-Tepedelenlioglu 2015; Schilling-Song-Vondracek). See the sibling item r13. The ML phase-cancellation precedents (He et al. Def 4.1(iii), Gromov, Morwani App F.2, Li App E) are covered in items r9 and r10.\n\nWhat I did not find:\n- A proof that the non-symmetric real tensor rank of Re(z_1...z_d) equals d. Mohlenkamp and Monz\u00f3n leave it as a belief. Our Prop esym gives it, since e_nu(x) \u2265 1.\n- Any weighted l_r (r<1) lower bound on the coefficients of such decompositions, or an equality characterisation (equal weights, orthogonal chain vectors, rotated roots of unity).\n\nSearches run:\n- sine-of-sum separation rank lower bound\n- real rank of Re(z_1...z_d) and of 2x...x2 tensors\n- real rank of binary forms with all real roots\n- Reznick sums of powers with equally spaced angles\n- polyphase / roots-of-unity cancellation with l_p weights\n- det(I+tA) with Bernstein-function majorization\n\nOne caveat: I did not read Hackbusch's tensor book or Wang-Seigal 2023 in full. Check them before claiming the rank-d lower bound as new.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r12-cost-of-feature/CHECK.md",
+  "recommended_citations": [
+   {
+    "key": "beylkin2005algorithms",
+    "bibtex": "@article{beylkin2005algorithms, title={Algorithms for Numerical Analysis in High Dimensions}, author={Beylkin, Gregory and Mohlenkamp, Martin J.}, journal={SIAM Journal on Scientific Computing}, volume={26}, number={6}, pages={2133--2159}, year={2005}, doi={10.1137/040604959}}",
+    "url": "https://epubs.siam.org/doi/abs/10.1137/040604959",
+    "confirmed": true,
+    "why": "Cite at Prop block and Lemma cost. Lemma 2.4 (eq. 2.9) is the d-term real separated identity for sin(x_1+...+x_d), i.e. our nu-block count. \u00a73 also notes that equally spaced phases are well conditioned (kappa\u22487), the l2 numerical cousin of our equality case."
+   },
+   {
+    "key": "mohlenkamp2005trigonometric",
+    "bibtex": "@article{mohlenkamp2005trigonometric, title={Trigonometric Identities and Sums of Separable Functions}, author={Mohlenkamp, Martin J. and Monz{\\'o}n, Lucas}, journal={The Mathematical Intelligencer}, volume={27}, number={2}, pages={65--69}, year={2005}, doi={10.1007/BF02985795}}",
+    "url": "http://www.ohiouniversityfaculty.com/mohlenka/research/sine.pdf",
+    "confirmed": true,
+    "why": "Thm 2 is the general n-term identity. They explicitly state they only 'believe' it is minimal. Lemma cost proves that minimality (at least nu terms) and strengthens it to an l_r cost."
+   },
+   {
+    "key": "comon2012typical",
+    "bibtex": "@article{comon2012typical, title={On the typical rank of real binary forms}, author={Comon, Pierre and Ottaviani, Giorgio}, journal={Linear and Multilinear Algebra}, volume={60}, number={6}, pages={657--667}, year={2012}, doi={10.1080/03081087.2011.624097}}",
+    "url": "https://arxiv.org/abs/0909.4865",
+    "confirmed": true,
+    "why": "Symmetric analogue of the count: a real binary form of degree d with d real roots, e.g. Re((x+iy)^d), has real Waring rank d. This is relevant for power neurons. It says nothing about weights or l_r."
+   }
+  ],
+  "recommended_change": "In cyclic.tex, after Lemma cost (or in the proof-idea paragraph), add: \"In tensor language, (JF) asks for an exact real decomposition of $\\cos(\\theta_1+\\dots+\\theta_n-\\theta_0)=\\mathrm{Re}(z_1\\cdots z_n\\bar z_0)$, a tensor of complex rank $2$. The $\\nu$-term decomposition is the `sine of a sum' identity of \\citet{beylkin2005algorithms,mohlenkamp2005trigonometric}, which they conjectured to be minimal. For the symmetric analogue, $\\mathrm{Re}((x+iy)^d)$ has real Waring rank $d$ \\citep{comon2012typical}. Lemma~\\ref{lem:cost} proves the lower bound of $\\nu$ terms and strengthens it to a weighted $\\ell_r$ cost, with equality exactly at equally weighted decompositions with orthogonal chain vectors (roots-of-unity phases).\" Keep the lemma presented as ours. Before claiming \"first proof of rank nu\", check Hackbusch's tensor book and Wang-Seigal 2023; otherwise phrase it as \"we did not find a proof of the lower bound in the literature\"."
+ },
+ "lens": "novelty_ml",
+ "slug": "r12-cost-of-feature",
+ "task": 11
+}

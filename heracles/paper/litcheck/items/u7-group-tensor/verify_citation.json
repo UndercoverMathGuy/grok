@@ -1,0 +1,22 @@
+{
+ "task": 95,
+ "item_id": "U7-group-tensor",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "CITATION_FOUND (strengthen): keep strassen1969 + blaser2013 + shutman2025, and ADD derksen2016nuclear as the primary citation for the norm price and schoolbook optimality",
+ "issues": "All three confirmed citations were re-fetched and are real, with correct bib fields: Strassen (Crossref); Blaser ToC GS 5 (PDF: Eq. 1.1 n^3, Defs 4.4/4.5); Shutman et al. arXiv 2509.06931 v1 (Prop 5.2 quoted correctly).\n\nSmall problems:\n(1) The checker says Blaser Ex. 5.10 gives R(<2,2,2>)=7. It actually states <=7.\n(2) Shutman Prop 5.2 gives m_d only for type-I (real) irreps; types II and III get 3m_{d/2} and 8m_{d/2}. The recommended wording 'each irreducible representation' should read 'each real irreducible representation'. This is harmless for S5 and A5, where every irrep is real.\n(3) chughtai2023toy lacks PMLR 202, pages 6243-6267.\n\nMissed and more precise citation: Derksen 2016 (FoCM 16:779-811), checked on arXiv 1308.3860 full text and Crossref.\n- Thm 1.9 / Cor 1.10: the schoolbook decomposition of M_{p,q,r} is a diagonal SVD, so ||M||_* = pqr is attained by the schoolbook. Strassen's decomposition costs 2sqrt2+12 > 8: 'minimization of the rank, and minimization of the nuclear norm do not always coincide.'\n- Thm 1.11 / Cor 1.12: the group-algebra tensor T_G splits by irreps into matmul blocks with d_i^3 equal singular values.\nThe paper's price is a norm, not a rank, and the schoolbook wins under it, the opposite of Strassen's message. Citing only rank sources misframes the sentence. Derksen is the precedent at degree 3 with the nuclear-norm price. The paper's new content is degree nu (d^nu), the L_{2,b} exponent and the even-nu proof, and the text should say so.\nIt may also settle the paper's nu=3 schoolbook case at the exponent matching the nuclear norm; this is unverified.\n\nOptional canonical book: Burgisser-Clausen-Shokrollahi 1997 (Crossref metadata only).\n\nOPERATIONAL NOTE (re: the user's slowness complaint): the session WebSearch budget is exhausted (200/200) and Semantic Scholar returns 429, so verify agents fall back to slow direct fetches and PDF downloads.",
+ "extra_citations": [
+  {
+   "key": "derksen2016nuclear",
+   "bibtex": "@article{derksen2016nuclear,\n  title={On the Nuclear Norm and the Singular Value Decomposition of Tensors},\n  author={Derksen, Harm},\n  journal={Foundations of Computational Mathematics},\n  volume={16},\n  number={3},\n  pages={779--811},\n  year={2016},\n  doi={10.1007/s10208-015-9264-x}\n}",
+   "url": "https://arxiv.org/abs/1308.3860",
+   "why": "Cor 1.10: ||M_{p,q,r}||_* = pqr, attained by the schoolbook; Strassen's decomposition costs more ('minimization of the rank, and minimization of the nuclear norm do not always coincide'). Thm 1.11: the group-multiplication tensor splits by irreps into matmul blocks with d_i^3 terms. This is the direct precedent for 'irrep price = norm-optimal matmul decomposition = schoolbook' at degree 3."
+  },
+  {
+   "key": "burgisser1997algebraic",
+   "bibtex": "@book{burgisser1997algebraic,\n  title={Algebraic Complexity Theory},\n  author={B{\\\"u}rgisser, Peter and Clausen, Michael and Shokrollahi, M. Amin},\n  series={Grundlehren der mathematischen Wissenschaften},\n  publisher={Springer},\n  year={1997},\n  doi={10.1007/978-3-662-03338-8}\n}",
+   "url": "https://api.crossref.org/works/10.1007/978-3-662-03338-8",
+   "why": "Optional canonical textbook for tensor rank and the matmul tensor, as an alternative or complement to the Blaser survey. Only the metadata was verified."
+  }
+ ]
+}

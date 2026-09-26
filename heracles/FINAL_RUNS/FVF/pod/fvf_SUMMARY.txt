@@ -1,0 +1,21 @@
+## rand_pow_n2_p113_cube_lad   best 2.2692e-05
+   K6   m72   gamma 2.2692e-05 rel 1.000  spread [2.212e-05,2.352e-05] clean 0.998 N05 6,6,6
+   K7   m84   gamma 2.2176e-05 rel 0.977  spread [2.112e-05,2.317e-05] clean 0.991 N05 7,7,7
+   K8   m96   gamma 2.1750e-05 rel 0.958  spread [2.153e-05,2.201e-05] clean 0.985 N05 8,8,8
+   K10  m120  gamma 2.0154e-05 rel 0.888  spread [1.938e-05,2.118e-05] clean 0.976 N05 8,7,7
+## rand_prod_n2_p113_common_lad   best 1.7350e-05
+   K2   m12   gamma 4.5139e-06 rel 0.260  spread [4.514e-06,4.514e-06] clean 1.000 N05 2,2,2
+   K3   m18   gamma 1.0692e-05 rel 0.616  spread [1.069e-05,1.069e-05] clean 1.000 N05 3,3,3
+   K4   m24   gamma 1.5798e-05 rel 0.911  spread [1.580e-05,1.580e-05] clean 1.000 N05 4,4,4
+   K5   m30   gamma 1.6914e-05 rel 0.975  spread [1.691e-05,1.691e-05] clean 1.000 N05 5,5,5
+   K6   m36   gamma 1.7350e-05 rel 1.000  spread [1.735e-05,1.735e-05] clean 1.000 N05 6,6,6
+   K7   m42   gamma 1.6351e-05 rel 0.942  spread [1.540e-05,1.683e-05] clean 1.000 N05 7,7,5
+   K8   m48   gamma 1.5258e-05 rel 0.879  spread [1.526e-05,1.526e-05] clean 1.000 N05 7
+## rand_prod_n3_p71_common_lad   best 2.0323e-07
+   K2   m24   gamma 1.0588e-07 rel 0.521  spread [1.059e-07,1.059e-07] clean 1.000 N05 2,2,2
+   K3   m36   gamma 2.0323e-07 rel 1.000  spread [2.032e-07,2.032e-07] clean 1.000 N05 3,3,3
+   K4   m48   gamma 1.6906e-07 rel 0.832  spread [1.691e-07,1.691e-07] clean 1.000 N05 3
+## randfull_prod_n3_p71_common_rf250   best -3.4518e-08
+   K35  m250  gamma -3.4518e-08 rel 1.000  spread [-3.789e-08,-3.206e-08] clean 0.000 N05 28,29,30
+## randfull_prod_n3_p71_common_rf64   best -4.3260e-07
+   K35  m64   gamma -4.3260e-07 rel 1.000  spread [-5.622e-07,-3.325e-07] clean 0.000 N05 27,27,30

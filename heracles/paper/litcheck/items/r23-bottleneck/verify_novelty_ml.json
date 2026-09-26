@@ -1,0 +1,28 @@
+{
+  "task": 21,
+  "item_id": "R23-bottleneck",
+  "lens": "novelty_ml",
+  "upheld": true,
+  "corrected_verdict": "PARTIALLY_KNOWN",
+  "issues": "The checker's verdict holds, and both of its confirmed citations survive my own fetch.\n\nMorwani et al. 2311.07568v2, Lemma 6, verbatim: \"all points in the support of q* are on the margin for any maximum margin solution\". The closer dense analogue of \"hardest wrong answers\" is condition C.1 together with App. F.2: \"for each input (a,b), f takes the same value on all incorrect labels c'\". In the dense case all p-1 wrong answers tie; in ours at least 2K do.\n\nShapley-Snow: Crossref for DOI 10.1515/9781400881727-004 gives 1951 and pp. 27-36. The bib entry's 1950 and 27-35 match common usage, including the citation in Attia and Oliu-Barton, but not the DOI record. This is minor. The statement is confirmed through Attia and Oliu-Barton 1810.08798v2: Thm 2.3.1, and Prop 2.3.4(iii) for uniqueness.\n\nPrior art the checker missed. These are ML and optimisation analogues of the mechanism, not of the result:\n(1) Breiman 1999, Neural Computation. Def 2.2 casts minimum-margin maximisation over convex combinations of base predictors as a zero-sum matrix game. Our s=1 programme is exactly this game, with frequencies as base predictors and offsets as instances. It is the ML-native bridge to Shapley-Snow.\n(2) Ge, Jiang and Ye 2011, Math. Programming, Thm 3: the local minimisers of sum x_j^p (0<p<1) over {Ax=b, x>=0} are exactly the basic feasible solutions. This is the l_p form of the \"concave budget forces a vertex\" step, with r=1/s<1. It assumes a bounded feasible set, and P_p is unbounded, so cite it with \"cf.\".\n(3) Rosset, Zhu and Hastie 2004, JMLR. The l1-margin/boosting solution has at most n nonzero coefficients, and the nonzeros solve \"|A| equations in |A| variables\".\n\nI ran an adversarial arXiv sweep over about 60 recent modular-addition papers (to 2609.26679) and read the closest margin-theory ones: 2511.23443, 2506.06489, 2608.04451, 2606.05863, He et al. 2602.16849/2606.02993, Tian 2410.01779 and Li et al. 2402.09469. None has K tight offsets, an equalising system, vertices or Shapley-Snow.\n\nWording caveat for the recommended sentence: at s=1 a maximiser need not be a vertex. The Shapley-Snow link holds only for extreme (basic) optimal strategies, so say that explicitly.",
+  "extra_citations": [
+    {
+      "key": "breiman1999prediction",
+      "bibtex": "@article{breiman1999prediction,\n  author = {Breiman, Leo},\n  title = {Prediction Games and Arcing Algorithms},\n  journal = {Neural Computation},\n  volume = {11},\n  number = {7},\n  pages = {1493--1517},\n  year = {1999},\n  doi = {10.1162/089976699300016106}\n}",
+      "url": "https://www.stat.berkeley.edu/~breiman/games.pdf",
+      "why": "Casts maximising the minimum margin of a convex combination of base predictors as a zero-sum matrix game (Def 2.2, minimax value). At s=1 our programme is exactly this game, with frequencies as predictors and offsets as instances. This gives the ML-native framing for invoking Shapley-Snow in the bottleneck remark. Metadata is from Crossref."
+    },
+    {
+      "key": "ge2011note",
+      "bibtex": "@article{ge2011note,\n  author = {Ge, Dongdong and Jiang, Xiaoye and Ye, Yinyu},\n  title = {A Note on the Complexity of {$L_p$} Minimization},\n  journal = {Mathematical Programming},\n  volume = {129},\n  number = {2},\n  pages = {285--299},\n  year = {2011},\n  doi = {10.1007/s10107-011-0470-2}\n}",
+      "url": "https://web.stanford.edu/~yyye/lpmin_v14.pdf",
+      "why": "Thm 3: basic feasible solutions are exactly the local minimisers of sum x_j^p (0<p<1) over {Ax=b, x>=0}. This is the l_p analogue of the step that the concave budget sum v_j^{1/s} forces a vertex, which yields the full-rank active set. The theorem assumes a bounded feasible set, so cite it with \"cf.\" (P_p is unbounded). Metadata is from Crossref."
+    },
+    {
+      "key": "rosset2004boosting",
+      "bibtex": "@article{rosset2004boosting,\n  author = {Rosset, Saharon and Zhu, Ji and Hastie, Trevor},\n  title = {Boosting as a Regularized Path to a Maximum Margin Classifier},\n  journal = {Journal of Machine Learning Research},\n  volume = {5},\n  pages = {941--973},\n  year = {2004}\n}",
+      "url": "https://www.jmlr.org/papers/volume5/rosset04a/rosset04a.pdf",
+      "why": "Optional. Classic ML statement that the l1-margin maximiser has at most n nonzero coefficients, with the nonzeros fixed by |A| equations in |A| unknowns (Sec 5.1.1, App B Thm 3). It is the ML form of \"#features bounded by #binding constraints, square system\"; our proposition is the per-constraint refinement of it."
+    }
+  ]
+}

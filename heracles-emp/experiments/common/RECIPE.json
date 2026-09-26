@@ -1,0 +1,16 @@
+{
+ "recipe_id": "FROZEN-2026-09-25-1755",
+ "frozen_at": "2026-09-25 17:55 IST",
+ "source": "E0 tuning rounds R3 and R4 (experiments/E0_tuning/rounds.py), selection by the declared mechanical rule (experiments/E0_tuning/select_R3.py -> analysis/selection_R4_*.json); convergence quality only, never agreement with predictions (NORMS C14).",
+ "common": {"optimizer": "gd (full batch)", "momentum": 0.9, "init": "normal, entries N(0,1) (init_scale = sqrt(p))", "width": "2 nu h",
+            "lr": "c * p (constant)", "lambda": "lt * B_p^(q/nu), B_p = 2 (2 p nu)^(-nu/2) (constant)", "dtype": "float32, TF32 off (asserted), measurement float64",
+            "log_every": 1000, "convergence": "core/train.py DEFAULT_CONVERGENCE (grad_rel <= 1e-3; loss plateau <= 1e-4 and gamma change <= 1e-3 over the final 10% of steps; margin > 0)"},
+ "recipes": {
+  "product_nu3": {"c": 0.4, "lt": 0.003, "momentum": 0.9, "log_every": 1000, "steps": 150000, "R4_ok": "3/4 (p113 q2 not converged at 40k: gamma drift)"},
+  "power_nu3":   {"c": 0.1, "lt": 0.01, "momentum": 0.9, "log_every": 1000, "steps": 150000, "R4_ok": "1/4 at 40k (slow; c >= 0.2 diverges)"},
+  "product_nu4": {"c": 0.28, "lt": 0.003, "momentum": 0.9, "log_every": 1000, "steps": 150000, "steps_p59": 90000, "R4_ok": "2/4 at 40k"},
+  "product_nu5": {"c": 0.035, "lt": 0.003, "momentum": 0.9, "log_every": 1000, "steps": 300000, "R4_ok": "1/6 at 40k over p = 13, 17, 23; p = 23: 0/8 converged, q = 2 runs had negative margin at 40k"}
+ },
+ "steps_rule": "Steps are a compute-budget choice made before evaluation (2 h full-sweep limit), never tuned on agreement: 150k for nu = 3, 4 (90k for nu = 4, p = 59, 2 batches of 6) and 300k for nu = 5 (p <= 17 only). R4 showed 40k steps is not enough at the larger p; more steps can only help the declared criterion.",
+ "scope_cuts": "nu = 5 at p >= 23 is NOT run: R4 had 0/8 converged at p = 23 (40k steps) and 150k+ steps at p = 23 (10.7 ms/step for 8 runs) or p = 31 (46 ms/step) does not fit the 2 h sweep limit. Power nu = 4, 5 (optional in the plan) not run."
+}

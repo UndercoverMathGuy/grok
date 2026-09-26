@@ -1,0 +1,22 @@
+{
+ "task": 70,
+ "item_id": "F6-where-dense-stops",
+ "lens": "citation",
+ "upheld": true,
+ "corrected_verdict": "SUPPORTED",
+ "issues": "(1) Location: the intro paragraph 'Where the dense theorem stops' is no longer in sections/intro.tex. The content now sits in approach.tex l.54-73 and cyclic.tex l.30/52; apply the fixes there. (2) Morwani Lemma 3 (binary, 2nd bullet) and Lemma 5 give only sufficiency (IF b=nu, combining is free). 'Exactly at L_{2,nu}' also needs the only-if direction, which comes from their informal App. E.1 remark (for b!=nu 'we would not get the same flexibility') plus this paper's own b<nu results. Write 'their combining lemma requires b=nu'. (3) Kolb et al.: the l_{2/D} equivalence is Theorem 1 in the body. The abstract says only 'non-convex sparse regularization', so the checker's 'abstract' attribution is imprecise; the substance is correct. (4) Hoff bib is correct (CSDA 115:186-198, 2017, confirmed via Crossref); add doi 10.1016/j.csda.2017.06.007. Dai-Karzand-Srebro confirmed: depth-d diagonal nets give d||beta||_{2/d}^{2/d} (Table 1, Sec 3.1.2), and conv nets give an l_{2/d,2} quasi-norm on the Fourier domain. (5) MISSED: Gunasekar-Lee-Soudry-Srebro NeurIPS 2018. For depth-L linear conv nets, max-margin GD converges to an l_{2/L} bridge penalty in the frequency domain. This is the closest and most canonical precedent for 'margin + L2 on multiplicative factors gives a concave price on Fourier amplitudes, which gives frequency sparsity'. Cite it next to Hoff/Kolb, and scope the novelty to nonlinear product networks on modular addition and groups (feature count, budget-splitting programme, log p). Operational: this session's WebSearch budget is exhausted (200/200); this verification used WebFetch and the Crossref/arXiv APIs only.",
+ "extra_citations": [
+  {
+   "key": "gunasekar2018implicit",
+   "bibtex": "@inproceedings{gunasekar2018implicit,\n  title={Implicit Bias of Gradient Descent on Linear Convolutional Networks},\n  author={Gunasekar, Suriya and Lee, Jason D. and Soudry, Daniel and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={31},\n  year={2018},\n  note={arXiv:1806.00468}\n}",
+   "url": "https://papers.nips.cc/paper_files/paper/2018/hash/0e98aeeb54acf612b9eb4e48a269814c-Abstract.html",
+   "why": "Max-margin implicit bias of depth-L linear conv nets is an l_{2/L} bridge penalty in the FREQUENCY domain. This is the closest precedent for Fourier features acquiring a concave per-feature price under margin with L2 on factors. Cite it with Hoff/Kolb and scope the novelty claim."
+  },
+  {
+   "key": "hoff2017lasso",
+   "bibtex": "@article{hoff2017lasso,\n  title={Lasso, fractional norm and structured sparse estimation using a {H}adamard product parametrization},\n  author={Hoff, Peter D.},\n  journal={Computational Statistics \\& Data Analysis},\n  volume={115},\n  pages={186--198},\n  year={2017},\n  doi={10.1016/j.csda.2017.06.007}\n}",
+   "url": "https://arxiv.org/abs/1611.00040",
+   "why": "Checker's entry with the DOI added (Crossref-verified vol/pages/DOI). L_q (q<=1) penalties as sums of L2 penalties on Hadamard factors."
+  }
+ ]
+}

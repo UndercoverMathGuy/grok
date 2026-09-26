@@ -1,0 +1,92 @@
+{
+ "s5_nu3_q2": {
+  "count": {
+   "K": 1,
+   "certified": true,
+   "boxes": 12,
+   "min_slack": 0.007559058123724439
+  },
+  "identity": {
+   "support": [
+    "std_sign"
+   ],
+   "certified": false
+  }
+ },
+ "s5_nu5_q2": {
+  "count": {
+   "K": 1,
+   "certified": true,
+   "boxes": 1,
+   "min_slack": 0.48835934193058694
+  },
+  "identity": {
+   "support": [
+    "std_sign"
+   ],
+   "certified": false
+  }
+ },
+ "s5_nu3_q2.5": {
+  "count": {
+   "K": 1,
+   "certified": false,
+   "boxes": 1,
+   "min_slack": null
+  },
+  "identity": {
+   "support": [
+    "std_sign"
+   ],
+   "certified": false
+  }
+ },
+ "s4_nu3_q2_K2": {
+  "count": {
+   "K": 2,
+   "certified": false,
+   "boxes": 3,
+   "min_slack": null
+  }
+ },
+ "s4_nu3_q2_K3": {
+  "count": {
+   "K": 3,
+   "certified": false,
+   "boxes": 0,
+   "min_slack": null
+  }
+ },
+ "s4_nu3_q2.5_K2": {
+  "count": {
+   "K": 2,
+   "certified": false,
+   "boxes": 0,
+   "min_slack": null
+  }
+ },
+ "s4_nu3_q2.5_K3": {
+  "count": {
+   "K": 3,
+   "certified": true,
+   "boxes": 1,
+   "min_slack": 0.061792036430640324
+  }
+ },
+ "s4_nu5_q2_K2": {
+  "count": {
+   "K": 2,
+   "certified": false,
+   "boxes": 5,
+   "min_slack": null
+  }
+ },
+ "s4_nu5_q2_K3": {
+  "count": {
+   "K": 3,
+   "certified": false,
+   "boxes": 0,
+   "min_slack": null
+  }
+ }
+}

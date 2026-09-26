@@ -1,0 +1,82 @@
+{
+ "run_id": "R1_prod_nu4_p7_q2_038",
+ "batch_size": null,
+ "convergence": null,
+ "device": "cpu",
+ "dtype": "float32",
+ "init_scale": 2.6457513110645907,
+ "init_scheme": "normal",
+ "lam": 0.0001,
+ "lam_schedule": {
+  "kind": "constant"
+ },
+ "log_every": 1000,
+ "lr": 8.0,
+ "lr_schedule": {
+  "kind": "constant"
+ },
+ "max_seconds": 7200.0,
+ "measure_ablation": false,
+ "model": "product",
+ "momentum": 0.0,
+ "n": 3,
+ "nesterov": false,
+ "nu": 4,
+ "optimizer": "gd",
+ "p": 7,
+ "q": 2.0,
+ "s": 2.0,
+ "score_predictions": false,
+ "seed": 0,
+ "steps": 20000,
+ "width": 24,
+ "precision_flags": {
+  "torch.backends.cuda.matmul.allow_tf32": false,
+  "torch.backends.cudnn.allow_tf32": false,
+  "float32_matmul_precision": "highest"
+ },
+ "environment": {
+  "python": "3.12.11 (main, Sep 18 2025, 19:41:45) [Clang 20.1.4 ]",
+  "torch": "2.13.0",
+  "numpy": "2.5.1",
+  "scipy": "1.18.0",
+  "hostname": "Sabeeras-MacBook-Air.local",
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "torch_num_threads": 1,
+  "OMP_NUM_THREADS": "1",
+  "cuda_available": false
+ },
+ "code_sha256": {
+  "core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "core/construct.py": "e0f35a6ca4e03559f113777090601e5fceb1db0807a935f89dc9a7b8b2b886f7",
+  "core/measure.py": "dde64b168e6ea148dcecf402b6b68b9a63f6f2be7bcb293ad3e3bd17c87b5ca2",
+  "core/metrics.py": "88b71b65e561678dfd7016a26fa706573790b36ff861b79c0edcd35a605113bc",
+  "core/models.py": "63b74b8b0fff5e3eb4dfcb9ebb3ab486308a7d39bd34195c0bde9e1d16f59b64",
+  "core/programme.py": "5180c58e2e3f53e790e2f55eecf3e0c390728b371d0865c05c1c97a86be122a8",
+  "core/remote.py": "1a2d3425012fdbf81dfcf05cf0561d0f2eeda73cc108209bec5b8ba7d068da1d",
+  "core/runner.py": "95db61f7526e497e6247d309b4f3d5943951f01096e618e88ea94482baf8474a",
+  "core/train.py": "0522ac69aca31586d280b24883be85f9f3561d1d32218c8a5f7b3334365035b8"
+ },
+ "batch": {
+  "size": 10,
+  "run_ids": [
+   "R1_prod_nu4_p7_q2_030",
+   "R1_prod_nu4_p7_q2_031",
+   "R1_prod_nu4_p7_q2_032",
+   "R1_prod_nu4_p7_q2_033",
+   "R1_prod_nu4_p7_q2_034",
+   "R1_prod_nu4_p7_q2_035",
+   "R1_prod_nu4_p7_q2_036",
+   "R1_prod_nu4_p7_q2_037",
+   "R1_prod_nu4_p7_q2_038",
+   "R1_prod_nu4_p7_q2_039"
+  ]
+ },
+ "start_time": "2026-09-25 17:13:42 IST",
+ "argv": [
+  "/Users/ruhaanrajadhyaksha/projects/grok/heracles-emp/core/train.py",
+  "/Users/ruhaanrajadhyaksha/projects/grok/heracles-emp/experiments/E0_tuning/configs/R1_prod_nu4_p7_q2_b03.json"
+ ],
+ "end_time": "2026-09-25 17:15:53 IST",
+ "wall_seconds_batch": 131.40410494804382
+}

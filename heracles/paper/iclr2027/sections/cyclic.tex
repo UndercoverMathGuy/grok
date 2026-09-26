@@ -1,0 +1,116 @@
+\section{Modular addition}\label{sec:cyclic}
+
+% FIGURE (suggested): normalized margin over training vs the class value of Theorem 4.4, and the
+% ladder K^{-s} M_K against K for s = 1, 3/2, 2, 5/2 at p = 113.
+
+\paragraph{Interference at the feature's own frequency.}
+A product neuron builds $\cos(2\pi j(a_1+\dots+a_n-c)/p)$ by multiplying one cosine per operand, and the product-to-sum formulas also produce \emph{sign-flipped} copies: for $n=2$, $\cos\frac{2\pi ja}p\cos\frac{2\pi jb}p=\frac12\cos\frac{2\pi j(a+b)}p+\frac12\cos\frac{2\pi j(a-b)}p$, with the second term being interference. In general, for each non-empty $T\subseteq[n]$ the neuron carries the cosine of $2\pi j(\sum_{t\notin T}a_t-\sum_{t\in T}a_t-c)/p$, interference at the feature's own frequency. We measure it by $\beta_{j,T}:=2p^{-(n+1)}\hat f_\theta(k_1,\dots,k_n;-j)$ with $k_t=-j$ for $t\in T$ and $k_t=j$ otherwise, so $\beta_{j,\emptyset}=\beta_j$ and $\beta_{j,T}=\sum_i\beta_{ij,T}$. These copies appear in the analytic solutions of \citet[Eqs.~10--11]{gromov2023grokking}, which cancel them approximately through random phases with exact cancelling constructions seen in \citet[App.~F.2]{morwani2024feature} and \citet[App.~E]{li2025nsum}.
+
+\begin{definition}[interference-free network]\label{def:if}
+A network is \emph{interference-free} if $\beta_{j,T}=0$ for every $j\in\Fp$ and every non-empty $T\subseteq[n]$.
+\end{definition}
+
+The presence of interference is seen in the network's logit table: neurons may carry several frequencies and interference, which may cancel in the sum. Interference at other modes is unrestricted and costs the model per $C_b$. Lemma~\ref{lem:avg} removes this interference by averaging. We treat general $n$ and price it (Lemma~\ref{lem:cost})- for one neuron the copies are rigidly tied to the feature.
+
+\begin{lemma}[]\label{lem:sign}
+For product and power neurons, for each neuron $i$ and frequency $j$ there are unit complex numbers $\xi_{i1j},\dots,\xi_{inj}$ with $\beta_{ij,T}=\beta_{ij}\prod_{t\in T}\xi_{itj}$ for every $T\subseteq[n]$. (Proof: Appendix~\ref{app:models}.)
+\end{lemma}
+
+The lemma is Hermitian symmetry of the weights' Fourier transform (cf.\ \citealp[Eq.~11]{gromov2023grokking}). Hence, a single neuron is never interference-free at a frequency it uses, and several neurons must cancel each other's copies. Relabel the neurons with $\beta_{ij}\neq0$ as $l=1,\dots,N$, with unit factors $\xi_{lt}$ and total $\beta=\beta_j$. The network is interference-free at $j$ exactly when
+\begin{equation}
+  \sum_{l=1}^N\beta_l\prod_{t\in T}\xi_{lt}\;=\;\beta\,[T=\emptyset]\qquad\text{for every }T\subseteq[n],
+  \label{eq:JF}
+\end{equation}
+
+\begin{lemma}[]\label{lem:cost}
+Let $\nu=n+1$, $|\xi_{lt}|=1$, and let $\beta_1,\dots,\beta_N$ satisfy \eqref{eq:JF}. Then for every $r\in(0,1]$, $\ \sum_l|\beta_l|^r\ge\nu^{1-r}|\beta|^r$. If $\beta=0$, equality holds exactly when all $\beta_l=0$. If $\beta\neq0$ and $r<1$, equality holds if and only if exactly $\nu$ of the $\beta_l$ are non-zero, all of modulus $|\beta|/\nu$, with pairwise orthogonal chain vectors $m_l:=(1,\xi_{l1},\xi_{l1}\xi_{l2},\dots,\xi_{l1}\cdots\xi_{ln})\in\sC^\nu$.
+\end{lemma}
+
+A non-zero clean feature requires at least $\nu$ contributing neurons; for $r<1$, its least cost is attained by exactly $\nu$ equal-magnitude contributions, and more neurons never make it cheaper; the cancellation costs a factor $\nu^{1-r}$ over a single (interfering) neuron. At $r=1$ the inequality is the triangle inequality, which is why the neuron count is pinned only for $b<\nu$.
+
+\begin{proof}[Informal Proof (Appendix~\ref{app:cost})]
+For $\beta\neq0$, the matrix $H=\sum_l\beta_lm_lm_l^*$ has below-diagonal entries equal to twisted sums of \eqref{eq:JF} over intervals of operands, hence zero, and diagonal $\beta$; so $\det(I+tH/\beta)=(1+t)^\nu$. Expanding the determinant over subsets of neurons and bounding Gram determinants by one (Hadamard) gives $\prod_l(1+x_lt)\ge(1+t)^\nu$ with $x_l=\nu|\beta_l|/|\beta|$, and integrating the logarithm against $t^{-1-r}dt$ gives $\sum_lx_l^r\ge\nu$.
+\end{proof}
+Given Lemma~\ref{lem:chain}, the inequality also follows from the concave trace inequality of Rotfel'd \citep{thompson1976convex} with AM--GM on singular values; our route additionally characterizes equality. For $\nu=3$ the equality configuration is the three-node cube-root-of-unity solution of \citet{tian2025composing}.
+
+\begin{theorem}\label{thm:cyclic}
+Consider product networks with $n$ operands ($\nu=n+1$), let $2\le b\le\nu$, $s=\nu/b$, and let $y^*$ maximize $\Gamma_s(p)$. For width $m\ge\nu|\spt(y^*)|$, the maximum $L_{2,b}$-margin over interference-free networks on $D_p$ is
+\[
+\gamma^*_{b,\mathrm{IF}}=\nu^{-(\nu-b)/b}\,B_p\,\Gamma_{\nu/b}(p).
+\]
+For $b<\nu$, any interference-free network achieving it satisfies:
+\begin{enumerate}
+  \item its amplitudes are proportional to a maximizer $y^\star$ of \eqref{eq:programme}, so it uses exactly $|\spt(y^\star)|$ frequencies;
+  \item every frequency it uses is carried by exactly $\nu$ neurons, with $|\beta_{ij}|=A_j/\nu$ and pairwise orthogonal chain vectors; no neuron carries an unused frequency.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Informal Proof (Appendix~\ref{app:thm})]
+By Lemmas~\ref{lem:sign} and~\ref{lem:cost}, $\sum_i|\beta_{ij}|^r\ge\nu^{1-r}A_j^r$ at each $j$ ($r=b/\nu$); summing and applying the single-neuron budget gives $\nu^{1-r}\sum_jA_j^r\le C_b\|\theta\|_{2,b}^b$, and Proposition~\ref{prop:coverage} gives the bound. Attainment is Proposition~\ref{prop:block}. At equality, Proposition~\ref{prop:coverage} is tight (condition 1) and Lemma~\ref{lem:cost} is tight at each frequency (condition 2).
+\end{proof}
+
+The class value is the universal bound divided by $\nu^{(\nu-b)/b}$ ($\sqrt3$, $4$, $5^{3/2}$ at $\nu=3,4,5$ under $L_2$ weight decay; $1$ at $b=\nu$): the price of splitting each feature over $\nu$ neurons. 
+
+\begin{proposition}[]\label{prop:block}
+For $j\in\Fp$, $\lambda>0$ and $\alpha_l=\pi l/\nu$ ($l=0,\dots,n$), the $\nu$ product neurons $u^{(l)}_t(a)=\lambda\cos(2\pi ja/p+\alpha_l)$, $w^{(l)}(c)=\lambda\cos(2\pi jc/p+n\alpha_l)$ have total logit table $\nu\lambda^\nu2^{-n}\cos(2\pi j(a_1+\dots+a_n-c)/p)$ and $\|\omega^{(l)}\|_2^2=\nu\lambda^2p/2$. One block per $j\in\spt(y^*)$, with $\lambda_j^\nu=2^ny^*_j/\nu$, attains Theorem~\ref{thm:cyclic}. 
+
+Proof: Appendix~\ref{app:block}.
+\end{proposition}
+
+The doubled phases $e^{2i\alpha_l}$ are the $\nu$\textsuperscript{th} roots of unity, the equality case of Lemma~\ref{lem:cost}: summed over the block, they cancel every sign-flipped copy. The block identity is the equally spaced case of the separated expansion of \citet[Thm.~2]{mohlenkamp2005trig}; the same cancellation appears as a sufficient construction in \citet[Lemma~B.8]{marchetti2026sequential} and, for $\nu=3$, as the three-node solution of \citet{tian2025composing} and a full-diversification configuration of \citet[Sec.~4]{he2026mechanism}. New here are the weights $\lambda_j^\nu\propto y^*_j$, attainment of the class value, and optimality (Lemma~\ref{lem:cost}). The weights $\lambda_j^\nu\propto y^*_j$ matter, since optimal shares are not equal.
+
+\paragraph{Logarithmic scaling.} The programme also fixes how the optimum scales with the prime.
+
+\begin{theorem}[logarithmic scaling]\label{thm:scaling}
+Fix $s>1$ and let $a_s:=3+s/2$. For every odd prime $p$,
+\[
+\tfrac12\lceil8\ln p\rceil^{1-s}\ \le\ \Gamma_s(p)\ \le\ \tfrac32(2a_s)^s(\ln p)^{1-s}.
+\]
+Consequently, for product networks with $2\le b<\nu$, write $\gamma^*_{b,m}(p)$ for the maximum $L_{2,b}$-margin at width $m$, with interference allowed. Uniformly over $m\ge\nu\lceil8\ln p\rceil$,
+\[
+\gamma^*_{b,m}(p)=\Theta_{\nu,b}\big(p^{-\nu/2}(\ln p)^{1-\nu/b}\big).
+\]
+(Proof: Appendix~\ref{app:scaling}.)
+\end{theorem}
+
+\begin{theorem}[logarithmic number of features]\label{thm:count}
+Fix $s>1$ and let $a_s:=3+s/2$. For every odd prime $p$, every maximizer of \eqref{eq:programme} uses $\Theta(\log p)$ frequencies: between $\ln p/\big(8a_s^2(3\cdot9^{s-1})^{1/s}\big)$ and $9\cdot4^{1/(s-1)}\ln p$ of them, and it spends a share of at least $4^{-1/(s-1)}/(9\ln p)$ of its budget on each. (Proof: Appendix~\ref{app:scaling}.)
+\end{theorem}
+
+\begin{table}[h!]
+\centering
+\caption{$\Kstar(\nu/b,p)$ under $L_2$ weight decay ($b=2$), best found, not certified: supports are enumerated exhaustively for $K\le8,7,5$ at $p=59,71,113$ and by local search above, with the amplitudes optimized on the leading supports.}
+\label{tab:kstar}
+\begin{tabular}{lccc}
+\toprule
+$p$ & $\nu=3$ ($s=3/2$) & $\nu=4$ ($s=2$) & $\nu=5$ ($s=5/2$)\\
+\midrule
+59 & 5 & 4 & 3\\
+71 & 5 & 4 & 3\\
+113 & 7 & 4 & 4\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The network rate in Theorem~\ref{thm:scaling} does not require the global margin maximizer to be interference-free (Appendix~\ref{app:conjecture}). The universal upper bound and a block construction using at most $\nu\lceil8\ln p\rceil$ neurons give the same dependence on $p$, with constants depending only on $\nu,b$. When the width is sufficient to realize a programme maximizer, the comparison becomes 
+
+$\nu^{1-s}B_p\Gamma_s(p)\le\gamma^*_{b,m}(p)\le B_p\Gamma_s(p)$ 
+
+With equal shares, $\min_{\delta\ne0}\sum_{j\in S}\cov{j}{\delta}$ is $|S|$ minus half the second eigenvalue of $\mathrm{Cay}(\sZ_p,\pm S)$, so the unweighted analogue of Theorem~\ref{thm:count} is the classical fact that abelian Cayley graphs need, and admit, $\Theta(\log p)$ generators for a constant spectral gap \citep[Sec.~3]{alon1994random}; for fixed $K$ see \citet{friedman2006spectral}, and for arbitrary weights \citet{wang2025positive}. Empirically, trained networks' frequency counts grow logarithmically, and $O(\log p)$ random frequencies suffice for an unnormalized margin \citep{mccracken2025}. New here are the two-sided bound under the concave budget, the support bound with its share floor, and the network rate. Even with interference, a near-optimal network must use sufficiently many features:
+
+\begin{corollary}[]\label{cor:few}
+Let $2\le b<\nu$, $s=\nu/b>1$, $a_s=3+s/2$, and $K\ge1$. Let $\theta\neq0$ be any network (product or power, any width, interference allowed) whose amplitudes $A_j$ are non-zero on at most $K$ frequencies, and let $x:=\ln p/K$. Then
+\[
+\frac{h(\theta)}{\|\theta\|_{2,b}^\nu}\ \le\ C_b^{\nu/b}\cdot\tfrac32\Big(\frac{x}{e^{x/(2a_s)}-1}\Big)^{s}(\ln p)^{1-s}.
+\]
+For fixed $\nu,b$, product networks with $K=o(\log p)$ therefore attain a vanishing fraction of $\gamma^*_{b,m}(p)$ at any comparison width $m\ge\nu\lceil8\ln p\rceil$. (Proof: Appendix~\ref{app:scaling}.)
+\end{corollary}
+
+At the level of the programme this is classical: the qualitative equal-share analogue is that abelian Cayley graphs with $o(\log n)$ generators do not expand \citep[Prop.~3]{alon1994random}; fixed $K$ with arbitrary weights gives simultaneous Dirichlet approximation \citep{schmidt1980diophantine}, with the sharper decay $p^{-2/K}$; and for $K=o(\log p)$ under the $\ell_{1/s}$ budget a pigeonhole argument with frequency-dependent radii (Minkowski's linear-forms theorem; \citealp{cassels1959introduction}) gives the same conclusion. The contribution is the transfer to network margins through Lemma~\ref{lem:phase} and Theorem~\ref{thm:universal}.
+
+\paragraph{How many features.} Under $L_2$ weight decay the count falls as the degree rises and grows only slowly with $p$ (Table~\ref{tab:kstar}). The dense network of Corollary~\ref{cor:dense} reaches $0.49$--$0.60$ of the interference-free optimum at $\nu=3$, $0.15$--$0.23$ at $\nu=4$ and $0.04$--$0.08$ at $\nu=5$: the preference for few features sharpens with each step in degree. Whether a network carrying interference can beat the class value is an open conjecture (Appendix~\ref{app:conjecture}), however, empirically trained networks do carry interference, quantitatively measured by  Section~\ref{sec:experiments}.
+
+\paragraph{How the count grows with $p$.}
+By Theorem~\ref{thm:count}, for fixed $2\le b<\nu$ every programme maximizer uses $\Theta(\log p)$ frequencies, and by Theorem~\ref{thm:scaling} the same bounds determine the order of the unrestricted maximum margin. 
+
+The theorem also shows how narrow the dense regime is. By Corollary~\ref{cor:dense} every frequency is used at $b=\nu$. By the share floor $4^{-1/(s-1)}/\lceil8\ln p\rceil$ derived in the proof of Theorem~\ref{thm:count} (Appendix~\ref{app:scaling}), however, for $(p-1)/2>\lceil8\ln p\rceil$ (that is, $p\ge73$), a programme maximizer can use all $\frac{p-1}2$ frequencies only if $s-1\le\ln4/\ln\big(\frac{p-1}{2\lceil8\ln p\rceil}\big)$, which is $O(1/\log p)$; this envelope is loose. So the range of $b$ below $\nu$ on which the programme optimum stays dense shrinks as $p$ grows. Computed exactly, the optimum is dense up to $s=1.548$, $1.345$, $1.285$, $1.217$, $1.194$ and $1.160$ at $p=7$, $11$, $13$, $17$, $19$ and $23$.

@@ -1,0 +1,9 @@
+\section{Preliminaries}\label{sec:prelim}
+
+We consider one-hidden-layer networks with homogeneous neurons and no biases, $f(\theta,x)=\sum_{i=1}^m\phi(\omega_i,x)$ with $\theta=\{\omega_1,\dots,\omega_m\}$, where $\phi(\lambda\omega,x)=\lambda^\nu\phi(\omega,x)$ for all $\lambda>0$; $\nu$ is the \emph{homogeneity degree}. For the networks below, a neuron is $\omega_i=(u_{i1},\dots,u_{in},w_i)\in(\sR^p)^{n+1}$, and $\|\omega_i\|_2$ is the Euclidean norm of the stacked vector.
+
+The $L_{2,b}$ norm is $\|\theta\|_{2,b}=\big(\sum_i\|\omega_i\|_2^b\big)^{1/b}$: an $\ell_2$ norm within each neuron and an $\ell_b$ norm across neurons, as in \citet{morwani2024feature}. 
+
+\paragraph{Modular addition} For a prime $p>2$ and $n\ge1$ operands, the dataset is $D_p:=\{((a_1,\dots,a_n),\,a_1+\dots+a_n\bmod p):a_1,\dots,a_n\in\sZ_p\}$; for an input $x$, $y(x)$ is its label, and $f(\theta,x)[c]$ is the logit of candidate $c\in\sZ_p$. Inputs are one-hot, so the embedding vector $u\in\R^p$ acts on operand $a$ as $u(a)$. The \emph{product neuron} is $\phi(\omega_i,x)[c]=w_i(c)\prod_{t=1}^{n}u_{it}(a_t)$ and the \emph{power neuron} is $\phi(\omega_i,x)[c]=w_i(c)\big(\sum_{t=1}^{n}u_{it}(a_t)\big)^n$, both with $\nu=n+1$. 
+
+\paragraph{Fourier transform.} For $v:\sZ_p\to\sC$, $\hat v(j):=\sum_kv(k)\rho^{-jk}$ with $\rho:=e^{2\pi i/p}$. For real $v$, $\hat v(-j)=\overline{\hat v(j)}$, so the distinct non-zero frequencies are $\Fp:=\{1,\dots,\frac{p-1}2\}$. The multidimensional transform of the logit table is $\hat f_\theta(k_1,\dots,k_n;l):=\sum_{x,c}f(\theta,x)[c]\,\rho^{-(k_1a_1+\dots+k_na_n+lc)}$; for a product neuron it factorizes as $\hat w_i(l)\prod_{t=1}^{n}\hat u_{it}(k_t)$.

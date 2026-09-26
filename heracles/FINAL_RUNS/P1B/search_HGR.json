@@ -1,0 +1,99 @@
+{
+ "H": [
+  {
+   "n": 1,
+   "N": 2,
+   "max_dev_from_2mn": 0.0,
+   "cost_over_target_r2over3": 1.0,
+   "best_top_np1_product": 0.25,
+   "block_product": 0.25,
+   "P1prod_holds": true
+  },
+  {
+   "n": 2,
+   "N": 4,
+   "max_dev_from_2mn": 0.0,
+   "cost_over_target_r2over3": 1.1006424162982091,
+   "best_top_np1_product": 0.015625,
+   "block_product": 0.037037037037037035,
+   "P1prod_holds": false
+  },
+  {
+   "n": 3,
+   "N": 8,
+   "max_dev_from_2mn": 0.0,
+   "cost_over_target_r2over3": 1.2599210498948732,
+   "best_top_np1_product": 0.000244140625,
+   "block_product": 0.00390625,
+   "P1prod_holds": false
+  },
+  {
+   "n": 4,
+   "N": 16,
+   "max_dev_from_2mn": 0.0,
+   "cost_over_target_r2over3": 1.4736125994561549,
+   "best_top_np1_product": 9.5367431640625e-07,
+   "block_product": 0.00032,
+   "P1prod_holds": false
+  },
+  {
+   "n": 5,
+   "N": 32,
+   "max_dev_from_2mn": 0.0,
+   "cost_over_target_r2over3": 1.7471609294725978,
+   "best_top_np1_product": 9.313225746154785e-10,
+   "block_product": 2.143347050754458e-05,
+   "P1prod_holds": false
+  }
+ ],
+ "G": [
+  {
+   "n": 5,
+   "q": 2.0,
+   "r": 0.3333333333333333,
+   "window": [
+    0.004437,
+    0.01754
+   ],
+   "samples": 3000,
+   "in_window": 144,
+   "worst_ratio_in_window": 1.4072414613531494,
+   "worst_E": 0.004685783071093195,
+   "worst_ratio_overall": 1.4072414613531494
+  },
+  {
+   "n": 3,
+   "q": 3.0,
+   "r": 0.75,
+   "window": [
+    0.0001928,
+    0.007111
+   ],
+   "samples": 3000,
+   "in_window": 454,
+   "worst_ratio_in_window": 1.0020395939641151,
+   "worst_E": 0.0002751229702383272,
+   "worst_ratio_overall": 1.0020395939641151
+  },
+  {
+   "n": 4,
+   "q": 3.0,
+   "r": 0.6,
+   "window": [
+    0.0006965,
+    0.03703
+   ],
+   "samples": 3000,
+   "in_window": 698,
+   "worst_ratio_in_window": 1.029126743778843,
+   "worst_E": 0.0017148846489115966,
+   "worst_ratio_overall": 1.029126743778843
+  }
+ ],
+ "R": {
+  "trials": 15000,
+  "r": 0.6666666666666666,
+  "min_ratio_multiaffine": 1.03436910169289,
+  "min_ratio_free_third_row": 0.9252223617449987
+ }
+}

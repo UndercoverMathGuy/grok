@@ -1,0 +1,109 @@
+{
+ "p": 23,
+ "h": 11,
+ "enum_version": "vertex-enum-v1",
+ "tolerances": {
+  "TOL_POS": 1e-10,
+  "TOL_FEAS": 1e-09,
+  "TOL_TIGHT": 1e-07,
+  "TOL_FINAL": 1e-11,
+  "TOL_RANK": 1e-10,
+  "ROUND_DIGITS": 9
+ },
+ "n_orbit_reps": 451,
+ "n_vertices": 4951,
+ "npz_sha256": "ac57a6c09d4c852c82bc2ee644153ee0a7390136fcd95facbb9ac4c03cc4af89",
+ "programme_py_sha256": "94309426a85f87fe925482a7ba19fe473e0494fac8e298b89c27035c5ecb53b2",
+ "stats": {
+  "p": 23,
+  "h": 11,
+  "n_supports": 187,
+  "per_K": {
+   "1": {
+    "n_supports": 1,
+    "n_T": 11,
+    "n_solved": 11,
+    "n_candidates": 1,
+    "seconds": 0.00019311904907226562
+   },
+   "2": {
+    "n_supports": 5,
+    "n_T": 55,
+    "n_solved": 275,
+    "n_candidates": 8,
+    "seconds": 0.00017213821411132812
+   },
+   "3": {
+    "n_supports": 15,
+    "n_T": 165,
+    "n_solved": 2475,
+    "n_candidates": 32,
+    "seconds": 0.0007488727569580078
+   },
+   "4": {
+    "n_supports": 30,
+    "n_T": 330,
+    "n_solved": 9900,
+    "n_candidates": 70,
+    "seconds": 0.0033233165740966797
+   },
+   "5": {
+    "n_supports": 42,
+    "n_T": 462,
+    "n_solved": 19404,
+    "n_candidates": 114,
+    "seconds": 0.008281946182250977
+   },
+   "6": {
+    "n_supports": 42,
+    "n_T": 462,
+    "n_solved": 19404,
+    "n_candidates": 114,
+    "seconds": 0.01132512092590332
+   },
+   "7": {
+    "n_supports": 30,
+    "n_T": 330,
+    "n_solved": 9900,
+    "n_candidates": 70,
+    "seconds": 0.0062291622161865234
+   },
+   "8": {
+    "n_supports": 15,
+    "n_T": 165,
+    "n_solved": 2475,
+    "n_candidates": 32,
+    "seconds": 0.0017638206481933594
+   },
+   "9": {
+    "n_supports": 5,
+    "n_T": 55,
+    "n_solved": 275,
+    "n_candidates": 8,
+    "seconds": 0.0003209114074707031
+   },
+   "10": {
+    "n_supports": 1,
+    "n_T": 11,
+    "n_solved": 11,
+    "n_candidates": 1,
+    "seconds": 8.177757263183594e-05
+   },
+   "11": {
+    "n_supports": 1,
+    "n_T": 1,
+    "n_solved": 1,
+    "n_candidates": 1,
+    "seconds": 6.508827209472656e-05
+   }
+  },
+  "n_candidates_total": 451,
+  "n_rejected_in_refinement": 0,
+  "n_vertices_raw": 451,
+  "seconds_refine": 0.017451047897338867,
+  "seconds_total": 0.050219058990478516,
+  "seconds_orbits": 0.0423891544342041
+ },
+ "seconds_wall": 0.09441494941711426,
+ "created": "2026-09-25 16:45:24 IST"
+}

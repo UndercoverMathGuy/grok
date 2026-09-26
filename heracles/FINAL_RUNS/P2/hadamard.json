@@ -1,0 +1,9 @@
+{
+ "hadamard_n1": 0.9999999991947285,
+ "hadamard_n2": 0.9991756977985359,
+ "hadamard_n3": 0.9974444942515823,
+ "hadamard_n4": 0.9145056085418105,
+ "m_slot_identity_err": 3.3335590258932494e-16,
+ "m_pair_identity_err": 3.608224830031759e-16,
+ "misaligned_min_eta": 1.022407600846405
+}

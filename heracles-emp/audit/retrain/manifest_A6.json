@@ -1,0 +1,17 @@
+{
+ "tag": "A6",
+ "runs": {
+  "E6_marg_seed108_audit": {
+   "config.json": "01558de3c10112e993f324e72a31e15239a9cb608537412678c538ac8084b043",
+   "final.pt": "181ec6b5b0dc5bf0d88049fffbe4a643745b4abe60866c943bd687e9c227bc46",
+   "log.csv": "36ae6f16a525a216b3da51a06a0b9ed84cb3a1989440bc69d022614aa523e3df",
+   "metrics.json": "33a5b0c50453da4ad2cb0e0982d5f4bfb1ca7bc063f00bb84f57ac22eec862ee"
+  },
+  "E6_marg_seed114_audit": {
+   "config.json": "0cd7a737ad0d46b367e5a925d00a9dbd5983a3570aa45f93fdf9532316073851",
+   "final.pt": "8a74d28e8376db351b8cff4e328812202e51c26a478c339704d080c865a444dc",
+   "log.csv": "5542749f3b25d36c59809acf87a1067565c65689defe1277937cec3008d43b51",
+   "metrics.json": "2291925ab86795c457d4e1e6791e5643d9fc521e7faeb516e313d06e4d37795c"
+  }
+ }
+}

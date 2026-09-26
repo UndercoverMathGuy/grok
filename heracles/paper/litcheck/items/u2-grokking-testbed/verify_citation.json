@@ -1,0 +1,8 @@
+{
+  "task": 90,
+  "item_id": "U2-grokking-testbed",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "CITATION_FOUND",
+  "issues": "None blocking. All 4 recommended citations were fetched and verified (arXiv abs pages, plus PDF text for Power and Gromov). Power: division mod 97, binary-operation tables, p=97 (App A.1.1); arXiv only; bib OK. Gromov: Sec 3.1 Claim I, Eqs (6)-(7), quadratic-activation net (Eq 4), random phases with constraint (12); caveat: MSE loss, mean-field parametrization, a construction rather than a max-margin solution; arXiv only; bib OK. Liu 2022: NeurIPS 2022 confirmed by arXiv journal-ref and Semantic Scholar DBLP key conf/nips/LiuKNMTW22. Zhong 2023: NeurIPS 2023 from arXiv journal-ref only; the proceedings page could not be reached (dblp blocked, OpenReview bot-check, S2 429, WebSearch budget 200/200 exhausted for the session). Minor: the checker's 'k=0..(p-1)/2' is not how Claim I states it (k is the neuron index, frequency k/p). Framing note: no section mentions grokking at all, so the 'testbed for grokking' sentence adds framing the current intro avoids. That is the authors' call."
+}

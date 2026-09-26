@@ -1,0 +1,41 @@
+{
+ "item": {
+  "id": "R32-relu-endpoint",
+  "kind": "our_result",
+  "location": "appendix app:models ReLU",
+  "statement": "Weight decay on ReLU one-hidden-layer network (nu=2) is the b=nu endpoint; universal bound's maximizer is flat",
+  "what_to_check": "Morwani ReLU treatment, Gromov, McCracken ReLU dense observations"
+ },
+ "chk": {
+  "id": "R32-relu-endpoint",
+  "verdict": "PARTIALLY_KNOWN",
+  "evidence": "Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r32-relu-endpoint/CHECK.md.\n\nThe empirical side is known. The formal ReLU budget bound (C_2 <= p^{-n}/2, from the 1-Lipschitz variance bound) was not found anywhere.\n\n(1) Morwani et al., ICLR 2024, arXiv 2311.07568 (full PDF read):\n- Sec 2 defines the homogeneity constant nu, and Thm 2's neuron-combining step needs b = nu. ReLU with plain L2 is therefore nu = b = 2 by their own definitions, a trivial specialisation.\n- All their theory uses x^2 / x^k activations. Conclusion: \"Our proof holds for the case of x2 activations ... and L2,nu norm ... Empirical findings suggest that the results may be transferable to other architectures and norms.\"\n- ReLU appears only in experiments. App. C, Fig 7(a): \"Final distribution of the neurons corresponding to a particular frequency in (a) ReLU network trained with L2 regularization ... the final distribution across frequencies is close to uniform.\"\n- Fig 4(b): ReLU + L2 neurons are \"nearly 1-sparse in frequency space but not quite.\"\n\n(2) Gromov, arXiv 2301.02679 (full PDF read):\n- The analytic solution uses the whole frequency set k = 0..(p-1)/2 with random phases, built for quadratic activation.\n- \"The weights (6)-(7) also work for other activation functions, including ReLU ... We do not have an analytic proof of this fact.\"\n- There is no regularisation, norm or margin.\n\n(3) McCracken et al., arXiv 2505.18266, Sec 4.4 (HTML): \"Previous work shows floor(n/2) types of neurons are found, each specializing to a sinusoid with one frequency with 1 hidden layer\" (citing Gromov and Morwani). Depth or trainable embeddings cut this to far fewer frequencies. Empirical only.\n\n(4) He, Wang, Chen, Yang, arXiv 2602.16849 (HTML):\n- ReLU experiments, x^2 theory.\n- Observation 3 (Sec 3.1): \"every frequency k is represented among the neurons\" (empirical). Def 4.1: full diversification.\n- No ReLU margin theorem.\n\n(5) Memana, arXiv 2608.04451: ReLU single-neuron dynamics counterexample. Not overlapping.\n\nSearches run:\n- \"ReLU network modular addition max margin all frequencies weight decay theorem one hidden layer\"\n- \"\\\"modular addition\\\" ReLU \\\"maximum margin\\\" ... dense uniform theory 2025 2026\"\n- \"two-layer ReLU network modular addition weight decay provably Fourier features all frequencies theorem\"\n\nNo paper bounds the per-neuron budget of a ReLU neuron, or connects L2 + ReLU to the flat maximiser of a frequency-budget programme. The paper's own caveat (the bound is not attained, and there is no theorem about the network) is appropriate. Var(sigma(X)) <= Var(X) is standard and needs no citation.",
+  "recommended_citations": [
+   {
+    "key": "morwani2024feature",
+    "bibtex": "@inproceedings{morwani2024feature,\n title={Feature emergence via margin maximization: case studies in algebraic tasks},\n author={Morwani, Depen and Edelman, Benjamin L. and Oncescu, Costin-Andrei and Zhao, Rosie and Kakade, Sham},\n booktitle={International Conference on Learning Representations},\n year={2024}\n}",
+    "url": "https://arxiv.org/abs/2311.07568",
+    "confirmed": true,
+    "why": "App. C Fig. 7(a): ReLU+L2 networks spread neurons close to uniformly over all frequencies (empirical precedent for the flat b=nu endpoint); Fig. 4(b): ReLU neurons nearly but not exactly single-frequency (supports not claiming the sign lemma for ReLU). Already in refs.bib."
+   },
+   {
+    "key": "gromov2023grokking",
+    "bibtex": "@article{gromov2023grokking,\n title={Grokking modular arithmetic},\n author={Gromov, Andrey},\n journal={arXiv preprint arXiv:2301.02679},\n year={2023}\n}",
+    "url": "https://arxiv.org/abs/2301.02679",
+    "confirmed": true,
+    "why": "All-frequency analytic solution that also works with ReLU (App. B, 'We do not have an analytic proof'); no norm/margin. Dense precedent for the ReLU sentence. Already in refs.bib."
+   },
+   {
+    "key": "he2026mechanism",
+    "bibtex": "@article{he2026mechanism,\n title={On the Mechanism and Dynamics of Modular Addition: Fourier Features, Lottery Ticket, and Grokking},\n author={He, Jianliang and Wang, Leda and Chen, Siyu and Yang, Zhuoran},\n journal={arXiv preprint arXiv:2602.16849},\n year={2026}\n}",
+    "url": "https://arxiv.org/abs/2602.16849",
+    "confirmed": true,
+    "why": "Observation 3 (Sec 3.1): trained ReLU two-layer nets represent every frequency; Def 4.1 full diversification. Empirical density for ReLU; no margin theorem. Add to refs.bib if not already present under another key."
+   }
+  ],
+  "recommended_change": "appendix.tex:283, ReLU paragraph. After \"weight decay on this degree-2 network \\emph{is} the $b=\\nu$ endpoint.\", insert: \"This matches what is observed: ReLU networks trained with $L_2$ regularization spread their neurons nearly uniformly over all frequencies \\citep[App.~C, Fig.~7a]{morwani2024feature}; see also \\citet{gromov2023grokking} and \\citet[Obs.~3]{he2026mechanism}. Their neurons are close to, but not exactly, single-frequency \\citep[Fig.~4b]{morwani2024feature}.\" Keep the existing caveat sentence. Do not claim novelty for \"ReLU+L2 is the b=nu case\": it follows directly from Morwani's homogeneity setup. What is new is only the budget constant C_2 <= p^{-n}/2 and the fact that it feeds into Thm universal."
+ },
+ "lens": "novelty_ml",
+ "slug": "r32-relu-endpoint",
+ "task": 35
+}

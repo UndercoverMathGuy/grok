@@ -1,0 +1,25 @@
+{
+  "quadrature": {
+    "polynomials": 200,
+    "minimum_integral_over_bound": 1.000059732127271,
+    "equality_checks": 2
+  },
+  "atoms": {
+    "populations": 500,
+    "positive_aimed_output": 278,
+    "cost_minus_tool": 0.003826148704275001,
+    "theorem_ratio": 1.0183635988657305,
+    "D1_slack": 0.0016409252210576666,
+    "D2_slack": 0.006121908013961903
+  },
+  "networks": {
+    "full_table_networks": 24,
+    "profile_max_error": 9.947598300641403e-14,
+    "density_max_error": 9.769962616701378e-15,
+    "moment_LPs": 20,
+    "moment_max_error": 5.828670879282072e-16,
+    "single_frequency_block_cells": 6,
+    "block_max_relative_error": 7.216449660063518e-14
+  },
+  "status": "PASS"
+}

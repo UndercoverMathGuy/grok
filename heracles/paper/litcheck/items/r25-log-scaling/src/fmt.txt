@@ -1,0 +1,581 @@
+Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121
+www.elsevier.com/locate/jctb
+Spectral estimates for Abelian Cayley graphs
+Joel Friedmana, b,1, Ram Murtyc,∗,2, Jean-Pierre Tillichd,3
+a Department of Computer Science, University of British Columbia, V ancouver , BC, Canada V6T 1Z4
+bDepartment of Mathematics, University of British Columbia, V ancouver , BC, Canada V6T 1Z2
+cDepartment of Mathematics and Statistics, Queen’s University, Kingston, Ontario, Canada K7L 3N6
+dInria Projet Codes, Domaine de V oluceau BP .105, 78153 France
+Received 31 August 2004
+Available online 30 August 2005
+Abstract
+We give two short proofs that for ﬁxed d,a d-regular Cayley graph on an Abelian group of order
+n has second eigenvalue bounded below by d − O(dn−4/d ), where the implied constant is absolute.
+We estimate the constant in the O(dn−4/d ) notation. We show that for any ﬁxed d, then for a large
+odd prime, n, the O(dn−4/d ) cannot be improved; more precisely, most d-regular graphs on prime n
+vertices have second eigenvalue at most d − /afii9821(dn−4/d ) for an odd prime, n.
+© 2005 Elsevier Inc. All rights reserved.
+Keywords:Abelian Cayley graphs; Eigenvalue bounds
+1. Introduction
+In this paper we give two short, self-contained lower bounds on the second eigenvalue of
+a Cayley graph over an Abelian group of a given degree, d, and given number of vertices,
+n. We shall show that the second eigenvalue is at least d − O(dn−4/d ), and that for all d
+and prime n this result is achieved for most Abelian Cayley graphs. Such speciﬁc results
+on the second eigenvalue of Cayley graphs do not seem to be known, despite the well-
+∗ Corresponding author.
+E-mail addresses: jf@cs.ubc.ca, jf@math.ubc.ca (J. Friedman), murty@mast.queensu.ca (R. Murty),
+jean-pierre.tillich@inria.fr (J.-P . Tillich).
+1 Research supported in part by an NSERC grant.
+2 Research partially supported by an NSERC grant.
+3 Research supported in part by France Telecom.
+0095-8956/$ - see front matter © 2005 Elsevier Inc. All rights reserved.
+doi:10.1016/j.jctb.2005.06.012
+112 J. Friedman et al. / Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121
+known folklore result that Abelian Cayley graphs cannot be good expanders. A result of
+Alon and Roichman, [AR94, Proposition 3, Section 3], shows that second eigenvalue must
+tend to d as n →∞ ; this result proves the folklore result; however, the second eigenvalue
+is not explicitly estimated. The work of Klawe, [Kla81,Kla84], deals with afﬁne linear
+transformations, x ↦→ ai x + bi , of the integers modulo n, where the coefﬁcients of the
+transformation (the ai ,b i ) are ﬁxed independent ofn (the expansion bounds obtained depend
+on the |bi|); thus Klawe’s results do not apply to the subject of this paper.
+Now we shall give precise deﬁnitions below.
+Deﬁnition 1. Let G be a group, and g1,...,g r , ~g1,..., ~gt ∈ G with ~g2
+i = 1 for all i,
+where 1 ∈ G is the identity. We form the (r, t)-Cayley graph, X = Cay(G;{ gi}; {~gi}) =
+Cay(G; g1,...,g r; ~g1,..., ~gt ), as follows. The vertex set of X is G; X has edges (x, gi x)
+and (x, g−1
+i x) for each x ∈ G and i, and an edge (x, ~gi x) for each x ∈ G and i. X is
+therefore a directed graph but may be regarded as an undirected graph; X is d-regular with
+d = 2r + t. X is said to have group G and generators {gi}, {~gi}.
+Let X = Cay(G;{ gi}; {~gi}) be a Cayley graph as in the deﬁnition above. As usual, X has
+an adjacency matrix, A = AX, mapping functions on G to themselves, via
+(AXf )(x) =
+r∑
+i=1
+(
+f( gi x) + f( g−1
+i x)
+)
++
+t∑
+i=1
+f( ~gi x).
+If G is Abelian, then it is well-known that the eigenvectors of AX are the characters, /afii9851,o f
+G, with corresponding eigenvalue
+/afii9838= /afii9838/afii9851=
+r∑
+i=1
+(
+/afii9851(gi ) + /afii9851
+(
+g−1
+i
+))
++
+t∑
+i=1
+/afii9851(~gi ).
+We denote by /afii98382 = /afii98382(X) the second largest eigenvalue of AX, which is equal to
+/afii98382 = max
+/afii9851⁄=1
+/afii9838/afii9851.
+In Section 3 we shall use the Rayleigh quotient characterization of /afii98382, namely that
+/afii98382 = max
+v⊥⃗1
+RA(v),
+where ⃗1 denotes the all 1’s vector, and where
+RB (v) = (Bv, v)
+(v, v) ,
+where (u, w) denotes the inner product of u and w.
+In Section 2 we give a bound based on sphere packing to show that for any ﬁxed d there
+is a constant Cd such that /afii98382 /greaterorequalslantd − Cd dn−4/d for any d-regular Abelian Cayley graph on n
+vertices. Furthermore we can show that
+Cd ≼ 41−cKL e
+/afii9843= 2.015 ...,
+J. Friedman et al. / Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121 113
+where cKL = 0.5990 ... is the constant in the Kabatiansky–Levenshtein sphere packing
+bound, and where we use the notation g(d) ≼h(d) or h(d)□g(d) (as d →∞ ) to mean that
+lim inf
+d→∞
+(
+h(d) − g(d)
+)
+/greaterorequalslant0.
+Admittedly, our use of the Kabatiansky–Levenshtein bound is not self-contained, but there
+is a (trivial) “naive sphere-packing bound” that gives
+Cd ≼ 4e
+/afii9843= 3.4610 ...
+(that we describe in full).
+In Section 3 we give an alternate method (arguably less simple) for bounding /afii98382, which
+gives /afii98382 /greaterorequalslantd − Cd dn−4/d + o(n−4/d ) with
+Cd ≼/afii98432/2 = 4.93480 ... .
+The method is an eigenfunction “pushing” argument, as is done (for different graphs) in
+[FT02].
+We mention that there are other possible approaches to ﬁnding lower bounds for /afii98382 other
+than those given in Sections 2 and 3. Here is a rough description of another approach. In
+expanders, the size of a ball about a vertex grows exponentially with respect to the radius, at
+least until the ball becomes fairly large. But it is not hard to see that balls in Abelian Cayley
+of ﬁxed degree graphs grow only polynomially. This could be made into a /afii98382 lower bound,
+but we do not know if it would be as good as those given in this paper. Another possible
+approach might be based on the fact that an Abelian Cayley graph has a large trace. This
+approach is worked out in detail in [Ci05].
+In Section 4 we show that for any ﬁxed even d and odd prime n we have that most ( d-
+regular) Abelian (d/2, 0)-Cayley graphs on n vertices have /afii98382 ⩽d − C′
+d dn−4/d + o(n−4/d ),
+with
+C′
+d □/afii9843/e /greaterorequalslant1.15572 ... .
+Notice that a(d/2, 0)-Cayley graph onG = (Z/2Z)m will be disconnected (and therefore
+have /afii98382 = d)i ft h ed/2 generators all have the value 0 on one of their m components; hence
+such a random graph has /afii98382 <d with probability no more than
+(
+1 − 2−d/2)m. It follows
+that for ﬁxed even d there are some groups, G, for which most (d/2, 0)-Cayley graphs on
+G have /afii98382 = d. Hence any bound holding for most graphs as that in the previous paragraph
+requires some restriction on n or the types of groups on which the Cayley graphs are based.
+2. Sphere packing bound
+In this section we use a sphere packing argument to bound /afii98382 from below. For this
+purpose, consider an eigenvalue /afii9838/afii9851which corresponds to a character which acts trivially
+114 J. Friedman et al. / Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121
+on the ~gi ’s 4 . We denote by H the subgroup of characters which meet this property. Notice
+that there are at least n′def= n
+2t characters of this kind. For such a character /afii9851we have
+/afii9838/afii9851= t +
+r∑
+i=1
+2 cos(/afii9835i ),
+where ei/afii9835j = /afii9851(gj ).
+Since cos x /greaterorequalslant1 − x2/2, it follows that
+/afii9838/afii9851/greaterorequalslantd −
+r∑
+i=1
+/afii98352
+i . (1)
+This leads us to deﬁne a distance between characters of H as follows. Consider the map
+U : /afii9851↦→
+(
+/afii9851(g1) ,..., /afii9851(gr )
+)
+.
+This maps characters, /afii9851,t o T r , where T is the complex unit circle. For two points, ei/afii9835,e i/afii9840,
+on T, deﬁne their distance, /afii9845, to be the minimum of |/afii9835− /afii9840+ 2/afii9843m| over all integers m.F o r
+two points on T r deﬁne their distance to be the L2 distance, i.e.
+distance
+((
+ei/afii98351 ,...,e i/afii9835r
+)
+,
+(
+ei/afii98401 ,...,e i/afii9840r
+))def=
+/radicaltp/radicalvertex/radicalvertex√
+r∑
+j=1
+/afii98452(
+ei/afii9835j ,e i/afii9840j
+)
+.
+The distance between characters is the distance induced by U, that is
+dist(/afii9851, /afii9851′) = distance(U (/afii9851), U (/afii9851′)).
+Eq. (1) now becomes
+/afii9838/afii9851/greaterorequalslantd − dist2(/afii9851, 1),
+where 1 denotes the trivial character. Notice now that for any /afii9851, /afii9851′∈ H :
+dist(/afii9851, /afii9851′) = dist(/afii9851/afii9851′−1, 1).
+From this we deduce that
+/afii98382 /greaterorequalslantd − min
+(
+dist2(/afii9851, /afii9851′), /afii9851∈ H, /afii9851′∈ H, /afii9851⁄= /afii9851′
+)
+.
+By bringing in /afii9830(k, r), the supremum of the minimum distance of k points of T r (the
+minimum distance of a ﬁnite set of points being deﬁned by the smallest distance between
+two points of the set), we obtain
+/afii98382 /greaterorequalslantd − /afii98302(n′,r) . (2)
+In brief, we have proven the following theorem.
+4 We say that a character /afii9851acts trivially on an element g of the group iff /afii9851(g) = 1.
+J. Friedman et al. / Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121 115
+Theorem 2. Let G be an Abelian Cayley graph on n vertices on r generators and t involu-
+tions. Then
+/afii98382 /greaterorequalslantd − /afii9830
+(n
+2t ,r
+)2
+.
+There is a naive upper bound for /afii9830(which is nothing but a sphere packing bound) which
+follows by arguing that if there are k points which are at least at distance /afii9830of each other
+in T r , then the set of open balls of radius /afii9830/2 centered about these points must be disjoint.
+From this remark we deduce that
+k/afii9853r
+(/afii9830(k, r)
+2
+)r
+⩽(2/afii9843)r ,
+where /afii9853r is the volume of the r-dimensional unit ball of radius 1. Recall that
+/afii9853r = /afii9843r/2//afii9796(r/2 + 1),
+where
+/afii9796(z)def=
+∫ ∞
+0
+tz−1e−t dt.
+This implies that
+/afii9830(k, r) ⩽ 4/afii9843
+(k/afii9853r )
+1
+r
+. (3)
+An even better bound was obtained by Kabatiansky and Levenshtein (see [CS99]) which
+gives that asymptotically (as r tends to inﬁnity)
+/afii9830(k, r) ⩽ 41−cKL /2/afii9843
+(k/afii9853r )
+1
+r
+(1 + o(1)). (4)
+This last upper bound can be used to obtain the following corollary of Theorem 2.
+Corollary 3. F or each even d there is a constantCd such that any Abelian (d/2, 0)-Cayley
+graph on n vertices has
+/afii98382 /greaterorequalslantd − dCd n−4/d .
+Furthermore we may take Cd ≼ 41−cKL /afii9843
+e .
+Proof. By using Theorem 2 with the Kabatiansky–Levenshtein bound we obtain
+/afii98382 /greaterorequalslantd − (4/afii9843)2(1 + o(1))
+(
+2cKL n2/d /afii98532/d
+d/2
+)2 .
+116 J. Friedman et al. / Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121
+Notice now that
+/afii9853−4/d
+d/2 =
+(/afii9796(d/4 + 1)
+/afii9843d/4
+)4/d
+= d
+4e/afii9843(1 + o(1)),
+as d →∞ . This implies that
+/afii98382 /greaterorequalslantd − 4/afii9843
+e4cKL
+dn−4/d (1 + o(1)),
+as d →∞ . □
+Remarks.
+1. Using the sphere packing bound ( 3) instead of the Kabatiansky–Levenshtein bound
+yields the slightly worse lower bound
+/afii98382 /greaterorequalslantd − 4/afii9843
+e dn−4/d (1 + o(1)).
+2. Despite that the sphere packing bound is asymptotically worse than the Kabatianski–
+Levensthein bound, it is sharp when r = 1. In this case the sphere packing-bound gives
+that
+/afii9830(n, 1) ⩽ 2/afii9843
+n
+which implies that in the case d = 2,r = 1,t = 0:
+/afii98382 /greaterorequalslant2 − 4/afii98432
+n2 .
+This bound is tight when n tends to inﬁnity, since in this case the Abelian Cayley
+graph with the lowest /afii98382 is nothing but a single cycle of length n, for which /afii98382 =
+2 − 2 cos(2/afii9843/n).
+3. A covering argument
+The basic idea in this section, that is also used in [FT02], is to take a Dirichlet eigenfunc-
+tion (see [Fri93]), f, of the universal cover of an Abelian Cayley graph, G, and to “push it
+forward” (via the covering map, /afii9843) to a function, /afii9843∗f ,o n G. These notions will be made
+precise below. First we prove a lemma that will be applied to /afii9843∗f to get a /afii98382 bound; a very
+similar lemma appears in [FT02].
+Lemma 4. Let G = (V , E) b ead -regular graph with adjacency matrix A , and let v be
+a vector indexed on the vertices , V. Let /afii9840be the number of vertices where v is not 0; i.e.,
+J. Friedman et al. / Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121 117
+/afii9840is the size of the support of v. Then
+/afii98382 = /afii98382(A)/greaterorequalslantnR(v) − d/afii9840
+n − /afii9840
+(where R(v)def= (Av,v)
+(v,v) denotes the Rayleigh quotient of v).
+Proof. Let e = ⃗1/√n. Then v′= v − (v, e)e is perpendicular to e, and so /afii98382 /greaterorequalslantR(v′).O n
+the other hand we easily see that
+(Av′,v ′) = (Av, v) − (v, e)2d and (v′,v ′) = (v, v) − (v, e)2,
+and so
+R(v′) = (Av, v) − (v, e)2d
+(v, v) − (v, e)2 = (v, v)R(v) − (v, e)2d
+(v, v) − (v, e)2 . (5)
+Since R(v) ⩽d, we see that for ﬁxed positive /afii9825we have
+/afii9825R(v) − /afii9826d
+/afii9825− /afii9826= d + /afii9825
+(
+R(v) − d
+)
+/afii9825− /afii9826
+is decreasing in /afii9826(for 0 < /afii9826< /afii9825). So to bound the rightmost side of Eq. ( 5) (which is the
+case where /afii9825= (v, v) and /afii9826= (v, e)2) it sufﬁces to give an upper bound on (v, e)2. But if
+the support of v is U, and 1 U is the characteristic function of U (i.e., the function that is 1
+on U and 0 elsewhere), then
+(v, e)2 = (v, 1U )2/n ⩽(v, v)(1U , 1U )/n = (v, v)/afii9840/n.
+It follows that
+/afii98382 /greaterorequalslantR(v′) /greaterorequalslant(v, v)R(v) − (v, v)/afii9840d/n
+(v, v) − (v, v)/afii9840/n ,
+which proves the lemma. □
+If H is a normal subgroup of G, we can form Y = Cay(G/H;{ gi}; {~gi}); the natural map
+from G to G/H gives rise to a graph homomorphism 5 /afii9843: X → Y (this /afii9843is a covering map
+in the usual sense, as in [Fri93]). We deﬁne a map, /afii9843∗, from functions on G to functions on
+G/H via
+(/afii9843∗f )(y) =
+∑
+x∈/afii9843−1({y})
+f( x ) .
+Proposition 5. Let /afii9843: X → Y be as above . Let f be a ﬁnitely supported non -negative
+function on the vertices of X such that AXf /greaterorequalslant/afii9838f (at each vertex ) for some /afii9838/greaterorequalslant0. Then
+AY /afii9843∗f /greaterorequalslant/afii9838/afii9843∗f ; hence RAY (/afii9843∗f) /greaterorequalslant/afii9838.
+5 A graph homomorphism is a map from vertices and edges of one graph to another that maps incident vertices
+and edges from the ﬁrst graph to those of the second.
+118 J. Friedman et al. / Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121
+Proof. We easily verify thatAY /afii9843∗ = /afii9843∗AX (this holds for any covering map, /afii9843, of graphs).
+Clearly the inequality AXf /greaterorequalslant/afii9838f is preserved upon applying /afii9843∗, and we can conclude
+AY /afii9843∗f = /afii9843∗AXf /greaterorequalslant/afii9843∗(/afii9838f) = /afii9838/afii9843∗f. □
+Let Z be the integers, and let C = Z/2Z be the cyclic group of order 2. Let U = U( r ,t)
+be the Cayley graph Cay (Guniv, {gi}, {~gi}) where Guniv = Zr × Ct , and g1,...,g r and
+~g1,..., ~gt are 1 in the appropriate component and 0 in all other components. Then any(r, t)-
+Cayley graph, X, over an Abelian group, G, admits a map /afii9843: U → X (via the realization of
+G as a quotient of Guniv/R, where R consists of the “relations satisﬁed by X’s generators”).
+Given an even integer m/greaterorequalslant1 let f be deﬁned on Guniv via
+f( a1,...,a r;~a1,..., ~at )
+=
+{ sin(/afii9843ai /m) ··· sin(/afii9843ar /m) if 1 ⩽ai ⩽m − 1 for all i,
+0 otherwise.
+Clearly f is non-negative and satisﬁes AU f /greaterorequalslant/afii9838f where
+/afii9838= t + 2r cos(/afii9843/m). (6)
+Theorem 6. Let d be a ﬁxed positive integer , and let /afii9839∈[ 0, 1]. Then we have that any
+d-regular Abelian Cayley graph, X, on n vertices has
+/afii98382(X) /greaterorequalslantd − Cd dn−4/d + o(n−4/d )
+with
+Cd ⩽(1 − /afii9839)−1/afii9839−4/d /afii98432/2.
+In particular, as d →∞ we can take
+Cd ≼/afii98432/2.
+Proof. Choose the largest even m with (m − 1)d/2 ⩽n/afii9839. Consider a /afii9843∗f as above. Its
+support is on a set of size
+/afii9840= (m − 1)r 2t ⩽(m − 1)d/2 ⩽n/afii9839,
+provided that m/greaterorequalslant6. Also R(/afii9843∗f) /greaterorequalslantt + 2r cos(/afii9843/m) according to Eq. ( 6). We therefore
+have, using Lemma 4,
+/afii98382 /greaterorequalslantt + 2r cos(/afii9843/m) − /afii9839d
+1 − /afii9839.
+We use the following lower bound for the numerator
+t + 2r cos(/afii9843/m) − /afii9839d /greaterorequalslantd(1 − /afii9839) − r(/afii9843/m)2.
+Furthermore
+r(/afii9843/m)2 ⩽d(/afii98432/2)m−2
+J. Friedman et al. / Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121 119
+and
+m−2 =
+(
+1 + o(1)
+)
+(n/afii9839)−4/d .
+This proves the ﬁrst claim about Cd . The second follows from taking, say, /afii9839= 1/d. □
+4. An upper bound
+It is easy to see that there are graphs with /afii98382 ⩽d − cn−4/d , by considering (Z/mZ)d/2
+and standard generators (that have 0’s in all components except one, in which they have a
+1), in which case /afii98382 = d − 2+ 2 cos(2/afii9843/m). The goal of this section is to prove the stronger
+statement that there are Abelian Cayley graphs for which /afii98382 ⩽d − /afii9821(dn−4/d ).
+Consider random (d/2, 0)-Cayley graphs over Z/nZ, where we assume that n is a prime
+number congruent to 1 modulo 4 (the case of 3 modulo 4 is handled similarly 6 ). Let X
+be the Cayley graph over Z/nZ, with generators g1,g 2,...,g r , where the gi ’s are chosen
+uniformly at random in Z/nZ \{ 0}. The eigenvalues of AX are simply the quantities
+/afii9838u = 2
+r∑
+i=1
+cos 2/afii9843gi u
+n ,
+where u ranges over{0, 1,...,n − 1}. To prove that with high probability the/afii9838u’s for u ⁄= 0
+are bounded away from d = 2r we use straightforward large deviation techniques, that is,
+we use the Markov exponential inequality which states that for any reals t> 0, /afii9830> 0, and
+any u ∈{ 1,...,n − 1} we have
+Prob
+{
+/afii9838u /greaterorequalslantd(1 − /afii9830)
+}
+⩽ E(et/afii9838u
+)
+etd( 1−/afii9830) . (7)
+One reason for using an exponential function in Markov’s inequality is that E(et/afii9838u
+) =
+(g(t)) r , where g(t) = E(e2t cos 2/afii9843g1u
+n ) = 1
+n−1
+∑ n−1
+i=1 e2t cos 2/afii9843i
+n . We bound this function by an
+integral as follows
+g(t) = 1
+n − 1
+⎡
+⎢⎣
+n−1
+4∑
+i=1
+e2t cos 2/afii9843i
+n +
+3n−3
+4∑
+i= n+3
+4
+e2t cos 2/afii9843i
+n +
+n−1∑
+i= 3n+1
+4
+e2t cos 2/afii9843i
+n
+⎤
+⎥⎦ (8)
+⩽ 1 + 2
+n − 1
+n−1
+4∑
+i=1
+e2t cos 2/afii9843i
+n (9)
+⩽ 1 + n
+n − 1
+∫ 1
+4
+− 1
+4
+e2t cos(2/afii9843x) dx. (10)
+6 We only need modify the limits of summation in Eq. ( 8) and make minor modiﬁcations that result.
+120 J. Friedman et al. / Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121
+Hence
+Prob
+{
+/afii9838u /greaterorequalslantd(1 − /afii9830)
+}
+⩽
+(
+1 + n
+n−1
+∫1
+4
+− 1
+4
+e2t cos(2/afii9843x) dx
+)r
+etd( 1−/afii9830) . (11)
+We choose t = 1
+4/afii9830in this inequality and estimate the integral in the right-hand term by using
+Laplace’s method; recall that Laplace’s method (see for instance Section 5.1 in [BH86])
+gives the following asymptotic expansion for an integral of type
+∫b
+a et/p10(x) dx where /p10(t)
+is a sufﬁciently smooth function which attains its unique maximum in a<t 0 <b with
+/p10′′(t0) ⁄= 0:
+∫ b
+a
+et/p10(x) dx = et/p10(t0)
+√
+− 2/afii9843
+t/p10
+′′
+(t0)
+(
+1 + O(1/t)
+)
+,
+when t tends to inﬁnity. In our case we obtain
+∫ 1
+4
+− 1
+4
+e2t cos(2/afii9843x) dx = e2t
+√
+1
+4/afii9843t
+(
+1 + O(1/t)
+)
+.
+Plugging this asymptotic expansion in ( 11) yields that for ﬁxed d
+Prob
+{
+/afii9838u /greaterorequalslantd(1 − /afii9830)
+}
+⩽
+(
+n
+n−1
+)d
+2
+etd (4/afii9843t)−d/4(
+1 + O(1/t)
+)d/2
+etd
+(
+1−1/(4t)
+)
+=
+(
+1 + O(/afii9830)
+)( /afii9830n2e
+(n − 1)2/afii9843
+)d/4
+. (12)
+We notice now that by the union bound
+Prob {/afii98382(X) /greaterorequalslantd(1 − /afii9830)} ⩽
+n−1∑
+u=1
+Prob
+{
+/afii9838u /greaterorequalslantd(1 − /afii9830)
+}
+⩽ (n − 1) (1 + O(/afii9830))
+( n2/afii9830e
+(n − 1)2/afii9843
+)d/4
+.
+This proves the following theorem.
+Theorem 7. Fix an even integer d /greaterorequalslant2. F or any/afii9835∈[ 0, 1], we have
+Prob
+{
+/afii98382(X) /greaterorequalslantd − d /afii9835/afii9843
+e n−4/d
+}
+⩽
+(
+1 + O(n− 4
+d )
+)
+/afii9835d/4.
+The bound on the deviations of /afii9838u obtained by the approach in this section is sharp.
+However the union bound is not sharp and is the reason that we do not recover what
+happens for random Cayley graphs of degree 2 deﬁned on Z/nZ.
+J. Friedman et al. / Journal of Combinatorial Theory, Series B 96 (2006) 111 – 121 121
+5. Concluding remarks
+If G is an arbitrary ﬁnite group, not necessarily Abelian, we may still consider the d-
+regular Cayley graph X = Cay(G;{ gi}; {~gi}).I f G′denotes the commutator subgroup of
+G, then it is well-known that G has n1 =| G/G′| Abelian characters. Thus, by the argument
+of Section 2, we deduce in a similar way that
+/afii98382 /greaterorequalslantd − O(d/n 4/d
+1 ).
+As a consequence, we see that ifXj = Cay(Gj ;{ gj
+i }; {~gj
+i }) is a sequence ofd-regular graphs
+with /afii98382(Xj ) bounded away from d, we must necessarily have that indices [Gj : G′
+j ] must
+be bounded as j tends to inﬁnity. In particular, if we want to construct an inﬁnite sequence
+of d-regular Ramanujan graphs using Cayley graphs, we must look in the category Ct of
+ﬁnite groups whose commutator subgroup has a ﬁxed bounded index t in the group. The
+category C1 is the set of so-called perfect groups which is a subset of non-solvable groups.
+The results of this paper justify the intuitive idea that the search for d-regular Ramanujan
+graphs, Xj , with Xj Cayley graphs whose number of vertices tends to inﬁnity, cannot be
+made in the category of groups where the commutator subgroup has bounded size.
+Acknowledgments
+We would like to thank the referees for their comments on an earlier version of this paper.
+References
+[AR94] N. Alon, Y . Roichman, Random Cayley graphs and expanders, Random Structures Algorithms 5 (2)
+(1994) 271–284.
+[BH86] N. Bleistein, Richard A. Handelsman, Asymptotic Expansions of Integrals, second ed., Dover
+Publications Inc., New Y ork, 1986.
+[Ci05] S. Cioaba, Eigenvalues of Expander Graphs, Ph.D. Thesis, Queen’s University, 2005.
+[CS99] J.H. Conway, N.J.A. Sloane, Sphere Packings, Lattices and Groups, Grundlehren der Mathematischen
+Wissenschaften [Fundamental Principles of Mathematical Sciences], vol. 290, third ed., Springer, New
+Y ork, 1999 (with additional contributions by E. Bannai, R.E. Borcherds, J. Leech, S.P . Norton, A.M.
+Odlyzko, R.A. Parker, L. Queen, B.B. V enkov).
+[Fri93] J. Friedman, Some geometric aspects of graphs and their eigenfunctions, Duke Math. J. 69 (3) (1993)
+487–525.
+[FT02] J. Friedman, Jean-Pierre Tillich, Generalized Alon-Boppana theorems and error-correcting codes,
+SIAM J. Discrete Math. (2002), to appear.
+[Kla81] M. Klawe, Nonexistence of one-dimensional expanding graphs, in: Proceedings 22nd Annual
+Symposium on Foundations of Computer Science, 1981, pp. 109–114.
+[Kla84] M. Klawe, Limitations on explicit constructions of expanding graphs, SIAM J. Comput. 13 (1) (1984)
+156–166.

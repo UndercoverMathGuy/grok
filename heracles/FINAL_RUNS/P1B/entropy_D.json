@@ -1,0 +1,49 @@
+{
+ "D": [
+  {
+   "band": [
+    1e-06,
+    3.162277660168379e-06
+   ],
+   "max_excess_over_sqrt_delta": 0.22139427830499683,
+   "entropy_deficit_over_logS": -0.11000290142246003,
+   "at_delta": 3.1619244114100553e-06
+  },
+  {
+   "band": [
+    1e-05,
+    3.1622776601683795e-05
+   ],
+   "max_excess_over_sqrt_delta": 0.2236632503434075,
+   "entropy_deficit_over_logS": 0.10934939641901946,
+   "at_delta": 3.162262203293409e-05
+  },
+  {
+   "band": [
+    0.0001,
+    0.000316227766016838
+   ],
+   "max_excess_over_sqrt_delta": 0.22687496977650123,
+   "entropy_deficit_over_logS": 0.10953877044736265,
+   "at_delta": 0.0003162212921894447
+  },
+  {
+   "band": [
+    0.001,
+    0.0031622776601683794
+   ],
+   "max_excess_over_sqrt_delta": 0.23722882173316995,
+   "entropy_deficit_over_logS": 0.11504132659439689,
+   "at_delta": 0.003162274401286691
+  },
+  {
+   "band": [
+    0.01,
+    0.0316227766016838
+   ],
+   "max_excess_over_sqrt_delta": 0.27253624824686185,
+   "entropy_deficit_over_logS": 0.1218739946679239,
+   "at_delta": 0.03162277379272238
+  }
+ ]
+}

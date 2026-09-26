@@ -1,0 +1,137 @@
+{
+ "p": 31,
+ "h": 15,
+ "enum_version": "vertex-enum-v1",
+ "tolerances": {
+  "TOL_POS": 1e-10,
+  "TOL_FEAS": 1e-09,
+  "TOL_TIGHT": 1e-07,
+  "TOL_FINAL": 1e-11,
+  "TOL_RANK": 1e-10,
+  "ROUND_DIGITS": 9
+ },
+ "n_orbit_reps": 10095,
+ "n_vertices": 151327,
+ "npz_sha256": "ab87279630c477a661758da1e2701f8a3614068f6f9eb71a35b6717352280b1d",
+ "programme_py_sha256": "94309426a85f87fe925482a7ba19fe473e0494fac8e298b89c27035c5ecb53b2",
+ "stats": {
+  "p": 31,
+  "h": 15,
+  "n_supports": 2191,
+  "per_K": {
+   "1": {
+    "n_supports": 1,
+    "n_T": 15,
+    "n_solved": 15,
+    "n_candidates": 1,
+    "seconds": 0.00024437904357910156
+   },
+   "2": {
+    "n_supports": 7,
+    "n_T": 105,
+    "n_solved": 735,
+    "n_candidates": 12,
+    "seconds": 0.0002827644348144531
+   },
+   "3": {
+    "n_supports": 31,
+    "n_T": 455,
+    "n_solved": 14105,
+    "n_candidates": 80,
+    "seconds": 0.0036411285400390625
+   },
+   "4": {
+    "n_supports": 91,
+    "n_T": 1365,
+    "n_solved": 124215,
+    "n_candidates": 322,
+    "seconds": 0.043680667877197266
+   },
+   "5": {
+    "n_supports": 201,
+    "n_T": 3003,
+    "n_solved": 603603,
+    "n_candidates": 854,
+    "seconds": 0.22331500053405762
+   },
+   "6": {
+    "n_supports": 335,
+    "n_T": 5005,
+    "n_solved": 1676675,
+    "n_candidates": 1604,
+    "seconds": 0.7129249572753906
+   },
+   "7": {
+    "n_supports": 429,
+    "n_T": 6435,
+    "n_solved": 2760615,
+    "n_candidates": 2178,
+    "seconds": 1.3942639827728271
+   },
+   "8": {
+    "n_supports": 429,
+    "n_T": 6435,
+    "n_solved": 2760615,
+    "n_candidates": 2178,
+    "seconds": 1.6472790241241455
+   },
+   "9": {
+    "n_supports": 335,
+    "n_T": 5005,
+    "n_solved": 1676675,
+    "n_candidates": 1610,
+    "seconds": 1.1775193214416504
+   },
+   "10": {
+    "n_supports": 201,
+    "n_T": 3003,
+    "n_solved": 603603,
+    "n_candidates": 854,
+    "seconds": 0.49279212951660156
+   },
+   "11": {
+    "n_supports": 91,
+    "n_T": 1365,
+    "n_solved": 124215,
+    "n_candidates": 322,
+    "seconds": 0.13006377220153809
+   },
+   "12": {
+    "n_supports": 31,
+    "n_T": 455,
+    "n_solved": 14105,
+    "n_candidates": 82,
+    "seconds": 0.015977859497070312
+   },
+   "13": {
+    "n_supports": 7,
+    "n_T": 105,
+    "n_solved": 735,
+    "n_candidates": 12,
+    "seconds": 0.0011348724365234375
+   },
+   "14": {
+    "n_supports": 1,
+    "n_T": 15,
+    "n_solved": 15,
+    "n_candidates": 1,
+    "seconds": 0.00010704994201660156
+   },
+   "15": {
+    "n_supports": 1,
+    "n_T": 1,
+    "n_solved": 1,
+    "n_candidates": 1,
+    "seconds": 7.200241088867188e-05
+   }
+  },
+  "n_candidates_total": 10111,
+  "n_rejected_in_refinement": 0,
+  "n_vertices_raw": 10111,
+  "seconds_refine": 0.4364509582519531,
+  "seconds_total": 6.280436277389526,
+  "seconds_orbits": 1.366318941116333
+ },
+ "seconds_wall": 7.6608030796051025,
+ "created": "2026-09-25 16:45:34 IST"
+}

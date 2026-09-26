@@ -1,0 +1,9 @@
+{
+ "task": 52,
+ "item_id": "T6-exp-sum-zeros",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "KNOWN",
+ "issues": "Checker verdict KNOWN upheld: this is Laguerre's extension of Descartes' rule of signs. Best pinpoint (fetched full text): Jameson 2006 Math. Gazette, Corollary 3.2, 'A generalized polynomial, or a Dirichlet polynomial, of length n, has at most n-1 zeros (counted with their orders)'. Jameson also gives the paper's exact proof (multiply by e^{-p_k x} so one term is constant; the derivative has length n-1). Polya-Szego 1998 Classics fields confirmed (Crossref + OpenLibrary subtitle). Crossref shows Part Five 'The Location of Zeros' = pp. 36-70. The 'Ch. 1 Rolle's Theorem and Descartes' Rule of Signs' sub-title and the problem number V.75 remain unverified, so cite [Part V] or [Part V, pp. 36-70], not Ch. 1. Borwein-Erdelyi GTM volume 161 confirmed via OpenLibrary; the checker's from-memory number is correct. The 'p. 102' location is second-hand, from Erdelyi arXiv 1602.02315. Minor: that paper's 'Section 3.2 of [1]' refers to Bernstein 1926, not Borwein-Erdelyi. Gosse-Vauchelet arXiv 1709.06891 App. 3.1 confirms the 'Polya-Szego estimate' naming and the Rolle induction following Karlin-Studden p. 10; Karlin-Studden itself was not fetched. The paper's proof is correct. Operational: the session's WebSearch budget is exhausted ('200 of 200 WebSearch calls') and Crossref returned HTTP 429, so other verifiers relying on WebSearch will stall. This probably explains the slow verify stage.",
+ "extra_citations": []
+}

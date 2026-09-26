@@ -1,0 +1,41 @@
+{
+ "n2_q2.0_skip": {
+  "certified": true,
+  "leaves": 51,
+  "coverage_complete": true,
+  "area": {
+   "cert": 0.1025203647219077,
+   "skip": 0.020120819244486565
+  },
+  "rect_area": 0.1226411839663943,
+  "eps_cert": 0.01697662756056753,
+  "tau_hi": 0.38490017945975047
+ },
+ "n2_q2.0_noskip": {
+  "certified": true,
+  "leaves": 60,
+  "coverage_complete": true,
+  "area": {
+   "cert": 0.1226411839663942
+  },
+  "rect_area": 0.1226411839663943,
+  "eps_cert": 0.01697662756056753,
+  "tau_hi": 0.38490017945975047
+ },
+ "n3_q2.0_skip": {
+  "certified": true,
+  "leaves": 32,
+  "coverage_complete": true,
+  "area": {
+   "cert": 0.0551502238292011,
+   "skip": 0.0036766815886134065
+  },
+  "rect_area": 0.05882690541781451,
+  "eps_cert": 0.014692378328741965,
+  "tau_hi": 0.25
+ },
+ "n3_q2.0_noskip": {
+  "certified": false,
+  "boxes": 418
+ }
+}

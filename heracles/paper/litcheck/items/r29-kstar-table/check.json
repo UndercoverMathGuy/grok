@@ -1,0 +1,36 @@
+{
+ "id": "R29-kstar-table",
+ "verdict": "NOVEL_AS_FAR_AS_FOUND",
+ "evidence": "No prior work computes the maximiser of the L_{1/s}-budget coverage max-min at specific p. None reports switch points in s either. Morwani ICLR24 Thm 7 and Li AISTATS25 Thm 4.1 give dense optima (b = nu). McCracken 2505.18266 Cor 4.8 is a sufficiency bound for random frequencies, with no optimum count.\n\nEmpirical counts, all verified from the PDFs:\n- Nanda et al. (arXiv 2301.05217), Sec 4.1 / Fig 3. A 1-layer transformer at p=113 uses \"five key frequencies ... k in {14,35,41,42,52}\". W_E has 6 non-negligible frequencies.\n- Chughtai et al. (ICML 2023, PMLR 202:6243-6267), App. Table 6. Transformers on C113 have 3, 4, 4, 3 key frequencies across seeds 1-4.\n- Chughtai et al., App. Table 5. MLPs with embeddings on C113 have 13, 11, 15, 10. C118, D59 and D61 have about 9-15 reps.\n- Zhong et al. (2306.17844), p=59. Model A's top 3 circles (k=17, 3, 44) give 91.4% accuracy. The full count is not tabulated.\n- McCracken et al. 2505.18266, Sec 4.3. Nets with embeddings learn \"handfuls of frequencies (3-7)\". A log fit of count vs n appears in Fig 3, and Fig 4 covers moduli 59-66. One-hot 1-layer MLPs use floor(n/2).\n\nOur p=113 values (7/4/4) sit inside the empirical 3-15 range. But those models are transformers or ReLU MLPs, not L_{2,b} product/power nets, so the numbers are context and not a validation. Chughtai's MLP counts of 10-15 exceed our nu=3 value of 7.\n\nHeuristic flags:\n(a) Enumeration is exhaustive only up to K<=8/7/5. The theorem's K upper bound, 9*4^{1/(s-1)} ln p (about 587 at s=3/2, p=59), does not rule out larger supports. So every cell depends on heuristic search above Kmax.\n(b) (113, nu=3)=7 lies above the exhaustive range, and the equal-share argmax gives 5 there (appendix.tex line 260).\n(c) (59, nu=3): equal-share gives 6 vs 5.\n\nSearches run: WebSearch \"number of key frequencies learned modular addition as function of modulus p\" and \"optimal number of frequencies max-margin modular addition weight decay sparse K* log p\". PDFs grepped: Nanda, Chughtai, Zhong, McCracken, Morwani. Notes are in /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r29-kstar-table/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "nanda2023progress",
+   "bibtex": "@inproceedings{nanda2023progress,\n  title={Progress measures for grokking via mechanistic interpretability},\n  author={Nanda, Neel and Chan, Lawrence and Lieberum, Tom and Smith, Jess and Steinhardt, Jacob},\n  booktitle={International Conference on Learning Representations},\n  year={2023}\n}",
+   "url": "https://arxiv.org/abs/2301.05217",
+   "confirmed": true,
+   "why": "Empirical p=113 count to set beside tab:kstar: five key frequencies {14,35,41,42,52} in a 1-layer transformer (Sec 4.1, Fig 3). Title and authors confirmed on arXiv; the ICLR 2023 venue comes from the sweep."
+  },
+  {
+   "key": "chughtai2023toy",
+   "bibtex": "@inproceedings{chughtai2023toy,\n  title={A Toy Model of Universality: Reverse Engineering how Networks Learn Group Operations},\n  author={Chughtai, Bilal and Chan, Lawrence and Nanda, Neel},\n  booktitle={Proceedings of the 40th International Conference on Machine Learning},\n  series={PMLR},\n  volume={202},\n  pages={6243--6267},\n  year={2023}\n}",
+   "url": "https://proceedings.mlr.press/v202/chughtai23a.html",
+   "confirmed": true,
+   "why": "App. Tables 5/6 give per-seed key-frequency counts on C113: MLP 13/11/15/10, transformer 3/4/4/3. These show the counts depend on architecture and seed."
+  },
+  {
+   "key": "zhong2023clock",
+   "bibtex": "@inproceedings{zhong2023clock,\n  title={The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks},\n  author={Zhong, Ziqian and Liu, Ziming and Tegmark, Max and Andreas, Jacob},\n  booktitle={Advances in Neural Information Processing Systems},\n  year={2023}\n}",
+   "url": "https://arxiv.org/abs/2306.17844",
+   "confirmed": true,
+   "why": "Trained transformers at p=59 (the same prime as the table): three circles, k=17,3,44, carry 91.4% accuracy. Title and authors confirmed from the arXiv PDF header."
+  },
+  {
+   "key": "mccracken2025",
+   "bibtex": "@article{mccracken2025,\n  title={Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks},\n  author={McCracken, Gavin and Moisescu-Pareja, Gabriela and Letourneau, Vincent and Precup, Doina and Love, Jonathan},\n  journal={arXiv preprint arXiv:2505.18266},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2505.18266",
+   "confirmed": true,
+   "why": "Sec 4.3 / Fig 3-4: embedding nets learn 'handfuls of frequencies (3-7)', with a log fit of count vs n that includes moduli 59-66. This is the empirical backdrop for the table and the log-p growth. The current refs.bib entry has the wrong title and author."
+  }
+ ],
+ "recommended_change": "Three edits to the table and its text:\n\n1. Caption of tab:kstar: \"Support enumeration is exhaustive over supports of size K<=8,7,5 at p=59,71,113; larger supports were searched heuristically, so each entry is the best support found, certified only among K<=Kmax. The entry (113, nu=3)=7 lies above the exhaustive range (equal-share argmax gives 5), so read it as a heuristic value.\"\n\n2. Sentence at line 133: change \"Table~\\ref{tab:kstar} gives the counts\" to \"Table~\\ref{tab:kstar} gives computed counts\".\n\n3. After the \"How many features\" paragraph, optionally add: \"For comparison, trained networks at p=113 use five key frequencies in a one-layer transformer \\citep{nanda2023progress}, 3--4 in transformers and 10--15 in embedding MLPs \\citep[Tables 5--6]{chughtai2023toy}, and embedding models generally use 3--7 \\citep{mccracken2025,zhong2023clock}. These architectures lie outside our model class, so the comparison is qualitative.\" Do not claim that Nanda's 5 matches the table.\n\nAlso fix the mccracken2025 bib entry."
+}

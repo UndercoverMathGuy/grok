@@ -1,0 +1,22 @@
+{
+ "id": "R13-cost-sublemmas",
+ "verdict": "PARTIALLY_KNOWN",
+ "evidence": "The transfer from the generating inequality to power sums and other penalties is a known general principle. Rajan & Tepedelenlioglu (IEEE TIT 61(4):1619-1628, 2015; arXiv 1302.5383) define the \"ergodic capacity order\" (Def. 1): X <=_c Y iff E log(1+rho X) <= E log(1+rho Y) for all rho >= 0. Their Property S1 states \"X <=_c Y <=> E[g(X)] <= E[g(Y)] for all g in TBF\", where TBF is the Thorin-Bernstein class g(x) = a + bx + int log(1+x/s) mu(ds) (their eq. 6). The proof of Property M1 (App. A, eqs. 28-31) matches ours step for step: take rho -> 0 for the linear term, then integrate log(1+t rho x) against a positive measure. Applied to the empirical measure of x (zero padding is allowed because a=0), it gives Remark \"other penalties\" verbatim, and Lemma cost at 0<r<1 is the case g = x^r. The class psi = cx + int log(1+xt) mu(dt) is exactly the Thorin-Bernstein functions vanishing at 0, which is Schilling-Song-Vondracek, Bernstein Functions, de Gruyter Studies in Math 37, Ch. 8 (1st-ed. TOC fetched; Ch. 8 starts p. 73). Lemma bernstein (the integral formula for x^r) is a standard Beta-integral representation. Going from e_k >= binom(nu,k) to prod(1+x t) >= (1+t)^nu is trivial because all coefficients are nonnegative. Searches of majorization work (power majorization, Cuttler-Greene-Skandera, trumping) found nothing closer. We found no prior statement of the chain lemma (the sign constraints JF force H = sum beta_l m_l m_l^* to be upper triangular with constant diagonal) or of its consequence e_k(|nu beta|) >= binom(nu,k) with the orthogonal equality case, obtained via Sylvester, minor expansion and Hadamard. That part is ours; its tools are textbook. Queries run: Thorin-Bernstein representation (Schilling Song Vondracek); elementary symmetric e_k domination implies fractional power sums via log(1+tx). Metadata was confirmed through Crossref. Notes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/r13-cost-sublemmas/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "rajan2015stochastic",
+   "bibtex": "@article{rajan2015stochastic,\n  title={Stochastic Ordering of Fading Channels Through the Shannon Transform},\n  author={Rajan, Adithya and Tepedelenlioglu, Cihan},\n  journal={IEEE Transactions on Information Theory},\n  volume={61},\n  number={4},\n  pages={1619--1628},\n  year={2015},\n  doi={10.1109/TIT.2015.2400432}\n}",
+   "url": "https://arxiv.org/abs/1302.5383",
+   "confirmed": true,
+   "why": "Supports the transfer step in Remark 'other penalties' and in the proof of Lemma cost. Property S1: domination of E log(1+rho X) for all rho is equivalent to domination of E g(X) for every Thorin-Bernstein g. The proof in App. A (eqs. 28-31) is the same integration argument we use."
+  },
+  {
+   "key": "schilling2010bernstein",
+   "bibtex": "@book{schilling2010bernstein,\n  title={Bernstein Functions: Theory and Applications},\n  author={Schilling, Ren{\\'e} L. and Song, Renming and Vondra{\\v{c}}ek, Zoran},\n  series={De Gruyter Studies in Mathematics},\n  volume={37},\n  publisher={Walter de Gruyter},\n  address={Berlin},\n  year={2010},\n  doi={10.1515/9783110215311}\n}",
+   "url": "https://toc.library.ethz.ch/objects/pdf/e01_978-3-11-021530-4_01.pdf",
+   "confirmed": true,
+   "why": "Ch. 8 (Thorin-Bernstein functions) gives the representation a + bx + int log(1+x/s) mu(ds). This names the class psi in Remark 'other penalties' and is the standard reference for the integral representation of x^r in Lemma bernstein."
+  }
+ ],
+ "recommended_change": "In Remark 'other penalties', replace the final sentence with: \"The admissible psi are exactly the Thorin-Bernstein functions vanishing at 0 \\citep[Ch. 8]{schilling2010bernstein}. Proposition gen says that x dominates nu copies of 1 in the log-generating (ergodic-capacity) order, and the transfer to every such psi is Property S1 of \\citet{rajan2015stochastic}; the new ingredient is the domination itself (Lemma chain and Proposition esym).\" After Lemma bernstein, add \"(a standard Thorin-Bernstein representation, see \\citealp{schilling2010bernstein})\". Keep the chain lemma and the e_k bound presented as our own. Credit Sylvester, Cauchy-Binet and Hadamard as standard tools, which the text already does."
+}

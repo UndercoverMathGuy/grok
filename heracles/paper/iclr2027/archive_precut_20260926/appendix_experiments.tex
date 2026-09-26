@@ -1,0 +1,71 @@
+\section{Experimental details}\label{app:exp}
+
+\paragraph{Recipe.} All networks have width $m=\nu(p-1)$, entries of every weight vector drawn i.i.d.\ from $N(0,1)$, and no biases. They are trained by full-batch gradient descent with heavy-ball momentum $0.9$ and constant learning rate $c\,p$ on mean cross-entropy over $D_p$ plus $\lambda\sum_i\|\omega_i\|_2^b$, with constant $\lambda=\tilde\lambda\,B_p^{b/\nu}$. The penalty is part of the gradient (not decoupled). Training is in float32 with TF32 disabled; margins, spectra and ablations are computed in float64. The constants below were fixed by a tuning phase whose selection rule scored only the regularized loss reached, stationarity and stability of the normalized margin, and were frozen before any evaluation run.
+
+\begin{center}
+\small
+\begin{tabular}{lcccl}
+\toprule
+network & $c$ & $\tilde\lambda$ & steps & primes\\
+\midrule
+product, $\nu=3$ & $0.40$ & $0.003$ & $150$k & $11$--$113$\\
+product, $\nu=4$ & $0.28$ & $0.003$ & $150$k ($90$k at $p=59$) & $17$--$59$\\
+product, $\nu=5$ & $0.035$ & $0.003$ & $300$k & $11$--$17$\\
+power, $\nu=3$ & $0.10$ & $0.01$ & $150$k & $23$--$113$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+$\nu=5$ was not run at $p\ge23$: no tuning run converged at $p=23$, and longer runs did not fit the compute limit set in advance (two hours per sweep).
+
+\paragraph{Protocol.} Product networks (and, at $b=\nu$, power networks) are trained on the full table $D_p$, with no train/test split. A run is \emph{converged} if its relative gradient is below $10^{-3}$, its loss and normalized margin are stationary over the last $10\%$ of steps, and its margin is positive; other runs are reported separately. $\Kstar$ is exact for $p\le37$ (exhaustive vertex enumeration, Lemma~\ref{lem:vertex}) and best found, not certified, above. At two cells ($p=113$, $s=1.5$ and $p=59$, $s=2$) an earlier, independent support search found a higher value of $\Gamma_s(p)$ than the preregistered prediction (with $\Kstar=7$ instead of $6$ at the first); since $\Gamma_s$ is a maximum we use the higher value there (post hoc; the allocations were re-evaluated with the same code). In the main text a frequency is counted if $A_j\ge0.2\max_kA_k$. The grid, seeds, predictions and matching criteria were preregistered before any evaluation run.
+
+\paragraph{Sweeps.} Every launched run is listed with its status in the supplementary material; none is omitted.
+\begin{itemize}
+\item \emph{Main sweep} (Figures~\ref{fig:exponent}b and~\ref{fig:prime}). Product networks at $\nu=3$ ($p\in\{23,31,43,59,83,113\}$, $s\in\{1.25,1.5\}$, $6$ seeds), $\nu=4$ ($p\in\{17,23,31,43,59\}$, $s\in\{1.25,1.5,2\}$, $4$ seeds) and $\nu=5$ ($p\in\{11,13,17\}$, $s\in\{1.25,1.5,2,2.5\}$, $4$ seeds). Of these runs, $126$ converged, $46$ did not, and $8$ diverged. A further $48$ trained runs were lost in transfer before their results were verified; they were marked invalid and rerun under new identifiers.
+\item \emph{Sweep in $p$} (Figure~\ref{fig:prime}). Product, $\nu=3$, $p\in\{11,13,17,19,29,37,47,71\}$, $s\in\{1.25,1.5\}$, $3$ seeds. $44$ converged and $4$ did not.
+\item \emph{Fine sweep in $b$} (Figure~\ref{fig:exponent}a). Product, $\nu=4$, $p=37$, $16$ values of $s$ in $[1,2]$ placed inside the exact plateaus of $\Kstar(s)$, $2$ seeds. $19$ converged and $13$ did not.
+\item \emph{Dense endpoint}. $b=\nu$: product $\nu=3$ ($p=23,59,113$), $\nu=4$ ($p=23,43,59$) and $\nu=5$ ($p=11,13,17$), and power $\nu=3$ ($p=23,59,113$), $4$ seeds. $23$ converged, $24$ did not, $1$ diverged and $12$ crashed.
+\item \emph{Relabelling}. Product, $\nu=3$, $p=23$, $b=2$: $12$ pairs of runs whose initial weights differ by the relabelling $j\mapsto uj$ of frequencies, and further seeds for the frequency marginals; $50$ runs, $48$ converged.
+\end{itemize}
+
+\paragraph{Numbers behind Section~\ref{sec:experiments}.} Converged runs; counts use $A_j\ge0.2\max_kA_k$. Post hoc: defined after the preregistered results were seen.
+\begin{itemize}
+\item \emph{Clean energy.} Share of the logit table's energy in the modes $(j,\dots,j;-j)$: median $0.97$, minimum $0.47$ over all converged runs. At $\nu=3$ the median is $0.98$ ($s=1.25$) and $0.96$ ($s=1.5$); at $\nu=5$, $0.97$ ($s=1.25$) and $0.83$ ($s=2.5$); at $b=\nu$, $0.99$. Spearman correlation with $s$ within $\nu=3,4,5$: $-0.15$, $-0.37$, $-0.32$ (post hoc).
+\item \emph{Quality of the learned allocation} (main sweep, $126$ runs; post hoc). The programme value $\min_\delta\sum_jy_j\cov{j}{\delta}$ at $y=A/\|A\|_{1/s}$, divided by $\Gamma_s(p)$: median $0.87$ ($95\%$ interval over seeds $[0.85,0.88]$), and $12\%$ of runs reach $0.95$. Medians over cells of the nulls: $0.45$ for $1000$ random allocations on $\Kstar$ frequencies, $0.67$ for the network at initialization; the $\nu$-block construction scores $1$. Budget shares against $y^*$ (preregistered): median total variation $0.42$, against $0.52$ for random allocations.
+\item \emph{Universal bound.} Never exceeded in any of the $349$ trained runs; the largest normalized margin is $0.76$ of the bound for $b<\nu$ and $0.99999$ at $b=\nu$.
+\item \emph{Fine sweep in $b$} ($\nu=4$, $p=37$; Figure~\ref{fig:exponent}a). The converged run at $s=1$ uses all $18$ frequencies; every converged run at $s\ge1.45$ is within one of $\Kstar$; between $s=1.05$ and $1.25$, where $\Kstar$ passes through seven plateaus from $18$ to $9$, trained counts lie below $\Kstar$. The preregistered plateau-identity test matched in $2$ of $19$ converged runs.
+\item \emph{Direction test} (post hoc). Pairs of cells at fixed $(\nu,p)$ with different $s$ and different $\Kstar$ (main and $p$ sweeps): the median count moves with $\Kstar$ in $30$ of $36$ pairs, stays put in $4$ and reverses in $2$; shuffling counts across the cells of each $(\nu,p)$ gives $38\%$ ($95$th percentile $53\%$; one-sided $p=0.001$). Fine sweep: $83$ of $96$ pairs, against $47\%$. Slope of the change in count on the change in $\Kstar$: $0.49$ ($0.28$--$0.61$ across count definitions and sweeps). Pooled per-run agreement within one of $\Kstar$: $71\%$ of runs, against about half for the best constant.
+\item \emph{Dense end} ($b=\nu$). Every converged product network at $\nu=3$ ($p=23,59,113$) and $\nu=4$ ($p=23$), and every converged power network at $\nu=3$, $p=23$, uses every frequency; per-cell medians of the smallest amplitude over the largest are $0.55$--$1.00$ and of the total variation to uniform at most $0.034$; these runs reach $0.87$--$1.00$ of the bound. At $\nu=5$, $2$ of $7$ converged runs (both at $p=11$) are dense and flat; the others miss one to three frequencies or are far from flat (per-cell median total variation $0.10$--$0.41$). No run converged at $\nu=4$, $p\ge43$, or for the power network at $p\ge59$. At initialization all but at most two frequencies already exceed $10\%$ of the largest amplitude.
+\item \emph{Degree at fixed $b=2$} (post hoc). The median count moves as $\Kstar$ predicts in $5$ of $7$ pairs, with one tie and one reversal ($p=0.16$; $3$ to $7$ of $7$ across count definitions).
+\item \emph{Same $s$, different $\nu$} (post hoc). Over the $17$ pairs of cells with the same $(p,s)$ and different $\nu$, the median counts agree to within one in $12$; the higher-degree cell has the smaller count in $13$, the same in $3$ and the larger in $1$ (sign test, two-sided $p=0.002$; mean difference $-1.1$). Mean count minus $\Kstar$ over cells with $s\le1.5$, $p\le43$: $+0.28$ ($\nu=3$, $18$ cells), $-0.64$ ($\nu=4$, $7$), $-1.25$ ($\nu=5$, $6$). Median quality of the learned allocation in the main sweep: $0.89$, $0.88$ and $0.79$ at $\nu=3,4,5$. For comparison, cells with the same $\nu$ and different $s$ differ by $1.3$ on average, where $\Kstar$ differs by $2.3$.
+\item \emph{Across primes} ($\nu=3$; Figure~\ref{fig:prime}; post hoc). The median count is within one of $\Kstar$ in $20$ of $28$ $(p,s)$ cells, against $16$ for the best constant at each $s$. At $s=1.5$ it exceeds $\Kstar$ by $1.5$ to $3$ at $p=59$--$83$ and matches it at $p=113$.
+\end{itemize}
+
+\paragraph{Count definitions.} We scored the count $K$ of a trained network under thirteen definitions. Nine were preregistered (R): the number of frequencies with $A_j\ge t\max_kA_k$ for $t=0.2$ (used in the main text), $0.1$, $0.05$ and $0.01$; the participation ratios $(\sum_jA_j)^2/\sum_jA_j^2$ and $(\sum_jw_j)^2/\sum_jw_j^2$ of the amplitudes and of the budget shares $w_j=A_j^{1/s}/\sum_kA_k^{1/s}$; and the fewest frequencies carrying $90$, $95$ or $99\%$ of the budget. Four were added post hoc: the number with energy share $A_j^2/\sum_kA_k^2\ge0.02$ or $\ge0.05$, and the fewest frequencies carrying $95\%$ or $90\%$ of $\sum_kA_k^2$. The direction tests of Section~\ref{sec:experiments} under each definition (converged runs; all post hoc):
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{2}{c}{$s$ sweep, main + $p$ sweeps} & \multicolumn{2}{c}{fine $b$ sweep} & $\nu$ at $b=2$ & same $s$ / same $\nu$\\
+definition & same sign (ties) & slope & same sign & slope & same sign (ties) & mean $|\Delta K|$\\
+\midrule
+$A_j\ge0.2\max$ (R) & $30/36$ ($4$) & $0.49$ & $83/96$ & $0.59$ & $5/7$ ($1$) & $1.12$ / $1.31$\\
+$A_j\ge0.1\max$ (R) & $30/36$ ($3$) & $0.48$ & $68/96$ & $0.59$ & $4/7$ ($1$) & $0.97$ / $1.29$\\
+$A_j\ge0.05\max$ (R) & $30/36$ ($3$) & $0.49$ & $68/96$ & $0.59$ & $4/7$ ($1$) & $0.88$ / $1.36$\\
+$A_j\ge0.01\max$ (R) & $31/36$ ($2$) & $0.49$ & $68/96$ & $0.61$ & $4/7$ ($1$) & $0.85$ / $1.37$\\
+participation, $A$ (R) & $34/36$ ($0$) & $0.45$ & $83/96$ & $0.56$ & $6/7$ ($0$) & $1.01$ / $1.18$\\
+participation, $w$ (R) & $31/36$ ($0$) & $0.39$ & $73/96$ & $0.49$ & $4/7$ ($0$) & $0.93$ / $1.10$\\
+$90\%$ of budget (R) & $28/36$ ($5$) & $0.33$ & $69/96$ & $0.41$ & $4/7$ ($1$) & $0.97$ / $0.99$\\
+$95\%$ of budget (R) & $30/36$ ($4$) & $0.44$ & $64/96$ & $0.44$ & $4/7$ ($1$) & $0.97$ / $1.19$\\
+$99\%$ of budget (R) & $26/36$ ($5$) & $0.44$ & $68/96$ & $0.59$ & $3/7$ ($1$) & $0.85$ / $1.48$\\
+energy $\ge2\%$ & $30/36$ ($4$) & $0.44$ & $74/96$ & $0.42$ & $5/7$ ($1$) & $1.06$ / $1.10$\\
+energy $\ge5\%$ & $27/36$ ($8$) & $0.28$ & $74/96$ & $0.49$ & $6/7$ ($1$) & $1.15$ / $0.77$\\
+$95\%$ of energy & $27/36$ ($8$) & $0.39$ & $70/96$ & $0.45$ & $5/7$ ($2$) & $0.94$ / $0.98$\\
+$90\%$ of energy & $28/36$ ($7$) & $0.33$ & $77/96$ & $0.47$ & $7/7$ ($0$) & $1.09$ / $0.90$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The null shuffles the counts across the cells of each group ($1000$ draws). Its mean agreement is $0.31$--$0.51$ for the $s$ sweeps and $0.43$--$0.52$ for the fine $b$ sweep, depending on the definition. One-sided $p$-values are $0.001$ (the smallest possible with $1000$ draws) for the $s$ sweeps under every definition, $0.001$--$0.041$ for the fine $b$ sweep, and $0.001$--$0.66$ for the $\nu$ comparison at $b=2$.

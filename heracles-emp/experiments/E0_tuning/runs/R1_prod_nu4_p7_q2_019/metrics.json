@@ -1,0 +1,33 @@
+{
+ "status": "diverged",
+ "timed_out": false,
+ "convergence": {
+  "converged": false,
+  "checks": {
+   "finite": false,
+   "reached_final_step": true,
+   "grad_rel": false,
+   "loss_plateau": false,
+   "gamma_stable": false,
+   "positive_margin": false,
+   "window_after_anneal": true
+  },
+  "values": {
+   "grad_rel": NaN,
+   "loss_rel_change": NaN,
+   "gamma_rel_change": NaN,
+   "margin": NaN,
+   "ref_step": 18000,
+   "final_step": 20000
+  },
+  "criterion": {
+   "window_frac": 0.1,
+   "grad_rel_max": 0.001,
+   "loss_rel_change_max": 0.0001,
+   "gamma_rel_change_max": 0.001,
+   "require_positive_margin": true
+  }
+ },
+ "wall_seconds_batch": 136.98204398155212,
+ "end_time": "2026-09-25 17:13:57 IST"
+}

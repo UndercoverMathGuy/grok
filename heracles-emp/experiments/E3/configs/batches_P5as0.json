@@ -1,0 +1,117 @@
+{
+ "batches": [
+  {
+   "batch_id": "E3_product_nu4_p43_b00_r1",
+   "runs": [
+    {
+     "run_id": "E3_product_nu4_p43_seed0_r1",
+     "config": {
+      "model": "product",
+      "n": 3,
+      "p": 43,
+      "q": 4.0,
+      "width": 168,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 12.040000000000001,
+      "lr_c": 0.28,
+      "lam": 5.070308274743105e-08,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 6.557438524302,
+      "seed": 0,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.0,
+      "rerun_of": "E3_product_nu4_p43_seed0"
+     }
+    },
+    {
+     "run_id": "E3_product_nu4_p43_seed1_r1",
+     "config": {
+      "model": "product",
+      "n": 3,
+      "p": 43,
+      "q": 4.0,
+      "width": 168,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 12.040000000000001,
+      "lr_c": 0.28,
+      "lam": 5.070308274743105e-08,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 6.557438524302,
+      "seed": 1,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.0,
+      "rerun_of": "E3_product_nu4_p43_seed1"
+     }
+    },
+    {
+     "run_id": "E3_product_nu4_p43_seed2_r1",
+     "config": {
+      "model": "product",
+      "n": 3,
+      "p": 43,
+      "q": 4.0,
+      "width": 168,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 12.040000000000001,
+      "lr_c": 0.28,
+      "lam": 5.070308274743105e-08,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 6.557438524302,
+      "seed": 2,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.0,
+      "rerun_of": "E3_product_nu4_p43_seed2"
+     }
+    },
+    {
+     "run_id": "E3_product_nu4_p43_seed3_r1",
+     "config": {
+      "model": "product",
+      "n": 3,
+      "p": 43,
+      "q": 4.0,
+      "width": 168,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 12.040000000000001,
+      "lr_c": 0.28,
+      "lam": 5.070308274743105e-08,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 6.557438524302,
+      "seed": 3,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.0,
+      "rerun_of": "E3_product_nu4_p43_seed3"
+     }
+    }
+   ]
+  }
+ ]
+}

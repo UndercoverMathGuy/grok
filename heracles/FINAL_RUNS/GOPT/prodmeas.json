@@ -1,0 +1,44 @@
+[
+ {
+  "p": 7,
+  "n": 2,
+  "m": 5,
+  "max_identity_relerr": 2.735165938521557e-15,
+  "min_slack_E_minus_margin": 5.765779395073437
+ },
+ {
+  "p": 11,
+  "n": 2,
+  "m": 4,
+  "max_identity_relerr": 2.603450422791217e-15,
+  "min_slack_E_minus_margin": 10.601024098713811
+ },
+ {
+  "p": 13,
+  "n": 2,
+  "m": 3,
+  "max_identity_relerr": 2.7478019859472624e-15,
+  "min_slack_E_minus_margin": 7.211340780220838
+ },
+ {
+  "p": 7,
+  "n": 3,
+  "m": 4,
+  "max_identity_relerr": 1.0096090630185017e-15,
+  "min_slack_E_minus_margin": 6.575418445278077
+ },
+ {
+  "p": 11,
+  "n": 3,
+  "m": 3,
+  "max_identity_relerr": 3.941291737419306e-15,
+  "min_slack_E_minus_margin": 15.573037149889158
+ },
+ {
+  "p": 5,
+  "n": 4,
+  "m": 3,
+  "max_identity_relerr": 3.774758283725532e-15,
+  "min_slack_E_minus_margin": 2.7505404070483763
+ }
+]

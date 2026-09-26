@@ -1,0 +1,95 @@
+{
+ "p": 19,
+ "h": 9,
+ "enum_version": "vertex-enum-v1",
+ "tolerances": {
+  "TOL_POS": 1e-10,
+  "TOL_FEAS": 1e-09,
+  "TOL_TIGHT": 1e-07,
+  "TOL_FINAL": 1e-11,
+  "TOL_RANK": 1e-10,
+  "ROUND_DIGITS": 9
+ },
+ "n_orbit_reps": 109,
+ "n_vertices": 961,
+ "npz_sha256": "83ca48b0be1bb78e86b5249e8eab15aa9f4816cb1d730761b9267b16b2a3acf6",
+ "programme_py_sha256": "94309426a85f87fe925482a7ba19fe473e0494fac8e298b89c27035c5ecb53b2",
+ "stats": {
+  "p": 19,
+  "h": 9,
+  "n_supports": 59,
+  "per_K": {
+   "1": {
+    "n_supports": 1,
+    "n_T": 9,
+    "n_solved": 9,
+    "n_candidates": 1,
+    "seconds": 0.00018787384033203125
+   },
+   "2": {
+    "n_supports": 4,
+    "n_T": 36,
+    "n_solved": 144,
+    "n_candidates": 6,
+    "seconds": 0.00012803077697753906
+   },
+   "3": {
+    "n_supports": 10,
+    "n_T": 84,
+    "n_solved": 840,
+    "n_candidates": 20,
+    "seconds": 0.0004360675811767578
+   },
+   "4": {
+    "n_supports": 14,
+    "n_T": 126,
+    "n_solved": 1764,
+    "n_candidates": 27,
+    "seconds": 0.0007348060607910156
+   },
+   "5": {
+    "n_supports": 14,
+    "n_T": 126,
+    "n_solved": 1764,
+    "n_candidates": 27,
+    "seconds": 0.0010061264038085938
+   },
+   "6": {
+    "n_supports": 10,
+    "n_T": 84,
+    "n_solved": 840,
+    "n_candidates": 20,
+    "seconds": 0.0010578632354736328
+   },
+   "7": {
+    "n_supports": 4,
+    "n_T": 36,
+    "n_solved": 144,
+    "n_candidates": 6,
+    "seconds": 0.00022101402282714844
+   },
+   "8": {
+    "n_supports": 1,
+    "n_T": 9,
+    "n_solved": 9,
+    "n_candidates": 1,
+    "seconds": 0.00011086463928222656
+   },
+   "9": {
+    "n_supports": 1,
+    "n_T": 1,
+    "n_solved": 1,
+    "n_candidates": 1,
+    "seconds": 0.0002651214599609375
+   }
+  },
+  "n_candidates_total": 109,
+  "n_rejected_in_refinement": 0,
+  "n_vertices_raw": 109,
+  "seconds_refine": 0.004561185836791992,
+  "seconds_total": 0.008888006210327148,
+  "seconds_orbits": 0.008318901062011719
+ },
+ "seconds_wall": 0.018230915069580078,
+ "created": "2026-09-25 16:45:24 IST"
+}

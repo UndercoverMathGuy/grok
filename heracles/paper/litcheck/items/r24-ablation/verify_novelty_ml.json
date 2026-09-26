@@ -1,0 +1,22 @@
+{
+  "task": 23,
+  "item_id": "R24-ablation",
+  "lens": "novelty_ml",
+  "upheld": true,
+  "corrected_verdict": "NOVEL_AS_FAR_AS_FOUND as an inequality. Its reading 'importance = share of the norm budget' has a classical heuristic precedent (SVM-RFE sensitivity analysis via OBD) that should be credited.",
+  "issues": "Verdict and all 3 confirmed citations survive. Re-verified: Nanda et al. ICLR 2023 Sec. 4.4 and Fig. 6 (Fourier-space logit ablation, empirical); Chughtai et al. PMLR 202:6243-6267 ('confirm ... using ablations'); McCracken et al. 2505.18266v1 App. G.8 and Fig. 38 (cluster neuron ablation, empirical). Checker missed a classical ML precedent for the interpretive sentence 'every feature is load-bearing in proportion to its share of the regularization budget': Guyon, Weston, Barnhill and Vapnik (Machine Learning 46:389-422, 2002), Sec. 2.5 'Feature ranking by sensitivity analysis'. That section ranks features by the change in the SVM cost J=(1/2)||w||^2 when a feature is removed, estimated via the Optimal Brain Damage second-order expansion as (w_i)^2, i.e. the feature's share of the l2 budget. This is a heuristic, not a bound, so the inequality stays novel, but the reading should credit it. No removal or ablation bound in Morwani 2311.07568 (full PDF), He et al. 2602.16849 (App. A.2 ablations are empirical frequency-count and phase restrictions) or Tian 2410.01779. Bib bug: refs.bib mccracken2025 still has the wrong title ('Emergence of sparse and dense circuits...') and author ('McCracken, Andrew'). The correct title is 'Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks', by Gavin McCracken, Moisescu-Pareja, Letourneau, Precup and Love. Limitation: the WebSearch budget was exhausted, so only targeted primary-source fetches were possible. The boosting / game-value s=1 analogue (m_{-j} <= (1-w_j)m, likely folklore) was not searched.",
+  "extra_citations": [
+    {
+      "key": "guyon2002gene",
+      "bibtex": "@article{guyon2002gene,\n  title={Gene Selection for Cancer Classification using Support Vector Machines},\n  author={Guyon, Isabelle and Weston, Jason and Barnhill, Stephen and Vapnik, Vladimir},\n  journal={Machine Learning},\n  volume={46},\n  number={1--3},\n  pages={389--422},\n  year={2002},\n  doi={10.1023/A:1012487302797}\n}",
+      "url": "https://doi.org/10.1023/A:1012487302797",
+      "why": "Sec. 2.5 justifies ranking features of a max-margin (SVM) classifier by (w_i)^2, the feature's share of the l2 regularization budget, as the OBD estimate of the cost change when the feature is removed. Prop. ablation is a rigorous two-sided version of this heuristic for the budget-splitting programme; credit it in the sentence after the proposition."
+    },
+    {
+      "key": "lecun1989obd",
+      "bibtex": "@inproceedings{lecun1989obd,\n  title={Optimal Brain Damage},\n  author={LeCun, Yann and Denker, John S. and Solla, Sara A.},\n  booktitle={Advances in Neural Information Processing Systems 2},\n  year={1989}\n}",
+      "url": "https://proceedings.neurips.cc/paper/1989/hash/6c9882bbac1c7093bd25041881277658-Abstract.html",
+      "why": "Optional. It is the origin of the second-order saliency (loss increase from deleting a parameter is proportional to its squared magnitude) that SVM-RFE uses. Cite it together with Guyon et al. if the paper mentions the pruning heuristic."
+    }
+  ]
+}

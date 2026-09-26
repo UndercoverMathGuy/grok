@@ -1,0 +1,117 @@
+# pytest run 2026-09-25 17:05:37 IST on Sabeeras-MacBook-Air.local; command: uv run pytest -v -s -W ignore::RuntimeWarning tests/
+============================= test session starts ==============================
+platform darwin -- Python 3.12.11, pytest-9.1.1, pluggy-1.6.0 -- /Users/ruhaanrajadhyaksha/projects/grok/heracles-emp/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/ruhaanrajadhyaksha/projects/grok/heracles-emp
+configfile: pyproject.toml
+collecting ... collected 102 items
+
+tests/test_metrics.py::test_constructed_network_is_perfect_match[11-2-2.0] PASSED
+tests/test_metrics.py::test_constructed_network_is_perfect_match[13-2-2.5] PASSED
+tests/test_metrics.py::test_constructed_network_is_perfect_match[13-3-2.0] PASSED
+tests/test_metrics.py::test_constructed_network_is_perfect_match[11-2-3.0] PASSED
+tests/test_metrics.py::test_elementary_metrics PASSED
+tests/test_models_measure.py::test_logits_match_definition[2-product] PASSED
+tests/test_models_measure.py::test_logits_match_definition[2-power] PASSED
+tests/test_models_measure.py::test_logits_match_definition[3-product] PASSED
+tests/test_models_measure.py::test_logits_match_definition[3-power] PASSED
+tests/test_models_measure.py::test_autograd_vs_finite_differences[2.0-product] PASSED
+tests/test_models_measure.py::test_autograd_vs_finite_differences[2.0-power] PASSED
+tests/test_models_measure.py::test_autograd_vs_finite_differences[2.5-product] PASSED
+tests/test_models_measure.py::test_autograd_vs_finite_differences[2.5-power] PASSED
+tests/test_models_measure.py::test_autograd_vs_finite_differences[3.0-product] PASSED
+tests/test_models_measure.py::test_autograd_vs_finite_differences[3.0-power] PASSED
+tests/test_models_measure.py::test_ce_margin_form_equals_standard PASSED
+tests/test_models_measure.py::test_ce_margin_form_float32_small_loss_gradient PASSED
+tests/test_models_measure.py::test_gamma_scale_invariance[2-product] PASSED
+tests/test_models_measure.py::test_gamma_scale_invariance[2-power] PASSED
+tests/test_models_measure.py::test_gamma_scale_invariance[3-product] PASSED
+tests/test_models_measure.py::test_gamma_scale_invariance[3-power] PASSED
+tests/test_models_measure.py::test_fft_normalisation_and_modes PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[2-5] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[2-7] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[2-11] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[2-13] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[3-5] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[3-7] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[3-11] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[3-13] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[4-5] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[4-7] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[4-11] PASSED
+tests/test_models_measure.py::test_nu_block_attains_class_optimum[4-13] PASSED
+tests/test_models_measure.py::test_morwani_dense_attains_power_ceiling[5] PASSED
+tests/test_models_measure.py::test_morwani_dense_attains_power_ceiling[7] PASSED
+tests/test_models_measure.py::test_morwani_dense_attains_power_ceiling[11] PASSED
+tests/test_models_measure.py::test_morwani_dense_attains_power_ceiling[13] PASSED
+tests/test_models_measure.py::test_morwani_dense_attains_power_ceiling[17] PASSED
+tests/test_models_measure.py::test_single_neuron_budget_bound PASSED
+tests/test_models_measure.py::test_ablation_on_constructed_network[2] PASSED
+tests/test_models_measure.py::test_ablation_on_constructed_network[3] PASSED
+tests/test_models_measure.py::test_counts_definitions PASSED
+tests/test_programme.py::test_vertex_set_equals_naive_bruteforce[3] PASSED
+tests/test_programme.py::test_vertex_set_equals_naive_bruteforce[5] PASSED
+tests/test_programme.py::test_vertex_set_equals_naive_bruteforce[7] PASSED
+tests/test_programme.py::test_vertex_set_equals_naive_bruteforce[11] PASSED
+tests/test_programme.py::test_vertex_set_equals_naive_bruteforce[13] PASSED
+tests/test_programme.py::test_canonical_vs_all_supports_enumeration[5] PASSED
+tests/test_programme.py::test_canonical_vs_all_supports_enumeration[7] PASSED
+tests/test_programme.py::test_canonical_vs_all_supports_enumeration[11] PASSED
+tests/test_programme.py::test_canonical_vs_all_supports_enumeration[13] PASSED
+tests/test_programme.py::test_canonical_vs_all_supports_enumeration[17] PASSED
+tests/test_programme.py::test_gamma_equals_naive[5] PASSED
+tests/test_programme.py::test_gamma_equals_naive[7] PASSED
+tests/test_programme.py::test_gamma_equals_naive[11] PASSED
+tests/test_programme.py::test_gamma_equals_naive[13] PASSED
+tests/test_programme.py::test_gamma_vs_dense_grid[5] PASSED
+tests/test_programme.py::test_gamma_vs_dense_grid[7] PASSED
+tests/test_programme.py::test_multistart_never_beats_exact[11] PASSED
+tests/test_programme.py::test_multistart_never_beats_exact[13] PASSED
+tests/test_programme.py::test_multistart_never_beats_exact[17] PASSED
+tests/test_programme.py::test_multistart_never_beats_exact[19] PASSED
+tests/test_programme.py::test_multistart_never_beats_exact[23] PASSED
+tests/test_programme.py::test_paper_p5_example PASSED
+tests/test_programme.py::test_dense_endpoint[5] PASSED
+tests/test_programme.py::test_dense_endpoint[7] PASSED
+tests/test_programme.py::test_dense_endpoint[11] PASSED
+tests/test_programme.py::test_dense_endpoint[13] PASSED
+tests/test_programme.py::test_dense_endpoint[17] PASSED
+tests/test_programme.py::test_dense_endpoint[19] PASSED
+tests/test_programme.py::test_dense_endpoint[23] PASSED
+tests/test_programme.py::test_dense_endpoint[29] PASSED
+tests/test_programme.py::test_dense_endpoint[31] PASSED
+tests/test_programme.py::test_dense_endpoint[37] PASSED
+tests/test_programme.py::test_dilation_invariance[11] PASSED
+tests/test_programme.py::test_dilation_invariance[13] PASSED
+tests/test_programme.py::test_dilation_invariance[17] PASSED
+tests/test_programme.py::test_dilation_invariance[23] PASSED
+tests/test_programme.py::test_gamma_restricted_cache_vs_direct[11] PASSED
+tests/test_programme.py::test_gamma_restricted_cache_vs_direct[13] PASSED
+tests/test_programme.py::test_gamma_restricted_cache_vs_direct[17] PASSED
+tests/test_programme.py::test_switch_points_consistent[13] PASSED
+tests/test_programme.py::test_switch_points_consistent[23] PASSED
+tests/test_programme.py::test_best_found_matches_exact_and_kcap_valid[23-1.5] PASSED
+tests/test_programme.py::test_best_found_matches_exact_and_kcap_valid[29-2.0] PASSED
+tests/test_programme.py::test_best_found_matches_exact_and_kcap_valid[31-1.25] PASSED
+tests/test_programme.py::test_best_found_matches_exact_and_kcap_valid[31-2.0] PASSED
+tests/test_programme.py::test_best_found_matches_exact_and_kcap_valid[37-1.5] PASSED
+tests/test_programme.py::test_best_found_matches_exact_and_kcap_valid[37-2.5] PASSED
+tests/test_programme.py::test_capped_exact_matches_cache PASSED
+tests/test_programme.py::test_cache_checksums PASSED
+tests/test_runner.py::test_slot_limit_ten_dummy_jobs max concurrent dummy jobs: 5
+PASSED
+tests/test_runner.py::test_timeout_is_recorded PASSED
+tests/test_runner.py::test_runs_csv_skip_completed_and_crashed PASSED
+tests/test_train.py::test_determinism_fixed_seed PASSED
+tests/test_train.py::test_batched_equals_solo batched vs solo (cpu float32): {"device": "cpu", "dtype": "float32", "runs": [{"variant": {"seed": 1, "lr": 1.0, "lam": 0.001, "q": 2.0}, "bit_identical": false, "max_abs_weight_diff": 2.980232238769531e-07, "rel_weight_diff": 1.6634986997428764e-07, "gamma_solo": 0.0013611198005890781, "gamma_batched": 0.001361119741192466, "gamma_rel_diff": 4.363804873673809e-08}, {"variant": {"seed": 2, "lr": 0.5, "lam": 0.003, "q": 2.5}, "bit_identical": false, "max_abs_weight_diff": 2.384185791015625e-07, "rel_weight_diff": 1.9084880003816977e-07, "gamma_solo": 0.0035700955755336777, "gamma_batched": 0.0035700957939894095, "gamma_rel_diff": 6.119044355558459e-08}, {"variant": {"seed": 3, "lr": 0.7, "lam": 0.001, "q": 3.0, "momentum": 0.5}, "bit_identical": false, "max_abs_weight_diff": 4.172325134277344e-07, "rel_weight_diff": 3.493368887178358e-07, "gamma_solo": 0.006358165828138205, "gamma_batched": 0.006358165696720348, "gamma_rel_diff": 2.0669145953609155e-08}]}
+PASSED
+tests/test_train.py::test_batched_equals_solo_cuda SKIPPED (no CUDA ...)
+tests/test_train.py::test_float32_vs_float64_gap float32 vs float64: [{"config": {}, "gamma_f32": 0.0018801079273077568, "gamma_f64": 0.0018801068577427315, "gamma_rel_gap": 5.688852316562259e-07, "ce64_f32": 0.021590633487223745, "ce64_f64": 0.021590631987436364, "max_abs_weight_diff": 6.251429866543923e-06, "weight_scale": 1.716004486031881, "grad_rel_f32": 0.1252512953919015, "grad_rel_f64": 0.1252513966577612}, {"config": {"lam": 0.0001, "steps": 2000, "lr": 2.0}, "gamma_f32": 0.0018313723125613999, "gamma_f64": 0.0018313727881339385, "gamma_rel_gap": 2.5968090258810185e-07, "ce64_f32": 0.0019726917063401473, "ce64_f64": 0.0019726895294600068, "max_abs_weight_diff": 4.960742487680747e-06, "weight_scale": 2.0041068812582736, "grad_rel_f32": 0.12899469781326406, "grad_rel_f64": 0.12899470356573065}, {"config": {"q": 3.0, "lam": 0.001, "lr": 1.0}, "gamma_f32": 0.008488871464040789, "gamma_f64": 0.008488872342376795, "gamma_rel_gap": 1.0346910295408269e-07, "ce64_f32": 0.12405833563720066, "ce64_f64": 0.12405833394993197, "max_abs_weight_diff": 1.041745927771176e-06, "weight_scale": 1.1341138858614939, "grad_rel_f32": 0.0049575005597352045, "grad_rel_f64": 0.004957498416998963}]
+PASSED
+tests/test_train.py::test_run_directory_provenance_and_immutability PASSED
+tests/test_train.py::test_norms_guards PASSED
+tests/test_train.py::test_schedules PASSED
+
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_train.py:76: no CUDA device
+================== 101 passed, 1 skipped in 164.16s (0:02:44) ==================

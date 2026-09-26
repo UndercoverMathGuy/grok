@@ -1,0 +1,22 @@
+{
+  "task": 89,
+  "item_id": "U1-representation-cost",
+  "lens": "citation",
+  "upheld": true,
+  "corrected_verdict": "CITATION_FOUND (upheld). Cite Dai-Karzand-Srebro 2021 (Table 1: depth-d diagonal nets induce the l_{2/d} quasi-norm; conv nets induce l_{2/d,2} on the Fourier domain) and Tibshirani 2021 (Sec 2.2, eqs 8-9, AM-GM) as the main sources, plus Hoff (CSDA 2017) and Kolb (ICLR 2025). Grandvalet 1998 is optional as the classical two-factor origin. Gunasekar 2018 is a cf. Fix the wording: q=b/nu<=1, not q<1.",
+  "issues": "All 5 confirmed citations survive an independent fetch: Tibshirani full text Sec 2.2 eqs 8-9 and Sec 3.2; Hoff abstract; Dai NeurIPS page plus full PDF Table 1; Gunasekar abstract; Kolb arXiv abstract with its 'accepted at ICLR 2025' comment. Corrections: (1) The Hoff bibtex is an arXiv preprint entry, but the paper is published. Crossref for DOI 10.1016/j.csda.2017.06.007 gives Computational Statistics & Data Analysis 115:186-198 (2017), so use @article with that journal. (2) The recommended text says 'nonconvex l_q quasi-norm with q<1 ... here with q=b/nu'. But s=nu/b is in [1,nu/2], so q=b/nu is in [2/nu,1], and s=1 gives q=1 (convex l_1). Write q=b/nu<=1. (3) Every cited source states the b=2 case: a sum of squares on all parameters. The paper's per-neuron L_{2,b} cost gives nu^{b/2}A^{b/nu} by the same AM-GM step, so phrase it as a generalisation of the b=2 identity. (4) Dai et al. is stronger than the checker says: Table 1 states the exact depth-to-l_{2/d} rule, and gives l_{2/d,2} on the Fourier domain for conv nets. Put it first among the ML citations. Missed canonical prior art: Grandvalet 1998, 'Least Absolute Shrinkage is Equivalent to Quadratic Penalization', ICANN 98 (Crossref metadata fetched; body not read). Jacobs-Montufar 2605.19458 is correctly excluded here: it is about mirror-flow max-margin. Operational: this session's WebSearch budget was already 200/200 used and arXiv's API returned 429, so parallel verifiers are sharing an exhausted search budget. That likely explains the slow verify stage.",
+  "extra_citations": [
+    {
+      "key": "grandvalet1998least",
+      "bibtex": "@inproceedings{grandvalet1998least,\n  title={Least Absolute Shrinkage is Equivalent to Quadratic Penalization},\n  author={Grandvalet, Yves},\n  booktitle={ICANN 98: Proceedings of the 8th International Conference on Artificial Neural Networks},\n  series={Perspectives in Neural Computing},\n  pages={201--206},\n  year={1998},\n  publisher={Springer},\n  doi={10.1007/978-1-4471-1599-1_27}\n}",
+      "url": "https://doi.org/10.1007/978-1-4471-1599-1_27",
+      "why": "The classical origin of the two-factor identity: ridge on a product parametrisation equals the lasso. It is the b=2, nu=2 case of the AM-GM exponent. Crossref metadata was fetched (ICANN 98, pp. 201-206); the body was not read."
+    },
+    {
+      "key": "hoff2017lasso",
+      "bibtex": "@article{hoff2017lasso,\n  title={Lasso, fractional norm and structured sparse estimation using a {H}adamard product parametrization},\n  author={Hoff, Peter D.},\n  journal={Computational Statistics \\& Data Analysis},\n  volume={115},\n  pages={186--198},\n  year={2017},\n  doi={10.1016/j.csda.2017.06.007}\n}",
+      "url": "https://doi.org/10.1016/j.csda.2017.06.007",
+      "why": "A corrected bibtex for the checker's hoff2017lasso: the published journal version, confirmed via Crossref, replacing the arXiv-preprint entry."
+    }
+  ]
+}

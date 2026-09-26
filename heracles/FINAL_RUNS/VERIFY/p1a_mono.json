@@ -1,0 +1,44 @@
+{
+ "lemmaT_r0.500": {
+  "bad_beta": 0,
+  "bad_tau": 0,
+  "slack": 0.05439854895944041
+ },
+ "lemmaT_r0.667": {
+  "bad_beta": 0,
+  "bad_tau": 0,
+  "slack": 0.018636890944282766
+ },
+ "lemmaT_r0.900": {
+  "bad_beta": 0,
+  "bad_tau": 0,
+  "slack": 0.0010618827392948824
+ },
+ "epsmono_n2": {
+  "flips": 0,
+  "eps": 0.01697662756056753
+ },
+ "epsmono_n3": {
+  "flips": 0,
+  "eps": 0.014692378328741965
+ },
+ "relax_n2_scFalse": {
+  "worst": 0.0015693364670836818,
+  "pairs": 8400
+ },
+ "relax_n2_scTrue": {
+  "worst": 0.001385862602409249,
+  "pairs": 8400
+ },
+ "relax_n3_scFalse": {
+  "worst": 0.0010053935397715819,
+  "pairs": 8400
+ },
+ "relax_n3_scTrue": {
+  "worst": 0.0014085748118732866,
+  "pairs": 8400
+ },
+ "float_rounding_demo": {
+  "float_can_round_up": true
+ }
+}

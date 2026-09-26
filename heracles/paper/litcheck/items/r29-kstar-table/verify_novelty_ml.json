@@ -1,0 +1,16 @@
+{
+ "task": 31,
+ "item_id": "R29-kstar-table",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "NOVEL_AS_FAR_AS_FOUND",
+ "issues": "No missed prior art. I found no paper that computes the optimal frequency count at a specific p or the switch points in s. The closest miss is Tian 2410.01779 (NeurIPS 2025), whose MSE + weight-decay global optimisers for modular addition use every frequency ('order-6' = 6 hidden nodes per frequency), so it is dense, not a sparse count. He et al. 2602.16849 and Gromov 2301.02679 are also dense. McCracken Cor 4.8 is sufficiency only. All 4 confirmed citations checked against the PDFs:\n- Nanda: ICLR 2023, k in {14,35,41,42,52}, 6 non-zero W_E frequencies.\n- Chughtai: Table 5 MLP C113 13/11/15/10; Table 6 transformer 3/4/4/3.\n- Zhong: p=59 Model A (pizza), circles 17,3,44, 91.4%.\n- McCracken: Sec 4.3 '3-7', Fig 4 moduli 59-66.\nThe refs.bib mccracken2025 entry has the wrong title and author (it should be 'Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks', Gavin McCracken et al.) and must be fixed. The caption already carries the exhaustive-range caveat. The (113,nu=3)=7 heuristic flag is only a LaTeX comment and should move into the caption. Workflow note: this session's WebSearch budget (200) is exhausted and the arXiv export API returns 429, so later verifiers cannot web-search.",
+ "extra_citations": [
+  {
+   "key": "tian2025composing",
+   "bibtex": "@inproceedings{tian2025composing,\n  title={Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets},\n  author={Tian, Yuandong},\n  booktitle={Advances in Neural Information Processing Systems},\n  year={2025}\n}",
+   "url": "https://arxiv.org/abs/2410.01779",
+   "why": "Optional contrast. Its global optimisers for modular addition under MSE + weight decay use all frequencies, with 'order' counting hidden nodes per frequency, so under that loss the count is dense and does not grow logarithmically."
+  }
+ ]
+}

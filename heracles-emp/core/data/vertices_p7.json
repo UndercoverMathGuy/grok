@@ -1,0 +1,53 @@
+{
+ "p": 7,
+ "h": 3,
+ "enum_version": "vertex-enum-v1",
+ "tolerances": {
+  "TOL_POS": 1e-10,
+  "TOL_FEAS": 1e-09,
+  "TOL_TIGHT": 1e-07,
+  "TOL_FINAL": 1e-11,
+  "TOL_RANK": 1e-10,
+  "ROUND_DIGITS": 9
+ },
+ "n_orbit_reps": 3,
+ "n_vertices": 7,
+ "npz_sha256": "93c496b4f8c1b9a158495da49b190ade5d3dc55fe474f1c73ffde1b5d72a351e",
+ "programme_py_sha256": "94309426a85f87fe925482a7ba19fe473e0494fac8e298b89c27035c5ecb53b2",
+ "stats": {
+  "p": 7,
+  "h": 3,
+  "n_supports": 3,
+  "per_K": {
+   "1": {
+    "n_supports": 1,
+    "n_T": 3,
+    "n_solved": 3,
+    "n_candidates": 1,
+    "seconds": 0.00013828277587890625
+   },
+   "2": {
+    "n_supports": 1,
+    "n_T": 3,
+    "n_solved": 3,
+    "n_candidates": 1,
+    "seconds": 8.225440979003906e-05
+   },
+   "3": {
+    "n_supports": 1,
+    "n_T": 1,
+    "n_solved": 1,
+    "n_candidates": 1,
+    "seconds": 0.0001811981201171875
+   }
+  },
+  "n_candidates_total": 3,
+  "n_rejected_in_refinement": 0,
+  "n_vertices_raw": 3,
+  "seconds_refine": 0.0001971721649169922,
+  "seconds_total": 0.000637054443359375,
+  "seconds_orbits": 0.0001442432403564453
+ },
+ "seconds_wall": 0.0013668537139892578,
+ "created": "2026-09-25 16:45:24 IST"
+}

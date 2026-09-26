@@ -1,0 +1,22 @@
+{
+ "task": 19,
+ "item_id": "R22-finitely-many-shapes",
+ "lens": "novelty_ml",
+ "upheld": true,
+ "corrected_verdict": "PARTIALLY_KNOWN (unchanged). Both steps are classical (concave minimisation attains its minimum at a vertex, lp vertices are exactly the local minimisers, and Laguerre/Rolle zero counts). Applying them to Gamma_s(p) and the piecewise-constant-in-s shape are new. The paper should also cite the ML precedent for quasi-norm Fourier-domain margins (Gunasekar et al. 2018).",
+ "issues": "Citation checks. ge2011note: confirmed. I read preprint v14 myself: Theorem 3 says the basic feasible solutions are exactly the local minimisers, and Theorem 1 gives strong NP-hardness. The numbering is the preprint's, so check it against the journal version or cite by content. hirsch1961extreme and jameson2006counting: only the metadata is confirmed via Crossref. I could not read either body (Wiley paywall; the Lancaster PDF returned 500), so the checker's 'confirmed' covers existence and bib fields, not theorem statements. Prior art the checker missed. (1) Gunasekar, Lee, Soudry and Srebro (NeurIPS 2018): depth-L linear convolutional networks give max margin under an l_{2/L} bridge quasi-norm in the frequency domain. This is the closest ML precedent for a sub-1-exponent quasi-norm Fourier margin producing frequency sparsity, with the exponent set by architecture. It does not give the vertex or finitely-many-shapes result, so novelty stands, but it is uncited. The checker wrote that the ML papers contain nothing on dependence on s. (2) Fung and Mangasarian (JOTA 2011, metadata only): for sufficiently small p, lp-minimal solutions over polyhedra equal the l0 (sparsest) solutions. This is the s -> infinity end of prop:shapes: the last interval's shape is a minimum-support vertex of P_p. Wording. At a switch value the minimising set is the union of its neighbours. 'The support of a maximizer is piecewise constant' holds only up to multiset-tied vertices such as the images under j -> uj; the support size and the ratio multiset are what stay constant. Search limits: WebSearch was refused (the session-wide budget of 200 searches is used up), and the arXiv and Semantic Scholar APIs returned 429. The adversarial ML search therefore relied on direct fetches of known candidates rather than open search. Every later verifier in this workflow hits the same wall, which is a likely cause of the slow verify stage.",
+ "extra_citations": [
+  {
+   "key": "gunasekar2018implicit",
+   "bibtex": "@inproceedings{gunasekar2018implicit,\n  title={Implicit Bias of Gradient Descent on Linear Convolutional Networks},\n  author={Gunasekar, Suriya and Lee, Jason D. and Soudry, Daniel and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={31},\n  year={2018}\n}",
+   "url": "https://arxiv.org/abs/1806.00468",
+   "why": "ML precedent for the programme: max margin under an l_{2/L} (sub-1) quasi-norm on Fourier coefficients, with the exponent set by depth. Cite it where the programme and the exponent 1/s are introduced. It does not contain the vertex or piecewise-constant-in-exponent result."
+  },
+  {
+   "key": "fung2011equivalence",
+   "bibtex": "@article{fung2011equivalence,\n  title={Equivalence of Minimal {$\\ell_0$}- and {$\\ell_p$}-Norm Solutions of Linear Equalities, Inequalities and Linear Programs for Sufficiently Small p},\n  author={Fung, G. M. and Mangasarian, O. L.},\n  journal={Journal of Optimization Theory and Applications},\n  volume={151},\n  number={1},\n  pages={1--10},\n  year={2011},\n  doi={10.1007/s10957-011-9871-x}\n}",
+   "url": "https://doi.org/10.1007/s10957-011-9871-x",
+   "why": "Covers the large-s (r=1/s -> 0) end of prop:shapes. For p small enough, lp-minimal solutions over polyhedra coincide with the sparsest (l0) solutions, so the final interval's shape is a minimum-support vertex. Metadata only: confirmed via Crossref and Semantic Scholar, but the abstract was elided and I did not read the body."
+  }
+ ]
+}

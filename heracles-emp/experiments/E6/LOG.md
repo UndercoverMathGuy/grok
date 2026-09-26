@@ -1,0 +1,2 @@
+# E6 LOG (IST)
+- 2026-09-25 17:58: PREREG.md written (stamp inside) with predictions.json (experiments/common/predictions.py) and configs/grid.json (experiments/common/build.py, recipe FROZEN-2026-09-25-1755). Evaluation launched on pods via experiments/common/launch.py (plan experiments/common/plan_main.json; per-pod batch files configs/batches_<pod>s<k>.json). Code sha of core/*.py identical on all pods and local (verified before launch).

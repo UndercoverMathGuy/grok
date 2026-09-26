@@ -1,0 +1,35 @@
+{
+ "batches": [
+  {
+   "batch_id": "audit_A7",
+   "runs": [
+    {
+     "run_id": "E7_nu4_p37_q2.7586_seed0_audit",
+     "config": {
+      "model": "product",
+      "n": 3,
+      "p": 37,
+      "q": 2.7586206896551726,
+      "width": 144,
+      "steps": 150000,
+      "optimizer": "gd",
+      "momentum": 0.9,
+      "lr": 10.360000000000001,
+      "lr_c": 0.28,
+      "lam": 1.8882084034802464e-06,
+      "lam_tilde": 0.003,
+      "init_scheme": "normal",
+      "init_scale": 6.082762530298219,
+      "seed": 0,
+      "dtype": "float32",
+      "device": "cuda",
+      "log_every": 1000,
+      "measure_ablation": true,
+      "recipe_id": "FROZEN-2026-09-25-1755",
+      "s_target": 1.45
+     }
+    }
+   ]
+  }
+ ]
+}

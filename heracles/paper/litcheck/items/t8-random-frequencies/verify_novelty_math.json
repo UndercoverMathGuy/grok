@@ -1,0 +1,22 @@
+{
+ "task": 56,
+ "item_id": "T8-random-frequencies",
+ "lens": "novelty_math",
+ "upheld": true,
+ "corrected_verdict": "KNOWN (upheld): cyclic case of Alon-Roichman 1994 Sec 3.1 (Thm 2 + the Remark after it, which treats Z_n explicitly), with Hoeffding in place of their binomial tail. The unweighted Omega(log n) necessity is also classical (Alon-Roichman Prop 3), so only the budget-weighted (L^r-quasinorm) upper bound and its constants are new.",
+ "issues": "Every confirmed citation checks out: Alon-Roichman PDF read (Thm 2, per-character bound + union over n-1 characters); Crossref metadata for Alon-Roichman, Naor-Naor, AGHP and Hoeffding; McCracken Thm 4.7 read. Lemma arithmetic re-derived and correct. Problems: (1) The Remark after Alon-Roichman Thm 2 already covers the cyclic group Z_n (eps log2 n random elements give a constant gap a.s.). Cite it as \\citet[Sec 3.1]{alon1994random}. (2) Missed by the checker: Alon-Roichman Prop 3 ('If A is an Abelian group of order n, and X(A,S) is a delta-expander, then |S| >= c log2 n') is the classical unweighted counterpart of our matching upper bound and of 'every maximizer uses >= c_s ln p frequencies' (cyclic.tex l.116). So the checker's proposed sentence 'What is new here is the matching upper bound' overclaims. Qualify it: what is new is the budget-weighted upper bound and its constants, via the positive-Fourier argument. (3) The '(one-sided) 1/2-biased multiset of Z_p \\citep{naor1993small}' wording is inaccurate. Small bias is two-sided, and at L = ceil(8 ln p) the two-sided union bound exceeds 1, so the draw is not certified 1/2-biased. Naor-Naor and AGHP are over Z_2^n. Either say 'a one-sided analogue of an eps-biased set' and cite Chen-Moore-Russell 2013 (abstract: 'The Alon-Roichman theorem shows that random sets of size O(log|G|/eps^2) suffice'), or drop the sentence. (4) The mccracken2025 bib is wrong. The correct title is 'Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks' and the authors are G. McCracken, G. Moisescu-Pareja, V. Letourneau, D. Precup, J. Love. Their Thm 4.7 needs m of about 2.4 ln n at delta = 1/2, so do not present our 8 ln p constant as tight. PROCESS: WebSearch budget exhausted (200/200) on this agent's first call. All sources came from direct WebFetch, Crossref curl and local pdftotext.",
+ "extra_citations": [
+  {
+   "key": "chen2013smallbias",
+   "bibtex": "@inproceedings{chen2013smallbias,\n  title={Small-Bias Sets for Nonabelian Groups},\n  author={Chen, Sixia and Moore, Cristopher and Russell, Alexander},\n  booktitle={Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques (APPROX/RANDOM 2013)},\n  series={Lecture Notes in Computer Science},\n  pages={436--451},\n  year={2013},\n  doi={10.1007/978-3-642-40328-6_31}\n}",
+   "url": "https://arxiv.org/abs/1304.5010",
+   "why": "Optional. Canonical statement that Alon-Roichman gives eps-biased random sets of size O(log|G|/eps^2) in any group, including Z_p. Use it instead of Naor-Naor/AGHP (both Z_2^n) if the biased-set vocabulary is kept. Metadata from Crossref; abstract fetched."
+  },
+  {
+   "key": "alon1994random",
+   "bibtex": "@article{alon1994random,\n  title={Random {C}ayley graphs and expanders},\n  author={Alon, Noga and Roichman, Yuval},\n  journal={Random Structures \\& Algorithms},\n  volume={5},\n  number={2},\n  pages={271--284},\n  year={1994},\n  doi={10.1002/rsa.3240050203}\n}",
+   "url": "https://web.math.princeton.edu/~nalon/PDFS/exp1.pdf",
+   "why": "Same entry as the existing one, with the DOI added. Cite Prop 3 (abelian Cayley expanders need >= c log2 n generators) at the matching upper bound / frequency-count lower bound (cyclic.tex l.116, appendix app:scaling) as the unweighted classical counterpart. Cite Sec 3.1 (Thm 2 + Remark on Z_n) at appendix l.196."
+  }
+ ]
+}

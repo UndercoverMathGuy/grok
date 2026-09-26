@@ -1,0 +1,25 @@
+[
+ {
+  "p": 5,
+  "T": [
+   1
+  ],
+  "L": 24,
+  "one_sided": 0.802096,
+  "two_sided": 0.94292,
+  "transfer": 0.570034,
+  "passes": true
+ },
+ {
+  "p": 5,
+  "T": [
+   1,
+   2
+  ],
+  "L": 16,
+  "one_sided": 0.245196,
+  "two_sided": 0.548276,
+  "transfer": 0.309302,
+  "passes": true
+ }
+]

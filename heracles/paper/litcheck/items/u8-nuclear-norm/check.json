@@ -1,0 +1,29 @@
+{
+ "id": "U8-nuclear-norm",
+ "verdict": "CITATION_FOUND",
+ "evidence": "Statement location: sections/appendix.tex line 285 (\"Where the approach does not apply\"). refs.bib has no Srebro, Gunasekar or Ongie entries.\n\n(1) Srebro, Rennie, Jaakkola, \"Maximum-Margin Matrix Factorization\", NIPS 17 (2004). Confirmed on the NeurIPS proceedings page. I read the PDF directly; its Lemma 1 states: ||X||_Sigma = min_{X=UV'} ||U||_Fro ||V||_Fro = min_{X=UV'} 1/2(||U||_Fro^2+||V||_Fro^2). This is the pricing fact: L2 weight decay on a two-factor linear product equals the trace (nuclear) norm.\n\n(2) Ongie, Willett, \"The Role of Linear Layers in Nonlinear Interpolating Networks\", arXiv 2202.00856 (2022). This is the closest match to our setting.\n- Intro: \"adding linear layers to a ReLU network with weight decay regularization is akin to using a two-layer ReLU network with nuclear or Schatten norm regularization on the weight matrix.\"\n- Lemma 3.2: R_L(f) = min (1/L)||a||^2 + ((L-1)/L)||W||_{S_q}^q with q = 2/(L-1). A single linear layer (L=3) gives q=1, the nuclear norm (Sec. 3 before Lemma 3.8: \"the Phi_3 loss involves minimizing over the nuclear norm of a matrix\").\n- Published venue unconfirmed: dblp and Semantic Scholar were blocked or rate-limited, and the WebSearch budget was used up.\n\n(3) Gunasekar et al., \"Implicit Regularization in Matrix Factorization\", NIPS 30 (2017). Confirmed on the proceedings page. It shows an implicit gradient-descent bias toward the minimum nuclear norm. That is about gradient descent, not an explicit L2 price, so it is optional.\n\nCaveat: the clause \"rewards carrying many frequencies in one neuron\" is the paper's own reading, and none of these sources states it. Cite them for the nuclear-norm pricing only.\n\nNotes: /Users/ruhaanrajadhyaksha/projects/grok/heracles/paper/litcheck/items/u8-nuclear-norm/CHECK.md",
+ "recommended_citations": [
+  {
+   "key": "srebro2004mmmf",
+   "bibtex": "@inproceedings{srebro2004mmmf,\n  title={Maximum-Margin Matrix Factorization},\n  author={Srebro, Nathan and Rennie, Jason and Jaakkola, Tommi S.},\n  booktitle={Advances in Neural Information Processing Systems 17 (NIPS 2004)},\n  year={2004}\n}",
+   "url": "https://proceedings.neurips.cc/paper_files/paper/2004/hash/e0688d13958a19e087e123148555e4b4-Abstract.html",
+   "confirmed": true,
+   "why": "Supports 'priced by a nuclear norm'. Lemma 1: the trace norm equals the minimum over factorizations X=UV' of 1/2(||U||_F^2+||V||_F^2), i.e. L2 weight decay on a product of linear factors."
+  },
+  {
+   "key": "ongie2022linear",
+   "bibtex": "@article{ongie2022linear,\n  title={The Role of Linear Layers in Nonlinear Interpolating Networks},\n  author={Ongie, Greg and Willett, Rebecca},\n  journal={arXiv preprint arXiv:2202.00856},\n  year={2022}\n}",
+   "url": "https://arxiv.org/abs/2202.00856",
+   "confirmed": true,
+   "why": "Supports the whole sentence in the network setting. Lemma 3.2: adding linear layers in front of ReLU neurons under weight decay gives a Schatten-q price (q=2/(L-1)) on the inner weight matrix; one linear layer gives the nuclear norm. Title, authors and year confirmed; published venue not confirmed, so cited as arXiv."
+  },
+  {
+   "key": "gunasekar2017implicit",
+   "bibtex": "@inproceedings{gunasekar2017implicit,\n  title={Implicit Regularization in Matrix Factorization},\n  author={Gunasekar, Suriya and Woodworth, Blake E. and Bhojanapalli, Srinadh and Neyshabur, Behnam and Srebro, Nathan},\n  booktitle={Advances in Neural Information Processing Systems 30 (NIPS 2017)},\n  year={2017}\n}",
+   "url": "https://proceedings.neurips.cc/paper/2017/hash/58191d2a914c6dae66371c9dcdc91b41-Abstract.html",
+   "confirmed": true,
+   "why": "Optional, tangential. Shows gradient descent on a factorisation is implicitly biased toward the minimum nuclear norm. Use only if the sentence should also mention training dynamics."
+  }
+ ],
+ "recommended_change": "In appendix.tex l.285, change \"the shared layer is priced by a nuclear norm\" to \"the shared layer is priced by a nuclear norm \\citep{srebro2004mmmf,ongie2022linear}\". Keep \"that rewards carrying many frequencies in one neuron\" as our own gloss; do not attribute it to the citations. Add the srebro2004mmmf and ongie2022linear bib entries. Gunasekar 2017 is optional."
+}
