@@ -1,0 +1,287 @@
+<title>Conjecture 20 Resolution</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+/* Layout: a single reading column of a referee-style memo; verdict first, certificate second, evidence after. */
+:root {
+  --paper: #f5f6f8;
+  --surface: #ffffff;
+  --ink: #17202b;
+  --muted: #576170;
+  --rule: #d8dde5;
+  --accent: #0d6a70;
+  --accent-soft: #e2f0f0;
+  --breach: #b3202c;
+  --breach-soft: #f8e4e5;
+  --display: "Spectral", "Iowan Old Style", Georgia, serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #11151a; --surface: #181d24; --ink: #e5e8ed; --muted: #9ba5b3; --rule: #2a313c;
+    --accent: #5cc0c4; --accent-soft: #15302f; --breach: #ff737c; --breach-soft: #3a1b1f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #11151a; --surface: #181d24; --ink: #e5e8ed; --muted: #9ba5b3; --rule: #2a313c;
+  --accent: #5cc0c4; --accent-soft: #15302f; --breach: #ff737c; --breach-soft: #3a1b1f; color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 780px; margin: 0 auto; padding-block: 40px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 44px; }
+header { display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.12; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 25px; line-height: 1.25; margin: 0; text-wrap: balance; }
+h3 { font-size: 15px; font-weight: 600; margin: 0; }
+p { margin: 0; max-width: 68ch; }
+section { display: flex; flex-direction: column; gap: 16px; }
+.lede { font-size: 18px; max-width: 64ch; }
+var, .m { font-family: var(--display); font-style: italic; font-size: 1.06em; }
+.m-up { font-family: var(--display); font-size: 1.06em; }
+code, .code { font-family: var(--mono); font-size: 0.88em; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.verdict { background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--breach); padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+.verdict strong { color: var(--breach); }
+.figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.fig { background: var(--surface); border: 1px solid var(--rule); padding: 16px 16px 14px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.fig .num { font-family: var(--display); font-size: 32px; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.fig .num.breach { color: var(--breach); }
+.fig .lab { font-size: 13px; color: var(--muted); }
+@media (max-width: 560px) { .figs { grid-template-columns: 1fr; } }
+
+.tbl { overflow-x: auto; border: 1px solid var(--rule); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { padding: 7px 12px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; font-size: 13px; color: var(--muted); background: var(--paper); }
+tr:last-child td { border-bottom: none; }
+td.l, th.l { text-align: left; }
+td.mono { font-family: var(--mono); font-size: 13px; }
+td.over { color: var(--breach); font-weight: 600; }
+.caption { font-size: 13px; color: var(--muted); max-width: 72ch; }
+
+.formula { font-family: var(--display); font-size: 18px; background: var(--surface); border: 1px solid var(--rule); padding: 14px 18px; overflow-x: auto; white-space: nowrap; }
+
+.chart { background: var(--surface); border: 1px solid var(--rule); padding: 12px 8px 6px; overflow-x: auto; }
+.chart svg { display: block; width: 100%; min-width: 520px; height: auto; }
+.chart .grid { stroke: var(--rule); stroke-width: 1; }
+.chart .tick { fill: var(--muted); font-family: var(--mono); font-size: 11px; }
+.chart .axl { fill: var(--muted); font-family: var(--body); font-size: 12px; }
+.chart .ifline { stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 6 4; }
+.chart .iflab { fill: var(--accent); font-family: var(--body); font-size: 12px; font-weight: 500; }
+.chart .trace { fill: none; stroke: var(--muted); stroke-width: 1.4; }
+.chart .dot { fill: var(--surface); stroke: var(--ink); stroke-width: 1.6; }
+.chart .dot.over { fill: var(--breach); stroke: var(--breach); }
+.chart .ptlab { fill: var(--breach); font-family: var(--mono); font-size: 11px; font-weight: 500; }
+
+ul.plain { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; max-width: 70ch; }
+.note { background: var(--accent-soft); padding: 14px 18px; border-radius: 3px; max-width: 72ch; }
+.files { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 18px; font-size: 14px; }
+.files code { color: var(--ink); }
+.files span { color: var(--muted); }
+@media (max-width: 560px) { .files { grid-template-columns: 1fr; } .files span { margin-bottom: 8px; } }
+pre.cmd { font-family: var(--mono); font-size: 13px; background: var(--surface); border: 1px solid var(--rule); padding: 12px 14px; margin: 0; overflow-x: auto; }
+footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Feature Sparsity via Margin Maximization · Appendix D</div>
+  <h1>Conjecture 20 is false</h1>
+  <p class="lede">At <var>p</var> = 3 and weight decay (<var>b</var> = 2), a product network that carries interference beats the interference-free value of Theorem 8. Two explicit networks, at <var>n</var> = 11 and <var>n</var> = 13, are certified in exact rational arithmetic.</p>
+</header>
+
+<div class="verdict">
+  <p><strong>Answer.</strong> The maximum <span class="m-up">L</span><sub>2,<var>b</var></sub>-margin over all product networks is <em>not</em> always the interference-free value <var>ν</var><sup>1−<var>s</var></sup><var>B<sub>p</sub></var>Γ<sub><var>s</var></sub>(<var>p</var>). The smallest counterexample found has <var>p</var> = 3, <var>n</var> = 11, <var>b</var> = 2 and only 8 neurons (the interference-free optimum needs <var>ν</var> = 12). The violation grows with <var>n</var> and also covers <var>b</var> slightly above 2.</p>
+  <p>Theorem 8 itself is unaffected. What fails is the claim that no interfering network can do better.</p>
+</div>
+
+<div class="figs">
+  <div class="fig"><div class="num breach">×1.0544</div><div class="lab"><var>n</var> = 11, width 8. Exact rational check, 7-decimal weights.</div></div>
+  <div class="fig"><div class="num breach">×1.1092</div><div class="lab"><var>n</var> = 13, width 10. Exact rational check, 7-decimal weights.</div></div>
+  <div class="fig"><div class="num">×1.192</div><div class="lab">Best found, <var>n</var> = 12, width 9 (unrounded parameters).</div></div>
+</div>
+
+<section id="network">
+  <h2>The network at n = 11</h2>
+  <p>Every neuron uses the same input factor <var>u<sub>i</sub></var> ∈ ℝ<sup>3</sup> in all eleven slots and an output factor <var>w<sub>i</sub></var> ∈ ℝ<sup>3</sup>:</p>
+  <div class="formula"><var>f</var>(<var>x</var>)[<var>c</var>] = Σ<sub><var>i</var>=1</sub><sup>8</sup> <var>w<sub>i</sub></var>(<var>c</var>) Π<sub><var>t</var>=1</sub><sup>11</sup> <var>u<sub>i</sub></var>(<var>x<sub>t</sub></var>),   <var>x</var> ∈ ℤ<sub>3</sub><sup>11</sup>,   <var>y</var>(<var>x</var>) = <var>x</var><sub>1</sub> + ⋯ + <var>x</var><sub>11</sub> mod 3.</div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th class="l">neuron</th><th>u(0)</th><th>u(1)</th><th>u(2)</th><th>w(0)</th><th>w(1)</th><th>w(2)</th></tr></thead>
+      <tbody>
+        <tr><td class="l">1</td><td class="mono">−0.4846467</td><td class="mono">0.0986351</td><td class="mono">2.3735957</td><td class="mono">0.9287971</td><td class="mono">1.0496311</td><td class="mono">−1.9784282</td></tr>
+        <tr><td class="l">2</td><td class="mono">−0.9492087</td><td class="mono">0.4121459</td><td class="mono">2.1787251</td><td class="mono">−0.7213797</td><td class="mono">−1.2263075</td><td class="mono">1.9476873</td></tr>
+        <tr><td class="l">3</td><td class="mono">−1.2303519</td><td class="mono">0.7873084</td><td class="mono">1.9158950</td><td class="mono">0.4609319</td><td class="mono">1.4256721</td><td class="mono">−1.8866040</td></tr>
+        <tr><td class="l">4</td><td class="mono">−1.3685236</td><td class="mono">1.1830027</td><td class="mono">1.5772570</td><td class="mono">−0.1610123</td><td class="mono">−1.6108253</td><td class="mono">1.7718376</td></tr>
+        <tr><td class="l">5</td><td class="mono">−1.3684776</td><td class="mono">1.5721532</td><td class="mono">1.1868510</td><td class="mono">−0.1574121</td><td class="mono">1.7692451</td><td class="mono">−1.6118330</td></tr>
+        <tr><td class="l">6</td><td class="mono">−1.2303770</td><td class="mono">1.9114843</td><td class="mono">0.7892217</td><td class="mono">0.4583909</td><td class="mono">−1.8837781</td><td class="mono">1.4253872</td></tr>
+        <tr><td class="l">7</td><td class="mono">−0.9512944</td><td class="mono">2.1719362</td><td class="mono">0.4152123</td><td class="mono">−0.7173870</td><td class="mono">1.9434179</td><td class="mono">−1.2260309</td></tr>
+        <tr><td class="l">8</td><td class="mono">−0.4871743</td><td class="mono">2.3639747</td><td class="mono">0.1000316</td><td class="mono">0.9243126</td><td class="mono">−1.9711611</td><td class="mono">1.0468485</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th class="l">quantity (exact, then rounded)</th><th>value</th></tr></thead>
+      <tbody>
+        <tr><td class="l">margin <var>h</var> = min<sub><var>x</var></sub> min<sub><var>c</var>≠<var>y</var></sub> (<var>f</var>(<var>x</var>)[<var>y</var>] − <var>f</var>(<var>x</var>)[<var>c</var>])</td><td class="mono">2.731226544979</td></tr>
+        <tr><td class="l">penalty <var>P</var><sub>2</sub> = Σ<sub><var>i</var></sub> (11‖<var>u<sub>i</sub></var>‖² + ‖<var>w<sub>i</sub></var>‖²) = ‖θ‖<sub>2,2</sub><sup>2</sup></td><td class="mono">557.214136999119</td></tr>
+        <tr><td class="l">normalized margin <var>h</var> / <var>P</var><sub>2</sub><sup>6</sup></td><td class="mono">9.12483388188 × 10<sup>−17</sup></td></tr>
+        <tr><td class="l">Theorem 8 value 3<var>ν</var>(6<var>ν</var>²)<sup>−<var>ν</var>/2</sup> = 3 / (12<sup>5</sup> · 72<sup>6</sup>)</td><td class="mono">8.65406286918 × 10<sup>−17</sup></td></tr>
+        <tr><td class="l">ratio</td><td class="mono over">1.054398843620</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">The logits depend on <var>x</var> only through the counts (<var>N</var><sub>0</sub>, <var>N</var><sub>1</sub>, <var>N</var><sub>2</sub>), so the 78 count classes cover all 177,147 inputs. Because <var>ν</var>/2 = 6 is an integer, the normalized margin and the Theorem 8 value are both rational and the comparison is exact. A separate float64 brute force over every input gives the same margin. Padding with zero neurons gives the same margin at every width <var>m</var> ≥ 8, including every width at which Theorem 8's value is attained (<var>m</var> ≥ 12).</p>
+</section>
+
+<section id="mechanism">
+  <h2>How it gets around Lemma 7</h2>
+  <p>Each input factor has the form <var>u<sub>i</sub></var>(<var>a</var>) ∝ <var>κ<sub>i</sub></var> + 2 cos(2π<var>a</var>/3 + <var>φ<sub>i</sub></var>): a single cosine plus a constant (DC) offset. The interference-free block of Proposition 9 is the case <var>κ</var> = 0 with <var>ν</var> neurons whose phases cover 180°. The counterexample departs from it in two ways.</p>
+  <ul class="plain">
+    <li><strong>Fewer neurons.</strong> 8 neurons whose phases are spaced about 14° apart on a 98° arc centred at 180°. With fewer than <var>ν</var> neurons, Lemma 7 says the sign-flipped copies cannot cancel.</li>
+    <li><strong>DC offsets.</strong> <var>κ<sub>i</sub></var> runs from 0.50 in the centre of the arc to 0.76 at its ends. A constant component creates the Fourier modes with <var>k<sub>t</sub></var> = 0, which Theorem 8 leaves unconstrained. These modes push the leftover interference back inside the gap cone {<var>g</var>(<var>x</var>, 1), <var>g</var>(<var>x</var>, 2) ≥ <var>h</var>} at every input. The margin binds on 32 of the 78 count classes.</li>
+  </ul>
+  <p>The accounting is simple. By Parseval a DC slot costs |<var>û</var>(0)|² against 2|<var>û</var>(1)|², so a neuron with offset <var>κ</var> costs (1 + <var>κ</var>²/2) times a centred neuron of the same amplitude. Here 8 × 1.185 ≈ 9.5 centred-neuron equivalents replace the block's 12. At <var>b</var> = 2 the normalized margin scales like (budget per neuron)<sup><var>ν</var>/2</sup>, so this saving beats the loss in efficiency once <var>ν</var> is large enough. In the paper's notation the neuron price is <var>ν</var><sup>1−<var>r</var></sup> with <var>r</var> = 2/<var>ν</var>, and the counterexample avoids paying it in full.</p>
+</section>
+
+<section id="scaling">
+  <h2>How the violation grows</h2>
+  <div class="chart" role="img" aria-label="Best normalized margin found, as a multiple of the Theorem 8 value, for p equals 3 and b equals 2, against n from 3 to 13. Values stay between 0.60 and 0.89 up to n equals 10 and exceed 1 from n equals 11.">
+    <svg viewBox="0 0 640 310" xmlns="http://www.w3.org/2000/svg">
+      <line class="grid" x1="56" x2="616" y1="256.0" y2="256.0"/><text class="tick" x="48" y="260.0" text-anchor="end">0.5</text>
+      <line class="grid" x1="56" x2="616" y1="224.5" y2="224.5"/><text class="tick" x="48" y="228.5" text-anchor="end">0.6</text>
+      <line class="grid" x1="56" x2="616" y1="193.1" y2="193.1"/><text class="tick" x="48" y="197.1" text-anchor="end">0.7</text>
+      <line class="grid" x1="56" x2="616" y1="161.6" y2="161.6"/><text class="tick" x="48" y="165.6" text-anchor="end">0.8</text>
+      <line class="grid" x1="56" x2="616" y1="130.1" y2="130.1"/><text class="tick" x="48" y="134.1" text-anchor="end">0.9</text>
+      <line class="grid" x1="56" x2="616" y1="67.2" y2="67.2"/><text class="tick" x="48" y="71.2" text-anchor="end">1.1</text>
+      <line class="grid" x1="56" x2="616" y1="35.7" y2="35.7"/><text class="tick" x="48" y="39.7" text-anchor="end">1.2</text>
+      <text class="tick" x="48" y="102.7" text-anchor="end">1.0</text>
+      <text class="tick" x="81.5" y="274" text-anchor="middle">3</text>
+      <text class="tick" x="132.4" y="274" text-anchor="middle">4</text>
+      <text class="tick" x="183.3" y="274" text-anchor="middle">5</text>
+      <text class="tick" x="234.2" y="274" text-anchor="middle">6</text>
+      <text class="tick" x="285.1" y="274" text-anchor="middle">7</text>
+      <text class="tick" x="336.0" y="274" text-anchor="middle">8</text>
+      <text class="tick" x="386.9" y="274" text-anchor="middle">9</text>
+      <text class="tick" x="437.8" y="274" text-anchor="middle">10</text>
+      <text class="tick" x="488.7" y="274" text-anchor="middle">11</text>
+      <text class="tick" x="539.6" y="274" text-anchor="middle">12</text>
+      <text class="tick" x="590.5" y="274" text-anchor="middle">13</text>
+      <text class="axl" x="336" y="300" text-anchor="middle">number of operands n</text>
+      <line class="ifline" x1="56" x2="616" y1="98.7" y2="98.7"/>
+      <text class="iflab" x="62" y="92">interference-free value (Theorem 8)</text>
+      <polyline class="trace" points="81.5,224.8 132.4,225.1 183.3,222.0 234.2,194.5 285.1,193.4 336.0,166.4 386.9,131.8 437.8,131.8 488.7,80.4 539.6,38.2 590.5,42.8"/>
+      <circle class="dot" cx="81.5" cy="224.8" r="4.5"><title>n = 3, width 3: 0.5993</title></circle>
+      <circle class="dot" cx="132.4" cy="225.1" r="4.5"><title>n = 4, width 4: 0.5981</title></circle>
+      <circle class="dot" cx="183.3" cy="222.0" r="4.5"><title>n = 5, width 5: 0.6079</title></circle>
+      <circle class="dot" cx="234.2" cy="194.5" r="4.5"><title>n = 6, width 5: 0.6954</title></circle>
+      <circle class="dot" cx="285.1" cy="193.4" r="4.5"><title>n = 7, width 6: 0.6988</title></circle>
+      <circle class="dot" cx="336.0" cy="166.4" r="4.5"><title>n = 8, width 6: 0.7847</title></circle>
+      <circle class="dot" cx="386.9" cy="131.8" r="4.5"><title>n = 9, width 7: 0.8946</title></circle>
+      <circle class="dot" cx="437.8" cy="131.8" r="4.5"><title>n = 10, width 8: 0.8946</title></circle>
+      <circle class="dot over" cx="488.7" cy="80.4" r="4.5"><title>n = 11, width 8: 1.0582</title></circle>
+      <circle class="dot over" cx="539.6" cy="38.2" r="4.5"><title>n = 12, width 9: 1.1923</title></circle>
+      <circle class="dot over" cx="590.5" cy="42.8" r="4.5"><title>n = 13, width 10: 1.1776</title></circle>
+      <text class="ptlab" x="476" y="72" text-anchor="end">1.058</text>
+      <text class="ptlab" x="539.6" y="26" text-anchor="middle">1.192</text>
+    </svg>
+  </div>
+  <p class="caption">Best ratio found at <var>p</var> = 3, <var>b</var> = 2 by networks with fewer than <var>ν</var> neurons. Up to <var>n</var> = 10 these are the best values found, not proved maxima. From <var>n</var> = 11 each point is a lower bound on the true maximum, certified at <var>n</var> = 11 and 13. The interference-free value itself is attained at every <var>n</var>, so the true maximum is at least max(1, ratio).</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>n</th><th>ν</th><th>width</th><th>deficit ν − width</th><th>best ratio</th></tr></thead>
+      <tbody>
+        <tr><td>3</td><td>4</td><td>3</td><td>1</td><td>0.5993</td></tr>
+        <tr><td>4</td><td>5</td><td>4</td><td>1</td><td>0.5981</td></tr>
+        <tr><td>5</td><td>6</td><td>5</td><td>1</td><td>0.6079</td></tr>
+        <tr><td>6</td><td>7</td><td>5</td><td>2</td><td>0.6954</td></tr>
+        <tr><td>7</td><td>8</td><td>6</td><td>2</td><td>0.6988</td></tr>
+        <tr><td>8</td><td>9</td><td>6</td><td>3</td><td>0.7847</td></tr>
+        <tr><td>9</td><td>10</td><td>7</td><td>3</td><td>0.8946</td></tr>
+        <tr><td>10</td><td>11</td><td>8</td><td>3</td><td>0.8946</td></tr>
+        <tr><td>11</td><td>12</td><td>8</td><td>4</td><td class="over">1.0582</td></tr>
+        <tr><td>12</td><td>13</td><td>9</td><td>4</td><td class="over">1.1923</td></tr>
+        <tr><td>13</td><td>14</td><td>10</td><td>4</td><td class="over">1.1776</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The values form a staircase. A family with deficit <var>k</var> = <var>ν</var> − width first becomes feasible when the width is about 2<var>k</var>. Within one deficit the ratio rises and then flattens, and each new deficit lifts the envelope. Deficit 4 appears at <var>n</var> = 11, which is where the line is first crossed.</p>
+  <h3>Range of <var>b</var></h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th class="l">b (network re-optimized at each b)</th><th>2.0</th><th>2.1</th><th>2.2</th><th>2.3</th><th>2.5</th><th>3.0</th></tr></thead>
+      <tbody>
+        <tr><td class="l">n = 11, width 8</td><td class="over">1.061</td><td>0.904</td><td>0.852</td><td>0.773</td><td>0.653</td><td>0.469</td></tr>
+        <tr><td class="l">n = 12, width 9</td><td class="over">1.190</td><td class="over">1.062</td><td>0.957</td><td>0.871</td><td>0.738</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">The failing window is [2, ≈2.05) at <var>n</var> = 11 and [2, ≈2.16) at <var>n</var> = 12, so it widens with <var>n</var>. This is consistent with the interval proof in the progress notes, which establishes optimality only for <var>b</var> ≥ <var>b</var><sub>0</sub> = <var>n</var> + ½ at <var>p</var> = 3.</p>
+</section>
+
+<section id="holds">
+  <h2>What still stands</h2>
+  <ul class="plain">
+    <li><strong>Proved and unaffected.</strong> Theorem 8 and Proposition 9 (the interference-free optimum), the dense endpoint <var>b</var> = <var>ν</var> (Corollary 14), Theorems 10–11 and Corollary 12 (orders in <var>p</var> at fixed <var>ν</var>, <var>b</var>). Also the earlier full proof at <var>p</var> = 3, <var>n</var> = 2 for all <var>b</var> ∈ [2, 3], and the interval <var>b</var> ∈ [<var>b</var><sub>0</sub>, <var>ν</var>] from the matrix proof.</li>
+    <li><strong>Numerically intact at small <var>n</var>.</strong> At <var>b</var> = 2, searches over all real product networks found nothing above the interference-free value at <var>p</var> = 3, <var>n</var> = 3–6; <var>p</var> = 5, <var>n</var> = 2–3; and <var>p</var> = 7, <var>n</var> = 2. Those searches used widths up to 14, random and adversarial starts, and SLSQP polishing. Centred networks (no DC components) with <var>ν</var> − 1 neurons reach only 0.20 at <var>n</var> = 3 and 0.16 at <var>n</var> = 4. The boxed case <var>h</var> ≤ <var>P</var>²/768 at <var>n</var> = 3 is therefore still plausible, but unproved.</li>
+    <li><strong>A corrected statement has to depend on <var>n</var> and <var>b</var>.</strong> For each <var>p</var>, <var>n</var> there should be a threshold <var>b</var>*(<var>p</var>, <var>n</var>) ∈ [2, <var>b</var><sub>0</sub>] above which interference cannot help. At <var>p</var> = 3 we have <var>b</var>*(3, 11) ≈ 2.05 and <var>b</var>*(3, 12) ≈ 2.16. Whether <var>b</var>*(3, <var>n</var>) = 2 for every <var>n</var> ≤ 10 is open.</li>
+  </ul>
+</section>
+
+<section id="barrier">
+  <h2>Why the earlier proofs could not have extended</h2>
+  <p>Both proof routes in the progress notes bound the margin using two ingredients only: the clean and sign-flipped Fourier modes of the score table, and the single-neuron Fourier budget. Every mode with a constant slot is left free. That relaxation is already false at <var>n</var> = 3, where the conjecture may still hold.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th class="l">largest ratio consistent with (p = 3, b = 2)</th><th>n = 3 (ν = 4)</th><th>n = 4 (ν = 5)</th></tr></thead>
+      <tbody>
+        <tr><td class="l">own-frequency modes + budget (both earlier routes)</td><td class="over">1.0316</td><td class="over">1.7077</td></tr>
+        <tr><td class="l">chain matrix with gap-cone slack</td><td class="over">≥ 1.245</td><td>—</td></tr>
+        <tr><td class="l">chain matrix, centred networks only</td><td class="over">≥ 1.034</td><td class="over">≥ 1.149</td></tr>
+        <tr><td class="l">actual product networks (best found)</td><td>1.0000</td><td>1.0000</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">First row: three slot-symmetric atoms at 1 and <var>e</var><sup>±<var>iα</var></sup> match the own-frequency moments of a table with margin 1 at cost below <var>ν</var><sup>1−<var>r</var></sup> (identity exact to 10<sup>−50</sup>; <code>barrier_certificate.py</code>). Matrix rows: the best bound each relaxation can give, as a multiple of the conjectured one (reciprocal of the smallest Schatten quasi-norm ratio found; numerical, not certified).</p>
+  <p class="note">So a proof of any remaining small case, such as <var>n</var> = 3, has to charge the weight spent on constant components and use the modes with <var>k<sub>t</sub></var> = 0. Those are the same modes the counterexample exploits at <var>n</var> = 11.</p>
+</section>
+
+<section id="paper">
+  <h2>Changes for the paper</h2>
+  <ul class="plain">
+    <li><strong>Appendix D.</strong> Replace Conjecture 20 with the counterexample (<var>p</var> = 3, <var>n</var> = 11, <var>b</var> = 2, width 8) and state the threshold question for <var>b</var>*(<var>p</var>, <var>n</var>).</li>
+    <li><strong>Section 4, "How many features".</strong> "Whether a network carrying interference can beat the class value is an open conjecture" should now say that it can, for <var>p</var> = 3 and <var>n</var> ≥ 11 at weight decay.</li>
+    <li><strong>Section 6, Limitations.</strong> Drop "whether interference can raise the margin for 2 ≤ <var>b</var> &lt; <var>ν</var> is open". Instead say that interference does raise it at large <var>n</var> near <var>b</var> = 2, and is excluded near <var>b</var> = <var>ν</var>.</li>
+    <li><strong>Unchanged.</strong> The main theorems, the logarithmic laws in <var>p</var>, and the experiments. Trained networks were never claimed to be interference-free maximizers.</li>
+  </ul>
+</section>
+
+<section id="reproduce">
+  <h2>Reproduce</h2>
+  <p>All files are in <code>heracles/conjecture20/</code>.</p>
+  <div class="files">
+    <code>exact_certificate.py</code><span>Both counterexamples in exact rational arithmetic, standard library only (0.1 s).</span>
+    <code>barrier_certificate.py</code><span>Own-frequency relaxation exceeding the bound at <var>n</var> = 3, 4 (mpmath, 50 digits).</span>
+    <code>certify.py</code><span>Rebuilds the real network from family parameters and evaluates its logits at 60 digits.</span>
+    <code>fam.py</code>, <code>fam_b.py</code><span>Slot-symmetric family optimizer (any <var>n</var>, general <var>b</var>).</span>
+    <code>slsqp.py</code>, <code>lbfgs.py</code>, <code>gamma.py</code><span>General product-network search and the exact Γ<sub><var>s</var></sub>(<var>p</var>) solver.</span>
+    <code>relax_lp.py</code><span>LP for the margin of the own-frequency relaxation.</span>
+    <code>cex_n1*_family_params.npy</code><span>Unrounded parameters of the <var>n</var> = 11, 12, 13 networks.</span>
+  </div>
+<pre class="cmd">python3 exact_certificate.py
+python3 certify.py cex_n11_family_params.npy 11 8 12
+python3 barrier_certificate.py</pre>
+</section>
+
+<footer>Prepared 16 October 2026 against the ICLR 2027 submission draft and the progress notes "Conjecture 20: Proofs and Remaining Gap".</footer>
+
+</div>
