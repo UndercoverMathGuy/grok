@@ -1,0 +1,343 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\gIF}{\gamma^{\star}_{b,\mathrm{IF}}}
+
+\title{Conjecture 20 is false\\[2pt] \large A counterexample at $p=3$, weight decay, $n=11$, with proof}
+\date{16 October 2026}
+\author{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Conjecture 20 of \emph{Feature Sparsity via Margin Maximization} asserts that for every odd prime $p$, every $n\ge 1$
+and every $2\le b\le \nu=n+1$, the maximum $L_{2,b}$-margin over all product networks equals the interference-free
+value $\gIF=\nu^{1-s}B_p\Gamma_s(p)$ of Theorem~8 ($s=\nu/b$). We give an explicit product network for $p=3$,
+$n=11$, $b=2$ of width $8$ whose normalized margin exceeds $\gIF$ by a factor $1.0544$, and prove this by a
+finite computation in exact rational arithmetic, which reduces to the one-line inequality
+$2.7312>3(P/72)^6/12^5=2.5904$. We also prove failures at $n=13$ (factor $1.109$, exact), $n=14$ (factor $1.429$), and on whole
+intervals of exponents, $b\in[2,2.13]$ at $n=12$ (interval arithmetic). Finally, we show why the two
+earlier proof strategies could not have reached the critical range: the relaxation they work in, which keeps
+only the clean and sign-flipped Fourier modes, already violates the conjectured bound at $n=3$.
+\end{abstract}
+
+\section{Setting}
+
+We use the notation of the paper. For $x=(x_1,\dots,x_n)\in\Z_p^n$ let $y(x)=x_1+\dots+x_n \bmod p$. A
+\emph{product network} of width $m$ is
+\[
+f(\theta,x)[c]=\sum_{i=1}^m w_i(c)\prod_{t=1}^n u_{it}(x_t),\qquad \omega_i=(u_{i1},\dots,u_{in},w_i)\in(\R^p)^{n+1},
+\]
+with homogeneity $\nu=n+1$. Write $\|\theta\|_{2,b}=\big(\sum_i\|\omega_i\|_2^b\big)^{1/b}$, where
+$\|\omega_i\|_2^2=\sum_t\|u_{it}\|_2^2+\|w_i\|_2^2$. The margin is
+\[
+h(\theta)=\min_{x\in\Z_p^n}\ \min_{c\ne y(x)}\big(f(\theta,x)[y(x)]-f(\theta,x)[c]\big),
+\]
+and the normalized margin is $h(\theta)/\|\theta\|_{2,b}^{\nu}$. Theorem~8 of the paper gives the
+interference-free optimum
+\[
+\gIF=\nu^{1-s}B_p\Gamma_s(p),\qquad s=\nu/b,\qquad B_p=2(2p\nu)^{-\nu/2},
+\]
+attained at every width $m\ge\nu|\mathrm{spt}(y^\star)|$. Conjecture~20 states that no product network of any
+width has normalized margin larger than $\gIF$.
+
+\begin{lemma}[the conjectured value at $p=3$]\label{lem:value}
+For $p=3$ and every $s\ge1$, $\Gamma_s(3)=3/2$. Hence
+\[
+\gIF=\tfrac32\,\nu^{1-\nu/b}\cdot 2(6\nu)^{-\nu/2},\qquad\text{and at } b=2:\quad \gamma^\star_{2,\mathrm{IF}}=3\nu\,(6\nu^2)^{-\nu/2}.
+\]
+In particular $\gamma^\star_{2,\mathrm{IF}}=3/(12^5\cdot72^6)$ for $n=11$ and $\gamma^\star_{2,\mathrm{IF}}=42\cdot1176^{-7}$ for $n=13$.
+\end{lemma}
+\begin{proof}
+For $p=3$ the set of frequencies is $F=\{1\}$ and $\kappa_1(\delta)=1-\cos(2\pi\delta/3)=3/2$ for $\delta\in\{1,2\}$.
+Program (2) of the paper is therefore $\max\{\tfrac32 y_1: y_1\ge0,\ y_1^{1/s}\le1\}=\tfrac32$. Substitute into
+$\nu^{1-s}B_3\Gamma_s(3)$. At $b=2$, $s=\nu/2$ and $\nu^{1-\nu/2}\cdot3(6\nu)^{-\nu/2}=3\nu(6\nu^2)^{-\nu/2}$.
+For $\nu=12$: $36\cdot864^{-6}=3/(12^5\cdot72^6)$. For $\nu=14$: $42\cdot1176^{-7}$.
+\end{proof}
+
+\begin{lemma}[slot-symmetric networks]\label{lem:counts}
+Suppose $u_{it}=u_i$ for all slots $t$. For $x\in\Z_3^n$ let $N_a(x)=\#\{t:x_t=a\}$. Then
+\[
+f(\theta,x)[c]=\sum_i w_i(c)\,u_i(0)^{N_0}u_i(1)^{N_1}u_i(2)^{N_2},\qquad y(x)\equiv N_1+2N_2 \pmod 3 .
+\]
+Hence $h(\theta)$ is the minimum, over the $\binom{n+2}{2}$ vectors $N=(N_0,N_1,N_2)\in\Z_{\ge0}^3$ with
+$N_0+N_1+N_2=n$, of $\min_{c\ne y}\big(f_N[y]-f_N[c]\big)$, where $f_N$ is the common logit vector of all inputs
+with counts $N$.
+\end{lemma}
+\begin{proof}
+The product $\prod_t u_i(x_t)$ is invariant under permuting the coordinates of $x$, so it depends only on the
+multiset of values, that is on $N(x)$. Also $\sum_t x_t=0\cdot N_0+1\cdot N_1+2\cdot N_2$. Every $N$ with
+$|N|=n$ is attained by some $x$, so minimizing over $x$ and over $N$ gives the same value.
+\end{proof}
+
+\section{The counterexample}
+
+\begin{theorem}\label{thm:main}
+Let $p=3$, $n=11$ (so $\nu=12$) and $b=2$. Let $\theta^\star$ be the width-$8$ product network with
+$u_{it}=u_i$ for all $t=1,\dots,11$ and the weights of Table~\ref{tab:w11}. Then
+\[
+\frac{h(\theta^\star)}{\|\theta^\star\|_{2,2}^{12}}\ >\ 1.054\cdot\gamma^\star_{2,\mathrm{IF}} .
+\]
+Consequently, for every width $m\ge 8$ (padding with zero neurons), and in particular for every width
+$m\ge12$ at which Theorem~8's value is attained, the maximum $L_{2,2}$-margin over product networks is strictly
+larger than the interference-free value. Conjecture~20 is false.
+\end{theorem}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{c rrr rrr}
+\toprule
+$i$ & $u_i(0)$ & $u_i(1)$ & $u_i(2)$ & $w_i(0)$ & $w_i(1)$ & $w_i(2)$\\
+\midrule
+1 & $-0.4846467$ & $0.0986351$ & $2.3735957$ & $0.9287971$ & $1.0496311$ & $-1.9784282$\\
+2 & $-0.9492087$ & $0.4121459$ & $2.1787251$ & $-0.7213797$ & $-1.2263075$ & $1.9476873$\\
+3 & $-1.2303519$ & $0.7873084$ & $1.9158950$ & $0.4609319$ & $1.4256721$ & $-1.8866040$\\
+4 & $-1.3685236$ & $1.1830027$ & $1.5772570$ & $-0.1610123$ & $-1.6108253$ & $1.7718376$\\
+5 & $-1.3684776$ & $1.5721532$ & $1.1868510$ & $-0.1574121$ & $1.7692451$ & $-1.6118330$\\
+6 & $-1.2303770$ & $1.9114843$ & $0.7892217$ & $0.4583909$ & $-1.8837781$ & $1.4253872$\\
+7 & $-0.9512944$ & $2.1719362$ & $0.4152123$ & $-0.7173870$ & $1.9434179$ & $-1.2260309$\\
+8 & $-0.4871743$ & $2.3639747$ & $0.1000316$ & $0.9243126$ & $-1.9711611$ & $1.0468485$\\
+\bottomrule
+\end{tabular}
+\caption{The network $\theta^\star$ ($p=3$, $n=11$, width $8$). Every input slot of neuron $i$ uses the factor $u_i$.
+All entries are exact 7-decimal rationals.}
+\label{tab:w11}
+\end{table}
+
+\begin{proof}
+All weights are rational, so every quantity below is a rational number computed exactly.
+
+\emph{Step 1 (the norm).} By definition $\|\omega_i\|_2^2=11\|u_i\|_2^2+\|w_i\|_2^2$, so
+\[
+P:=\|\theta^\star\|_{2,2}^2=\sum_{i=1}^8\big(11\|u_i\|_2^2+\|w_i\|_2^2\big)=557.214136999119
+\]
+exactly (a rational with denominator $10^{12}$), and $\|\theta^\star\|_{2,2}^{12}=P^6$.
+
+\emph{Step 2 (the margin).} By Lemma~\ref{lem:counts}, $h(\theta^\star)$ is the minimum over the 78 count vectors
+$N$ of the smallest of the two gaps $f_N[y]-f_N[c]$, $c\neq y$. Each gap is an explicit polynomial in the
+weights of Table~\ref{tab:w11}. The table in Appendix~\ref{app:gaps} lists, for every $N$, its label and the smaller gap rounded
+down to six decimals. All 78 entries are at least $2.731226$; the minimum is attained at $N=(2,0,9)$. Hence
+\[
+h(\theta^\star)\ \ge\ h_0:=2.7312 .
+\]
+
+\emph{Step 3 (comparison).} By Lemma~\ref{lem:value},
+\[
+\gamma^\star_{2,\mathrm{IF}}\cdot P^6=\frac{3}{12^5\cdot72^6}\,P^6=\frac{3\,(P/72)^6}{12^5}=2.590317\ldots\ <\ 2.5904 .
+\]
+Therefore
+\[
+\frac{h(\theta^\star)}{P^6}\ \ge\ \frac{2.7312}{2.5904}\,\gamma^\star_{2,\mathrm{IF}}\ >\ 1.054\,\gamma^\star_{2,\mathrm{IF}} .
+\]
+Exact evaluation gives the ratio $1.054398843620\ldots$. Adding zero neurons changes neither $h$ nor $P$, which
+gives the statement for every width $m\ge8$.
+\end{proof}
+
+\begin{remark}[how to check]
+Steps 1 and 3 need only a calculator. Step 2 evaluates 156 polynomials of degree 12 at rational points.
+The script \texttt{exact\_certificate.py} does this with Python's \texttt{fractions} module, using no floating
+point and no third-party code, in about $0.1$\,s. A float64 brute force over all $3^{11}=177{,}147$ inputs, which does
+not use Lemma~\ref{lem:counts}, returns the same minimum.
+\end{remark}
+
+\section{Further failures}
+
+\begin{theorem}[$n=13$]\label{thm:n13}
+For $p=3$, $n=13$, $b=2$ there is a slot-symmetric product network of width $10$
+(weights in \texttt{exact\_certificate.py}) with $P=\|\theta\|_{2,2}^2=832.50414381275652$ and margin
+$h\ge4.150479$. Since $\gamma^\star_{2,\mathrm{IF}}P^7=42\,(P/1176)^7=3.741993\ldots$, its normalized margin is at least
+$1.109\,\gamma^\star_{2,\mathrm{IF}}$ (exactly $1.109163143571\ldots$).
+\end{theorem}
+\begin{proof}
+The same three steps as for Theorem~\ref{thm:main}, with $\binom{15}{2}=105$ count vectors and $\nu/2=7$.
+\end{proof}
+
+\begin{theorem}[$n=14$]\label{thm:n14}
+For $p=3$, $n=14$, $b=2$ there is a slot-symmetric product network of width $10$ (family parameters in
+\texttt{cex\_n14\_family\_params.json}, weights rounded to seven decimals) with exact margin $h=3.212099\ldots$ and
+$P=905.29973580696392$, whose normalized margin is at least $1.4293\,\gamma^\star_{2,\mathrm{IF}}$.
+\end{theorem}
+\begin{proof}
+The margin is computed exactly over the $\binom{16}{2}=120$ count vectors. Since $\nu/2=15/2$ is not an integer,
+$P^{15/2}$ and the comparison are enclosed in interval arithmetic (\texttt{interval\_certificate.py}), which gives
+the ratio in $[1.42934420165,\,1.42934420166]$.
+\end{proof}
+
+\begin{theorem}[intervals of exponents]\label{thm:b}
+For $p=3$:
+\begin{enumerate}
+\item at $n=12$ there is one width-9 network (weights in \texttt{cex\_n12\_b\_interval\_weights.json}) whose
+normalized $L_{2,b}$-margin exceeds $\gIF$ for \emph{every} $b\in[2,2.13]$, by a factor of at least $1.0198$;
+\item at $n=11$ a width-8 network of the same family as $\theta^\star$ (parameters in
+\texttt{cex\_n11\_family\_params.json}, weights rounded to seven decimals) beats $\gIF$ for every $b\in[2,2.02]$,
+by a factor of at least $1.0234$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+The margin $h$ does not depend on $b$ and is computed exactly as above. For $b$ in a closed interval $J$, the
+quantities $P_b=\sum_i\|\omega_i\|_2^{\,b}$, $P_b^{\nu/b}$ and $\gIF$ are compositions of $\exp$ and $\log$
+in $b$, so they can be enclosed by interval arithmetic. Splitting $J$ into 260 (respectively 40) subintervals and evaluating
+$h/(P_b^{\nu/b}\gIF)$ in outward-rounded interval arithmetic (mpmath, 50 digits) on each subinterval gives a
+lower bound above $1.0198$ (respectively $1.0234$) on every piece. Script: \texttt{interval\_certificate.py}.
+\end{proof}
+
+\begin{remark}[the $b$-window grows]
+Re-optimizing the network for each $b$ gives at $n=11$ ratios $1.061, 0.904, 0.852, 0.653$ at
+$b=2, 2.1, 2.2, 2.5$, and at $n=12$ ratios $1.190, 1.063, 1.007, 0.957$ at $b=2, 2.1, 2.15, 2.2$
+(the last two interval-certified as well). The best ratios found at $b=2$ for $n=3,\dots,14$ are
+$0.599, 0.598, 0.608, 0.695, 0.699, 0.785, 0.895, 0.895, 1.058, 1.192, 1.178, 1.429$. These are numerical lower bounds
+on the true maximum; they are not proved maxima.
+\end{remark}
+
+\section{What the counterexample is}
+
+Up to a common scale, every input factor in Table~\ref{tab:w11} has the form
+\[
+u_i(a)=\kappa_i+2\cos\!\big(2\pi a/3+\varphi_i\big),
+\]
+a single cosine plus a constant (DC) offset $\kappa_i$. The interference-free block of Proposition~9 is the case
+$\kappa_i=0$ with $\nu$ neurons whose phases cover $180^\circ$. In $\theta^\star$ the phases $\varphi_i$ are spaced
+about $14^\circ$ apart on a $98^\circ$ arc centred at $180^\circ$, the offsets increase from $\kappa=0.50$ at the
+centre to $0.76$ at the ends, and the budget is split almost equally (each neuron has $\|\omega_i\|^2/P\in[0.124,0.127]$).
+The margin is attained, to within $0.2\%$, on 32 of the 78 count classes.
+
+\begin{remark}[why it can beat Lemma 7]
+With $8<\nu=12$ neurons, Lemma~7 says that the sign-flipped copies of the useful mode cannot cancel. The constant
+components create the Fourier modes with $k_t=0$ for some slot $t$, which Theorem~8 leaves unconstrained. These
+modes move the leftover interference back inside the gap cone at every input. Their price is visible through
+Parseval: a slot with offset $\kappa$ costs $(1+\kappa^2/2)$ times a centred slot of the same useful amplitude,
+here about $1.185$ on average. Eight such neurons cost about $9.5$ centred-neuron equivalents against twelve for
+the interference-free block. At $b=2$ the normalized margin scales like
+(budget per neuron)$^{\nu/2}$, so the saving outweighs the loss in efficiency once $\nu$ is large enough.
+\end{remark}
+
+\section{Why own-frequency arguments cannot work}\label{sec:barrier}
+
+The proof of the case $p=3,n=2$ and the matrix proof of the interval $b\ge b_0$ both bound the margin using
+only (i) the clean and sign-flipped Fourier modes of the score table, and (ii) the single-neuron Fourier budget
+$\sum_{i}|\beta_{ij}|^{b/\nu}\le B_p^{b/\nu}\|\omega_i\|_2^b$. Every mode with $k_t=0$ for some slot is left free.
+We show that this information alone does not imply the conjectured bound at $p=3$, $n=3$, $b=2$: a proof of
+any remaining small case must use the modes with a constant slot and their cost.
+
+For $\xi\in\C^n$ write $\chi(\xi)\in(\C^2)^{\otimes n}$ for the tensor with entries $\chi(\xi)_T=\prod_{t\in T}\xi_t$,
+$T\subseteq[n]$. For a score table $f$ on $D_3$ put $\Phi_f(x)=\sum_c f(x)[c]\,\omega^{\,c-y(x)}$ with $\omega=e^{2\pi i/3}$.
+Then $\min\big(g(x,1),g(x,2)\big)=\operatorname{Re}\Phi_f(x)-|\operatorname{Im}\Phi_f(x)|/\sqrt3$, and the own-frequency modes of
+$f$ are the coefficients $M_T(f)$ of the characters $\prod_{t\in T}\omega^{x_t}$ in $\Phi_f$. For a centred
+single-frequency network, $\Phi_f(x)=\sum_i\beta_i\prod_t(1+\xi_{it}\omega^{x_t})$ with $|\xi_{it}|=1$, so its own-frequency
+modes are $M=\sum_i\beta_i\chi(\xi_i)$; here $\beta_i$ is $3/2$ times the paper's $\beta_{i1}$. In this normalization
+the single-neuron budget and Lemma~\ref{lem:value} turn the conjectured bound into
+$h\le\nu^{1-s}Q^{s}$ with $Q=\sum_i|\beta_i|^{r}$, $r=2/\nu$, $s=\nu/2$, with equality of the budget for balanced
+centred neurons.
+
+\begin{proposition}[barrier at $n=3$]\label{prop:barrier}
+Let $n=3$, $\alpha=2\pi\cdot0.2324$, and let $(\beta_0,\beta_+,\kappa)\in\R\times\C\times\R$ solve the linear system
+\[
+\beta_0+2\operatorname{Re}\!\big(\beta_+e^{ij\alpha}\big)-2\kappa\cos\!\big(\tfrac{2\pi j}{3}-\tfrac{\pi}{3}\big)=[j=0],\qquad j=0,1,2,3 .
+\]
+Then $\beta_0=0.37468\ldots$, $\beta_+=0.44919\ldots+0.10100\ldots i$, $\kappa=0.27306\ldots>0$, and with
+$\beta_-=\overline{\beta_+}$ and atoms $\xi_0=(1,1,1)$, $\xi_\pm=e^{\pm i\alpha}(1,1,1)$:
+\begin{enumerate}
+\item $\sum_{j\in\{0,\pm\}}\beta_j\chi(\xi_j)=e_\emptyset+\kappa e^{-i\pi/3}\chi(\omega\mathbf 1)+\kappa e^{i\pi/3}\chi(\omega^2\mathbf 1)$ exactly;
+\item the real score table $f$ with $\Phi_f\equiv1$ except $\Phi_f(2,2,2)=1+27\kappa e^{-i\pi/3}$ and $\Phi_f(1,1,1)=1+27\kappa e^{i\pi/3}$ has margin $h(f)=1$, and its own-frequency modes equal the tensor in (1);
+\item $Q=|\beta_0|^{1/2}+2|\beta_+|^{1/2}=1.969176\ldots$, so $\nu^{1-s}Q^s=Q^2/4=0.969414\ldots<1=h(f)$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(1) Both sides depend on $T$ only through $|T|=j$. The $j$-th entry of the left side is
+$\beta_0+\beta_+e^{ij\alpha}+\overline{\beta_+}e^{-ij\alpha}$, and that of the right side is
+$[j=0]+2\kappa\cos(2\pi j/3-\pi/3)$. These agree by the defining system. The numerical values follow by solving
+the $4\times4$ system.
+(2) Write $\Phi=1+\Delta$ with $\Delta$ supported on two points. The coefficient of
+$\prod_{t\in T}\omega^{x_t}$ in a point mass $\delta_{x}$ is $3^{-3}\prod_{t\in T}\omega^{-x_t}$, which is
+$3^{-3}\chi(\omega^{-x})_T$. Since $\omega^{-(2,2,2)}=\omega\mathbf1$ and $\omega^{-(1,1,1)}=\omega^2\mathbf1$, the
+own-frequency modes of $\Phi_f$ are those in (1). A real table with prescribed $\Phi$ exists: set $f(x)[y(x)]=0$
+and $f(x)[y(x)-\delta]=-g_\delta(x)$, where $\Phi(x)=g_1(x)e^{i\pi/3}+g_2(x)e^{-i\pi/3}$. Because
+$27\kappa e^{\mp i\pi/3}$ lies in the cone generated by $e^{\pm i\pi/3}$ and $1=e^{i\pi/3}+e^{-i\pi/3}$, all gaps are
+at least $1$, and the minimum $1$ is attained.
+(3) Direct evaluation.
+\end{proof}
+
+So the own-frequency data of a table with margin $1$ is matched by a centred three-neuron network whose budget
+would allow only margin $0.9694$ under the conjectured bound. Equivalently, the relaxation exceeds the bound by
+the factor $1.0316$ (at the optimal $\alpha$: $1.031555$). At $n=4$ the same construction gives $1.708$
+(\texttt{barrier\_certificate.py}). Numerically, the chain-matrix relaxation with the gap cone admits ratios up to
+about $1.245$ at $n=3$, $b=2$, and about $1.034$ even when restricted to networks without DC components.
+
+\section{Status and corrected questions}
+
+\begin{itemize}
+\item \textbf{Unaffected.} Theorem~8, Proposition~9, Corollary~14 ($b=\nu$), Theorems~10--11 and Corollary~12
+(orders in $p$ at fixed $\nu,b$), the full proof at $p=3,n=2$, and the interval $b\in[b_0,\nu]$.
+\item \textbf{False.} Conjecture~20 as stated: certified at $p=3$, $b=2$ for $n=11,13,14$, and for every $b\in[2,2.13]$ at $n=12$ (Theorems~\ref{thm:main}--\ref{thm:b}).
+\item \textbf{Open.} At $b=2$, searches over all real product networks found nothing above $\gIF$ for $p=3$,
+$n\le 6$ (and the slot-symmetric family stays below it for $n\le10$), for $p=5$, $n\le3$, and for $p=7$,
+$n=2$. The boxed case $h\le P^2/768$ ($p=3,n=3,b=2$) is still plausible. By Proposition~\ref{prop:barrier},
+proving it requires charging the cost of constant components.
+\end{itemize}
+
+\begin{question}
+For each $p,n$ let $\mathcal B(p,n)\subseteq[2,\nu]$ be the set of exponents at which $\gIF$ is the true maximum.
+Is $\mathcal B(p,n)$ an interval $[b^\star(p,n),\nu]$? We know $b^\star(p,n)\le b_0(p,n)$,
+$b^\star(3,2)=2$, $b^\star(3,11)>2.02$ and $b^\star(3,12)>2.13$. Is $b^\star(3,n)=2$ for $n\le10$, and does
+$b^\star(3,n)\to\infty$, or does the ratio at $b=2$ grow without bound as $n\to\infty$?
+\end{question}
+
+\appendix
+\section{The 78 gaps of $\theta^\star$}\label{app:gaps}
+
+For each count vector $N=(N_0,N_1,N_2)$, $|N|=11$: the label $y\equiv N_1+2N_2$ and
+$\min_{c\ne y}(f_N[y]-f_N[c])$, rounded down to six decimals (exact rational evaluation).
+
+\begin{center}\footnotesize
+\begin{tabular}{lcr@{\qquad}lcr@{\qquad}lcr}
+\toprule
+$N$ & $y$ & gap & $N$ & $y$ & gap & $N$ & $y$ & gap\\
+\midrule
+(0,0,11) & 1 & 3.051329 & (2,3,6) & 0 & 2.742391 & (5,2,4) & 1 & 2.771488 \\
+(0,1,10) & 0 & 2.803939 & (2,4,5) & 2 & 4.031556 & (5,3,3) & 0 & 2.759766 \\
+(0,2,9) & 2 & 60.206995 & (2,5,4) & 1 & 4.005469 & (5,4,2) & 2 & 2.761313 \\
+(0,3,8) & 1 & 2.740909 & (2,6,3) & 0 & 2.742762 & (5,5,1) & 1 & 7.990881 \\
+(0,4,7) & 0 & 2.742387 & (2,7,2) & 2 & 2.740830 & (5,6,0) & 0 & 2.800768 \\
+(0,5,6) & 2 & 4.007730 & (2,8,1) & 1 & 58.780606 & (6,0,5) & 1 & 2.740790 \\
+(0,6,5) & 1 & 3.988606 & (2,9,0) & 0 & 2.978258 & (6,1,4) & 0 & 2.742287 \\
+(0,7,4) & 0 & 2.742568 & (3,0,8) & 1 & 2.739929 & (6,2,3) & 2 & 4.078604 \\
+(0,8,3) & 2 & 2.740642 & (3,1,7) & 0 & 2.741317 & (6,3,2) & 1 & 4.039402 \\
+(0,9,2) & 1 & 58.541693 & (3,2,6) & 2 & 8.073045 & (6,4,1) & 0 & 2.743053 \\
+(0,10,1) & 0 & 2.739688 & (3,3,5) & 1 & 2.756772 & (6,5,0) & 2 & 2.741107 \\
+(0,11,0) & 2 & 2.998367 & (3,4,4) & 0 & 2.750082 & (7,0,4) & 2 & 8.094945 \\
+(1,0,10) & 2 & 3369.126003 & (3,5,3) & 2 & 2.751623 & (7,1,3) & 1 & 2.786274 \\
+(1,1,9) & 1 & 2.740041 & (3,6,2) & 1 & 7.982238 & (7,2,2) & 0 & 2.769483 \\
+(1,2,8) & 0 & 2.741426 & (3,7,1) & 0 & 2.770576 & (7,3,1) & 2 & 2.771036 \\
+(1,3,7) & 2 & 8.062049 & (3,8,0) & 2 & 2.770171 & (7,4,0) & 1 & 7.999486 \\
+(1,4,6) & 1 & 2.742128 & (4,0,7) & 2 & 60.569757 & (8,0,3) & 0 & 2.742177 \\
+(1,5,5) & 0 & 2.740313 & (4,1,6) & 1 & 2.740868 & (8,1,2) & 2 & 4.100176 \\
+(1,6,4) & 2 & 2.741967 & (4,2,5) & 0 & 2.742358 & (8,2,1) & 1 & 4.054570 \\
+(1,7,3) & 1 & 7.973557 & (4,3,4) & 2 & 4.055505 & (8,3,0) & 0 & 2.743148 \\
+(1,8,2) & 0 & 2.740562 & (4,4,3) & 1 & 4.022401 & (9,0,2) & 1 & 2.801133 \\
+(1,9,1) & 2 & 2.740160 & (4,5,2) & 0 & 2.742924 & (9,1,1) & 0 & 2.779233 \\
+(1,10,0) & 1 & 3219.508645 & (4,6,1) & 2 & 2.740985 & (9,2,0) & 2 & 2.780792 \\
+(2,0,9) & 0 & 2.731226 & (4,7,0) & 1 & 59.020476 & (10,0,1) & 2 & 4.121851 \\
+(2,1,8) & 2 & 60.388104 & (5,0,6) & 0 & 2.741182 & (10,1,0) & 1 & 4.069074 \\
+(2,2,7) & 1 & 2.740907 & (5,1,5) & 2 & 8.084010 & (11,0,0) & 0 & 2.789017 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}
