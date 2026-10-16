@@ -1,0 +1,15 @@
+The counterexamples save cost by using fewer than $\nu$ neurons for one feature.  Best normalised margin (ratio
+to the IF value) over 24 random restarts of slot-symmetric networks with exactly $m=\nu-1$ neurons:
+\begin{center}
+\begin{tabular}{lcccccccccc}
+\toprule
+$(p,n)$ & $(3,3)$ & $(3,4)$ & $(5,2)$ & $(5,3)$ & $(5,4)$ & $(5,5)$ & $(5,6)$ & $(5,7)$ & $(7,2)$ & $(7,3)$\\
+ratio & 0.599 & 0.597 & $\le0$ & $\le0$ & 0.278 & 0.310 & $\le0$ & $\le0$ & $\le0$ & $\le0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+At $p=3$, networks with at most $\nu-1$ neurons classify at every tested $n$ ($2\le n\le14$), keep $\approx60\%$ of the
+IF value already at $n=3,4$, and form the branch that crosses $1$ at $n=11$.  At $p=5$ such networks were found only at
+$n=4,5$, at $28$--$31\%$ of the IF value; at $p=7$ none were found for $n\le5$ (a continuation run from $n=5$ to $14$
+also found none).  Random restarts are weak at larger $n$ (at $p=3$ they too miss the structured branch beyond $n\approx6$),
+so this is evidence, not proof.
