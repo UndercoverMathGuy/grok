@@ -54,7 +54,7 @@ def certify(params, n, m, digits=12):
 if __name__ == "__main__":
     f, n, m = sys.argv[1], int(sys.argv[2]), int(sys.argv[3])
     digits = int(sys.argv[4]) if len(sys.argv) > 4 else 12
-    params = np.load(f)
+    params = np.array(json.load(open(f))["params"]) if f.endswith(".json") else np.load(f)
     h, P2, gam, gIF, rat, U, W = certify(params, n, m, digits)
     print("n=%d m=%d (nu=%d)  parameters rounded to %d digits" % (n, m, n + 1, digits))
     print("  min gap h          =", nstr(h, 25))

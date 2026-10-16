@@ -275,10 +275,10 @@ footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule)
     <code>fam.py</code>, <code>fam_b.py</code><span>Slot-symmetric family optimizer (any <var>n</var>, general <var>b</var>).</span>
     <code>slsqp.py</code>, <code>lbfgs.py</code>, <code>gamma.py</code><span>General product-network search and the exact Γ<sub><var>s</var></sub>(<var>p</var>) solver.</span>
     <code>relax_lp.py</code><span>LP for the margin of the own-frequency relaxation.</span>
-    <code>cex_n1*_family_params.npy</code><span>Unrounded parameters of the <var>n</var> = 11, 12, 13 networks.</span>
+    <code>cex_n1*_family_params.json</code><span>Unrounded parameters of the <var>n</var> = 11, 12, 13 networks.</span>
   </div>
 <pre class="cmd">python3 exact_certificate.py
-python3 certify.py cex_n11_family_params.npy 11 8 12
+python3 certify.py cex_n11_family_params.json 11 8 12
 python3 barrier_certificate.py</pre>
 </section>
 
