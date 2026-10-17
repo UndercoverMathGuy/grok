@@ -273,6 +273,21 @@ price--programme theorem.  For the tail statement, normalise $\sum_jA_j=1$ and s
 most $1/M$ each, so their mass $t$ satisfies $tM^{1-r}\le\sum_{j>M}A_j^r\le K_r^{1-r}$.
 \end{proof}
 
+\begin{corollary}[$n=2$, every prime $p\ge5$]\label{cor:n2}
+For $n=2$ and $2\le b\le3$, no single-frequency network (inputs in $\mathrm{span}\{\mathbf1,\cos,\sin\}$ of one frequency,
+any width) beats the interference-free single-feature value at any prime $p\ge5$.
+\end{corollary}
+\begin{proof}
+For $n=2$ the robust constant of the companion note's Theorem 14 is $k^*(2,s)=\sup\,(\Re A-3^{1-s}(\sum|\beta_i|^{1/s})^s)/(R/\sqrt2)$
+with $R^2=|B|^2+|C|^2+|D|^2$, where $B,C,D$ are the three sign-flipped sums.  The four-moment inequality of the earlier notes
+(Part I, Theorem A: $|A|-R/(2\sqrt3)\le3^{1-s}(\sum|\beta_i|^{1/s})^s$ for $1\le s\le3/2$, valid for arbitrary unit phases) gives
+$k^*(2,s)\le\sqrt2/(2\sqrt3)=1/\sqrt6<0.41<k_5=0.946\le k_p$.  The companion note's Theorem 14 then applies.
+\end{proof}
+The general $n=2$ case (inputs with other frequencies) is where this argument stops.  Input energy $\varepsilon$ outside
+$\pm1$ costs only $O(\varepsilon)$ of clean amplitude, but it can create non-circular (partner-mode) interference of size
+$O(\sqrt\varepsilon)$.  So every $L^2$/moment bound fails in a thin regime next to the interference-free point, and a pointwise
+argument, like Part I's at $p=3$, is required.
+
 \paragraph{Where a proof stops.}  Combining (a)--(c): the count prediction holds for every global optimiser, \emph{except
 possibly} when $p\ge5$, $b<b_0$ and the optimiser carries interference.  None of the known counterexamples is in that set,
 since they all have $p=3$.  Closing the remaining case requires a price-sharp upper bound, i.e.\ Conjecture~20$'$ or an
@@ -302,6 +317,7 @@ feature count of every global optimiser $=K^*(s,p)$, $p=3$ & proved (Prop.~\ref{
 feature count $=K^*(s,p)$, all $p$, $b_0\le b\le\nu$ & proved (Prop.~\ref{prop:count}(c))\\
 feature count $=K^*(s,p)$, all $p$, given decoupling & proved (Prop.~\ref{prop:dec}); price irrelevant\\
 feature count $=\Theta(\log p)=\Theta(K^*)$, all $p$, unconditional & proved (Thm.~\ref{thm:theta} with paper's Cor.~12)\\
+single-frequency networks, $n=2$, all $p\ge5$, $b\in[2,3]$: no gain over IF & proved (Cor.~\ref{cor:n2})\\
 feature count $=K^*(s,p)$, $p\ge5$, $b<b_0$ & open; equivalent in difficulty to excluding compensation\\
 \bottomrule
 \end{tabular}
