@@ -535,6 +535,15 @@ $\varepsilon<1$, whose relation terms carry weight $(\varepsilon/2)^{\text{lengt
 single-feature constant $c_1(2,s)=\sup(|\beta|-a)/\max_T|\beta_T|$, which numerically equals $1-3^{1-s}$ (a single neuron;
 $0.423$ at $b=2$) and so is strictly below $1/2$.
 
+\paragraph{Room in Theorem~\ref{thm:riesz}.}  The factor $1-\cos\theta$ extracts half of each character's amplitude.
+A shifted Fej\'er kernel $F_d(\theta+\pi)=1+2\sum_{k=1}^d(1-\frac k{d+1})\cos k(\theta+\pi)\ge0$ extracts the fraction
+$\frac d{d+1}$.  The proof is the same, provided the representations $\sum_l k_l\chi_{l,T_l}$ with $|k_l|\le d$ are unique and
+$\hat g$ vanishes at the multiples $k\chi_{l,T_l}$, $2\le|k|\le d$.  In class $\mathcal C$ the latter fails only if some feature
+is a multiple $kl$ of a cheap feature $l$.  The conclusion then holds whenever $|\beta_l|-a_l\le\frac d{d+1}\max_T|\beta_{l,T}|$,
+which for $n=2$ leaves a factor $\frac{2d}{d+1}$ of room over Theorem A, and more against the sharp constant $1-3^{1-s}$.  That
+room is what a weighted product $\prod(1-\varepsilon\cos)$ needs to absorb the relations that dissociation cannot exclude at
+large $p$.  The price is a smaller capacity: unique representations allow at most $n\log_{2d+1}p$ characters.
+
 \begin{proposition}[hiding a character needs many modes; any network]\label{prop:hide}
 For $\chi\in\mathbb Z_p^n\setminus\{0\}$ let $\phi_j(\chi)$ be the coefficient of $\Phi_j$ at $\rho^{\langle\chi,x\rangle}$ and
 $F_\chi(\delta):=\mathbb E_x[\sigma(x,\delta)\rho^{-\langle\chi,x\rangle}]$ ($\delta\ne0$), $F_\chi(0):=0$.  Then
@@ -599,7 +608,9 @@ single-frequency networks, $n=2$, all $p\ge5$, $b\in[2,3]$: no gain over IF & pr
 $|\beta_j|\le\nu^{1-s}Q_j^s+K_{\nu,s}\ell_j$ (Lemma 7 with interference), every $n$ & proved (Lemma~\ref{lem:robust})\\
 single-frequency networks, every $n,b$, all $p\ge p_0(n,b)$: no gain over IF & proved (Cor.~\ref{cor:largep})\\
 count $=K^*$ in class $\mathcal C$, $n=2$, all $p$, $b\in[2,3]$, $\le2$ features below IF price & proved (Thm.~\ref{thm:loc})\\
-feature count $=K^*(s,p)$, $p\ge5$, $b<b_0$ & open; reduces to collective undercutting (Sec.~\ref{sec:robust})\\
+count $=K^*$ for every maximiser with no feature bought below IF price, all $n,p,b$ & proved (Prop.~\ref{prop:nocheap})\\
+$n=2$, any network: cheap features force additive relations or spectral coincidences & proved (Thm.~\ref{thm:riesz})\\
+feature count $=K^*(s,p)$, $p\ge5$, $b<b_0$ & open; reduced to relations among cheap features and off-frequency compensation (Sec.~\ref{sec:robust})\\
 \bottomrule
 \end{tabular}
 \end{center}
