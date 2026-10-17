@@ -33,3 +33,6 @@ Typical run: `python slopes.py 3 11 2 6` then `python contsl.py 3 11 20 2 sl_p3_
   large-deviation model; write-up `result.tex`, `numerics.tex`, `gap.tex`.
 - `payment/` — proofs of the sharp n=2 single-feature payments: P12 (analytic) and c1(2,s)=1-3^{1-s} (interval-arithmetic
   certificate `t2_certify.py`, re-run output `t2_rerun.out`); random checks `check_chain.py`, `check_chain_t2.py`; write-up `ideaB_proofs.tex`.
+- `falsify/` — counterexample searches at large p in the relations model (`relmodel.py`, drivers `run*.py`, summary `compile.py`),
+  flatness and Parseval floor (`flat.py`, `parseval.py`), near-b=3 runs (`nearthree.py`, `dense2.py`), exact-margin checks (`netcheck.py`, `task3.py`),
+  p=5 grouped-slot searches (`famp_g.py`, `run4.py`). Run from inside `falsify/`.

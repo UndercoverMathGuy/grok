@@ -1,0 +1,12 @@
+p=5 sizes=(6, 6) classes=44100
+IF block ratio 1.000000
+  m=13 IF+f2(group1,0.02)     start -206.1469 -> +0.999985  [81s]
+  m=13 IF+noise0.02           start -309.4461 -> +0.999985  [161s]
+  m=13 IF+f2all+DC(0.02)      start -182.6319 -> +0.999985  [247s]
+  m=13 IF+f2(group0,0.06)     start -456.1765 -> +0.999984  [316s]
+  m=13 IF+noise0.06           start -575.8076 -> +0.999984  [388s]
+  m=13 IF+f2all+DC(0.06)      start -623.0277 -> +0.999985  [460s]
+  m=13 signvec0               start -11040.6209 -> -23.854246  [568s]
+  m=13 signvec1               start -17527.2064 -> -1.179379  [659s]
+  m=13 rand0                  start -11686.8403 -> -46.748428  [773s]
+== p=5 n=12 sizes=(6, 6): BEST efficiency 0.999985 (m=13, seed IF+f2all+DC(0.02))

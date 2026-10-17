@@ -1,0 +1,15 @@
+full-legendre  |S|=  50 c*(grad)=0.7491 (supp 50, cheap 50)  pair/sharp=0.5024 (0.5683 at c=0.289)  cap/sharp=0.4983 (0.5916 at c=0.289)  [3s]
+full-rand      |S|=  50 c*(grad)=0.7747 (supp 50, cheap 50)  pair/sharp=0.4856 (0.5516 at c=0.289)  cap/sharp=0.4749 (0.5682 at c=0.289)  [14s]
+rand4L         |S|=  18 c*(grad)=0.8068 (supp 18, cheap 18)  pair/sharp=0.3789 (0.4598 at c=0.289)  cap/sharp=0.2642 (0.3782 at c=0.289)  [23s]
+rand8L         |S|=  37 c*(grad)=0.7866 (supp 37, cheap 37)  pair/sharp=0.4670 (0.5363 at c=0.289)  cap/sharp=0.4329 (0.5309 at c=0.289)  [33s]
+rand16L        |S|=  50 c*(grad)=0.7747 (supp 50, cheap 50)  pair/sharp=0.4855 (0.5515 at c=0.289)  cap/sharp=0.4732 (0.5665 at c=0.289)  [42s]
+ystar+2L       |S|=  16 c*(grad)=0.7578 (supp 13, cheap 13)  pair/sharp=0.3649 (0.4555 at c=0.289)  cap/sharp=0.2133 (0.3230 at c=0.289)  [51s]
+ystar+6L       |S|=  35 c*(grad)=0.6529 (supp 28, cheap 28)  pair/sharp=0.5268 (0.6111 at c=0.289)  cap/sharp=0.4778 (0.5884 at c=0.289)  [71s]
+AP8L-chirp     |S|=  33 c*(grad)=1.2714 (supp 33, cheap 33)  pair/sharp=0.3215 (0.3689 at c=0.289)  cap/sharp=0.3022 (0.3694 at c=0.289)  [85s]
+polish ystar+6L: 0.6529 -> 0.6529  [90s]
+polish full-legendre: 0.7491 -> 0.7491  [398s]
+polish ystar+2L: 0.7578 -> 0.7578  [399s]
+== p=101 Gamma=0.278932
+  cstar        0.6529 from ystar+6L: {'ratio': np.float64(0.4677), 'cov': np.float64(0.6549), 'bonus': np.float64(0.2082), 'pen': np.float64(0.3954), 'covmin': np.float64(0.6518), 'delta': 11, 'supp': 28, 'cheap': 28}  ratio@0.289=0.5870
+  forced_cap   0.4983 from full-legendre: {'ratio': np.float64(0.4983), 'cov': np.float64(0.5121), 'bonus': np.float64(0.1628), 'pen': np.float64(0.1765), 'covmin': np.float64(0.5121), 'delta': 4, 'supp': 50, 'cheap': 50}  ratio@0.289=0.5916
+  forced_pair  0.5273 from ystar+6L: {'ratio': np.float64(0.5273), 'cov': np.float64(0.6554), 'bonus': np.float64(0.1473), 'pen': np.float64(0.2754), 'covmin': np.float64(0.6532), 'delta': 25, 'supp': 28, 'cheap': 28}  ratio@0.289=0.6114

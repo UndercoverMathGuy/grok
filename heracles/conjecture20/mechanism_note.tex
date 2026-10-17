@@ -1240,6 +1240,20 @@ with extra neurons stay at price ratios $0.9999$--$1.000$ at $(7,2)$, $(11,2)$, 
 \item \emph{Spurious features in sub-optimal networks.}  These appear mainly at the doubled frequency $2l$ of a cheap feature,
 with relative amplitudes $10^{-3}$--$3\times10^{-2}$, and vanish when the feature is repaired.  This is the ``multiples'' condition of the Fej\'er
 remark at work.
+\item \emph{Falsification at large $p$} (relations model, $n=2$, exact oscillation over $\mathbb Z_p$, all allocations, cheap sizes up to the cap, optimised phases;
+\texttt{mechanism\_scripts/falsify/}).  At $b=2$ no configuration with a cheap feature reaches the IF value for any $p$ from $31$ to $1009$.  Let $c^*$ be the smallest
+payment constant at which some configuration found would win.  It is $0.58,0.65,0.68,0.74,0.75,0.76$ at $p=31,61,151,307,503,1009$: rising, and $3$--$4\times$ the proved
+$c_{12}=0.1835$.  The best realisable cheap networks fall from $0.57$ to $0.46$ of IF over the same range, and the exact margins over $\mathbb Z_p^2$ match the model.
+\begin{itemize}
+\item \emph{Seeds.}  Relation-rich seeds (arithmetic progressions with chirp phases, Bohr sets, multiplicative cosets, Legendre-symbol phases) do worse than
+random or programme-based supports.
+\item \emph{Parseval.}  The perfect-flatness floor falls like $0.86/\sqrt{\ln p}$, so a purely $L^2$ (Parseval) proof works with Theorem A's constant only up to
+$p\approx7\cdot10^3$.  With $c_{12}$ it works up to $p\approx3\cdot10^9$ (extrapolated).  Beyond that, flatness arguments are needed, and they have a factor of about $4$ of room.
+\item \emph{Near $b=3$.}  The closest approach is there: full-$F$ Legendre-phase pairs reach $0.88$--$0.91$ of IF at $s=1.05$--$1.1$.  In that range Theorem A's constant
+would actually fail ($c^*<0.289$), but the sharp $c_{12}(s)\to0$ has $c^*/c_{12}\ge2.9$ at every $(s,p)$ tested.  So Theorem~\ref{prop:p12} is needed there, and suffices.
+\item \emph{$p=5$, $n=8,10,12$.}  Inputs shared within groups of slots (frequency-2 content, non-symmetric noise, constant components) all return to IF.  Sign-vector
+starts reach at most $0.13$ of IF.
+\end{itemize}
 \end{itemize}
 
 \emph{Open, stated as self-contained problems.}

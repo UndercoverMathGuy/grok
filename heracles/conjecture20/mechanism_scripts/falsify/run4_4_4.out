@@ -1,0 +1,21 @@
+p=5 sizes=(4, 4) classes=4900
+IF block ratio 1.000000
+  m= 9 IF+f2(group0,0.02)     start -6.8009 -> +0.999988  [26s]
+  m= 9 IF+noise0.02           start -6.7867 -> +0.999988  [55s]
+  m= 9 IF+f2all+DC(0.02)      start -12.4778 -> +0.999988  [85s]
+  m= 9 IF+f2(group1,0.06)     start -18.3598 -> +0.999988  [115s]
+  m= 9 IF+noise0.06           start -24.9742 -> +0.999988  [140s]
+  m= 9 IF+f2all+DC(0.06)      start -24.7477 -> +0.999988  [172s]
+  m= 9 signvec0               start -334.2366 -> -0.025897  [221s]
+  m= 9 signvec1               start -177.8440 -> -0.012863  [270s]
+  m= 9 rand0                  start -446.7456 -> -0.097427  [332s]
+  m=10 IF+f2(group0,0.02)     start -2.8748 -> +0.999988  [368s]
+  m=10 IF+noise0.02           start -10.7842 -> +0.999988  [425s]
+  m=10 IF+f2all+DC(0.02)      start -5.8528 -> +0.999987  [485s]
+  m=10 IF+f2(group1,0.06)     start -14.7147 -> +0.999988  [537s]
+  m=10 IF+noise0.06           start -38.7486 -> +0.999988  [586s]
+  m=10 IF+f2all+DC(0.06)      start -41.5107 -> +0.999988  [634s]
+  m=10 signvec0               start -94.6170 -> -0.005368  [691s]
+  m=10 signvec1               start -421.3071 -> +0.126231  [745s]
+  m=10 rand0                  start -198.7160 -> -0.000071  [756s]
+== p=5 n=8 sizes=(4, 4): BEST efficiency 0.999988 (m=10, seed IF+f2(group1,0.06))

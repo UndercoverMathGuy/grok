@@ -1,0 +1,6 @@
+s=1.1 p=61 (p%4=1) Gamma=0.73314 [prog3; rlp 0.72355 prog2 0.70741 prog3 0.73314] K*=25/30 value_F/Gamma=0.9869  full-F Legendre pair network ratio=0.7646  [(3/2)^(s-1)(1-2/sqrt p)=0.7747]
+s=1.1 p=101 (p%4=1) Gamma=0.68704 [prog3; rlp 0.68301 prog2 0.68411 prog3 0.68704] K*=23/50 value_F/Gamma=0.9941  full-F Legendre pair network ratio=0.8292  [(3/2)^(s-1)(1-2/sqrt p)=0.8341]
+s=1.1 p=151 (p%4=3) Gamma=0.67282 [prog3; rlp 0.65370 prog2 0.65069 prog3 0.67282] K*=30/75 value_F/Gamma=0.9716  full-F Legendre pair network ratio=0.8471  [(3/2)^(s-1)(1-2/sqrt p)=0.8719]
+s=1.1 p=211 (p%4=3) Gamma=0.65417 [prog3; rlp 0.63088 prog2 0.57916 prog3 0.65417] K*=30/105 value_F/Gamma=0.9644  full-F Legendre pair network ratio=0.8660  [(3/2)^(s-1)(1-2/sqrt p)=0.8980]
+s=1.1 p=223 (p%4=3) Gamma=0.65270 [prog3; rlp 0.62722 prog2 0.61870 prog3 0.65270] K*=32/111 value_F/Gamma=0.9610  full-F Legendre pair network ratio=0.8667  [(3/2)^(s-1)(1-2/sqrt p)=0.9019]
+s=1.1 p=307 (p%4=3) Gamma=0.63927 [prog3; rlp 0.60666 prog2 0.57858 prog3 0.63927] K*=36/153 value_F/Gamma=0.9490  full-F Legendre pair network ratio=0.8755  [(3/2)^(s-1)(1-2/sqrt p)=0.9225]

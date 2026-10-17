@@ -1,0 +1,15 @@
+full-legendre  |S|= 153 c*(grad)=1.1133 (supp 153, cheap 153)  pair/sharp=0.3973 (0.4445 at c=0.289)  cap/sharp=0.4102 (0.4769 at c=0.289)  [5s]
+full-rand      |S|= 153 c*(grad)=1.1289 (supp 153, cheap 153)  pair/sharp=0.3906 (0.4378 at c=0.289)  cap/sharp=0.4007 (0.4674 at c=0.289)  [38s]
+rand4L         |S|=  23 c*(grad)=0.8277 (supp 23, cheap 23)  pair/sharp=0.3630 (0.4457 at c=0.289)  cap/sharp=0.2134 (0.3304 at c=0.289)  [54s]
+rand8L         |S|=  46 c*(grad)=0.8216 (supp 46, cheap 46)  pair/sharp=0.4422 (0.5100 at c=0.289)  cap/sharp=0.3977 (0.4931 at c=0.289)  [81s]
+rand16L        |S|=  92 c*(grad)=0.9582 (supp 92, cheap 92)  pair/sharp=0.4242 (0.4795 at c=0.289)  cap/sharp=0.4216 (0.4995 at c=0.289)  [117s]
+ystar+2L       |S|=  20 c*(grad)=0.7908 (supp 20, cheap 20)  pair/sharp=0.3487 (0.4403 at c=0.289)  cap/sharp=0.1687 (0.2930 at c=0.289)  [159s]
+ystar+6L       |S|=  43 c*(grad)=0.7362 (supp 24, cheap 24)  pair/sharp=0.4634 (0.5510 at c=0.289)  cap/sharp=0.4097 (0.5219 at c=0.289)  [219s]
+AP8L-chirp     |S|=  46 c*(grad)=2.5018 (supp 46, cheap 46)  pair/sharp=0.1610 (0.1887 at c=0.289)  cap/sharp=0.1387 (0.1779 at c=0.289)  [278s]
+polish ystar+6L: 0.7362 -> 0.7362  [290s]
+polish ystar+2L: 0.7908 -> 0.7908  [297s]
+polish rand8L: 0.8216 -> 0.7479  [388s]
+== p=307 Gamma=0.221497
+  cstar        0.7362 from ystar+6L: {'ratio': np.float64(0.2223), 'cov': np.float64(0.8126), 'bonus': np.float64(0.2583), 'pen': np.float64(0.8486), 'covmin': np.float64(0.7296), 'delta': 7, 'supp': 24, 'cheap': 24}  ratio@0.289=0.3703
+  forced_cap   0.4324 from rand16L: {'ratio': np.float64(0.4324), 'cov': np.float64(0.447), 'bonus': np.float64(0.1421), 'pen': np.float64(0.1567), 'covmin': np.float64(0.447), 'delta': 142, 'supp': 92, 'cheap': 92}  ratio@0.289=0.5138
+  forced_pair  0.4637 from ystar+6L: {'ratio': np.float64(0.4637), 'cov': np.float64(0.7128), 'bonus': np.float64(0.1602), 'pen': np.float64(0.4093), 'covmin': np.float64(0.6762), 'delta': 80, 'supp': 30, 'cheap': 30}  ratio@0.289=0.5508
