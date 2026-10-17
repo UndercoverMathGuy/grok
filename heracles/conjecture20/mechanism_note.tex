@@ -535,6 +535,26 @@ $\varepsilon<1$, whose relation terms carry weight $(\varepsilon/2)^{\text{lengt
 single-feature constant $c_1(2,s)=\sup(|\beta|-a)/\max_T|\beta_T|$, which numerically equals $1-3^{1-s}$ (a single neuron;
 $0.423$ at $b=2$) and so is strictly below $1/2$.
 
+\begin{proposition}[hiding a character needs many modes; any network]\label{prop:hide}
+For $\chi\in\mathbb Z_p^n\setminus\{0\}$ let $\phi_j(\chi)$ be the coefficient of $\Phi_j$ at $\rho^{\langle\chi,x\rangle}$ and
+$F_\chi(\delta):=\mathbb E_x[\sigma(x,\delta)\rho^{-\langle\chi,x\rangle}]$ ($\delta\ne0$), $F_\chi(0):=0$.  Then
+$\phi_j(\chi)=-\frac2p\sum_\delta\rho^{j\delta}F_\chi(\delta)$ for every $j\in F$, and $\phi_j(-\chi)=-\frac2p\overline{\sum_\delta\rho^{-j\delta}F_\chi(\delta)}$.
+Consequently, if some field has a mode at $\pm\chi$ and $F_\chi$ vanishes on a symmetric set $B\subseteq\mathbb Z_p\setminus\{0\}$, then at least
+$|B|+1$ of the $p-1$ coefficients $\{\phi_j(\pm\chi)\}_{j\in F}$ are non-zero.
+\end{proposition}
+\begin{proof}
+The first formula is the $\chi$-coefficient of the slack identity (Lemma~\ref{lem:slack}); the second follows because $\sigma$
+is real.  So $\hat F_\chi(j)=\sum_\delta F_\chi(\delta)\rho^{j\delta}$ equals $-\frac p2\phi_j(\chi)$ for $j\in F$ and $-\frac p2\overline{\phi_{-j}(-\chi)}$
+for $j\in-F$.  $F_\chi\not\equiv0$ and $|\operatorname{spt}F_\chi|\le p-1-|B|$, so Tao's uncertainty principle for $\mathbb Z_p$
+($|\operatorname{spt}f|+|\operatorname{spt}\hat f|\ge p+1$) gives $|\operatorname{spt}\hat F_\chi|\ge|B|+2$, of which at most one is $j=0$.
+\end{proof}
+For $\chi=\chi_{l,T}$ every mode $(j,\pm\chi)$ other than feature $l$'s own needs input energy at an off-frequency ($2l-j$ or
+$-2l-j$ on $T$).  So hiding one sign-flipped character from the $|B|\ge2K^*$ binding directions of a programme vertex needs at
+least $2K^*$ off-frequency mode families.  And by the paper's Lemma 6 each such family comes with $2^n-1$ sign-flipped
+siblings of equal size at other characters, which must in turn be paid for or hidden.  The proposition is exact only
+where the slack vanishes identically.  Turning it into the quantitative statement the compensation case needs (a
+robust uncertainty principle on $\mathbb Z_p$, combined with this sibling conservation) is the remaining analytic step.
+
 \begin{remark}[why the remaining step is a question of constants]\label{rem:scaling}
 Let $K$ features each carry interference of size $\varepsilon$ (relative to their amplitudes).  Their total gain at a
 binding direction is at most $k^*\varepsilon\sum_l\kappa_l(\delta^\star)\asymp k^*\varepsilon K$.  The slack they force is
@@ -547,6 +567,14 @@ settle the count.  A proof has to compare three sharp constants: the true $k^*(n
 $\nu-1$ equal aligned atoms), the best cancellation constant for the profiles $\varphi_T$ under the joint pointwise
 constraint, and the coverage constant of the programme at its binding directions.  The experiments at $p=5,7$ (no
 compensated network within $4\times$ of IF) say the first is small against the other two at those primes.
+Theorem~\ref{thm:riesz} is such a comparison, and it is won by the sharp pair $\frac12$ (Riesz gain per feature) against
+$c_1(2,s)\le\frac12$ (Theorem A) whenever the cheap features' characters are dissociated.  A dissociated set in $\mathbb Z_p^n$ has
+at most $n\log_3p$ elements ($3^K$ distinct sums in a group of order $p^n$).  For $n=2$, $b=2$ that is $\approx1.8\ln p$,
+against $K^*\approx3\ln p$ (our computations, $p\le401$), so exact dissociation falls short of the programme's scale by a factor
+$\approx1.7$ when every feature is cheap.
+A direct test agrees that phases cannot flatten the profiles: realising every programme feature at $p=31$ by a
+two-neuron sub-network and optimising all translations gives margin $-0.47\times$ the IF margin, not the $>1$ needed.
+Each feature's field is a product polynomial $P_l(\zeta^l)$, whose coherent excursions phases do not remove.
 \end{remark}
 
 \begin{center}
