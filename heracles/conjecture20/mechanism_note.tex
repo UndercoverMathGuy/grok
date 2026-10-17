@@ -535,6 +535,17 @@ $\varepsilon<1$, whose relation terms carry weight $(\varepsilon/2)^{\text{lengt
 single-feature constant $c_1(2,s)=\sup(|\beta|-a)/\max_T|\beta_T|$, which numerically equals $1-3^{1-s}$ (a single neuron;
 $0.423$ at $b=2$) and so is strictly below $1/2$.
 
+\paragraph{Every $n$.}  The proof of Theorem~\ref{thm:riesz} uses $n=2$ only through Theorem A.  For general $n$, give each
+cheap feature $l$ a family $\mathcal T_l$ of non-empty $T\subseteq[n]$ with linearly independent indicators (their characters
+$\chi_{l,T}$ are then dissociated for $p>2n$), and take the Riesz product over all $\chi_{l,T}$, $T\in\mathcal T_l$, $l\in L'$.  The same
+computation gives $\gamma(\theta)\le\nu^{1-s}B_p\Gamma_s(p)$ (strictly if $L'\ne\emptyset$) under (D), (I) for this larger set, provided
+\[(\mathrm H_n)\qquad|\beta_l|-\nu^{1-s}Q_l^{\,s}\ \le\ \tfrac12\textstyle\sum_{T\in\mathcal T_l}|\beta_{l,T}|\quad\text{for some admissible }\mathcal T_l .\]
+$(\mathrm H_n)$ is a single-feature statement about atoms $\beta_i\in\mathbb C$, $\xi_i\in\mathbb T^n$ (the paper's Lemma 6), i.e.\ the
+constant $c_1(n,s):=\sup\,(|A|-\nu^{1-s}Q^s)/\max_{\mathcal T}\sum_{T\in\mathcal T}|\beta_T|$ must be at most $\frac12$.  Local search at
+$b=2$ (the largest $s$) gives $c_1=0.211$ ($n=2$; a single neuron, $\frac12(1-3^{-1/2})$), $\approx0.26$ ($n=3$) and $\ge0.35$
+($n=4$), all below $\frac12$ and, with Fej\'er kernels below, below $\frac d{d+1}$.  For $n=2$, $(\mathrm H_2)$ is Theorem A.  For $n\ge3$
+it is the one single-feature inequality still to be proved.
+
 \paragraph{Room in Theorem~\ref{thm:riesz}.}  The factor $1-\cos\theta$ extracts half of each character's amplitude.
 A shifted Fej\'er kernel $F_d(\theta+\pi)=1+2\sum_{k=1}^d(1-\frac k{d+1})\cos k(\theta+\pi)\ge0$ extracts the fraction
 $\frac d{d+1}$.  The proof is the same, provided the representations $\sum_l k_l\chi_{l,T_l}$ with $|k_l|\le d$ are unique and
