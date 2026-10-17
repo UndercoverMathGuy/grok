@@ -30,7 +30,7 @@ at least $\nu-\lfloor\nu/p\rfloor$ neurons.  Every network in (1) attains this b
 counterexamples is therefore at most a $1/p$ fraction of the neurons, and is zero when $p>\nu$, which covers the paper's
 experimental range.
 (3) For $p=5,7$ the same mechanism, run at its minimal width, loses to IF by a factor that grows with $n$ (efficiency
-$\le0.19$ for $p=5$, $n\le16$, and decreasing).  Releasing it into the full slot-symmetric class does not help.
+$\le0.19$ for $p=5$, $n\le16$, and decreasing).  Releasing it into the full slot-symmetric class did not help at the point we tested ($n=10$).
 (4) Decoupling, the remaining step of the price--programme conjecture, is \emph{not} automatic: at $p=5$ a mean-zero
 frequency-2 field carried by the same neurons raises a feature's margin by factors $1.2$--$2.6$.  In every case we found
 it still stays $\ge4\times$ below IF.
@@ -164,8 +164,9 @@ underestimates the $p=3$ optimum by a factor that, numerically, grows by about $
 $\gamma/\gamma_{\rm IF}=\zeta\cdot2^{n/2}\cdot(\nu/m)^{s-1}$.  Here $2^{n/2}$ is the raw advantage of flat sign vectors
 over cosines, $(\nu/m)^{s-1}$ the width saving (capped by Theorem~\ref{thm:width}), and $\zeta$ the fraction of the
 mid-range envelope that survives cancellation.  The available gain per unit of $n$ is
-$\tfrac12\log\frac{2p}{p-1}$: $0.55$ at $p=3$, $0.46$ at $p=5$, $0.42$ at $p=7$.  Numerically, $\log\zeta$ falls by
-$0.52$--$0.6$ per unit of $n$, so the balance is positive only at $p=3$.
+$\tfrac12\log\frac{2p}{p-1}$: $0.55$ at $p=3$, $0.46$ at $p=5$, $0.42$ at $p=7$.  Numerically, $\log\zeta/n\approx-0.48$ at $p=3$ ($n=18$) and
+$\approx-0.575$ at $p=5$ (stable over $n=13$--$17$).  That leaves net rates of about $+0.07$ and $-0.12$ per unit of $n$,
+consistent with the observed growth at $p=3$ and decline at $p=5$.
 
 \begin{table}[h]
 \centering\footnotesize\setlength{\tabcolsep}{2.5pt}
