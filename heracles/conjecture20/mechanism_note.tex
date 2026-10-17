@@ -476,6 +476,20 @@ their interference forces at $\delta^\star$ is at least as large as what they ga
 profiles nearly cancel.  The proof charges these through Cauchy--Schwarz over $L'$, which loses $\sqrt{|L'|}$.  A proof of
 the general count must replace this step by an estimate that sees the cancellation.
 
+\begin{remark}[why the remaining step is a question of constants]\label{rem:scaling}
+Let $K$ features each carry interference of size $\varepsilon$ (relative to their amplitudes).  Their total gain at a
+binding direction is at most $k^*\varepsilon\sum_l\kappa_l(\delta^\star)\asymp k^*\varepsilon K$.  The slack they force is
+at least $\varepsilon\sqrt{\sum_l\kappa_l(\delta^\star)/(2^n-1)}\asymp\varepsilon\sqrt K$ (proof of Theorem~\ref{thm:loc}).  This is
+also the right order for an upper bound: translating each feature's inputs rotates its sign-flipped phases
+independently, and a sum of $K$ cosines with independent phases has supremum $O(\sqrt{K\log p})$.  At the programme's
+own scale $K=K^*=\Theta(\log p)$ (paper, Theorem 11), gain and forced slack are therefore of the same order, uniformly in $p$.
+So collective undercutting is neither negligible nor dominant at any prime, and no order-of-magnitude argument can
+settle the count.  A proof has to compare three sharp constants: the true $k^*(n,s)$ (at least $c_n(s-1)$, from
+$\nu-1$ equal aligned atoms), the best cancellation constant for the profiles $\varphi_T$ under the joint pointwise
+constraint, and the coverage constant of the programme at its binding directions.  The experiments at $p=5,7$ (no
+compensated network within $4\times$ of IF) say the first is small against the other two at those primes.
+\end{remark}
+
 \begin{center}
 \begin{tabular}{p{0.5\textwidth}p{0.44\textwidth}}
 \toprule
