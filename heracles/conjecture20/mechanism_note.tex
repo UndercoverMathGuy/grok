@@ -687,6 +687,38 @@ two-neuron sub-network and optimising all translations gives margin $-0.47\times
 Each feature's field is a product polynomial $P_l(\zeta^l)$, whose coherent excursions phases do not remove.
 \end{remark}
 
+\subsection*{Status of the feature-count theorem}
+\emph{Claim.}  For every odd prime $p$, every $n$ and $b\in[2,\nu]$, every global maximiser of the $L_{2,b}$-margin uses
+$|\operatorname{spt}y^\star|$ features for some maximiser $y^\star$ of $\Gamma_s(p)$.  (Several maximisers with different support sizes
+can coexist at isolated values of $s$, so the claim cannot be sharpened to a single $K^*$ there.)
+
+\emph{Proved.}  (i) $p=3$ (one frequency).  (ii) Every maximiser that buys no feature below its interference-free price
+(Proposition~\ref{prop:nocheap}), for all $n,p,b$.  (iii) The dense range of Theorem~\ref{thm:dense}.  (iv) $n=2$: no single feature
+can be bought below the interference-free price, at any prime and for arbitrary inputs (Theorem~\ref{thm:q1n2}).  Cheap features in a
+multi-feature maximiser force an additive relation among their doubled frequencies, or a mode landing exactly on a
+sign-flipped character (Theorem~\ref{thm:riesz}).  Exact hiding from a programme vertex is impossible with the features' own outputs
+(Proposition~\ref{prop:hide}).  In class $\mathcal C$, few cheap features or small $\sum\kappa$ suffice (Theorem~\ref{thm:loc}).
+(v) For each $n$, single-frequency single features cannot beat the interference-free value at large $p$ (Corollary~\ref{cor:largep}).
+
+\emph{Open, stated as self-contained problems.}
+\begin{enumerate}
+\item[(O1)] \emph{Coverage implies one-sided Sidon.}  For $S\subseteq\mathbb Z_p^\times$ with near-optimal programme coverage, weights $b_l\ge0$ and
+arbitrary phases, show $-\min_w\sum_lb_l\cos(2\pi lw/p+\theta_l)\ge c\sum_lb_l$ with $c=1-(2/3)^{s-1}$ (or $\frac12$ in general).  True with $c=\frac12$
+for dissociated $S$; numerically $c\approx0.8$ for programme supports; false without the coverage hypothesis.  This closes the
+relations case at $n=2$.
+\item[(O2)] \emph{Compensation costs.}  Show that modes placed on a cheap feature's sign-flipped characters by other outputs (riding
+orbits, cost $O(M^2)$; dedicated neurons, interference-free cost) never cost less than the bonus they protect.  The models
+tested fail by $20$--$50\%$.
+\item[(O3)] \emph{Single features for $n\ge3$.}  Rigorous bounds on $k^*(n,s)$ (circularity route) or on the joint constant
+$J(n,s,p)$ of Proposition~\ref{prop:joint}.  The pointwise route alone cannot work at $n=4$, $b=2$, where $c_1\ge1.13$ (certified).
+\item[(O4)] \emph{$p=5$, large $n$.}  $k^*(n,\nu/2)>k_5$ from $n=8$ on, and $J(n,\nu/2,5)$ rises ($0.57,0.71,0.81,0.82$ for $n=3$--$6$).  The
+strongest known mechanism (shared-sign) decays at $p=5$ ($\times0.93$ per unit $n$ up to $n=18$), and direct searches at $n=8$ find nothing
+above interference-free.  If a mechanism with multi-frequency inputs did win at some $(5,n)$, it could create a spurious feature and
+break the claim.  So (O4) decides whether the claim is true for all $n$.
+\end{enumerate}
+At $p\ge5$ the claim for all $n$ contains the paper's Conjecture 20 there, up to mechanisms that are cheap but single-frequency.  So
+(O1)--(O4) are not artefacts of the method: some form of each is necessary.
+
 \begin{center}
 \begin{tabular}{p{0.5\textwidth}p{0.44\textwidth}}
 \toprule
