@@ -476,6 +476,65 @@ their interference forces at $\delta^\star$ is at least as large as what they ga
 profiles nearly cancel.  The proof charges these through Cauchy--Schwarz over $L'$, which loses $\sqrt{|L'|}$.  A proof of
 the general count must replace this step by an estimate that sees the cancellation.
 
+\paragraph{The count fails only through cheap features.}  The next proposition holds for every $n$, $p$, $b$ and every
+network.  It says that the count can fail only if the maximiser buys some frequency \emph{below} its interference-free
+price, so everything reduces to excluding cheap features.
+\begin{proposition}[no cheap features $\Rightarrow$ exact count]\label{prop:nocheap}
+Let $\theta^\star$ be a global maximiser of the $L_{2,b}$-margin, $a_l=\nu^{1-s}Q_l^{\,s}$, $Q_l=\sum_i|\beta_{il}|^r$.  If
+$|\beta_l|\le a_l$ for every $l$, then $(Q_l^{\,s})_l$ is proportional to a maximiser $y^\star$ of $\Gamma_s(p)$, $|\beta_l|=a_l$ for
+every $l$, and $\theta^\star$ uses exactly $|\operatorname{spt}y^\star|$ features.
+\end{proposition}
+\begin{proof}
+$h\le\min_\delta\sum_l\Re\beta_l\kappa_l(\delta)\le\nu^{1-s}\min_\delta\sum_lQ_l^{\,s}\kappa_l(\delta)\le\nu^{1-s}(\sum_lQ_l)^s\Gamma_s\le\nu^{1-s}(C_bP)^s\Gamma_s$,
+and the left side is at least the right side because interference-free networks attain it (paper, Theorem 8).  So
+every inequality is an equality.  The third makes $(Q_l^s)$ proportional to a programme maximiser.  The first two give
+$|\beta_l|=a_l$ wherever $\kappa_l(\delta)>0$, i.e.\ everywhere, so $\beta_l\ne0\iff Q_l>0$.
+\end{proof}
+Proposition~\ref{prop:nocheap} does not need the maximiser to be interference-free.  At $p=3$ the counterexamples buy their single
+feature below price, consistent with the proposition.
+
+\begin{theorem}[Riesz products: cheap features need arithmetic coincidences, $n=2$]\label{thm:riesz}
+Let $n=2$, $2\le b\le3$, $p$ any odd prime, and $\theta$ any network (inputs and outputs arbitrary).  Write
+$\Phi_l(x)=\sum_{k\in\mathbb Z_p^2}\phi_l(k)\rho^{k\cdot x}$; the sign-flipped coefficient sits at the character
+$\chi_{l,T}:=2l\,\mathbf 1_T$ with $|\phi_l(\chi_{l,T})|=|\beta_{l,T}|$ (the computation of the companion note's Lemma 11 uses no
+property of the inputs).  Let $\hat g_\delta(k)$ be the Fourier coefficients of $x\mapsto g(x,\delta)$, let $\delta^\star$ minimise
+$\sum_la_l\kappa_l(\delta)$, and let $L'=\{l:|\beta_l|>a_l\}$.  Suppose there are $T_l$ ($l\in L'$) with
+$|\beta_{l,T_l}|=\max_T|\beta_{l,T}|$ such that $\Lambda=\{\chi_{l,T_l}\}_{l\in L'}$ is
+\begin{itemize}
+\item[(D)] \emph{dissociated}: the $3^{|L'|}$ sums $\sum_l\sigma_l\chi_{l,T_l}$, $\sigma\in\{0,\pm1\}^{L'}$, are pairwise distinct (no relation with coefficients in $\{0,\pm1,\pm2\}$); and
+\item[(I)] \emph{isolated} at $\pm\delta^\star$: $\hat g_{\pm\delta^\star}$ vanishes on the sums $\sum_l\sigma_l\chi_{l,T_l}$ with
+$|\operatorname{spt}\sigma|\ge2$, and at $\pm\chi_{l,T_l}$ only feature $l$'s own sign-flipped mode contributes.
+\end{itemize}
+Then $\gamma(\theta)\le3^{1-s}B_p\Gamma_s(p)$, strictly if $L'\ne\emptyset$.  Hence every global maximiser either has no cheap
+feature, and then uses exactly $K^*(s,p)$ features (Proposition~\ref{prop:nocheap}), or its cheap features violate (D)
+or (I).
+\end{theorem}
+\begin{proof}
+For any $\nu\ge0$ with $\mathbb E\nu=1$, $h\le\mathbb E_x[\nu(x)g(x,\delta)]$.  Take
+$\nu=\prod_{l\in L'}\big(1-\cos(2\pi\langle\chi_{l,T_l},x\rangle/p+\psi_l)\big)$ with $\psi_l=\arg\hat g_\delta(\chi_{l,T_l})$.  By (D) every character of $\nu$ has a unique representation, so
+$\hat\nu(0)=1$ and $\hat\nu(\pm\chi_{l,T_l})=-\frac12e^{\pm i\psi_l}$, and $\hat\nu$ is supported on $\{\sum\sigma_l\chi_{l,T_l}\}$.  By (I),
+\[h\le\hat g_\delta(0)-\sum_{l\in L'}|\hat g_\delta(\chi_{l,T_l})|=\mathbb E_xg(\cdot,\delta)-\sum_{l\in L'}|\beta_{l,T_l}|\sqrt{\kappa_l(\delta)/2},\]
+because $|\hat g_\delta(\chi_{l,T_l})|=\frac12|\beta_{l,T_l}||1-\rho^{-l\delta}|$.  Average this over $\delta=\pm\delta^\star$ and use Part I's
+Theorem A for $l\in L'$ ($|\beta_l|-a_l\le R_l/(2\sqrt3)\le\frac12|\beta_{l,T_l}|$; Lemma 6 of the paper makes it valid for any
+inputs):
+\[h\le\sum_la_l\kappa_l(\delta^\star)+\sum_{l\in L'}|\beta_{l,T_l}|\Big(\tfrac12\kappa_l(\delta^\star)-\sqrt{\kappa_l(\delta^\star)/2}\Big).\]
+Each bracket is negative because $\kappa_l<2$, and $\beta_{l,T_l}\ne0$ for $l\in L'$ (the paper's Lemma 7).  Finally
+$\sum_la_l\kappa_l(\delta^\star)\le3^{1-s}(C_bP)^s\Gamma_s$ as before.  For the last sentence, $\gamma(\theta^\star)\ge3^{1-s}B_p\Gamma_s$.
+\end{proof}
+Two remarks on what Theorem~\ref{thm:riesz} says.  (i) It is pointwise, needs no circularity, and holds at $p=3$.  There
+the counterexamples violate (I): with constant input components, the mode $\mathbf 1_T$ coincides with $-\chi_{1,T}$
+because $2\equiv-1\pmod3$.  This is the non-circularity of the companion note, seen as a spectral coincidence.  (ii) It
+replaces the $\sqrt{|L'|}$ loss of Theorem~\ref{thm:loc} by nothing.  Collective undercutting, and compensation by other
+fields, are possible \emph{only} through exact arithmetic: an additive relation $\sum\sigma_l\,2l\mathbf 1_{T_l}=0$ among the cheap
+features, or a mode of some field landing exactly on a cheap feature's sign-flipped character (for instance an input
+frequency $3l$, whose mode is the conjugate partner of $\chi_{l,T}$).  In class $\mathcal C$ the second cannot happen, and
+(I) reduces to the absence of relations $\sum\sigma_l\chi_{l,T_l}\in\{\pm\chi_{k,T}\}$.  The programme supports we computed have few short relations
+($0$--$3$ of length $3$ for $p\le401$).  But $3^{|L'|}>p^2$ forces long ones once $|L'|\gtrsim1.8\ln p$, so exact
+dissociation cannot cover every feature being cheap at large $p$.  There one has to use $\nu=\prod(1-\varepsilon\cos)$ with
+$\varepsilon<1$, whose relation terms carry weight $(\varepsilon/2)^{\text{length}}$.  The room for that is $1/2$ against the sharp
+single-feature constant $c_1(2,s)=\sup(|\beta|-a)/\max_T|\beta_T|$, which numerically equals $1-3^{1-s}$ (a single neuron;
+$0.423$ at $b=2$) and so is strictly below $1/2$.
+
 \begin{remark}[why the remaining step is a question of constants]\label{rem:scaling}
 Let $K$ features each carry interference of size $\varepsilon$ (relative to their amplitudes).  Their total gain at a
 binding direction is at most $k^*\varepsilon\sum_l\kappa_l(\delta^\star)\asymp k^*\varepsilon K$.  The slack they force is
