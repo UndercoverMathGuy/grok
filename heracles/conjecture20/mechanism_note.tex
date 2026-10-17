@@ -528,9 +528,11 @@ replaces the $\sqrt{|L'|}$ loss of Theorem~\ref{thm:loc} by nothing.  Collective
 fields, are possible \emph{only} through exact arithmetic: an additive relation $\sum\sigma_l\,2l\mathbf 1_{T_l}=0$ among the cheap
 features, or a mode of some field landing exactly on a cheap feature's sign-flipped character (for instance an input
 frequency $3l$, whose mode is the conjugate partner of $\chi_{l,T}$).  In class $\mathcal C$ the second cannot happen, and
-(I) reduces to the absence of relations $\sum\sigma_l\chi_{l,T_l}\in\{\pm\chi_{k,T}\}$.  The programme supports we computed have few short relations
-($0$--$3$ of length $3$ for $p\le401$).  But $3^{|L'|}>p^2$ forces long ones once $|L'|\gtrsim1.8\ln p$, so exact
-dissociation cannot cover every feature being cheap at large $p$.  There one has to use $\nu=\prod(1-\varepsilon\cos)$ with
+(I) reduces to the absence of relations $\sum\sigma_l\chi_{l,T_l}\in\{\pm\chi_{k,T}\}$.  The programme supports have $K^*=2,4,7$ at $p=11,31,101$ ($b=2$; exhaustive vertex enumeration at $p=11$, and at
+$p=31$ for supports up to size $4$), i.e.\ $K^*\approx1.5\ln p$, below the capacity $2\log_3p\approx1.8\ln p$ of dissociated sets in $\mathbb Z_p^2$.
+A dissociated choice of $T_l$ exists for the programme supports at $p=31$ and $211$, but none was found at $p=101$ or $401$.  Moreover the network, not the
+proof, decides which $T$ carries a feature's interference.  With all interference on $T=\{1,2\}$ the characters are
+$1$-dimensional, and $\log_3p\approx0.9\ln p<K^*$ forces relations, so exact dissociation cannot cover every feature being cheap at large $p$.  There one has to use $\nu=\prod(1-\varepsilon\cos)$ with
 $\varepsilon<1$, whose relation terms carry weight $(\varepsilon/2)^{\text{length}}$.  The room for that is $1/2$ against the sharp
 single-feature constant $c_1(2,s)=\sup(|\beta|-a)/\max_T|\beta_T|$, which numerically equals $1-3^{1-s}$ (a single neuron;
 $0.423$ at $b=2$) and so is strictly below $1/2$.
@@ -602,6 +604,20 @@ siblings of equal size at other characters, which must in turn be paid for or hi
 where the slack vanishes identically.  Turning it into the quantitative statement the compensation case needs (a
 robust uncertainty principle on $\mathbb Z_p$, combined with this sibling conservation) is the remaining analytic step.
 
+\paragraph{Parasitic orbits: compensation is cheap, but does not pay in the models tested.}  An interference-free block
+for feature $j$ can carry a hidden compensating mode.  Give its three neurons input components at the off-frequency
+$q=2l-j$ in slot $1$, with relative size $\rho$ and phases $w_i=e^{i\arg\hat u_{i1}(q)}$.  With the paper's block phases
+$\alpha_i=\pi(i-1)/3$, the three sibling modes $(-q,-j),(q,j),(-q,j)$ cancel iff $w_1=w_2e^{i\pi/3}$ and $w_3=w_2e^{-i\pi/3}$.  The surviving
+mode lands on $\chi_{l,\{1\}}=(2l,0)$ with size exactly $\rho\,a_j/\sqrt{1+\rho^2}$, while the block's clean amplitude drops to
+$a_j/\sqrt{1+\rho^2}$ at fixed cost.  So a compensating mode of size $M$ costs only $O(M^2)$.  We tested the most favourable
+configuration (one feature on two aligned neurons, interference on the single character $(2l,0)$, all other features
+carrying parasitic orbits, all phases, sizes and the allocation optimised).  In the large-$p$ limit the margin is
+exactly $\min_\delta[\sum_ka_k\kappa_k/\sqrt{1+\rho_k^2}+(\tfrac32)^{s-1}a_l\kappa_l-|Z(\delta)|]$, where $Z$ is the total coefficient at
+$(2l,0)$.  Against the exact programme optimum this reaches $0.92$ and $0.99$ of the IF value at $p=31,101$
+($b=2$); the optimiser always switches the cheap feature off.  (An earlier run reported gains; they came entirely
+from a suboptimal programme solver, since corrected.)  By Proposition~\ref{prop:hide}, exact hiding from a programme vertex's
+$2K^*$ binding directions needs more modes than the features' outputs provide.
+
 \begin{remark}[why the remaining step is a question of constants]\label{rem:scaling}
 Let $K$ features each carry interference of size $\varepsilon$ (relative to their amplitudes).  Their total gain at a
 binding direction is at most $k^*\varepsilon\sum_l\kappa_l(\delta^\star)\asymp k^*\varepsilon K$.  The slack they force is
@@ -617,9 +633,9 @@ compensated network within $4\times$ of IF) say the first is small against the o
 Theorem~\ref{thm:riesz} is such a comparison, and it is won by the sharp pair $\frac12$ (Riesz gain per feature) against
 $c_1(2,s)\le\frac12$ (Theorem A) whenever the cheap features' characters are dissociated.  A dissociated set in $\mathbb Z_p^n$ has
 at most $n\log_3p$ elements ($3^K$ distinct sums in a group of order $p^n$).  For $n=2$, $b=2$ that is $\approx1.8\ln p$,
-against $K^*\approx3\ln p$ (our computations, $p\le401$), so exact dissociation falls short of the programme's scale by a factor
-$\approx1.7$ when every feature is cheap.
-A direct test agrees that phases cannot flatten the profiles: realising every programme feature at $p=31$ by a
+against $K^*\approx1.5\ln p$, so exact dissociation is in reach in principle.  But an adversarial choice of $T$ (all interference on
+$T=\{1,2\}$) reduces the capacity to $\log_3p\approx0.9\ln p$, which is below $K^*$.
+A direct test agrees that phases cannot flatten the profiles: realising every feature of a $6$-feature allocation at $p=31$ by a
 two-neuron sub-network and optimising all translations gives margin $-0.47\times$ the IF margin, not the $>1$ needed.
 Each feature's field is a product polynomial $P_l(\zeta^l)$, whose coherent excursions phases do not remove.
 \end{remark}
@@ -648,6 +664,7 @@ single-frequency networks, every $n,b$, all $p\ge p_0(n,b)$: no gain over IF & p
 count $=K^*$ in class $\mathcal C$, $n=2$, all $p$, $b\in[2,3]$, $\le2$ features below IF price & proved (Thm.~\ref{thm:loc})\\
 count $=K^*$ for every maximiser with no feature bought below IF price, all $n,p,b$ & proved (Prop.~\ref{prop:nocheap})\\
 $n=2$, any network: cheap features force additive relations or spectral coincidences & proved (Thm.~\ref{thm:riesz})\\
+$\pi_{2,b}(p)=3^{1-s}$ for every prime $p$ (single features, arbitrary inputs): (Q1) at $n=2$ & proved (Thm.~\ref{thm:q1n2})\\
 feature count $=K^*(s,p)$, $p\ge5$, $b<b_0$ & open; reduced to relations among cheap features and off-frequency compensation (Sec.~\ref{sec:robust})\\
 \bottomrule
 \end{tabular}
