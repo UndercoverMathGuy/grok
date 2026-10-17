@@ -842,8 +842,11 @@ gain constant $\lambda$ (Lemma~\ref{lem:defects}, minimax over $\mu$).  We compu
 negative for some feature at every prime from $11$ to $31$ ($-0.28$ at $p=17$, $l=8$, where $8\delta^\star\approx p/2$ and $\kappa_l\approx2$).  With the
 sharp $\lambda=c_1=1-3^{1-s}$ it is positive for every feature at $p=5,7,13$ and still negative for some feature at $p=11,17,19,23,29,31$.  So exact
 hiding is impossible (Proposition~\ref{prop:hide}), yet near-hiding for free would already beat Theorem A.  Any proof of (O2) has to use the cost of the
-compensating modes.  The costs are quadratic, while the gain is linear in $|\beta_{l,T}|$ (or quadratic near the IF block), so the decision is a
-comparison of constants in two regimes.  Files: \texttt{mechanism\_scripts/freehide.py}.
+compensating modes.  The costs are quadratic.  The gain is at most linear in $|\beta_{l,T}|$, and numerically it is also quadratic in the
+interference everywhere.  A local search over up to six atoms ($n=2$, $b=2$) gives $|A|-3^{1-s}Q^s\le0.275\,\sum_T|\beta_T|^2/|A|$.  The extremiser
+has all $|\beta_T|\approx0.45|A|$; it is not the IF block and not a single atom, for which the ratio is $c_1/3=0.141$.  So at small interference the
+residual of the free game (linear, positive by Proposition~\ref{prop:hide}) wins, and the decision is a comparison of constants at interference of
+the order of the amplitude.  Files: \texttt{mechanism\_scripts/freehide.py}.
 
 \paragraph{A spectral form of the cost lemma.}  The paper proves $\sum_l|\beta_l|^r\ge\nu^{1-r}|\beta|^r$ for interference-free atoms by comparing
 $\det(I+tH)$, $H=\sum_l\beta_lm_lm_l^*$ ($m_l$ the chain vectors), with $\prod_l(1+t\nu|\beta_l|)$.  The comparison does not need
@@ -974,8 +977,8 @@ alone: at least $39\%$ of the detection, in class $\mathcal C$ under (D$_3$) (Co
 \item \emph{For $n\ge4$ the factorisation must change, and the degree of the test is the exchange rate between (O1) and (O3).}  Pointwise
 (P) is false at $n=4$, $b=2$ ($c_1^{\rm cf}\ge1.127$), so the payment must be of $L^2$ type.  Parseval (A$_2$) loses $\sqrt{|L'|}$.  Quadratic
 products (Theorem~\ref{thm:quad}) do not, at the price of order-three dissociation.  They need $k^\sharp(n,s)<1$, or the smaller
-direction-resolved Hermitian-square constant $k^\flat(n,s)<1$ (remark (d)).  Local search at $b=2$: $k^\sharp\ge0.514,\ 0.848,\ 1.196,\ 1.488$ for $n=2,\dots,5$ (proved $\le0.608$ at $n=2$), and $k^\flat\ge0.423,\ 0.535$ for $n=2,3$.  The quadratic factor alone cannot
-work for all $n$, because $k^\sharp\ge k^*$ and $k^*(n,s)\ge c_n(s-1)$ grows with $s=\nu/2$.  As the degree $d$ of the per-feature factor grows, its
+direction-resolved Hermitian-square constant $k^\flat(n,s)<1$ (remark (d)).  Local search at $b=2$: $k^\sharp\ge0.514,\ 0.848,\ 1.196,\ 1.488$ for $n=2,\dots,5$ (proved $\le0.608$ at $n=2$), and $k^\flat\ge0.423,\ 0.535$ for $n=2,3$.  The quadratic factor alone fails from
+$n=4$ on, and cannot be rescued at large $n$: $k^\sharp\ge k^*$, and $k^*(n,\nu/2)$ increases numerically ($0.35$ at $n=2$ to $1.04$ at $n=9$).  As the degree $d$ of the per-feature factor grows, its
 detection increases to $-\min_xX_l$, and the per-feature condition becomes
 \[(\mathrm S_p)\qquad\tfrac12\textstyle\sum_\pm\min_x\Re\big(e^{\pm i\alpha}\Phi(x)\big)\ \le\ \nu^{1-s}Q^s\cos\alpha\quad\text{for every single-feature atom system and }\alpha=\tfrac\pi2-\tfrac{\pi k}p,\ 1\le k\le\tfrac{p-1}2 .\]
 At the one direction $\alpha=\frac\pi2-\frac\pi p$ it implies (Q1), because $\cos\alpha\,\min_x\mathrm{cm}(\Phi)=\min_\pm\min_x\Re(e^{\pm i\alpha}\Phi)$ is at most the average over $\pm$.  So in a product
