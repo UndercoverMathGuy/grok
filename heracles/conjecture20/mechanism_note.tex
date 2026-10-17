@@ -283,7 +283,38 @@ with $R^2=|B|^2+|C|^2+|D|^2$, where $B,C,D$ are the three sign-flipped sums.  Th
 (Part I, Theorem A: $|A|-R/(2\sqrt3)\le3^{1-s}(\sum|\beta_i|^{1/s})^s$ for $1\le s\le3/2$, valid for arbitrary unit phases) gives
 $k^*(2,s)\le\sqrt2/(2\sqrt3)=1/\sqrt6<0.41<k_5=0.946\le k_p$.  The companion note's Theorem 14 then applies.
 \end{proof}
-The general $n=2$ case (inputs with other frequencies) is where this argument stops.  Input energy $\varepsilon$ outside
+\begin{lemma}[slack identity]\label{lem:slack}
+For every logit table (any network, any $p,n$, any inputs), with margin $h$ and slack
+$\sigma(x,\delta):=f(x)[y(x)]-f(x)[y(x)-\delta]-h\ge0$,
+\[\Phi_j(x)=\tfrac2p\Big(h-\sum_{\delta\ne0}\sigma(x,\delta)\rho^{j\delta}\Big)\qquad(j\in F).\]
+Consequently every sign-flipped coefficient satisfies $|\beta_{j,T}|\le\frac2pS$ with
+$S:=\mathbb E_x\sum_\delta\sigma=p\sum_{j\in F}\Re\beta_j-(p-1)h$.  The same slack $S$ bounds the interference of
+\emph{every} frequency.
+\end{lemma}
+\begin{proof}
+$\hat f_x(j)=\sum_\delta f(x)[y-\delta]\rho^{-j(y-\delta)}=-\rho^{-jy}\sum_{\delta\ne0}(h+\sigma(x,\delta))\rho^{j\delta}$ because
+$\sum_{\delta}\rho^{j\delta}=0$, and $-\sum_{\delta\ne0}\rho^{j\delta}=1$.  Then $\beta_{j,T}=\overline{\mathbb E_x\Phi_j\chi}$ for a unimodular
+character $\chi$, and $|\mathbb E[\sigma\chi]|\le\mathbb E\sigma$.  For $S$, use $\mathbb E_x\Phi_j=\overline{\beta_j}$ and that
+$\sum_{j\in\mathbb Z_p}\hat{\bar\sigma}(j)=p\,\bar\sigma(0)=0$.
+\end{proof}
+\begin{proposition}[$n=2$, any inputs]\label{prop:n2gen}
+For $n=2$, $2\le b\le3$, every prime $p$ and every network, $h\le\frac p{p-1}\big(\sum_j\Re\beta_j-\max_jR_j/(2\sqrt3)\big)$,
+where $R_j^2=\sum_{T\ne\emptyset}|\beta_{j,T}|^2$.  For single-feature networks (any inputs) this gives
+$\gamma\le\frac{p}{p-1}\nu^{1-s}B_p$, i.e.\ $\pi_{2,b}(p)\le\nu^{1-s}\cdot\frac{p}{(p-1)\kappa_{\min}(p)}$.  This is Part I's
+sharp result at $p=3$, but it is weaker than the IF value at $p\ge5$.
+\end{proposition}
+\begin{proof}
+Lemma~\ref{lem:slack} with three non-empty $T$ gives $R_j\le2\sqrt3(\sum_{j'}\Re\beta_{j'}-\frac{p-1}ph)$.  For one feature,
+apply Part I's Theorem A ($|A|-R/(2\sqrt3)\le3^{1-s}(\sum|\beta_i|^{1/s})^s$; Lemma 6 of the paper supplies the unit phases for
+arbitrary inputs) and the single-neuron budget.
+\end{proof}
+Two losses separate Proposition~\ref{prop:n2gen} from the exact answer at $p\ge5$, and both are the multi-frequency
+obstacle.  (i) A single feature's gaps at its non-binding offsets carry structural slack, which uses up $S$ without any
+interference.  (ii) With several frequencies, one slack budget bounds each $R_j$ but not $\sum_jR_j$, so only one
+frequency's interference is charged.  Part II of the earlier notes overcomes (ii) only near $b=\nu$, by mixing the chain
+matrices of all frequencies.
+
+The general $n=2$ case (inputs with other frequencies) is also where the $L^2$ route stops.  Input energy $\varepsilon$ outside
 $\pm1$ costs only $O(\varepsilon)$ of clean amplitude, but it can create non-circular (partner-mode) interference of size
 $O(\sqrt\varepsilon)$.  So every $L^2$/moment bound fails in a thin regime next to the interference-free point, and a pointwise
 argument, like Part I's at $p=3$, is required.
