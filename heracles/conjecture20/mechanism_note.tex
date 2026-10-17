@@ -569,11 +569,21 @@ cheap feature $l$ a family $\mathcal T_l$ of non-empty $T\subseteq[n]$ with line
 $\chi_{l,T}$ are then dissociated for $p>2n$), and take the Riesz product over all $\chi_{l,T}$, $T\in\mathcal T_l$, $l\in L'$.  The same
 computation gives $\gamma(\theta)\le\nu^{1-s}B_p\Gamma_s(p)$ (strictly if $L'\ne\emptyset$) under (D), (I) for this larger set, provided
 \[(\mathrm H_n)\qquad|\beta_l|-\nu^{1-s}Q_l^{\,s}\ \le\ \tfrac12\textstyle\sum_{T\in\mathcal T_l}|\beta_{l,T}|\quad\text{for some admissible }\mathcal T_l .\]
-$(\mathrm H_n)$ is a single-feature statement about atoms $\beta_i\in\mathbb C$, $\xi_i\in\mathbb T^n$ (the paper's Lemma 6), i.e.\ the
-constant $c_1(n,s):=\sup\,(|A|-\nu^{1-s}Q^s)/\max_{\mathcal T}\sum_{T\in\mathcal T}|\beta_T|$ must be at most $\frac12$.  Local search at
-$b=2$ (the largest $s$) gives $c_1=0.211$ ($n=2$; a single neuron, $\frac12(1-3^{-1/2})$), $\approx0.26$ ($n=3$) and $\ge0.35$
-($n=4$), all below $\frac12$ and, with Fej\'er kernels below, below $\frac d{d+1}$.  For $n=2$, $(\mathrm H_2)$ is Theorem A.  For $n\ge3$
-it is the one single-feature inequality still to be proved.
+$(\mathrm H_n)$ is a single-feature statement about atoms $\beta_i\in\mathbb C$, $\xi_i\in\mathbb T^n$ (the paper's Lemma 6).  The families must be
+\emph{collision-free}: no signed sum of $\ge2$ members' indicators equals $\pm\mathbf 1_{T'}$, otherwise the feature's own coefficient at
+$\chi_{l,T'}$ enters with uncontrolled phase.  For $n=2$ only single sets qualify, and Theorem A gives $c_1\le\frac12$ on all of $b\in[2,3]$.
+For $n\ge3$, $(\mathrm H_n)$ at $\frac12$ is false in the relevant range (computed, with certified examples).
+\begin{itemize}
+\item[$n=3$:] two atoms $\beta=e^{\mp i\varphi}/(2\cos\varphi)$, $\xi_2=e^{i(\pi/2-\varphi)}(1,1,1)$ kill every $|T|=2$ coefficient and give
+$c_1^{\rm cf}(3,s)\ge(\cos\varphi-2^{1-s})/\cos(\frac\pi4+\frac\varphi2)$.  This exceeds $\frac12$ for $b<2.51$ and equals $0.767$ at $b=2$, still below $\cos(\pi/5)=0.809$.
+\item[$n=4$:] three atoms $d,ce^{\pm i\psi}$, $\xi=(e^{\pm i\theta},\dots)$ (certified at $50$ digits over all $80$ collision-free families) give
+$c_1^{\rm cf}(4,\frac52)\ge1.127>1$.  So at $n=4$, $b=2$ a feature's own sign-flipped characters cannot pay for its bonus pointwise at any prime.
+\end{itemize}
+So the pointwise (Riesz) route closes the single-feature question for $n=2$ (Theorem~\ref{thm:q1n2}), is consistent with it for $n=3$ at
+every $p\ge5$ (threshold $\cos(\pi/p)$, unproved), and cannot work for $n\ge4$ at $b=2$.  There the $L^2$ (circularity) route of the
+companion note's Theorem 14 is needed.  It is rigorous for single-frequency inputs whenever $k^*(n,s)\le k_p$, but $k^*$ is known
+only numerically ($0.35,0.54,0.67,0.76,0.93$ for $n=2,3,4,5,7$ at $b=2$, against $k_5=0.946$).  Files:
+\texttt{mechanism\_scripts/Hn/}.
 
 \paragraph{Room in Theorem~\ref{thm:riesz}.}  The factor $1-\cos\theta$ extracts half of each character's amplitude.
 A shifted Fej\'er kernel $F_d(\theta+\pi)=1+2\sum_{k=1}^d(1-\frac k{d+1})\cos k(\theta+\pi)\ge0$ extracts the fraction
