@@ -604,6 +604,25 @@ siblings of equal size at other characters, which must in turn be paid for or hi
 where the slack vanishes identically.  Turning it into the quantitative statement the compensation case needs (a
 robust uncertainty principle on $\mathbb Z_p$, combined with this sibling conservation) is the remaining analytic step.
 
+\paragraph{The relations case is a one-sided Sidon problem.}  Suppose all interference sits on $T=\{1,2\}$, the case in
+which the network can force relations.  Then the conditional gap is $M_\delta+\varphi(w)-\varphi(w-\delta)$ with
+$\varphi(w)=\sum_lA_l\cos(2\pi lw/p+\theta_l)$ (for two aligned neurons per feature this is exact; see the relations note in
+\texttt{mechanism\_scripts}).  Evaluating every direction at one common point $w_0$ and averaging with the programme's dual
+weights $\mu$ (symmetric, on the binding set) gives
+\[h\ \le\ \sum_\delta\mu_\delta M_\delta-\Big(-\min_{w}\psi_\mu(w)\Big),\qquad \psi_\mu(w)=\sum_lA_lK_l(\mu)\cos(2\pi lw/p+\theta_l),\]
+because $\varphi-\mu\ast\varphi$ has coefficients $A_lK_l(\mu)$.  So the interference-free bound for this family follows from the
+one-sided Sidon inequality $-\min\psi_\mu\ge c\sum_lA_lK_l(\mu)$ with $c=1-(2/3)^{s-1}$ ($0.18$ at $b=2$), for adversarial phases.  That
+inequality holds with $c=\frac12$ for dissociated $S$ (Riesz), and numerically with $c\approx0.8$ for the programme supports.  It fails
+for arithmetic progressions, whose Rudin--Shapiro polynomials are flat, but those have poor coverage.  What is missing
+is a ``coverage implies one-sided Sidon'' lemma for $|S|\approx1.5\ln p$, which is Chowla's cosine problem with phases and with a
+coverage hypothesis.
+
+\paragraph{Spurious features need all-slot content.}  A clean amplitude at $q$ needs a neuron with frequency-$q$ content in
+every input slot and an output at $q$.  So a cheap single-feature mechanism built from single-frequency inputs, even if it
+beat the interference-free value, would not change the count: compensating outputs at other frequencies carry no clean
+amplitude.  The count can change only through (i) a shift of the allocation's support or (ii) neurons with
+multi-frequency inputs in all slots (sign-vector type mechanisms).
+
 \paragraph{Parasitic orbits: compensation is cheap, but does not pay in the models tested.}  An interference-free block
 for feature $j$ can carry a hidden compensating mode.  Give its three neurons input components at the off-frequency
 $q=2l-j$ in slot $1$, with relative size $\rho$ and phases $w_i=e^{i\arg\hat u_{i1}(q)}$.  With the paper's block phases
