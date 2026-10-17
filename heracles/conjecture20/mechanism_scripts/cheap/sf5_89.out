@@ -1,0 +1,4 @@
+/usr/local/lib/python3.13/dist-packages/cma/s.py:17: UserWarning: Could not import matplotlib.pyplot, therefore ``cma.plot()`` etc. is not available
+  _warnings.warn('Could not import matplotlib.pyplot, therefore'
+p=5 n=8: best single-feature efficiency by width {7:-1.0000, 8:-1.0000, 9:1.0000, 10:1.0000, 11:1.0000}  (49s)
+p=5 n=9: best single-feature efficiency by width {8:-1.0000, 9:-1.0000, 10:1.0000, 11:0.9898, 12:1.0000}  (132s)

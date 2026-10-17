@@ -700,6 +700,24 @@ sign-flipped character (Theorem~\ref{thm:riesz}).  Exact hiding from a programme
 (Proposition~\ref{prop:hide}).  In class $\mathcal C$, few cheap features or small $\sum\kappa$ suffice (Theorem~\ref{thm:loc}).
 (v) For each $n$, single-frequency single features cannot beat the interference-free value at large $p$ (Corollary~\ref{cor:largep}).
 
+\emph{Numerical evidence on cheap features at $p\ge5$} (local searches; files in \texttt{mechanism\_scripts/cheap/}).
+\begin{itemize}
+\item \emph{Single features, arbitrary inputs} (slot-symmetric, seeds: IF, IF plus a frequency-$3l$ component, random).
+The best efficiency is exactly the IF value at $p=5$ for $n=2,3,4,5,8,9$ and at $p=7$ for $n=2,3,4$, and no width below $\nu$ is
+feasible.  This includes $p=5$, $n=8,9$, where $k^*(n,\nu/2)\ge0.994,1.042$ exceeds $k_5$ and Theorem 14 of the companion note gives nothing.
+\item \emph{Parasitic orbits and global searches} ($n=2$, $b=2$).  With a feature forced cheap the best values are:
+\begin{itemize}
+\item $p=13$: $0.90$ ($K^*=3$);
+\item $p=17$: $0.78$;
+\item $p=19$: $0.97$.
+\end{itemize}
+Given free extra neurons, the optimiser \emph{repairs} the cheap feature back to price ratio $1.000$.  Global searches from IF
+with extra neurons stay at price ratios $0.9999$--$1.000$ at $(7,2)$, $(11,2)$, $(7,3)$ and $(5,3)$.
+\item \emph{Spurious features in sub-optimal networks.}  These appear mainly at the doubled frequency $2l$ of a cheap feature,
+with relative amplitudes $10^{-3}$--$3\times10^{-2}$, and vanish when the feature is repaired.  This is the ``multiples'' condition of the Fej\'er
+remark at work.
+\end{itemize}
+
 \emph{Open, stated as self-contained problems.}
 \begin{enumerate}
 \item[(O1)] \emph{Coverage implies one-sided Sidon.}  For $S\subseteq\mathbb Z_p^\times$ with near-optimal programme coverage, weights $b_l\ge0$ and
