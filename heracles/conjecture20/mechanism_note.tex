@@ -528,8 +528,8 @@ replaces the $\sqrt{|L'|}$ loss of Theorem~\ref{thm:loc} by nothing.  Collective
 fields, are possible \emph{only} through exact arithmetic: an additive relation $\sum\sigma_l\,2l\mathbf 1_{T_l}=0$ among the cheap
 features, or a mode of some field landing exactly on a cheap feature's sign-flipped character (for instance an input
 frequency $3l$, whose mode is the conjugate partner of $\chi_{l,T}$).  In class $\mathcal C$ the second cannot happen, and
-(I) reduces to the absence of relations $\sum\sigma_l\chi_{l,T_l}\in\{\pm\chi_{k,T}\}$.  The programme supports have $K^*=2,4,7$ at $p=11,31,101$ ($b=2$; exhaustive vertex enumeration at $p=11$, and at
-$p=31$ for supports up to size $4$), i.e.\ $K^*\approx1.5\ln p$, below the capacity $2\log_3p\approx1.8\ln p$ of dissociated sets in $\mathbb Z_p^2$.
+(I) reduces to the absence of relations $\sum\sigma_l\chi_{l,T_l}\in\{\pm\chi_{k,T}\}$.  The programme supports have $K^*=2,4$ at $p=11,31$ ($b=2$; exhaustive vertex enumeration at $p=11$, and at $p=31$ for
+supports up to size $5$) and $K^*\approx6$--$7$ at $p=101$ (heuristic search only; the programme is a hard concave minimisation there), i.e.\ $K^*\approx1.3$--$1.5\ln p$, below the capacity $2\log_3p\approx1.8\ln p$ of dissociated sets in $\mathbb Z_p^2$.
 A dissociated choice of $T_l$ exists for the programme supports at $p=31$ and $211$, but none was found at $p=101$ or $401$.  Moreover the network, not the
 proof, decides which $T$ carries a feature's interference.  With all interference on $T=\{1,2\}$ the characters are
 $1$-dimensional, and $\log_3p\approx0.9\ln p<K^*$ forces relations, so exact dissociation cannot cover every feature being cheap at large $p$.  There one has to use $\nu=\prod(1-\varepsilon\cos)$ with
@@ -642,8 +642,9 @@ $a_j/\sqrt{1+\rho^2}$ at fixed cost.  So a compensating mode of size $M$ costs o
 configuration (one feature on two aligned neurons, interference on the single character $(2l,0)$, all other features
 carrying parasitic orbits, all phases, sizes and the allocation optimised).  In the large-$p$ limit the margin is
 exactly $\min_\delta[\sum_ka_k\kappa_k/\sqrt{1+\rho_k^2}+(\tfrac32)^{s-1}a_l\kappa_l-|Z(\delta)|]$, where $Z$ is the total coefficient at
-$(2l,0)$.  Against the exact programme optimum this reaches $0.92$ and $0.99$ of the IF value at $p=31,101$
-($b=2$); the optimiser always switches the cheap feature off.  (An earlier run reported gains; they came entirely
+$(2l,0)$.  When the allocation is left free, the optimiser always switches the cheap feature off.  With the cheap feature forced to
+keep $1,\frac12,\frac15$ of its programme share at $p=31$ ($b=2$), the best margins are $0.49$--$0.64$, $0.60$--$0.75$ and $0.67$--$0.82$ of the IF value
+(over the four choices of cheap feature).  They rise monotonically back towards $1$ as the share shrinks.  (An earlier run reported gains; they came entirely
 from a suboptimal programme solver, since corrected.)  By Proposition~\ref{prop:hide}, exact hiding from a programme vertex's
 $2K^*$ binding directions needs more modes than the features' outputs provide.
 
@@ -662,7 +663,7 @@ compensated network within $4\times$ of IF) say the first is small against the o
 Theorem~\ref{thm:riesz} is such a comparison, and it is won by the sharp pair $\frac12$ (Riesz gain per feature) against
 $c_1(2,s)\le\frac12$ (Theorem A) whenever the cheap features' characters are dissociated.  A dissociated set in $\mathbb Z_p^n$ has
 at most $n\log_3p$ elements ($3^K$ distinct sums in a group of order $p^n$).  For $n=2$, $b=2$ that is $\approx1.8\ln p$,
-against $K^*\approx1.5\ln p$, so exact dissociation is in reach in principle.  But an adversarial choice of $T$ (all interference on
+against $K^*\approx1.3$--$1.5\ln p$, so exact dissociation is in reach in principle.  But an adversarial choice of $T$ (all interference on
 $T=\{1,2\}$) reduces the capacity to $\log_3p\approx0.9\ln p$, which is below $K^*$.
 A direct test agrees that phases cannot flatten the profiles: realising every feature of a $6$-feature allocation at $p=31$ by a
 two-neuron sub-network and optimising all translations gives margin $-0.47\times$ the IF margin, not the $>1$ needed.
