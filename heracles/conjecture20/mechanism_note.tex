@@ -693,6 +693,171 @@ two-neuron sub-network and optimising all translations gives margin $-0.47\times
 Each feature's field is a product polynomial $P_l(\zeta^l)$, whose coherent excursions phases do not remove.
 \end{remark}
 
+\section{Architecture of a proof of the count}\label{sec:arch}
+Everything proved above, and everything still open, is an instance of one inequality.  Throughout this section $\theta$ is an
+arbitrary network (any $n$, $p$, $b$, width and inputs), $P=\|\theta\|_{2,b}^b$, $a_l=\nu^{1-s}Q_l^{\,s}$,
+$\Delta(\theta)=\arg\min_{\delta\ne0}\sum_la_l\kappa_l(\delta)$, $\mathcal M(\theta)$ is the set of symmetric probability measures on
+$\Delta(\theta)$, and $K_l(\mu)=\sum_\delta\mu_\delta\kappa_l(\delta)$.  Two non-negative accounts measure how far the allocation is
+from the interference-free optimum:
+\[U(\theta)=\nu^{1-s}\Big((C_bP)^s-\big(\textstyle\sum_lQ_l\big)^s\Big)\Gamma_s,\qquad
+G(\theta)=\nu^{1-s}\big(\textstyle\sum_lQ_l\big)^s\,\Gamma_s-\min_{\delta\ne0}\sum_la_l\kappa_l(\delta).\]
+The \emph{unused budget} $U$ collects norm that buys no clean amplitude: off-frequency input content, unbalanced or constant
+components, and at $b>2$ multi-frequency neurons.  The \emph{coverage gap} $G$ vanishes iff $(Q_l^{\,s})_l$ is proportional to a
+maximiser of $\Gamma_s$.  For a density $w\ge0$ on $\mathbb Z_p^n$ with $\mathbb Ew=1$ let
+$D_\delta(w)=\mathbb E_xg(x,\delta)-\mathbb E_x[w(x)g(x,\delta)]$ be the slack that $w$ detects in direction $\delta$, and let
+$L'(\theta)=\{l:|\beta_l|>a_l\}$ be the cheap features.
+
+\begin{proposition}[master inequality]\label{prop:master}
+For every $\mu\in\mathcal M(\theta)$ and all densities $(w_\delta)_{\delta\ne0}$,
+\[h(\theta)\ \le\ \nu^{1-s}B_p\Gamma_s(p)\,\|\theta\|_{2,b}^{\nu}\;+\;\sum_l(\Re\beta_l-a_l)K_l(\mu)\;-\;\sum_\delta\mu_\delta D_\delta(w_\delta)\;-\;U(\theta)-G(\theta).\]
+So $\gamma(\theta)\le\nu^{1-s}B_p\Gamma_s(p)$ as soon as
+\[(\mathrm{MI})\qquad\sum_l(\Re\beta_l-a_l)K_l(\mu)\ \le\ \sum_\delta\mu_\delta D_\delta(w_\delta)+U(\theta)+G(\theta)\]
+for some $\mu\in\mathcal M(\theta)$ and some tests $(w_\delta)$, and the inequality is strict if (MI) is.  If (MI) holds strictly for
+every network with $L'(\theta)\ne\emptyset$, then every global maximiser of the $L_{2,b}$-margin uses exactly
+$|\operatorname{spt}y^\star|$ features for some maximiser $y^\star$ of $\Gamma_s(p)$.
+\end{proposition}
+\begin{proof}
+For each $\delta$, $h\le\mathbb E[w_\delta g(\cdot,\delta)]=\mathbb Eg(\cdot,\delta)-D_\delta(w_\delta)$.  Average with $\mu$.  Since $\mu$ is symmetric,
+$\sum_\delta\mu_\delta\mathbb Eg(\cdot,\delta)=\sum_l\Re\beta_l\,K_l(\mu)$.  Since $\mu$ lives on $\Delta(\theta)$,
+$\sum_la_lK_l(\mu)=\min_\delta\sum_la_l\kappa_l(\delta)=\nu^{1-s}(C_bP)^s\Gamma_s-U-G$, and $(C_bP)^s=B_p\|\theta\|^\nu_{2,b}$.
+A global maximiser $\theta^\star$ has $\gamma(\theta^\star)\ge\nu^{1-s}B_p\Gamma_s$ (paper, Theorem 8), so (MI) cannot hold strictly for it.
+Hence $L'(\theta^\star)=\emptyset$, and Proposition~\ref{prop:nocheap} applies.
+\end{proof}
+Point masses at the minimisers of $g(\cdot,\delta)$ are admissible tests, so (MI) loses nothing beyond the choice of $\mu$.  The
+count, for all $n,p,b$, is therefore the single statement that \emph{a cheap feature is always strictly paid for}, by detected
+slack, unused budget or coverage gap.
+
+\paragraph{Two factors.}  Every argument in Section~\ref{sec:robust} proves (MI) in the same way.  For each $l\in L'$ it chooses characters
+$X_l\subseteq\mathbb Z_p^n\setminus\{0\}$ and weights $\lambda_{l,\chi}>0$, and then proves two inequalities that meet in the middle:
+\begin{itemize}
+\item[(P)] \emph{payment}, one frequency at a time: $\Re\beta_l-a_l\le\sum_{\chi\in X_l}\lambda_{l,\chi}|\beta_{l,\chi}|$, where $\beta_{l,\chi}$ is the
+coefficient that feature $l$'s own atoms put at $\chi$ (the sign-flipped coefficient when $\chi=\chi_{l,T}$);
+\item[(A)] \emph{detection}, all frequencies together: $\sum_\delta\mu_\delta D_\delta(w_\delta)+U+G\ge\sum_{l\in L'}K_l(\mu)\sum_{\chi\in X_l}\lambda_{l,\chi}|\beta_{l,\chi}|$.
+\end{itemize}
+By the paper's Lemma 6, (P) is a statement about one finite family of atoms $(\beta_i,\xi_i)$, the same in every network, so it is
+decided on single-feature networks.  Features interact only in (A).  There is also an $L^2$ pair:
+(P$_2$) $\Re\beta_l-a_l\le k^*\sigma_l$ with $\sigma_l^2=\frac12\sum_T|\beta_{l,T}|^2$, and (A$_2$), Bhatia--Davis plus Parseval as in the proof of
+Theorem~\ref{thm:loc}.  The results above are instances:
+\begin{center}
+\begin{tabular}{p{0.18\textwidth}p{0.37\textwidth}p{0.37\textwidth}}
+\toprule
+result & (P) & (A)\\
+\midrule
+Prop.~\ref{prop:nocheap} & vacuous ($L'=\emptyset$) & vacuous\\
+Thm.~\ref{thm:q1n2} & Theorem A; $X=\{\chi_{1,T}\}$, $\lambda=\frac12$ & both-edge averaging; own partner allowed\\
+Thm.~\ref{thm:riesz} & Theorem A; $X_l=\{\chi_{l,T_l}\}$, $\lambda=\frac12$ & Riesz product, under (D) and (I)\\
+$(\mathrm H_n)$ & collision-free families, $\lambda=\frac12$; false for $n\ge3$ in part of the range & Riesz product\\
+Thm.~\ref{thm:loc} & (P$_2$) & (A$_2$) in class $\mathcal C$; loses $\sqrt{|L'|}$\\
+Prop.~\ref{prop:joint} & $\max$ of (P) and (P$_2$) & single feature\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{lemma}[the two defects of a Riesz test]\label{lem:defects}
+Let $X=\bigcup_{l\in L'}X_l$ with $X_l\subseteq\{\chi_{l,T}:T\ne\emptyset\}$, let $\varepsilon_\chi\in(0,1]$, and suppose no signed sum
+$\sum_\chi\sigma_\chi\chi$ with $\sigma\in\{0,\pm1\}^X$, $|\operatorname{spt}\sigma|\ge2$, vanishes.  Put
+$w=\prod_{\chi\in X}\big(1-\varepsilon_\chi\cos(2\pi\langle\chi,x\rangle/p+\psi_\chi)\big)$ with $\psi_\chi=\arg\hat g_\delta(\chi)$.  Then
+\[D_\delta(w)\ \ge\ \sum_{l\in L'}\sum_{\chi_{l,T}\in X_l}\varepsilon_{\chi_{l,T}}\Big(|\beta_{l,T}|\sqrt{\kappa_l(\delta)/2}-|Z_{l,T}(\delta)|\Big)\;-\sum_{|\operatorname{spt}\sigma|\ge2}\ \prod_{\sigma_\chi\ne0}\frac{\varepsilon_\chi}2\ \Big|\hat g_\delta\Big(\sum_\chi\sigma_\chi\chi\Big)\Big|,\]
+where $Z_{l,T}(\delta)$ is everything in $\hat g_\delta(\chi_{l,T})$ except the contribution of feature $l$'s own sign-flipped mode.
+\end{lemma}
+\begin{proof}
+$w\ge0$.  Expanding the product gives $\hat w(0)=1$ (no signed sum vanishes), coefficients $-\frac{\varepsilon_\chi}2e^{\pm i\psi_\chi}$ at
+$\pm\chi$, and coefficients of modulus $\prod_{\sigma_\chi\ne0}\frac{\varepsilon_\chi}2$ at the other signed sums.  So
+$\mathbb E[wg_\delta]\le\mathbb Eg_\delta-\sum_\chi\varepsilon_\chi|\hat g_\delta(\chi)|+\sum_{|\operatorname{spt}\sigma|\ge2}\prod\frac{\varepsilon_\chi}2|\hat g_\delta(\sum\sigma_\chi\chi)|$.  Finally
+$g_\delta=\sum_j\Re(\Phi_jc_j(\delta))$ puts $\frac12\phi_l(\chi_{l,T})c_l(\delta)$ at $\chi_{l,T}$ from feature $l$'s sign-flipped mode, of modulus
+$\frac12|\beta_{l,T}|\sqrt{2\kappa_l(\delta)}$, and the triangle inequality gives the rest.
+\end{proof}
+Without either defect the lemma gives (A) with $\lambda=\varepsilon/\sqrt{2\kappa_l}\ge\frac12$ at $\varepsilon=1$; this is
+Theorem~\ref{thm:riesz}.  So (A) can fail in only two ways:
+\begin{itemize}
+\item[(R)] \emph{relations}: a signed sum of $\ge2$ chosen characters vanishes, or lands where $\hat g_\delta\ne0$;
+\item[(C)] \emph{compensation}: a mode other than feature $l$'s own sign-flipped mode sits at $\chi_{l,T}$.
+\end{itemize}
+(O1) is (R) and (O2) is (C).  The next two lemmas say where (C) can come from and what it costs.
+
+\begin{lemma}[compensation channels; any $n$]\label{lem:channels}
+Let $\phi_j(\chi)=2p^{-\nu}\sum_i\hat w_i(j)\prod_t\hat u_{it}(\chi_t-j)$ be the coefficient of $\Phi_j$ at $\chi$.  Every contribution to
+$\hat g_\delta(\chi_{l,T})$ other than $\phi_l(\chi_{l,T})$ comes from a neuron with an output frequency $j$ that has, in every slot $t\in T$,
+input content at a frequency $q\notin\{\pm j\}$, and on-frequency content $\pm j$ in the slots off $T$.  Either
+\begin{itemize}
+\item[(i)] $j=l$ and $q=\pm3l$: the \emph{own partner}, through $\phi_l(-\chi_{l,T})$; or
+\item[(ii)] $j\ne l$ and $q=\pm(2l-j)$ or $q=\pm(2l+j)$: a \emph{foreign mode}.
+\end{itemize}
+In particular nothing compensates in class $\mathcal C$.
+\end{lemma}
+\begin{proof}
+$\hat g_\delta(\chi)=\frac12\sum_j\big(\phi_j(\chi)c_j(\delta)+\overline{\phi_j(-\chi)c_j(\delta)}\big)$.  A term of $\phi_j(\pm\chi_{l,T})$ needs
+$\hat u_{it}(\pm2l-j)\ne0$ for $t\in T$ and $\hat u_{it}(-j)\ne0$ for $t\notin T$.  Since $l,j\in F$ and $p$ is odd, $\pm2l-j\equiv\pm j$ only for
+$l=j$ with the sign $+$, which is the own mode.  For $j=l$ the other sign gives $-3l$.  Real inputs have $|\hat u(q)|=|\hat u(-q)|$.
+\end{proof}
+
+\begin{lemma}[paid compensation is quadratic]\label{lem:lorentz}
+Let $\omega$ be a neuron, $j$ one of its output frequencies, and $C$ the coefficient of its frequency-$j$ field at a character reached
+through an input frequency $q\notin\{0,\pm j\}$ on the slots of $T\neq\emptyset$ and $\pm j$ off $T$.  If $q$ is not an output frequency of
+$\omega$ ($\hat w(q)=0$), then
+\[\sum_{k\ne j}|\beta_k(\omega)|^r+\big(|\beta_j(\omega)|^2+|C|^2\big)^{r/2}\ \le\ C_b\|\omega\|_2^b .\]
+For a single-output neuron this reads $|\beta_j(\omega)|^2+|C|^2\le e(\omega)^2$, $e(\omega)=B_p\|\omega\|_2^\nu$, the clean amplitude its
+norm buys.  If neurons $i$ of this kind carry modes $C_i$ at a common character, with total $M=\sum_iC_i$, then
+$\sum_i|\beta_j(\omega_i)|\le\sqrt{(\sum_ie(\omega_i))^2-|M|^2}$.  The parasitic orbits above attain these bounds.
+\end{lemma}
+\begin{proof}
+Let $m_k=|\hat w(k)|^2+\sum_t|\hat u_t(k)|^2$ for $k\in F$ and $\tau=\sum_{t\in T}|\hat u_t(q)|^2\le m_q$.  With real inputs,
+$|\beta_j(\omega)|=2p^{-\nu}|\hat w(j)|\prod_t|\hat u_t(j)|$ and $|C|=2p^{-\nu}|\hat w(j)|\prod_{t\in T}|\hat u_t(q)|\prod_{t\notin T}|\hat u_t(j)|$, so
+\[|\beta_j(\omega)|^2+|C|^2\le(2p^{-\nu})^2|\hat w(j)|^2\prod_{t\notin T}|\hat u_t(j)|^2\prod_{t\in T}\big(|\hat u_t(j)|^2+|\hat u_t(q)|^2\big)\le(2p^{-\nu})^2\Big(\frac{m_j+\tau}{\nu}\Big)^{\nu}\]
+by AM--GM.  Now run the paper's proof of the single-neuron budget (Appendix C) with $m_j$ replaced by $m_j+\tau$ and $m_q$ by $m_q-\tau$; the
+total $\sum_km_k\le\frac p2\|\omega\|_2^2$ is unchanged, and $\beta_q(\omega)=0$ because $\hat w(q)=0$.  For one output frequency,
+$|\hat w(j)|^2\le\frac p2\|w\|^2$ and AM--GM over the $\nu$ norms give $e(\omega)$ directly.  The last claim is Acz\'el's inequality
+$\sum_i\sqrt{e_i^2-|C_i|^2}\le\sqrt{(\sum_ie_i)^2-|\sum_iC_i|^2}$ for $e_i\ge|C_i|$ (reverse Minkowski for timelike vectors).  The parasitic
+orbit has clean amplitude $a_j/\sqrt{1+\rho^2}$ and mode $\rho a_j/\sqrt{1+\rho^2}$, which gives equality.
+\end{proof}
+So a compensating mode of size $M$ that rides on a feature's block costs that block at least $E-\sqrt{E^2-M^2}\ge M^2/(2E)$ of clean
+amplitude.  In (MI) this cost is collected by $U$, because $Q_j$ counts clean amplitudes while the norm is spent.  Compensation is
+free of norm in only two cases:
+\begin{itemize}
+\item[(F1)] the \emph{own partner} ($q=\pm3l$ in feature $l$'s own neurons).  Both-edge averaging (Theorem~\ref{thm:q1n2}) leaves the factor
+$|\cos(\pi l\delta/p)|$ of the sign-flipped coefficient in direction $\pm\delta$, whatever the partner;
+\item[(F2)] a \emph{shared neuron}: $q$ is itself an output frequency of the same neuron with a clean amplitude, and at $b=2$ the budget does
+not charge for several frequencies in one neuron.  If that clean amplitude does not survive in the network's $\beta_q$, feature $q$ is
+bought above price and pays in (MI).  So free shared compensation at $\chi_{l,T}$ needs two features $j\ne k$ with $2l\equiv\pm j\pm k\pmod p$.
+For $b>2$ shared neurons pay strictly (superadditivity of $t^{b/2}$ is strict).
+\end{itemize}
+Condition (F2) is a relation $2\cdot(2l)\mp2j\mp2k=0$ with coefficients in $\{0,\pm1,\pm2\}$ among doubled frequencies, which is the
+kind of relation (D) excludes.
+
+\paragraph{How the four gaps mesh.}
+\begin{enumerate}
+\item \emph{One combinatorial hypothesis removes both (R) and the free part of (C).}  If the doubled support $2S=\{2l:l\in S\}$ has no
+relation $\sum_lc_l\,2l\equiv0$ with $c_l\in\{0,\pm1,\pm2\}$ (one-dimensional dissociation), then every assignment of sets $T_l$ satisfies (D),
+because a relation in $\mathbb Z_p^n$ is a relation in each coordinate.  For the same reason no signed sum lands on a feature's own
+on-frequency mode, and (F2) cannot occur.  What is left is \emph{paid} (off-frequency) content, at the chosen characters or at their
+signed sums (Lemma~\ref{lem:lorentz}), plus the own partner (F1).  For a single cheap feature this is a finite game for each $(p,s)$.  The network picks the size $R$ of
+a cheap feature's sign-flipped mode, its partner $b$ and foreign modes $z_j,z'_j$ from the other features.  It gains at most
+$\frac12RK_l(\mu)$ by Theorem A and pays $K_j(\mu)\big(a_j-\sqrt{a_j^2-|z_j|^2-|z_j'|^2}\big)$ per riding feature.  The prover picks $\mu$, and
+detects $\sum_\delta\mu_\delta\big|\tfrac12(a\,c_l(\delta)+b\,\overline{c_l(\delta)})+\tfrac12\sum_{j\ne l}(z_jc_j(\delta)+z_j'\overline{c_j(\delta)})\big|$.  By
+Proposition~\ref{prop:hide}, exact hiding needs $|B|+1$ coefficients, while riding supplies at most $2|S|\le|B|$.
+\item \emph{Large $p$ forces (R).}  One-dimensional dissociated sets in $\mathbb Z_p$ have at most $\log_3p\approx0.91\ln p$ elements, fewer
+than $K^*\approx1.3$--$1.5\ln p$.  So at large $p$ relations exist, and (O1) cannot be avoided.  The relations it must survive are long.
+With weights $\varepsilon$, the Riesz coefficients have total mass $\sum_\sigma\prod(\varepsilon/2)=(1+\varepsilon)^K$, so if the signed sums of a
+$K$-set equidistribute, the weight landing on a given character is about $(1+\varepsilon)^K/p$.  At $\varepsilon=1$ this is
+$2^K/p$: $p^{-0.03}$ at $K=1.4\ln p$ and $p^{+0.04}$ at $K=1.5\ln p$.  The plain Riesz product is thus borderline exactly at the programme's
+scale, and $\varepsilon<e^{\ln p/K}-1$ ($\approx0.95$ at $K=1.5\ln p$) restores decay at the price of extraction.  This is why (O1) is a
+question of constants.  The three-term relations of (F2) are rare by comparison: a random set of that size has about $K^3/p$.
+\item \emph{(O3), (O4) enter only through the constant in (P).}  At $n=2$ the surplus of detection over payment per feature and direction is
+$|\beta_{l,T}|\big(\varepsilon\sqrt{\kappa_l/2}-\lambda\kappa_l\big)$.  With the proved $\lambda=\frac12$ and $\varepsilon=1$, its ratio to the payment
+is $\sqrt{2/\kappa_l}-1$, which tends to $0$ as $\kappa_l\to2$; in the worst direction the surplus is $O(p^{-2})$.  With the sharp
+single-feature constant $c_1(2,s)=1-3^{1-s}$ (numerical), concavity in $\kappa$ gives a surplus of at least
+$(\varepsilon-2c_1)\frac{\kappa_l}2|\beta_{l,T}|$ in every direction: $18\%$ of the payment at $b=2$, $\varepsilon=1$.  This surplus is the common currency: relations are absorbed by lowering
+$\varepsilon$ (or by Fej\'er kernels), unpaid compensation by the residual of the game above, and both have to fit inside it.  A uniform
+surplus needs the sharp pointwise constant at $n=2$, a single-feature statement of type (P).
+\item \emph{For $n\ge4$ the factorisation must change.}  Pointwise (P) is false at $n=4$, $b=2$ ($c_1^{\rm cf}\ge1.127$), so (P$_2$) and
+(A$_2$) are needed.  Parseval sees each character separately, so (R) disappears in $L^2$, but the Cauchy--Schwarz step costs
+$\sqrt{|L'|}$.  At $n\ge4$, (O1) therefore becomes a question about how flat the combined profiles $\varphi_T$ can be in $L^2$ against
+$L^\infty$.  That is the one-sided Sidon question again, now with the Bhatia--Davis bound $-\min\varphi\ge\|\varphi\|_2^2/\max\varphi$ in place of
+Riesz.
+\item \emph{Only (O4) can make the claim false.}  (O1)--(O3) concern proofs.  If (O4) failed, a cheap single feature at $p=5$ with
+multi-frequency inputs could carry a spurious feature (paragraph ``spurious features need all-slot content'').
+\end{enumerate}
+
 \subsection*{Status of the feature-count theorem}
 \emph{Claim.}  For every odd prime $p$, every $n$ and $b\in[2,\nu]$, every global maximiser of the $L_{2,b}$-margin uses
 $|\operatorname{spt}y^\star|$ features for some maximiser $y^\star$ of $\Gamma_s(p)$.  (Several maximisers with different support sizes
@@ -706,7 +871,8 @@ sign-flipped character (Theorem~\ref{thm:riesz}).  Exact hiding from a programme
 (Proposition~\ref{prop:hide}).  In class $\mathcal C$, few cheap features or small $\sum\kappa$ suffice (Theorem~\ref{thm:loc}).
 (v) For each $n$, single-frequency single features cannot beat the interference-free value at large $p$ (Corollary~\ref{cor:largep}).
 
-\emph{Numerical evidence on cheap features at $p\ge5$} (local searches; files in \texttt{mechanism\_scripts/cheap/}).
+\emph{Numerical evidence on cheap features at $p\ge5$} (local searches; files in
+\texttt{mechanism\_scripts/cheap/}).
 \begin{itemize}
 \item \emph{Single features, arbitrary inputs} (slot-symmetric, seeds: IF, IF plus a frequency-$3l$ component, random).
 The best efficiency is exactly the IF value at $p=5$ for $n=2,3,4,5,8,9,10,11,12$ and at $p=7$ for $n=2,3,4$.  No width below $\nu$ is
@@ -731,9 +897,11 @@ remark at work.
 arbitrary phases, show $-\min_w\sum_lb_l\cos(2\pi lw/p+\theta_l)\ge c\sum_lb_l$ with $c=1-(2/3)^{s-1}$ (or $\frac12$ in general).  True with $c=\frac12$
 for dissociated $S$; numerically $c\approx0.8$ for programme supports; false without the coverage hypothesis.  This closes the
 relations case at $n=2$.
-\item[(O2)] \emph{Compensation costs.}  Show that modes placed on a cheap feature's sign-flipped characters by other outputs (riding
-orbits, cost $O(M^2)$; dedicated neurons, interference-free cost) never cost less than the bonus they protect.  The models
-tested fail by $20$--$50\%$.
+\item[(O2)] \emph{Compensation costs.}  Show that modes placed on a cheap feature's sign-flipped characters by other outputs never cost less
+than the bonus they protect.  By Lemmas~\ref{lem:channels} and~\ref{lem:lorentz}, every such mode is either paid quadratically through $U$
+(riding and dedicated neurons), or is the own partner (handled by both-edge averaging), or needs a shared neuron and a relation
+$2l\equiv\pm j\pm k$ in the support.  Under one-dimensional dissociation of $2S$ only the paid part remains, a finite game per $(p,s)$
+(Section~\ref{sec:arch}, item 1).  The models tested fail by $20$--$50\%$.
 \item[(O3)] \emph{Single features for $n\ge3$.}  Rigorous bounds on $k^*(n,s)$ (circularity route) or on the joint constant
 $J(n,s,p)$ of Proposition~\ref{prop:joint}.  The pointwise route alone cannot work at $n=4$, $b=2$, where $c_1\ge1.13$ (certified).
 \item[(O4)] \emph{$p=5$, large $n$.}  $k^*(n,\nu/2)>k_5$ from $n=8$ on, and $J(n,\nu/2,5)$ rises ($0.57,0.71,0.81,0.82$ for $n=3$--$6$).  The
