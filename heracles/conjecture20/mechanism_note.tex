@@ -38,7 +38,10 @@ it still stays $\ge4\times$ below IF.
 price uses exactly the programme's number of features, for all $n,p,b$.  At $n=2$ no single feature can be bought below that price
 at any prime, for arbitrary inputs: averaging a Riesz test over both cone edges leaves a factor $\cos(\pi/p)$ of every
 sign-flipped coefficient.  In multi-feature maximisers, cheap features force exact arithmetic coincidences: additive relations
-among doubled frequencies, or modes landing on sign-flipped characters.  The remaining steps are stated as open problems
+among doubled frequencies, or modes landing on sign-flipped characters.  A product of quadratic tests, one per cheap feature, detects each
+feature's whole $L^2$ interference without the $\sqrt{|L'|}$ loss of Cauchy--Schwarz.  It gives a proved surplus of $39\%$ at $n=2$ (class $\mathcal C$,
+order-three dissociation) and reduces every $n$ to a single-feature atom constant.  Section~\ref{sec:arch} shows how the open steps fit together.
+The remaining steps are stated as open problems
 (O1)--(O4): a coverage-to-Sidon inequality, compensation costs, single-feature constants for $n\ge3$, and $p=5$ at large $n$.
 Every numerical test at $p\ge5$ found no network beating the interference-free value.
 So the correct universal statement is the price--programme form, and the open content is concentrated in precise questions for $p\ge5$.
@@ -856,6 +859,92 @@ with free upper entries the spectrum can be anything with trace $3\beta$.  To se
 $|\beta|-\nu^{1-s}Q^s\lesssim(1-r)\,|\sum_T\beta_T\,U_T|/(\nu|\beta|)$, with $U_T$ the upper entries.  The bonus is thus driven by products of
 lower (sign-flipped) and upper entries, and both vanish at the IF block.
 
+\paragraph{Quadratic tests: $L^2$ payment with factorised detection.}  A linear Riesz factor detects one character at a time, so it
+needs the pointwise payment (P), which is false at $n=4$.  Parseval (A$_2$) sees every character but loses $\sqrt{|L'|}$.  A product
+of \emph{quadratic} factors, one per cheap feature, does both.  It detects the whole $L^2$ mass of each feature's interference, and it
+factorises across features under a dissociation hypothesis of order three.  Put $f(\gamma)=\frac12\big(\sqrt{\gamma^2+4}-\gamma\big)$.  Then $f(0)=1$, $f$ is decreasing, and
+$f(\gamma)+f(-\gamma)\ge2$.
+
+\begin{theorem}[quadratic Riesz products; class $\mathcal C$, every $n$]\label{thm:quad}
+Let $p\ge5$, $\theta\in\mathcal C$, $\delta\ne0$ and $L'\subseteq F$.  For $l\in L'$ let
+$W_l=\Phi_l-\overline{\beta_l}=\sum_{T\ne\emptyset}a_{l,T}\rho^{2ls_T}$, $\sigma_l^2=\frac12\sum_T|\beta_{l,T}|^2$,
+\[\tau_l=\sum_{(T,T')}a_{l,T}\,a_{l,T'}\,\overline{a_{l,T\cup T'}}\ \ \text{(ordered pairs of disjoint non-empty sets)},\qquad
+\gamma_l(\delta)=\frac{3\,\Re\big(\tau_l\,c_l(\delta)\big)}{4\,\sigma_l^3\,|c_l(\delta)|}.\]
+Suppose
+\begin{itemize}
+\item[(D$_3$)] the only solution of $\sum_{l\in L'}\varepsilon_l\,l\equiv0\pmod p$ with integers $|\varepsilon_l|\le3$, and $|\varepsilon_l|=3$ for at most one $l$,
+is $\varepsilon=0$;
+\item[(I$_2$)] no $k\in F\setminus L'$ with $\Phi_k\not\equiv0$ is congruent to some $\sum_{l\in L'}\varepsilon_l\,l$ with integers $|\varepsilon_l|\le2$.
+\end{itemize}
+Then
+\[h(\theta)\ \le\ \sum_{k\in F}\Re\big(\overline{\beta_k}\,c_k(\delta)\big)\;-\;\sum_{l\in L'}\sigma_l\,|c_l(\delta)|\,f\big(\gamma_l(\delta)\big)\]
+(terms with $\sigma_l=0$ are omitted).
+\end{theorem}
+\begin{proof}
+Write $c_l=c_l(\delta)$ and $X_l=\Re(W_lc_l)$, so that $g(\cdot,\delta)=\sum_k\Re(\overline{\beta_k}c_k)+\sum_kX_k$.  The monomials of $W_l$ are
+$\rho^{\langle\chi,x\rangle}$ with $\chi=2l\mathbf 1_T$, and $\mathbb E\rho^{\langle\chi,x\rangle}=0$ unless $\chi=0$.  For $p\ge5$ the vectors
+$2l(\mathbf 1_T+\mathbf 1_{T'})$ and $2l(\mathbf 1_T+\mathbf 1_{T'}+\mathbf 1_{T''})$ are non-zero (entries in $2l\{0,1,2,3\}$, not all $0$), so
+$\mathbb EW_l^2=\mathbb EW_l^3=0$.  The vector $2l(\mathbf 1_T+\mathbf 1_{T'}-\mathbf 1_{T''})$ vanishes iff $T\cap T'=\emptyset$ and $T''=T\cup T'$, so $\mathbb E[W_l^2\overline{W_l}]=\tau_l$.  Hence $\mathbb EX_l=0$,
+$V_l:=\mathbb EX_l^2=\frac12|c_l|^2\mathbb E|W_l|^2=\sigma_l^2|c_l|^2$ and $\mathbb EX_l^3=\frac34|c_l|^2\Re(c_l\tau_l)=\gamma_lV_l^{3/2}$.  For $t\in\mathbb R$
+the density $w_l=(X_l-t)^2/(V_l+t^2)$ has $\mathbb E[w_lX_l]=(\mathbb EX_l^3-2tV_l)/(V_l+t^2)$.  At $t=\frac12\big(\gamma_l+\sqrt{\gamma_l^2+4}\big)\sqrt{V_l}$
+this equals $-\sqrt{V_l}\,f(\gamma_l)$, which is its minimum.
+
+Let $w=\prod_{l\in L'}w_l\ge0$ and expand $w\,g(\cdot,\delta)$ into monomials.  In slot $t$, a monomial of $w_l$ has exponent $2l\,v_l$ with
+$|v_l|\le2$, and a monomial of $X_k$ has exponent $2k\,v$ with $|v|\le1$.  A monomial has non-zero mean only if every slot exponent
+vanishes.  For the monomials of $w$ alone, (D$_3$) forces all $v_l=0$, so $\mathbb Ew=\prod_l\mathbb Ew_l=1$.  With a monomial of $X_k$,
+$k\notin L'$, a vanishing exponent with $v\ne0$ would contradict (I$_2$), so $\mathbb E[wX_k]=0$.  With a monomial of $X_k$, $k\in L'$, the
+exponent is $\sum_{l\ne k}2l\,v_l+2k(v_k+v)$ with $|v_k+v|\le3$.  Then (D$_3$) forces $v_l=0$ for $l\ne k$, so
+$\mathbb E[wX_k]=\mathbb E[w_kX_k]$.  Therefore $h\le\mathbb E[w\,g(\cdot,\delta)]=\sum_k\Re(\overline{\beta_k}c_k)-\sum_{l\in L'}\sqrt{V_l}\,f(\gamma_l)$.
+\end{proof}
+
+\begin{corollary}[class $\mathcal C$: any number of dissociated cheap features]\label{cor:quad}
+Let $p\ge5$ and $2\le b\le\nu$.  Define
+\[k^\sharp(n,s):=\sup\frac{\Re A-\nu^{1-s}Q^s}{\sigma\,f(\gamma_{\max})},\qquad \gamma_{\max}=\frac{3|\tau|}{4\sigma^3},\]
+over atom systems with $\sigma>0$, with $A,Q,\beta_T$ as in Theorem~14 of the companion note, $\sigma^2=\frac12\sum_T|\beta_T|^2$ and
+$\tau=\sum_{(T,T')}\beta_T\beta_{T'}\overline{\beta_{T\cup T'}}$.  If $k^\sharp(n,s)<1$, then no network of $\mathcal C$ whose cheap set $L'$ satisfies (D$_3$) and
+(I$_2$) beats the interference-free value, and equality forces $L'=\emptyset$.  For $n=2$ and $2\le b\le3$,
+\[k^\sharp(2,s)\ \le\ \frac1{\sqrt7-1}\ =\ 0.608 .\]
+So at $n=2$, among networks of $\mathcal C$ with (D$_3$)- and (I$_2$)-dissociated cheap features (any number of them), every maximiser is
+interference-free and uses $K^*(s,p)$ features.
+\end{corollary}
+\begin{proof}
+Let $\delta^\star$ minimise $\sum_la_l\kappa_l(\delta)$.  Average Theorem~\ref{thm:quad} at $\pm\delta^\star$.  Then $\frac12\sum_\pm\Re(\overline{\beta_k}c_k(\pm\delta^\star))=\Re\beta_k\,\kappa_k(\delta^\star)$
+and $|c_l(-\delta)|=|c_l(\delta)|$.  Since $|\Re(\tau_lc)/|c||\le|\tau_l|$, $\gamma_l(\pm\delta^\star)\le\gamma_{\max,l}$ and $f(\gamma_l(\pm\delta^\star))\ge f(\gamma_{\max,l})$.  For
+$l\notin L'$, $\Re\beta_l\le a_l$.  For $l\in L'$, by definition $\Re\beta_l-a_l\le k^\sharp\sigma_lf(\gamma_{\max,l})$, and $\tau_l$ has the modulus of the $\tau$ of $l$'s
+atoms.  Hence
+\[h\ \le\ \sum_la_l\kappa_l(\delta^\star)+\sum_{l\in L'}\sigma_l\,f(\gamma_{\max,l})\big(k^\sharp\kappa_l(\delta^\star)-|c_l(\delta^\star)|\big),\]
+and $\kappa\le\sqrt{2\kappa}=|c|$ because $\kappa\le2$.  Each bracket is negative, and $\sigma_l>0$ for $l\in L'$ (the paper's Lemma 7).  Conclude as in
+Theorem~\ref{thm:loc}.  For $n=2$: $|\tau|=2|\beta_1\beta_2\beta_{12}|\le2(2\sigma^2/3)^{3/2}$ by AM--GM, so $\gamma_{\max}\le\sqrt{2/3}$ and
+$f(\gamma_{\max})\ge(\sqrt{14}-\sqrt2)/(2\sqrt3)=0.672$.  Part I's Theorem A gives $\Re A-3^{1-s}Q^s\le\sigma/\sqrt6$.  The ratio is
+$\sqrt2/(\sqrt{14}-\sqrt2)=1/(\sqrt7-1)$.
+\end{proof}
+Three remarks place this in the architecture.
+\begin{itemize}
+\item[(a)] \emph{A uniform, proved surplus at $n=2$.}  Per feature and direction, detection exceeds payment by at least
+$\sigma_lf\,|c_l|\big(1-k^\sharp\kappa_l/|c_l|\big)\ge(1-0.608)\,\sigma_lf\,|c_l|$, i.e.\ by $39\%$ of the detection, whatever $\kappa_l$.  The linear Riesz test has a surplus that
+vanishes as $\kappa_l\to2$ with the proved constant, and is $18\%$ with the conjectured sharp one (item 3 below).  The quadratic test gives a uniform surplus from
+Theorem A alone.  Local search gives $k^\sharp(2,\frac32)\ge0.514$, so the true surplus is at most about $49\%$.
+\item[(b)] \emph{No $\sqrt{|L'|}$ loss, for every $n$.}  The test is the $L^2$ route of Theorem~\ref{thm:loc} with the Cauchy--Schwarz step replaced by a
+product, so it detects $\sum_l\sigma_l|c_l|f$, linearly in the features.  The price is order-three dissociation (D$_3$), and a single-feature
+constant $k^\sharp(n,s)<1$ in place of $c_1\le\frac12$.  The constant $k^\sharp$ is defined on atoms and does not depend on $p$.  The crude bound
+$k^\sharp\le k^*/f(\gamma_{\max}(n))$ uses $\gamma_{\max}(n)=\sqrt{2/3},\ \sqrt2,\ 1.96,\ 2.49$ for $n=2,\dots,5$ (cubic-form maximum on the sphere, computed).  With
+$k^*(3,2)\approx0.54$ this crude bound is already about $1.04$ at $n=3$, so for $n\ge3$ the joint supremum $k^\sharp$ is what has to be computed.
+\item[(c)] \emph{General networks.}  For an arbitrary network take $X_l$ to be the part of $g(\cdot,\delta)$ on feature $l$'s characters $\pm\chi_{l,T}$: own modes,
+partner and foreign modes together.  The same computation gives detection $\sqrt{V_l}f(\gamma_l)$ with $V_l=2\sum_T|\hat g_\delta(\chi_{l,T})|^2$, and
+$\gamma_l\le\gamma_{\max}(n)$ for every coefficient vector.  Two defects appear.  Compensation lowers $V_l$, as in Lemma~\ref{lem:defects} but now in $L^2$ over $T$.
+Modes of $g$ at the pair sums $\pm\chi_{l,T}\pm\chi_{l,T'}$ and at order-three relations among the cheap frequencies are of type (R).  So (O1) and (O2)
+keep their form, and they now have to fit inside the surplus of (a).
+\item[(d)] \emph{Hermitian squares.}  The proof never uses the special form $(X_l-t)^2$.  Any factor $w_l=|P_l|^2/\mathbb E|P_l|^2$ with $P_l$ in the span
+of $1$ and the characters $\pm\chi_{l,T}$ has its monomials at differences of two such characters, so it factorises under the same
+(D$_3$), (I$_2$).  The best such factor detects $-\lambda_{\min}(A_l(\delta))$, where $A_l(\delta)$ is the Hermitian matrix
+$\big(\hat X_l(v-u)\big)_{u,v}$ indexed by $\{0\}\cup\{\pm\chi_{l,T}\}$, of size $2^{n+1}-1$.  It contains the quadratic factor ($P=X_l-t$) and
+the linear Riesz factor ($1-\cos=\frac12|1-e^{i(\cdot)}|^2$), so it dominates both.  After averaging $\pm\delta$ (so $\kappa_l=2\cos^2\alpha$,
+$|c_l|=2\cos\alpha$ with $\alpha=|\arg c_l(\delta)|$), Corollary~\ref{cor:quad} holds with $k^\sharp$ replaced by the direction-resolved constant
+\[k^\flat(n,s)=\sup_{\text{atoms},\ 0\le\alpha<\pi/2}\frac{(\Re A-\nu^{1-s}Q^s)\cos\alpha}{\frac12\big(D(\alpha)+D(-\alpha)\big)},\]
+with $D(\pm\alpha)$ the best Hermitian-square detection for $|c|=1$ and $\arg c=\pm\alpha$.  Local search at $b=2$ gives $k^\flat\ge0.423$ at $n=2$ (this is $c_1(2,\frac32)=1-3^{-1/2}$, attained by a single neuron) and $k^\flat\ge0.535$ at $n=3$.
+The quadratic factor alone, direction-resolved, gives $0.514,\ 0.762,\ 1.006$ for $n=2,3,4$.
+\end{itemize}
+
 \paragraph{How the four gaps mesh.}
 \begin{enumerate}
 \item \emph{One combinatorial hypothesis removes both (R) and the free part of (C).}  If the doubled support $2S=\{2l:l\in S\}$ has no
@@ -879,14 +968,25 @@ $|\beta_{l,T}|\big(\varepsilon\sqrt{\kappa_l/2}-\lambda\kappa_l\big)$.  With the
 is $\sqrt{2/\kappa_l}-1$, which tends to $0$ as $\kappa_l\to2$; in the worst direction the surplus is $O(p^{-2})$.  With the sharp
 single-feature constant $c_1(2,s)=1-3^{1-s}$ (numerical), concavity in $\kappa$ gives a surplus of at least
 $(\varepsilon-2c_1)\frac{\kappa_l}2|\beta_{l,T}|$ in every direction: $18\%$ of the payment at $b=2$, $\varepsilon=1$.  This surplus is the common currency: relations are absorbed by lowering
-$\varepsilon$ (or by Fej\'er kernels), unpaid compensation by the residual of the game above, and both have to fit inside it.  A uniform
-surplus needs the sharp pointwise constant at $n=2$, a single-feature statement of type (P).
-\item \emph{For $n\ge4$ the factorisation must change.}  Pointwise (P) is false at $n=4$, $b=2$ ($c_1^{\rm cf}\ge1.127$), so (P$_2$) and
-(A$_2$) are needed.  Parseval sees each character separately, so (R) disappears in $L^2$, but the Cauchy--Schwarz step costs
-$\sqrt{|L'|}$.  At $n\ge4$, (O1) therefore becomes a question about how flat the combined profiles $\varphi_T$ can be in $L^2$ against
-$L^\infty$.  That is the one-sided Sidon question again, now with the Bhatia--Davis bound $-\min\varphi\ge\|\varphi\|_2^2/\max\varphi$ in place of
-Riesz.
-\item \emph{Only (O4) can make the claim false.}  (O1)--(O3) concern proofs.  If (O4) failed, a cheap single feature at $p=5$ with
+$\varepsilon$ (or by Fej\'er kernels), unpaid compensation by the residual of the game above, and both have to fit inside it.  With linear tests a
+uniform surplus needs the sharp pointwise constant at $n=2$, a single-feature statement of type (P).  Quadratic tests give one from Theorem A
+alone: at least $39\%$ of the detection, in class $\mathcal C$ under (D$_3$) (Corollary~\ref{cor:quad} and remark (a)).
+\item \emph{For $n\ge4$ the factorisation must change, and the degree of the test is the exchange rate between (O1) and (O3).}  Pointwise
+(P) is false at $n=4$, $b=2$ ($c_1^{\rm cf}\ge1.127$), so the payment must be of $L^2$ type.  Parseval (A$_2$) loses $\sqrt{|L'|}$.  Quadratic
+products (Theorem~\ref{thm:quad}) do not, at the price of order-three dissociation.  They need $k^\sharp(n,s)<1$, or the smaller
+direction-resolved Hermitian-square constant $k^\flat(n,s)<1$ (remark (d)).  Local search at $b=2$: $k^\sharp\ge0.514,\ 0.848,\ 1.196,\ 1.488$ for $n=2,\dots,5$ (proved $\le0.608$ at $n=2$), and $k^\flat\ge0.423,\ 0.535$ for $n=2,3$.  The quadratic factor alone cannot
+work for all $n$, because $k^\sharp\ge k^*$ and $k^*(n,s)\ge c_n(s-1)$ grows with $s=\nu/2$.  As the degree $d$ of the per-feature factor grows, its
+detection increases to $-\min_xX_l$, and the per-feature condition becomes
+\[(\mathrm S_p)\qquad\tfrac12\textstyle\sum_\pm\min_x\Re\big(e^{\pm i\alpha}\Phi(x)\big)\ \le\ \nu^{1-s}Q^s\cos\alpha\quad\text{for every single-feature atom system and }\alpha=\tfrac\pi2-\tfrac{\pi k}p,\ 1\le k\le\tfrac{p-1}2 .\]
+At the one direction $\alpha=\frac\pi2-\frac\pi p$ it implies (Q1), because $\cos\alpha\,\min_x\mathrm{cm}(\Phi)=\min_\pm\min_x\Re(e^{\pm i\alpha}\Phi)$ is at most the average over $\pm$.  So in a product
+architecture, (O3) and (O4) ask for (S$_p$) with room, certified at some finite degree.  A degree-$d$ product factorises only under
+order-$(d+1)$ dissociation, whose capacity
+is smaller: at most $\log_{d+2}p$ elements (the sums $\sum_l\varepsilon_ll$ with $0\le\varepsilon_l\le d+1$ must be distinct), against $\log_3p$ for $d=1$.  So the two kinds of open problem pull in opposite directions.  (O3) and (O4) improve with the degree of the
+per-feature test; (O1) gets harder with it.  For $n=2,3$ at $b=2$ the quadratic level is enough on the (O3) side.
+\item \emph{How the claim itself could fail.}  Neither relations (O1) nor compensating modes (O2) create features.  A clean amplitude at $q$ needs
+frequency $q$ in every input slot and in the output, and riding modes, stray outputs and partners never have that (Lemma~\ref{lem:channels}).  If
+cheap features did occur at a maximiser through (O1) or (O2), the count could change only through a shift of the support of the clean
+allocation away from every programme maximiser.  A failure of (O4) is more direct: a cheap single feature at $p=5$ with
 multi-frequency inputs could carry a spurious feature (paragraph ``spurious features need all-slot content'').
 \end{enumerate}
 
@@ -902,6 +1002,9 @@ multi-feature maximiser force an additive relation among their doubled frequenci
 sign-flipped character (Theorem~\ref{thm:riesz}).  Exact hiding from a programme vertex is impossible with the features' own outputs
 (Proposition~\ref{prop:hide}).  In class $\mathcal C$, few cheap features or small $\sum\kappa$ suffice (Theorem~\ref{thm:loc}).
 (v) For each $n$, single-frequency single features cannot beat the interference-free value at large $p$ (Corollary~\ref{cor:largep}).
+(vi) Class $\mathcal C$, $n=2$, $b\in[2,3]$, every $p\ge5$: any number of cheap features whose frequencies satisfy the order-three dissociation (D$_3$) and
+isolation (I$_2$) cannot beat the interference-free value, with a surplus of at least $39\%$ in every direction (Corollary~\ref{cor:quad}).  For every $n$
+the same holds as soon as the atom constant $k^\flat(n,s)$ is below $1$.
 
 \emph{Numerical evidence on cheap features at $p\ge5$} (local searches; files in
 \texttt{mechanism\_scripts/cheap/}).
@@ -936,7 +1039,9 @@ relation $2l\equiv\pm j\pm k$ in the support (or $\pm3l$ in the support).  Under
 times another, only the paid part remains, a finite game per $(p,s)$
 (Section~\ref{sec:arch}, item 1).  The models tested fail by $20$--$50\%$.
 \item[(O3)] \emph{Single features for $n\ge3$.}  Rigorous bounds on $k^*(n,s)$ (circularity route) or on the joint constant
-$J(n,s,p)$ of Proposition~\ref{prop:joint}.  The pointwise route alone cannot work at $n=4$, $b=2$, where $c_1\ge1.13$ (certified).
+$J(n,s,p)$ of Proposition~\ref{prop:joint}.  The pointwise route alone cannot work at $n=4$, $b=2$, where $c_1\ge1.13$ (certified).  For the
+multi-feature product architecture the relevant single-feature quantity is the atom constant $k^\flat(n,s)<1$ (Corollary~\ref{cor:quad}, remark (d)),
+and in the limit of high-degree tests the inequality (S$_p$) of Section~\ref{sec:arch}, item 4.
 \item[(O4)] \emph{$p=5$, large $n$.}  $k^*(n,\nu/2)>k_5$ from $n=8$ on, and $J(n,\nu/2,5)$ rises ($0.57,0.71,0.81,0.82$ for $n=3$--$6$).  The
 strongest known mechanism (shared-sign) decays at $p=5$ ($\times0.93$ per unit $n$ up to $n=18$), and direct searches at $n=8$ find nothing
 above interference-free.  If a mechanism with multi-frequency inputs did win at some $(5,n)$, it could create a spurious feature and
@@ -969,6 +1074,7 @@ $|\beta_j|\le\nu^{1-s}Q_j^s+K_{\nu,s}\ell_j$ (Lemma 7 with interference), every 
 single-frequency networks, every $n,b$, all $p\ge p_0(n,b)$: no gain over IF & proved (Cor.~\ref{cor:largep})\\
 count $=K^*$ in class $\mathcal C$, $n=2$, all $p$, $b\in[2,3]$, $\le2$ features below IF price & proved (Thm.~\ref{thm:loc})\\
 count $=K^*$ for every maximiser with no feature bought below IF price, all $n,p,b$ & proved (Prop.~\ref{prop:nocheap})\\
+count $=K^*$ in class $\mathcal C$, $n=2$, all $p\ge5$, $b\in[2,3]$, any number of cheap features under (D$_3$), (I$_2$) & proved (Cor.~\ref{cor:quad})\\
 $n=2$, any network: cheap features force additive relations or spectral coincidences & proved (Thm.~\ref{thm:riesz})\\
 $\pi_{2,b}(p)=3^{1-s}$ for every prime $p$ (single features, arbitrary inputs): (Q1) at $n=2$ & proved (Thm.~\ref{thm:q1n2})\\
 feature count $=K^*(s,p)$, $p\ge5$, $b<b_0$ & open; reduced to relations among cheap features and off-frequency compensation (Sec.~\ref{sec:robust})\\

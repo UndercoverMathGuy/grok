@@ -16,3 +16,7 @@ Typical run: `python slopes.py 3 11 2 6` then `python contsl.py 3 11 20 2 sl_p3_
 - `rel.py` — counts short signed additive relations in programme supports (relevant to hypothesis (D) of the Riesz theorem).
 - `collect.py` — collective-undercutting test: every programme feature realised by a two-neuron sub-network, translations optimised.
 - `c1.py`, `c1q.py` — single-feature constant c1(n,s) (bonus over the interference-free price per unit of sign-flipped coefficient).
+- `quad/` — quadratic and Hermitian-square product tests (Theorem `thm:quad`, Corollary `cor:quad`):
+  `gmax.py` (worst-case skewness γ_max(n)), `ksharp.py` (k#(n,s) with γ_max), `ksharp2.py` (direction-resolved quadratic constant),
+  `kflat.py` (best degree-2 Hermitian-square constant k♭(n,s)), `checkquad.py` (checks the factorisation identity E[wg] = RHS on random
+  class-C fields under (D3), (I2)), `outride.py` (output-side riding compensation of a two-neuron cheap feature, n=2).
