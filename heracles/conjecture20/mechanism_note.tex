@@ -535,6 +535,33 @@ $\varepsilon<1$, whose relation terms carry weight $(\varepsilon/2)^{\text{lengt
 single-feature constant $c_1(2,s)=\sup(|\beta|-a)/\max_T|\beta_T|$, which numerically equals $1-3^{1-s}$ (a single neuron;
 $0.423$ at $b=2$) and so is strictly below $1/2$.
 
+\begin{theorem}[the price of a feature at $n=2$, every prime, arbitrary inputs]\label{thm:q1n2}
+For $n=2$, $2\le b\le3$ and every odd prime $p$, every single-feature network (outputs at frequency $1$, inputs
+arbitrary, any width) satisfies
+\[\min_x\mathrm{cm}(\Phi_1(x))\ \le\ \Re\beta_1-\cos(\pi/p)\max_T|\beta_{1,T}|\ \le\ 3^{1-s}Q^s\ \le\ 3^{1-s}B_p\|\theta\|_{2,b}^{\nu}.\]
+Hence $\pi_{2,b}(p)=3^{1-s}=\nu^{1-s}$: a single feature cannot be bought below the interference-free price at $n=2$, at any
+prime.  This settles (Q1) for $n=2$, and with the price--programme theorem the decoupled value is the interference-free
+value.  At $p=3$ it recovers Part I.
+\end{theorem}
+\begin{proof}
+Fix $T\ne\emptyset$ and $\chi=\chi_{1,T}=2\mathbf 1_T$.  A mode of $\Phi_1$ at $\pm\chi$ needs input indices $k_t$ with $k_t+1=\pm2$ on $T$ and
+$k_t+1=0$ off $T$.  So the only modes there are the sign-flipped mode, with coefficient $a$, $|a|=|\beta_{1,T}|$, and the
+conjugate partner (input frequency $3$ on $T$), with coefficient $a'$; this holds for arbitrary inputs.  Put $b=\overline{a'}$ and
+$c=1-\rho^{-1}=2\sin(\pi/p)e^{i\alpha}$, $\alpha=\frac\pi2-\frac\pi p$.  For $\delta=\pm1$ the gap $g_\delta=\Re(\Phi_1c_\delta)$, with $c_{\pm1}=c,\bar c$, has
+coefficient $\hat g_\delta(\chi)=\frac12(ac_\delta+b\bar c_\delta)$.  With $\nu=1-\cos(2\pi\langle\chi,x\rangle/p+\arg\hat g_\delta(\chi))$, $h\le\mathbb E[\nu g_\delta]=\mathbb E g_\delta-|\hat g_\delta(\chi)|$.
+Averaging over $\delta=\pm1$, $\frac12(\mathbb Eg_1+\mathbb Eg_{-1})=\kappa_{\min}\Re\beta_1$.  Moreover
+writing $ac+b\bar c=|c|X$ and $a\bar c+bc=|c|Y$, we have $Xe^{i\alpha}-Ye^{-i\alpha}=2ia\sin2\alpha$ (the $b$-terms cancel), so $|ac+b\bar c|+|a\bar c+bc|\ge2|a||c||\sin2\alpha|$.  So
+\[h\le\kappa_{\min}\Re\beta_1-\tfrac12|a|\cdot2\sin(\tfrac\pi p)\sin(\tfrac{2\pi}p)=\kappa_{\min}\big(\Re\beta_1-\cos(\tfrac\pi p)|\beta_{1,T}|\big),\]
+and $h=\kappa_{\min}\min_x\mathrm{cm}$ (companion note, Lemma 3).  Take $T$ maximising $|\beta_{1,T}|$.  Part I's Theorem A (valid for
+arbitrary inputs by the paper's Lemma 6) gives $\Re\beta_1\le3^{1-s}Q^s+\frac12\max_T|\beta_{1,T}|$, and $\cos(\pi/p)\ge\frac12$.
+Finally $Q=\sum_i|\beta_{i1}|^r\le C_bP$.
+\end{proof}
+The partner, which is the $p=3$ mechanism's lever (there $3\equiv0$, i.e.\ the constant input component), cannot help: it can
+cancel the sign-flipped coefficient at one edge, but not at both, and the residual is the factor $\cos(\pi/p)$.  For
+several features the same averaging over $\pm\delta^\star$ gives the gain $\kappa_l(\delta^\star)|\cos(\pi l\delta^\star/p)|\,|\beta_{l,T_l}|$ per
+feature when only its own partner interferes, so Theorem~\ref{thm:riesz} survives own partners whenever
+$|\cos(\pi l\delta^\star/p)|\ge\frac12$ for the cheap $l$.
+
 \paragraph{Every $n$.}  The proof of Theorem~\ref{thm:riesz} uses $n=2$ only through Theorem A.  For general $n$, give each
 cheap feature $l$ a family $\mathcal T_l$ of non-empty $T\subseteq[n]$ with linearly independent indicators (their characters
 $\chi_{l,T}$ are then dissociated for $p>2n$), and take the Riesz product over all $\chi_{l,T}$, $T\in\mathcal T_l$, $l\in L'$.  The same
