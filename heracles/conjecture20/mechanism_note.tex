@@ -585,6 +585,23 @@ companion note's Theorem 14 is needed.  It is rigorous for single-frequency inpu
 only numerically ($0.35,0.54,0.67,0.76,0.93$ for $n=2,3,4,5,7$ at $b=2$, against $k_5=0.946$).  Files:
 \texttt{mechanism\_scripts/Hn/}.
 
+\begin{proposition}[joint $L^2$/pointwise bound for single features, $p\ge5$]\label{prop:joint}
+Let $p\ge5$ and let $\theta$ be a single-frequency single-feature network with mean-zero inputs (every $u_{it}$ and $w_i$ in
+$\mathrm{span}\{\cos,\sin\}$ of frequency $1$).  Put $\sigma^2=\frac12\sum_{T\ne\emptyset}|\beta_{1,T}|^2$.  Then
+\[\min_x\mathrm{cm}(\Phi_1)\ \le\ \Re\beta_1-\max\Big(k_p\,\sigma,\ \cos(\tfrac\pi p)\max_{\mathcal T}\textstyle\sum_{T\in\mathcal T}|\beta_{1,T}|\Big),\]
+with $\mathcal T$ ranging over collision-free families.  Hence $\theta$ does not beat the interference-free single-feature value whenever
+the joint constant $J(n,s,p):=\sup\,(|A|-\nu^{1-s}Q^s)/\max(k_p\sigma,\cos(\frac\pi p)\max_{\mathcal T}\sum|\beta_T|)$ (over atom systems) is at most $1$.
+\end{proposition}
+\begin{proof}
+The first term is the companion note's Theorem 14 (circularity holds for single-frequency fields at $p\ge5$).  For the second, run the
+proof of Theorem~\ref{thm:q1n2} with the Riesz product over the family: with mean-zero inputs every mode of $\Phi_1$ has per-slot
+characters in $\{0,2\}$, so a multi-sum $\sum\sigma_T\chi_T$ carries a mode only if it is $\pm2\mathbf 1_{T'}$, which collision-freeness excludes.
+\end{proof}
+Local search gives $J(3,2,5)\approx0.57$ and $J(4,\frac52,5)\approx0.71$ ($b=2$).  At $n=4$ each bound fails on its own
+($k^*\approx0.67$ is fine but the pointwise constant is $1.13$, and conversely for other configurations).  Together they stay well below
+$1$.  These are lower bounds on $J$ from local search, so this is evidence, not proof, that single features cannot be bought below
+the interference-free price at $p=5$ for $n\le4$.
+
 \paragraph{Room in Theorem~\ref{thm:riesz}.}  The factor $1-\cos\theta$ extracts half of each character's amplitude.
 A shifted Fej\'er kernel $F_d(\theta+\pi)=1+2\sum_{k=1}^d(1-\frac k{d+1})\cos k(\theta+\pi)\ge0$ extracts the fraction
 $\frac d{d+1}$.  The proof is the same, provided the representations $\sum_l k_l\chi_{l,T_l}$ with $|k_l|\le d$ are unique and
