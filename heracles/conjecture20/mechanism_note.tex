@@ -206,9 +206,62 @@ the price--programme conjecture (companion note, Conjecture~20$'$) cannot be pro
 another, interference-only, field compensates.  In every configuration we tried, the compensated feature still stays
 $\ge4\times$ below IF.
 
+\section{The number of features of the unrestricted optimum}\label{sec:count}
+The paper's target is the \emph{count}: a frequency $j$ is a feature of $\theta$ if $A_j(\theta)=|\beta_j(\theta)|>0$, and the
+prediction is that every globally margin-optimal network uses $K^*(s,p)=|\operatorname{spt}y^\star|$ features, with
+amplitudes proportional to a maximiser $y^\star$ of the programme $\Gamma_s(p)$.  This is weaker than the value prediction,
+and it survives the counterexamples.
+
+\begin{proposition}[what is unconditional]\label{prop:count}
+Let $\theta^\star$ be a global maximiser of the $L_{2,b}$-margin.
+\begin{enumerate}
+\item[(a)] If $p=3$, then $\theta^\star$ uses exactly $K^*(s,3)=1$ feature, for every $n$ and $b$.
+\item[(b)] If $\theta^\star$ is interference-free, its amplitudes are proportional to a maximiser of $\Gamma_s(p)$, so it uses
+exactly $|\operatorname{spt}y^\star|$ features (paper, Theorem 8(1)).
+\item[(c)] If $b_0\le b\le\nu$ (interval of the earlier notes, Part II), then $\theta^\star$ is interference-free and uses all
+$F=K^*(s,p)$ frequencies with equal amplitudes.
+\item[(d)] For every $p,n,b$: write $\eta(\theta):=\|A(\theta)\|_{1/s}/(B_p\|\theta\|_{2,b}^\nu)\le1$ for the clean efficiency
+and $y=A/\|A\|_{1/s}$ for the clean allocation of $\theta^\star$.  Then $\eta(\theta^\star)\ge\pi_{n,b}(p)$ and
+$\min_{\delta\ne0}\sum_jy_j\kappa_j(\delta)\ge\frac{\pi_{n,b}(p)}{\eta(\theta^\star)}\,\Gamma_s(p)$.  In particular, if
+$\eta(\theta^\star)=\pi_{n,b}(p)$, then $y$ is a programme maximiser and $\theta^\star$ uses exactly $|\operatorname{spt}y|$ features.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(a) $F=\{1\}$, and $A_1>0$ by the paper's Lemma 2 because the margin is positive.  (b), (c) are the cited results.
+(d) By the price--programme theorem of the companion note,
+$h(\theta^\star)=\gamma^*_b\|\theta^\star\|^\nu\ge\pi B_p\Gamma_s\|\theta^\star\|^\nu$.
+By the paper's Lemma 2, $h\le\min_\delta\sum_jA_j\kappa_j(\delta)=\|A\|_{1/s}\min_\delta\sum_jy_j\kappa_j(\delta)\le\|A\|_{1/s}\Gamma_s$.
+Divide by $B_p\|\theta^\star\|^\nu$.
+\end{proof}
+
+\begin{proposition}[decoupling suffices; the price is irrelevant]\label{prop:dec}
+Suppose a global maximiser $\theta^\star$ satisfies the decoupling inequality
+\[h(\theta^\star)\ \le\ \pi_{n,b}(p)\,B_p\,\min_{\delta\ne0}\sum_{j}P_j^{\,s}\kappa_j(\delta)\qquad\text{for some }P_j\ge0,\ \ \sum_jP_j\le\|\theta^\star\|_{2,b}^b .\]
+Then $(P_j^{\,s}/\|\theta^\star\|^{\nu}_{2,b})_j$ is a maximiser of $\Gamma_s(p)$.  If moreover the features of $\theta^\star$ are exactly
+the frequencies it pays for ($A_j>0\iff P_j>0$), then $\theta^\star$ uses exactly $K^*$ features.
+\end{proposition}
+\begin{proof}
+With $z_j=P_j^s/\|\theta^\star\|^\nu$ we have $\sum_jz_j^{1/s}\le1$, and
+\[\pi B_p\Gamma_s\|\theta^\star\|^\nu\le h(\theta^\star)\le\pi B_p\|\theta^\star\|^\nu\min_\delta\sum_jz_j\kappa_j(\delta).\]
+Hence $z$ attains $\Gamma_s$.
+\end{proof}
+The price enters only as a common factor, because relabelling $a\mapsto ja$ makes it the same for every frequency and scaling
+makes it homogeneous of degree $s$ in the budget.  So the count needs \emph{only} decoupling.  Neither $\pi=\nu^{1-s}$ nor
+interference-freeness is needed.
+
+\paragraph{Where a proof stops.}  Combining (a)--(c): the count prediction holds for every global optimiser, \emph{except
+possibly} when $p\ge5$, $b<b_0$ and the optimiser carries interference.  None of the known counterexamples is in that set,
+since they all have $p=3$.  Closing the remaining case requires a price-sharp upper bound, i.e.\ Conjecture~20$'$ or an
+equivalent.  The only unconditional upper bound, Theorem 4 of the paper, is too weak: it loses the factor
+$\pi\nu^{s-1}$, which swamps the differences between allocations (removing one feature changes $\Gamma_s$ by a
+factor $(1-w_j)^s$ only, paper Lemma 19).  The compensation of Section~6 is the precise danger.  It uses frequencies whose
+clean amplitude is tiny but non-zero and that the programme does not pay for.  An optimiser built that way would
+\emph{over}count, so the strict count statement at $p\ge5$ is exactly as hard as excluding compensation at the optimum.
+In every experiment at $p=5,7$, compensated networks stay $\ge4\times$ below the $K^*$-feature IF block.
+
 \section{What is proved, what is false, what is open}
 \begin{center}
-\begin{tabular}{p{0.52\textwidth}p{0.4\textwidth}}
+\begin{tabular}{p{0.5\textwidth}p{0.44\textwidth}}
 \toprule
 Statement & Status\\
 \midrule
@@ -220,6 +273,11 @@ width $\ge\nu-\lfloor\nu/p\rfloor$ for shared-sign networks & proved (Theorem~\r
 single-frequency networks cannot beat IF when $k_p\ge k^*(n,s)$ & proved (companion note); $k^*$ numerical\\
 $\gamma^*_b=\pi_{n,b}(p)B_p\Gamma_s(p)$ (Conjecture 20$'$, decoupling) & open; genuine obstacle exhibited (Section 6)\\
 $\pi_{n,b}(p)=\nu^{1-s}$ for $p\ge5$ & open; every mechanism tested loses, by a factor growing in $n$\\
+\midrule
+feature count of every global optimiser $=K^*(s,p)$, $p=3$ & proved (Prop.~\ref{prop:count}(a))\\
+feature count $=K^*(s,p)$, all $p$, $b_0\le b\le\nu$ & proved (Prop.~\ref{prop:count}(c))\\
+feature count $=K^*(s,p)$, all $p$, given decoupling & proved (Prop.~\ref{prop:dec}); price irrelevant\\
+feature count $=K^*(s,p)$, $p\ge5$, $b<b_0$ & open; equivalent in difficulty to excluding compensation\\
 \bottomrule
 \end{tabular}
 \end{center}
