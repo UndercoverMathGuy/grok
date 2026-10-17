@@ -249,6 +249,30 @@ The price enters only as a common factor, because relabelling $a\mapsto ja$ make
 makes it homogeneous of degree $s$ in the budget.  So the count needs \emph{only} decoupling.  Neither $\pi=\nu^{1-s}$ nor
 interference-freeness is needed.
 
+\begin{theorem}[the count is $\Theta(\log p)$ for every near-optimal network]\label{thm:theta}
+Let $2\le b<\nu$, $s=\nu/b$, $r=1/s$, and for a non-zero amplitude vector $A$ let
+\[K_r(A):=\frac{\big(\sum_jA_j^{\,r}\big)^{1/(1-r)}}{\big(\sum_jA_j\big)^{r/(1-r)}}\ \le\ |\operatorname{spt}A| ,\]
+the participation number of $A$ (it equals $K$ for $K$ equal non-zero entries).  Let $\theta$ be any product network,
+of any width and with interference allowed, with $\gamma(\theta)\ge\lambda\,\nu^{1-s}B_p\Gamma_s(p)$ for some $\lambda\in(0,1]$.
+Every global maximiser has $\lambda\ge\pi_{n,b}(p)\nu^{s-1}\ge1$.  Then
+\[K_r(A(\theta))\ \le\ \nu\Big(\frac{p}{(p-1)\lambda\,\Gamma_s(p)}\Big)^{\frac1{s-1}}\ \le\ \nu\Big(\frac{2p}{(p-1)\lambda}\Big)^{\frac1{s-1}}\lceil8\ln p\rceil .\]
+Moreover, for every $M\ge1$ the $M$ largest amplitudes carry at least a fraction $1-(K_r/M)^{1-r}$ of $\sum_jA_j$.
+Together with the paper's Corollary~12, which shows that the support of such a network has at least $c_{\nu,b,\lambda}\ln p$
+frequencies, the feature count of every margin-optimal network is $\Theta_{\nu,b}(\log p)$.  This is the order of
+$K^*(s,p)$ (paper, Theorem~11), for every odd prime, unconditionally.
+\end{theorem}
+\begin{proof}
+Averaging the paper's Lemma 2 over $\delta\ne0$ and using $\sum_{\delta\ne0}\kappa_j(\delta)=p$ gives
+$h\le\frac{p}{p-1}\sum_jA_j$.  The single-neuron budget gives $\sum_jA_j^r\le\sum_{i,j}|\beta_{ij}|^r\le C_bP$ with
+$P=\|\theta\|_{2,b}^b$.  Hence, with $h=\gamma P^s$ and $sr=1$,
+\[K_r(A)\le\frac{(C_bP)^{1/(1-r)}}{\big(\frac{p-1}p\gamma P^s\big)^{r/(1-r)}}
+=\Big(\frac{p\,C_b^{1/r}}{(p-1)\gamma}\Big)^{\frac r{1-r}}=\Big(\frac{p\,B_p}{(p-1)\gamma}\Big)^{\frac1{s-1}},\]
+because $C_b^{1/r}=C_b^{\nu/b}=B_p$ and $r/(1-r)=1/(s-1)$.  Insert $\gamma\ge\lambda\nu^{1-s}B_p\Gamma_s$, then
+$\Gamma_s\ge\frac12\lceil8\ln p\rceil^{1-s}$ (paper, Theorem 10).  The bound $\lambda\ge\pi\nu^{s-1}$ for maximisers is the
+price--programme theorem.  For the tail statement, normalise $\sum_jA_j=1$ and sort; the amplitudes beyond the $M$-th are at
+most $1/M$ each, so their mass $t$ satisfies $tM^{1-r}\le\sum_{j>M}A_j^r\le K_r^{1-r}$.
+\end{proof}
+
 \paragraph{Where a proof stops.}  Combining (a)--(c): the count prediction holds for every global optimiser, \emph{except
 possibly} when $p\ge5$, $b<b_0$ and the optimiser carries interference.  None of the known counterexamples is in that set,
 since they all have $p=3$.  Closing the remaining case requires a price-sharp upper bound, i.e.\ Conjecture~20$'$ or an
@@ -277,6 +301,7 @@ $\pi_{n,b}(p)=\nu^{1-s}$ for $p\ge5$ & open; every mechanism tested loses, by a 
 feature count of every global optimiser $=K^*(s,p)$, $p=3$ & proved (Prop.~\ref{prop:count}(a))\\
 feature count $=K^*(s,p)$, all $p$, $b_0\le b\le\nu$ & proved (Prop.~\ref{prop:count}(c))\\
 feature count $=K^*(s,p)$, all $p$, given decoupling & proved (Prop.~\ref{prop:dec}); price irrelevant\\
+feature count $=\Theta(\log p)=\Theta(K^*)$, all $p$, unconditional & proved (Thm.~\ref{thm:theta} with paper's Cor.~12)\\
 feature count $=K^*(s,p)$, $p\ge5$, $b<b_0$ & open; equivalent in difficulty to excluding compensation\\
 \bottomrule
 \end{tabular}
