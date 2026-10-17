@@ -249,6 +249,31 @@ The price enters only as a common factor, because relabelling $a\mapsto ja$ make
 makes it homogeneous of degree $s$ in the budget.  So the count needs \emph{only} decoupling.  Neither $\pi=\nu^{1-s}$ nor
 interference-freeness is needed.
 
+\begin{theorem}[exact count in the dense regime; lower bound in general]\label{thm:dense}
+For $S\subseteq F$ let $\Gamma_s^{(S)}(p)$ be the programme restricted to allocations supported on $S$, and
+$K_{\rm low}(s,p,\nu):=\min\{|S|:\Gamma^{(S)}_s(p)\ge\nu^{1-s}\Gamma_s(p)\}$.  Every global maximiser of the $L_{2,b}$-margin,
+of any width and with interference allowed, uses at least $K_{\rm low}$ features.  In particular, if
+\[\nu^{s-1}\,\Gamma_s^{(F\setminus\{j\})}(p)<\Gamma_s(p)\qquad(\text{independent of }j\text{ by relabelling}),\]
+every global maximiser uses all $F=(p-1)/2$ frequencies.  This is the exact count $K^*(s,p)=F$ in the dense regime.  The
+condition holds for $s\le1.331,1.285,1.257$ ($p=5$; $\nu=3,4,5$), $s\le1.154,1.130,1.115$ ($p=7$), $s\le1.079,1.066,1.058$
+($p=11$), $s\le1.064,1.053,1.047$ ($p=13$).  In every case computed this is $2.5$ to $5$ times the range $s-1\le1/(F(2\nu+1)-2)$ of Part II.
+\end{theorem}
+\begin{proof}
+If the features of $\theta^\star$ lie in $S$, Proposition 3 of the paper restricted to $S$ and the single-neuron budget give
+$\gamma(\theta^\star)\le B_p\Gamma_s^{(S)}$, while $\gamma(\theta^\star)=\gamma^*_b\ge\nu^{1-s}B_p\Gamma_s$ (Theorem 8).  Relabelling
+$a\mapsto ka$ maps allocations on $S$ to allocations on $kS$ with the same value, and acts transitively on $F$.
+\end{proof}
+\paragraph{Why the upper bound is the hard half.}  Let $q$ be KKT multipliers of a maximiser on its active constraints
+$(x,\delta)$.  Stationarity in the output vector makes neuron $i$'s frequency-$j$ output proportional to
+$\sum_xg_i(x)\rho^{-jy(x)}\overline{Q_j(x)}$, with $g_i(x)=\prod_tu_{it}(x_t)$ and $Q_j(x)=\sum_\delta q(x,\delta)(1-\rho^{-j\delta})$.
+If $q$ is uniform in $x$, as for any interference-free maximiser (average $q$ over translations), this gives
+$\beta_{ij}\propto Q_j\,|\sum_xg_i(x)\rho^{-jy(x)}|^2$ with $\Re Q_j=\sum_\delta q(\delta)\kappa_j(\delta)>0$.  Then every frequency at which
+some neuron's input product has a non-zero clean projection is a feature.  So ``no more than $K^*$ features'' is
+equivalent to frequency purity of the maximiser's input products at the non-programme frequencies.  Interference-free
+maximisers have it (paper, Theorem 8(2)).  A maximiser built from sign-vector inputs, like the $p=3$ networks, would
+generically carry every frequency.  The upper bound is therefore not separable from the question of which
+input structure is optimal at $p\ge5$.
+
 \begin{theorem}[the count is $\Theta(\log p)$ for every near-optimal network]\label{thm:theta}
 Let $2\le b<\nu$, $s=\nu/b$, $r=1/s$, and for a non-zero amplitude vector $A$ let
 \[K_r(A):=\frac{\big(\sum_jA_j^{\,r}\big)^{1/(1-r)}}{\big(\sum_jA_j\big)^{r/(1-r)}}\ \le\ |\operatorname{spt}A| ,\]
@@ -358,7 +383,7 @@ $\gamma^*_b=\pi_{n,b}(p)B_p\Gamma_s(p)$ (Conjecture 20$'$, decoupling) & open; g
 $\pi_{n,b}(p)=\nu^{1-s}$ for $p\ge5$ & open; every mechanism tested loses, by a factor growing in $n$\\
 \midrule
 feature count of every global optimiser $=K^*(s,p)$, $p=3$ & proved (Prop.~\ref{prop:count}(a))\\
-feature count $=K^*(s,p)$, all $p$, $b_0\le b\le\nu$ & proved (Prop.~\ref{prop:count}(c))\\
+feature count $=K^*(s,p)$, all $p$, dense range of Thm.~\ref{thm:dense} & proved (Thm.~\ref{thm:dense}; extends $[b_0,\nu]$ in all cases computed)\\
 feature count $=K^*(s,p)$, all $p$, given decoupling & proved (Prop.~\ref{prop:dec}); price irrelevant\\
 feature count $=\Theta(\log p)=\Theta(K^*)$, all $p$, unconditional & proved (Thm.~\ref{thm:theta} with paper's Cor.~12)\\
 single-frequency networks, $n=2$, all $p\ge5$, $b\in[2,3]$: no gain over IF & proved (Cor.~\ref{cor:n2})\\
