@@ -20,8 +20,9 @@
 \maketitle
 
 \begin{abstract}
-Conjecture 20 (the unrestricted maximum $L_{2,b}$-margin of product networks equals the interference-free value
-$\nu^{1-s}B_p\Gamma_s(p)$) is false: at $p=3$, $b=2$ certified networks beat it for $n=11,13,14$, and for $n=12$ on
+Conjecture 20 says that the unrestricted maximum $L_{2,b}$-margin of product networks equals the
+interference-free (IF) value $\nu^{1-s}B_p\Gamma_s(p)$.  It is false: at $p=3$, $b=2$ certified networks beat it for
+every $n=11,\dots,18$ (by a factor $2.21$ at $n=18$; see \texttt{mechanism\_note.pdf}), and for $n=12$ on
 $b\in[2,2.13]$.  This note places the counterexamples inside the paper's framework.
 (i) We write every margin condition in terms of one complex \emph{feature field} $\Phi_l:\mathbb Z_p^n\to\mathbb C$ per
 frequency, and show that a single feature has margin $\ge c$ exactly when its field stays in the cone
@@ -140,8 +141,9 @@ $\gamma(\Theta)\ge c\min_\delta\sum_ly_l\kappa_l(\delta)/P^{s}$.  Taking the sup
 
 \begin{corollary}[$p=3$]\label{cor:p3}
 $F=\{1\}$, so every network is single-feature and $\gamma^*_b(3)=\tfrac32\,B_3\,\pi_{n,b}(3)$.  The certified
-networks give $\pi_{11,2}(3)\ge1.0543\cdot12^{-5}$, $\pi_{13,2}(3)\ge1.1091\cdot14^{-6}$,
-$\pi_{14,2}(3)\ge1.4293\cdot15^{-13/2}$, and $\pi_{12,b}(3)>13^{1-13/b}$ for $b\in[2,2.13]$,
+networks give $\pi_{n,2}(3)\,\nu^{s-1}\ge1.0630$, $1.1933$, $1.1836$, $1.4568$, $1.6170$, $1.5954$, $2.0110$, $2.2119$ for
+$n=11,\dots,18$ (one-dimensional networks of \texttt{mechanism\_note.pdf}; the first notes had $1.0543$, $1.1091$,
+$1.4293$ for $n=11,13,14$), and $\pi_{12,b}(3)>13^{1-13/b}$ for $b\in[2,2.13]$,
 $\pi_{11,b}(3)>12^{1-12/b}$ for $b\in[2,2.02]$.
 \end{corollary}
 
@@ -295,6 +297,13 @@ only way to make a feature field non-circular at $p\ge5$, and by the second part
 interference needs a large positive pseudo-variance.
 \end{question}
 
+\begin{remark}[update]
+The companion \texttt{mechanism\_note.pdf} identifies the $p=3$ mechanism exactly (shared sign pattern, field
+$e^{i\pi\tau/p}\sum_iV_ie^{\lambda_i\tau}$), proves that such networks need at least $\nu-\lfloor\nu/p\rfloor$ neurons (so
+none are saved when $p>\nu$), finds the mechanism losing to IF at $p=5,7$ by a factor growing in $n$, and exhibits genuine
+cross-feature compensation at $p=5$ (an obstacle to any feature-by-feature proof of Conjecture~\ref{conj:pp}).
+\end{remark}
+
 \paragraph{Suggested wording for the paper.}  Section~4 (``How many features''): ``Whether a network carrying
 interference can beat the class value is an open conjecture'' $\to$ ``Interference can beat the class value: at $p=3$
 and $\nu\ge12$ a single feature can be bought below the interference-free price (Appendix~D).  This changes the price of
@@ -309,7 +318,8 @@ interference-free price $\nu^{1-s}$ near $b=\nu$ and exceeds it at $p=3$, $\nu\g
 where another feature has slack, and at $b=2$ one neuron can feed several features at no budget cost.
 \item Question~\ref{q:p5}, in particular single-frequency networks at $p=5$ with $n\ge9$, where the numerical value of
 $k^*(n,s)$ exceeds $k_5=0.946$, and partner-frequency networks at every $p\ge5$.
-\item The growth of $\pi_{n,2}(3)\nu^{s-1}$ in $n$ (numerically $1.054,1.18,1.11,1.43$ for $n=11,\dots,14$, using the
-best networks found).
+\item The growth of $\pi_{n,2}(3)\nu^{s-1}$ in $n$: certified $1.06$ at $n=11$ up to $2.21$ at $n=18$, about $10\%$ per
+unit of $n$ (\texttt{mechanism\_note.pdf}, which also proves that the shared-sign networks behind these values need at
+least $\nu-\lfloor\nu/p\rfloor$ neurons).
 \end{enumerate}
 \end{document}

@@ -1,0 +1,244 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\title{The unrestricted optimum after Conjecture 20:\\ the one-dimensional mechanism, a width theorem,\\ and what can and cannot be proved}
+\author{}
+\date{17 October 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We tried to prove that the unrestricted maximum margin equals the paper's prediction, either the interference-free (IF) value
+$\nu^{1-s}B_p\Gamma_s(p)$ or the price--programme value $\pi_{n,b}(p)B_p\Gamma_s(p)$ of the companion note.  The outcome is
+as follows.
+(1) A universal proof of the IF value is impossible.  At $p=3$, $b=2$ we identify the mechanism behind the counterexamples
+exactly: a \emph{shared-sign, one-dimensional} family whose feature field is a rotating phase times a real exponential sum.
+Searching this family (exact LP for the weights, outer search over $m$ real slopes) gives new certified networks with
+$\gamma/\gamma_{\rm IF}=1.063,\,1.193,\,1.184,\,1.457,\,1.617,\,1.595,\,2.011,\,2.212$ for $n=11,\dots,18$.  The excess grows with $n$.
+(2) We prove a \emph{width theorem}: a slot-symmetric single-feature network whose input vectors share a sign pattern needs
+at least $\nu-\lfloor\nu/p\rfloor$ neurons.  Every network in (1) attains this bound.  The saving that drives the
+counterexamples is therefore at most a $1/p$ fraction of the neurons, and is zero when $p>\nu$, which covers the paper's
+experimental range.
+(3) For $p=5,7$ the same mechanism, run at its minimal width, loses to IF by a factor that grows with $n$ (efficiency
+$\le0.19$ for $p=5$, $n\le16$, and decreasing).  Releasing it into the full slot-symmetric class does not help.
+(4) Decoupling, the remaining step of the price--programme conjecture, is \emph{not} automatic: at $p=5$ a mean-zero
+frequency-2 field carried by the same neurons raises a feature's margin by factors $1.2$--$2.6$.  In every case we found
+it still stays $\ge4\times$ below IF.
+So the correct universal statement is the price--programme form, and the open content is concentrated in two precise
+questions for $p\ge5$.
+\end{abstract}
+
+\section{Setting and notation}
+As in the paper and the companion note: $p$ odd prime, $\rho=e^{2\pi i/p}$, $\theta:=\pi/p$, $\nu=n+1$, $s=\nu/b$.  A
+\emph{single-feature} network has output vectors at frequency $1$ only; its margin is $h=\kappa_{\min}(p)\min_x\mathrm{cm}(\Phi(x))$,
+where $\Phi(x)=\sum_iW_i\prod_tu_{it}(x_t)\rho^{x_t}$ and $\mathrm{cm}(z)=\Re z-\cot\theta\,|\Im z|$ (companion note,
+Lemmas 1--2).  So $h>0$ iff every value $\Phi(x)$ lies in the open sector $|\arg z|<\theta$.  A network is
+\emph{slot-symmetric} if $u_{it}=u_i$ for all $t$; then $\Phi$ depends on $x$ only through the count vector
+$N\in\mathbb Z_{\ge0}^p$, $N_a=\#\{t:x_t=a\}$:
+\[\Phi(N)=\sum_{i=1}^mW_i\prod_{a\in\mathbb Z_p}\big(u_i(a)\rho^a\big)^{N_a}.\]
+\emph{Efficiency} means $\gamma/\gamma_{\rm IF}$ at $b=2$ (for single-feature networks at $p\ge5$, $n\ge3$ this is the same as
+the ratio of the single-feature margin to the IF single-feature margin, because $K^*(s,p)=1$).
+
+\section{Shared-sign networks and their fields}
+\begin{definition}
+A slot-symmetric network has a \emph{shared sign pattern} $\varepsilon\in\{\pm1\}^{p}$ if $\varepsilon_au_i(a)\ge0$ for all
+$i,a$.  The \emph{sine pattern} is $\varepsilon_a=+1$ for $0\le a<p/2$ and $-1$ for $p/2<a<p$, with exponents
+$e_a:=2a$ resp.\ $2a-p$, a permutation of $\{0,\dots,p-1\}$ satisfying $\varepsilon_a\rho^a=e^{i\theta e_a}$.  The
+\emph{one-dimensional (1-D) family} consists of the sine-pattern networks with $u_i(a)=\varepsilon_a e^{\lambda_ie_a}$
+(up to scale), $\lambda_i\in\mathbb R$.
+\end{definition}
+
+\begin{lemma}[fields]\label{lem:field}
+For a sine-pattern network, $\Phi(N)=e^{i\theta\tau(N)}S(N)$ with $\tau(N)=\sum_ae_aN_a\in\{0,\dots,(p-1)n\}$ and
+$S(N)=\sum_iW_i\prod_a|u_i(a)|^{N_a}$, an exponential sum with positive bases.  In the 1-D family
+\[\Phi(N)=e^{i\theta\tau}\sum_{i=1}^mV_ie^{\lambda_i\tau},\qquad\tau=\tau(N),\]
+so the margin condition is a condition on the $L+1$ values $\tau=0,\dots,L$, $L=(p-1)n$, of a rotating phase times a
+real-exponential sum.
+\end{lemma}
+\begin{proof}
+$u_i(a)\rho^a=|u_i(a)|\varepsilon_a\rho^a=|u_i(a)|e^{i\theta e_a}$; take the product over $a$ with exponents $N_a$.
+\end{proof}
+
+At $p=3$ the certified counterexample of the earlier notes ($n=11$, width $8$) is, to three digits, a 1-D network: all
+eight input vectors have the sign pattern $(-,+,+)$ (a translate of the sine pattern), and
+$\log|u_i(a)|-\log|u_i(0)|=\lambda_i\cdot(0,-1,1)$ with ratio $-1.00\pm0.03$.  Re-optimising it inside the 1-D family
+raises its efficiency from $1.0544$ to $1.0631$.
+
+\section{A width theorem}
+\begin{theorem}[width]\label{thm:width}
+Let $p$ be an odd prime, $n\ge1$, and let a slot-symmetric single-feature network with a shared sign pattern have
+positive margin.  Then its width is
+\[m\ \ge\ \nu-\Big\lfloor\frac{\nu}{p}\Big\rfloor .\]
+\end{theorem}
+\begin{proof}
+Positive margin is an open condition, so we may perturb zero entries of the $u_i$ to small values of the prescribed sign.
+Hence assume all $u_i(a)\ne0$.  Put $d=(p-1)/2$.  The map $a\mapsto a+d$ is a cyclic permutation of $\mathbb Z_p$ of odd
+length, so $\varepsilon$ cannot alternate along it, and there is a symbol $b$ with $\varepsilon_b=\varepsilon_{b+d}$.  Let
+$a=b+d$ and consider the $n+1$ count vectors $N(k)=(n-k)\mathbf e_b+k\mathbf e_a$, $k=0,\dots,n$.  With
+$r_i=u_i(a)/u_i(b)>0$,
+\[\Phi(N(k))=C\,\big(e^{i(\pi-\theta)}\big)^k\,S(k),\qquad S(k)=\sum_ic_ir_i^k ,\]
+for constants $C\in\mathbb C\setminus\{0\}$, $c_i\in\mathbb C$, because $\rho^{d}=e^{i(\pi-\theta)}$.  Positive margin gives
+$\arg S(k)\in I_k:=(\omega_k-\theta,\omega_k+\theta)$ with $\omega_k=-\arg C-(\pi-\theta)k$.  Note
+$\omega_k\equiv-\arg C+\theta k\pmod\pi$.
+
+For $\psi\in\mathbb R$ let $h_\psi(k)=\Im(e^{-i\psi}S(k))=\sum_i\Im(e^{-i\psi}c_i)\,r_i^k$.  After merging equal bases this is
+a real exponential sum with at most $m$ terms.  By Laguerre's rule of signs it has at most $m-1$ real zeros unless it
+vanishes identically, so the sequence $h_\psi(0),\dots,h_\psi(n)$ has at most $m-1$ sign changes.  Fix a residue $k_0$ and
+take $\psi=-\arg C+\theta k_0$.  The arc $I_k$ meets the line $\psi+\pi\mathbb Z$ iff
+$\theta(k-k_0)\in(-\theta,\theta)+\pi\mathbb Z$, i.e.\ iff $k\equiv k_0\pmod p$.  Call these $k$ \emph{undetermined}.  For
+every other $k$ the sign of $h_\psi(k)$ is fixed by the side of the line on which $I_k$ lies.
+\begin{itemize}
+\item If $k,k+1$ are both determined, $I_{k+1}=I_k-\pi+\theta$; an arc of length $2\theta$ on one side, rotated by
+$-\pi+\theta$ and still avoiding the line, lies on the other side, so the signs differ.
+\item If $k$ is undetermined and $0<k<n$, then $k\pm1$ are determined ($p\ge3$), and with $I_k$ centred on the line,
+$I_{k-1}$ and $I_{k+1}$ are the arcs of length $2\theta$ immediately on either side of it, so $h_\psi(k-1)$ and
+$h_\psi(k+1)$ again have opposite signs.
+\end{itemize}
+So the determined values alternate in sign and there are $|D|-1$ sign changes, where $D$ is the set of determined $k$.
+$h_\psi\not\equiv0$, since otherwise every $S(k)$ would lie on the line, contradicting $D\ne\emptyset$.  Choosing $k_0$ in a
+least populated residue class of $\{0,\dots,n\}$ gives $|D|=n+1-\lfloor\nu/p\rfloor$, hence
+$m-1\ge n-\lfloor\nu/p\rfloor$.
+\end{proof}
+
+\begin{corollary}\label{cor:width}
+(i) For $p>\nu$ a shared-sign single-feature network needs at least $\nu$ neurons, as many as the IF block.
+(ii) For every $p$, the width saving is at most $\lfloor\nu/p\rfloor$.  For networks with equal amplitudes at $b=2$, the
+width factor $(\nu/m)^{s-1}$ in the cost comparison with the IF block is therefore at most
+$\big(\nu/(\nu-\lfloor\nu/p\rfloor)\big)^{s-1}\le\big(p/(p-1)\big)^{s-1}$: up to $(3/2)^{s-1}$ at $p=3$, but at most
+$(5/4)^{s-1}$ at $p=5$.
+(iii) Every certified counterexample in Table~\ref{tab:p3} attains the bound with equality.
+\end{corollary}
+
+\begin{remark}
+The paper's experiments use $\nu\le5$ and $p\ge11$, so by (i) the mechanism behind the counterexamples has no width
+advantage anywhere in that range.  Width is not the only lever: per unit cost, a flat sign vector has $2^{n/2}$ times
+the raw output of a cosine input.  But numerically this lever alone never sufficed (Section~\ref{sec:p5}).
+\end{remark}
+
+\section{The $p=3$ optimum: reduction and certified values}
+\paragraph{Reduction.}  In the 1-D family, for fixed slopes $\lambda_1,\dots,\lambda_m$ the cone constraints at
+$\tau=0,\dots,L$ are linear in $(\Re V_i,\Im V_i)$, and the cost amplitude of neuron $i$ is
+$\sqrt{p/2}\,|V_i|\,Z(\lambda_i)^n$ with $Z(\lambda)^2=\sum_{k<p}e^{2\lambda k}$.  Maximising the margin under a weighted
+$\ell_1$ budget is therefore a second-order cone programme (an LP after polygonal approximation of $|V_i|$).  The concave
+$\ell_{2/\nu}$ cost is handled by reweighting; in practice the optimal amplitudes are nearly equal and uniform weights
+suffice.  The whole problem reduces to choosing $m$ real slopes.  We search them with CMA-ES and continuation in $n$.
+All values below are then re-verified independently.
+
+\paragraph{Structure of the optimum.}  Each term sits at the cost-optimal tilt for the stretch of $\tau$ it covers.  The
+cost amplitudes agree to within $\sim10\%$, consecutive terms have nearly antipodal phases ($\approx172^\circ$ apart at
+$n=11$), and the margin is active at most $\tau$.  The field is a $10^{-3}$--$10^{-4}$ residue of terms up to $10^3$ times
+larger, kept inside the $60^\circ$ sector at every count class.
+
+\begin{table}[h]
+\centering\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccccccc}
+\toprule
+$n$ & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18\\
+width $m$ (bound $\nu-\lfloor\nu/3\rfloor$) & 8 (8) & 9 (9) & 10 (10) & 10 (10) & 11 (11) & 12 (12) & 12 (12) & 13 (13)\\
+$\gamma/\gamma_{\rm IF}$ & $1.06308$ & $1.19335$ & $1.18360$ & $1.45687$ & $1.61704$ & $1.59546$ & $2.01105$ & $2.21197$\\
+previously certified & $1.0544$ & -- & $1.1091$ & $1.4293$ & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\caption{$p=3$, $b=2$.  All values are certified by \texttt{certify\_1d.py}: weights are rounded to ten
+significant digits, the margin is computed in exact rational arithmetic from the logits over all count vectors (hence over
+all $3^n$ inputs), and $\gamma/\gamma_{\rm IF}$ is enclosed by interval arithmetic.}
+\label{tab:p3}
+\end{table}
+
+Hence $\pi_{n,2}(3)\,\nu^{s-1}$ is at least $1.06$, $1.19$, $1.18$, $1.46$, $1.62$, $1.60$, $2.01$, $2.21$ for
+$n=11,\dots,18$.  The interference-free prediction
+underestimates the $p=3$ optimum by a factor that, numerically, grows by about $10\%$ per unit of $n$.
+
+\section{$p\ge5$: the mechanism loses}\label{sec:p5}
+\paragraph{Gain/loss accounting.}  For a 1-D network with nearly equal amplitudes,
+$\gamma/\gamma_{\rm IF}=\zeta\cdot2^{n/2}\cdot(\nu/m)^{s-1}$.  Here $2^{n/2}$ is the raw advantage of flat sign vectors
+over cosines, $(\nu/m)^{s-1}$ the width saving (capped by Theorem~\ref{thm:width}), and $\zeta$ the fraction of the
+mid-range envelope that survives cancellation.  The available gain per unit of $n$ is
+$\tfrac12\log\frac{2p}{p-1}$: $0.55$ at $p=3$, $0.46$ at $p=5$, $0.42$ at $p=7$.  Numerically, $\log\zeta$ falls by
+$0.52$--$0.6$ per unit of $n$, so the balance is positive only at $p=3$.
+
+\begin{table}[h]
+\centering\footnotesize\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lccccccccccc}
+\toprule
+$n$ & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
+\midrule
+$p=5$ & .192 & .179 & .166 & .147 & .132 & .127 & .126 & .120 & .108 & .097 & .093\\
+width (bound) & 6 (6) & 7 (7) & 8 (8) & 9 (8) & 10 (9) & 10 (10) & 11 (11) & 12 (12) & 13 (12) & 14 (13) & 14 (14)\\
+\midrule
+$p=7$ & .126 & .107 & .089 & .076 & .066 & .063 & .058 & .049 & .044 & .035 & --\\
+\bottomrule
+\end{tabular}
+\caption{Best 1-D efficiency $\gamma/\gamma_{\rm IF}$ found (slope search with exact LP, continuation in $n$ with insertion
+and deletion moves and fresh global candidates at every $n$).}
+\label{tab:p5}
+\end{table}
+
+\paragraph{The 1-D restriction is not the bottleneck.}  At $p=5$, $n=10$, released into the full slot-symmetric
+single-feature class (arbitrary input vectors, \texttt{cone.py}), the 1-D optimum $0.1318$ is a local optimum (trial with
+no noise: $0.1318$; with noise: lower).  Mixing in positive-input neurons, which keeps the field a function of $\tau$
+but breaks the shared sign pattern, lowered the efficiency at $p=3$, $n=11$ ($1.063\to0.82$).
+
+\section{Cross-feature compensation: decoupling is not automatic}
+At $p\ge5$ several frequencies coexist, and the margin condition at $x$ is that the vector $(\Phi_l(x))_l$ lies in a
+polyhedron, not that each $\Phi_l(x)$ lies in its own sector.  Concretely, at $p=5$ a frequency-2 value
+$\Phi_2\approx0.25|\Phi_1|e^{-i18^\circ}$ makes $\Phi_1$ admissible at $\arg\Phi_1=60^\circ$, the $p=3$ sector.
+The same neurons can produce such a $\Phi_2$ almost for free: the field is a $10^{-3}$ residue of much larger terms, so a
+frequency-2 output component with $\sim10^{-3}$ relative weight, costing $\sim10^{-6}$ of the budget, gives a $\Phi_2$ of the
+right size.  It is limited only by geometry: its phase follows a different linear functional of the counts.
+
+We tested this with an exact LP over output vectors spanning frequencies $1$ and $2$, at the slopes of the best 1-D networks,
+on all count classes and all four shifts $\delta$.  Measured gains over frequency-1 outputs at the same neurons: $\times1.17$
+($n=8$), $\times1.36$ ($n=12$), up to $\times2.6$ at non-optimal widths.  With a CMA search over slopes for the joint problem:
+$0.197$ ($n=8$) and $0.173$ ($n=12$).  The frequency-2 output carries $0.2$--$3\%$ of the output energy.  So the decoupling half of
+the price--programme conjecture (companion note, Conjecture~20$'$) cannot be proved feature by feature: one feature can live outside its own sector where
+another, interference-only, field compensates.  In every configuration we tried, the compensated feature still stays
+$\ge4\times$ below IF.
+
+\section{What is proved, what is false, what is open}
+\begin{center}
+\begin{tabular}{p{0.52\textwidth}p{0.4\textwidth}}
+\toprule
+Statement & Status\\
+\midrule
+$\gamma^*_b=\nu^{1-s}B_p\Gamma_s(p)$ for all $p,n,b$ (Conjecture 20) & \textbf{false}: $p=3$, $b=2$, $n\ge11$; excess
+$2.21\times$ certified at $n=18$, growing\\
+$\nu^{1-s}B_p\Gamma_s\le\pi_{n,b}(p)B_p\Gamma_s\le\gamma^*_b\le B_p\Gamma_s$ & proved (companion note)\\
+$\gamma^*_b=\pi_{n,b}(3)\,B_3\Gamma_s(3)$ at $p=3$ & proved (one frequency)\\
+width $\ge\nu-\lfloor\nu/p\rfloor$ for shared-sign networks & proved (Theorem~\ref{thm:width})\\
+single-frequency networks cannot beat IF when $k_p\ge k^*(n,s)$ & proved (companion note); $k^*$ numerical\\
+$\gamma^*_b=\pi_{n,b}(p)B_p\Gamma_s(p)$ (Conjecture 20$'$, decoupling) & open; genuine obstacle exhibited (Section 6)\\
+$\pi_{n,b}(p)=\nu^{1-s}$ for $p\ge5$ & open; every mechanism tested loses, by a factor growing in $n$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Answer to ``prove that the unrestricted optimum matches the prediction''.}  In the interference-free form this
+cannot be done: the statement is false at $p=3$, and increasingly so as $n$ grows.  In the price--programme form it holds at
+$p=3$ by definition, and there the object to compute is $\pi_{n,b}(3)$.  We have shown that, in the class that contains every
+counterexample, this reduces to choosing $\nu-\lfloor\nu/3\rfloor$ real slopes, with the weights given by an LP.  For
+$p\ge5$ the full statement would follow from two claims:
+\begin{enumerate}
+\item[(Q1)] $\pi_{n,b}(p)=\nu^{1-s}$, i.e.\ a single feature cannot be bought below the IF price.  Theorem~\ref{thm:width}
+limits the width saving of the $p=3$ mechanism to $\lfloor\nu/p\rfloor$ neurons, and to none for $p>\nu$.  The circularity
+theorem of the companion note handles single-frequency inputs when $k_p\ge k^*$.  A proof needs a cost-weighted (robust)
+form of the width theorem for arbitrary sign patterns.
+\item[(Q2)] Decoupling.  It has to control compensation by interference-only fields, which demonstrably raises a feature's
+margin.
+\end{enumerate}
+Both hold in all our experiments at $p=5,7$, by margins of $4\times$ or more that grow with $n$.
+
+\paragraph{Files.}  \texttt{certify\_1d.py} (rigorous certificate for the 1-D family, any $p$), \texttt{oned\_certified/}
+(parameters of the networks in Table~\ref{tab:p3}), \texttt{mechanism\_scripts/} (the field model, the LP, the slope search
+and continuation, the joint two-frequency LP, the release test).
+\end{document}
