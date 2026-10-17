@@ -597,10 +597,10 @@ The first term is the companion note's Theorem 14 (circularity holds for single-
 proof of Theorem~\ref{thm:q1n2} with the Riesz product over the family: with mean-zero inputs every mode of $\Phi_1$ has per-slot
 characters in $\{0,2\}$, so a multi-sum $\sum\sigma_T\chi_T$ carries a mode only if it is $\pm2\mathbf 1_{T'}$, which collision-freeness excludes.
 \end{proof}
-Local search gives $J(3,2,5)\approx0.57$ and $J(4,\frac52,5)\approx0.71$ ($b=2$).  At $n=4$ each bound fails on its own
-($k^*\approx0.67$ is fine but the pointwise constant is $1.13$, and conversely for other configurations).  Together they stay well below
-$1$.  These are lower bounds on $J$ from local search, so this is evidence, not proof, that single features cannot be bought below
-the interference-free price at $p=5$ for $n\le4$.
+Local search gives $J(3,2,5)\approx0.57$ and $J(4,\frac52,5)\approx0.71$ ($b=2$).  For $n\le7$ the $L^2$ term alone already suffices numerically
+($k^*<k_5$).  The joint constant matters from $n=8$, where $k^*(8,\frac92)\ge0.99>k_5$.  These are lower bounds on the suprema from local
+search, so they are evidence, not proof.  A direct search at $p=5$, $n=8$ (single-frequency inputs, seeded at the IF block) found nothing
+above the IF value, and no feasible network of width $8<\nu$.
 
 \paragraph{Room in Theorem~\ref{thm:riesz}.}  The factor $1-\cos\theta$ extracts half of each character's amplitude.
 A shifted Fej\'er kernel $F_d(\theta+\pi)=1+2\sum_{k=1}^d(1-\frac k{d+1})\cos k(\theta+\pi)\ge0$ extracts the fraction
