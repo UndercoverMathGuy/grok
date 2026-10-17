@@ -709,8 +709,9 @@ sign-flipped character (Theorem~\ref{thm:riesz}).  Exact hiding from a programme
 \emph{Numerical evidence on cheap features at $p\ge5$} (local searches; files in \texttt{mechanism\_scripts/cheap/}).
 \begin{itemize}
 \item \emph{Single features, arbitrary inputs} (slot-symmetric, seeds: IF, IF plus a frequency-$3l$ component, random).
-The best efficiency is exactly the IF value at $p=5$ for $n=2,3,4,5,8,9$ and at $p=7$ for $n=2,3,4$, and no width below $\nu$ is
-feasible.  This includes $p=5$, $n=8,9$, where $k^*(n,\nu/2)\ge0.994,1.042$ exceeds $k_5$ and Theorem 14 of the companion note gives nothing.
+The best efficiency is exactly the IF value at $p=5$ for $n=2,3,4,5,8,9,10,11,12$ and at $p=7$ for $n=2,3,4$.  No width below $\nu$ is
+feasible, even where the shared-sign bound $\nu-\lfloor\nu/5\rfloor$ would allow it ($n\ge9$).  This suggests that at $p\ge5$ every positive-margin
+single-feature network needs $\nu$ neurons, as interference-free ones do.  This includes $p=5$, $n=8,9$, where $k^*(n,\nu/2)\ge0.994,1.042$ exceeds $k_5$ and Theorem 14 of the companion note gives nothing.
 \item \emph{Parasitic orbits and global searches} ($n=2$, $b=2$).  With a feature forced cheap the best values are:
 \begin{itemize}
 \item $p=13$: $0.90$ ($K^*=3$);
