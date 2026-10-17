@@ -31,3 +31,5 @@ Typical run: `python slopes.py 3 11 2 6` then `python contsl.py 3 11 20 2 sl_p3_
   `p5n6_pol.npz` is the p=5, n=6, b=2 local maximiser with a cheap and a spurious feature. Run from inside `kkt/`.
 - `relations3/` — efficiency–Sidon reduction, tilted-mean bound, relation-mass (RM) checks and large-p certificates (p up to 30011),
   large-deviation model; write-up `result.tex`, `numerics.tex`, `gap.tex`.
+- `payment/` — proofs of the sharp n=2 single-feature payments: P12 (analytic) and c1(2,s)=1-3^{1-s} (interval-arithmetic
+  certificate `t2_certify.py`, re-run output `t2_rerun.out`); random checks `check_chain.py`, `check_chain_t2.py`; write-up `ideaB_proofs.tex`.

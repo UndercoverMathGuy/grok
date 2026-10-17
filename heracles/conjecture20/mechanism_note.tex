@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref,mathtools}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -40,7 +40,7 @@ at any prime, for arbitrary inputs: averaging a Riesz test over both cone edges 
 sign-flipped coefficient.  In multi-feature maximisers, cheap features force exact arithmetic coincidences: additive relations
 among doubled frequencies, or modes landing on sign-flipped characters.  A product of quadratic tests, one per cheap feature, detects each
 feature's whole $L^2$ interference without the $\sqrt{|L'|}$ loss of Cauchy--Schwarz.  It gives a proved surplus of $39\%$ at $n=2$ (class $\mathcal C$,
-order-three dissociation) and reduces every $n$ to a single-feature atom constant.  Section~\ref{sec:arch} shows how the open steps fit together.
+order-three dissociation) and reduces every $n$ to a single-feature atom constant.  The single-feature payments at $n=2$ are proved sharp and $p$-free (P$_{12}$, and $c_1(2,s)=1-3^{1-s}$, the latter computer-assisted).  With them the relations case at $n=2$ is closed for every $p\le59$.  Section~\ref{sec:arch} shows how the open steps fit together.
 The remaining steps are stated as open problems
 (O1)--(O4): a coverage-to-Sidon inequality, compensation costs, single-feature constants for $n\ge3$, and $p=5$ at large $n$.
 Every numerical test at $p\ge5$ found no network beating the interference-free value.
@@ -543,7 +543,7 @@ A dissociated choice of $T_l$ exists for the programme supports at $p=31$ and $2
 proof, decides which $T$ carries a feature's interference.  With all interference on $T=\{1,2\}$ the characters are
 $1$-dimensional, and $\log_3p\approx0.9\ln p<K^*$ forces relations, so exact dissociation cannot cover every feature being cheap at large $p$.  There one has to use $\nu=\prod(1-\varepsilon\cos)$ with
 $\varepsilon<1$, whose relation terms carry weight $(\varepsilon/2)^{\text{length}}$.  The room for that is $1/2$ against the sharp
-single-feature constant $c_1(2,s)=\sup(|\beta|-a)/\max_T|\beta_T|$, which numerically equals $1-3^{1-s}$ (a single neuron;
+single-feature constant $c_1(2,s)=\sup(|\beta|-a)/\max_T|\beta_T|$, which equals $1-3^{1-s}$ (Theorem~\ref{thm:c1sharp}; a single neuron;
 $0.423$ at $b=2$) and so is strictly below $1/2$.
 
 \begin{theorem}[the price of a feature at $n=2$, every prime, arbitrary inputs]\label{thm:q1n2}
@@ -969,7 +969,7 @@ Three remarks place this in the architecture.
 \begin{itemize}
 \item[(a)] \emph{A uniform, proved surplus at $n=2$.}  Per feature and direction, detection exceeds payment by at least
 $\sigma_lf\,|c_l|\big(1-k^\sharp\kappa_l/|c_l|\big)\ge(1-0.608)\,\sigma_lf\,|c_l|$, i.e.\ by $39\%$ of the detection, whatever $\kappa_l$.  The linear Riesz test has a surplus that
-vanishes as $\kappa_l\to2$ with the proved constant, and is $18\%$ with the conjectured sharp one (item 3 below).  The quadratic test gives a uniform surplus from
+vanishes as $\kappa_l\to2$ with Theorem A's constant, and is $18\%$ with the sharp one (Theorem~\ref{thm:c1sharp}).  The quadratic test gives a uniform surplus from
 Theorem A alone.  Local search gives $k^\sharp(2,\frac32)\ge0.514$, so the true surplus is at most about $49\%$.
 \item[(b)] \emph{No $\sqrt{|L'|}$ loss, for every $n$.}  The test is the $L^2$ route of Theorem~\ref{thm:loc} with the Cauchy--Schwarz step replaced by a
 product, so it detects $\sum_l\sigma_l|c_l|f$, linearly in the features.  The price is order-three dissociation (D$_3$), and a single-feature
@@ -1017,20 +1017,61 @@ $\mathcal C$ is interference-free and uses $K^*(s,p)$ features.
 \end{itemize}
 \end{corollary}
 
-\begin{proposition}[sharp single-$T$ payment for sign atoms]\label{prop:p12}
-Let $\beta_i\in\mathbb C$ and $\xi_i,\eta_i\in\{\pm1\}$ with $\sum_i\beta_i\xi_i=\sum_i\beta_i\eta_i=0$, $A=\sum_i\beta_i$, $D=\sum_i\beta_i\xi_i\eta_i$, $1\le s\le\frac32$.  Then
-$|A|-\big(1-(\tfrac23)^{s-1}\big)|D|\le3^{1-s}(\sum_i|\beta_i|^{1/s})^s$, with equality for two aligned atoms.
-\end{proposition}
+\begin{theorem}[sharp single-$T$ payment, P$_{12}$]\label{prop:p12}
+Let $\beta_i\in\mathbb C$ and $\xi_i,\eta_i\in\mathbb T$ with $B=\sum_i\beta_i\xi_i=0$ and $C=\sum_i\beta_i\eta_i=0$.  Put $A=\sum_i\beta_i$, $D=\sum_i\beta_i\xi_i\eta_i$, $1\le s\le\frac32$,
+$r=1/s$, $\theta=3^{1-s}$ and $c_{12}=1-(\frac23)^{s-1}$.  Then
+$|A|-c_{12}|D|\le\theta(\sum_i|\beta_i|^{r})^s$, with equality for two aligned atoms.
+\end{theorem}
 \begin{proof}
-Group the atoms by $(\xi,\eta)$; merging a group keeps $A,D$ and lowers the cost.  The two vanishing sums force $G_{++}=G_{--}=:g$ and
-$G_{+-}=G_{-+}=:h$, so $A=2(g+h)$, $D=2(g-h)$ and the cost is at least $2|g|^r+2|h|^r$.  The worst case has $g,h$ aligned; put $|g|=1$,
-$|h|=t\le1$, $c=1-(\frac23)^{s-1}$.  Half the excess is $(\frac23)^{s-1}[1-(1+t^r)^s]+t(1+c)\le t^r[2-(1+s)(\frac23)^{s-1}]$, by Bernoulli and $t\le t^r$.
-This is $\le0$ because $\log\big((1+s)(\frac23)^{s-1}\big)$ is concave, equal to $\log2$ at $s=1$ and $\log2.04$ at $s=\frac32$.
+Write $\beta_i=\rho_ip_i$ ($\rho_i>0$, $p_i\in\mathbb T$) and $L=\sum\rho_i$.  \emph{Twist} the chain vectors by the atom's own phase:
+$u_i=(1,x_i,y_i)$ with $x_i=p_i\xi_i$, $y_i=p_i^2\xi_i\eta_i$, and $H=\sum_i\rho_iu_iu_i^*\succeq0$.  Its diagonal is $L$, and its entries below the diagonal
+are $\sum\rho_ix_i=B=0$, $\sum\rho_iy_i\bar x_i=C=0$ and $D':=\sum\rho_iy_i$.  So $H=\begin{psmallmatrix}L&0&\bar D'\\0&L&0\\D'&0&L\end{psmallmatrix}$.  Put $\delta=|D'|/L$, $\omega=D'/|D'|$
+and $X_i=\Re(\bar\omega y_i)$.
+
+\emph{Cost.}  Leverage scores are at most one: $\rho_iw_i\le1$ with $w_i=u_i^*H^{+}u_i=(3-\delta^2-2\delta X_i)/(L(1-\delta^2))$.  So $\rho_i^r\ge\rho_iw_i^{1-r}$.  The map
+$X\mapsto w^{1-r}$ is concave on $[-1,1]$, and $\sum\rho_iX_i=L\delta$.  Comparing with the chord gives
+$Q\ge L^r\Phi(\delta)$, $\Phi(\delta)=\frac12[(1+\delta)^r(3+\delta)^{1-r}+(1-\delta)^r(3-\delta)^{1-r}]$; the case $\delta=1$ is a limit.
+
+\emph{Gain.}  We have $D=\sum\rho_i\bar p_iy_i$.  With $P_i=\bar\alpha p_i$ ($\alpha=A/|A|$) and $Y_i=\bar\omega y_i$, Cauchy--Schwarz gives, for every $C'\ge0$,
+\[|A|-C'|D|\le\sum_i\rho_i\Re\big(\bar P_i(1-C'Y_i)\big)\le\sum_i\rho_i|1-C'Y_i|\le L\sqrt{1+C'^2-2C'\delta}.\]
+
+\emph{One variable.}  It remains to show $3^{1-s}\Phi(\delta)^s\ge\sqrt{1+C'^2-2C'\delta}$ for $C'=\min(\delta,c_{12})$.
+\begin{itemize}
+\item For $\delta\le c_{12}$ this is $\varphi:=3^{r-1}\Phi\ge(1-\delta^2)^{r/2}$.  It follows from
+$\varphi=(1-\delta^2)^{r/2}(1-\frac{\delta^2}9)^{\frac{1-r}2}\cosh(r\operatorname{artanh}\delta+(1-r)\operatorname{artanh}\frac\delta3)$.
+\item For $\delta\ge c_{12}$, Jensen gives $\varphi\ge e^{(1-r)\kappa(\delta)}$ with $\kappa=\frac{1+\delta}2\log\frac{3+\delta}{3(1+\delta)}+\frac{1-\delta}2\log\frac{3-\delta}{3(1-\delta)}$.  Here $e^\kappa$ is concave
+($\kappa''+\kappa'^2\le-\frac5{16}$) and $\kappa(1)=\log\frac23$.  Then $x=(\frac23)^{s-1}$ enters as $x^{2\kappa/\log(2/3)}$, which is concave in $x$, so the inequality reduces to its
+endpoints in $x$.  These are elementary.
+\end{itemize}
+Chaining the three steps: $|A|-c_{12}|D|\le|A|-C'|D|\le L\sqrt{1+C'^2-2C'\delta}\le\theta(L^r\Phi)^s\le\theta Q^s$.  Full details, and checks of every step on $2\cdot10^5$ random
+configurations, are in \texttt{mechanism\_scripts/payment/}.
 \end{proof}
-The constant is $0.1835$ at $b=2$, against $1/(2\sqrt3)=0.289$ from Theorem A.  With it the threshold of Corollary~\ref{cor:parseval} is $\ge29.7$.  So the
-relations case is closed for every $p\le59$ for networks with signed input phases ($\hat u_{it}(l)\in\mathbb R\cup i\mathbb R$).  It is closed for all networks if
-Proposition~\ref{prop:p12} holds for complex unit phases (conjecture P$_{12}$; local search with up to five complex atoms finds the same supremum
-$0.1835$).  Up to $p=59$ the relations case is therefore a single-feature statement.
+
+\begin{theorem}[sharp pointwise payment at $n=2$; computer-assisted]\label{thm:c1sharp}
+For all atoms $\beta_i\in\mathbb C$, $\xi_i,\eta_i\in\mathbb T$ (no constraint) and $1\le s\le\frac32$:
+\[|A|\ \le\ 3^{1-s}Q^s+\big(1-3^{1-s}\big)\max(|B|,|C|,|D|),\]
+with equality for a single atom.  So $c_1(2,s)=1-3^{1-s}$ ($0.4226$ at $b=2$).
+\end{theorem}
+\begin{proof}[Proof outline]
+Use the same twisted matrix $H=L\hat H$.  Now $\hat H$ is a correlation matrix with entries $B/L$, $C/L$, $D'/L$ below the diagonal and eigenvalues
+$\nu_k\ge0$, $\sum\nu_k=3$.
+\begin{itemize}
+\item The paper's determinant comparison applies to $H$ (real non-negative weights), so $\theta Q^s\ge L(\frac13\sum\nu_k^r)^s$.  Jensen with weights $\nu_k/3$
+turns this into $\ge L\theta^{\lambda}$, $\lambda=\sum\nu_k\log\nu_k/(3\log3)$.
+\item The spectrum solves $\mu^3-P\mu-q=0$ with $P=2b^2+y^2$, $b=\sqrt{(|B|^2+|C|^2)/2}/L$, $y=|D'|/L$ and $q\ge\max(-2b^2y,P-1)$.  By divided differences, $\lambda$ increases
+in $P$ and decreases in $q$, which gives $\lambda\le\tilde\lambda(b,y)$, increasing in both.
+\item The Cauchy--Schwarz step above (which does not use $B=C=0$) gives $|A|-c_1M\le L[\sqrt{1+C'^2-2C'y}-c_1\lambda'b]$ for admissible $(\lambda',C')$.
+\item Both sides are concave in $x=3^{1-s}$, which removes $s$.  What remains is one inequality in $(b,y)\in[0,1]^2$.  Near the two equality corners
+(IF block, single atom) it is proved analytically.  Elsewhere it is certified by interval arithmetic: every box passes with minimal margin
+$2.47\cdot10^{-4}$, and we re-ran the certificate.
+\end{itemize}
+\end{proof}
+Consequences.  With $c_{12}=0.1835$ ($b=2$) instead of $1/(2\sqrt3)=0.289$, the threshold of Corollary~\ref{cor:parseval} rises to $\ge29.7$.  So the relations
+case is \textbf{closed for every prime $p\le59$, for all networks}, and at every prime whenever the cheap set carries $\sum\kappa_l<29.7$, in particular whenever
+$|L'|\le14$.  Theorem~\ref{thm:c1sharp} turns the conditional statements made above with the sharp constant into theorems.  The linear Riesz test
+now has a proved uniform surplus of $(\varepsilon-2c_1)\frac{\kappa_l}2|\beta_{l,T}|$ in every direction, $18\%$ of the payment at $b=2$.  And with partner and riding
+compensation at no cost, a single cheap feature is excluded at $p=5,7,13$ (the free-hiding values $V(c_1)>0$).  The same chain also gives a global
+quadratic bound, bonus $\le K\sum_T|\beta_T|^2/|A|$ with $K\approx0.282$ at $b=2$ (numerical maximisation of a proved bound; the true supremum is about $0.275$).
 
 \emph{The one-sided constant is the wrong object.}  For the full set $F$ the one-sided constant $\min_{b,\theta}(-\min_w\sum b_l\cos(2\pi lw/p+\theta_l))/\sum b_l$ is
 $1/(p-1)$, attained at zero phases.  There $\sum_{l\in F}\cos(2\pi lw/p)$ is a spike, so perfect coverage gives a \emph{small} one-sided constant.  On the
@@ -1045,7 +1086,7 @@ coverage profile.  Testing $P(w)=\sum_lb_l\cos(2\pi lw/p+\psi_l)$ with $e^{\lamb
 $\max P,\,-\min P\ge\frac1\lambda\log\big(2\prod_lI_0(\lambda b_l)-Z\big)$, with $Z$ the left side above at $x=\lambda b$.  In particular, write $E=\sum_l(x_l-\log I_0(x_l))$.  If
 $E\le\ln\frac p2$ and $\min_{\delta\ne0}\sum_lx_l\kappa_l(\delta)\ge E+\ln2$, then $\max P,-\min P\ge\frac1\lambda\sum_l\log I_0(\lambda b_l)$.  This is the precise sense in which
 coverage implies a Sidon-type bound: through an exponential tilt, not a Riesz product.  A linear Riesz product cannot be controlled by minimum
-coverage at all.  At the programme scale $K\approx1.5\ln p$ the tilt certifies $0.40$ of $\sum_lb_l$.  That is enough under P$_{12}$ (needed $0.367$) but not under
+coverage at all.  At the programme scale $K\approx1.5\ln p$ the tilt certifies $0.40$ of $\sum_lb_l$.  That is enough with P$_{12}$ (Theorem~\ref{prop:p12}; needed $0.367$) but not with
 Theorem A (needed $0.577$); with the computed supports it also needs the averaged rather than the minimum coverage.
 
 \emph{Product tests are the wrong tool here.}  In the relations case the quadratic factor of Theorem~\ref{thm:quad} is exactly
@@ -1062,7 +1103,7 @@ $e(a)=\min_\delta(Ka)_\delta/(\Gamma_s\|a\|_{1/s}^{\,s})\le1$ be the efficiency 
 \begin{proposition}[efficiency--Sidon reduction; every $p$]\label{prop:effsidon}
 In the relations case, the allocation $a$ cannot beat the IF value with any interference $v\le\tau a$ ($\tau=3^{s-1}$) and any phases if
 $\sigma_{\delta_0}(\operatorname{spt}a)\ge c-(1/e(a)-1)/\tau$ at a minimiser $\delta_0$ of $(Ka)_\delta$.  Here $c$ is the single-$T$ payment constant.  In particular every allocation with
-$e(a)\le1/(1+c\tau)$ is closed, with no arithmetic input: $e\le\frac23$ under Theorem A, $e\le0.759$ under P$_{12}$ ($b=2$).
+$e(a)\le1/(1+c\tau)$ is closed, with no arithmetic input: $e\le\frac23$ under Theorem A, $e\le0.759$ with P$_{12}$ ($b=2$).
 \end{proposition}
 \begin{proof}
 At $\delta_0$, Lemma~\ref{lem:osc} and $\sum_lb_ls_l=\sum_lv_l\kappa_l$ (with $b_l=2v_ls_l$) give
@@ -1085,12 +1126,12 @@ Numerically:
 \item (RM) holds on programme supports for $23\le p\le10007$, with excess ratio $\le0.97$; random sets of the same size reach $1.38$;
 \item under Theorem A the water-filling bound holds up to $p=10007$, and is marginal at $p=30011$ ($1.02$--$1.03$, within the uncertainty of $\Gamma_s$), so the
 $L^2$ edge is near $p\approx10^4$--$3\cdot10^4$;
-\item under P$_{12}$ every case tested closes, and in a large-deviation model ($K=\kappa\ln p$, $p\to\infty$) P$_{12}$ with the tilt and (RM) closes every $\kappa$
+\item with P$_{12}$ every case tested closes, and in a large-deviation model ($K=\kappa\ln p$, $p\to\infty$) P$_{12}$ with the tilt and (RM) closes every $\kappa$
 with margin at least $1.10$, while Theorem A with the tilt fails for $4\lesssim\kappa\lesssim17$;
 \item an adversarial search over amplitudes and phases finds $\sigma\approx0.66$--$0.69$ on near-optimal supports where $0.25$ is needed.  So the inequality has a lot of room, and the
 proofs are what is lossy.
 \end{itemize}
-So P$_{12}$ (a single-feature inequality with no $p$ in it) and (RM) for efficient allocations together would close the relations case at every prime.
+Since P$_{12}$ is now proved (Theorem~\ref{prop:p12}), the relations case at every prime reduces to the relation-mass hypothesis (RM) for efficient allocations.
 Files: \texttt{mechanism\_scripts/relations3/}.
 
 \paragraph{Local optimality cannot decide the count.}  At a local maximiser, Fritz John and Euler give a probability $q$ on the active set with
@@ -1137,7 +1178,7 @@ question of constants.  The three-term relations of (F2) are rare by comparison:
 \item \emph{(O3), (O4) enter only through the constant in (P).}  At $n=2$ the surplus of detection over payment per feature and direction is
 $|\beta_{l,T}|\big(\varepsilon\sqrt{\kappa_l/2}-\lambda\kappa_l\big)$.  With the proved $\lambda=\frac12$ and $\varepsilon=1$, its ratio to the payment
 is $\sqrt{2/\kappa_l}-1$, which tends to $0$ as $\kappa_l\to2$; in the worst direction the surplus is $O(p^{-2})$.  With the sharp
-single-feature constant $c_1(2,s)=1-3^{1-s}$ (numerical), concavity in $\kappa$ gives a surplus of at least
+single-feature constant $c_1(2,s)=1-3^{1-s}$ (Theorem~\ref{thm:c1sharp}), concavity in $\kappa$ gives a surplus of at least
 $(\varepsilon-2c_1)\frac{\kappa_l}2|\beta_{l,T}|$ in every direction: $18\%$ of the payment at $b=2$, $\varepsilon=1$.  This surplus is the common currency: relations are absorbed by lowering
 $\varepsilon$ (or by Fej\'er kernels), unpaid compensation by the residual of the game above, and both have to fit inside it.  With linear tests a
 uniform surplus needs the sharp pointwise constant at $n=2$, a single-feature statement of type (P).  Quadratic tests give one from Theorem A
@@ -1177,8 +1218,9 @@ sign-flipped character (Theorem~\ref{thm:riesz}).  Exact hiding from a programme
 isolation (I$_2$) cannot beat the interference-free value, with a surplus of at least $39\%$ in every direction (Corollary~\ref{cor:quad}).  For every $n$
 the same holds as soon as the atom constant $k^\flat(n,s)$ is below $1$.
 (vii) Class $\mathcal C$, $n=2$, $b\in[2,3]$, $p\in\{5,7\}$: every maximiser within $\mathcal C$ is interference-free and uses $K^*(s,p)$ features, with no
-condition on the cheap set (Corollary~\ref{cor:parseval}(c)).  In the relations case (all interference on $T=\{1,2\}$) the same holds for every $p\le23$, for
-$p\le59$ with signed input phases, and at every prime when the cheap set carries $\sum\kappa_l<12$ (Corollary~\ref{cor:parseval}, Proposition~\ref{prop:p12}).
+condition on the cheap set (Corollary~\ref{cor:parseval}(c)).  In the relations case (all interference on $T=\{1,2\}$) the same holds for every $p\le59$, and at every
+prime when the cheap set carries $\sum\kappa_l<29.7$ (Corollary~\ref{cor:parseval}, Theorem~\ref{prop:p12}).
+(viii) $n=2$, single-feature payment, sharp and $p$-free: P$_{12}$ (Theorem~\ref{prop:p12}) and $c_1(2,s)=1-3^{1-s}$ (Theorem~\ref{thm:c1sharp}, computer-assisted).
 
 \emph{Numerical evidence on cheap features at $p\ge5$} (local searches; files in
 \texttt{mechanism\_scripts/cheap/}).
@@ -1204,11 +1246,10 @@ remark at work.
 \begin{enumerate}
 \item[(O1)] \emph{Relations: the oscillation form.}  (Corrected; the one-sided form first stated here is false.)  For all allocations $a\ge0$,
 interference sizes $0\le v\le3^{s-1}a$ and phases, $\min_{\delta\ne0}\big[\sum_l\kappa_l(\delta)(a_l+c\,v_l)-\frac12\operatorname{osc}_wD_\delta\big]\le\Gamma_s(p)\,(\sum_la_l^{1/s})^s$,
-with $c=1/(2\sqrt3)$ (Theorem A) or $c=1-(\frac23)^{s-1}$ (P$_{12}$).  This is the relations case at $n=2$.  It is proved for $p\le23$, for $p\le59$ with signed
-input phases, and at every prime for cheap sets with $\sum_{L'}\kappa_l<12$ (Corollary~\ref{cor:parseval}, Proposition~\ref{prop:p12}).  It remains open for cheap
-sets spread over most of $F$ at $p\ge29$.  By Proposition~\ref{prop:effsidon} only allocations with efficiency above $\frac23$ matter, and for those it is a
-flat-polynomial bound on near-optimal supports.  Moduli-only arguments provably cannot reach it under Theorem A's constant.  Under P$_{12}$ it
-would follow from a relation-mass hypothesis (RM) for efficient allocations, verified numerically up to $p=10007$.  Mixed sets $T$ add the factor of
+with $c=1-(\frac23)^{s-1}$ (P$_{12}$, Theorem~\ref{prop:p12}).  This is the relations case at $n=2$.  It is proved for every $p\le59$ and, at every prime, for cheap sets with $\sum_{L'}\kappa_l<29.7$
+(Corollary~\ref{cor:parseval}, Theorem~\ref{prop:p12}).  It remains open for cheap sets spread over most of $F$ at $p\ge61$.  By Proposition~\ref{prop:effsidon} only allocations with efficiency above $\frac23$ matter, and for those it is a
+flat-polynomial bound on near-optimal supports.  Moduli-only arguments provably cannot reach it under Theorem A's constant.  With P$_{12}$ (now proved) it
+follows from a relation-mass hypothesis (RM) for efficient allocations, verified numerically up to $p=10007$.  Mixed sets $T$ add the factor of
 Theorem~\ref{thm:loc}, and the multi-$T$ product tests of Theorem~\ref{thm:quad} need order-three dissociation.
 \item[(O2)] \emph{Compensation costs.}  Show that modes placed on a cheap feature's sign-flipped characters by other outputs never cost less
 than the bonus they protect.  By Lemmas~\ref{lem:channels} and~\ref{lem:lorentz}, every such mode is either paid quadratically through $U$
@@ -1257,7 +1298,8 @@ $|\beta_j|\le\nu^{1-s}Q_j^s+K_{\nu,s}\ell_j$ (Lemma 7 with interference), every 
 single-frequency networks, every $n,b$, all $p\ge p_0(n,b)$: no gain over IF & proved (Cor.~\ref{cor:largep})\\
 count $=K^*$ in class $\mathcal C$, $n=2$, all $p$, $b\in[2,3]$, $\le2$ features below IF price & proved (Thm.~\ref{thm:loc})\\
 count $=K^*$ in class $\mathcal C$, $n=2$, $p\in\{5,7\}$, $b\in[2,3]$, no condition & proved (Cor.~\ref{cor:parseval})\\
-relations case ($T=\{1,2\}$), $n=2$: $p\le23$; $p\le59$ for signed inputs & proved (Cor.~\ref{cor:parseval}, Prop.~\ref{prop:p12})\\
+relations case ($T=\{1,2\}$), $n=2$: every $p\le59$; any $p$ if $\sum_{L'}\kappa<29.7$ & proved (Cor.~\ref{cor:parseval}, Thm.~\ref{prop:p12})\\
+sharp $n=2$ payments: P$_{12}$, and $c_1(2,s)=1-3^{1-s}$ & proved (Thm.~\ref{prop:p12}; Thm.~\ref{thm:c1sharp}, computer-assisted)\\
 count $=K^*$ for every maximiser with no feature bought below IF price, all $n,p,b$ & proved (Prop.~\ref{prop:nocheap})\\
 count $=K^*$ in class $\mathcal C$, $n=2$, all $p\ge5$, $b\in[2,3]$, any number of cheap features under (D$_3$), (I$_2$) & proved (Cor.~\ref{cor:quad})\\
 $n=2$, any network: cheap features force additive relations or spectral coincidences & proved (Thm.~\ref{thm:riesz})\\
