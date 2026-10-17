@@ -811,18 +811,25 @@ $\sum_i\sqrt{e_i^2-|C_i|^2}\le\sqrt{(\sum_ie_i)^2-|\sum_iC_i|^2}$ for $e_i\ge|C_
 orbit has clean amplitude $a_j/\sqrt{1+\rho^2}$ and mode $\rho a_j/\sqrt{1+\rho^2}$, which gives equality.
 \end{proof}
 So a compensating mode of size $M$ that rides on a feature's block costs that block at least $E-\sqrt{E^2-M^2}\ge M^2/(2E)$ of clean
-amplitude.  In (MI) this cost is collected by $U$, because $Q_j$ counts clean amplitudes while the norm is spent.  Compensation is
-free of norm in only two cases:
+amplitude.  In (MI) this cost is collected by $U$, because $Q_j$ counts clean amplitudes while the norm is spent.
+
+More generally, the mode is a product of $\nu$ factors: $\hat w(j)$, the inputs $\hat u_t(q)$ on $T$, and the inputs $\hat u_t(j)$ off $T$.  A factor
+is \emph{paid} if the same neuron uses that mass for a clean amplitude: the $j$-factors if $j$ is a clean frequency of the neuron, the
+$q$-factors if $q$ is.  Every unpaid factor is norm that buys no clean amplitude, so it is charged to $U$.  If exactly one factor is unpaid,
+the cost is quadratic in the mode.  Examples are riding (the $q$-inputs; Lemma~\ref{lem:lorentz}) and a stray output $\hat w(j)$ on a neuron whose inputs
+carry a clean frequency $q$ with $T=[n]$, which is the cross-feature compensation of Section~6.  If several factors are unpaid, the cost is a
+lower power, down to $|C|^{r}$ for a dedicated neuron.  Compensation is free of norm only in two cases:
 \begin{itemize}
 \item[(F1)] the \emph{own partner} ($q=\pm3l$ in feature $l$'s own neurons).  Both-edge averaging (Theorem~\ref{thm:q1n2}) leaves the factor
 $|\cos(\pi l\delta/p)|$ of the sign-flipped coefficient in direction $\pm\delta$, whatever the partner;
-\item[(F2)] a \emph{shared neuron}: $q$ is itself an output frequency of the same neuron with a clean amplitude, and at $b=2$ the budget does
-not charge for several frequencies in one neuron.  If that clean amplitude does not survive in the network's $\beta_q$, feature $q$ is
-bought above price and pays in (MI).  So free shared compensation at $\chi_{l,T}$ needs two features $j\ne k$ with $2l\equiv\pm j\pm k\pmod p$.
-For $b>2$ shared neurons pay strictly (superadditivity of $t^{b/2}$ is strict).
+\item[(F2)] a \emph{shared neuron}, in which both $j$ and $q$ are clean frequencies, so that every factor is paid.  At $b=2$ the budget does not
+charge for several frequencies in one neuron.  If such a clean amplitude does not survive in the network's $\beta_q$ (or $\beta_j$), that
+feature is bought above price and pays in (MI).  So free shared compensation at $\chi_{l,T}$ needs two features $j\ne q$ of one neuron with
+$2l\equiv\pm j\pm q\pmod p$.  For $j=l$ this means that $\pm3l$ is also a feature.  For $b>2$ shared neurons pay strictly (superadditivity of
+$t^{b/2}$ is strict).
 \end{itemize}
-Condition (F2) is a relation $2\cdot(2l)\mp2j\mp2k=0$ with coefficients in $\{0,\pm1,\pm2\}$ among doubled frequencies, which is the
-kind of relation (D) excludes.
+For $j\ne l$, condition (F2) is a relation $2\cdot(2l)\mp2j\mp2q=0$ with coefficients in $\{0,\pm1,\pm2\}$ among doubled frequencies, which
+is the kind of relation (D) excludes.  For $j=l$ it is the relation $3\cdot(2l)=\pm2q$.
 
 \paragraph{Cost-free compensation defeats Theorem A.}  Lemma~\ref{lem:lorentz} is not optional.  Take one cheap feature $l$ of a programme
 maximiser ($n=2$, $b=2$), let the network place its partner and riding modes from the other features of the support \emph{for free}, and let the
@@ -854,7 +861,7 @@ lower (sign-flipped) and upper entries, and both vanish at the IF block.
 \item \emph{One combinatorial hypothesis removes both (R) and the free part of (C).}  If the doubled support $2S=\{2l:l\in S\}$ has no
 relation $\sum_lc_l\,2l\equiv0$ with $c_l\in\{0,\pm1,\pm2\}$ (one-dimensional dissociation), then every assignment of sets $T_l$ satisfies (D),
 because a relation in $\mathbb Z_p^n$ is a relation in each coordinate.  For the same reason no signed sum lands on a feature's own
-on-frequency mode, and (F2) cannot occur.  What is left is \emph{paid} (off-frequency) content, at the chosen characters or at their
+on-frequency mode.  If moreover no feature is $\pm3$ times another, (F2) cannot occur.  What is left is \emph{paid} (off-frequency) content, at the chosen characters or at their
 signed sums (Lemma~\ref{lem:lorentz}), plus the own partner (F1).  For a single cheap feature this is a finite game for each $(p,s)$.  The network picks the size $R$ of
 a cheap feature's sign-flipped mode, its partner $b$ and foreign modes $z_j,z'_j$ from the other features.  It gains at most
 $\frac12RK_l(\mu)$ by Theorem A and pays $K_j(\mu)\big(a_j-\sqrt{a_j^2-|z_j|^2-|z_j'|^2}\big)$ per riding feature.  The prover picks $\mu$, and
@@ -924,8 +931,9 @@ for dissociated $S$; numerically $c\approx0.8$ for programme supports; false wit
 relations case at $n=2$.
 \item[(O2)] \emph{Compensation costs.}  Show that modes placed on a cheap feature's sign-flipped characters by other outputs never cost less
 than the bonus they protect.  By Lemmas~\ref{lem:channels} and~\ref{lem:lorentz}, every such mode is either paid quadratically through $U$
-(riding and dedicated neurons), or is the own partner (handled by both-edge averaging), or needs a shared neuron and a relation
-$2l\equiv\pm j\pm k$ in the support.  Under one-dimensional dissociation of $2S$ only the paid part remains, a finite game per $(p,s)$
+(riding, stray outputs, dedicated neurons), or is the own partner (handled by both-edge averaging), or needs a shared neuron and a
+relation $2l\equiv\pm j\pm k$ in the support (or $\pm3l$ in the support).  Under one-dimensional dissociation of $2S$, with no feature $\pm3$
+times another, only the paid part remains, a finite game per $(p,s)$
 (Section~\ref{sec:arch}, item 1).  The models tested fail by $20$--$50\%$.
 \item[(O3)] \emph{Single features for $n\ge3$.}  Rigorous bounds on $k^*(n,s)$ (circularity route) or on the joint constant
 $J(n,s,p)$ of Proposition~\ref{prop:joint}.  The pointwise route alone cannot work at $n=4$, $b=2$, where $c_1\ge1.13$ (certified).
