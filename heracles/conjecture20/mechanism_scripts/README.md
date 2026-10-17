@@ -10,3 +10,9 @@ Earlier exploratory variants: `oned3.py`, `oned5.py`, `rw.py`, `cont1d.py`.
 Rigorous verification: `../certify_1d.py params.npy p n` (exact rational margin from the logits, interval ratio).
 Certified parameters: `../oned_certified/p3_n*.json` (keys lam, logV, argV; field Phi(tau) = e^{i pi tau/p} sum V e^{lam tau}).
 Typical run: `python slopes.py 3 11 2 6` then `python contsl.py 3 11 20 2 sl_p3_n11_m8.npy`.
+
+## Feature-count proof support (Section 9 of mechanism_note)
+- `prog.py` — programme Γ_s(p) by reweighted LP; support K*, binding set, coverage sums at binding directions.
+- `rel.py` — counts short signed additive relations in programme supports (relevant to hypothesis (D) of the Riesz theorem).
+- `collect.py` — collective-undercutting test: every programme feature realised by a two-neuron sub-network, translations optimised.
+- `c1.py`, `c1q.py` — single-feature constant c1(n,s) (bonus over the interference-free price per unit of sign-flipped coefficient).
