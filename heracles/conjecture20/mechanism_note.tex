@@ -824,6 +824,31 @@ For $b>2$ shared neurons pay strictly (superadditivity of $t^{b/2}$ is strict).
 Condition (F2) is a relation $2\cdot(2l)\mp2j\mp2k=0$ with coefficients in $\{0,\pm1,\pm2\}$ among doubled frequencies, which is the
 kind of relation (D) excludes.
 
+\paragraph{Cost-free compensation defeats Theorem A.}  Lemma~\ref{lem:lorentz} is not optional.  Take one cheap feature $l$ of a programme
+maximiser ($n=2$, $b=2$), let the network place its partner and riding modes from the other features of the support \emph{for free}, and let the
+prover choose $\mu$ on $B$.  The value of this game is
+$V(\lambda)=\min_{b,z,z'}\max_{\pm\delta\in B}\big[\frac12(|\hat g_\delta(\chi)|+|\hat g_{-\delta}(\chi)|)-\lambda\kappa_l(\delta)\big]$ per unit of $|\beta_{l,T}|$, with
+gain constant $\lambda$ (Lemma~\ref{lem:defects}, minimax over $\mu$).  We computed it for $p\le31$.  With $\lambda=\frac12$ (Theorem A) it is $0$ at $p=5,7$ and
+negative for some feature at every prime from $11$ to $31$ ($-0.28$ at $p=17$, $l=8$, where $8\delta^\star\approx p/2$ and $\kappa_l\approx2$).  With the
+sharp $\lambda=c_1=1-3^{1-s}$ it is positive for every feature at $p=5,7,13$ and still negative for some feature at $p=11,17,19,23,29,31$.  So exact
+hiding is impossible (Proposition~\ref{prop:hide}), yet near-hiding for free would already beat Theorem A.  Any proof of (O2) has to use the cost of the
+compensating modes.  The costs are quadratic, while the gain is linear in $|\beta_{l,T}|$ (or quadratic near the IF block), so the decision is a
+comparison of constants in two regimes.  Files: \texttt{mechanism\_scripts/freehide.py}.
+
+\paragraph{A spectral form of the cost lemma.}  The paper proves $\sum_l|\beta_l|^r\ge\nu^{1-r}|\beta|^r$ for interference-free atoms by comparing
+$\det(I+tH)$, $H=\sum_l\beta_lm_lm_l^*$ ($m_l$ the chain vectors), with $\prod_l(1+t\nu|\beta_l|)$.  The comparison does not need
+interference-freeness.  Since $|\det(I+tH)|=\prod_k|1+t\lambda_k|$ and $\int_0^\infty\log|1+te^{i\phi}|\,t^{-1-r}dt=\cos(r\phi)\,\frac{\pi}{r\sin\pi r}$ for
+$|\phi|\le\pi$ (rotate the contour), the same integration gives, for \emph{any} atoms, any $n$ and $0<r<1$,
+\[\nu^r\sum_l|\beta_l|^r\ \ge\ \sum_{k=1}^{\nu}|\lambda_k|^r\cos(r\arg\lambda_k),\qquad\lambda_k\text{ the eigenvalues of }H .\]
+$H$ has constant diagonal $\beta=\sum_l\beta_l$, so $\sum_k\lambda_k=\nu\beta$, and its strictly lower entries are the sign-flipped coefficients
+$\beta_T$ of the intervals $T$.  The bound is an equality both for a single atom ($\lambda=(\nu\beta,0,\dots,0)$) and for the IF block
+($\lambda=(\beta,\dots,\beta)$), the two extremes of the sharp single-feature constant.  So at $n=2$ the sharp payment
+$|\beta|\le3^{1-s}Q^s+(1-3^{1-s})\max_T|\beta_T|$ would follow from the eigenvalue inequality $\sum_k\Re\lambda_k^{\,r}\ge3\big(|\beta|-(1-3^{1-s})\max_T|\beta_T|\big)^r$
+over $3\times3$ matrices with diagonal $\beta$, lower entries $\beta_T$ and upper entries bounded by $\sum_l|\beta_l|$.  The upper bound is needed:
+with free upper entries the spectrum can be anything with trace $3\beta$.  To second order the bound reads
+$|\beta|-\nu^{1-s}Q^s\lesssim(1-r)\,|\sum_T\beta_T\,U_T|/(\nu|\beta|)$, with $U_T$ the upper entries.  The bonus is thus driven by products of
+lower (sign-flipped) and upper entries, and both vanish at the IF block.
+
 \paragraph{How the four gaps mesh.}
 \begin{enumerate}
 \item \emph{One combinatorial hypothesis removes both (R) and the free part of (C).}  If the doubled support $2S=\{2l:l\in S\}$ has no
