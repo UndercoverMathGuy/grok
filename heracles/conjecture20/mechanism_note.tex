@@ -1056,6 +1056,43 @@ supremum ratio $0.80$--$0.84$ to the IF value for $p=29,\dots,61$ (local search;
 lose to the coverage loss of a spread allocation, by at least $15\%$.  Crude scaling puts the failure of every $L^2$ argument at $\ln p\gtrsim11$, where an
 extreme-value bound such as the tilt is needed.  Files: \texttt{mechanism\_scripts/relations2/}.
 
+\emph{Only efficient allocations matter, and then the relations case is a flat-polynomial question.}  Let $\sigma_\delta(S)$ be the infimum, over
+$b\ge0$ supported on $S$ and all phases, of $\frac12\operatorname{osc}_w\big(\sum_lb_l\cos(2\pi lw/p+\psi_l)\big)/\sum_lb_ls_l(\delta)$, with $s_l(\delta)=|\sin(\pi l\delta/p)|$.  Let
+$e(a)=\min_\delta(Ka)_\delta/(\Gamma_s\|a\|_{1/s}^{\,s})\le1$ be the efficiency of the allocation.
+\begin{proposition}[efficiency--Sidon reduction; every $p$]\label{prop:effsidon}
+In the relations case, the allocation $a$ cannot beat the IF value with any interference $v\le\tau a$ ($\tau=3^{s-1}$) and any phases if
+$\sigma_{\delta_0}(\operatorname{spt}a)\ge c-(1/e(a)-1)/\tau$ at a minimiser $\delta_0$ of $(Ka)_\delta$.  Here $c$ is the single-$T$ payment constant.  In particular every allocation with
+$e(a)\le1/(1+c\tau)$ is closed, with no arithmetic input: $e\le\frac23$ under Theorem A, $e\le0.759$ under P$_{12}$ ($b=2$).
+\end{proposition}
+\begin{proof}
+At $\delta_0$, Lemma~\ref{lem:osc} and $\sum_lb_ls_l=\sum_lv_l\kappa_l$ (with $b_l=2v_ls_l$) give
+$h\le(Ka)_{\delta_0}+(c-\sigma)(Kv)_{\delta_0}\le(Ka)_{\delta_0}\big(1+(c-\sigma)^+\tau\big)\le(Ka)_{\delta_0}/e(a)=\Gamma_s\|a\|$.
+\end{proof}
+So the relations case asks for a flat-polynomial bound only on the supports of near-optimal allocations; Parseval gives $\sigma_\delta\ge(\sum_S\kappa_l(\delta))^{-1/2}$.
+The tilt can be improved to a tilted mean.  If $M(\lambda)=\mathbb E_we^{\lambda P}$ is the relation sum, then $M'/M$ is a tilted mean of $P$, so it is at most
+$\max P$.  Every relation term is increasing in $\lambda$, so $\max P,\,-\min P\ge(2\Pi'-Z')/Z$, with $\Pi=\prod_lI_0(\lambda b_l)$ and $Z$ the Laplace transform above.  The relation
+excess has a probabilistic form: $Z/\Pi-1=\Pr(\kappa\in\mathrm{Rel}\setminus0)/\Pr(\kappa=0)$ for independent Skellam variables, which is $e^E/p$ plus the excess
+over independent phases.
+
+Two limits.  First, \emph{any} argument that bounds relation terms by their moduli (tilts, positive-definite product tests) certifies at most about
+$(\ln p/K)\sum_lb_l$ once $K\gg\ln p$, because $Z\ge e^{\lambda\sum b}/p$.  Under Theorem A's constant, closing the relations case therefore needs phase
+cancellation, i.e.\ a genuine flat-polynomial bound for sets of size $O(\log p)$.  Second, the exact moments $\sum_\delta\kappa_l(\delta)$ and
+$\sum_\delta\kappa_l\kappa_k$ are the same for every support, and the progression $\{1,\dots,K\}$ has averaged exponential coverage far above
+$e^{-E}$.  So a relation-mass hypothesis (RM: the excess over independent phases is at most $e^E/p$) has to come from near-optimality, not from moments.
+Numerically:
+\begin{itemize}
+\item at the programme vertices for all $33$ primes up to $1009$, $\sigma\ge0.367>c_*$ (Parseval alone), so cheap sets inside the support are closed;
+\item (RM) holds on programme supports for $23\le p\le10007$, with excess ratio $\le0.97$; random sets of the same size reach $1.38$;
+\item under Theorem A the water-filling bound holds up to $p=10007$, and is marginal at $p=30011$ ($1.02$--$1.03$, within the uncertainty of $\Gamma_s$), so the
+$L^2$ edge is near $p\approx10^4$--$3\cdot10^4$;
+\item under P$_{12}$ every case tested closes, and in a large-deviation model ($K=\kappa\ln p$, $p\to\infty$) P$_{12}$ with the tilt and (RM) closes every $\kappa$
+with margin at least $1.10$, while Theorem A with the tilt fails for $4\lesssim\kappa\lesssim17$;
+\item an adversarial search over amplitudes and phases finds $\sigma\approx0.66$--$0.69$ on near-optimal supports where $0.25$ is needed.  So the inequality has a lot of room, and the
+proofs are what is lossy.
+\end{itemize}
+So P$_{12}$ (a single-feature inequality with no $p$ in it) and (RM) for efficient allocations together would close the relations case at every prime.
+Files: \texttt{mechanism\_scripts/relations3/}.
+
 \paragraph{Local optimality cannot decide the count.}  At a local maximiser, Fritz John and Euler give a probability $q$ on the active set with
 $\sum q\nabla g=\lambda\nabla\|\theta\|_{2,b}^b$.  Every neuron is then balanced and earns its cost share: $T_q(\omega_i)=(h/P)\|\omega_i\|^b$ for the
 multilinear form $T_q(\omega)=\mathbb E_q[g_\omega]$.  Writing $t_i$ for $T_q$ at neuron $i$ with unit factors and $a=1/(s-1)$, this gives the exact
@@ -1169,7 +1206,9 @@ remark at work.
 interference sizes $0\le v\le3^{s-1}a$ and phases, $\min_{\delta\ne0}\big[\sum_l\kappa_l(\delta)(a_l+c\,v_l)-\frac12\operatorname{osc}_wD_\delta\big]\le\Gamma_s(p)\,(\sum_la_l^{1/s})^s$,
 with $c=1/(2\sqrt3)$ (Theorem A) or $c=1-(\frac23)^{s-1}$ (P$_{12}$).  This is the relations case at $n=2$.  It is proved for $p\le23$, for $p\le59$ with signed
 input phases, and at every prime for cheap sets with $\sum_{L'}\kappa_l<12$ (Corollary~\ref{cor:parseval}, Proposition~\ref{prop:p12}).  It remains open for cheap
-sets spread over most of $F$ at $p\ge29$, where coverage enters through the Laplace-transform identity.  Mixed sets $T$ add the factor of
+sets spread over most of $F$ at $p\ge29$.  By Proposition~\ref{prop:effsidon} only allocations with efficiency above $\frac23$ matter, and for those it is a
+flat-polynomial bound on near-optimal supports.  Moduli-only arguments provably cannot reach it under Theorem A's constant.  Under P$_{12}$ it
+would follow from a relation-mass hypothesis (RM) for efficient allocations, verified numerically up to $p=10007$.  Mixed sets $T$ add the factor of
 Theorem~\ref{thm:loc}, and the multi-$T$ product tests of Theorem~\ref{thm:quad} need order-three dissociation.
 \item[(O2)] \emph{Compensation costs.}  Show that modes placed on a cheap feature's sign-flipped characters by other outputs never cost less
 than the bonus they protect.  By Lemmas~\ref{lem:channels} and~\ref{lem:lorentz}, every such mode is either paid quadratically through $U$

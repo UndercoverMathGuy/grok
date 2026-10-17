@@ -29,3 +29,5 @@ Typical run: `python slopes.py 3 11 2 6` then `python contsl.py 3 11 20 2 sl_p3_
   local bonus expansion, two-atom branch): write-up `result.tex`, per-feature verdicts `all15.txt`, `all12.txt`.
 - `kkt/` — KKT multipliers of local maximisers (`kkt.py`), second-order check (`sosc.py`), the factorisation identity (`ident.py`);
   `p5n6_pol.npz` is the p=5, n=6, b=2 local maximiser with a cheap and a spurious feature. Run from inside `kkt/`.
+- `relations3/` — efficiency–Sidon reduction, tilted-mean bound, relation-mass (RM) checks and large-p certificates (p up to 30011),
+  large-deviation model; write-up `result.tex`, `numerics.tex`, `gap.tex`.

@@ -1,0 +1,13 @@
+p=30011 K=14 rep=0 unif-min-cov=6.014 gamma_unif=0.430 Gamma_S=0.11946 |S'|=14 22s
+p=30011 K=14 rep=1 unif-min-cov=5.977 gamma_unif=0.427 Gamma_S=0.11901 |S'|=14 63s
+p=30011 K=17 rep=0 unif-min-cov=8.250 gamma_unif=0.485 Gamma_S=0.12286 |S'|=17 66s
+p=30011 K=17 rep=1 unif-min-cov=8.244 gamma_unif=0.485 Gamma_S=0.12285 |S'|=17 52s
+p=30011 K=20 rep=0 unif-min-cov=10.588 gamma_unif=0.529 Gamma_S=0.12238 |S'|=20 37s
+p=30011 K=20 rep=1 unif-min-cov=10.604 gamma_unif=0.530 Gamma_S=0.12261 |S'|=20 46s
+p=30011 K=23 rep=0 unif-min-cov=12.939 gamma_unif=0.563 Gamma_S=0.12206 |S'|=23 55s
+p=30011 K=23 rep=1 unif-min-cov=12.788 gamma_unif=0.556 Gamma_S=0.12181 |S'|=23 56s
+p=30011 K=26 rep=0 unif-min-cov=15.548 gamma_unif=0.598 Gamma_S=0.12229 |S'|=26 121s
+p=30011 K=26 rep=1 unif-min-cov=15.373 gamma_unif=0.591 Gamma_S=0.12086 |S'|=26 70s
+p=30011 K=30 rep=0 unif-min-cov=18.711 gamma_unif=0.624 Gamma_S=0.11893 |S'|=30 154s
+p=30011 K=30 rep=1 unif-min-cov=18.748 gamma_unif=0.625 Gamma_S=0.11862 |S'|=30 80s
+BEST 30011 0.12285867873699552 17

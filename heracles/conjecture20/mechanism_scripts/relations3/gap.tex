@@ -1,0 +1,25 @@
+\begin{enumerate}
+\item[(G1)] \emph{The arithmetic input.}  Prove $(\mathrm{RM}_{\eta,\ln p-L_0})$ for the (cores of) efficient allocations, $e(a)>1/(1+c\tau)$: a non-trivial
+Skellam vector on $\operatorname{supp}a$ is a relation mod $p$ with probability $\le(1+\eta')/p$ times the trivial one.  Proposition~\ref{noUniv}
+shows that no property shared by all allocations implies it (arithmetic progressions violate it by a factor $p^{\Omega(1)}$); it must come from
+near-optimality.  Numerically $R=\rho/(e^E/p)\le0.97$ on every programme support ($23\le p\le10007$), below random sets of the same size.
+\item[(G2)] \emph{Theorem A is not enough for any modulus-based argument.}  In the large-deviation model the tilt certificate falls below
+$c_*-(1/e-1)/\tau$ for $4\lesssim K/\ln p\lesssim17$ (spread allocations of efficiency $0.71$--$0.99$), and Proposition~\ref{barrier} says no tilt or
+positive-definite product test can do better than order $\ln p/K$.  Closing this range with Theorem A needs a bound that uses cancellation among relation
+terms (phases), i.e.\ a flat-polynomial theorem for $O(\log p)$-element sets: $\sigma_{\delta_0}(S)\ge c_*-(1/e-1)/\tau$.  Numerically the true $\sigma$ has room
+(adversarial search: $\sigma\approx0.66$--$0.69$ against $0.25$--$0.26$ needed), so the inequality is not tight; only the proofs are.
+\item[(G3)] \emph{Under P$_{12}$} the model certificate exceeds the requirement for every $K/\ln p$ (minimum ratio $1.10$ at $K/\ln p\approx8$, efficiency
+$0.89$).  So P$_{12}$ $+$ (G1) $+$ the model's description of efficient allocations (binding-direction law, uniform weights) gives a $p$-uniform
+closure; turning the model into a theorem is the remaining work, and the $10\%$ margin is thin.
+\item[(G4)] \emph{Halo.}  Theorem~\ref{es} takes the infimum over all amplitude directions on $\operatorname{supp}a$ and ignores $v\le\tau a$.  Lemma~\ref{thin}
+removes frequencies below $\approx10^{-3}$ core weights, $p$-uniformly; between $10^{-3}$ and $1$ core weight a box-aware version (water-filling with the tilt
+in place of Parseval) is needed.  It is computable (\texttt{boxtilt.py}) but not yet analysed in the model.
+\item[(G5)] \emph{Finite $p$, Theorem A.}  The $L^2$ (water-filling) criterion holds on every allocation tested up to $p=10007$
+($\le0.996$ with the best $\Gamma$ found) and fails at $p=30011$ for spread near-optimal allocations ($K=26,30$, $e=0.95$--$0.98$, ratio $1.021$, $1.032$)
+unless $\Gamma_s(30011)\ge0.1294$, $3.2\%$ above the best value found ($0.12544$, which was still rising by $\sim1\%$ per refinement round).  The tilt
+with exact relation mass helps only marginally (box-aware certificate $0.973$ at $K=23$, $1.006$ at $K=26$, $1.032$ at $K=30$).  So under Theorem A the
+relations case is numerically closed up to $p\approx10^4$ and the $L^2$ route is at its edge around $p\approx3\cdot10^4$; beyond, (G2) is the obstruction.
+\item[(G6)] \emph{Finite $p$, P$_{12}$.}  $\mathrm C_{L2}\le0.99$ on every allocation tested up to $p=30011$, and at $p=30011$ the tilt \emph{alone}
+(no Parseval) already closes the most spread allocation numerically ($K=30$; box search finds no residual gain at three binding directions).  So under P$_{12}$ there is no
+visible window between the death of $L^2$ and the takeover by the tilt.
+\end{enumerate}

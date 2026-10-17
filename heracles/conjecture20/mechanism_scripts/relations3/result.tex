@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}\usepackage{amsmath,amssymb,amsthm,booktabs}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\Re}{\operatorname{Re}}\newcommand{\osc}{\operatorname{osc}}
+\begin{document}
+\section*{Idea A: a $p$-uniform route for the relations case ($n=2$, $T=\{1,2\}$)}
+\emph{Notation} as in (O1) of \texttt{mechanism\_note.tex}.  $F=\{1,\dots,\frac{p-1}2\}$, $\kappa_l(\delta)=1-\cos(2\pi l\delta/p)=2s_l(\delta)^2$,
+$s_l(\delta)=|\sin(\pi l\delta/p)|$, $1\le s\le\frac32$, $r=1/s$, $\tau=3^{s-1}$, $\|a\|=(\sum_la_l^r)^s$, $\Gamma=\Gamma_s(p)$,
+$m(a)=\min_{\delta\ne0}(Ka)_\delta$, $\Delta(a)$ its minimisers, and the \emph{efficiency} $e(a)=m(a)/(\Gamma\|a\|)\in[0,1]$.  For $0\le v\le\tau a$ and phases $\theta$,
+\[Q(a,v,\theta)=\min_{\delta\ne0}\Big[(Ka)_\delta+c(Kv)_\delta-\tfrac12\osc_wD_\delta\Big],\qquad D_\delta(w)=\sum_lb_l\cos(2\pi lw/p+\psi_l),\ \ b_l=2v_ls_l(\delta),\]
+and $(Kv)_\delta=\sum_lb_ls_l(\delta)$.  The relations case is closed iff $Q\le\Gamma\|a\|$ always.  $c_*=1/(2\sqrt3)$ (Theorem A), $c_{12}=1-(2/3)^{s-1}$ (P$_{12}$).
+
+\subsection*{1. Proved: reduction to a weighted Sidon constant}
+\paragraph{Definition.}  For $S\subseteq F$ and $\delta\ne0$ let
+\[\sigma_\delta(S)=\inf\Big\{\frac{\frac12\osc_w\sum_{l\in S}b_l\cos(2\pi lw/p+\psi_l)}{\sum_{l\in S}b_ls_l(\delta)}\ :\ b\in\mathbb R^S_{\ge0},\ \textstyle\sum b_ls_l(\delta)>0,\ \psi\in\mathbb R^S\Big\}.\]
+
+\begin{theorem}[efficiency--Sidon reduction]\label{es}
+Let $a\ge0$, $S=\operatorname{supp}a$, $\delta_0\in\Delta(a)$.  If
+\[\sigma_{\delta_0}(S)\ \ge\ c-\frac{1/e(a)-1}{\tau},\]
+then $Q(a,v,\theta)\le\Gamma\|a\|$ for every $0\le v\le\tau a$ and all phases.
+\end{theorem}
+\begin{proof}
+Put $\sigma=\sigma_{\delta_0}(S)$; $\operatorname{supp}v\subseteq S$, so $\frac12\osc D_{\delta_0}\ge\sigma(Kv)_{\delta_0}$ and $Q\le m(a)+(c-\sigma)(Kv)_{\delta_0}$.  If $\sigma\ge c$
+we are done since $m(a)\le\Gamma\|a\|$.  Otherwise $(Kv)_{\delta_0}\le\tau(Ka)_{\delta_0}=\tau m(a)$ gives $Q\le m(a)(1+(c-\sigma)\tau)\le m(a)/e(a)=\Gamma\|a\|$.
+\end{proof}
+\begin{corollary}\label{triv}
+(a) \emph{(no arithmetic at all)} Every allocation with $e(a)\le1/(1+c\tau)$ is closed.  $c\tau\le\frac12$ for $c_*$ and $c\tau=3^{s-1}-2^{s-1}\le0.318$ for $c_{12}$,
+so the thresholds are $e\le\frac23$ resp.\ $e\le0.759$, for every $p$.
+(b) \emph{(Parseval)} $\sigma_\delta(S)\ge(\sum_{l\in S}\kappa_l(\delta))^{-1/2}$, so $a$ is closed if $\sum_{S}\kappa_l(\delta_0)\le(c-(1/e(a)-1)/\tau)^{-2}$.
+\end{corollary}
+\begin{proof}
+(b) For mean-zero $P$, $\mathbb EP^2\le(\max P)(-\min P)\le(\frac12\osc P)^2$; $\mathbb EP^2=\frac12\sum b_l^2$ (distinct $l\in F$, $l\not\equiv-l'$); and
+$\sum b_ls_l\le(\frac12\sum b_l^2)^{1/2}(2\sum s_l^2)^{1/2}$ with $2\sum s_l^2=\sum\kappa_l$.
+\end{proof}
+So the whole problem is a lower bound for $\sigma_{\delta_0}(\operatorname{supp}a)$ \emph{only for efficient allocations}, $e(a)>1/(1+c\tau)$, with
+the requirement relaxed by the coverage gap.  At $e=1$ (programme maximisers) the requirement is $\sigma\ge c$; Parseval gives it iff
+$\sum_{S}\kappa_l(\delta_0)\le1/c^2$.
+
+\subsection*{2. Proved: the tilted-mean bound (any phases)}
+\begin{lemma}[tilted mean]\label{tm}
+Let $S\subseteq F$, $b\in\mathbb R^S_{\ge0}$, $P(w)=\sum_lb_l\cos(2\pi lw/p+\psi_l)$, $\lambda>0$,
+$\Pi(\lambda)=\prod_lI_0(\lambda b_l)$, $Z(\lambda)=\frac1p\sum_{j\in\mathbb Z_p}\exp\big(\lambda\sum_lb_l\cos(2\pi lj/p)\big)$.  Then, for all phases $\psi$,
+\[\min(\max P,-\min P)\ \ge\ \frac{2\Pi'(\lambda)-Z'(\lambda)}{Z(\lambda)},\qquad
+\min(\max P,-\min P)\ \ge\ \frac{\log\big(2\Pi(\lambda_2)-Z(\lambda_2)\big)-\log Z(\lambda_1)}{\lambda_2-\lambda_1}\ \ (0\le\lambda_1<\lambda_2).\]
+Hence $\frac12\osc P$ is at least either right-hand side, and $\sigma_\delta(S)\ge\inf_b\max\{(\frac12\sum b_l^2)^{1/2},\,\sup_\lambda\frac{2\Pi'-Z'}{Z}\}/\sum_lb_ls_l(\delta)$.
+\end{lemma}
+\begin{proof}
+$M(\lambda)=\mathbb E_we^{\lambda P(w)}=\sum_{k\in\mathrm{Rel}(S)}\prod_lI_{k_l}(\lambda b_l)e^{ik\cdot\psi}$, $\mathrm{Rel}(S)=\{k\in\mathbb Z^S:\sum k_ll\equiv0\}$ (Jacobi--Anger and
+orthogonality).  The $k=0$ term is $\Pi$; with $\psi=0$ the same sum of moduli is $Z$ (the note's Laplace identity).  Each
+$\prod_lI_{|k_l|}(\lambda b_l)$ is a power series in $\lambda$ with non-negative coefficients, so it and its derivative are $\ge0$.  Hence $M\le Z$ and
+$M'\ge\Pi'-(Z'-\Pi')$.  $M'/M=\mathbb E_{Q_\lambda}P\le\max P$ for the probability $Q_\lambda\propto e^{\lambda P}$ on $\mathbb Z_p$, which gives the first bound
+($\max P\ge0$ anyway).  $\log M$ is convex, so $(\log M(\lambda_2)-\log M(\lambda_1))/(\lambda_2-\lambda_1)\le(\log M)'(\lambda_2)\le\max P$, and
+$M(\lambda_2)\ge2\Pi(\lambda_2)-Z(\lambda_2)$, $M(\lambda_1)\le Z(\lambda_1)$.  For $-\min P$ replace $\psi$ by $\psi+\pi$.
+\end{proof}
+With $x=\lambda b$: $Z/\Pi=1+\rho(x)$, where
+\[\rho(x)=\sum_{k\in\mathrm{Rel}(S)\setminus0}\prod_l\frac{I_{|k_l|}(x_l)}{I_0(x_l)}=\frac{\Pr_x(\mathbf K\in\mathrm{Rel}(S)\setminus0)}{\Pr_x(\mathbf K=0)},\qquad
+\mathbf K_l\ \text{independent Skellam}(x_l/2,x_l/2),\]
+since $e^{-x}I_k(x)$ is the Skellam law.  So $Z(x)e^{-\sum x}$ is the return probability to $0\bmod p$ of the continuous-time walk with jumps $\pm l$ at rate
+$x_l/2$, and $\rho(x)=e^{E(x)}/p+\varepsilon(x)$ with $E(x)=\sum_l(x_l-\log I_0x_l)$ and
+$\varepsilon(x)=e^{E(x)}\frac1p\sum_{j\ne0}e^{-(Kx)_j}-1$, the excess of the non-zero directions over \emph{independent} phases ($\mathbb Ee^{-\sum x_l\kappa}=e^{-E}$).
+Since $I_1/I_0>\log I_0(x)/x$, the first bound is asymptotically $\sum_lb_lA(x_l)$, $A=I_1/I_0$, against $\sum_l\log I_0(x_l)/\lambda$ for the note's
+Proposition (tilt): at the programme scale it roughly doubles the certified fraction ($0.386$ vs $0.200$ of $\sum b$ at $K=1.5\ln p$).
+
+\begin{proposition}[conditional, arithmetic-free certificate]\label{cond}
+Suppose $(\mathrm{RM}_{\eta,L})$: $\rho(x)\le\eta<1$ for all $x\in\mathbb R^S_{\ge0}$ with $E(x)\le L$.  Then for every $b,\psi$,
+\[\min(\max P,-\min P)\ \ge\ \Theta_{\eta,L}(b):=\sup_{\substack{0\le\lambda_1<\lambda_2\\E(\lambda_2b)\le L}}
+\frac{\sum_l\log\frac{I_0(\lambda_2b_l)}{I_0(\lambda_1b_l)}-\log\frac{1+\eta}{1-\eta}\mathbf 1_{\lambda_1>0}+\log(1-\eta)\mathbf 1_{\lambda_1=0}}{\lambda_2-\lambda_1},\]
+and $\sigma_\delta(S)\ge\theta_{\eta,L}(s(\delta)):=\inf_b\max\{(\frac12\sum b_l^2)^{1/2},\Theta_{\eta,L}(b)\}/\sum b_ls_l(\delta)$, a quantity depending only on the
+multiset $\{s_l(\delta)\}_{l\in S}$, $\eta$, $L$ --- not on $p$ or on the arithmetic of $S$.  Consequently (Theorem~\ref{es}) $a$ is closed if $(\mathrm{RM}_{\eta,L})$
+holds on $\operatorname{supp}a$ and $\theta_{\eta,L}(s(\delta_0))\ge c-(1/e(a)-1)/\tau$.
+\end{proposition}
+\begin{proof}
+$E$ is coordinatewise increasing ($\frac{d}{dx}(x-\log I_0x)=1-A>0$), so $E(\lambda_1b)\le E(\lambda_2b)\le L$; use $Z\le(1+\eta)\Pi$, $2\Pi-Z\ge(1-\eta)\Pi$ in
+Lemma~\ref{tm}, and $M(0)=1$ when $\lambda_1=0$.
+\end{proof}
+The natural choice is $L=\ln p-\ln(1/\eta_0)$: then $e^{E}/p\le\eta_0$ and $(\mathrm{RM})$ only asks $\varepsilon\le\eta-\eta_0$; with $\varepsilon\le0$ it says that a
+non-trivial Skellam vector is a relation of $S$ with probability at most $1/p$, as for independent frequencies.
+
+\begin{proposition}[the $j=0$ barrier]\label{barrier}
+For all $S,b,\lambda$: $\frac{2\Pi'-Z'}{Z}\le\min\{2,\,2p\,e^{-E(\lambda b)}\}\sum_lb_lA(\lambda b_l)$, and the secant bound needs $E(\lambda_2b)<\ln(2p)$.  For $b$ uniform on
+$K=\kappa\ln p$ frequencies every certificate of Lemma~\ref{tm} is therefore $\le2A(x_\kappa)(1+o(1))\sum b$, $x_\kappa-\log I_0(x_\kappa)=1/\kappa$; this is $\sim\sum b/\kappa$ for large $\kappa$.
+\end{proposition}
+\begin{proof}
+$Z\ge\Pi$, $Z\ge e^{\lambda\sum b}/p$ (the $j=0$ term), $Z'\ge0$, $\Pi'=\Pi\sum bA$.  For uniform $b$ the factor $\min\{2,2pe^{-Kg(x)}\}$, $g(x)=x-\log I_0x$, kills every
+$x$ with $Kg(x)\ge\ln p+t$, $t\to\infty$, $t=o(\ln p)$; the secant bound is $\le(\log\Pi)'(\lambda_2)=\sum bA(\lambda_2b)$ by convexity of $\log\Pi$.
+\end{proof}
+The same $j=0$ argument caps positive-definite product tests $G=\prod_lg_l(2\pi lw/p+\psi_l)$ ($g_l\ge0$, $\hat g_l\ge0$, $\hat g_l(0)=1$):
+$\max P\ge(\text{main}-|\text{relation terms}|)/Z_G$ with $Z_G=\frac1p\sum_j\prod_lg_l(2\pi lj/p)\ge\max\{1,\prod_lg_l(0)/p\}$ and main $\le\sum_lb_l\hat g_l(1)\le\sum_lb_l\frac{g_l(0)-1}2$;
+for uniform factors this is $\le\frac{e^{1/\kappa}-1}2\sum b\sim\sum b/(2\kappa)$.  So every argument that bounds relation terms by their moduli is capped at order
+$(\ln p/K)\sum b$, while the large-deviation value for generic phases is of order $(\ln p/K)^{1/2}\sum b$.  Beating the cap needs cancellation among
+relation terms, i.e.\ phase information.
+
+\begin{lemma}[thin frequencies pay for themselves]\label{thin}
+Let $a=a'+a''$ with disjoint supports and $a''_l\le\vartheta\|a'\|$ for all $l$, $\vartheta=\big(\Gamma s/(2(1+\tau+c\tau))\big)^{s/(s-1)}$.  If $a'$ is closed
+(for all $v'\le\tau a'$, all phases), then $a$ is closed.
+\end{lemma}
+\begin{proof}
+$D_\delta=D'_\delta+D''_\delta$ with $|D''_\delta|\le\sum_lb''_l$, so at the direction $\delta$ that closes $(a',v',\theta)$,
+$Q(a,v,\theta)\le\Gamma\|a'\|+\sum_l(a''_l\kappa_l+cv''_l\kappa_l+2v''_ls_l)\le\Gamma\|a'\|+2(1+c\tau+\tau)\sum_la''_l$.  By convexity of $t\mapsto t^s$,
+$\Gamma\|a\|\ge\Gamma\|a'\|+\Gamma s\|a'\|^{1-r}\sum_l(a''_l)^r$, and $2(1+c\tau+\tau)a''_l\le\Gamma s\|a'\|^{1-r}(a''_l)^r$ iff $a''_l\le\vartheta\|a'\|$.
+\end{proof}
+At $s=\frac32$ with $\Gamma\approx\gamma^\ast K^{-1/2}$ and typical core weight $\|a'\|K^{-3/2}$, the threshold is $(0.23\gamma^\ast)^3\approx10^{-3}$ core weights, independent of
+$p$; but the number of frequencies above it can still be $\sim10^2K^\ast$, so Theorem~\ref{es} (which ignores the box $v\le\tau a$) must be applied to
+a core, not to $\operatorname{supp}a$.
+
+\begin{proposition}[no universal Laplace bound]\label{noUniv}
+The identities $\sum_{j\in\mathbb Z_p}\kappa_l(j)=p$ and $\sum_j\kappa_l(j)\kappa_k(j)=p(1+\frac12[l=k])$ ($l,k\in F$) hold for every support.  For $S=\{1,\dots,K\}$ and $x_l\equiv x\in(0,1]$,
+$\frac1p\sum_{j\ne0}e^{-(Kx)_j}\ge\big(\frac2{\pi K^{3/2}}-\frac2p\big)e^{-2x}$, while $e^{-E(x)}\le e^{-3Kx/4}$.  Hence no bound for the averaged exponential coverage that uses only
+properties every allocation has can give $(\mathrm{RM})$; the hypothesis must use near-optimality ($e(a)>1/(1+c\tau)$).
+\end{proposition}
+\begin{proof}
+$(Kx)_j\le x\sum_{l\le K}2\pi^2l^2j^2/p^2\le2\pi^2xK^3j^2/p^2\le2x$ for $|j|\le p/(\pi K^{3/2})$.  $e^{-x}I_0(x)\le e^{-x+x^2/4}\le e^{-3x/4}$ on $[0,1]$.
+\end{proof}
+\emph{What survives of ``coverage $\Rightarrow$ Sidon''.}  Min-coverage $C$ bounds every $j\ne0$ term by $e^{-C}$ (the note's form), which needs $C\ge E$, i.e.\ coverage
+fraction $\gtrsim0.77$--$0.8$ at the relevant scale; programme maximisers have $0.59$--$0.79$ ($p\le1009$) and the LD model predicts $\to0.46$.  The averaged
+form is exactly the Skellam return probability, and that is what has to be controlled.  Transference forces short relations, but their Skellam weight
+$\prod_lI_{|k_l|}/I_0\le A(x)^{\|k\|_1}$ is small; what matters is their number, i.e.\ $\varepsilon$.
+
+\subsection*{3. Numerical (files in this directory)}
+\input{numerics.tex}
+
+\subsection*{4. The exact remaining gap}
+\input{gap.tex}
+\end{document}

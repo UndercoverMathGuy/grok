@@ -1,0 +1,13 @@
+p=2003 K=10 rep=0 unif-min-cov=4.897 gamma_unif=0.490 Gamma_S=0.16127 |S'|=10 1s
+p=2003 K=10 rep=1 unif-min-cov=4.835 gamma_unif=0.484 Gamma_S=0.15683 |S'|=10 1s
+p=2003 K=12 rep=0 unif-min-cov=6.469 gamma_unif=0.539 Gamma_S=0.16309 |S'|=12 1s
+p=2003 K=12 rep=1 unif-min-cov=6.544 gamma_unif=0.545 Gamma_S=0.16425 |S'|=12 2s
+p=2003 K=14 rep=0 unif-min-cov=7.911 gamma_unif=0.565 Gamma_S=0.15702 |S'|=14 1s
+p=2003 K=14 rep=1 unif-min-cov=7.944 gamma_unif=0.567 Gamma_S=0.16109 |S'|=14 2s
+p=2003 K=16 rep=0 unif-min-cov=9.754 gamma_unif=0.610 Gamma_S=0.15836 |S'|=16 2s
+p=2003 K=16 rep=1 unif-min-cov=9.730 gamma_unif=0.608 Gamma_S=0.15907 |S'|=16 1s
+p=2003 K=18 rep=0 unif-min-cov=11.442 gamma_unif=0.636 Gamma_S=0.15595 |S'|=18 1s
+p=2003 K=18 rep=1 unif-min-cov=11.475 gamma_unif=0.638 Gamma_S=0.15702 |S'|=18 2s
+p=2003 K=20 rep=0 unif-min-cov=13.142 gamma_unif=0.657 Gamma_S=0.15534 |S'|=20 2s
+p=2003 K=20 rep=1 unif-min-cov=13.077 gamma_unif=0.654 Gamma_S=0.15109 |S'|=20 3s
+BEST 2003 0.16424796293743765 12
