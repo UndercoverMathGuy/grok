@@ -319,6 +319,19 @@ $\pm1$ costs only $O(\varepsilon)$ of clean amplitude, but it can create non-cir
 $O(\sqrt\varepsilon)$.  So every $L^2$/moment bound fails in a thin regime next to the interference-free point, and a pointwise
 argument, like Part I's at $p=3$, is required.
 
+\paragraph{Numerical tests of the count with general networks.}  (i) \emph{Width.}  For slot-symmetric networks with
+arbitrary input vectors (any sign patterns) and outputs on all frequencies, we searched for the smallest width with
+positive margin (elimination from feasible starts, exact LP for the outputs).  It equals $\nu-\lfloor\nu/p\rfloor$ in every case
+tested: $p=3$, $n=3,4,5,6,8$ (widths $3,4,4,5,6$), and $p=5$, $n=4,5,6,7$ (widths $4,5,6,7$), with one output frequency
+or all of them.  So mixing frequencies does not save neurons, and Theorem~\ref{thm:width} appears to hold for all
+slot-symmetric networks.
+(ii) \emph{Allocation.}  At $(p,n,b)=(7,3,2)$ the programme has $K^*=2$ with unequal shares $(0.328,0,0.182)$.  Global
+search (inputs by CMA-ES from interference-free blocks on every frequency subset plus perturbations, outputs by exact
+conic programme with $\ell_r$ reweighting) gave: one frequency $0.801$; any two frequencies $1.00000$ with amplitude shares
+equal to the programme's up to relabelling, unchanged under perturbation; all three frequencies $0.827$.  At $(5,2,2)$
+($K^*=2$), random-start search reached $0.755$ (width 4, one feature), $0.821$, $0.941$, $0.970$ (widths 5--7, two features
+with near-equal shares), and never exceeded the $K^*$-feature block.
+
 \paragraph{Where a proof stops.}  Combining (a)--(c): the count prediction holds for every global optimiser, \emph{except
 possibly} when $p\ge5$, $b<b_0$ and the optimiser carries interference.  None of the known counterexamples is in that set,
 since they all have $p=3$.  Closing the remaining case requires a price-sharp upper bound, i.e.\ Conjecture~20$'$ or an
