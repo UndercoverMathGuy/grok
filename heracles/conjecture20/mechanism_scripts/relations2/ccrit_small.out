@@ -1,0 +1,2 @@
+(common-w relaxation, tau=3^{s-1}, s=1.5) critical bonus constant c (numerical upper estimates; needed 0.2887)
+p=5 [0.445,0.449]  p=7 [0.430,0.434]  p=11 [0.492,0.496]  p=13 [0.496,0.500]

@@ -20,3 +20,8 @@ Typical run: `python slopes.py 3 11 2 6` then `python contsl.py 3 11 20 2 sl_p3_
   `gmax.py` (worst-case skewness γ_max(n)), `ksharp.py` (k#(n,s) with γ_max), `ksharp2.py` (direction-resolved quadratic constant),
   `kflat.py` (best degree-2 Hermitian-square constant k♭(n,s)), `checkquad.py` (checks the factorisation identity E[wg] = RHS on random
   class-C fields under (D3), (I2)), `outride.py` (output-side riding compensation of a two-neuron cheap feature, n=2).
+- `relations2/` — the relations case at n=2 (all interference on T={1,2}): oscillation/Parseval closure, sharp single-T
+  payment for sign atoms (`c12.py`), phase-free water-filling criterion (`cl2f.py`, `cl2g.py`), one-sided constants of programme
+  supports (`sigsupp.py`), write-up `result.tex`. Run from inside `relations2/`.
+- `freehide.py` — cost-free compensation game for one cheap feature (n=2); `quadbonus.py` — sup of bonus*|A|/sum|beta_T|^2;
+  `spectral_cost_check.py` — random check of the spectral cost inequality.

@@ -948,6 +948,70 @@ with $D(\pm\alpha)$ the best Hermitian-square detection for $|c|=1$ and $\arg c=
 The quadratic factor alone, direction-resolved, gives $0.514,\ 0.762,\ 1.006$ for $n=2,3,4$.
 \end{itemize}
 
+\paragraph{The relations case at $n=2$: what is proved.}  The \emph{relations case} is class $\mathcal C$ at $n=2$ with every feature's interference
+on $T=\{1,2\}$.  This is the case in which the network can force additive relations among cheap features.  Then
+$\Phi_l=\overline{\beta_l}+W_l\rho^{2l(x_1+x_2)}$.  Put $w=2(x_1+x_2)$, $v_l=|W_l|=|\beta_{l,12}|$, $\varphi(w)=\sum_lv_l\cos(2\pi lw/p+\arg W_l)$ and
+$D_\delta(w)=\varphi(w)-\varphi(w-\delta)$, so that $g(x,\delta)=\mathbb Eg(\cdot,\delta)+D_\delta(w)$.
+
+\begin{lemma}[oscillation]\label{lem:osc}
+In the relations case, $h\le\sum_l\kappa_l(\delta)\Re\beta_l-\frac12\operatorname{osc}_wD_\delta(w)$ for every $\delta\ne0$, where $\operatorname{osc}=\max-\min$.
+\end{lemma}
+\begin{proof}
+Use separate minimisers for $\pm\delta$, and note $D_{-\delta}(w)=\varphi(w)-\varphi(w+\delta)=-D_\delta(w+\delta)$, so $\min D_{-\delta}=-\max D_\delta$.
+\end{proof}
+The quantity is two-sided, and $\mathbb E_wD_\delta^2=\sum_lv_l^2\kappa_l(\delta)$ exactly: the frequencies $l\in F$ are distinct and $l\not\equiv-l'$, so no relation enters.
+Since $\operatorname{osc}D\ge2\sqrt{\mathbb ED^2}$ (Bhatia--Davis), the proof of Theorem~\ref{thm:loc} with one set $T$ instead of $2^n-1$ gives:
+
+\begin{corollary}[Parseval closure]\label{cor:parseval}
+Let $c$ be a valid single-$T$ payment constant ($\Re\beta_l\le a_l+c\,v_l$; Theorem A gives $c=1/(2\sqrt3)$).  In the relations case,
+if $c^2\sum_{l\in L'}\kappa_l(\delta^\star)<1$ then $\gamma(\theta)<\nu^{1-s}B_p\Gamma_s$ unless $L'=\emptyset$.  Since $\sum_{l\in F}\kappa_l(\delta)=p/2$:
+\begin{itemize}
+\item[(a)] the relations case is closed for every prime $p\le23$, every cheap set, every $b\in[2,3]$ and any width;
+\item[(b)] at every prime it is closed whenever the cheap set carries $\sum_{L'}\kappa_l(\delta^\star)<12$, in particular whenever $|L'|\le6$;
+\item[(c)] with all sets $T$ allowed, Theorem~\ref{thm:loc} (threshold $4\ge p/2$) closes all of class $\mathcal C$ at $n=2$ for $p\in\{5,7\}$: every maximiser within
+$\mathcal C$ is interference-free and uses $K^*(s,p)$ features.
+\end{itemize}
+\end{corollary}
+
+\begin{proposition}[sharp single-$T$ payment for sign atoms]\label{prop:p12}
+Let $\beta_i\in\mathbb C$ and $\xi_i,\eta_i\in\{\pm1\}$ with $\sum_i\beta_i\xi_i=\sum_i\beta_i\eta_i=0$, $A=\sum_i\beta_i$, $D=\sum_i\beta_i\xi_i\eta_i$, $1\le s\le\frac32$.  Then
+$|A|-\big(1-(\tfrac23)^{s-1}\big)|D|\le3^{1-s}(\sum_i|\beta_i|^{1/s})^s$, with equality for two aligned atoms.
+\end{proposition}
+\begin{proof}
+Group the atoms by $(\xi,\eta)$; merging a group keeps $A,D$ and lowers the cost.  The two vanishing sums force $G_{++}=G_{--}=:g$ and
+$G_{+-}=G_{-+}=:h$, so $A=2(g+h)$, $D=2(g-h)$ and the cost is at least $2|g|^r+2|h|^r$.  The worst case has $g,h$ aligned; put $|g|=1$,
+$|h|=t\le1$, $c=1-(\frac23)^{s-1}$.  Half the excess is $(\frac23)^{s-1}[1-(1+t^r)^s]+t(1+c)\le t^r[2-(1+s)(\frac23)^{s-1}]$, by Bernoulli and $t\le t^r$.
+This is $\le0$ because $\log\big((1+s)(\frac23)^{s-1}\big)$ is concave, equal to $\log2$ at $s=1$ and $\log2.04$ at $s=\frac32$.
+\end{proof}
+The constant is $0.1835$ at $b=2$, against $1/(2\sqrt3)=0.289$ from Theorem A.  With it the threshold of Corollary~\ref{cor:parseval} is $\ge29.7$.  So the
+relations case is closed for every $p\le59$ for networks with signed input phases ($\hat u_{it}(l)\in\mathbb R\cup i\mathbb R$).  It is closed for all networks if
+Proposition~\ref{prop:p12} holds for complex unit phases (conjecture P$_{12}$; local search with up to five complex atoms finds the same supremum
+$0.1835$).  Up to $p=59$ the relations case is therefore a single-feature statement.
+
+\emph{The one-sided constant is the wrong object.}  For the full set $F$ the one-sided constant $\min_{b,\theta}(-\min_w\sum b_l\cos(2\pi lw/p+\theta_l))/\sum b_l$ is
+$1/(p-1)$, attained at zero phases.  There $\sum_{l\in F}\cos(2\pi lw/p)$ is a spike, so perfect coverage gives a \emph{small} one-sided constant.  On the
+programme supports it is $0.25,0.17,0.60,0.34,0.48,0.52,0.35,0.46,0.44$ for $p=5,\dots,31$, below $\frac12$ at most primes and below $0.18$ at $p=7$, where the
+relations case is nevertheless closed.  So (O1) as first stated, with a one-sided constant and a common evaluation point, is false.  The correct object is
+the oscillation of the first difference (Lemma~\ref{lem:osc}), and a spike $\varphi$ has $\operatorname{osc}D_\delta\approx2\max\varphi$.
+
+\emph{Coverage controls relations through a Laplace transform.}  For $S\subseteq\mathbb Z_p$ and $x\in\mathbb R^S_{\ge0}$,
+\[\sum_{k\in\mathbb Z^S:\ \sum_lk_ll\equiv0}\ \prod_lI_{|k_l|}(x_l)\ =\ \frac1p\sum_{\delta\in\mathbb Z_p}e^{\sum_lx_l\cos(2\pi l\delta/p)}\ =\ e^{\sum_lx_l}\,\frac1p\sum_\delta e^{-\sum_lx_l\kappa_l(\delta)},\]
+by $e^{x\cos\vartheta}=\sum_kI_k(x)e^{ik\vartheta}$ and orthogonality.  The total Bessel weight of all additive relations is the Laplace transform of the
+coverage profile.  Testing $P(w)=\sum_lb_l\cos(2\pi lw/p+\psi_l)$ with $e^{\lambda P}$ gives, uniformly in the phases,
+$\max P,\,-\min P\ge\frac1\lambda\log\big(2\prod_lI_0(\lambda b_l)-Z\big)$, with $Z$ the left side above at $x=\lambda b$.  In particular, write $E=\sum_l(x_l-\log I_0(x_l))$.  If
+$E\le\ln\frac p2$ and $\min_{\delta\ne0}\sum_lx_l\kappa_l(\delta)\ge E+\ln2$, then $\max P,-\min P\ge\frac1\lambda\sum_l\log I_0(\lambda b_l)$.  This is the precise sense in which
+coverage implies a Sidon-type bound: through an exponential tilt, not a Riesz product.  A linear Riesz product cannot be controlled by minimum
+coverage at all.  At the programme scale $K\approx1.5\ln p$ the tilt certifies $0.40$ of $\sum_lb_l$.  That is enough under P$_{12}$ (needed $0.367$) but not under
+Theorem A (needed $0.577$); with the computed supports it also needs the averaged rather than the minimum coverage.
+
+\emph{Product tests are the wrong tool here.}  In the relations case the quadratic factor of Theorem~\ref{thm:quad} is exactly
+$1-\sqrt2\varepsilon\cos u+\frac\varepsilon2\cos2u$.  It has off-zero weight $1.91\varepsilon$ against $\varepsilon$ for the linear factor, and with worst-case phases
+its relation leakage exceeds its surplus on most programme supports for $p\le97$.  Parseval needs no relation accounting.  Beyond Corollary~\ref{cor:parseval}
+only cheap sets spread over most of $F$ remain.  For those, a phase-free sufficient condition obtained by water-filling the Parseval bound has
+supremum ratio $0.80$--$0.84$ to the IF value for $p=29,\dots,61$ (local search; maximisers spread over $11$--$16$ frequencies).  So spread cheap sets
+lose to the coverage loss of a spread allocation, by at least $15\%$.  Crude scaling puts the failure of every $L^2$ argument at $\ln p\gtrsim11$, where an
+extreme-value bound such as the tilt is needed.  Files: \texttt{mechanism\_scripts/relations2/}.
+
 \paragraph{How the four gaps mesh.}
 \begin{enumerate}
 \item \emph{One combinatorial hypothesis removes both (R) and the free part of (C).}  If the doubled support $2S=\{2l:l\in S\}$ has no
@@ -1008,6 +1072,9 @@ sign-flipped character (Theorem~\ref{thm:riesz}).  Exact hiding from a programme
 (vi) Class $\mathcal C$, $n=2$, $b\in[2,3]$, every $p\ge5$: any number of cheap features whose frequencies satisfy the order-three dissociation (D$_3$) and
 isolation (I$_2$) cannot beat the interference-free value, with a surplus of at least $39\%$ in every direction (Corollary~\ref{cor:quad}).  For every $n$
 the same holds as soon as the atom constant $k^\flat(n,s)$ is below $1$.
+(vii) Class $\mathcal C$, $n=2$, $b\in[2,3]$, $p\in\{5,7\}$: every maximiser within $\mathcal C$ is interference-free and uses $K^*(s,p)$ features, with no
+condition on the cheap set (Corollary~\ref{cor:parseval}(c)).  In the relations case (all interference on $T=\{1,2\}$) the same holds for every $p\le23$, for
+$p\le59$ with signed input phases, and at every prime when the cheap set carries $\sum\kappa_l<12$ (Corollary~\ref{cor:parseval}, Proposition~\ref{prop:p12}).
 
 \emph{Numerical evidence on cheap features at $p\ge5$} (local searches; files in
 \texttt{mechanism\_scripts/cheap/}).
@@ -1031,10 +1098,12 @@ remark at work.
 
 \emph{Open, stated as self-contained problems.}
 \begin{enumerate}
-\item[(O1)] \emph{Coverage implies one-sided Sidon.}  For $S\subseteq\mathbb Z_p^\times$ with near-optimal programme coverage, weights $b_l\ge0$ and
-arbitrary phases, show $-\min_w\sum_lb_l\cos(2\pi lw/p+\theta_l)\ge c\sum_lb_l$ with $c=1-(2/3)^{s-1}$ (or $\frac12$ in general).  True with $c=\frac12$
-for dissociated $S$; numerically $c\approx0.8$ for programme supports; false without the coverage hypothesis.  This closes the
-relations case at $n=2$.
+\item[(O1)] \emph{Relations: the oscillation form.}  (Corrected; the one-sided form first stated here is false.)  For all allocations $a\ge0$,
+interference sizes $0\le v\le3^{s-1}a$ and phases, $\min_{\delta\ne0}\big[\sum_l\kappa_l(\delta)(a_l+c\,v_l)-\frac12\operatorname{osc}_wD_\delta\big]\le\Gamma_s(p)\,(\sum_la_l^{1/s})^s$,
+with $c=1/(2\sqrt3)$ (Theorem A) or $c=1-(\frac23)^{s-1}$ (P$_{12}$).  This is the relations case at $n=2$.  It is proved for $p\le23$, for $p\le59$ with signed
+input phases, and at every prime for cheap sets with $\sum_{L'}\kappa_l<12$ (Corollary~\ref{cor:parseval}, Proposition~\ref{prop:p12}).  It remains open for cheap
+sets spread over most of $F$ at $p\ge29$, where coverage enters through the Laplace-transform identity.  Mixed sets $T$ add the factor of
+Theorem~\ref{thm:loc}, and the multi-$T$ product tests of Theorem~\ref{thm:quad} need order-three dissociation.
 \item[(O2)] \emph{Compensation costs.}  Show that modes placed on a cheap feature's sign-flipped characters by other outputs never cost less
 than the bonus they protect.  By Lemmas~\ref{lem:channels} and~\ref{lem:lorentz}, every such mode is either paid quadratically through $U$
 (riding, stray outputs, dedicated neurons), or is the own partner (handled by both-edge averaging), or needs a shared neuron and a
@@ -1080,6 +1149,8 @@ single-frequency networks, $n=2$, all $p\ge5$, $b\in[2,3]$: no gain over IF & pr
 $|\beta_j|\le\nu^{1-s}Q_j^s+K_{\nu,s}\ell_j$ (Lemma 7 with interference), every $n$ & proved (Lemma~\ref{lem:robust})\\
 single-frequency networks, every $n,b$, all $p\ge p_0(n,b)$: no gain over IF & proved (Cor.~\ref{cor:largep})\\
 count $=K^*$ in class $\mathcal C$, $n=2$, all $p$, $b\in[2,3]$, $\le2$ features below IF price & proved (Thm.~\ref{thm:loc})\\
+count $=K^*$ in class $\mathcal C$, $n=2$, $p\in\{5,7\}$, $b\in[2,3]$, no condition & proved (Cor.~\ref{cor:parseval})\\
+relations case ($T=\{1,2\}$), $n=2$: $p\le23$; $p\le59$ for signed inputs & proved (Cor.~\ref{cor:parseval}, Prop.~\ref{prop:p12})\\
 count $=K^*$ for every maximiser with no feature bought below IF price, all $n,p,b$ & proved (Prop.~\ref{prop:nocheap})\\
 count $=K^*$ in class $\mathcal C$, $n=2$, all $p\ge5$, $b\in[2,3]$, any number of cheap features under (D$_3$), (I$_2$) & proved (Cor.~\ref{cor:quad})\\
 $n=2$, any network: cheap features force additive relations or spectral coincidences & proved (Thm.~\ref{thm:riesz})\\

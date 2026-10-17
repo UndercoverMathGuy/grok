@@ -1,0 +1,193 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}\usepackage{amsmath,amssymb,amsthm,booktabs}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\Re}{\operatorname{Re}}\newcommand{\osc}{\operatorname{osc}}
+\begin{document}
+\section*{(O1), the relations case at $n=2$: what is proved, and the right form of the problem}
+Notation as in \texttt{mechanism\_note.tex}, Section~9.  Throughout: $n=2$ ($\nu=3$), $2\le b\le3$ ($1\le s\le\frac32$, $r=1/s$),
+class $\mathcal C$, and the \emph{relations case}: every feature's interference sits on $T=\{1,2\}$, so
+$\Phi_l(x)=\overline{\beta_l}+W_l\rho^{2l(x_1+x_2)}$.  Put $v_l=|W_l|=|\beta_{l,12}|$, $\theta_l=\arg W_l$, $w=2(x_1+x_2)\in\mathbb Z_p$,
+\[\varphi(w)=\sum_{l\in F}v_l\cos(2\pi lw/p+\theta_l),\qquad D_\delta(w)=\varphi(w)-\varphi(w-\delta),\qquad s_l(\delta)=|\sin(\pi l\delta/p)| .\]
+$a_l=3^{1-s}Q_l^s$ is the interference-free (IF) price, $L'=\{l:|\beta_l|>a_l\}$ the cheap set, $\delta_0$ a minimiser of $(Ka)_\delta=\sum_la_l\kappa_l(\delta)$,
+and $\|a\|_r=(\sum a_l^r)^{s}$.  The IF value is $\ge\Gamma_s\|a\|_r$, and $(Ka)_{\delta_0}\le\Gamma_s\|a\|_r$.
+\emph{Payment.}  Part I's Theorem A with $B=C=0$ gives $\Re\beta_l\le a_l+c\,v_l$ with $c=c_*:=1/(2\sqrt3)=0.2887$, and $v_l\le Q_l^s=3^{s-1}a_l$.
+
+\subsection*{1. The oscillation identity}
+\begin{lemma}\label{osc}
+For every $\delta\ne0$: $\ h\ \le\ \sum_l\kappa_l(\delta)\Re\beta_l\;-\;\tfrac12\osc_w D_\delta(w)$, where $\osc=\max-\min$.
+\end{lemma}
+\begin{proof}
+$g(x,\pm\delta)=M_{\pm\delta}+D_{\pm\delta}(w)$ with $M_\delta+M_{-\delta}=2\sum_l\kappa_l\Re\beta_l$.  Use \emph{separate} minimisers for $\pm\delta$:
+$h\le\frac12(M_\delta+M_{-\delta})+\frac12(\min D_\delta+\min D_{-\delta})$.  Finally $D_{-\delta}(w)=\varphi(w)-\varphi(w+\delta)=-D_\delta(w+\delta)$,
+so $\min D_{-\delta}=-\max D_\delta$.
+\end{proof}
+\begin{remark}
+The note's derivation evaluates $\pm\delta$ (and all directions of $\mu$) at a \emph{common} point and so meets the one-sided
+quantity $-\min\psi_\mu$ of a second difference.  Lemma~\ref{osc} replaces it by half the oscillation of the first difference, a
+\emph{two-sided} quantity.  $D_\delta$ has amplitudes $b_l=v_l|c_l(\delta)|=2v_ls_l$, the payment is $c\sum v_l\kappa_l=c\sum_lb_ls_l$, and
+$\mathbb E_wD_\delta^2=\sum_lv_l^2\kappa_l(\delta)$ exactly (the frequencies $l\in F$ are distinct and $l\not\equiv-l'$; no relation enters).
+\end{remark}
+
+\subsection*{2. Parseval closes the relations case for $p\le23$}
+\begin{theorem}[Parseval closure]\label{parseval}
+Let $c$ be any valid single-$T$ payment constant ($\Re\beta_l\le a_l+cv_l$).  If $c^2\sum_{l\in L'}\kappa_l(\delta_0)\le1$, then
+$h\le$ IF value; if the inequality is strict, equality forces $L'=\emptyset$ (then the note's Proposition prop:nocheap gives the count).
+With $c=c_*$ the threshold is $\sum_{L'}\kappa_l(\delta_0)\le12$.
+\end{theorem}
+\begin{proof}
+Mean zero and Bhatia--Davis give $\osc D\ge2\sqrt{\mathbb ED^2}$.  So by Lemma~\ref{osc} and Cauchy--Schwarz,
+$h\le(Ka)_{\delta_0}+c\sum_{L'}v_l\kappa_l-\sqrt{\sum_{L'}v_l^2\kappa_l}\le(Ka)_{\delta_0}+\sqrt{\textstyle\sum_{L'}v_l^2\kappa_l}\,\big(c\sqrt{\textstyle\sum_{L'}\kappa_l}-1\big)$.
+\end{proof}
+This is the note's Theorem thm:loc with the factor $2^n-1$ replaced by the number of sets $T$ that carry cheap interference
+(one, here); I record it because its consequences were not drawn:
+\begin{corollary}\label{cor23}
+(a) Since $\sum_{l\in F}\kappa_l(\delta)=p/2$ for every $\delta\ne0$, \textbf{the relations case is closed for every $p\le23$}, for every
+cheap set, every $b\in[2,3]$, any width; maximisers in it are interference-free.
+(b) At every prime, the relations case is closed whenever $|L'|\le6$ ($\kappa<2$).
+(c) Cheap sets inside a programme support: for the supports computed ($p\le31$ exact, $37\le p\le101$ heuristic, file
+\texttt{supports\_s1.5.json}) $\max_{\delta}\sum_{l\in S}\kappa_l(\delta)\le10.9<12$, so every such cheap set is closed in \emph{every}
+direction (in particular at whichever binding direction the network makes $\delta_0$).
+(d) General $T$ at $n=2$: the note's threshold $4$ gives \textbf{all of class $\mathcal C$ at $n=2$ for $p\in\{5,7\}$} ($p/2\le3.5$).  Alternatively
+(better when features use few sets $T$), with $A_T=\sum_{l\in L',\beta_{l,T}\ne0}\kappa_l(\delta_0)$, the bound holds when $\sum_T\sqrt{A_T}\le2\sqrt3$ (use $R_l\le\sum_T|\beta_{l,T}|$ and
+Bhatia--Davis per $T$).
+\end{corollary}
+
+\subsection*{3. The sharp single-$T$ payment, and $p\le59$}
+The extremal family of the relations note (two aligned atoms) has bonus $(1-(2/3)^{s-1})|D|$.  Let
+$c_{12}(s):=1-(2/3)^{s-1}$ ($0.1835$ at $b=2$).
+\begin{proposition}[$P_{12}$ for sign atoms]\label{p12}
+Let $\beta_i\in\mathbb C$, $\xi_i,\eta_i\in\{\pm1\}$, $B=\sum\beta_i\xi_i=0$, $C=\sum\beta_i\eta_i=0$, $A=\sum\beta_i$, $D=\sum\beta_i\xi_i\eta_i$.  Then for
+$1\le s\le\frac32$: $\ |A|-c_{12}(s)|D|\le3^{1-s}(\sum_i|\beta_i|^r)^s$, with equality for the aligned pair.
+\end{proposition}
+\begin{proof}
+Group the atoms by $(\xi,\eta)$ with sums $G_{\pm\pm}$; merging a group lowers $\sum|\beta|^r$ and keeps $A,B,C,D$.  $B\pm C=0$ give
+$G_{++}=G_{--}=:g$, $G_{+-}=G_{-+}=:h$, so $A=2(g+h)$, $D=2(g-h)$, cost $\ge2|g|^r+2|h|^r$.  For fixed moduli $|A|-c|D|$ is largest when
+$g,h$ are aligned.  With $|h|=t|g|$, $t\le1$, $|g|=1$ and $1-c_{12}=(2/3)^{s-1}=3^{1-s}2^{s-1}$:
+\[\tfrac12\big[(|A|-c|D|)-3^{1-s}(2+2t^r)^s\big]=(2/3)^{s-1}\big[1-(1+t^r)^s\big]+t(1+c)\le t^r\big[(1+c)-s(2/3)^{s-1}\big]\]
+by Bernoulli and $t\le1$.  The bracket is $2-(1+s)(2/3)^{s-1}\le0$, because $\log((1+s)(2/3)^{s-1})$ is concave in $s$, equal to $\log2$ at
+$s=1$ and to $\log2.04$ at $s=\frac32$.
+\end{proof}
+Numerically (SLSQP, $m\le5$ complex atoms, 150 starts each, \texttt{c12.py}) the supremum of $(|A|-3^{1-s}Q^s)/|D|$ under $B=C=0$ with
+\emph{complex} unit $\xi,\eta$ is again $c_{12}(\frac32)=0.1835$.
+\begin{conjecture}[$P_{12}$]
+Proposition~\ref{p12} holds for complex unit $\xi_i,\eta_i$.
+\end{conjecture}
+\begin{corollary}\label{cor59}
+With $c=c_{12}$ the Parseval threshold is $1/c_{12}^2\ge29.7$ on $1\le s\le\frac32$.  Hence the relations case is closed for every
+$p\le59$ (and for $|L'|\le14$ at every prime) for networks whose input Fourier phases at each feature are signed
+($\hat u_{it}(l)\in\mathbb R\cup i\mathbb R$), and for all networks if (P$_{12}$) holds.
+\end{corollary}
+So for $p\le59$ the relations case is a \emph{single-feature} statement.  (P$_{12}$) is an $n=2$ atom inequality of the kind Theorem A
+proves; the spectral form of the cost lemma in the note is a natural route.
+
+\subsection*{4. $p>23$: what remains, and numerical status}
+For $p>23$ Parseval can fail only if the cheap set carries more than $12$ units of $\kappa(\delta_0)$, i.e.\ contains most of $F$.
+Maximising over $v\in[0,\tau a]$, $\tau=3^{s-1}$, gives a criterion free of phases and of $v$:
+\[\textstyle(\mathrm C_{L2})\qquad \widetilde H(a):=\min_\delta\big[(Ka)_\delta+\tau g_\delta(a)\big]\le\Gamma_s\|a\|_r\quad\forall a\ge0,\qquad
+g_\delta(a)=\max_{0\le z\le a}\big(c_*\sum z_l\kappa_l-\sqrt{\sum z_l^2\kappa_l}\big).\]
+Water-filling: $g_\delta=c_*\lambda\big(\sum\kappa_lm_l-12\big)$, $m_l=\min(a_l/\lambda,1)$, $\sum\kappa_lm_l^2=12$ ($g_\delta=0$ if $\sum_{a_l>0}\kappa_l\le12$).
+$\widetilde H$ is concave and $1$-homogeneous; $(\mathrm C_{L2})$ implies the IF bound in the relations case.
+\emph{Numerics} (CMA-ES, many starts, \texttt{cl2f.py}, \texttt{cl2g.py}; $b=2$).  On the region where the Parseval gain is
+substantial ($\tau g\ge0.01\,\Phi$) the supremum of $\widetilde H/(\Gamma_s\|a\|_r)$ is $0.802,0.827,0.831,0.840,0.837,0.833,0.831,0.844,0.839$
+for $p=29,31,37,41,43,47,53,59,61$ (larger $p$ in \texttt{cl2g.out}); the maximisers spread over $11$--$16$ frequencies.  Uniform allocations
+on $F$ give $0.66$--$0.76$ for $29\le p\le97$.  So spread cheap sets are beaten by coverage loss with $\ge15\%$ to spare.  (These are
+lower estimates of suprema from local search, i.e.\ evidence; $\Gamma_s$ for $p>31$ is the heuristic value.)  This is the precise sense in which ``coverage''
+enters: not as a property of the cheap set, but as the concavity loss of an allocation spread enough to defeat Parseval.
+
+A crude scaling for where $(\mathrm C_{L2})$ must eventually fail: a uniform allocation on $k\ge12$ frequencies with coverage $\gamma$ has
+ratio $\approx(1.5\gamma/\sqrt k-1.73\sqrt\gamma/k)/\Gamma_s$; with $\Gamma_s\approx\gamma^\star/\sqrt{K^*}$ this exceeds $1$ only once $K^*\gtrsim16$,
+i.e.\ $\ln p\gtrsim11$.  Below that, Parseval plus coverage suffices; beyond it an extreme-value (not $L^2$) bound is needed.
+
+\subsection*{5. (O1) as stated in the note is false; the correct statement}
+\begin{itemize}
+\item The plain one-sided constant $\sigma(X)=\min_{b,\theta}\max_w(-\sum b_l\cos(2\pi lw/p+\theta_l))/\sum b_l$ of the full set is
+$\sigma(F)=1/(p-1)$, attained at \emph{zero} phases: $\sum_{l\in F}\cos(2\pi lw/p)=\frac12(p\,\mathbf 1_{w=0}-1)$ is a spike.  So good
+coverage (here: perfect coverage) produces a \emph{small} one-sided constant.
+\item For the programme supports themselves (\texttt{sigma\_supports.out}): $\sigma=0.250,0.167,0.602,0.337,0.478,0.516,0.349,0.464,0.439$
+for $p=5,7,11,\dots,31$.  Below $\frac12$ except at $p=11,19$, and below $c_*$ at $p=5,7$ (where $\operatorname{spt}y^\star=F$).
+\item Yet the relations case is closed at all these primes (Corollary~\ref{cor23}).  The plain one-sided inequality is neither necessary
+nor the right object: the network faces the oscillation of a \emph{first difference} (Lemma~\ref{osc}), and a spike $\varphi$ has
+$\osc D_\delta\approx2\max\varphi$, the full amplitude.
+\end{itemize}
+\textbf{Corrected (O1$'$).}  For all $a\ge0$, $v\in[0,\tau a]$ and phases,
+$\ \min_{\delta\ne0}\big[\sum_l\kappa_l(\delta)(a_l+c\,v_l)-\frac12\osc_wD_\delta\big]\le\Gamma_s(p)\|a\|_r$, with $c=c_*$ (proved payment) or $c_{12}$
+(conjectured sharp).  Proved for $p\le23$ ($c_*$), for $p\le59$ ($c_{12}$); $(\mathrm C_{L2})$ is a phase-free sufficient condition.
+For comparison, the weaker common-point relaxation of the note has numerical critical constants $0.45,0.43,0.49,0.50,0.53,0.57,0.57,0.61,0.61$
+($p=5,\dots,31$) against the needed $0.289$ (\texttt{relax.py}, \texttt{ccrit*.out}; maximisers are $y^\star$ with $v=0$).
+
+\subsection*{6. Large $p$: relation mass is the Laplace transform of coverage}
+\begin{lemma}[exact relation mass]\label{zid}
+For $S\subseteq\mathbb Z_p$ and $x\in\mathbb R_{\ge0}^S$:
+$\displaystyle\sum_{k\in\mathbb Z^S:\ \sum k_ll\equiv0}\ \prod_lI_{|k_l|}(x_l)\ =\ Z(x):=\frac1p\sum_{\delta\in\mathbb Z_p}e^{\sum_lx_l\cos(2\pi l\delta/p)}
+=e^{\sum x_l}\ \frac1p\sum_{\delta}e^{-(Kx)_\delta}$.
+\end{lemma}
+(Use $e^{x\cos\vartheta}=\sum_kI_k(x)e^{ik\vartheta}$ and orthogonality.)  Likewise, for any weighted product test with factor
+generating function $\hat\omega_l(\vartheta)=\sum_k\omega_l(k)e^{ik\vartheta}$, the absolute weight landing on the character $m$ is
+$\frac1p\sum_\delta e^{-2\pi im\delta/p}\prod_l\hat\omega_l(2\pi l\delta/p)$ (exact; with $|\omega|$ for worst-case phases).
+\begin{proposition}[exponential tilt: coverage $\Rightarrow$ oscillation]\label{tilt}
+Let $P(w)=\sum_{l\in S}b_l\cos(2\pi lw/p+\psi_l)$, $\lambda>0$, $x=\lambda b$.  Then, uniformly in the phases,
+$\max P,\ -\min P\ \ge\ \frac1\lambda\log\big(2\prod_lI_0(x_l)-Z(x)\big)$.  In particular, with $E(x)=\sum_l(x_l-\log I_0(x_l))$ and
+$C(x)=\min_{\delta\ne0}(Kx)_\delta$: if $E(x)\le\ln(p/2)$ and $C(x)\ge E(x)+\ln2$, then $\max P,-\min P\ge\frac1\lambda\sum_l\log I_0(\lambda b_l)$.
+\end{proposition}
+\begin{proof}
+$e^{\lambda\max P}\ge\mathbb E_we^{\lambda P}=\sum_{k\in\mathrm{Rel}}\prod_lI_{k_l}(x_l)e^{ik_l\psi_l}\ge\prod I_0(x_l)-(Z(x)-\prod I_0(x_l))$ by Lemma~\ref{zid};
+same for $-P$.  For the second part, $Z\le e^{\sum x}(\frac1p+e^{-C})\le e^{\sum x}e^{-E}$ and $\prod I_0=e^{\sum x-E}$.
+\end{proof}
+In the relations case apply it to $P=D_\delta$ ($b_l=2v_ls_l$): the IF bound holds at $\delta$ if $\frac1\lambda\log I_0(\lambda b_l)\ge c\,b_ls_l$ for each $l$.
+For a uniform cheap set of size $K=\kappa\ln p$ the certified fraction $2\log I_0(x)/x$ (with $\kappa(x-\log I_0x)=1$) and the coverage it
+requires, $\min_{\delta\ne0}\frac1K\sum_{l\in S}\kappa_l(\delta)\ge1-\log I_0(x)/x$, are:
+\begin{center}\begin{tabular}{lccccccc}\toprule
+$\kappa=K/\ln p$&1.0&1.1&1.2&1.3&1.4&1.5&1.6\\
+certified $\osc/\sum b$&0.664&0.587&0.526&0.476&0.435&0.400&0.370\\
+coverage needed&0.668&0.707&0.737&0.762&0.783&0.800&0.815\\\bottomrule\end{tabular}\end{center}
+Needed: $2c\,\bar s\le0.577$ ($c_*$) or $\le0.367$ ($c_{12}$).  So at the programme scale $K^*\approx1.3$--$1.5\ln p$ the tilt certifies
+enough \emph{under (P$_{12}$)} ($K\le1.61\ln(p/2)$, coverage $\ge0.82$) and not under Theorem A ($K\le1.11\ln(p/2)$).  The computed supports have
+uniform coverage $0.59$--$0.76$ ($p\le101$), below $0.8$, so the min-coverage form of Proposition~\ref{tilt} is not yet enough; the exact
+average $\frac1p\sum_\delta e^{-(Kx)_\delta}$ of Lemma~\ref{zid} is what must be estimated.  By contrast a linear Riesz product cannot be controlled
+by min-coverage at all: the same computation needs coverage $\ge(1+\varepsilon)\log(1+\varepsilon)/\varepsilon>1$.
+
+\subsection*{7. Relation weights of weighted product tests (requested by the main thread)}
+In the relations case $\gamma_l=0$ and the quadratic factor is exact: $w_l=(\cos u_l-2^{-1/2})^2$, so
+$1-\varepsilon+\varepsilon w_l=1-\sqrt2\,\varepsilon\cos u_l+\frac\varepsilon2\cos2u_l$.  Its monomials sit at $\pm l$ (weight $\varepsilon/\sqrt2$) and $\pm2l$
+(weight $\varepsilon/4$): off-zero mass $(\sqrt2+\frac12)\varepsilon=1.91\varepsilon$ per factor, against $\varepsilon$ for the linear factor
+$1-\varepsilon\cos u_l$.  Detection per unit $b_l$: $\varepsilon/\sqrt2$ (quadratic), $\varepsilon/2$ (linear); payment per unit $b_l$:
+$c_*s_l\le0.289$, i.e.\ at most $40.8\%$ of the quadratic and $57.7\%$ of the linear detection.  The relations that leak are
+$\sum_lk_ll\equiv0$ (normalisation $W_0$) and $\sum_lk_ll\equiv\pm m$, $m\in X$ (leak $\Lambda_m$), with $k_l\in\{0,\pm1\}$ (linear) or $\{0,\pm1,\pm2\}$
+(quadratic); each relation leaks $\prod_l\omega(|k_l|)$.  Per-feature surplus
+$\big[\det-\Lambda_m-(1+W_0)c_*s_m(\delta)\big]/\det$, minimised over $m$, maximised over $\varepsilon$ and binding $\delta$ (\texttt{relq2.out}):
+\begin{center}\small\begin{tabular}{lrrrrrrrrrrrr}\toprule
+$p$&5&7&11&13&17&19&23&29&31&37&41&47\\
+linear&$-5$&$-68$&$+56$&$+26$&$+46$&$+47$&$+6$&$+27$&$+33$&$-3$&$+5$&$-38$\\
+quadratic&$-79$&$-168$&$+60$&$-45$&$-11$&$+1$&$-63$&$-50$&$-26$&$-72$&$-47$&$-125$\\\midrule
+$p$&53&59&61&67&71&73&79&83&89&97&&\\
+linear&$+27$&$+20$&$+22$&$-3$&$-1$&$-3$&$+6$&$-3$&$+12$&$+8$&&\\
+quadratic&$-36$&$-38$&$-38$&$-67$&$-74$&$-72$&$-62$&$-54$&$-52$&$-51$&&\\\bottomrule\end{tabular}\end{center}
+(in \% of detection; worst-case phases).  So in the relations case product tests are the wrong tool: the quadratic one leaks more than the
+linear one (more monomials, coefficient-$2$ relations), both fail at many primes, and Parseval, which sees no relation at all, closes every one
+of these supports (Corollary~\ref{cor23}(c)).  For the multi-$T$ setting of the note's quadratic theorem the same exact formula applies on
+$\mathbb Z_p^2$: leak at $\chi$ $=p^{-2}\sum_{\zeta\in\mathbb Z_p^2}e^{-2\pi i\langle\chi,\zeta\rangle/p}\prod_l\hat\omega_l(\zeta)$, where $\hat\omega_l(\zeta)$ is the
+generating function of $w_l$'s monomials $2l(\pm\mathbf1_T\pm\mathbf1_{T'})$ evaluated at $\zeta$.  A relation in $\mathbb Z_p^2$ needs one in
+each coordinate, so the single-$T$ (diagonal) assignment is the relation-richest; within the $39\%$ budget, the leakage to fit is
+$\sqrt2\max_m\Lambda_m/\varepsilon+W_0$ (quadratic) in units of detection.
+
+\subsection*{8. Literature}
+No off-the-shelf result applies.  Chowla's cosine problem (Bedert, arXiv:2509.05260, polynomial lower bounds for $-\min$ of $0/1$ cosine
+sums) and its one-sided variants concern many frequencies and bounds sublinear in $\sum b$; we need bounds linear in $\sum b$ for
+$|S|\asymp\log p$ with arbitrary phases, which fail in general (flat polynomials).  Sidon-set theory (Pisier; Bourgain, Ann.\ Inst.\ Fourier
+35 (1985); Hare--Yang, arXiv:1808.03128) is qualitative and gives no constants for $|S|\asymp\log p$ in $\mathbb Z_p$.  The arithmetic input
+that replaces dissociation here is Lemma~\ref{zid}.
+
+\subsection*{9. Precise remaining gap}
+\begin{enumerate}
+\item[(G1)] Prove (P$_{12}$) for complex atoms (a single-feature inequality).  This extends the closure from $p\le23$ to $p\le59$ unconditionally.
+\item[(G2)] For $p>23$ (resp.\ $59$), the only obstruction is cheap interference spread over most of $F$; prove $(\mathrm C_{L2})$ (numerically true
+for $29\le p\le61$ with $\ge15\%$ margin) or an averaged-coverage version of Proposition~\ref{tilt}.
+\item[(G3)] For $\ln p\gtrsim11$, programme-scale cheap sets exceed Parseval's threshold; Proposition~\ref{tilt} with the averaged form of
+Lemma~\ref{zid} and (P$_{12}$) is the candidate argument (at $K=1.5\ln p$ it certifies $0.400$ against $0.367$ needed).
+\end{enumerate}
+Files: \texttt{scratchpad/forkO1/}: \texttt{relax.py, ccrit.py} (common-point relaxation), \texttt{sigma.py, sigsupp.py} (plain one-sided
+constants), \texttt{cl2f.py, cl2g.py} ($\mathrm C_{L2}$), \texttt{c12.py} (sharp single-$T$ payment), \texttt{softmax.py} (Lemma~\ref{zid} check and
+tilt bound), \texttt{relq.py, relq2.py} (product-test relation weights), \texttt{supports\_*.json}.
+\end{document}

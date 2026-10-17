@@ -1,0 +1,12 @@
+/usr/local/lib/python3.13/dist-packages/cma/s.py:17: UserWarning: Could not import matplotlib.pyplot, therefore ``cma.plot()`` etc. is not available
+p=5 supp y*=[1, 2] plain sigma(supp) <= 0.2500 b=[0.5 0.5]
+p=7 supp y*=[1, 2, 3] plain sigma(supp) <= 0.1667 b=[0.333 0.333 0.333]
+p=11 supp y*=[1, 3] plain sigma(supp) <= 0.6018 b=[0.657 0.343]
+p=13 supp y*=[1, 2, 5] plain sigma(supp) <= 0.3369 b=[0.419 0.356 0.225]
+p=17 supp y*=[2, 3, 8] plain sigma(supp) <= 0.4781 b=[0.326 0.282 0.392]
+p=19 supp y*=[2, 5, 6] plain sigma(supp) <= 0.5156 b=[0.472 0.201 0.327]
+p=23 supp y*=[4, 5, 6, 8] plain sigma(supp) <= 0.3486 b=[0.376 0.124 0.198 0.301]
+p=29 supp y*=[3, 7, 8, 9] plain sigma(supp) <= 0.4638 b=[0.195 0.168 0.322 0.315]
+p=31 supp y*=[1, 4, 11, 13] plain sigma(supp) <= 0.4392 b=[0.219 0.192 0.277 0.311]
+
+[exited with code 0]
