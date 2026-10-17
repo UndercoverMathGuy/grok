@@ -365,9 +365,117 @@ $\pi\nu^{s-1}$, which swamps the differences between allocations (removing one f
 factor $(1-w_j)^s$ only, paper Lemma 19).  The compensation of Section~6 is the precise danger.  It uses frequencies whose
 clean amplitude is tiny but non-zero and that the programme does not pay for.  An optimiser built that way would
 \emph{over}count, so the strict count statement at $p\ge5$ is exactly as hard as excluding compensation at the optimum.
-In every experiment at $p=5,7$, compensated networks stay $\ge4\times$ below the $K^*$-feature IF block.
+In every experiment at $p=5,7$, compensated networks stay $\ge4\times$ below the $K^*$-feature IF block.  Section~\ref{sec:robust} proves the count for a class that carries interference, and isolates what is left.
 
-\section{What is proved, what is false, what is open}
+\section{A Lipschitz form of Lemma 7 and a transport reduction}\label{sec:robust}
+\begin{lemma}[robust interference-free bound, every $n$]\label{lem:robust}
+Let $0<r\le1$, $s=1/r$, $\beta_1,\dots,\beta_N\in\mathbb C$, $\xi_l\in\mathbb T^n$, $A=\sum_l\beta_l$,
+$\beta_T=\sum_l\beta_l\prod_{t\in T}\xi_{lt}$, $Q=\sum_l|\beta_l|^r$, and let $\ell:=\max|\beta_T|$ over the non-empty
+\emph{intervals} $T=\{t'+1,\dots,t\}\subseteq[n]$.  Then
+\[\text{(i)}\ \ |A|^r\le\nu^{r-1}Q+\|L\|_{\rm op}^r,\qquad\qquad
+\text{(ii)}\ \ |A|\le\nu^{1-s}Q^s+K_{\nu,s}\,\ell,\quad K_{\nu,s}:=\tfrac{\nu!-1}{\nu}\,\nu^{(s-1)(\nu-1)},\]
+where $L$ is the strictly lower part of the chain matrix.  With $\ell=0$ both are the paper's Lemma 7.
+\end{lemma}
+\begin{proof}
+Let $H=\sum_l\beta_lm_lm_l^*$ with the chain vectors $m_l$ of the paper's Lemma (chain).  Its diagonal is $A$, its
+strictly lower entries are the interval sums $\beta_T$, so $H=H_0+L$ with $H_0=AI+U$ upper triangular and
+$|L_{tt'}|\le\ell$.  Rotfel'd's inequality for $0<r\le1$ gives $\sum_k\sigma_k(H)^r\le\sum_l\|\beta_lm_lm_l^*\|_{S_r}^r=\nu^rQ$.
+(i) All eigenvalues of $H_0$ equal $A$, so Weyl's majorant theorem gives $\sum_k\sigma_k(H_0)^r\ge\nu|A|^r$.  Weyl's
+perturbation bound $\sigma_k(H_0)\le\sigma_k(H)+\|L\|$ and subadditivity of $t\mapsto t^r$ give
+$\nu|A|^r\le\nu^rQ+\nu\|L\|^r$.
+(ii) Every non-identity permutation has a factor below the diagonal, and every entry of $H$ has modulus at most
+$S_1:=\sum_l|\beta_l|\le Q^s$.  So $|\det H-A^\nu|\le(\nu!-1)\,\ell\,S_1^{\nu-1}$.  By AM--GM on $\sigma_k^r$,
+$|\det H|\le(\nu^{-1}\sum_k\sigma_k^r)^{\nu/r}\le a^\nu$ with $a:=\nu^{1-s}Q^s$.  Hence
+$|A|^\nu\le a^\nu+(\nu!-1)\ell Q^{s(\nu-1)}$, and $(a+\varepsilon/(\nu a^{\nu-1}))^\nu\ge a^\nu+\varepsilon$ gives (ii), since
+$Q^{s(\nu-1)}/a^{\nu-1}=\nu^{(s-1)(\nu-1)}$.
+\end{proof}
+By the paper's Lemma 6 the lemma applies to the neurons of any network at any frequency $j$, with $A=\beta_j$ and
+$\ell=\ell_j:=\max_{T\text{ interval}}|\beta_{j,T}|$.
+
+\begin{corollary}[single-frequency networks, every $n$, all large $p$]\label{cor:largep}
+The constant of the companion note's Theorem 14 satisfies $k^*(n,s)\le\sqrt2\,K_{\nu,s}<\infty$ for every $n$ and $s$.
+Since $k_p=\sqrt{\cot^2(\pi/p)-1}\ge p/\pi-1$ for $p\ge5$, no single-frequency network beats the interference-free
+single-feature value at any prime $p\ge\pi(1+\sqrt2K_{\nu,s})$.  (For $n=2$, Corollary~\ref{cor:n2} already gives every $p\ge5$.)
+\end{corollary}
+\begin{proof}
+$\Re A-\nu^{1-s}Q^s\le K_{\nu,s}\ell\le K_{\nu,s}\sqrt E=\sqrt2K_{\nu,s}\sqrt{E/2}$.  For $k_p$: $\cot x\ge1/x-x/2$ on
+$(0,\pi/5]$ (the difference vanishes at $0$ and has derivative $1/x^2+1/2-\csc^2x\ge0$ there), so
+$\cot^2x-1\ge x^{-2}-2\ge(x^{-1}-1)^2$ for $x\le2/3$.
+\end{proof}
+The constant is crude ($K_{3,3/2}=5$, $K_{4,2}=368$), so the threshold is large, but it is finite and explicit for
+every $n$.
+
+\begin{definition}
+A network is \emph{frequency-pure without input DC} (class $\mathcal C$) if every neuron $i$ has a frequency $j_i\in F$ with
+$u_{it}\in\mathrm{span}\{\cos(2\pi j_i\cdot/p),\sin(2\pi j_i\cdot/p)\}$ for all $t$ and
+$w_i\in\mathrm{span}\{\mathbf1,\cos(2\pi j_i\cdot/p),\sin(2\pi j_i\cdot/p)\}$.  Neurons of different frequencies may
+coexist in any numbers.  Every interference-free block of the paper is in $\mathcal C$.
+\end{definition}
+For $\theta\in\mathcal C$, expanding $u(a)\rho^{la}=p^{-1}(\hat u(-l)+\hat u(l)\rho^{2la})$ gives
+$\Phi_l(x)=\sum_{T\subseteq[n]}a_{l,T}\,\rho^{2l s_T(x)}$ with $s_T(x)=\sum_{t\in T}x_t$, $a_{l,\emptyset}=\overline{\beta_l}$ and
+$|a_{l,T}|=|\beta_{l,T}|$ (companion note, Lemma 11).  For $T\ne\emptyset$ define the \emph{interference profile}
+\[\varphi_T(w):=\sum_{l\in F}\Re\big(a_{l,T}\rho^{lw}\big),\qquad w\in\mathbb Z_p,\]
+a mean-zero real function on $\mathbb Z_p$ whose Fourier coefficients are the sign-flipped coefficients of all features at once.
+Write $m_\delta:=\mathbb E_xg(x,\delta)-h\ge0$ for the mean slack and $\bar m_\delta=\frac12(m_\delta+m_{-\delta})$.
+
+\begin{lemma}[interference profiles are slack potentials]\label{lem:potential}
+Let $\theta\in\mathcal C$, $p$ any odd prime.  For every non-empty $T$, every $w\in\mathbb Z_p$ and every $\delta\ne0$,
+\[\varphi_T(w)-\varphi_T(w-\delta)\ \ge\ -m_\delta .\]
+Consequently $|\beta_{l,T}|\,|1-\rho^{l\delta}|\le2m_\delta$ for all $l,T,\delta$, i.e.\
+$|\beta_{l,T}|\le\sqrt2\,\min(m_\delta,m_{-\delta})/\sqrt{\kappa_l(\delta)}$.
+\end{lemma}
+\begin{proof}
+With $c_l(\delta)=1-\rho^{-l\delta}$,
+$\Re(a_{l,T}c_l(\delta)\rho^{2ls_T})=\Re(a_{l,T}\rho^{l\cdot2s_T})-\Re(a_{l,T}\rho^{l(2s_T-\delta)})$, so by the
+companion note's Lemma 2
+\[g(x,\delta)=\mathbb E_xg(\cdot,\delta)+\sum_{T\ne\emptyset}\big(\varphi_T(2s_T(x))-\varphi_T(2s_T(x)-\delta)\big).\]
+Fix $T_0\ne\emptyset$ and condition on $s_{T_0}(x)=z$.  For $T\ne T_0$ the forms $s_T,s_{T_0}$ are linearly independent
+over $\mathbb Z_p$, so $s_T$ is conditionally uniform and $\varphi_T$ averages to $0$.  Hence
+$h\le\mathbb E[g\mid s_{T_0}=z]=h+m_\delta+\varphi_{T_0}(2z)-\varphi_{T_0}(2z-\delta)$; put $w=2z$ ($p$ odd).  For the
+consequence, $w\mapsto m_\delta+\varphi_T(w)-\varphi_T(w-\delta)$ is non-negative with mean $m_\delta$, and its coefficient at
+$\rho^{lw}$ is $\frac12a_{l,T}c_l(\delta)$, with $|c_l(\delta)|=\sqrt{2\kappa_l(\delta)}$.
+\end{proof}
+So the pointwise margin constraints, projected onto each $T$, say exactly that $\varphi_T(w')-\varphi_T(w)\le m_{w-w'}$: the
+interference profile is a potential for the slack, i.e.\ $1$-Lipschitz for the path quasi-metric $D_m$ that the mean
+slacks induce on the Cayley graph of $\mathbb Z_p$.  By Kantorovich--Rubinstein duality, the largest coefficient a
+feature $l$ can carry at $T$ is a transport cost: $\max|\beta_{l,T}|=\frac2p\max_\phi W_{D_m}(\nu^+_{l,\phi},\nu^-_{l,\phi})$,
+$\nu_{l,\phi}(w)=\cos(2\pi lw/p+\phi)$.  No circularity is used, so this holds at $p=3$ as well.
+
+\begin{theorem}[decoupling when few features are bought cheaply]\label{thm:loc}
+Let $\theta\in\mathcal C$, let $a_l:=\nu^{1-s}Q_l^{\,s}$ with $Q_l=\sum_{i}|\beta_{il}|^r$ be the interference-free price of the
+amplitudes $\theta$ pays for, let $\delta^\star$ minimise $\sum_la_l\kappa_l(\delta)$, and let $L'=\{l:|\beta_l|>a_l\}$ be the
+frequencies bought \emph{below} the interference-free price.  If
+\[\sum_{l\in L'}\kappa_l(\delta^\star)\ \le\ \frac{2}{(2^n-1)\,k^*(n,s)^2}\qquad(\,=4\ \text{for }n=2\,),\]
+then $\gamma(\theta)\le\nu^{1-s}B_p\Gamma_s(p)$, and if the inequality is strict, equality forces $\theta$ to be
+interference-free.  For $n=2$ the condition holds whenever $|L'|\le2$, because $\kappa_l<2$.  Hence, for $n=2$, every odd
+prime $p$ and every $b\in[2,3]$: among networks of $\mathcal C$ in which at most two frequencies are bought below the
+interference-free price (any width, any interference elsewhere), the maximum is the interference-free value, and every
+maximiser is interference-free and uses exactly $|\operatorname{spt}y^\star|=K^*(s,p)$ features.
+\end{theorem}
+\begin{proof}
+Averaging $g(\cdot,\pm\delta)$ over $x$ gives, for every $\delta$, $h=\sum_l\Re\beta_l\,\kappa_l(\delta)-\bar m_\delta$.  By the
+companion note's Theorem 14 (whose constant is finite by Corollary~\ref{cor:largep}),
+$|\beta_l|-a_l\le k^*\sqrt{E_l/2}$ with $E_l=\sum_{T\ne\emptyset}|\beta_{l,T}|^2$.  For $n=2$ take $k^*=1/\sqrt6$ (Part I, Theorem A).
+Fix $T$.  By the proof of Lemma~\ref{lem:potential}, $D_T(w):=\varphi_T(w)-\varphi_T(w-\delta^\star)$ has mean zero and values in
+$[-m_{\delta^\star},m_{-\delta^\star}]$ (the upper bound is the constraint at $(w-\delta^\star,-\delta^\star)$).  So
+$\frac1p\sum_wD_T^2\le m_{\delta^\star}m_{-\delta^\star}\le\bar m^2$ (Bhatia--Davis), and Parseval, with coefficients
+$a_{l,T}c_l(\delta^\star)$ and $|c_l|^2=2\kappa_l$, gives $\sum_l|\beta_{l,T}|^2\kappa_l(\delta^\star)\le\bar m^2$.  Summing over $T$:
+$\sum_lE_l\kappa_l(\delta^\star)\le(2^n-1)\bar m^2$.  By Cauchy--Schwarz,
+\[h\le\sum_la_l\kappa_l(\delta^\star)+\frac{k^*}{\sqrt2}\sum_{l\in L'}\sqrt{E_l}\,\kappa_l(\delta^\star)-\bar m
+\le\sum_la_l\kappa_l(\delta^\star)+\bar m\Big(k^*\sqrt{\tfrac{2^n-1}2\textstyle\sum_{l\in L'}\kappa_l(\delta^\star)}-1\Big).\]
+Under the condition the bracket is $\le0$, so $h\le\nu^{1-s}\min_\delta\sum_lQ_l^{\,s}\kappa_l(\delta)\le\nu^{1-s}(C_bP)^s\Gamma_s$
+by the single-neuron budget $\sum_lQ_l\le C_bP$.  If the bracket is $<0$ and equality holds, then $\bar m=0$, and
+Lemma~\ref{lem:potential} gives $\beta_{l,T}=0$ for all $l,T$.  So the maximiser is interference-free, and the paper's
+Theorem 8 gives its amplitudes and its count.
+\end{proof}
+Theorem~\ref{thm:loc} is the first count result at $p\ge5$ outside the dense regime for a class of networks that carry
+interference.  Any number of features may carry interference, and up to two of them (for $n=2$) may use it to buy
+themselves below the interference-free price.  They still cannot beat the interference-free value, because the slack
+their interference forces at $\delta^\star$ is at least as large as what they gain.  What it does not cover is
+\emph{collective} undercutting: many features each bought a little below price, with phases arranged so that their
+profiles nearly cancel.  The proof charges these through Cauchy--Schwarz over $L'$, which loses $\sqrt{|L'|}$.  A proof of
+the general count must replace this step by an estimate that sees the cancellation.
+
 \begin{center}
 \begin{tabular}{p{0.5\textwidth}p{0.44\textwidth}}
 \toprule
@@ -387,7 +495,10 @@ feature count $=K^*(s,p)$, all $p$, dense range of Thm.~\ref{thm:dense} & proved
 feature count $=K^*(s,p)$, all $p$, given decoupling & proved (Prop.~\ref{prop:dec}); price irrelevant\\
 feature count $=\Theta(\log p)=\Theta(K^*)$, all $p$, unconditional & proved (Thm.~\ref{thm:theta} with paper's Cor.~12)\\
 single-frequency networks, $n=2$, all $p\ge5$, $b\in[2,3]$: no gain over IF & proved (Cor.~\ref{cor:n2})\\
-feature count $=K^*(s,p)$, $p\ge5$, $b<b_0$ & open; equivalent in difficulty to excluding compensation\\
+$|\beta_j|\le\nu^{1-s}Q_j^s+K_{\nu,s}\ell_j$ (Lemma 7 with interference), every $n$ & proved (Lemma~\ref{lem:robust})\\
+single-frequency networks, every $n,b$, all $p\ge p_0(n,b)$: no gain over IF & proved (Cor.~\ref{cor:largep})\\
+count $=K^*$ in class $\mathcal C$, $n=2$, all $p$, $b\in[2,3]$, $\le2$ features below IF price & proved (Thm.~\ref{thm:loc})\\
+feature count $=K^*(s,p)$, $p\ge5$, $b<b_0$ & open; reduces to collective undercutting (Sec.~\ref{sec:robust})\\
 \bottomrule
 \end{tabular}
 \end{center}
