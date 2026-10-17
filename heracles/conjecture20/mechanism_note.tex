@@ -844,9 +844,53 @@ sharp $\lambda=c_1=1-3^{1-s}$ it is positive for every feature at $p=5,7,13$ and
 hiding is impossible (Proposition~\ref{prop:hide}), yet near-hiding for free would already beat Theorem A.  Any proof of (O2) has to use the cost of the
 compensating modes.  The costs are quadratic.  The gain is at most linear in $|\beta_{l,T}|$, and numerically it is also quadratic in the
 interference everywhere.  A local search over up to six atoms ($n=2$, $b=2$) gives $|A|-3^{1-s}Q^s\le0.275\,\sum_T|\beta_T|^2/|A|$.  The extremiser
-has all $|\beta_T|\approx0.45|A|$; it is not the IF block and not a single atom, for which the ratio is $c_1/3=0.141$.  So at small interference the
-residual of the free game (linear, positive by Proposition~\ref{prop:hide}) wins, and the decision is a comparison of constants at interference of
-the order of the amplitude.  Files: \texttt{mechanism\_scripts/freehide.py}.
+has all $|\beta_T|\approx0.45|A|$; it is not the IF block and not a single atom, for which the ratio is $c_1/3=0.141$.  With partner and riding only, the residual
+of the free game is linear and positive (Proposition~\ref{prop:hide}), so it wins at small interference.  With stray outputs it can vanish
+(Proposition~\ref{prop:dich} below), and then quadratic gain meets quadratic cost: the decision is a comparison of constants at every size.  Files: \texttt{mechanism\_scripts/freehide.py}.
+
+\paragraph{The single-cheap-feature compensation game, solved.}  Take one cheap feature $l$ of a programme vertex, its interference resolved by
+the set $T$, and every channel of Lemma~\ref{lem:channels}: partner, riding, stray outputs, and dedicated neurons with their siblings.  The channels
+pay their Lorentz costs, and the prover picks $\mu$ on $B$.  The value is a \emph{protection curve} $\Pi_T(R)$: the least detected slack plus cost
+that the network can leave when its sign-flipped mode has size $R$.  By Sion's theorem $\Pi_T$ has a dual SOCP form.  It is convex, and $\Pi_T(R)/R$
+is non-decreasing with limit $h_T$ at $0$.  So a gain bound linear in $R$ (Theorem A's $\frac12$, or $c_1$) wins for the prover iff it is $\le\min_Th_T$.
+\begin{proposition}[free first-order hiding: a Chebotarev dichotomy]\label{prop:dich}
+Let the channels at $\chi_{l,T}$ supply a set $M_T$ of distinct output frequencies $\ne0,l$, each with a free coefficient.  Then $h_T=0$ (exact
+first-order hiding from every binding direction) if and only if $|M_T|\ge|B|$.  With partner and riding only, $|M_T|=2|S|-1<|B|$ at every vertex, so
+$h_T>0$.  In the dense case ($S=F$, $B=\mathbb Z_p^\times$; e.g.\ $p=5,7$ at $b=2$) $h_T=\frac12$ exactly.
+\end{proposition}
+\begin{proof}[Proof sketch]
+$h_T=0$ iff $c_l|_B$ lies in the span of the $c_m|_B$, $m\in M_T$, i.e.\ iff the exponentials $\rho^{-k\delta}$, $k\in M_T\cup\{0,l\}$, satisfy a relation on
+$B\cup\{0\}$ with non-zero coefficient at $l$.  By Chebotarev's theorem every square minor of the Fourier matrix of $\mathbb Z_p$ is non-zero.  So any
+$|B|+1$ of these exponentials are independent on $B\cup\{0\}$, and the relations needed exist iff $|M_T|+2\ge|B|+2$.  In the dense case, extend
+the dual vector $u$ to $\mathbb Z_p$.  Its transform is then supported on $\{l\}$, so $|u_\delta|$ is constant, and $\sum_{\delta\ne0}\kappa_l(\delta)=p$ gives
+$h_T\le\frac12$, with equality.
+\end{proof}
+So Proposition~\ref{prop:hide} is exact.  Stray outputs at $T=[n]$ add the frequencies $2l\pm q$ ($q\in S$), and then $|M_{[n]}|\ge|B|$ at every sparse
+support computed ($p=11,\dots,41$ at $b=2$).  Hence every gain bound that is linear near $R=0$ loses, at every sparse prime.  The gain is in
+fact quadratic near the IF block.  For three atoms within $\varepsilon$ of the block,
+$|A|-3^{1-s}Q^s=\frac{1-r}{8+r}\,|\beta_1+\beta_2+\overline{\beta_{12}}|^2/a+O(\varepsilon^3)$ (proved by second-order expansion; the slot phases cancel in that
+combination).  The constants are $0.346$ in terms of $\max_T|\beta_T|^2$ and $0.115$ in terms of $\sum_T|\beta_T|^2$ at $b=2$; the global supremum $0.275$
+is reached at moderate interference, on an explicit two-atom branch $G_2(\rho)=3\rho-\rho^3/c^2-1$, $c=\frac12(\frac32)^{s-1}$.
+
+\emph{Numerical verdict} ($n=2$, every support feature of every prime $5\le p\le41$, $b=2$ and $2.5$).  The prover wins in every case, using the sharp
+$T$-resolved gain (local search) as the network's payoff.  The minimal ratio of protection to gain is
+\begin{itemize}
+\item $1.015$ with partner and riding;
+\item $1.05$ with stray outputs and joint Lorentz accounts;
+\item $1.69$ with the quadratic test of Theorem~\ref{thm:quad}.
+\end{itemize}
+The worst case is $p=17$, $l=5$, a two-neuron cheap feature with $|\beta_T|\approx0.5$--$0.8\,a_l$.  At $b=2.5$ the minimal ratio is $\ge2.35$.  Dedicated
+compensators never help once their siblings are counted, and moving the allocation off $y^\star$ lowers the ratio by at most $7\%$ (under $1\%$ with
+the quadratic test).  Two variants lower the ratio below $1$.  Making the own partner free gives $0.94$ with single-character tests, still $1.66$ with
+the quadratic test.  Making every shared (F2) neuron free at any size gives $0.70$, and $1.32$ with the quadratic test.  F2 relations
+$2l\equiv\pm j\pm k$ occur for $30$ of the $38$ features at $p\le41$, so at these sizes they are the rule.  What would make this a proof:
+\begin{itemize}
+\item a $T$-resolved sharp payment inequality on atom systems (single-feature and $p$-free; anything within $1.6\times$ of the computed bonus suffices
+for $p\le41$ with the quadratic test);
+\item a $p$-uniform lower bound on the protection curves, i.e.\ a robust uncertainty principle on $\mathbb Z_p$.  The slopes $h_T$ vary irregularly with
+the arithmetic of $(p,l)$, from $0.095$ to $0.67$.
+\end{itemize}
+Files: \texttt{mechanism\_scripts/compensation/}.
 
 \paragraph{A spectral form of the cost lemma.}  The paper proves $\sum_l|\beta_l|^r\ge\nu^{1-r}|\beta|^r$ for interference-free atoms by comparing
 $\det(I+tH)$, $H=\sum_l\beta_lm_lm_l^*$ ($m_l$ the chain vectors), with $\prod_l(1+t\nu|\beta_l|)$.  The comparison does not need
@@ -1106,10 +1150,11 @@ sets spread over most of $F$ at $p\ge29$, where coverage enters through the Lapl
 Theorem~\ref{thm:loc}, and the multi-$T$ product tests of Theorem~\ref{thm:quad} need order-three dissociation.
 \item[(O2)] \emph{Compensation costs.}  Show that modes placed on a cheap feature's sign-flipped characters by other outputs never cost less
 than the bonus they protect.  By Lemmas~\ref{lem:channels} and~\ref{lem:lorentz}, every such mode is either paid quadratically through $U$
-(riding, stray outputs, dedicated neurons), or is the own partner (handled by both-edge averaging), or needs a shared neuron and a
-relation $2l\equiv\pm j\pm k$ in the support (or $\pm3l$ in the support).  Under one-dimensional dissociation of $2S$, with no feature $\pm3$
-times another, only the paid part remains, a finite game per $(p,s)$
-(Section~\ref{sec:arch}, item 1).  The models tested fail by $20$--$50\%$.
+(riding, stray outputs, dedicated neurons), or is the own partner, or needs a shared neuron and a relation $2l\equiv\pm j\pm k$ in the support.
+Exact first-order hiding is possible iff the channels supply $|B|$ output frequencies (Proposition~\ref{prop:dich}), and stray outputs supply them at
+every sparse prime.  So linear gain bounds cannot close (O2), and the gain's quadratic behaviour near the IF block must be used.  For one cheap
+feature the game is won numerically at every $p\le41$ (ratio $\ge1.05$, $\ge1.69$ with the quadratic test).  What remains: a $T$-resolved sharp payment
+inequality (single-feature, $p$-free), a robust uncertainty principle on $\mathbb Z_p$, and several cheap features at once.
 \item[(O3)] \emph{Single features for $n\ge3$.}  Rigorous bounds on $k^*(n,s)$ (circularity route) or on the joint constant
 $J(n,s,p)$ of Proposition~\ref{prop:joint}.  The pointwise route alone cannot work at $n=4$, $b=2$, where $c_1\ge1.13$ (certified).  For the
 multi-feature product architecture the relevant single-feature quantity is the atom constant $k^\flat(n,s)<1$ (Corollary~\ref{cor:quad}, remark (d)),

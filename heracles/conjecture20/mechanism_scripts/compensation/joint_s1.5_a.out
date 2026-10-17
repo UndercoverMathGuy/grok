@@ -1,0 +1,23 @@
+  17,5 (0.5,0.6) sep=0.959 joint=1.078
+  17,5 (0.6,0.7) sep=1.010 joint=1.118
+  17,5 (0.5,0.7) sep=1.033 joint=1.108
+  17,5 (0.6,0.6) sep=1.040 joint=1.090
+  17,5 (0.6,0.5) sep=1.085 joint=1.108
+  17,5 (0.6,0.8) sep=1.099 joint=1.202
+  17,5 (0.7,0.8) sep=1.106 joint=1.218
+  17,5 (0.5,0.5) sep=1.127 joint=1.181
+  17,5 (0.7,0.7) sep=1.142 joint=1.198
+p=17 l=5: sigma_joint=1.078 at (np.float64(0.5), np.float64(0.6))  (9 pts below thr; t=30)
+  19,8 (0.5,0.7) sep=1.000 joint=1.219
+  19,8 (0.5,0.8) sep=1.037 joint=1.292
+  19,8 (0.5,0.6) sep=1.102 joint=1.237
+  19,8 (0.4,0.7) sep=1.121 joint=1.347
+  19,8 (0.6,0.9) sep=1.128 joint=1.445
+  19,8 (0.6,0.8) sep=1.150 joint=1.368
+p=19 l=8: sigma_joint=1.219 at (np.float64(0.5), np.float64(0.7))  (6 pts below thr; t=21)
+  11,2 (0.5,0.6) sep=1.111 joint=1.287
+  11,2 (0.6,0.6) sep=1.116 joint=1.262
+p=11 l=2: sigma_joint=1.262 at (np.float64(0.6), np.float64(0.6))  (2 pts below thr; t=4)
+  41,13 (0.5,0.7) sep=1.085 joint=1.320
+  41,13 (0.5,0.6) sep=1.119 joint=1.316
+p=41 l=13: sigma_joint=1.316 at (np.float64(0.5), np.float64(0.6))  (2 pts below thr; t=22)

@@ -25,3 +25,5 @@ Typical run: `python slopes.py 3 11 2 6` then `python contsl.py 3 11 20 2 sl_p3_
   supports (`sigsupp.py`), write-up `result.tex`. Run from inside `relations2/`.
 - `freehide.py` — cost-free compensation game for one cheap feature (n=2); `quadbonus.py` — sup of bonus*|A|/sum|beta_T|^2;
   `spectral_cost_check.py` — random check of the spectral cost inequality.
+- `compensation/` — the single-cheap-feature compensation game at n=2 (protection curves, Chebotarev dichotomy, dense case,
+  local bonus expansion, two-atom branch): write-up `result.tex`, per-feature verdicts `all15.txt`, `all12.txt`.
