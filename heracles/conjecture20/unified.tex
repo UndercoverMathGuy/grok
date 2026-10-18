@@ -169,8 +169,11 @@ $120$-frequency cover ($p=30011$), or adding $100$ clean ``patching'' frequencie
 size gains $\times1.088$ with free interference.  The flat block's own help profile has minimum $0.000$ (structural blind spots); the random block's is $0.56$.
 
 \paragraph{The trilemma.}  A profitable dirty block must (a) cover on its own, since once it takes budget its blind spots become the bottleneck; (b) be two-sided flat; (c) be small in the
-$r$-participation sense, since thin layers are paid for by the concave cost.  Random sets have (a),(c); progressions (b),(c); glued flat blocks (a),(b) but need $\approx50$--$60\ln p$
-frequencies (agents A, B).  The conjecture is that no set has all three.
+$r$-participation sense, since thin layers are paid for by the concave cost.  Random sets have (a),(c); progressions (b),(c); glued flat blocks (a),(b) but need many frequencies: with optimised
+Rudin--Shapiro-type blocks, $\sigma_2\le0.18$ with coverage $t$ needs $K\approx11.6\ln p$ ($t=0.3$) to $22.4\ln p$ ($t=0.6$) as $p\to\infty$, against
+$K^*\approx1.4\ln p$ (agent A, \texttt{agents/A\_result2.md}; best explicit witness $p=100003$, $t=0.36$, $K=8.3\ln p$, $\sigma_2=0.173$).  Inside the window
+$K\le2.5\ln p$ with coverage $\ge0.3$, the smallest $\sigma_2$ found is $0.36$, and programme supports with free weights give $0.357$--$0.551$.  The conjecture is that
+no set has all three.
 
 \paragraph{Proved in this push} (agents B, C; proofs in \texttt{agents/}).
 \begin{itemize}
@@ -192,6 +195,9 @@ If an allocation has efficiency $e(a)\ge e_0$ (about $0.76$), the $a$-weighted m
 independent baseline, uniformly over sub-blocks carrying interference.
 \end{conjecture}
 With it, ``only short relations matter'' gives $\sigma_2\approx0.31$--$0.43$ for $K/\ln p=1.5$--$2.5$ (limit formula numerical), above $c_{12}=0.18$, and closes the relations case at every prime.
+Partial certificates (agent A): moment certificates from exact relation sums of length $\le8$, valid for all phases, give $0.27$--$0.34$ on programme supports
+for $p\le2003$ after local minimisation over the weights; under ``relation mass below the independent baseline'' the tilted mean gives $\sigma_2\ge0.28,0.22,0.18$ at
+$K/\ln p=2,2.5,3$ asymptotically.  The remaining sub-claim is a weighted Sidon (Pisier--Bourgain-type) inequality on near-optimal supports.
 Evidence: programme supports carry $2$ three-term relations against $77.8$ expected for random sets of the same sizes ($83$ of $85$ supports have none), and $235$ four-term relations against $468$.
 Optimal covers repel short relations more strongly than chance.
 
