@@ -44,3 +44,7 @@ Typical run: `python slopes.py 3 11 2 6` then `python contsl.py 3 11 20 2 sl_p3_
 - `unified/` — measurement of the global ratio of `unified.tex` (Conjecture "no unicorns", class C, n=2, b=2) on programme
   supports: `measure.py line|plane <p|small> <seed>`; outputs `line_small.out`, `line_large.out`, `plane_small.out` (runs in progress
   are committed as they stand and updated when they finish).
+- `unified/unicorn/` — explicit cheater configurations: turn point of a flat block (`turn.py`), block embedded in the programme
+  support (`embed.py`, `diag.py`), full re-optimisation (`cheatprog.py`, `cheatscan.py`), large-cover proxy (`proxy.py`), adversarial
+  placement (`adversary.py`), blind-spot patching (`patch.py`); outputs `*.out`.  `unified/agents/` — write-ups of the three proof
+  agents (A: one-sided counterexamples, tilt both ways; B: short-relation certificates, thin layers, stability; C: reductions, slot symmetry).
