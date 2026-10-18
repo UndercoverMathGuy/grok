@@ -40,7 +40,7 @@ at any prime, for arbitrary inputs: averaging a Riesz test over both cone edges 
 sign-flipped coefficient.  In multi-feature maximisers, cheap features force exact arithmetic coincidences: additive relations
 among doubled frequencies, or modes landing on sign-flipped characters.  A product of quadratic tests, one per cheap feature, detects each
 feature's whole $L^2$ interference without the $\sqrt{|L'|}$ loss of Cauchy--Schwarz.  It gives a proved surplus of $39\%$ at $n=2$ (class $\mathcal C$,
-order-three dissociation) and reduces every $n$ to a single-feature atom constant.  The single-feature payments at $n=2$ are proved sharp and $p$-free (P$_{12}$, and $c_1(2,s)=1-3^{1-s}$, the latter computer-assisted).  With them the relations case at $n=2$ is closed for every $p\le59$.  Section~\ref{sec:arch} shows how the open steps fit together.
+order-three dissociation) and reduces every $n$ to a single-feature atom constant.  The single-feature payments at $n=2$ are proved sharp and $p$-free (P$_{12}$, and $c_1(2,s)=1-3^{1-s}$, the latter computer-assisted).  With them the relations case at $n=2$ is closed for every $p\le59$.  Near the interference-free networks the discount from interference is quadratic and the slack it forces is linear.  So at $n=2$, in the relations case and in class $\mathcal C$, at every prime and for any number of cheap features, no network close to an interference-free one beats the prediction (Theorem~\ref{thm:nearif}).  In the relations case what remains is wholesale rebuilds with macroscopic, cancelling interference.  Section~\ref{sec:arch} shows how the open steps fit together.
 The remaining steps are stated as open problems
 (O1)--(O4): a coverage-to-Sidon inequality, compensation costs, single-feature constants for $n\ge3$, and $p=5$ at large $n$.
 Every numerical test at $p\ge5$ found no network beating the interference-free value.
@@ -1073,6 +1073,76 @@ now has a proved uniform surplus of $(\varepsilon-2c_1)\frac{\kappa_l}2|\beta_{l
 compensation at no cost, a single cheap feature is excluded at $p=5,7,13$ (the free-hiding values $V(c_1)>0$).  The same chain also gives a global
 quadratic bound, bonus $\le K\sum_T|\beta_T|^2/|A|$ with $K\approx0.282$ at $b=2$ (numerical maximisation of a proved bound; the true supremum is about $0.275$).
 
+\paragraph{A buffer near the interference-free networks, at every prime.}  The sharp constants above are attained at a single atom or at two aligned
+atoms, i.e.\ far from the IF blocks.  Near an IF block a feature's discount is \emph{quadratic} in its interference, while the slack that the interference
+forces is \emph{linear} (Lemma~\ref{lem:osc}, Bhatia--Davis).  So small departures from the predicted network lose by a whole order, and no sharp
+constant and no arithmetic are needed there.
+\begin{proposition}[quadratic payments, $n=2$]\label{prop:quadpay}
+Let $1\le s\le\frac32$, $r=1/s$, $\theta=3^{1-s}$, let $\beta_i\in\mathbb C$, $\xi_i,\eta_i\in\mathbb T$ be atoms with $A,B,C,D,Q$ as in Theorem~\ref{thm:c1sharp}, and $L=\sum_i|\beta_i|$.
+\begin{itemize}
+\item[(i)] $|A|-\theta Q^s\le K_2\,(|B|^2+|C|^2+|D|^2)/L$ with $K_2=2(s-1)/(7-4s)$ ($=1$ at $s=\frac32$).
+\item[(ii)] If $B=C=0$, then $|A|-\theta Q^s\le K_q\,|D|^2/L$ with $K_q=5/(5+4r)$ ($\le0.652$; computer-assisted).
+\end{itemize}
+Adversarial search (600 starts, up to $8$ atoms) gives the suprema $0.2805$ in (i) and \emph{exactly} $c_{12}=1-(\frac23)^{s-1}$ in (ii), at $s=1.1,1.25,\frac32$, attained by two aligned atoms.
+So (ii) presumably holds with $c_{12}$ in place of $K_q$: $|A|-\theta Q^s\le c_{12}|D|\cdot|D|/L$, a common strengthening of P$_{12}$ and of (ii).
+\end{proposition}
+\begin{proof}
+(i) Take the twisted matrix $H=\sum_i\rho_iu_iu_i^*$ of Theorem~\ref{prop:p12} and $\hat H=H/L$.  It has unit diagonal, entries $B/L$, $C/L$, $D'/L$ below the diagonal, and eigenvalues
+$\nu_k\ge0$ with $\sum\nu_k=3$.  The spectral cost lemma with real weights gives $\theta Q^s\ge L(\frac13\sum_k\nu_k^r)^s$.  Jensen with weights $\nu_k/3$, then
+$e^{-x}\ge1-x$ and $\nu\log\nu\le(\nu-1)+(\nu-1)^2$, give
+\[\theta Q^s\ \ge\ L\exp\Big(-(s-1)\sum_k\tfrac{\nu_k}3\log\nu_k\Big)\ \ge\ L-\tfrac{s-1}3L\sum_k(\nu_k-1)^2\ =\ L-\tfrac{2(s-1)}{3L}\big(|B|^2+|C|^2+|D'|^2\big).\]
+Put $\alpha=A/|A|$ and $P_i=\bar\alpha p_i$.  Then $L-|A|=\frac12\sum_i\rho_i|1-P_i|^2$, and $D'=\alpha^2\sum\rho_iP_i^2\xi_i\eta_i$, $D=\alpha\sum\rho_iP_i\xi_i\eta_i$ give
+$|D'|\le|D|+\sum_i\rho_i|P_i-1|\le|D|+\sqrt{2L(L-|A|)}$.  With $\eta=4(s-1)/(7-4s)$, $|D'|^2\le(1+\eta)|D|^2+(1+\frac1\eta)2L(L-|A|)$, and
+$\frac{4(s-1)}3(1+\frac1\eta)=1$, so the terms in $L-|A|$ cancel:
+$|A|-\theta Q^s\le\frac{2(s-1)}{3L}(|B|^2+|C|^2+(1+\eta)|D|^2)\le K_2(|B|^2+|C|^2+|D|^2)/L$, because $1+\eta=3/(7-4s)$.
+
+(ii) The proof of Theorem~\ref{prop:p12} gives $Q\ge L^r\Phi(\delta)$ and $|A|-C'|D|\le L\sqrt{1+C'^2-2C'\delta}$ for every $C'\ge0$, with $\delta=|D'|/L$.  Take $C'=\delta$ and $\varphi=3^{r-1}\Phi$.  Then
+\[|A|-\theta Q^s\ \le\ \delta|D|-L\,g(\delta),\qquad g(\delta)=\varphi(\delta)^s-\sqrt{1-\delta^2}.\]
+The coefficient of $\delta^2$ in $g$ at $0$ is $\kappa_0=\frac12-\frac29(1-r)=\frac{5+4r}{18}$.  We certify $g(\delta)\ge\kappa_1\delta^2$ on $[0,1]$ with $\kappa_1=0.9\kappa_0$, for all $s\in[1,\frac32]$.
+Then $|A|-\theta Q^s\le\max_\delta(\delta|D|-\kappa_1L\delta^2)=|D|^2/(4\kappa_1L)=K_qD^2/L$.  The certificate uses interval arithmetic in three ranges:
+\begin{itemize}
+\item $\delta\le0.21$: Bernoulli's $\varphi^s\ge1-s(1-\varphi)$, the identity $1-\sqrt{1-\delta^2}=\delta^2/(1+\sqrt{1-\delta^2})$, and $1-\varphi(\delta)=-3^{r-1}f''(\xi)\delta^2/2$ for some $|\xi|\le\delta$, where $f(x)=(1+x)^r(3+x)^{1-r}$;
+\item $0.21\le\delta\le0.5$: evaluation at the centres of $200$ $s$-boxes, plus a mean-value bound in $s$;
+\item $\delta\ge0.5$: direct evaluation on $10^3\times200$ boxes.
+\end{itemize}
+All $237{,}400$ boxes pass.  The smallest certified margins are $1.4\cdot10^{-4}$ for $g/\delta^2-\kappa_1$ on $\delta\le0.21$ and $5.3\cdot10^{-4}$ for $g-\kappa_1\delta^2$ beyond (\texttt{mechanism\_scripts/nearif/}).
+\end{proof}
+
+\begin{theorem}[near-IF rigidity at $n=2$; every prime, any number of cheap features]\label{thm:nearif}
+Let $n=2$, $2\le b\le3$, $p$ any odd prime and $\theta$ any network of any width.  Let $\delta^\star$ minimise $\sum_la_l\kappa_l(\delta)$, let $L'$ be the cheap set, and let
+$L_l=\sum_i|\beta_{il}|$ be the atom mass of feature $l$.
+\begin{itemize}
+\item[(a)] \emph{Relations case.}  Put $v_l=|\beta_{l,12}|$ and $t_l=v_l/L_l\in[0,1]$.  If
+\[\sum_{l\in L'}\min(c_{12},K_qt_l)^2\,\kappa_l(\delta^\star)\ <\ 1,\]
+then $\gamma(\theta)\le\nu^{1-s}B_p\Gamma_s(p)$, and equality forces $\theta$ to be interference-free.  In particular this holds whenever
+$\big(\sum_lv_l^2\kappa_l(\delta^\star)\big)^{1/2}<\min_{l\in L'}L_l/K_q$.
+\item[(b)] \emph{Class $\mathcal C$.}  Put $E_l=\sum_{T\ne\emptyset}|\beta_{l,T}|^2$.  If $\big(\sum_lE_l\kappa_l(\delta^\star)\big)^{1/2}<\min_{l\in L'}L_l/(\sqrt3K_2)$, the same conclusion holds.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+(a) Lemma~\ref{lem:osc} at $\delta^\star$ and Bhatia--Davis give $h\le\sum_l\Re\beta_l\kappa_l(\delta^\star)-X$ with $X^2=\mathbb ED_{\delta^\star}^2=\sum_lv_l^2\kappa_l(\delta^\star)$.  For $l\in L'$,
+Theorem~\ref{prop:p12} and Proposition~\ref{prop:quadpay}(ii) give $\Re\beta_l-a_l\le\min(c_{12}v_l,K_qv_l^2/L_l)=\min(c_{12},K_qt_l)\,v_l$.  By Cauchy--Schwarz,
+\[h\ \le\ \sum_la_l\kappa_l(\delta^\star)+X\Big(\big(\textstyle\sum_{l\in L'}\min(c_{12},K_qt_l)^2\kappa_l(\delta^\star)\big)^{1/2}-1\Big),\]
+and we conclude as in Theorem~\ref{thm:loc}: $X=0$ means no interference.  For the special case, $\min(c_{12},K_qt_l)v_l\le K_qv_l^2/L_l$, so the bonus is at most $K_qX^2/\min_{L'}L_l<X$.
+(b) The proof of Theorem~\ref{thm:loc} gives $h\le\sum_la_l\kappa_l(\delta^\star)+\sum_{l\in L'}(\Re\beta_l-a_l)\kappa_l(\delta^\star)-\bar m$ with $\sum_lE_l\kappa_l(\delta^\star)\le3\bar m^2$.
+Proposition~\ref{prop:quadpay}(i) bounds the bonus by $K_2\sum_{L'}E_l\kappa_l/L_l\le K_2X^2/\min_{L'}L_l$, where now $X^2=\sum_lE_l\kappa_l(\delta^\star)$, and $\bar m\ge X/\sqrt3$.
+\end{proof}
+The conditions do not depend on $p$, on the width or on $|L'|$.  Corollary~\ref{cor:parseval} with $c=c_{12}$ is implied by (a), since $\min(c_{12},K_qt_l)\le c_{12}$.  What is left of the
+relations case is therefore networks with $\sum_{L'}\min(c_{12},K_qt_l)^2\kappa_l\ge1$.  This needs $\sum_{L'}\kappa_l\ge1/c_{12}^2=29.7$, i.e.\ some thirty cheap
+features, most of them with interference comparable to their atom mass.  If (ii) holds with $c_{12}$, the condition becomes $\sum_{L'}t_l^2\kappa_l\ge29.7$.  In terms of the network, the
+only way left to beat the prediction is to rebuild dozens of circuits at once from fewer neurons than the IF block uses, with interference phases
+arranged so that the profile $\varphi$ is flat.  Any network near the predicted one loses, at every prime.
+
+\emph{A route for what is left (heuristic).}  Flatness at that level needs additive structure.  A real Sidon constant below $c_{12}$ needs at least
+fifteen frequencies (Parseval), and in practice many more with many short relations: Rudin--Shapiro-type polynomials have sup norm about $\sqrt2$ times
+the $\ell^2$ norm.  By the Laplace identity below, relation-rich sets cover poorly, so such a block is
+nearly blind on a large Bohr-type set of offsets.  The margin is a minimum over $\delta$.  So the binding offsets either move into that blind set, where the block contributes
+neither coverage nor discount (its weights $\kappa_l(\delta)$ are small there), or the rest of the support must over-cover it.  Over-covering a set of
+$p/N$ offsets beats $\Gamma_s(p)$ by a factor of about $1+(s-1)\ln N/\ln p$ at most.  That caps the block's share of the budget at
+$f\lesssim\frac{s-1}s\ln N/\ln p$.  With the concave cost, a block that thin gains $O(f^s)$ and costs $\Omega(f)$.  Each step has a precise form: an inverse theorem
+for flat polynomials via the tilt, a covering bound for Bohr sets, and the dilution estimate.  Together they would close the relations case at
+every prime.  None of them is proved here.
+
 \emph{The one-sided constant is the wrong object.}  For the full set $F$ the one-sided constant $\min_{b,\theta}(-\min_w\sum b_l\cos(2\pi lw/p+\theta_l))/\sum b_l$ is
 $1/(p-1)$, attained at zero phases.  There $\sum_{l\in F}\cos(2\pi lw/p)$ is a spike, so perfect coverage gives a \emph{small} one-sided constant.  On the
 programme supports it is $0.25,0.17,0.60,0.34,0.48,0.52,0.35,0.46,0.44$ for $p=5,\dots,31$, below $\frac12$ at most primes and below $0.18$ at $p=7$, where the
@@ -1221,6 +1291,10 @@ the same holds as soon as the atom constant $k^\flat(n,s)$ is below $1$.
 condition on the cheap set (Corollary~\ref{cor:parseval}(c)).  In the relations case (all interference on $T=\{1,2\}$) the same holds for every $p\le59$, and at every
 prime when the cheap set carries $\sum\kappa_l<29.7$ (Corollary~\ref{cor:parseval}, Theorem~\ref{prop:p12}).
 (viii) $n=2$, single-feature payment, sharp and $p$-free: P$_{12}$ (Theorem~\ref{prop:p12}) and $c_1(2,s)=1-3^{1-s}$ (Theorem~\ref{thm:c1sharp}, computer-assisted).
+(ix) $n=2$, every prime, any number of cheap features: near-IF rigidity (Theorem~\ref{thm:nearif}).  In the relations case and in class $\mathcal C$, no network whose
+interference energy is below a fixed fraction of its smallest cheap atom mass beats the interference-free value.  The fraction does not depend on $p$.  It rests on quadratic
+payments (Proposition~\ref{prop:quadpay}; (ii) computer-assisted).  In the relations case, what is left needs $\sum_{L'}\min(c_{12},K_qt_l)^2\kappa_l\ge1$:
+dozens of cheap features with macroscopic interference.
 
 \emph{Numerical evidence on cheap features at $p\ge5$} (local searches; files in
 \texttt{mechanism\_scripts/cheap/}).

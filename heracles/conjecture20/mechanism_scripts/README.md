@@ -36,3 +36,8 @@ Typical run: `python slopes.py 3 11 2 6` then `python contsl.py 3 11 20 2 sl_p3_
 - `falsify/` — counterexample searches at large p in the relations model (`relmodel.py`, drivers `run*.py`, summary `compile.py`),
   flatness and Parseval floor (`flat.py`, `parseval.py`), near-b=3 runs (`nearthree.py`, `dense2.py`), exact-margin checks (`netcheck.py`, `task3.py`),
   p=5 grouped-slot searches (`famp_g.py`, `run4.py`). Run from inside `falsify/`.
+- `nearif/` — quadratic payments and near-IF rigidity at n=2 (Proposition `prop:quadpay`, Theorem `thm:nearif`):
+  `cert_kq.py` (interval certificate for g(d) >= 0.9*(5+4r)/18*d^2, hence K_q = 5/(5+4r); output `cert_kq.out`),
+  `quadcheck.py` (adversarial suprema of bonus*L/E and bonus*L/|D|^2; output `quadcheck.out`; the "claimed Kq" printed there is the second-order limit 9/(10+8r), the certified constant is 5/(5+4r)),
+  `quadp12.py` (evidence that the relations-case quadratic constant is exactly c12, two aligned atoms; output `quadp12.out`),
+  `nearif_check.py` (spot-check of the bound of Theorem `thm:nearif`(a) on 3000 random relations-case networks; output `nearif_check.out`).
