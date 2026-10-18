@@ -1,0 +1,6 @@
+conv: E Phi_1 vs conj(beta_1): (1.64775-0j) (1.64775-0j)  Phi_1 spread: 5.846258756075283e-15
+conv: IF gaps / (kappa Re beta): [np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(1.0)]
+conv: sum atoms = beta_1: True
+conv: |beta_i| / (B_p ||omega||^nu): [1. 1. 1.]
+conv: single-feature gap identity max err: 5.10702591327572e-15
+R1: max |dlog/ds + H| = 8.613e-26,  max |d2 + V/s| = 1.6503e-25  (40 random nets, p in 3,5,7, n in 2,3)

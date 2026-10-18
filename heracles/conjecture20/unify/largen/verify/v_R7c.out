@@ -1,0 +1,67 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+k_5 = 0.945742, k_7 = 1.819874
+(1) k*(7,4): slot-symmetric atoms
+   m=3: best 0.60287
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:17: RuntimeWarning: overflow encountered in exp
+  beta = np.exp(rho + 1j * al); xi = np.exp(1j * ph)
+/root/.cache/uv/archive-v0/-thZPK3RE6shebeG/lib/python3.12/site-packages/numpy/_core/_methods.py:49: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims, initial, where)
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:20: RuntimeWarning: invalid value encountered in multiply
+  mk = (beta[None, :] * xi[None, :] ** K[:, None]).sum(1)
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:22: RuntimeWarning: overflow encountered in scalar power
+  return (A.real - nu ** (1 - s) * Q ** s) / math.sqrt(E / 2 + 1e-300)
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:18: RuntimeWarning: overflow encountered in exp
+  A = beta.sum(); Q = np.exp(rho / s).sum(); nu = n + 1
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:22: RuntimeWarning: invalid value encountered in scalar subtract
+  return (A.real - nu ** (1 - s) * Q ** s) / math.sqrt(E / 2 + 1e-300)
+   m=4: best 0.81779
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:21: RuntimeWarning: overflow encountered in square
+  E = np.sum(np.array([comb(n, k) for k in K]) * np.abs(mk) ** 2)
+   m=5: best 0.92768
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:22: RuntimeWarning: invalid value encountered in scalar divide
+  return (A.real - nu ** (1 - s) * Q ** s) / math.sqrt(E / 2 + 1e-300)
+   m=6: best 0.92768
+   m=7: best 0.81779
+   m=8: best 0.60287
+   m=9: best 0.60287
+   m=10: best 0.81779
+   m=11: best 0.34397
+   m=12: best 0.60287
+    general atoms (xi_i in T^7)
+   m=3: best 0.60287
+   m=4: best 0.81779
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:26: RuntimeWarning: overflow encountered in exp
+  beta = np.exp(rho + 1j * al); xi = np.exp(1j * ph)
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:29: RuntimeWarning: invalid value encountered in matmul
+  E = np.real(beta @ G @ np.conj(beta))
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:30: RuntimeWarning: overflow encountered in scalar power
+  return (A.real - nu ** (1 - s) * Q ** s) / math.sqrt(max(E, 1e-300) / 2)
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:27: RuntimeWarning: overflow encountered in exp
+  A = beta.sum(); Q = np.exp(rho / s).sum(); nu = n + 1
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:30: RuntimeWarning: invalid value encountered in scalar subtract
+  return (A.real - nu ** (1 - s) * Q ** s) / math.sqrt(max(E, 1e-300) / 2)
+   m=5: best 0.81779
+   m=6: best 0.81778
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R7c.py:29: RuntimeWarning: overflow encountered in matmul
+  E = np.real(beta @ G @ np.conj(beta))
+   m=7: best 0.81744
+   m=8: best 0.60287
+  overall best k*(7,4) lower bound found: 0.92768  (R7c uses 0.928 < k_5 = 0.94574 as if it were an upper bound)
+(2) k*(n, nu/2) for n = 25..31 by continuation from the stored n=24 and n=32 atom systems
+   up from 24:  n=24 (s=12.5): 1.65429
+   up from 24:  n=25 (s=13.0): 0.81130
+   up from 24:  n=26 (s=13.5): 0.20719
+   up from 24:  n=27 (s=14.0): 0.07165
+   up from 24:  n=28 (s=14.5): 0.03252
+   up from 24:  n=29 (s=15.0): 0.01739
+   up from 24:  n=30 (s=15.5): 0.01049
+   up from 24:  n=31 (s=16.0): 0.00735
+   down from 32: n=32 (s=16.5): 1.90568  (> k_7: True)
+   down from 32: n=31 (s=16.0): 1.78990  (> k_7: False)
+   down from 32: n=30 (s=15.5): 1.21492  (> k_7: False)
+   down from 32: n=29 (s=15.0): 0.03915  (> k_7: False)
+   down from 32: n=28 (s=14.5): 0.01457  (> k_7: False)
+   down from 32: n=27 (s=14.0): 0.02623  (> k_7: False)
+   down from 32: n=26 (s=13.5): 0.02981  (> k_7: False)
+   down from 32: n=25 (s=13.0): 0.03703  (> k_7: False)
+   down from 32: n=24 (s=12.5): 0.04580  (> k_7: False)

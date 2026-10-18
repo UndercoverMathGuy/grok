@@ -1,0 +1,11 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+  start 0: 0.94747 at [-0.     0.555  0.582  0.856  0.269]   best 0.94747  (16s)
+  start 1: 0.95590 at [-0.     0.628  0.663  0.881  0.021]   best 0.95590  (27s)
+  start 2: 0.95010 at [-0.     0.602  0.576  0.856 -0.204]   best 0.95590  (36s)
+  start 3: 0.95311 at [0.    0.597 0.631 0.871 0.119]   best 0.95590  (47s)
+/home/user/grok/heracles/conjecture20/unify/p52/hs_elim.py:59: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  C['p'].solve(solver=cp.CLARABEL)
+  start 4: 0.95542 at [0.    0.705 0.587 0.876 0.005]   best 0.95590  (64s)
+  start 5: 0.94886 at [0.    0.57  0.593 0.849 0.237]   best 0.95590  (71s)
+  start 6: 0.95116 at [-0.005  0.739  0.608  0.881  0.01 ]   best 0.95590  (87s)
+  start 7: 0.95560 at [ 0.     0.611  0.717  0.883 -0.003]   best 0.95590  (100s)

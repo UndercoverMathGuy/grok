@@ -1,0 +1,5 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+  start 0: 0.82071   best 0.82071   (126s)
+  start 1: 0.78952   best 0.82071   (256s)
+  start 2: 0.82067   best 0.82071   (378s)
+s=1.5 m=2 mode=exact: best L2 ratio 0.82071;  |beta|=[1.5974 1.5958]  |A|/(3^(1-s)Q^s)=1.1670  |BCD|/|A|=[0.444 0.448 0.393]

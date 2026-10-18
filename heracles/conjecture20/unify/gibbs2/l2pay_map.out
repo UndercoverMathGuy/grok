@@ -1,0 +1,8 @@
+min margin overall: -7.107560096031307e-09
+  distance to nearest equality point in [0,0.02): min margin -7.108e-09 at beta=1.4142, delta=1.0000
+  distance to nearest equality point in [0.02,0.1): min margin 1.556e-04 at beta=0.0000, delta=0.0200
+  distance to nearest equality point in [0.1,0.3): min margin 3.899e-03 at beta=0.0000, delta=0.1000
+  distance to nearest equality point in [0.3,1000000000.0): min margin 1.974e-02 at beta=0.6325, delta=0.6000
+near identity, beta=0, delta=0.01: margin 3.889e-05 (pred 7/18 delta^2 = 3.889e-05);  near atom, beta=sqrt2-eps, delta=1-eps: margin 1.999e-02
+near identity, beta=0, delta=0.001: margin 3.886e-07 (pred 7/18 delta^2 = 3.889e-07);  near atom, beta=sqrt2-eps, delta=1-eps: margin 5.054e-03
+near identity, beta=0, delta=0.0001: margin 3.647e-09 (pred 7/18 delta^2 = 3.889e-09);  near atom, beta=sqrt2-eps, delta=1-eps: margin 1.165e-03

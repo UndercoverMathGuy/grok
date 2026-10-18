@@ -1,0 +1,15 @@
+(N2) p=5: ridge-sum err 8.9e-15, reflection err 1.8e-14, E formula rel err 1.1e-15, min (AA' - bound)/E = 8.979e-01 (>=0), min (m m' - AA')/E = 2.905e-02 (>=0)
+(N2) p=7: ridge-sum err 2.6e-14, reflection err 3.6e-14, E formula rel err 5.0e-15, min (AA' - bound)/E = 8.981e-01 (>=0), min (m m' - AA')/E = 3.247e-02 (>=0)
+(N2) p=11: ridge-sum err 1.0e-13, reflection err 1.3e-13, E formula rel err 3.8e-15, min (AA' - bound)/E = 1.187e+00 (>=0), min (m m' - AA')/E = 2.911e-01 (>=0)
+(N2) p=13: ridge-sum err 1.2e-13, reflection err 2.0e-13, E formula rel err 2.3e-15, min (AA' - bound)/E = 1.657e+00 (>=0), min (m m' - AA')/E = 1.675e-01 (>=0)
+(N3) ramp network p=5: A = 2.000000, A' = 2.000000, E = 6.000000, AA'/E = 0.66666667, (p-1)/(p+1) = 0.66666667
+(N3) ramp network p=7: A = 3.000000, A' = 3.000000, E = 12.000000, AA'/E = 0.75000000, (p-1)/(p+1) = 0.75000000
+(N3) ramp network p=11: A = 5.000000, A' = 5.000000, E = 30.000000, AA'/E = 0.83333333, (p-1)/(p+1) = 0.83333333
+(N3) ramp network p=13: A = 6.000000, A' = 6.000000, E = 42.000000, AA'/E = 0.85714286, (p-1)/(p+1) = 0.85714286
+(N3) ramp network p=17: A = 8.000000, A' = 8.000000, E = 72.000000, AA'/E = 0.88888889, (p-1)/(p+1) = 0.88888889
+(N4) p=7: min[chain RHS - h] = 1.971e-03 (>=0);  min[W - h] over nets meeting the condition = 2.284e-02 (>=0);  cheap counts 1..3, nets with h>0: 11/40
+(N4) p=11: min[chain RHS - h] = 5.932e-03 (>=0);  min[W - h] over nets meeting the condition = 1.449e-01 (>=0);  cheap counts 1..5, nets with h>0: 10/40
+(N4) p=13: min[chain RHS - h] = 2.811e-03 (>=0);  min[W - h] over nets meeting the condition = 6.017e-02 (>=0);  cheap counts 1..6, nets with h>0: 12/40
+(N4) p=17: min[chain RHS - h] = 6.195e-03 (>=0);  min[W - h] over nets meeting the condition = 1.467e-01 (>=0);  cheap counts 1..7, nets with h>0: 9/40
+(N4) p=19: min[chain RHS - h] = 1.734e-03 (>=0);  min[W - h] over nets meeting the condition = 5.213e-02 (>=0);  cheap counts 1..8, nets with h>0: 10/40
+(N4) p=23: min[chain RHS - h] = 2.659e-03 (>=0);  min[W - h] over nets meeting the condition = 5.781e-02 (>=0);  cheap counts 2..10, nets with h>0: 8/40

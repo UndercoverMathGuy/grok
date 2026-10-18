@@ -1,0 +1,10 @@
+n=11 width=8 nu=12: exact gamma/gamma_IF at b=2 = 1.05439884 (>1: True)
+   as given: cost shares min/max = 0.123895/0.126599; H = 2.0794201, log m = 2.0794415, log nu = 2.4849066
+   balanced: cost shares min/max = 0.123895/0.126599; H = 2.0794201, log m = 2.0794415, log nu = 2.4849066
+   balanced: log ratio at b=2 = 0.05297078805; crossing s_c = 5.869365013 (b=2.0445142); (log nu - H(b=2))*(nu/2 - s_c) = 0.05297072574
+   R13 test (gamma* -> gamma_cex): min_i g_i(x_R,d_R)/(gamma (P^s-(P-P_i)^s)) = 188.146 (>=1 means no single-neuron removal improves)
+n=13 width=10 nu=14: exact gamma/gamma_IF at b=2 = 1.10916314 (>1: True)
+   as given: cost shares min/max = 0.0986361/0.100524; H = 2.3025712, log m = 2.3025851, log nu = 2.6390573
+   balanced: cost shares min/max = 0.0986361/0.100524; H = 2.3025712, log m = 2.3025851, log nu = 2.6390573
+   balanced: log ratio at b=2 = 0.1036058063; crossing s_c = 6.692095444 (b=2.0920204); (log nu - H(b=2))*(nu/2 - s_c) = 0.1036056101
+   R13 test (gamma* -> gamma_cex): min_i g_i(x_R,d_R)/(gamma (P^s-(P-P_i)^s)) = 550.207 (>=1 means no single-neuron removal improves)

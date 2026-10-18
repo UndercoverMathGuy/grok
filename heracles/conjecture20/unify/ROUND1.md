@@ -54,3 +54,41 @@ before any report: unify/arith/, unify/gibbs/, unify/matrix/.
      freesub.py).
 2. At transitions the count is a value statement (GLOBAL R7). No count-only shortcut exists at p >= 11.
 3. Large n: an n-uniform payment in the subordination currency is the missing lemma (LARGEN).
+
+## Referee corrections (round 2; full verdicts in unify/{split,global,largen}/VERIFY.md)
+
+### SPLIT
+- Confirmed: R1, R2, R4, R5, R6, R8.
+- R3: the stabiliser is Sigma' x {output-DC sign}, and the torus average also keeps the all-DC mode. The claim "IF
+  projection costs more than the split" holds only for networks carrying interference.
+- R7(a): only the forward direction holds: IF theta => h(theta) <= h(theta_split), and equality implies g_R = 0 on the
+  split's binding offsets. The converse is FALSE (certified at p=5).
+- R9: correct with "binding offsets of theta_split". Also, "every global maximiser is IF => (C)" holds at every
+  (p,n,b) with no class-C hypothesis (Note Prop count(b)).
+- R10: the (5,2,2) violator is re-certified exactly, but it refutes only the CANONICAL-split decoupling inequalities.
+  The Note's existential (D) "for some split" still holds for it (ratio 0.790). So "no all-network inequality can
+  replace (MM)" and "must use global optimality" are OVERCLAIMS.
+
+### GLOBAL
+- Confirmed: R1, R2, R3, R5, R6, R8, R9, R13.
+- R4(b): the proof needs a Vitali-Caratheodory majorant; the conclusion stands.
+- R7, reading corrected: W_{K<}(s_c) = gamma*(s_c) is EQUIVALENT to the count statement "a global maximiser with
+  <= K_< features exists at s_c". It is not a price-programme value identity. Only the slack-principle METHOD needs
+  exact decoupling at s_c.
+- R7, strengthened (interval certificate for 11 <= p <= 1000, lacunary proof for p >= 892): EVERY prime p >= 11 has
+  a K*-transition in s in (1, 1.5).
+- R7, range corrected: p=7's second transition (s = 2.3247) is in range only for n >= 4.
+- Dense threshold at (5,2): s < 1.330839 (b > 2.25424).
+- R12, corrected:
+  - (C) at (5,2) for all b follows from W_{1}(s) < 3^{1-s} B_5 Gamma_s on s in [1.33, 1.5]. Slack >= 27.9168%.
+  - (C) at (7,2) needs the 2-set bound on s in (1.1539, 1.5], i.e. b in [2, 2.600). Slack runs from 2.035% (b=2) to
+    about 18.4% (b=2.6).
+  - An independent 144-start search finds no compensation gain.
+
+### LARGEN
+- Confirmed: R1, R2, R4, R5, R10b, R12 (the identity; its rates are only NUMERICAL).
+- R3: correct for class C. In the DC part the exponent is 2|T| and r_5 = sqrt(3/8).
+- R8a: valid, but it refutes only the all-atoms form of the payment. The correct constant is
+  C >= (1 - (n/nu)^{s-1}) R^{-n}.
+- R7c: SERIOUS GAP (it uses local-search lower bounds as upper bounds).
+- R5, strengthened: Companion Thm 14 already fails at (7,28,2), where k*(28,14.5) >= 1.82617 > k_7.

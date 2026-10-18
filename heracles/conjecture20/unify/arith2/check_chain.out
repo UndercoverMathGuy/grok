@@ -1,0 +1,7 @@
+/home/user/grok/heracles/conjecture20/unify/arith2/check_chain.py:49: RuntimeWarning: overflow encountered in exp
+  u = a[m]/(1+np.exp(-z)); return -(c*(u*kd[m]).sum() - np.sqrt((u**2*kd[m]).sum()+1e-300))
+max violation h<=O1     : -2.231e-04   (must be <= ~0)
+max violation O1<=Pars  : -2.653e-02   (must be <= ~0)
+max violation Pars<=TDP : -5.160e-02   (must be <= ~0)
+max violation E0<=tail  : +1.041e-17   (must be <= ~0)
+max violation E0 brute  : -1.104e-06   (must be <= ~0)

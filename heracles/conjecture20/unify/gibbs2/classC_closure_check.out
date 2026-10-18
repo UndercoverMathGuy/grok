@@ -1,0 +1,11 @@
+p=11 b=2.0: (K1) min[c R - (|beta|-a)] = -6.661e-16  (K2) min[chain - h] = 1.657e-03  (K3) min[W - h] = 3.864e-02 over 30 nets meeting the condition;  h>0 in 5/30
+p=13 b=2.0: (K1) min[c R - (|beta|-a)] = -8.882e-16  (K2) min[chain - h] = 1.370e-03  (K3) min[W - h] = 3.669e-02 over 30 nets meeting the condition;  h>0 in 8/30
+p=17 b=2.0: (K1) min[c R - (|beta|-a)] = -5.551e-16  (K2) min[chain - h] = 2.842e-02  (K3) min[W - h] = 6.774e-01 over 30 nets meeting the condition;  h>0 in 1/30
+p=19 b=2.5: (K1) min[c R - (|beta|-a)] = -7.772e-16  (K2) min[chain - h] = 9.429e-03  (K3) min[W - h] = 5.604e-01 over 30 nets meeting the condition;  h>0 in 2/30
+p=23 b=2.0: (K1) min[c R - (|beta|-a)] = -4.441e-16  (K2) min[chain - h] = 3.991e-02  (K3) min[W - h] = 1.350e+00 over 30 nets meeting the condition;  h>0 in 7/30
+p=29 b=2.0: (K1) min[c R - (|beta|-a)] = -6.661e-16  (K2) min[chain - h] = 9.626e-02  (K3) min[W - h] = 3.536e+00 over 30 nets meeting the condition;  h>0 in 8/30
+p=31 b=2.0: (K1) min[c R - (|beta|-a)] = -5.551e-16  (K2) min[chain - h] = 8.091e-02  (K3) min[W - h] = 3.520e+00 over 30 nets meeting the condition;  h>0 in 3/30
+p=31 b=2.5: (K1) min[c R - (|beta|-a)] = -2.776e-15  (K2) min[chain - h] = 5.602e-02  (K3) min[W - h] = 1.685e+00 over 30 nets meeting the condition;  h>0 in 2/30
+p=37 b=2.0: (K1) min[c R - (|beta|-a)] = -1.332e-15  (K2) min[chain - h] = 1.836e-01  (K3) min[W - h] = 3.666e+00 over 15 nets meeting the condition;  h>0 in 4/30
+(K4) p=29 b=2: best (h - W)/W found by local search = -0.9918  (theorem: <= 0)
+(K4) p=31 b=2: best (h - W)/W found by local search = -1.1998  (theorem: <= 0)

@@ -1,0 +1,8 @@
+directional minima theta: [0.51823725 0.51823725 0.51823725 0.51823725]  split: [0.51823725 1.35676275 1.35676275 0.51823725]
+h(theta) - h(split) = -2.220e-16 ; max|g_R| on d=2,3: 1.036 ; theta-binding offsets: [1, 2, 3, 4]
+max |beta_T(theta)| = 3.04e-16 (theta is IF)
+IF network at b=3: gamma/(B_p Gamma_1) = 1.000000
+R9c trial 0: start (gamma/gamma*, P_live/P) = (-0.3503, 0.8718) -> after ascent (0.999965, 1.000000); R8 at s=1 requires gamma/gamma* <= P_live/P: True
+R9c trial 1: start (gamma/gamma*, P_live/P) = (-0.0895, 0.8799) -> after ascent (0.999968, 1.000000); R8 at s=1 requires gamma/gamma* <= P_live/P: True
+R9c trial 2: start (gamma/gamma*, P_live/P) = (-0.4158, 0.9025) -> after ascent (0.999971, 0.999999); R8 at s=1 requires gamma/gamma* <= P_live/P: True
+R9c trial 3: start (gamma/gamma*, P_live/P) = (-0.1723, 0.8720) -> after ascent (0.999959, 1.000000); R8 at s=1 requires gamma/gamma* <= P_live/P: True

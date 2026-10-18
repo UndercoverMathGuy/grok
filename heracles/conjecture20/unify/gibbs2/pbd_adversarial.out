@@ -1,0 +1,3 @@
+p=5: adversarial min of mM/V over 24 runs = 0.666671;  (p-1)/(p+1) = 0.666667;  min - bound = 4.21e-06
+p=7: adversarial min of mM/V over 24 runs = 0.750023;  (p-1)/(p+1) = 0.750000;  min - bound = 2.28e-05
+p=11: adversarial min of mM/V over 24 runs = 0.855122;  (p-1)/(p+1) = 0.833333;  min - bound = 2.18e-02

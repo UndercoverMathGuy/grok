@@ -1,0 +1,26 @@
+R1a equality, b=2 no DC:        cost-cost_split = 0.000e+00
+R1a strict,   b=2.5 no DC 3 fr: cost-cost_split = 2.654e+01
+R1a equality, b=3 single freq:  cost-cost_split = 0.000e+00
+R1a strict,   b=2 freq+DC:      cost-cost_split = 6.920e+00
+R1  pure-DC neuron: split cost = 1.620e-32, gaps of table = 0.000e+00
+
+R1 |table(split) - diagproj(table)|                                    +1.332e-15
+R1 |sum_k e_k - ||omega||^2|                                           +2.842e-14
+R1a cost(split)-cost  (<=0)                                            -1.314e-01
+R1b lower bound - slack (<=0)                                          +7.105e-15
+R1b |slack_b2 - e0|                                                    +7.105e-15
+R1c P_live - P_split (<=0)                                             +1.137e-13
+R1c |beta - beta_split| (table FFT)                                    +2.483e-16
+R1c |betaT - betaT_split| (table FFT)                                  +4.475e-16
+R1c |atom piece - atom neuron| (k=j) or |atom| (k!=j)                  +3.724e-16
+R1c |E_x g - E_x g_split|                                              +8.882e-16
+conv |sum atoms - beta(table)|                                         +2.989e-16
+R2(1) |cost change| b=2.7                                              +4.547e-13
+R2(1) |own data change|                                                +8.689e-16
+R2(3) |Sigma-avg - (split + allDC)|                                    +3.553e-15
+R2(3) Sigma'-avg (DC flips): max|gaps(avg - split)|                    +2.442e-15
+R2(4) E h(sigma theta) - h(split) (<=0)                                +0.000e+00
+R3 output-DC flip: |own data change|                                   +8.455e-16
+R2(3) per-neuron |avg - split - allDC|                                 +3.553e-15
+R2(5) |partial avg - partial split table|                              +8.882e-15
+R2(5) cost(partial)-cost (<=0)                                         +1.421e-14

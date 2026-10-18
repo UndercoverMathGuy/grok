@@ -1,0 +1,80 @@
+(1) adversarial max of sum_k prod_t a_kt^r over unit columns
+  nu=2 b=1.80 K=2: max F = 1.07177346  predicted sup = 1.07177346  OK
+  nu=2 b=1.80 K=3: max F = 1.11612317  predicted sup = 1.11612317  OK
+  nu=2 b=1.80 K=6: max F = 1.19623120  predicted sup = 1.19623120  OK
+  nu=2 b=1.95 K=2: max F = 1.01747969  predicted sup = 1.01747969  OK
+  nu=2 b=1.95 K=3: max F = 1.02784596  predicted sup = 1.02784596  OK
+  nu=2 b=1.95 K=6: max F = 1.04581239  predicted sup = 1.04581239  OK
+  nu=2 b=2.00 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=2 b=2.00 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=2 b=2.00 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=1.80 K=2: max F = 1.07177346  predicted sup = 1.07177346  OK
+  nu=3 b=1.80 K=3: max F = 1.11612317  predicted sup = 1.11612317  OK
+  nu=3 b=1.80 K=6: max F = 1.19623120  predicted sup = 1.19623120  OK
+  nu=3 b=1.95 K=2: max F = 1.01747969  predicted sup = 1.01747969  OK
+  nu=3 b=1.95 K=3: max F = 1.02784596  predicted sup = 1.02784596  OK
+  nu=3 b=1.95 K=6: max F = 1.04581239  predicted sup = 1.04581239  OK
+  nu=3 b=2.00 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=2.00 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=2.00 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=2.05 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=2.05 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=2.05 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=2.50 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=2.50 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=2.50 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=3.00 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=3.00 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=3 b=3.00 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=1.80 K=2: max F = 1.07177346  predicted sup = 1.07177346  OK
+  nu=4 b=1.80 K=3: max F = 1.11612317  predicted sup = 1.11612317  OK
+  nu=4 b=1.80 K=6: max F = 1.19623120  predicted sup = 1.19623120  OK
+  nu=4 b=1.95 K=2: max F = 1.01747969  predicted sup = 1.01747969  OK
+  nu=4 b=1.95 K=3: max F = 1.02784596  predicted sup = 1.02784596  OK
+  nu=4 b=1.95 K=6: max F = 1.04581239  predicted sup = 1.04581239  OK
+  nu=4 b=2.00 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=2.00 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=2.00 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=2.05 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=2.05 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=2.05 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=2.50 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=2.50 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=2.50 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=4.00 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=4.00 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=4 b=4.00 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=1.80 K=2: max F = 1.07177346  predicted sup = 1.07177346  OK
+  nu=5 b=1.80 K=3: max F = 1.11612317  predicted sup = 1.11612317  OK
+  nu=5 b=1.80 K=6: max F = 1.19623120  predicted sup = 1.19623120  OK
+  nu=5 b=1.95 K=2: max F = 1.01747969  predicted sup = 1.01747969  OK
+  nu=5 b=1.95 K=3: max F = 1.02784596  predicted sup = 1.02784596  OK
+  nu=5 b=1.95 K=6: max F = 1.04581239  predicted sup = 1.04581239  OK
+  nu=5 b=2.00 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=2.00 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=2.00 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=2.05 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=2.05 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=2.05 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=2.50 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=2.50 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=2.50 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=5.00 K=2: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=5.00 K=3: max F = 1.00000000  predicted sup = 1.00000000  OK
+  nu=5 b=5.00 K=6: max F = 1.00000000  predicted sup = 1.00000000  OK
+(2) example (b): 2*(2^{-nu/2})^r = 2^{1-b/2}
+  nu=2 b=1.0: pinched sum = 1.414214, 2^(1-b/2) = 1.414214, > 1: True
+  nu=2 b=1.5: pinched sum = 1.189207, 2^(1-b/2) = 1.189207, > 1: True
+  nu=2 b=1.99: pinched sum = 1.003472, 2^(1-b/2) = 1.003472, > 1: True
+  nu=3 b=1.0: pinched sum = 1.414214, 2^(1-b/2) = 1.414214, > 1: True
+  nu=3 b=1.5: pinched sum = 1.189207, 2^(1-b/2) = 1.189207, > 1: True
+  nu=3 b=1.99: pinched sum = 1.003472, 2^(1-b/2) = 1.003472, > 1: True
+  nu=4 b=1.0: pinched sum = 1.414214, 2^(1-b/2) = 1.414214, > 1: True
+  nu=4 b=1.5: pinched sum = 1.189207, 2^(1-b/2) = 1.189207, > 1: True
+  nu=4 b=1.99: pinched sum = 1.003472, 2^(1-b/2) = 1.003472, > 1: True
+(3) nu=2 additivity on direct sums for r<1 (Schatten-r): ||A(+)B||_r^r - ||A||_r^r - ||B||_r^r
+  r=0.3 (b=0.6): max |defect| = 1.78e-15  -> additivity holds at nu=2 even for b<2
+  r=0.5 (b=1.0): max |defect| = 2.22e-15  -> additivity holds at nu=2 even for b<2
+  r=0.9 (b=1.8): max |defect| = 4.44e-15  -> additivity holds at nu=2 even for b<2
+(4) balancing: ||omega||^b >= nu^{b/2} ||T||_F^{b/nu}, equality iff factor norms equal
+  min ratio = 1.000029 (>= 1)

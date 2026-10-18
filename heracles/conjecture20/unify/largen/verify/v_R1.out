@@ -1,0 +1,33 @@
+(a) certified p=3 counterexamples (exact_certificate.py weights)
+  n=11: min cm(Phi) = 1.8208177 (positive margin: True)
+  exact_certificate n=11: p=3 n=11 width=8 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 9, violations 0; identity rel.err 6.16e-49
+  n=13: min cm(Phi) = 2.7669865 (positive margin: True)
+  exact_certificate n=13: p=3 n=13 width=10 bound K+1-floor((K+1)/p)=5 -> OK; alternation tests 9, violations 0; identity rel.err 7.4e-49
+(b) certified 1-D p=3 networks (oned_certified) and the Note's p=5,7 1-D networks
+  oned_certified/p3_n11.json: min cm = 7.85834e-5
+  oned_certified/p3_n11.json: p=3 n=11 width=8 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 9, violations 0; identity rel.err 3.19e-51
+  oned_certified/p3_n14.json: min cm = 5.1465e-6
+  oned_certified/p3_n14.json: p=3 n=14 width=10 bound K+1-floor((K+1)/p)=6 -> OK; alternation tests 9, violations 0; identity rel.err 9.83e-51
+  oned_certified/p3_n18.json: min cm = 1.64084e-7
+  oned_certified/p3_n18.json: p=3 n=18 width=13 bound K+1-floor((K+1)/p)=7 -> OK; alternation tests 9, violations 0; identity rel.err 1.06e-50
+  mechanism_scripts/kkt/oned_p5_n6.json: min cm = 0.00194738
+  mechanism_scripts/kkt/oned_p5_n6.json: p=5 n=6 width=6 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 20, violations 0; identity rel.err 3.04e-51
+  mechanism_scripts/kkt/oned_p5_n4.json: min cm = 0.0304634
+  mechanism_scripts/kkt/oned_p5_n4.json: p=5 n=4 width=5 bound K+1-floor((K+1)/p)=3 -> OK; alternation tests 15, violations 0; identity rel.err 7.08e-51
+  mechanism_scripts/kkt/oned_p7_n3.json: min cm = 0.0406634
+  mechanism_scripts/kkt/oned_p7_n3.json: p=7 n=3 width=4 bound K+1-floor((K+1)/p)=2 -> OK; alternation tests 14, violations 0; identity rel.err 2.52e-51
+(c) fresh positive-margin slot-symmetric single features with arbitrary inputs, found from random starts
+   (p=5,n=6,m=6): no positive-margin network found in 30 random starts
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R1.py:106: RuntimeWarning: overflow encountered in exp
+  Phi = np.exp(Ns @ L.T) @ Wc
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R1.py:106: RuntimeWarning: invalid value encountered in matmul
+  Phi = np.exp(Ns @ L.T) @ Wc
+/home/user/grok/heracles/conjecture20/unify/largen/verify/v_R1.py:108: RuntimeWarning: overflow encountered in power
+  cost = np.sum(np.abs(Wc) * np.linalg.norm(U, axis=1) ** n)
+   (p=5,n=6,m=7): no positive-margin network found in 30 random starts
+   (p=5,n=8,m=8): no positive-margin network found in 30 random starts
+   (p=7,n=6,m=7): no positive-margin network found in 30 random starts
+   (p=3,n=6,m=5): no positive-margin network found in 30 random starts
+   (p=3,n=8,m=6): no positive-margin network found in 30 random starts
+   (p=5,n=9,m=9): no positive-margin network found in 30 random starts
+done; random positive-margin networks checked: 0

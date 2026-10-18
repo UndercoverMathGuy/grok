@@ -1,0 +1,25 @@
+  p=5 n=6: positive margin 0.02712, distinct sign patterns 5
+  perturbed IF p=5 n=6: p=5 n=6 width=7 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 20, violations 0; identity rel.err 1.04e-50
+  p=5 n=6: positive margin 0.0275, distinct sign patterns 5
+  perturbed IF p=5 n=6: p=5 n=6 width=7 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 20, violations 0; identity rel.err 1.04e-50
+  p=5 n=7: positive margin 0.02182, distinct sign patterns 5
+  perturbed IF p=5 n=7: p=5 n=7 width=8 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 20, violations 0; identity rel.err 5.79e-51
+  p=5 n=7: positive margin 0.0004069, distinct sign patterns 5
+  perturbed IF p=5 n=7: p=5 n=7 width=8 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 20, violations 0; identity rel.err 7.34e-51
+  p=7 n=6: positive margin 0.05331, distinct sign patterns 7
+  perturbed IF p=7 n=6: p=7 n=6 width=7 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 28, violations 0; identity rel.err 7.77e-51
+  p=7 n=6: positive margin 0.03039, distinct sign patterns 7
+  perturbed IF p=7 n=6: p=7 n=6 width=7 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 28, violations 0; identity rel.err 8.88e-51
+  p=3 n=9: positive margin 0.001033, distinct sign patterns 4
+  perturbed IF p=3 n=9: p=3 n=9 width=10 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 9, violations 0; identity rel.err 6.56e-51
+  p=3 n=9: positive margin 0.009609, distinct sign patterns 4
+  perturbed IF p=3 n=9: p=3 n=9 width=10 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 9, violations 0; identity rel.err 6.84e-51
+  p=11 n=4: positive margin 0.05908, distinct sign patterns 5
+  perturbed IF p=11 n=4: p=11 n=4 width=5 bound K+1-floor((K+1)/p)=3 -> OK; alternation tests 33, violations 0; identity rel.err 4.83e-51
+  p=11 n=4: positive margin 0.1199, distinct sign patterns 5
+  perturbed IF p=11 n=4: p=11 n=4 width=5 bound K+1-floor((K+1)/p)=3 -> OK; alternation tests 33, violations 0; identity rel.err 4.91e-51
+  p=5 n=9: positive margin 0.00108, distinct sign patterns 6
+  perturbed IF p=5 n=9: p=5 n=9 width=10 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 25, violations 0; identity rel.err 5.1e-51
+  p=5 n=9: positive margin 0.002625, distinct sign patterns 6
+  perturbed IF p=5 n=9: p=5 n=9 width=10 bound K+1-floor((K+1)/p)=4 -> OK; alternation tests 25, violations 0; identity rel.err 1.11e-50
+total mixed-sign positive-margin networks checked: 12

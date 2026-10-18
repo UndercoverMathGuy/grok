@@ -1,0 +1,4 @@
+Region C boxes: {'ok': 255, 'A': 3, 'B': 5, 'out': 44, 'split': 17, 'fail': 0};  min certified margin 3.127e-04;  time 0s
+CERTIFIED
+Region C boxes: {'ok': 832, 'A': 17, 'B': 5, 'out': 173, 'split': 1, 'fail': 0};  min certified margin 3.127e-04;  time 1s
+CERTIFIED

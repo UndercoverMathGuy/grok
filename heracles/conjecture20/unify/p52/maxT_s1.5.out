@@ -1,0 +1,11 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+/home/user/grok/heracles/conjecture20/unify/p52/maxT.py:76: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  C['prob'].solve(solver=cp.CLARABEL)
+T*=2 start 0: 1.06578  best 1.06578 at [ 0.0067 -0.7381 -0.1304 -0.21  ]
+T*=2 start 1: 1.05965  best 1.06578 at [ 0.0067 -0.7381 -0.1304 -0.21  ]
+T*=2 start 2: 1.05850  best 1.06578 at [ 0.0067 -0.7381 -0.1304 -0.21  ]
+T*=2 start 3: 1.05306  best 1.06578 at [ 0.0067 -0.7381 -0.1304 -0.21  ]
+T*=2 start 4: 1.06103  best 1.06578 at [ 0.0067 -0.7381 -0.1304 -0.21  ]
+T*=2 start 5: 1.07238  best 1.07238 at [ 0.      0.7247  1.2012 -0.2533]
+T*=2 start 6: 1.02707  best 1.07238 at [ 0.      0.7247  1.2012 -0.2533]
+T*=2 start 7: 0.98254  best 1.07238 at [ 0.      0.7247  1.2012 -0.2533]

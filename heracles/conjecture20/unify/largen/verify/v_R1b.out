@@ -1,0 +1,5 @@
+  p=3 n=6: positive margin 0.005789, distinct sign patterns 4
+  perturbed IF p=3 n=6: p=3 n=6 width=7 bound K+1-floor((K+1)/p)=3 -> OK; alternation tests 9, violations 0; identity rel.err 6.52e-51
+  p=3 n=6: positive margin 0.005586, distinct sign patterns 4
+  perturbed IF p=3 n=6: p=3 n=6 width=7 bound K+1-floor((K+1)/p)=3 -> OK; alternation tests 9, violations 0; identity rel.err 6.84e-51
+total mixed-sign positive-margin networks checked: 2

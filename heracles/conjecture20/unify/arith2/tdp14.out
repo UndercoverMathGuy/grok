@@ -1,0 +1,5 @@
+p=61 s=1.5: Gamma_ref=0.31203  TDP14 max ratio = 1.00000   |spt b| = 5
+p=101 s=1.5: Gamma_ref=0.27893  TDP14 max ratio = 1.00000   |spt b| = 7
+p=211 s=1.5: Gamma_ref=0.23420  TDP14 max ratio = 1.00000   |spt b| = 8
+p=401 s=1.5: Gamma_ref=0.21075  TDP14 max ratio = 1.00000   |spt b| = 8
+p=1009 s=1.5: Gamma_ref=0.18098  TDP14 max ratio = 1.00000   |spt b| = 11
