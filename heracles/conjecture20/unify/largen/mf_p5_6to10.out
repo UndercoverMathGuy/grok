@@ -27,3 +27,10 @@ p=5 n=9 b=2.0 K*-programme Gamma=0.6910  (124s)
    ratio=-0.00093  seed=oned  m=10  eta_j/IFprice: 1:6.22e-02 2:3.61e-07  spurious/main=5.81e-06
    ratio=-0.01797  seed=oned  m= 8  eta_j/IFprice: 1:2.12e-04 2:3.30e-09  spurious/main=1.56e-05
    ratio=-1.38147  seed=rand  m= 9  eta_j/IFprice: 1:8.43e-02 2:2.61e-01  spurious/main=3.23e-01
+p=5 n=10 b=2.0 K*-programme Gamma=0.6910  (145s)
+   ratio=+0.99992  seed=if    m=11  eta_j/IFprice: 1:1.00e+00 2:1.95e-58  spurious/main=1.95e-58
+   ratio=+0.96664  seed=if    m=13  eta_j/IFprice: 1:9.67e-01 2:1.57e-21  spurious/main=1.62e-21
+   ratio=-0.00116  seed=oned  m= 9  eta_j/IFprice: 1:1.16e-04 2:1.44e-10  spurious/main=1.24e-06
+   ratio=-0.01380  seed=oned  m=11  eta_j/IFprice: 1:7.18e-03 2:2.64e-06  spurious/main=3.68e-04
+   ratio=-0.13094  seed=rand  m=13  eta_j/IFprice: 1:7.86e-05 2:3.12e-05  spurious/main=3.97e-01
+   ratio=-1.28456  seed=rand  m=10  eta_j/IFprice: 1:5.70e-04 2:1.71e-03  spurious/main=3.33e-01
