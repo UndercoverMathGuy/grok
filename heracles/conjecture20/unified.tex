@@ -189,17 +189,21 @@ with no oscillation).  In the application the right size is the $r$-participatio
 line with the same payment constant and at most $3\times$ the requirement on $\sigma$; compensation reduces to the line lemma plus a per-feature quadratic game whose constants depend on $p$.
 \end{itemize}
 
-\paragraph{The refined crux: stability.}  Everything now hangs on one statement about the programme:
-\begin{conjecture}[stability]\label{conj:stab}
-If an allocation has efficiency $e(a)\ge e_0$ (about $0.76$), the $a$-weighted mass of short additive relations among its support, of each length $D\le D_0$, is a small multiple of the
-independent baseline, uniformly over sub-blocks carrying interference.
-\end{conjecture}
-With it, ``only short relations matter'' gives $\sigma_2\approx0.31$--$0.43$ for $K/\ln p=1.5$--$2.5$ (limit formula numerical), above $c_{12}=0.18$, and closes the relations case at every prime.
-Partial certificates (agent A): moment certificates from exact relation sums of length $\le8$, valid for all phases, give $0.27$--$0.34$ on programme supports
-for $p\le2003$ after local minimisation over the weights; under ``relation mass below the independent baseline'' the tilted mean gives $\sigma_2\ge0.28,0.22,0.18$ at
-$K/\ln p=2,2.5,3$ asymptotically.  The remaining sub-claim is a weighted Sidon (Pisier--Bourgain-type) inequality on near-optimal supports.
-Evidence: programme supports carry $2$ three-term relations against $77.8$ expected for random sets of the same sizes ($83$ of $85$ supports have none), and $235$ four-term relations against $468$.
-Optimal covers repel short relations more strongly than chance.
+\paragraph{The refined crux.}  A first guess, \emph{stability} (near-optimal covers have few short relations), is false as stated and not
+needed (agent B, \texttt{agents/B\_result2.md}).  Forcing three-term relations into an optimal support costs about $3\%$ efficiency each
+($e=0.98$--$1$ with none, $0.88$--$0.94$ with three) but never creates flatness: two-sided certificates stay at $0.32$--$0.36$, above $c_{12}=0.18$.  What does
+threaten is a \emph{dense flat sub-block}: adding a dilated Rudin--Shapiro block of $N$ frequencies with a small budget share $\beta$ keeps $e\ge(1+\beta)^{-3/2}$ and $K_r$ small,
+and interference concentrated on it is flat ($0.170$ at $N=64$, $p=10007$).  So any statement uniform over the interference weights must charge the block's
+share of coverage, as inequality (NU) of the chat sheet does.  Every flat sub-block $B$ of an efficient allocation is then in one of three cases:
+\begin{itemize}
+\item[(i)] \emph{thin}: closed by the dilution lemma (B; proved): if $a'$ is closed at $\delta$ then $a'+b$ is, whenever $\sum_Bb_l\phi_l(\delta)\le1.5\Gamma_s\beta$ ($\phi_l\le6.10$), which holds at every
+$\delta$ once $\beta\le(1.5\Gamma_s/6.10)^2|B|$ and at every $\delta$ in the block's blind set for any $\beta$;
+\item[(ii)] \emph{costly}: closed by the efficiency--Sidon reduction;
+\item[(iii)] \emph{blind}: its blind set $Z$ (a Bohr-type set) must be over-covered by the rest of the allocation, and one needs that this cannot beat $\Gamma_s(p)$ by more than
+a factor $1+O(\ln N/\ln p)$.
+\end{itemize}
+Case (iii) is the remaining obligation in the relations case.  In a numerical model, every single Rudin--Shapiro block is closed up to $p\approx10^8$, and a window that needs (iii) opens near
+$p\approx10^{12}$ ($N\approx76$--$312$, $\beta\approx0.06$--$0.08$).  The direct experiments above (blocks lose because the bottleneck moves into their blind set) are case (iii) at work.
 
 \section{Proof plan}
 \begin{enumerate}
