@@ -4,3 +4,5 @@ p=211 K=8 line: rho_line(min over d0)=0.843 (max over d0 0.898)  -> R with c12: 
 p=307 K=9 line: rho_line(min over d0)=0.815 (max over d0 0.880)  -> R with c12: 4.44, with Theorem-A 0.289: 2.82, with c1: 1.93
 p=401 K=8 line: rho_line(min over d0)=0.936 (max over d0 0.991)  -> R with c12: 5.10, with Theorem-A 0.289: 3.24, with c1: 2.22
 p=503 K=9 line: rho_line(min over d0)=0.890 (max over d0 0.955)  -> R with c12: 4.85, with Theorem-A 0.289: 3.08, with c1: 2.11
+p=601 K=12 line: rho_line(min over d0)=0.724 (max over d0 0.727)  -> R with c12: 3.94, with Theorem-A 0.289: 2.51, with c1: 1.71
+p=701 K=10 line: rho_line(min over d0)=0.882 (max over d0 0.958)  -> R with c12: 4.81, with Theorem-A 0.289: 3.06, with c1: 2.09
