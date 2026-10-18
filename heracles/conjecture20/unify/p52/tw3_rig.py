@@ -32,7 +32,7 @@ def tw3_bound(m_lo, m_hi, p_lo, p_hi, nL=48, npsi=48, Lspan=1.5, tgrid=None):
     L2 = L * L; L3 = L2 * L
     ps_lo = np.broadcast_to(psig[:-1].reshape(1, 1, -1), sh); ps_hi = np.broadcast_to(psig[1:].reshape(1, 1, -1), sh)
     cpsi = cos_iv(ps_lo, ps_hi)
-    d_lo = np.maximum(ps_lo - B3(p_hi), -6.28); d_hi = np.minimum(ps_hi - B3(p_lo), 6.28)
+    d_lo = np.maximum(ps_lo - B3(p_hi), -6.3); d_hi = np.minimum(ps_hi - B3(p_lo), 6.3)
     cdiff = cos_iv(d_lo, d_hi)
     cphi = cos_iv(B3(p_lo), B3(p_hi))
     out = np.zeros(nb)
@@ -44,7 +44,7 @@ def tw3_bound(m_lo, m_hi, p_lo, p_hi, nL=48, npsi=48, Lspan=1.5, tgrid=None):
         qI = (mY * mZ * (mX * cphi + rho * cpsi) * 2.0) / L3
         S = LB_Smin(Phi.ravel(), qI.lo.ravel()).reshape(sh)
         Sq = I(np.where(np.isfinite(S), np.maximum(S, 0.0), 0.0)) / 3.0
-        val = (Sq * Sq.sqrt()).lo * La
+        val = (I(La) * (Sq * Sq.sqrt())).lo
         val = np.where(np.isinf(S), np.inf, val)
         best = val.reshape(nb, -1).min(axis=1)
         tail = (I(Lmin) * (1.0 + Lspan) / SQ3).lo

@@ -1,0 +1,6 @@
+p=211 progression N=10: rho=0.9263  (threshold 0.8165)  |spt b'|=4  spt=[np.int64(1), np.int64(3), np.int64(5), np.int64(12)]
+p=211 progression N=30: rho=0.7006  (threshold 0.8165)  |spt b'|=9  spt=[np.int64(3), np.int64(5), np.int64(12), np.int64(13), np.int64(14), np.int64(18), np.int64(25), np.int64(39), np.int64(48)]
+p=211 progression N=60: rho=0.5532  (threshold 0.8165)  |spt b'|=9  spt=[np.int64(3), np.int64(4), np.int64(12), np.int64(14), np.int64(21), np.int64(22), np.int64(49), np.int64(54), np.int64(60)]
+p=1009 progression N=10: rho=1.0000  (threshold 0.8165)  |spt b'|=10  spt=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9), np.int64(10)]
+p=1009 progression N=30: rho=0.7437  (threshold 0.8165)  |spt b'|=6  spt=[np.int64(3), np.int64(4), np.int64(12), np.int64(14), np.int64(21), np.int64(93)]
+p=1009 progression N=60: rho=0.7529  (threshold 0.8165)  |spt b'|=17  spt=[np.int64(16), np.int64(23), np.int64(52), np.int64(74), np.int64(83), np.int64(98), np.int64(125), np.int64(174), np.int64(209), np.int64(219), np.int64(286), np.int64(304)]...

@@ -1,0 +1,5 @@
+max violation h<=O1                 : -2.730e-04   (must be <= ~0)
+max violation O1<=CP                : +7.105e-15   (must be <= ~0)
+max violation CP<=LR                : -2.028e-01   (must be <= ~0)
+max violation rowavg<=Xi*sum a^r    : -1.762e-02   (must be <= ~0)
+max ratio     rowavg/sum a^r        : 1.0633      (must be <= Xi_p, 1.0683..1.0706 here)

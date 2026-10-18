@@ -9,3 +9,46 @@ warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be remo
   C['p'].solve(solver=cp.CLARABEL)
 /home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
   C['p'].solve(solver=cp.CLARABEL)
+s=1.50 gamma/gIF=-1.9947  bound=-0.1309  h=-0.86005<=hb=-0.02566  P1=0.0760>=F=0.0340  ok=True
+s=1.25 gamma/gIF=-1.8844  bound=-0.0841  h=-0.86005<=hb=-0.02566  P1=0.0711>=F=0.0340  ok=True
+s=1.50 gamma/gIF=-0.0354  bound=0.7370  h=-0.00522<=hb=0.10346  P1=0.1590>=F=0.1562  ok=True
+s=1.25 gamma/gIF=-0.0297  bound=0.6123  h=-0.00522<=hb=0.10346  P1=0.1593>=F=0.1562  ok=True
+s=1.50 gamma/gIF=-3.6193  bound=0.2402  h=-0.23363<=hb=0.00920  P1=0.0448>=F=0.0350  ok=True
+s=1.25 gamma/gIF=-2.9443  bound=0.1803  h=-0.23363<=hb=0.00920  P1=0.0514>=F=0.0350  ok=True
+s=1.50 gamma/gIF=-1.5925  bound=0.1013  h=-0.65723<=hb=0.01884  P1=0.0732>=F=0.0224  ok=True
+s=1.25 gamma/gIF=-1.5048  bound=0.0649  h=-0.65723<=hb=0.01884  P1=0.0667>=F=0.0224  ok=True
+s=1.50 gamma/gIF=-0.2131  bound=0.6573  h=-0.03421<=hb=0.09996  P1=0.1722>=F=0.1690  ok=True
+s=1.25 gamma/gIF=-0.1789  bound=0.5457  h=-0.03421<=hb=0.09996  P1=0.1726>=F=0.1690  ok=True
+s=1.50 gamma/gIF=-3.5926  bound=-0.0018  h=-0.25091<=hb=-0.00008  P1=0.0481>=F=0.0382  ok=True
+s=1.25 gamma/gIF=-2.8514  bound=-0.0013  h=-0.25091<=hb=-0.00008  P1=0.0544>=F=0.0382  ok=True
+s=1.50 gamma/gIF=-2.2852  bound=0.1077  h=-1.06755<=hb=0.02282  P1=0.1405>=F=0.0556  ok=True
+s=1.25 gamma/gIF=-2.1482  bound=0.0696  h=-1.06755<=hb=0.02282  P1=0.1315>=F=0.0556  ok=True
+s=1.50 gamma/gIF=-0.2466  bound=0.5560  h=-0.03454<=hb=0.07398  P1=0.1470>=F=0.1466  ok=True
+s=1.25 gamma/gIF=-0.2074  bound=0.4590  h=-0.03454<=hb=0.07398  P1=0.1470>=F=0.1466  ok=True
+s=1.50 gamma/gIF=-3.2436  bound=0.1925  h=-0.23664<=hb=0.00866  P1=0.0532>=F=0.0454  ok=True
+s=1.25 gamma/gIF=-2.5872  bound=0.1509  h=-0.23664<=hb=0.00866  P1=0.0636>=F=0.0454  ok=True
+s=1.50 gamma/gIF=-2.3953  bound=-0.2499  h=-1.30098<=hb=-0.06182  P1=0.0872>=F=0.0465  ok=True
+s=1.25 gamma/gIF=-2.2739  bound=-0.1606  h=-1.30098<=hb=-0.06182  P1=0.0773>=F=0.0465  ok=True
+s=1.50 gamma/gIF=0.0018  bound=0.7241  h=0.00023<=hb=0.08839  P1=0.1372>=F=0.1345  ok=True
+s=1.25 gamma/gIF=0.0015  bound=0.5979  h=0.00023<=hb=0.08839  P1=0.1372>=F=0.1345  ok=True
+s=1.50 gamma/gIF=-2.9753  bound=-0.0025  h=-0.19953<=hb=-0.00009  P1=0.0442>=F=0.0347  ok=True
+s=1.25 gamma/gIF=-2.4543  bound=-0.0019  h=-0.19953<=hb=-0.00009  P1=0.0510>=F=0.0347  ok=True
+s=1.50 gamma/gIF=-3.4948  bound=-0.1297  h=-1.37368<=hb=-0.02285  P1=0.0564>=F=0.0240  ok=True
+s=1.25 gamma/gIF=-3.3234  bound=-0.0832  h=-1.37368<=hb=-0.02285  P1=0.0520>=F=0.0240  ok=True
+s=1.50 gamma/gIF=0.0898  bound=0.6937  h=0.01194<=hb=0.08770  P1=0.1439>=F=0.1410  ok=True
+s=1.25 gamma/gIF=0.0755  bound=0.5773  h=0.01194<=hb=0.08770  P1=0.1440>=F=0.1410  ok=True
+s=1.50 gamma/gIF=-2.7957  bound=0.5528  h=-0.19353<=hb=0.02101  P1=0.0429>=F=0.0362  ok=True
+s=1.25 gamma/gIF=-2.3113  bound=0.4219  h=-0.19353<=hb=0.02101  P1=0.0511>=F=0.0362  ok=True
+s=1.50 gamma/gIF=-1.8067  bound=-0.0007  h=-0.88532<=hb=-0.00016  P1=0.0695>=F=0.0351  ok=True
+s=1.25 gamma/gIF=-1.7038  bound=-0.0005  h=-0.88532<=hb=-0.00016  P1=0.0669>=F=0.0351  ok=True
+s=1.50 gamma/gIF=-0.3023  bound=0.7400  h=-0.03979<=hb=0.09016  P1=0.1341>=F=0.1329  ok=True
+s=1.25 gamma/gIF=-0.2536  bound=0.6068  h=-0.03979<=hb=0.09016  P1=0.1346>=F=0.1329  ok=True
+s=1.50 gamma/gIF=-4.7632  bound=0.1002  h=-0.31578<=hb=0.00398  P1=0.0494>=F=0.0380  ok=True
+s=1.25 gamma/gIF=-3.8386  bound=0.0766  h=-0.31578<=hb=0.00398  P1=0.0565>=F=0.0380  ok=True
+s=1.50 gamma/gIF=0.7818  bound=0.7818  h=0.19459<=hb=0.19459  P1=0.2816>=F=0.2816  ok=True
+s=1.25 gamma/gIF=0.6574  bound=0.6574  h=0.19459<=hb=0.19459  P1=0.2816>=F=0.2816  ok=True
+s=1.50 gamma/gIF=0.7818  bound=0.7818  h=5.46000<=hb=5.46000  P1=7.9018>=F=7.9018  ok=True
+s=1.25 gamma/gIF=0.6574  bound=0.6574  h=5.46000<=hb=5.46000  P1=7.9018>=F=7.9018  ok=True
+s=1.50 gamma/gIF=0.7818  bound=0.7818  h=6.31607<=hb=6.31607  P1=9.1407>=F=9.1407  ok=True
+s=1.25 gamma/gIF=0.6574  bound=0.6574  h=6.31607<=hb=6.31607  P1=9.1407>=F=9.1407  ok=True
+all ok: True  max gamma/gIF observed: 0.7818

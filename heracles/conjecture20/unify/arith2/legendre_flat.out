@@ -1,0 +1,4 @@
+p=61: max|D_1 - chi| = 1.4e-14; detection (1/2)osc D_1 = 1.000, Parseval sqrt(E D^2) = 0.992, bonus c(Kv)_1 = 0.912  (ratio 0.91);  efficiency of a = v/tau': e(a) = 0.3220  (closed if e <= 0.8165)
+p=101: max|D_1 - chi| = 3.1e-14; detection (1/2)osc D_1 = 1.000, Parseval sqrt(E D^2) = 0.995, bonus c(Kv)_1 = 1.174  (ratio 1.17);  efficiency of a = v/tau': e(a) = 0.2596  (closed if e <= 0.8165)
+p=401: max|D_1 - chi| = 1.5e-13; detection (1/2)osc D_1 = 1.000, Parseval sqrt(E D^2) = 0.999, bonus c(Kv)_1 = 2.339  (ratio 2.34);  efficiency of a = v/tau': e(a) = 0.1498  (closed if e <= 0.8165)
+p=1009: max|D_1 - chi| = 6.4e-13; detection (1/2)osc D_1 = 1.000, Parseval sqrt(E D^2) = 1.000, bonus c(Kv)_1 = 3.711  (ratio 3.71);  efficiency of a = v/tau': e(a) = 0.1035  (closed if e <= 0.8165)

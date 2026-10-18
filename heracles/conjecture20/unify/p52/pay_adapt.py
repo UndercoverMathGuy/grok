@@ -20,14 +20,14 @@ def _cell_lb(mX, mY, mZ, cphi, p_lo, p_hi, Lmin, tlo, thi, slo, shi):
     rho = (L * (L - 1.0) * 2.0).clip0().sqrt()
     L2 = L * L; L3 = L2 * L
     cpsi = cos_iv(slo, shi)
-    cdiff = cos_iv(np.maximum(slo - p_hi, -6.28), np.minimum(shi - p_lo, 6.28))
+    cdiff = cos_iv(np.maximum(slo - p_hi, -6.3), np.minimum(shi - p_lo, 6.3))
     num = mY.sq() + mZ.sq() + mX.sq() + rho.sq() + mX * rho * cdiff * 2.0
     Phi = np.minimum(up(num.hi / L2.lo * (1 + 4e-16)), 3.0)
     Phi = np.maximum(Phi, 0.0)
     qI = (mY * mZ * (mX * cphi + rho * cpsi) * 2.0) / L3
     S = LB_Smin(Phi, qI.lo)
     Sq = I(np.where(np.isfinite(S), np.maximum(S, 0.0), 0.0)) / 3.0
-    val = (Sq * Sq.sqrt()).lo * La
+    val = (I(La) * (Sq * Sq.sqrt())).lo
     return np.where(np.isinf(S), np.inf, val)
 
 

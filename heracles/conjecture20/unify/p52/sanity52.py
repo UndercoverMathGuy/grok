@@ -146,7 +146,7 @@ if __name__ == '__main__':
                       np.stack([np.ones(k), p_ * xi, p_ * xi * eta], 1),
                       np.stack([np.ones(k), p_ * eta, p_ * xi * eta], 1)]:
                 H = (u.T * rho_) @ u.conj()
-                nu = np.clip(np.linalg.eigvalsh(H / L), 0, None)
+                nu = np.linalg.eigvalsh(H / L); nu = np.where(nu < 1e-12, 0.0, nu)
                 wF = max(wF, L * (np.sum(nu ** r) / 3) ** s - P1)
         Dp = np.sum(rho_ * p_ ** 2 * xi * eta); Cp = np.sum(rho_ * eta); Bp = np.sum(rho_ * xi)
         rad = np.sqrt(2 * L * (L - abs(A)))

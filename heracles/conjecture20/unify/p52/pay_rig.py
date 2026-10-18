@@ -106,7 +106,7 @@ def tw_bound(m_lo, m_hi, cp_lo, cp_hi, nL=56):
         S = LB_Smin(Pbar, qlo)
         # value lower bound: L.lo * (S/3)^{3/2}
         Sq = I(np.where(np.isfinite(S), np.maximum(S, 0.0), 0.0)) / 3.0
-        val = (Sq * Sq.sqrt()).lo * L.lo
+        val = (I(L.lo) * (Sq * Sq.sqrt())).lo
         val = np.where(np.isinf(S), np.inf, val)
         best = np.minimum(best, val)
     # beyond the last L: P_1 >= 3^{-1/2} L >= 3^{-1/2} * 2 Lmin

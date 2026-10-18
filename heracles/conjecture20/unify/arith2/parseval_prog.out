@@ -1,0 +1,4 @@
+s=1.5000 (b=2.000): capacity 1/c^2=29.70;  largest q with max_x kappa-mass <= capacity: q=23   (M_q/q -> 1.2172 as q grows)
+s=1.3333 (b=2.250): capacity 1/c^2=62.57;  largest q with max_x kappa-mass <= capacity: q=50   (M_q/q -> 1.2172 as q grows)
+s=1.2500 (b=2.400): capacity 1/c^2=107.61;  largest q with max_x kappa-mass <= capacity: q=87   (M_q/q -> 1.2172 as q grows)
+s=1.2000 (b=2.500): capacity 1/c^2=164.82;  largest q with max_x kappa-mass <= capacity: q=134   (M_q/q -> 1.2172 as q grows)

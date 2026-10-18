@@ -9,3 +9,4 @@ warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be remo
   C['p'].solve(solver=cp.CLARABEL)
 /home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
   C['p'].solve(solver=cp.CLARABEL)
+DONE: I=145 II=363 fail=0 certs=316 worstII=0.9949 time=508s
