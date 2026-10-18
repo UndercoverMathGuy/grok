@@ -41,3 +41,6 @@ Typical run: `python slopes.py 3 11 2 6` then `python contsl.py 3 11 20 2 sl_p3_
   `quadcheck.py` (adversarial suprema of bonus*L/E and bonus*L/|D|^2; output `quadcheck.out`; the "claimed Kq" printed there is the second-order limit 9/(10+8r), the certified constant is 5/(5+4r)),
   `quadp12.py` (evidence that the relations-case quadratic constant is exactly c12, two aligned atoms; output `quadp12.out`),
   `nearif_check.py` (spot-check of the bound of Theorem `thm:nearif`(a) on 3000 random relations-case networks; output `nearif_check.out`).
+- `unified/` — measurement of the global ratio of `unified.tex` (Conjecture "no unicorns", class C, n=2, b=2) on programme
+  supports: `measure.py line|plane <p|small> <seed>`; outputs `line_small.out`, `line_large.out`, `plane_small.out` (runs in progress
+  are committed as they stand and updated when they finish).
