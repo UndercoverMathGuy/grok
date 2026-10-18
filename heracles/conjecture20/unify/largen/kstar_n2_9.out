@@ -1,0 +1,22 @@
+n=2 b=2.0 s=1.500: k* by width 1:0.3451 2:0.3451 3:0.3451 4:0.3451 5:0.3451 6:0.3451  max 0.3451 at m=1
+   |beta|/L = [1.]  ReA/L=1.0000 |A|/L=1.0000  IF/L=0.5774  E/|A|^2=3.0000
+n=3 b=2.0 s=2.000: k* by width 1:0.4009 2:0.5426 3:0.5426 4:0.4009 5:0.4009 6:0.5426  max 0.5426 at m=2
+   |beta|/L = [0.5 0.5]  ReA/L=0.9505 |A|/L=0.9505  IF/L=0.5000  E/|A|^2=1.5260
+n=4 b=2.0 s=2.500: k* by width 1:0.3325 2:0.5902 3:0.6730 4:0.6730 5:0.5902 6:0.5902  max 0.6730 at m=3
+   |beta|/L = [0.4231 0.2885 0.2885]  ReA/L=0.8967 |A|/L=0.8967  IF/L=0.4600  E/|A|^2=1.0473
+/home/user/grok/heracles/conjecture20/unify/largen/kstar_large.py:43: RuntimeWarning: overflow encountered in multiply
+  g_rho = (dnum_rho - num * dE_rho / (2 * E)) / sq
+/home/user/grok/heracles/conjecture20/unify/largen/kstar_large.py:44: RuntimeWarning: overflow encountered in multiply
+  g_al = (dnum_al - num * dE_al / (2 * E)) / sq
+/home/user/grok/heracles/conjecture20/unify/largen/kstar_large.py:45: RuntimeWarning: overflow encountered in multiply
+  g_th = (-num * dE_th / (2 * E)) / sq
+n=5 b=2.0 s=3.000: k* by width 1:0.2469 2:0.5326 3:0.7308 4:0.7644 5:0.7308 6:0.5326  max 0.7644 at m=4
+   |beta|/L = [0.3224 0.3224 0.1776 0.1776]  ReA/L=0.8466 |A|/L=0.8466  IF/L=0.4317  E/|A|^2=0.8220
+n=6 b=2.0 s=3.500: k* by width 1:0.1768 2:0.4386 3:0.6896 4:0.8404 5:0.8404 6:0.8404  max 0.8404 at m=4
+   |beta|/L = [0.3348 0.3348 0.1652 0.1652]  ReA/L=0.6912 |A|/L=0.6912  IF/L=0.2364  E/|A|^2=1.2262
+n=7 b=2.0 s=4.000: k* by width 1:0.1252 2:0.3440 3:0.6029 4:0.8178 5:0.9277 6:0.8178  max 0.9277 at m=5
+   |beta|/L = [0.31   0.2431 0.2431 0.1019 0.1019]  ReA/L=0.6353 |A|/L=0.6353  IF/L=0.2262  E/|A|^2=0.9637
+n=8 b=2.0 s=4.500: k* by width 1:0.0885 2:0.2624 3:0.5032 4:0.7433 5:0.9247 6:0.9980  max 0.9980 at m=6
+   |beta|/L = [0.2614 0.2614 0.1743 0.1742 0.0644 0.0644]  ReA/L=0.5877 |A|/L=0.5877  IF/L=0.2157  E/|A|^2=0.8043
+n=9 b=2.0 s=5.000: k* by width 1:0.0626 2:0.1970 3:0.4076 4:0.6473 5:0.8646 6:0.8646  max 0.8646 at m=5
+   |beta|/L = [0.3376 0.2478 0.2476 0.0835 0.0835]  ReA/L=0.3177 |A|/L=0.3177  IF/L=0.0552  E/|A|^2=1.8265
