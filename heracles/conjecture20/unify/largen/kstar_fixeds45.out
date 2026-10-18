@@ -1,0 +1,5 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+s=4.5 n=8: k*_sym (search) >= 0.9980 (m=6)   arc family 0.9423
+s=4.5 n=9: k*_sym (search) >= 0.9375 (m=7)   arc family 0.8968
+s=4.5 n=11: k*_sym (search) >= 0.8510 (m=8)   arc family 0.7991
+s=4.5 n=14: k*_sym (search) >= 0.7418 (m=10)   arc family 0.6942

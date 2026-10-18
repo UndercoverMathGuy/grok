@@ -1,0 +1,6 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=11 mode=min: worst R = 0.9703 -> CLOSED  worst tau=(1, 1, 2, 0, 1)
+kappa [0.159 0.585 1.142 1.655 1.959]
+x [[0.    0.252 0.214 0.896 0.625]
+ [0.803 0.777 0.473 0.174 1.   ]
+ [0.    0.339 0.601 0.851 0.518]]

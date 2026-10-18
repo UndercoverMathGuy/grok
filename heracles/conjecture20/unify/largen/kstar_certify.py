@@ -37,5 +37,5 @@ if __name__ == "__main__":
         n = int(f.split('_n')[1].split('_')[0].split('.')[0])
         s = (n + 1) / 2.0
         ratio, ReA, ImA, IF, E = certify(n, z, m, s)
-        print(f"{f}: n={n} s={s} m={m}  k*(n,s) >= {mp.nstr(ratio.a, 8)}  (interval [{mp.nstr(ratio.a,10)}, {mp.nstr(ratio.b,10)}])"
-              f"  ReA={mp.nstr(ReA.mid,6)} IF={mp.nstr(IF.mid,6)} E={mp.nstr(E.mid,6)}", flush=True)
+        lo = mp.mpf(ratio.a); hi = mp.mpf(ratio.b)
+        print(f"{f}: n={n} s={s} m={m}  certified k*(n,s) >= {mp.nstr(lo, 8)}   (enclosure width {mp.nstr(hi-lo, 3)})", flush=True)

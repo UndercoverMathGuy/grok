@@ -1,0 +1,22 @@
+PASS L1 rotation keeps beta_2   [3.469e-17]
+PASS L1 rotation phi=0.7 changes beta_{2,{1}} by e^{-2i phi}
+PASS L1 rotation by pi (= sign flip) fixes all own data
+PASS L1 reflection changes beta_2 (generic)   [4.627e-01]
+PASS L2 torus average keeps clean modes   [1.507e-14]
+PASS L2 torus average kills every other mode (sign-flipped and mixed)   [2.496e-14]
+PASS L3 channels reproduce the mixed part of g_hat at +-2l1_T (p=7, n=2)   [5.118e-16]
+PASS L3 channels reproduce the mixed part of g_hat at +-2l1_T (p=11, n=2)   [4.987e-16]
+PASS L3 channels reproduce the mixed part of g_hat at +-2l1_T (p=7, n=3)   [3.354e-16]
+PASS L3 channels reproduce the mixed part of g_hat at +-2l1_T (p=5, n=2)   [3.243e-16]
+PASS L4 class C joint pseudo-covariance vanishes (p=3, n=2)   [1.844e-17]
+PASS L4 class C joint pseudo-covariance vanishes (p=5, n=2)   [1.145e-17]
+PASS L4 class C joint pseudo-covariance vanishes (p=7, n=3)   [2.136e-18]
+PASS L4 class C joint pseudo-covariance vanishes (p=11, n=2)   [5.647e-18]
+PASS L4 p=3 single-frequency+DC: pseudo-variance non-zero   [1.402e+00]
+PASS L4 p=5 single-frequency+DC (no 2l-pair): pseudo-variance zero   [1.868e-17]
+PASS L4 p=5 with a 2l-pair {0,2} in ONE slot (clean frequency elsewhere): pseudo-variance non-zero   [3.712e-01]
+PASS L5 test core has interference only on T={1,2}
+PASS L5 mixed modes off span V never raise min_x g (max over delta of min g_theta - min g_split <= 0)   [8.882e-16]
+PASS L5 quantitative: min g_theta <= min(g_split + g_R^V) (generic network)   [0.000e+00]
+PASS L6 interference-free networks: h(theta) - h(theta_split) <= 0   [-8.116e-01]
+PASS L7 h <= B_p min_delta sum_j P_j^s kappa_j(delta) (split costs)   [-6.085e+00]

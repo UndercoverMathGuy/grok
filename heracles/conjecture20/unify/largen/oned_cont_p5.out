@@ -1,0 +1,8 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+n=6 m=6: ratio=0.26432 clean={1: 0.4906, 2: 6.404e-05}
+n=7 m=7 (nu=8): ratio=0.21984 clean={1: 0.4068, 2: 0.0004677}
+n=8 m=8 (nu=9): ratio=0.18134 clean={1: 0.3561, 2: 0.0001468}
+n=9 m=9 (nu=10): ratio=-0.05722 clean={1: 0.01075, 2: 0.002372}
+n=10 m=10 (nu=11): ratio=-0.19571 clean={1: 0.007551, 2: 0.002465}
+n=11 m=11 (nu=12): ratio=-0.64553 clean={1: 0.01914, 2: 0.001768}
+n=12 m=12 (nu=13): ratio=-13.85846 clean={1: 0.01386, 2: 0.00143}

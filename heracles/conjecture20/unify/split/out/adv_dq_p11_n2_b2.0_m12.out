@@ -1,0 +1,7 @@
+rep 0: R_Q = 1.10056   gamma/gamma_IF = 0.65672
+rep 1: R_Q = 1.10562   gamma/gamma_IF = 0.67771
+rep 2: R_Q = 1.11044   gamma/gamma_IF = 0.67403
+rep 3: R_Q = 1.10206   gamma/gamma_IF = 0.65079
+rep 4: R_Q = 1.10957   gamma/gamma_IF = 0.66389
+rep 5: R_Q = 1.10294   gamma/gamma_IF = 0.47235
+SUMMARY p=11 n=2 b=2.0 m=12: max R_Q = 1.11044 at gamma/gamma_IF = 0.67403; max R_Q among networks with gamma/gamma_IF >= 0.95: nan

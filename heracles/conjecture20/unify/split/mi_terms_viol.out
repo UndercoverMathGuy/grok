@@ -1,0 +1,5 @@
+theta: gamma/gIF=0.7902  Delta(theta)=[1, 4]  |beta|/a=[0.987, 1.1699]  identity err=8.94e-08
+  in units of IF*P^s:  bonus=0.0370  Det=0.0011  U=0.0136  G=0.2320
+split: gamma/gIF(at P)=0.3772  Det(split)=0.3923  U(split)=0.0102  (same bonus 0.0370, same G 0.2320)
+hidden = 0.3912  (fraction of Det(split): 0.997);  DeltaU = 0.00340
+class-C MI slack of split = Det+U+G-bonus = +0.5975;  MI slack of theta = +0.2097
