@@ -42,8 +42,17 @@ def opt_net(s, m=6, iters=300):
 if __name__ == '__main__':
     worst = 0; rows = []
     nets = [make_net(k) for k in ['random', 'IFpert', 'atom'] * 6]
-    nets += [opt_net(1.5) for _ in range(4)]
+    # near-optimal single-feature networks from the GLOBAL agent's penalised optimiser (outputs on all frequencies)
+    import sys as _s
+    _s.path.insert(0, '/home/user/grok/heracles/conjecture20/unify/global')
+    from w1_compensation import run as wrun
+    for seed in range(3):
+        (val, net), vals = wrun(5, 2, 2.0, (1,), 8, 3, seed=seed)
+        if net is not None:
+            nets.append((net.U.copy(), kill_beta2(net.U.copy(), net.W.copy())))
     for (U, W) in nets:
+        c0 = cost(U, W, 2.0) ** 0.5
+        U = U / c0 ** (1 / 3); W = W / c0 ** (1 / 3)
         A, bT, Phi = own_data(U, W)
         if abs(A) < 1e-9:
             continue
@@ -67,7 +76,7 @@ if __name__ == '__main__':
             triv = KA * np.cos(al) * sc
             hb = min(hb, triv)
             bound_ratio = hb / (Gamma(s) * np.sqrt((F * sc) ** 2 + 3 ** (2 - 2 * s) * R ** 2 / 4))
-            ok = (gam / gIF <= bound_ratio + 1e-9) and (h <= hb + 1e-9) and (P1 >= F * sc - 1e-9)
+            ok = (gam / gIF <= bound_ratio + 1e-9) and (h <= hb + 1e-9 * abs(hb)) and (P1 >= F * sc * (1 - 1e-9))
             worst = max(worst, gam / gIF)
             rows.append((s, gam / gIF, bound_ratio, h, hb, P1, F * sc, ok))
     for row in rows:
