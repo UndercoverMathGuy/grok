@@ -4,7 +4,19 @@ and report the bound with K_true.  Exploration only (K_true is a numerical sup, 
 import numpy as np
 from scipy.optimize import minimize
 from fullsocp72 import FullBound, feature_from_atoms, FAMS
-from fullsocp72c import decode
+
+
+def decode(v, k1, k2):
+    """same parametrisation as fullsocp72c.decode"""
+    i = 0
+    def take(n):
+        nonlocal i
+        out = v[i:i + n]; i += n
+        return out
+    amp1 = np.abs(take(k1)) + 1e-9; ph1 = take(k1); xi1 = take(2 * k1).reshape(k1, 2)
+    amp2 = np.abs(take(k2)) + 1e-9; ph2 = take(k2); xi2 = take(2 * k2).reshape(k2, 2)
+    return (amp1 * np.exp(1j * ph1), np.exp(1j * xi1)), (amp2 * np.exp(1j * ph2), np.exp(1j * xi2))
+
 from socp72 import ROWS
 from kplan import make_plan, eval_up
 

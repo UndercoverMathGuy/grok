@@ -9,7 +9,8 @@ L-pure networks), Pythagorean elimination, payment max(1 - c1 x, theta max(1,x),
 (d/ds log(1/(F_s Gamma_lb)) >= log|F| - log|L| > 0).
 Parametrisation (scale invariance): the largest amplitude is 1 (feature m), the others A_l in [0,1];
 x_l in [0, XMAX] or the slab x_l > XMAX (payment theta*XMAX, no detection).
-Usage: python rigp.py p miss s1 TARGET ledger [maxdepth]     (L = F minus {miss})
+Usage: python rigp.py p miss s1 TARGET ledger [maxdepth] [max_feature]   (L = F minus {miss}; the optional
+max_feature restricts to the root boxes in which that feature has the largest amplitude: the four runs together cover all)
 """
 import sys, time, itertools
 import numpy as np
@@ -154,25 +155,15 @@ def certify(S, muh, w):
 
 
 def box_bound(S, cert, box, inf, s1):
-    """box: dict l -> [A_lo, A_hi, x_lo, x_hi]; inf: dict l -> bool. Bound valid for all s in [1, s1]."""
+    """box: dict l -> [A_lo, A_hi, x_lo, x_hi]; inf: dict l -> bool. Bound valid for all s in [1, s1].
+    For fixed x-bounds, psi(A) = max_{x-vertices} a(A,x) / F_lo(A) is quasi-convex in A on levels t >= 0
+    (max of linear functions minus t * concave function is convex), so max over the A-box of psi_+ is attained at an
+    A-vertex; a is multilinear in x, so its max over the x-box is at an x-vertex."""
     iv = mpmath.iv; iv.prec = 80
     L = S.L
-    # a multilinear in (A_l, x_l): maximise over vertices
-    a = -np.inf
-    for corner in itertools.product(*[[(0, 0), (0, 1), (1, 0), (1, 1)] if not inf[l] else [(0, None), (1, None)] for l in L]):
-        v = 0.0
-        for l, (ia, ix) in zip(L, corner):
-            A = (box[l][0], box[l][1])[ia]
-            v = up(v + up(cert['Kl'][l] * A))
-            if ix is not None:
-                xx = (box[l][2], box[l][3])[ix]
-                v = up(v - dn(dn(cert['S'][l] * xx) * A))
-        a = max(a, v)
-    aZ = up(a / cert['Z']) if a > 0 else 0.0
-    KZ = up(cert['Kup'] / cert['Z'])
     S1 = iv.mpf(s1)
     th = iv.mpf(3) ** (1 - S1); c1 = 1 - th
-    tot = iv.mpf(0)
+    Flo = {}
     for l in L:
         if inf[l]:
             Fl = (th * XMAX).a
@@ -184,18 +175,36 @@ def box_bound(S, cert, box, inf, s1):
                 X = iv.mpf(xhi)
                 v3 = (th * (((1 + X) / 2) ** (1 / S1) + ((1 - X) / 2) ** (1 / S1)) ** S1).a
                 Fl = max(Fl, v3)
-        y = mpmath.mpf(Fl) * mpmath.mpf(box[l][0])
-        if y > 0:
-            tot = tot + iv.mpf([y, y]) ** (1 / S1)
-    Flow = (tot ** S1).a if tot.a > 0 else mpmath.mpf(0)
-    if Flow <= 0:
-        return np.inf
+        Flo[l] = mpmath.mpf(Fl)
+    worst_ratio = 0.0
+    for Avert in itertools.product(*[[box[l][0], box[l][1]] for l in L]):
+        # max over x-vertices of a(A, x)
+        a = -np.inf
+        for corner in itertools.product(*[[0, 1] if not inf[l] else [None] for l in L]):
+            v = 0.0
+            for l, A, ix in zip(L, Avert, corner):
+                v = up(v + up(cert['Kl'][l] * A))
+                if ix is not None:
+                    xx = (box[l][2], box[l][3])[ix]
+                    v = up(v - dn(dn(cert['S'][l] * xx) * A))
+            a = max(a, v)
+        if a <= 0:
+            continue
+        tot = iv.mpf(0)
+        for l, A in zip(L, Avert):
+            y = Flo[l] * mpmath.mpf(A)
+            if y > 0:
+                tot = tot + iv.mpf([y, y]) ** (1 / S1)
+        if tot.a <= 0:
+            return np.inf
+        Fl_ = (tot ** S1).a
+        worst_ratio = max(worst_ratio, float(mpmath.mpf((iv.mpf(up(a / cert['Z'])) / iv.mpf(Fl_)).b)))
+    KZ = up(cert['Kup'] / cert['Z'])
     nF = len(S.F)
     Gam_lo = (iv.mpf(S.p) / 2 * iv.mpf(nF) ** (-S1)).a
     w2 = (iv.mpf(3) ** (2 * S1 - 2)).b
-    val = iv.sqrt((iv.mpf(aZ) / iv.mpf(Flow)) ** 2 + w2 * iv.mpf(KZ) ** 2) / iv.mpf(Gam_lo)
+    val = iv.sqrt(iv.mpf(worst_ratio) ** 2 + w2 * iv.mpf(KZ) ** 2) / iv.mpf(Gam_lo)
     return float(mpmath.mpf(val.b))
-
 
 def precheck(S, box, inf, s1):
     """cheap valid bound: mu = point mass on {+d,-d}, no detection: h <= sum_l kappa_l(d) A_l; returns min over d of
@@ -231,13 +240,15 @@ def precheck(S, box, inf, s1):
     return best
 
 
-def run(p, miss, s1, TARGET, ledger, maxdepth=30, verbose=True):
+def run(p, miss, s1, TARGET, ledger, maxdepth=30, verbose=True, only_mx=None):
     F = list(range(1, (p - 1) // 2 + 1)); L = tuple(l for l in F if l != miss)
     S = Setup(p, L, ledger); M = Model(S)
     # scale invariance + s-monotonicity: H(w) <= log|L| < log|F|
     t0 = time.time(); nbox = 0; fails = 0; worst = 0.0
     stack = []
     for mx in L:
+        if only_mx is not None and mx != only_mx:
+            continue
         for slabs in itertools.product([False, True], repeat=len(L)):
             box = {l: [ (1.0 if l == mx else 0.0), 1.0, 0.0, XMAX] for l in L}
             stack.append((box, dict(zip(L, slabs)), 0))
@@ -269,11 +280,12 @@ def run(p, miss, s1, TARGET, ledger, maxdepth=30, verbose=True):
         stack += [(b1, inf, dep + 1), (b2, inf, dep + 1)]
         if verbose and nbox % 2000 == 0:
             print(f"  ... boxes {nbox} stack {len(stack)} fails {fails} worst {worst:.5f} [{time.time()-t0:.0f}s]", flush=True)
-    print(f"DONE p={p} L={L} s in [1,{s1}] TARGET={TARGET} ledger={ledger}: boxes={nbox} fails={fails} worst={worst:.5f} [{time.time()-t0:.0f}s]", flush=True)
+    print(f"DONE p={p} L={L} s in [1,{s1}] TARGET={TARGET} ledger={ledger} roots(max feature)={'all' if only_mx is None else only_mx}: boxes={nbox} fails={fails} worst={worst:.5f} [{time.time()-t0:.0f}s]", flush=True)
 
 
 if __name__ == '__main__':
     p = int(sys.argv[1]); miss = int(sys.argv[2]); s1 = float(sys.argv[3]); TARGET = float(sys.argv[4]); ledger = sys.argv[5]
     maxdepth = int(sys.argv[6]) if len(sys.argv) > 6 else 30
+    only_mx = int(sys.argv[7]) if len(sys.argv) > 7 else None
     assert 3.0 ** (1 - s1) * XMAX >= 1.0
-    run(p, miss, s1, TARGET, ledger, maxdepth)
+    run(p, miss, s1, TARGET, ledger, maxdepth, only_mx=only_mx)

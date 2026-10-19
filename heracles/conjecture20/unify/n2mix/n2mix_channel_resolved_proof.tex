@@ -182,6 +182,22 @@ $s_1$ covers $[1,s_1]$; such a certificate also proves that the uniform allocati
 implements the phase-blind version with the $\ell^2$ ledger (slot-set independent, so no case analysis).
 \end{remark}
 
+\begin{theorem}[count at (11,2) for $b\ge2.7273$; computer-assisted]\label{t:11}
+For every $s\in[1,1.10]$, every network at $(11,2)$ with at most four features satisfies
+$\gamma\le0.99\cdot3^{1-s}B_{11}\cdot\frac{11}2\,5^{-s}\le0.99\,\gamma_{\rm IF}$.  Hence on $b\in[3/1.10,3]=[2.7273,3]$ every maximiser of
+$\Gamma_s(11)$ has full support ($K^*=5$, and $\Gamma_s(11)=\frac{11}25^{-s}$), every global maximiser uses all five frequencies, and (C)
+holds at $(11,2)$.  The Note's dense theorem gave $b\ge2.780$.
+\end{theorem}
+\begin{proof}
+Relabelling is transitive on $F$, so the features lie in $L=\{2,3,4,5\}$.  Theorem~\ref{t:main} with the $\ell^2$ ledger (slot-set
+independent; Lemma~\ref{l:K}), Lemma~\ref{l:pay}, $\Gamma^{\rm lb}_s=\frac{11}2 5^{-s}\le\Gamma_s(11)$, and Lemma~\ref{l:smono}
+($\log4<\log5$).  Scale invariance: the largest amplitude is $1$.  \texttt{rigp.py 11 1 1.10 0.99 l2 44 $m$}, $m=2,3,4,5$ (the
+feature with the largest amplitude): $518+5504+7486+27084$ boxes, no failure, worst $0.99000$.  On a box the bound uses the maximum of
+$a$ over the $x$-vertices (multilinear) and the vertices of the amplitude box ($a/F$ is quasi-convex there: a maximum of linear
+functions minus $t$ times the concave $F$).  An IF network on a support of size $\le4$ obeys the same bound, so no such allocation
+reaches $\frac{11}25^{-s}\le\Gamma_s(11)$; global maximisers have $\gamma^*\ge\gamma_{\rm IF}$ (paper Thm~8).
+\end{proof}
+
 \section*{Obstruction below $b=2.3576$ at $(7,2)$ (numerical)}
 The phase-blind bound of Theorem~\ref{t:main} (K-plan ledger, payment of Lemma~\ref{l:pay}) has supremum
 $0.9939$ ($s=1.27$), $1.0183$ ($s=1.285$), $1.043$ ($s=1.3$), $1.131$ ($s=1.35$), attained with \emph{both} features single atoms
@@ -189,8 +205,12 @@ $0.9939$ ($s=1.27$), $1.0183$ ($s=1.285$), $1.043$ ($s=1.3$), $1.131$ ($s=1.35$)
 phase-blind positivity is triangle-limited.  Without paid modes the same bound stays below $1$ up to $b=2$ (Theorem~\ref{t:pure}).
 With exact phases (the full test on $\mathbb Z_7^2\times\mathbb Z_7^*$, same K-plan ledger, exact atom payments) the worst
 phase-blind family gives only $0.59$--$0.76$ at $b=2$ (\texttt{fullsocp72b.py}), random atom systems give at most $0.87$, but a
-local maximisation over atom systems reaches $0.999$ (\texttt{fullsocp72c.py}): at $b=2$ even the phase-aware channel-resolved
-bound is at the edge.  A cheaper paid ledger alone does not rescue the phase-blind bound at $b=2$ (with the paid term divided by
+local maximisation over atom systems reaches $1.043$ (\texttt{fullsocp72c.py}; feature 1 two atoms with
+$(|A|,|B|,|C|,|D|)=(2.41,1.49,1.48,1.65)$, feature 2 a single atom, $\tau=0.459$), and $1.033$ with the numerical neuron
+supremum $K_{\rm true}=0.175$ in place of the K-plan value $0.185$ (\texttt{ktrue\_full.py}).  So at $b=2$ the channel-resolved
+Pythagorean ledger is insufficient even with full phase information and exact atom costs: a cost accounting that sees how the
+atoms are distributed over neurons (the ledger is tight only for strays in a neuron carrying all the atom cost, while a two-atom
+feature forces at least two neurons) is needed.  A cheaper paid ledger alone does not rescue the phase-blind bound at $b=2$ (with the paid term divided by
 $11$ the supremum is still $1.165$, both features single atoms).  Single neurons have no positive margin at $n=2$
 (\texttt{single\_neuron\_margin.py}), which is the natural tool for the regime where the Pythagorean ledger is tight (one neuron
 carrying all atoms and all strays).

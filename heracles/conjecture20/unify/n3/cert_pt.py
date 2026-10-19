@@ -117,19 +117,24 @@ def root_clusters(coefs_frac, lo=Fr(-1), hi=Fr(3), width=Fr(1, 2 ** 40)):
         ok = len(brackets) == nreal and all(brackets[i][1] < brackets[i + 1][0] for i in range(len(brackets) - 1))
         if ok:
             return [iv.mpf([ivF(a).a, ivF(b).b]) for a, b in brackets]
-    coefs = [ivF(c) for c in coefs_frac]
+    # fallback: interval bisection with the mean-value form p(X) in p(mid) + p'(X)(X - mid)
+    # (exact rational p(mid)); this avoids the cluster blow-up near multiple roots.
+    width = Fr(1, 2 ** 30)
+    dcoefs_frac = [c * (len(coefs_frac) - 1 - i) for i, c in enumerate(coefs_frac[:-1])]
+    dcoefs = [ivF(c) for c in dcoefs_frac]
     out = []
     stack = [(lo, hi)]
     while stack:
         a, b = stack.pop()
         X = iv.mpf([ivF(a).a, ivF(b).b])
-        val = poly_iv(coefs, X)
+        mid = (a + b) / 2
+        pm = ivF(peval(coefs_frac, mid))
+        val = pm + poly_iv(dcoefs, X) * (X - ivF(mid))
         if val.a > 0 or val.b < 0:
             continue
         if b - a <= width:
             out.append(X)
             continue
-        mid = (a + b) / 2
         stack.append((a, mid)); stack.append((mid, b))
     # merge adjacent intervals
     out.sort(key=lambda I: I.a)
