@@ -152,3 +152,27 @@ which is where the L2 bound is weakest.
 (ii) concentrated, efficient allocations: Sidon-type sup-norm depth (Kronecker / Riesz products), with
     depth >= sum beta kappa.
 The bridge between (i) and (ii) is the remaining work.
+
+## Attempting L2-RT directly: what it reduces to (orchestrator)
+
+1. **L2-RT cannot be the final general statement.** It is phase-free, and the heuristic says it fails once K* >~ 1/(2 c_n^2)
+   on optimal supports (astronomically large p). There the true sup-norm depth (Sidon behaviour) must be used. So a
+   general proof of RT_n has to be phase-sensitive somewhere.
+2. **Flat interference and low-discrepancy halvings are dual.**
+   - A flat U is a phase choice making sum beta_l e^{i phi_l} e^{ilx} small everywhere.
+   - A good halving is a sign choice making sum beta_l eps_l cos(2 pi l delta/p) small everywhere.
+   - The positive-part compression turns the first into the second: eps_l = sign cos theta_l(w0).
+   - Its discrepancy is (signed part) + (even remainder). The signed part is exactly
+     U(w0) - (U(w0+delta) + U(w0-delta))/2, which is <= osc(U).
+   - **Real phases** (phi_l in {0, pi}): at w0 = 0 the remainder vanishes. The sign pattern of U is then a halving whose
+     discrepancy is <= osc(U), which is about the depth. This is the general form of the QR argument (p = 1 mod 4) and
+     works for EVERY real-phase U.
+   - **Complex phases:** the remainder beta |cos theta(w0)| needs a "positive-type" coverage profile, as the sine
+     profile had for Legendre at p = 3 mod 4 (C_1 <= 0). For unstructured phases no single w0 provides this.
+3. **So the bridge is now precise.** For complex-phase flat U on a dense support, find a w0 (or a small family of
+   points) whose |cos theta_l(w0)| profile has nonpositive cosine transform up to O(depth). Equivalently: the phase
+   field of a flat polynomial can be "realified" at some point.
+4. **A potential danger to check:** random dense supports S carrying near-flat U in the window s - 1 ~ C/sqrt p. Neither
+   arithmetic compressions nor random halvings (sqrt log loss) obviously apply there. Whether near-flat U even exists
+   on random dense S is itself the question: flatness and halving discrepancy are governed by the same harmonic
+   analysis of S.
