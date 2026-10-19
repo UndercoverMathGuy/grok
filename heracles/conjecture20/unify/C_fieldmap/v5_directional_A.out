@@ -1,0 +1,6 @@
+p=5 n=3 b=2.0 k=1 (half-angle 36.0 deg): max ratio pi^c_k/nu^(1-s) = 0.977480  (best width 4)  [4s]
+p=5 n=3 b=2.0 k=2 (half-angle 72.0 deg): max ratio pi^c_k/nu^(1-s) = 0.999983  (best width 4)  [7s]
+p=5 n=4 b=2.0 k=1 (half-angle 36.0 deg): max ratio pi^c_k/nu^(1-s) = 0.975994  (best width 5)  [18s]
+p=5 n=4 b=2.0 k=2 (half-angle 72.0 deg): max ratio pi^c_k/nu^(1-s) = 0.997736  (best width 5)  [32s]
+p=5 n=3 b=2.5 k=1 (half-angle 36.0 deg): max ratio pi^c_k/nu^(1-s) = 0.975753  (best width 4)  [2s]
+p=5 n=3 b=2.5 k=2 (half-angle 72.0 deg): max ratio pi^c_k/nu^(1-s) = 0.998355  (best width 4)  [5s]

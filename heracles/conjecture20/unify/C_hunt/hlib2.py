@@ -179,15 +179,16 @@ def mass_lp(cc, x, iters=25, eps_rel=1e-6, verbose=False):
     return best[1], best[0]
 
 
-def polish(cc, x, lbfgs=True, rounds=2, verbose=False):
+def polish(cc, x, lbfgs=True, rounds=None, verbose=False):
     """smooth-min L-BFGS (coarse) -> [mass LP -> full SLP] x rounds; returns (x, normalised margin)."""
     if lbfgs:
         x = cc.lbfgs(x, taus=(3e-3, 1e-3, 3e-4), iters=600)
     best = (cc.gnorm(x), x)
+    if rounds is None: rounds = 2 if cc.m <= 20 else 1
     for r_ in range(rounds):
         x, v = mass_lp(cc, best[1])
         if v > best[0]: best = (v, x)
-        x, v = slp_full(cc, best[1], verbose=verbose)
+        x, v = slp_full(cc, best[1], iters=250 if cc.m <= 20 else 150, verbose=verbose)
         if v > best[0]: best = (v, x)
     return best[1], best[0]
 

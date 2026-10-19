@@ -1,0 +1,9 @@
+(K*) K* = 2.455407 at u* = 0.715332;  alpha* = 36.5889 deg;  k/p <= 0.20327
+     W8 used sqrt5 = 2.236068 <= K*: True
+(W8a) 22 (feature, direction) tests with positive apex: violations of (i) 0, of c <= nu^(1-s) Q^s 0; max c/(nu^(1-s)Q^s) = 0.35965
+(OB) eps=0.5: pseudo-variance=5.6e-17, in 90-degree wedge: True, (Re A - c)/sigma = 1.0000  (= sqrt(eps/(1-eps)) = 1.0000)
+(OB) eps=0.1: pseudo-variance=1.6e-17, in 90-degree wedge: True, (Re A - c)/sigma = 0.3333  (= sqrt(eps/(1-eps)) = 0.3333)
+(OB) eps=0.01: pseudo-variance=9.5e-20, in 90-degree wedge: True, (Re A - c)/sigma = 0.1005  (= sqrt(eps/(1-eps)) = 0.1005)
+(OB) eps=0.0001: pseudo-variance=1.1e-21, in 90-degree wedge: True, (Re A - c)/sigma = 0.0100  (= sqrt(eps/(1-eps)) = 0.0100)
+(N2) 320 networks (n=2, one coupled feature, complex IF background): violations 0, max h - bound = -3.185e+00
+(MP) aggregate-non-cheap random networks: 152, violations of RD bound 0

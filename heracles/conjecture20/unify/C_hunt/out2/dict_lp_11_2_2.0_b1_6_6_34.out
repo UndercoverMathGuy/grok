@@ -1,0 +1,5 @@
+# dict_p11_n2_b2.0_b1_g6_s34: S=[1] D=3.418673e-04 specs=176 dictionary columns=55932 rows=1210
+{"it": 0, "lp_ratio": 0.6629962220706301, "net_ratio": 0.6629962214725348, "polished": 0.9999999999338349, "neurons": 7, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0, 0.0, 0.0], "t": 111}
+{"it": 1, "lp_ratio": 0.38148421513826786, "net_ratio": 0.39970022993352483, "polished": 0.9999999997732334, "neurons": 22, "nonpure": 16, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0, 0.0, 0.0], "t": 378}
+{"it": 2, "lp_ratio": 0.28151122173057086, "net_ratio": 0.2815112213595893, "polished": 0.9999999987207703, "neurons": 34, "nonpure": 28, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0, 0.0, 0.0], "t": 657}
+{"it": 3, "lp_ratio": 0.5042982557894657, "net_ratio": 0.5042982544438661, "polished": 0.9999999999243456, "neurons": 6, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0, 0.0, 0.0], "t": 767}

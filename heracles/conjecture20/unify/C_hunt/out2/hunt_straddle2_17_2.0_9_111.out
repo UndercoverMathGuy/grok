@@ -1,0 +1,11 @@
+# straddle p=17 b=2.0: Gamma=0.4483405601 S*=[3, 4, 5] dilates=[(2, [6, 7, 8]), (3, [2, 5, 8]), (4, [1, 3, 5]), (5, [2, 3, 8]), (6, [1, 4, 7]), (7, [1, 4, 6])]
+{"it": 0, "d": 2, "t": 0.5, "union": [3, 4, 5, 6, 7, 8], "start_ratio": 0.6425942065787873, "ratio": 0.9589565462110883, "final_features": [4, 5, 6, 7, 8], "count": 5, "Kstar": 3, "final_is_dilate_of_Sstar": false}
+{"it": 1, "d": 3, "t": 0.5, "union": [2, 3, 4, 5, 8], "start_ratio": 0.6955193524436818, "ratio": 0.9540752601037827, "final_features": [2, 3, 4, 8], "count": 4, "Kstar": 3, "final_is_dilate_of_Sstar": false}
+{"it": 2, "d": 4, "t": 0.5, "union": [1, 3, 4, 5], "start_ratio": 0.7847314229168476, "ratio": 0.9370396835252317, "final_features": [1, 3, 4, 5], "count": 4, "Kstar": 3, "final_is_dilate_of_Sstar": false}
+{"it": 3, "d": 5, "t": 0.5, "union": [2, 3, 4, 5, 8], "start_ratio": 0.7084220749800774, "ratio": 0.9585127979316813, "final_features": [2, 3, 4, 8], "count": 4, "Kstar": 3, "final_is_dilate_of_Sstar": false}
+{"it": 4, "d": 6, "t": 0.5, "union": [1, 3, 4, 5, 7], "start_ratio": 0.694512824029067, "ratio": 0.9915207695107234, "final_features": [1, 3, 5, 7], "count": 4, "Kstar": 3, "final_is_dilate_of_Sstar": false}
+{"it": 5, "d": 7, "t": 0.5, "union": [1, 3, 4, 5, 6], "start_ratio": 0.7026025335643061, "ratio": 0.9916448777632254, "final_features": [3, 4, 5, 6], "count": 4, "Kstar": 3, "final_is_dilate_of_Sstar": false}
+{"it": 6, "d": 8, "t": 0.5, "union": [2, 3, 4, 5, 6, 7], "start_ratio": 0.6466917366455106, "ratio": 0.9387823268163084, "final_features": [2, 3, 4, 5, 6], "count": 5, "Kstar": 3, "final_is_dilate_of_Sstar": false}
+{"it": 7, "d": 2, "t": 0.7, "union": [3, 4, 5, 6, 7, 8], "start_ratio": 0.6899472662010558, "ratio": 0.935540216510321, "final_features": [3, 4, 5, 6, 7], "count": 5, "Kstar": 3, "final_is_dilate_of_Sstar": false}
+{"it": 8, "d": 3, "t": 0.7, "union": [2, 3, 4, 5, 8], "start_ratio": 0.71671795617955, "ratio": 0.9136711009331697, "final_features": [2, 3, 4, 5], "count": 4, "Kstar": 3, "final_is_dilate_of_Sstar": false}
+# SUMMARY straddle p=17 b=2.0: runs=9 best=0.9916448778 near-opt counts=[] K*=3 near-opt all single dilates=None best union-kept (count>K*) ratio=0.9916448777632254 time=110s
