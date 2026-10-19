@@ -1,0 +1,18 @@
+(S1) exact formula over 60 networks: max rel error 2.19e-15
+(S2) violations of c_1 <= c_2 <= ... : 0
+(S3) p=5 n=2 d0=1 (direction k=1): h=-27494.111272  predicted=-27494.111272  c_k/c_1=-15.9855/-15.9855
+(S3) p=5 n=2 d0=2 (direction k=2): h=10478.544261  predicted=10478.544261  c_k/c_1=-10.5321/-15.9855
+(S3) p=7 n=2 d0=1 (direction k=1): h=-35232.245221  predicted=-35232.245221  c_k/c_1=-14.6774/-14.6774
+(S3) p=7 n=2 d0=2 (direction k=2): h=-8708.944983  predicted=-8708.944983  c_k/c_1=-7.0869/-14.6774
+(S3) p=7 n=2 d0=3 (direction k=3): h=12562.779594  predicted=12562.779594  c_k/c_1=-4.9926/-14.6774
+(S3) p=11 n=2 d0=1 (direction k=1): h=-45443.559251  predicted=-45443.559251  c_k/c_1=-15.9398/-15.9398
+(S3) p=11 n=2 d0=2 (direction k=2): h=-31017.707299  predicted=-31017.707299  c_k/c_1=-6.6441/-15.9398
+(S3) p=11 n=2 d0=3 (direction k=3): h=-12122.773415  predicted=-12122.773415  c_k/c_1=-4.0015/-15.9398
+(S3) p=11 n=2 d0=4 (direction k=4): h=5242.471084  predicted=5242.471084  c_k/c_1=-2.4997/-15.9398
+(S3) p=11 n=2 d0=5 (direction k=5): h=15563.520365  predicted=15563.520365  c_k/c_1=-1.9811/-15.9398
+(S3) p=13 n=3 d0=1 (direction k=1): h=-173853.516503  predicted=-173853.516503  c_k/c_1=-61.7398/-61.7398
+(S3) p=13 n=3 d0=2 (direction k=2): h=-134033.657068  predicted=-134033.657068  c_k/c_1=-30.8793/-61.7398
+(S3) p=13 n=3 d0=3 (direction k=3): h=-77883.032693  predicted=-77883.032693  c_k/c_1=-20.8635/-61.7398
+(S3) p=13 n=3 d0=4 (direction k=4): h=-18265.397087  predicted=-18265.397087  c_k/c_1=-15.7086/-61.7398
+(S3) p=13 n=3 d0=5 (direction k=5): h=31160.418475  predicted=31160.418475  c_k/c_1=-12.9291/-61.7398
+(S3) p=13 n=3 d0=6 (direction k=6): h=59071.451728  predicted=59071.451728  c_k/c_1=-11.2288/-61.7398

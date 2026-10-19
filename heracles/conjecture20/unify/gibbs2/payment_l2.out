@@ -1,0 +1,9 @@
+/home/user/grok/heracles/conjecture20/unify/gibbs2/payment_l2.py:22: RuntimeWarning: overflow encountered in scalar power
+  R = np.sqrt(abs(B)**2 + abs(C)**2 + abs(D)**2)
+/home/user/grok/heracles/conjecture20/unify/gibbs2/payment_l2.py:22: RuntimeWarning: overflow encountered in scalar add
+  R = np.sqrt(abs(B)**2 + abs(C)**2 + abs(D)**2)
+(P1) s=1.1: sup L2 payment ratio found = 0.06007; single atom (1-3^(1-s))/sqrt3 = 0.06007; Theorem A 1/(2 sqrt3) = 0.28868; best N = 1
+(P1) s=1.2: sup L2 payment ratio found = 0.11389; single atom (1-3^(1-s))/sqrt3 = 0.11389; Theorem A 1/(2 sqrt3) = 0.28868; best N = 1
+(P1) s=1.3: sup L2 payment ratio found = 0.16211; single atom (1-3^(1-s))/sqrt3 = 0.16211; Theorem A 1/(2 sqrt3) = 0.28868; best N = 4
+(P1) s=1.4: sup L2 payment ratio found = 0.20531; single atom (1-3^(1-s))/sqrt3 = 0.20531; Theorem A 1/(2 sqrt3) = 0.28868; best N = 4
+(P1) s=1.5: sup L2 payment ratio found = 0.24402; single atom (1-3^(1-s))/sqrt3 = 0.24402; Theorem A 1/(2 sqrt3) = 0.28868; best N = 6

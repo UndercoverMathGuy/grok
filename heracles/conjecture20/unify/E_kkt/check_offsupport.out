@@ -1,0 +1,26 @@
+p= 7 s=1.1: |spt y*|=3, dual residual 9e-14; max_l in spt K_l/Gamma = 1.1161; max_l off spt K_l/Gamma = nan  -> argmax off support: False
+p= 7 s=1.3: |spt y*|=3, dual residual 9e-14; max_l in spt K_l/Gamma = 1.3904; max_l off spt K_l/Gamma = nan  -> argmax off support: False
+p= 7 s=1.5: |spt y*|=3, dual residual 9e-14; max_l in spt K_l/Gamma = 1.7321; max_l off spt K_l/Gamma = nan  -> argmax off support: False
+p= 7 s=1.8: |spt y*|=2, dual residual 7e-15; max_l in spt K_l/Gamma = 2.0058; max_l off spt K_l/Gamma = 2.9469  -> argmax off support: True
+p=11 s=1.1: |spt y*|=5, dual residual 3e-14; max_l in spt K_l/Gamma = 1.1746; max_l off spt K_l/Gamma = nan  -> argmax off support: False
+p=11 s=1.3: |spt y*|=5, dual residual 3e-14; max_l in spt K_l/Gamma = 1.6207; max_l off spt K_l/Gamma = nan  -> argmax off support: False
+p=11 s=1.5: |spt y*|=2, dual residual 1e-13; max_l in spt K_l/Gamma = 1.5240; max_l off spt K_l/Gamma = 3.3390  -> argmax off support: True
+p=11 s=1.8: |spt y*|=2, dual residual 1e-13; max_l in spt K_l/Gamma = 1.9216; max_l off spt K_l/Gamma = 4.1110  -> argmax off support: True
+p=13 s=1.1: |spt y*|=6, dual residual 4e-14; max_l in spt K_l/Gamma = 1.1962; max_l off spt K_l/Gamma = nan  -> argmax off support: False
+p=13 s=1.3: |spt y*|=4, dual residual 3e-14; max_l in spt K_l/Gamma = 1.7051; max_l off spt K_l/Gamma = 2.5077  -> argmax off support: True
+p=13 s=1.5: |spt y*|=3, dual residual 3e-14; max_l in spt K_l/Gamma = 1.8639; max_l off spt K_l/Gamma = 3.4804  -> argmax off support: True
+p=13 s=1.8: |spt y*|=2, dual residual 6e-15; max_l in spt K_l/Gamma = 1.7411; max_l off spt K_l/Gamma = 4.4152  -> argmax off support: True
+p=17 s=1.1: |spt y*|=8, dual residual 2e-14; max_l in spt K_l/Gamma = 1.2311; max_l off spt K_l/Gamma = nan  -> argmax off support: False
+p=17 s=1.3: |spt y*|=5, dual residual 5e-15; max_l in spt K_l/Gamma = 1.7585; max_l off spt K_l/Gamma = 2.5258  -> argmax off support: True
+p=17 s=1.5: |spt y*|=3, dual residual 8e-14; max_l in spt K_l/Gamma = 1.9077; max_l off spt K_l/Gamma = 3.7675  -> argmax off support: True
+p=17 s=1.8: |spt y*|=3, dual residual 3e-14; max_l in spt K_l/Gamma = 2.7332; max_l off spt K_l/Gamma = 5.1930  -> argmax off support: True
+uniformity of optimal allocations with proper support:
+  p=7 s=1.8: support size 2, max/min of y on support = 1.801938
+  p=11 s=1.5: support size 2, max/min of y on support = 1.521109
+  p=11 s=1.8: support size 2, max/min of y on support = 1.521109
+  p=13 s=1.3: support size 4, max/min of y on support = 2.297165
+  p=13 s=1.5: support size 3, max/min of y on support = 1.514964
+  p=13 s=1.8: support size 2, max/min of y on support = 1.000000
+  p=17 s=1.3: support size 5, max/min of y on support = 2.004749
+  p=17 s=1.5: support size 3, max/min of y on support = 1.949498
+  p=17 s=1.8: support size 3, max/min of y on support = 1.949498

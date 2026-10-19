@@ -1,0 +1,15 @@
+full-legendre  |S|= 404 c*(grad)=1.6626 (supp 404, cheap 404)  pair/sharp=0.3030 (0.3373 at c=0.289)  cap/sharp=0.3183 (0.3667 at c=0.289)  [11s]
+full-rand      |S|= 404 c*(grad)=1.6719 (supp 404, cheap 404)  pair/sharp=0.2999 (0.3341 at c=0.289)  cap/sharp=0.3138 (0.3623 at c=0.289)  [121s]
+rand4L         |S|=  27 c*(grad)=0.7943 (supp 27, cheap 27)  pair/sharp=0.3537 (0.4459 at c=0.289)  cap/sharp=0.1780 (0.3079 at c=0.289)  [155s]
+rand8L         |S|=  54 c*(grad)=0.7702 (supp 54, cheap 54)  pair/sharp=0.4572 (0.5300 at c=0.289)  cap/sharp=0.3991 (0.5026 at c=0.289)  [231s]
+rand16L        |S|= 107 c*(grad)=0.9380 (supp 107, cheap 107)  pair/sharp=0.4258 (0.4825 at c=0.289)  cap/sharp=0.4175 (0.4975 at c=0.289)  [293s]
+ystar+2L       |S|=  24 c*(grad)=0.8589 (supp 19, cheap 19)  pair/sharp=0.3104 (0.3959 at c=0.289)  cap/sharp=0.1159 (0.2276 at c=0.289)  [372s]
+ystar+6L       |S|=  51 c*(grad)=0.8159 (supp 25, cheap 26)  pair/sharp=0.4280 (0.5165 at c=0.289)  cap/sharp=0.3946 (0.5113 at c=0.289)  [461s]
+AP8L-chirp     |S|=  54 c*(grad)=2.2416 (supp 54, cheap 54)  pair/sharp=0.1799 (0.2103 at c=0.289)  cap/sharp=0.1544 (0.1975 at c=0.289)  [522s]
+polish rand8L: 0.7702 -> 0.7533  [616s]
+polish rand4L: 0.7943 -> 0.7816  [632s]
+polish ystar+6L: 0.8159 -> 0.8159  [648s]
+== p=809 Gamma=0.187198
+  cstar        0.7533 from rand8L: {'ratio': np.float64(0.3513), 'cov': np.float64(0.6602), 'bonus': np.float64(0.2098), 'pen': np.float64(0.5187), 'covmin': np.float64(0.6026), 'delta': 73, 'supp': 54, 'cheap': 54}  ratio@0.289=0.4715
+  forced_cap   0.4302 from rand16L: {'ratio': np.float64(0.4302), 'cov': np.float64(0.4659), 'bonus': np.float64(0.1481), 'pen': np.float64(0.1839), 'covmin': np.float64(0.463), 'delta': 347, 'supp': 107, 'cheap': 107}  ratio@0.289=0.5145
+  forced_pair  0.4644 from rand8L: {'ratio': np.float64(0.4644), 'cov': np.float64(0.6331), 'bonus': np.float64(0.1423), 'pen': np.float64(0.311), 'covmin': np.float64(0.5848), 'delta': 375, 'supp': 54, 'cheap': 54}  ratio@0.289=0.5397

@@ -1,0 +1,4 @@
+p=3: max over random + optimised single neurons of h/||omega||^3 = -1.199e-10  (claim: <= 0)
+p=5: max over random + optimised single neurons of h/||omega||^3 = -1.505e-09  (claim: <= 0)
+p=7: max over random + optimised single neurons of h/||omega||^3 = -1.033e-04  (claim: <= 0)
+p=11: max over random + optimised single neurons of h/||omega||^3 = -1.155e-04  (claim: <= 0)

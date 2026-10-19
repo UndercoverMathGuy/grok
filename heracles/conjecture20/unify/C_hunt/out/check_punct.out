@@ -1,0 +1,24 @@
+n=2 s=1.200: nonzero a_T={(0, 1): np.float64(1.0)} G=1.0844717712 (nu/n)^(s-1)=1.0844717712 theta=0.077892
+n=2 s=1.500: nonzero a_T={(0, 1): np.float64(1.0)} G=1.2247448714 (nu/n)^(s-1)=1.2247448714 theta=0.183503
+    realised single feature p=5: margin ratio to IF price = -0.7569
+    realised single feature p=7: margin ratio to IF price = -1.5272
+    realised single feature p=11: margin ratio to IF price = -3.7472
+n=3 s=1.200: nonzero a_T={(0, 1, 2): np.float64(1.0)} G=1.0592238410 (nu/n)^(s-1)=1.0592238410 theta=0.055912
+n=3 s=2.000: nonzero a_T={(0, 1, 2): np.float64(1.0)} G=1.3333333333 (nu/n)^(s-1)=1.3333333333 theta=0.250000
+    realised single feature p=5: margin ratio to IF price = -0.8240
+    realised single feature p=7: margin ratio to IF price = -1.6626
+    realised single feature p=11: margin ratio to IF price = -4.0794
+n=4 s=1.200: nonzero a_T={(0, 1, 2, 3): np.float64(1.0)} G=1.0456395526 (nu/n)^(s-1)=1.0456395526 theta=0.043648
+n=4 s=2.500: nonzero a_T={(0, 1, 2, 3): np.float64(1.0)} G=1.3975424859 (nu/n)^(s-1)=1.3975424859 theta=0.284458
+    realised single feature p=5: margin ratio to IF price = -0.8637
+    realised single feature p=7: margin ratio to IF price = -1.7427
+    realised single feature p=11: margin ratio to IF price = -4.2758
+n=5 s=1.200: nonzero a_T={(0, 1, 2, 3, 4): np.float64(1.0)} G=1.0371372893 (nu/n)^(s-1)=1.0371372893 theta=0.035807
+n=5 s=3.000: nonzero a_T={(0, 1, 2, 3, 4): np.float64(1.0)} G=1.4400000000 (nu/n)^(s-1)=1.4400000000 theta=0.305556
+    realised single feature p=5: margin ratio to IF price = -0.8900
+    realised single feature p=7: margin ratio to IF price = -1.7957
+    realised single feature p=11: margin ratio to IF price = -4.4057
+n=6 s=1.200: nonzero a_T={(0, 1, 2, 3, 4, 5): np.float64(1.0)} G=1.0313103065 (nu/n)^(s-1)=1.0313103065 theta=0.030360
+n=6 s=3.500: nonzero a_T={(0, 1, 2, 3, 4, 5): np.float64(1.0)} G=1.4701680288 (nu/n)^(s-1)=1.4701680288 theta=0.319806
+    realised single feature p=5: margin ratio to IF price = -0.9086
+    realised single feature p=7: margin ratio to IF price = -1.8333

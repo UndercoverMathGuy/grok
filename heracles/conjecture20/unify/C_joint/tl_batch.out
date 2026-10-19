@@ -1,0 +1,66 @@
+p=17 n=7 s=4.000 Gamma_ref=0.067528 (exact) K*=1 tau_n=1.4927 c_n=0.3301
+  BEST R=1.000000 (starts: median 0.9999) time 2s; beta-mass share 0.0000
+     l=1: alpha=1.0000 beta=0.0000 phi=4.3138
+p=19 n=7 s=4.000 Gamma_ref=0.059664 (exact) K*=2 tau_n=1.4927 c_n=0.3301
+  BEST R=0.998877 (starts: median 0.8466) time 3s; beta-mass share 0.0000
+     l=1: alpha=1.0000 beta=0.0000 phi=0.2893
+     l=5: alpha=0.6811 beta=0.0000 phi=5.7494
+p=23 n=7 s=4.000 Gamma_ref=0.053262 (exact) K*=2 tau_n=1.4927 c_n=0.3301
+  BEST R=0.977543 (starts: median 0.7505) time 15s; beta-mass share 0.0000
+     l=1: alpha=1.0000 beta=0.0000 phi=6.2660
+     l=5: alpha=1.0000 beta=0.0000 phi=6.0878
+p=19 n=15 s=8.000 Gamma_ref=0.054183 (exact) K*=1 tau_n=1.5711 c_n=0.3635
+  BEST R=0.000012 (starts: median -0.0000) time 1s; beta-mass share 0.0930
+     l=4: alpha=1.0000 beta=0.0000 phi=4.1586
+     l=5: alpha=0.6851 beta=0.0000 phi=4.8411
+     l=6: alpha=0.7000 beta=0.2447 phi=0.5876
+p=23 n=15 s=8.000 Gamma_ref=0.037083 (exact) K*=1 tau_n=1.5711 c_n=0.3635
+  BEST R=0.000001 (starts: median -0.0000) time 14s; beta-mass share 0.1329
+     l=1: alpha=1.0000 beta=0.0284 phi=2.1493
+     l=3: alpha=0.3784 beta=0.0000 phi=1.2316
+     l=4: alpha=0.0000 beta=0.0037 phi=4.0532
+     l=9: alpha=0.0062 beta=0.0000 phi=1.0975
+     l=10: alpha=0.0749 beta=0.0498 phi=3.7131
+     l=11: alpha=0.0000 beta=0.1417 phi=4.4605
+p=19 n=3 s=2.000 Gamma_ref=0.255824 (exact) K*=3 tau_n=1.3333 c_n=0.2500
+  BEST R=0.999091 (starts: median 0.8501) time 4s; beta-mass share 0.0000
+     l=1: alpha=0.9845 beta=0.0000 phi=0.6638
+     l=3: alpha=0.6999 beta=0.0000 phi=2.2757
+     l=7: alpha=1.0000 beta=0.0000 phi=6.1817
+p=23 n=3 s=2.000 Gamma_ref=0.221009 (exact) K*=3 tau_n=1.3333 c_n=0.2500
+  BEST R=0.997116 (starts: median 0.9614) time 19s; beta-mass share 0.0000
+     l=2: alpha=0.7580 beta=0.0000 phi=4.5736
+     l=5: alpha=1.0000 beta=0.0000 phi=2.0236
+     l=6: alpha=0.5863 beta=0.0000 phi=1.8691
+p=19 n=5 s=3.000 Gamma_ref=0.119144 (exact) K*=2 tau_n=1.4400 c_n=0.3056
+  BEST R=0.999842 (starts: median 0.4548) time 3s; beta-mass share 0.0000
+     l=1: alpha=1.0000 beta=0.0000 phi=6.1102
+     l=5: alpha=0.6810 beta=0.0000 phi=4.4132
+p=23 n=5 s=3.000 Gamma_ref=0.106521 (exact) K*=2 tau_n=1.4400 c_n=0.3056
+  BEST R=0.998839 (starts: median 0.3481) time 16s; beta-mass share 0.0000
+     l=1: alpha=0.9506 beta=0.0000 phi=2.0853
+     l=5: alpha=1.0000 beta=0.0000 phi=6.2537
+p=23 n=2 s=1.500 Gamma_ref=0.402933 (exact) K*=4 tau_n=1.2247 c_n=0.1835
+  BEST R=0.975912 (starts: median 0.9410) time 17s; beta-mass share 0.0000
+     l=2: alpha=0.4731 beta=0.0000 phi=3.4888
+     l=6: alpha=0.5051 beta=0.0000 phi=5.6026
+     l=9: alpha=1.0000 beta=0.0000 phi=4.1734
+     l=10: alpha=0.4112 beta=0.0000 phi=3.7857
+p=29 n=5 s=3.000 Gamma_ref=0.080566 (opt) K*=2 tau_n=1.4400 c_n=0.3056
+  BEST R=0.999981 (starts: median 0.7838) time 8s; beta-mass share 0.0000
+     l=3: alpha=1.0000 beta=0.0000 phi=4.2914
+     l=11: alpha=0.7168 beta=0.0000 phi=2.3073
+p=31 n=3 s=2.000 Gamma_ref=0.197402 (lp) K*=3 tau_n=1.3333 c_n=0.2500
+  BEST R=0.994337 (starts: median 0.7175) time 18s; beta-mass share 0.0000
+     l=4: alpha=0.7336 beta=0.0000 phi=5.3031
+     l=6: alpha=1.0000 beta=0.0000 phi=1.9886
+     l=7: alpha=0.6660 beta=0.0000 phi=2.6051
+p=41 n=5 s=3.000 Gamma_ref=0.058549 (opt) K*=2 tau_n=1.4400 c_n=0.3056
+  BEST R=0.948752 (starts: median 0.1897) time 13s; beta-mass share 0.0000
+     l=4: alpha=1.0000 beta=0.0000 phi=4.0790
+     l=14: alpha=0.5571 beta=0.0000 phi=2.3657
+p=43 n=3 s=2.000 Gamma_ref=0.167587 (opt) K*=3 tau_n=1.3333 c_n=0.2500
+  BEST R=0.999456 (starts: median 0.7191) time 32s; beta-mass share 0.0000
+     l=8: alpha=1.0000 beta=0.0000 phi=2.7020
+     l=14: alpha=0.5216 beta=0.0000 phi=2.5847
+     l=17: alpha=0.3780 beta=0.0000 phi=4.1259

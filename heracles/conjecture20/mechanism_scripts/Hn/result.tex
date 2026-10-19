@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}\newtheorem{corollary}[theorem]{Corollary}\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}\newtheorem{remark}[theorem]{Remark}
+\title{The single-feature inequality $(\mathrm H_n)$: what is true, what is false}
+\date{}
+\begin{document}\maketitle
+
+\section{Setting}
+Atoms $\beta_1,\dots,\beta_N\in\mathbb C$, $\xi_1,\dots,\xi_N\in\mathbb T^n$; $\nu=n+1$, $1\le s\le\nu/2$, $r=1/s$.
+\[A=\sum_i\beta_i,\qquad \beta_T=\sum_i\beta_i\prod_{t\in T}\xi_{it}\ (\emptyset\ne T\subseteq[n]),\qquad Q=\sum_i|\beta_i|^r,\qquad
+\mathrm{bon}=|A|-\nu^{1-s}Q^s .\]
+By the paper's Lemma 7, $\mathrm{bon}\le0$ when all $\beta_T=0$.
+
+\begin{definition}
+A family $\mathcal F$ of non-empty subsets of $[n]$ is \emph{admissible (collision-free)} if the indicators $\mathbf 1_T$, $T\in\mathcal F$,
+are linearly independent and no signed sum $\sum_{T\in\mathcal F}\sigma_T\mathbf 1_T$ with $\sigma\in\{0,\pm1\}^{\mathcal F}$ and at least two
+non-zero $\sigma_T$ equals $\pm\mathbf 1_{T'}$ for a non-empty $T'$.  Single sets are admissible.  Define
+\[c_1^{\rm cf}(n,s)=\sup\frac{\mathrm{bon}}{\max_{\mathcal F\ \rm adm}\sum_{T\in\mathcal F}|\beta_T|},\qquad
+c_1^{1}(n,s)=\sup\frac{\mathrm{bon}}{\max_T|\beta_T|},\qquad c_1^{\rm int}(n,s)=\sup\frac{\mathrm{bon}}{\max_{T\ \rm interval}|\beta_T|}.\]
+Then $c_1^{\rm cf}\le c_1^{1}\le c_1^{\rm int}$.  $(\mathrm H_n)$ at threshold $\tau$ means $c_1^{\rm cf}(n,s)\le\tau$.
+The multi-feature Riesz argument needs $\tau=\frac12$; the single-feature edge-averaged argument needs $\tau=\cos(\pi/p)$.
+\end{definition}
+Exact enumeration (integer arithmetic): for $n=2$ the admissible families are exactly the 3 single sets; for $n=3$ there are
+11 (7 single sets, the 3 pairs of 2-sets, and $\{12,13,23\}$); for $n=4$ there are 80, of maximal size 4.
+
+\section{$n=2$: $(\mathrm H_2)$ holds at threshold $\frac12$ for all $s\in[1,\frac32]$}
+\begin{theorem}
+$\frac12\ge c_1^{\rm cf}(2,s)=c_1^1(2,s)\ge1-3^{1-s}$ for $1\le s\le\frac32$.
+\end{theorem}
+\begin{proof}
+Part I, Theorem A: $|A|-R/(2\sqrt3)\le3^{1-s}Q^s$ with $R^2=\sum_{T\ne\emptyset}|\beta_T|^2\le3\max_T|\beta_T|^2$.  Hence
+$\mathrm{bon}\le\frac12\max_T|\beta_T|$.  For $n=2$ admissible families are single sets.  Lower bound: one atom, for which $\mathrm{bon}=(1-3^{1-s})|\beta|$
+and $|\beta_T|=|\beta|$.
+\end{proof}
+\begin{conjecture}
+$c_1^1(2,s)=1-3^{1-s}$, i.e.\ $|A|\le3^{1-s}Q^s+(1-3^{1-s})\max_T|\beta_T|$.  (Local search over widths $1$--$5$ and
+$s\in\{1.1,\dots,1.5\}$ never exceeds the single atom.)  Not proved here.
+\end{conjecture}
+
+\section{Every $n$, $s$ close to 1: a rigorous positive result}
+\begin{theorem}\label{thm:small}
+Let $D_k$ be the number of derangements of $k$ objects and $\Phi_\nu(s)=\sum_{k=2}^{\nu}\binom\nu kD_k\,\nu^{(s-1)(k-1)}$
+($\Phi_\nu(1)=\nu!-1$).  For every $\vartheta\in(0,1)$,
+\[c_1^{\rm int}(n,s)\ \le\ \Phi_\nu(s)\,\max\Big(\frac{1-\nu^{1-s}}{\vartheta},\ \frac{s-1}{s\nu(1-\vartheta)}\Big).\]
+Consequently $(\mathrm H_n)$ holds at threshold $\frac12$ for $s\le1.0658$ ($n=2$), $1.0129$ ($n=3$), $1.0023$ ($n=4$),
+$1.00035$ ($n=5$), and at threshold $\cos(\pi/5)$ for $s\le1.1028,\ 1.0205,\ 1.0037,\ 1.00057$.
+\end{theorem}
+\begin{proof}
+Normalise $A=1$ and write $M$ for the largest interval coefficient and $S_1=\sum|\beta_i|$.  If $\mathrm{bon}>0$, then $S_1\le Q^s<\nu^{s-1}$.
+Let $H=\sum_i\beta_im_im_i^*$ be the chain matrix (chain vectors $m_i=(1,\xi_{i1},\xi_{i1}\xi_{i2},\dots)$), so $H=I+N$.  Here $N$ has zero diagonal,
+its strictly lower entries are the interval sums $\beta_T$ ($|\cdot|\le M$), and all its entries have modulus $\le S_1$.  With
+$x_i=\nu|\beta_i|$, the paper's Sylvester expansion and Hadamard bound give $\prod_i(1+tx_i)\ge|\det(I+tH)|=(1+t)^\nu|D(\tfrac t{1+t})|$
+with $D(\tau)=\det(I+\tau N)=\sum_k\tau^ke_k(N)$.  Here $e_1=\operatorname{tr}N=0$.  In a principal $k$-minor only fixed-point-free
+permutations survive, and each uses a strictly lower entry.  Hence $|e_k(N)|\le\binom\nu kD_kMS_1^{k-1}$ and
+$|D(\tau)-1|\le\tau^2M\Phi$ for $\tau\in[0,1]$, with $\Phi:=\Phi_\nu(s)$.
+
+Case $M\Phi\le\vartheta$.  Then $-\log|D(\tau)|\le\tau^2M\Phi/(1-\vartheta)$.  Integrate $\log\prod(1+tx_i)$ against $t^{-1-r}dt$, using
+$J_r:=\int_0^\infty\log(1+t)t^{-1-r}dt=\pi/(r\sin\pi r)$ and the substitution $\tau=t/(1+t)$
+($t^{-1-r}dt=\tau^{-1-r}(1-\tau)^{r-1}d\tau$):
+\[J_r\sum_ix_i^r\ \ge\ \nu J_r-\frac{M\Phi}{1-\vartheta}\int_0^1\tau^{1-r}(1-\tau)^{r-1}d\tau=\nu J_r-\frac{M\Phi}{1-\vartheta}\,\frac{(1-r)\pi}{\sin\pi r}.\]
+So $\sum x_i^r\ge\nu-\Delta$ with $\Delta=r(1-r)M\Phi/(1-\vartheta)$.  Since $Q=\nu^{-r}\sum x_i^r$ and $sr=1$,
+$\nu^{1-s}Q^s=(\sum x_i^r/\nu)^s\ge1-s\Delta/\nu$ (Bernoulli, also when the base is negative), so
+$\mathrm{bon}\le(1-r)M\Phi/(\nu(1-\vartheta))=\frac{s-1}{s\nu(1-\vartheta)}\Phi M$.
+
+Case $M\Phi>\vartheta$.  $\mathrm{bon}\le1-\nu^{1-s}S_1\le1-\nu^{1-s}<(1-\nu^{1-s})\Phi M/\vartheta$.
+
+The thresholds follow by optimising $\vartheta$ numerically; the bound is crude (Remark~\ref{rem:crude}).
+\end{proof}
+\begin{remark}\label{rem:crude}
+Near $s=1$ the true constant is $\approx(s-1)\ln\nu$ (local search: $0.0109$, $0.0138$, $0.0160$ at $s=1.01$ for $n=2,3,4$), so
+Theorem~\ref{thm:small} loses a factor of order $(\nu!-1)/\ln\nu$.  The loss comes from bounding the upper part of $N$ by $S_1$.
+At the interference-free equality block $N=0$ exactly, so a sharper estimate should exploit $\|U\|$ small near that block.
+\end{remark}
+
+\section{$(\mathrm H_n)$ is false at threshold $\frac12$ for $n=3$, and at every threshold $<1$ for $n=4$, $b=2$}
+\begin{proposition}[$n=3$, closed form]\label{prop:n3}
+For $\varphi\in[0,\pi/2)$ take two atoms $\beta_{1,2}=e^{\mp i\varphi}/(2\cos\varphi)$ (so $A=1$), $\xi_{1t}=1$, $\xi_{2t}=e^{i\theta}$ for $t=1,2,3$,
+$\theta=\pi/2-\varphi$.  Then $\beta_T=0$ for $|T|=2$, $|\beta_T|=\cos(\pi/4+\varphi/2)/\cos\varphi$ for $|T|\in\{1,3\}$, and
+$\mathrm{bon}=1-2^{1-s}/\cos\varphi$.  Every admissible family for $n=3$ other than a single set consists of 2-sets, so
+\[c_1^{\rm cf}(3,s)\ \ge\ R(\varphi,s):=\frac{\cos\varphi-2^{1-s}}{\cos(\pi/4+\varphi/2)} .\]
+$\max_\varphi R$ exceeds $\frac12$ for $s>1.5916$ ($b<2.513$), and equals $0.7674$ at $s=2$ ($b=2$; $\varphi=0.3158$).  At $\varphi=0$
+(two equal atoms, $\xi_2=(i,i,i)$): $R=\sqrt2(1-2^{1-s})$, already $0.7071$ at $s=2$.
+\end{proposition}
+\begin{proof}
+$\beta_T=\beta_1+\beta_2e^{i|T|\theta}$, $|\beta_T|=\frac{|1+e^{i(2\varphi+|T|\theta)}|}{2\cos\varphi}$; with $2\varphi+2\theta=\pi$ this vanishes for
+$|T|=2$ and equals $\frac{2|\cos(\pi/4+\varphi/2)|}{2\cos\varphi}$ for $|T|=1,3$.  $Q^s=2^s/(2\cos\varphi)$ and $\nu^{1-s}=4^{1-s}$.  Certified at 50 digits.
+\end{proof}
+Local search (widths $1$--$5$, $s\in\{1.2,\dots,2\}$) never beats $\max_\varphi R$, so it is presumably sharp.  It stays below
+$\cos(\pi/5)=0.809$ for all $s\le2$ (it reaches $\cos(\pi/5)$ only at $s=2.072>\nu/2$).  (The single-$T$ constant is larger:
+$c_1^1(3,2)\ge0.824>\cos(\pi/5)$, width 3.)
+
+\begin{proposition}[$n=4$, explicit]\label{prop:n4}
+Three atoms $\beta_0=d$, $\beta_\pm=ce^{\pm i\psi}$ with $\xi_0=(1,1,1,1)$, $\xi_\pm=(e^{\pm i\theta},\dots)$.  Then
+$\beta_T=d+2c\cos(|T|\theta+\psi)$ and $A=d+2c\cos\psi$.  Take
+$\theta=1.013959$, $\psi=\pi-\tfrac52\theta$, $c=0.32661$, $d=1-2c\cos\psi=0.4633558$.  At $s=\frac52$ ($b=2$) a 50-digit
+evaluation over all 80 admissible families gives $\mathrm{bon}=0.48548$, $\max_{\mathcal F}\sum|\beta_T|=\max_T|\beta_T|=0.43080$, hence
+\[c_1^{\rm cf}(4,\tfrac52)\ \ge\ 1.1269\ >1 .\]
+(Here $\beta_2=\beta_3=-\beta_1/4$, so the single sets, $\{[4]\}$ and the size-signature $(2,2,2,3)$ families tie.)  Optimising the same
+three-parameter family over $s$, it crosses $\frac12$ at $s=1.594$ ($b=3.14$), $\cos(\pi/5)$ at $s=2.014$ ($b=2.48$),
+$\cos(\pi/7)$ at $s=2.148$ ($b=2.33$), and $1$ at $s=2.298$ ($b=2.18$).  Free local search over widths $1$--$5$ reproduces these
+values, so they are presumably sharp.  The single-$T$ constant is even larger: $c_1^1(4,\frac52)\ge1.436$ (width 4).
+\end{proposition}
+
+\section{Consequences for the Riesz route}
+\begin{itemize}
+\item $n=2$: the own-character Riesz argument closes for every $b\in[2,3]$ (threshold $\frac12$, Theorem A).
+\item $n=3$: threshold $\frac12$ fails for $b<2.513$ (Prop.~\ref{prop:n3}); the single-feature threshold $\cos(\pi/p)$, $p\ge5$, is
+consistent with numerics on all of $b\in[2,4]$ (sup $0.767<0.809$), but this is not proved.
+\item $n=4$: threshold $\frac12$ fails for $b<3.14$, $\cos(\pi/5)$ fails for $b<2.48$, and at $b=2$ \emph{every} threshold $<1$ fails
+(Prop.~\ref{prop:n4}).  So a feature's own sign-flipped characters cannot pay for its bonus pointwise at $n=4$, $b=2$, at any prime.
+That case needs the $L^2$ (circularity) route of the companion note's Theorem 14, or test functions that use more characters
+than an admissible family.
+\item Rigorous positive result for every $n$: Theorem~\ref{thm:small}, valid only very close to $s=1$.
+\end{itemize}
+\end{document}

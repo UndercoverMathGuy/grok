@@ -1,0 +1,4 @@
+n=11: gamma/gamma_IF = 1.0543988;  h = 2.731226545;  Lemma2 bound 1.5 Re beta = 6.206358978
+   R12 bounds (|T| = 1..n): min = 4.811377561, all >= h: True;  max_T |beta_T| / |beta| = 0.449525
+n=13: gamma/gamma_IF = 1.1091631;  h = 4.150479713;  Lemma2 bound 1.5 Re beta = 7.712683377
+   R12 bounds (|T| = 1..n): min = 6.979281935, all >= h: True;  max_T |beta_T| / |beta| = 0.190173

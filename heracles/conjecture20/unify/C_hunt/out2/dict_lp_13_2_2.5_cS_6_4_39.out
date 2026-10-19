@@ -1,0 +1,6 @@
+# dict_p13_n2_b2.5_cS_g6_s39: S=[1, 2, 3, 4, 5, 6] D=1.764395e-03 specs=6 dictionary columns=2592 rows=2028
+{"it": 0, "lp_ratio": 0.8779917536324192, "net_ratio": 0.8779917532693792, "polished": 0.9116601048239755, "neurons": 37, "nonpure": 0, "feats": [1, 2, 3, 4, 5, 6], "out_energy_share": [0.0, 0.1638, 0.1729, 0.1669, 0.1638, 0.1655, 0.167], "t": 55}
+{"it": 1, "lp_ratio": 0.6881941599597396, "net_ratio": 0.6997588366670788, "polished": 0.9299100033685577, "neurons": 35, "nonpure": 0, "feats": [1, 2, 3, 4, 5, 6], "out_energy_share": [0.0, 0.1728, 0.1677, 0.1655, 0.1765, 0.157, 0.1606], "t": 125}
+{"it": 2, "lp_ratio": 0.6169417855486704, "net_ratio": 0.616941785437631, "polished": 0.8574277788162632, "neurons": 27, "nonpure": 0, "feats": [1, 2, 4, 5], "out_energy_share": [0.0, 0.2213, 0.2862, 0.0, 0.1485, 0.3441, 0.0], "t": 160}
+{"it": 3, "lp_ratio": 0.5880927235530203, "net_ratio": 0.5880927233588116, "polished": 0.9247084951534514, "neurons": 34, "nonpure": 0, "feats": [1, 2, 3, 4, 5, 6], "out_energy_share": [0.0, 0.1625, 0.1595, 0.1687, 0.1735, 0.1645, 0.1712], "t": 209}
+# SUMMARY dict_p13_n2_b2.5_cS_g6_s39: runs=4 best LP ratio=0.8779917536 best polished=0.9299100034 max nonpure neurons in a solution=0 time=209s

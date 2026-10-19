@@ -1,0 +1,6 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+case ('1', '1'): bound 1.04261  a/F=0.8101  S=(0.4011,0.1989)  K_l2 0.5507 K_fam 0.2908 K_socp 0.2375 K_true 0.1676  -> bound with K_true 1.00463
+case ('1', '2'): bound 1.01952  a/F=0.7748  S=(0.3927,0.2375)  K_l2 0.5923 K_fam 0.3066 K_socp 0.2608 K_true 0.1974  -> bound with K_true 0.97958
+case ('1', '12'): bound 1.01920  a/F=0.7761  S=(0.3849,0.2460)  K_l2 0.6094 K_fam 0.3151 K_socp 0.2583 K_true 0.1947  -> bound with K_true 0.97965
+case ('12', '1'): bound 1.04052  a/F=0.8047  S=(0.2752,0.3565)  K_l2 0.4629 K_fam 0.2437 K_socp 0.2437 K_true 0.1662  -> bound with K_true 0.99774
+case ('12', '12'): bound 1.07165  a/F=0.8527  S=(0.2911,0.3077)  K_l2 0.3816 K_fam 0.2054 K_socp 0.2054 K_true 0.1307  -> bound with K_true 1.03899

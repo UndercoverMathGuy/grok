@@ -1,0 +1,5 @@
+p=5 n=6 m=6: Gamma=0.690983 y*=[1. 0.] (K*=1)
+best 1-D efficiency (field model) = 0.17723
+  (a) base 1-D (output freq 1) gamma/gIF=+0.1772  split=-1.5765  dc=0.046 dead=0.137 sec=1.37e-01  |beta_j|/max: [np.float64(1.0), np.float64(0.0)]
+  (b) outputs on all freqs     gamma/gIF=+0.1818  split=-1.5760  dc=0.046 dead=0.000 sec=1.37e-01  |beta_j|/max: [np.float64(1.0), np.float64(0.0)]
+  (c) all weights released     gamma/gIF=+0.1818  split=-1.5760  dc=0.046 dead=0.000 sec=1.37e-01  |beta_j|/max: [np.float64(1.0), np.float64(0.0)]

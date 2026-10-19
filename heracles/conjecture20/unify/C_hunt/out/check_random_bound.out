@@ -1,0 +1,10 @@
+p=5: sum kappa=2.500000 (p/2=2.5), sum 2 sin=3.077684 cot=3.077684; sampled loss/L1 max=0.8123 median=0.5129 <= bound t/L1=1.2730: True
+p=7: sum kappa=3.500000 (p/2=3.5), sum 2 sin=4.381286 cot=4.381286; sampled loss/L1 max=0.6270 median=0.5237 <= bound t/L1=1.1328: True
+p=11: sum kappa=5.500000 (p/2=5.5), sum 2 sin=6.955153 cot=6.955153; sampled loss/L1 max=0.6670 median=0.4810 <= bound t/L1=0.9681: True
+p=31: sum kappa=15.500000 (p/2=15.5), sum 2 sin=19.718320 cot=19.718320; sampled loss/L1 max=0.3953 median=0.3376 <= bound t/L1=0.6624: True
+p=101: sum kappa=50.500000 (p/2=50.5), sum 2 sin=64.293413 cot=64.293413; sampled loss/L1 max=0.2817 median=0.2357 <= bound t/L1=0.4159: True
+p=199: sum kappa=99.500000 (p/2=99.5), sum 2 sin=126.684704 cot=126.684704; sampled loss/L1 max=0.2089 median=0.1836 <= bound t/L1=0.3146: True
+first prime with random-sign bound below c_12(b=2): 719 0.1823991534732991
+n=3: theta_P(b=2)=0.2500; first prime with bound below: 197 (bound 0.2484)
+n=4: theta_P(b=2)=0.2845; first prime with bound below: 79 (bound 0.2803)
+n=5: theta_P(b=2)=0.3056; first prime with bound below: 37 (bound 0.2894)

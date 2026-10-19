@@ -1,0 +1,4 @@
+(a) p=3 n=11: gamma/gamma_IF = 1.054399 (exact > 1: True); P2_split == P2: True; gamma_split/gamma_IF = -109.8213
+(a) p=3 n=13: gamma/gamma_IF = 1.109163 (exact > 1: True); P2_split == P2: True; gamma_split/gamma_IF = -199.4396
+(b) theta (mixed): h = 2.588972e+08 (exact sign +), gamma/gamma_IF = 0.790214, h/RHS(D_Q) = 1.033200
+(b) theta_split (35-digit rational rounding of projections): h = 1.235799e+08 (exact sign +), gamma/gamma_IF = 0.377194, h/RHS(D_Q) = 0.493179

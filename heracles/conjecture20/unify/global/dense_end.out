@@ -1,0 +1,8 @@
+p=173: full-support best 0.10846  sparse allocation 0.23305 with 9 features  -> transition below 1.5: True
+p=179: full-support best 0.10660  sparse allocation 0.22837 with 11 features  -> transition below 1.5: True
+p=181: full-support best 0.10599  sparse allocation 0.22237 with 11 features  -> transition below 1.5: True
+p=191: full-support best 0.10314  sparse allocation 0.22992 with 9 features  -> transition below 1.5: True
+p=193: full-support best 0.10259  sparse allocation 0.22267 with 11 features  -> transition below 1.5: True
+p=197: full-support best 0.10153  sparse allocation 0.23206 with 9 features  -> transition below 1.5: True
+p=199: full-support best 0.10101  sparse allocation 0.22833 with 10 features  -> transition below 1.5: True
+primes without certificate: []

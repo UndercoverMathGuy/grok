@@ -1,0 +1,11 @@
+p=10007: Gamma_ref=0.13999  K*=18  e_thr(p)=0.8282
+  N=30 lam=0.1: |spt|=30 e=0.8973  min kappa-mass=19.80 E0/m=0.0000 Phi*/Gamma=0.8973
+  N=30 lam=0.5: |spt|=30 e=0.8867  min kappa-mass=20.57 E0/m=0.0000 Phi*/Gamma=0.8867
+  N=40 lam=0.1: |spt|=40 e=0.8453  min kappa-mass=29.33 E0/m=0.0000 Phi*/Gamma=0.8453
+  N=40 lam=0.5: |spt|=40 e=0.8188 (closed by e_thr) min kappa-mass=29.33 E0/m=0.0000 Phi*/Gamma=0.8188
+  N=55 lam=0.1: |spt|=55 e=0.7646 (closed by e_thr) min kappa-mass=42.15 E0/m=0.0197 Phi*/Gamma=0.7831
+  N=55 lam=0.5: |spt|=55 e=0.7409 (closed by e_thr) min kappa-mass=42.22 E0/m=0.0273 Phi*/Gamma=0.7657
+  N=70 lam=0.1: |spt|=70 e=0.7104 (closed by e_thr) min kappa-mass=57.78 E0/m=0.0352 Phi*/Gamma=0.7412
+  N=70 lam=0.5: |spt|=70 e=0.6863 (closed by e_thr) min kappa-mass=55.74 E0/m=0.0461 Phi*/Gamma=0.7251
+  N=100 lam=0.1: |spt|=100 e=0.6183 (closed by e_thr) min kappa-mass=84.18 E0/m=0.0670 Phi*/Gamma=0.6693
+  N=100 lam=0.5: |spt|=100 e=0.5913 (closed by e_thr) min kappa-mass=82.97 E0/m=0.0725 Phi*/Gamma=0.6438

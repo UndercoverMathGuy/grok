@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\title{C\_hunt: proofs behind the hunt}
+\date{}
+\begin{document}
+\maketitle
+
+\noindent Notation is that of \texttt{unify/BRIEF.md}.  $p$ is an odd prime, $\rho=e^{2\pi i/p}$, $F=\{1,\dots,(p-1)/2\}$, $n\ge2$,
+$\nu=n+1$, $b\in[2,\nu]$, $s=\nu/b$, $r=1/s$, $\kappa_l(\delta)=1-\cos(2\pi l\delta/p)$ and $c_l(\delta)=1-\rho^{-l\delta}$, so that
+$|c_l(\delta)|^2=2\kappa_l(\delta)$ and $c_l(-\delta)=\overline{c_l(\delta)}$.
+
+\section{The class-$\mathcal C$ Riesz-product model}
+A class-$\mathcal C$ neuron has a single frequency $l\in F$ in every slot and no input DC.  Output DC cancels in every gap and only adds
+cost, so we may drop it.  Balancing the slot norms keeps the table and does not increase the cost, so for upper bounds
+we may take every neuron balanced.  Write the neuron as $u_t(a)=\alpha\cos(2\pi la/p+\varphi_t)$, $w(c)=\alpha\cos(2\pi lc/p+\psi)$.
+A direct computation from $\Phi_l(x)=\frac2p\rho^{l y(x)}\sum_cf(x)[c]\rho^{-lc}$ gives
+\[
+\Phi_l(x)=b\prod_{t=1}^n\big(1+\xi_t\zeta_l^{x_t}\big),\qquad \zeta_l=\rho^{2l},\ \ \xi_t=e^{2i\varphi_t},\ \ b=2^{-n}\alpha^{\nu}e^{i(\psi-\sum_t\varphi_t)},
+\]
+and $|b|=B_p\|\omega\|^{\nu}$.  Every $(b,\xi)\in\mathbb C\times\mathbb T^n$ occurs.  Summing over the neurons $i$ of frequency $l$:
+\[
+\Phi_l=A_l+f_l,\qquad A_l=\sum_ib_i,\qquad f_l=\sum_{\emptyset\ne T\subseteq[n]}a_{l,T}\,\chi_{l,T},\qquad a_{l,T}=\sum_ib_i\prod_{t\in T}\xi_{it},
+\qquad \chi_{l,T}(x)=\zeta_l^{\sum_{t\in T}x_t}.
+\]
+The gaps are $g(x,\delta)=\sum_l\Re\big(\Phi_l(x)c_l(\delta)\big)$.  In units $B_p=1$ the cost is $P=\sum_l Q_l$ with $Q_l=\sum_{i\in l}|b_i|^r$,
+and $\gamma=B_p\,h/P^s$.  We also write
+\[
+G_l=\frac{|A_l|}{\nu^{1-s}Q_l^s}\ \ \text{(gain)},\qquad \varepsilon_l=\frac{\sum_T|a_{l,T}|}{|A_l|}\ \ \text{(relative $L^1$ fluctuation)}.
+\]
+\emph{Check.} \texttt{t0\_lib.py}: model gaps against the full-table gaps of the refereed GLOBAL library agree to $10^{-14}$
+for $(p,n)\in\{(5,2),(7,2),(11,2),(5,3),(7,3),(5,4)\}$; the clean coefficients agree to $4\cdot10^{-15}$; the costs agree to $4\cdot10^{-16}$.
+
+\section{The $L^1$ reduction}
+Fix $\theta\ge0$ and consider two statements.
+
+\medskip\noindent$(J'_\theta)$ at an offset $\delta$:\quad
+$\displaystyle \min_{x\in\mathbb Z_p^n,\ \sigma=\pm1} g(x,\sigma\delta)\ \le\ \sum_l|A_l|\kappa_l(\delta)\ -\ \theta\sum_{l}\sum_{T}|a_{l,T}|\,|c_l(\delta)|.$
+
+\smallskip\noindent$(P_\theta)$ for a feature $l$ ($A_l\neq0$):\quad $G_l\,(1-\theta\varepsilon_l)\le1$.
+
+\medskip\noindent
+$(P_\theta)$ concerns one feature's atom system and does not involve $p$.  $(J'_\theta)$ is a statement about one trigonometric
+polynomial on $\mathbb Z_p^n$, evaluated at the pair $\pm\delta$.  It charges the fluctuations of every frequency, ghosts included
+(a ghost is a frequency with neurons but $A_l=0$).
+
+\begin{theorem}[$L^1$ reduction; every $p$, $n$, $b$, $S$]\label{thm:red}
+Let $\theta$ be a balanced class-$\mathcal C$ network whose features ($A_l\ne0$) lie in $S\subseteq F$.  Put $Q_{\rm tot}=\sum_{l\in F}Q_l$,
+$y_l=(Q_l/Q_{\rm tot})^s$ for $l\in S$, and let $\delta^\ast$ minimise $\sum_{l\in S}y_l\kappa_l(\delta)$ over $\delta\ne0$.
+If every feature satisfies $(P_\theta)$ and the network satisfies $(J'_\theta)$ at $\delta^\ast$, then
+\[\gamma(\theta)\ \le\ \nu^{1-s}B_p\,\Gamma^{(S)}_s(p)\ \ \le\ D_S=\pi_{n,b}(p)B_p\Gamma^{(S)}_s(p).\]
+Consequently, if $\theta^\ast(p,n):=\inf(\text{best constant in }(J'))\ \ge\ \theta_P(n,s):=\sup_{G>1}(1-1/G)/\varepsilon$, then
+$\mathrm{RD}_S$, and indeed the class-$\mathcal C$ interference-free value on $S$, holds at $(p,n,s)$ for every $S$.
+\end{theorem}
+\begin{proof}
+$h\le\min_{x,\sigma}g(x,\sigma\delta^\ast)$ because $h$ is the minimum over all $(x,\delta)$.  By $(J'_\theta)$,
+\[h\le\sum_l\Big(|A_l|\kappa_l(\delta^\ast)-\theta\sum_T|a_{l,T}|\,|c_l(\delta^\ast)|\Big).\]
+For a ghost, the summand is $\le0$.  For a feature, $|c_l|=\sqrt{2\kappa_l}\ge\kappa_l$ because $\kappa_l\le2$, so the summand is at most
+$|A_l|\kappa_l(1-\theta\varepsilon_l)\le|A_l|\kappa_l(1-\theta\varepsilon_l)_+$.
+If $1-\theta\varepsilon_l>0$, then $(P_\theta)$ gives $|A_l|(1-\theta\varepsilon_l)=\nu^{1-s}Q_l^sG_l(1-\theta\varepsilon_l)\le\nu^{1-s}Q_l^s$.
+Hence $h\le\nu^{1-s}\sum_{l\in S}Q_l^s\kappa_l(\delta^\ast)=\nu^{1-s}Q_{\rm tot}^s\sum_{l\in S}y_l\kappa_l(\delta^\ast)$.
+Since $\sum_{l\in S}y_l^r=\sum_{l\in S}Q_l/Q_{\rm tot}\le1$, the vector $y$ is admissible for the programme on $S$ (with budget at most $1$), so
+$\min_\delta\sum_Sy_l\kappa_l(\delta)\le\Gamma^{(S)}_s$.  Finally $\gamma=B_ph/Q_{\rm tot}^s$, and $\pi\ge\nu^{1-s}$.
+\end{proof}
+\emph{Check.} \texttt{check\_reduction.py}, output \texttt{out/check\_reduction.out}.  It tests $1073$ class-$\mathcal C$ networks: random, IF-perturbed,
+cheap-profile, partially optimised, and the hunt's saved optima, at $(p,n,s)\in\{(5,2,\frac32),(7,2,\frac32),(11,2,\frac32),(13,2,1.2),(7,3,2),(5,3,\frac43),(5,4,\frac52)\}$
+and at $p\le31$.  For each it computes the network's own constants
+$\theta_{\rm net}$ (the best $\theta$ in $(J')$ at $\delta^\ast$) and $\theta_{\rm pay}=\max_l(1-1/G_l)/\varepsilon_l$.  Every
+inequality of the chain is checked separately.  Result: failures $=0$.
+
+\begin{remark}
+The only $p$-dependent input is $(J')$, at a single pair of offsets.  The only atom input is $(P)$, which is free of $p$.
+Neither uses the size of $p$ or of $n$; nothing is sent to a limit.  The conclusion is the interference-free value
+\emph{within class $\mathcal C$}.  This is consistent with $p=3$: the certified $p=3$ winners beat the IF value only through DC input
+components, which class $\mathcal C$ excludes.  So the theorem asserts nothing about them.
+\end{remark}
+
+\section{Single-character cheap features at $n=2$}
+\begin{proposition}\label{prop:single}
+Let $n=2$ and $0<c<2$.  Take three atoms with masses $|b_i|$ proportional to $(1,1,c)$, aligned ($b_i>0$), with slot-2 phases
+$\xi_{i2}=(e^{i\beta},e^{-i\beta},-1)$ where $2\cos\beta=c$, and slot-1 phases $\xi_{i1}=e^{i\phi}\,\overline{\xi_{i2}}^{\,2}$.  Then
+\[a_{(0,1)}=0,\qquad a_{(1,1)}=0,\qquad a_{(1,0)}=-(1-c)\,A\,e^{i\phi},\]
+so the fluctuation is a single character of relative size exactly $1-c$.  With $\xi_{i1}=e^{i\phi}\xi_{i2}$ instead, the
+fluctuation is $-(1-c)Ae^{i\phi}\chi_{(1,1)}$.  The gain is
+\[G(c)=3^{s-1}\frac{2+c}{(2+c^{r})^{s}},\qquad G(0^+)=(3/2)^{s-1},\qquad \lim_{c\to0}\frac{1-1/G(c)}{1-c}=1-(2/3)^{s-1}=c_{12}.\]
+Hence $\theta_P(2,s)\ge c_{12}$.  The value $c_{12}$ is attained by two aligned atoms (the case $c=0$: masses $(\frac12,\frac12)$, $\xi_{\cdot2}=(1,-1)$, $\xi_{\cdot1}=(1,1)$).
+\end{proposition}
+\begin{proof}
+The masses $(1,1,c)$ close a triangle with the unit vectors $(e^{i\beta},e^{-i\beta},-1)$, because $2\cos\beta-c=0$; this gives $a_{(0,1)}=0$.
+Next, $a_{(1,1)}=e^{i\phi}\sum_ib_i\overline{\xi_{i2}}=e^{i\phi}\overline{a_{(0,1)}}=0$.  And
+$a_{(1,0)}=e^{i\phi}\sum_ib_i\overline{\xi_{i2}}^{\,2}\propto e^{i\phi}(e^{-2i\beta}+e^{2i\beta}+c)=e^{i\phi}(c^2+c-2)$, while $A\propto2+c$.
+Since $c^2+c-2=-(1-c)(2+c)$, this is the claim.  The second variant is identical, with $\sum_ib_i\xi_{i2}^2$.
+For the gain, write $w=(1,1,c)/(2+c)$: then $Q=\sum w_i^r=(2+c^r)/(2+c)^r$ and $G=1/(3^{1-s}Q^s)$.  At $c=0$, $G=(3/2)^{s-1}$ and $\varepsilon=1$.
+\end{proof}
+\emph{Check.} \texttt{hunt\_fejer.py} prints the realised relative fluctuations $0.600000$, $10^{-16}$, $10^{-16}$ for $c=0.4$ at $p=13$.
+\texttt{ptest.py} (adversarial maximisation of $(1-1/G)/\varepsilon$ over atom systems with $2\le m\le2\nu+1$ atoms) returns $\theta_P(2,\frac32)=0.183503$, which is $c_{12}$ to $10^{-6}$,
+attained at $m=2$ with masses $(\frac12,\frac12)$.
+
+\begin{proposition}[punctured IF block; every $n$]\label{prop:punct}
+Let $n\ge1$, $\zeta=e^{2\pi i/n}$, and take $n=\nu-1$ aligned atoms $b_k=A/n$ with $\xi_{kt}=\zeta^{k}$ for every slot $t$ ($k=0,\dots,n-1$).  Then
+$a_T=A\cdot[\,n\mid |T|\,]$, so the only nonzero fluctuation coefficient is $a_{[n]}=A$: the field is $A(1+\chi_{l,[n]})$, a single character
+of relative size $\varepsilon=1$.  The gain is $G=(\nu/n)^{s-1}$, hence
+\[\theta_P(n,s)\ \ge\ 1-\Big(\frac{n}{n+1}\Big)^{s-1}\qquad(=c_{12}\text{ at }n=2).\]
+\end{proposition}
+\begin{proof}
+$a_T=\frac An\sum_{k=0}^{n-1}\zeta^{k|T|}$, which is $A$ if $n\mid|T|$ and $0$ otherwise; for $\emptyset\neq T\subseteq[n]$ this happens only for $T=[n]$.
+$Q=n(A/n)^r$, so $\nu^{1-s}Q^s=\nu^{1-s}n^{s-1}A$ and $G=(\nu/n)^{s-1}$.  Then $(1-1/G)/\varepsilon=1-(n/\nu)^{s-1}$.
+\end{proof}
+\emph{Check.} \texttt{ptest.py} returns $\theta_P(2,1.2)=0.077892$, $\theta_P(2,1.5)=0.183503$ and $\theta_P(3,1.5)=0.133974$, equal to
+$1-(n/\nu)^{s-1}$ to $10^{-6}$; the maximisers are $n$ equal atoms with $\varepsilon=1$.  Values for $n=4,5$ are in the report.
+
+\section{$(J)$ with constant $\frac12$ is false}
+\begin{proposition}[REFUTED: paired joint $L^1$ detection with constant $\frac12$]
+At $p=5$, $n=2$, $\delta=1$ there are coefficients $a_{l,T}$ ($l\in\{1,2\}$, $T\in\{(1,0),(0,1),(1,1)\}$; real $A_l=0$) with
+\[\max_{\sigma=\pm1}\Big(-\min_x D(x,\sigma)\Big)=0.33097\ldots\cdot\sum_{l,T}|a_{l,T}|\,|c_l(1)|\ <\ \tfrac12\sum_{l,T}|a_{l,T}|\,|c_l(1)|.\]
+The coefficients are listed in \texttt{out/j\_counterexample\_p5n2.out}, and the minimum is re-evaluated over the whole grid in 40-digit
+arithmetic.  The best constant found at $p=5$ is $0.2422$ (\texttt{jtest2.py}, 150 restarts).
+\end{proposition}
+The numerical values of $\theta^\ast(p,n)$ and $\theta_P(n,s)$ are reported in the hunt report.
+\end{document}

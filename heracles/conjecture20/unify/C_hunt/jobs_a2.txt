@@ -1,0 +1,56 @@
+hunt_a.py 13 2.0 AP1_5_1 25 21
+hunt_a.py 13 2.0 AP1_6_2 25 21
+hunt_a.py 13 2.5 AP1_6_1 25 21
+hunt_a.py 13 2.5 AP1_6_3 25 21
+hunt_a.py 17 2.0 AP1_5_1 25 21
+hunt_a.py 17 2.0 AP1_6_2 25 21
+hunt_a.py 17 2.5 AP1_6_1 25 21
+hunt_a.py 17 2.5 AP1_7_3 25 21
+hunt_a.py 19 2.0 AP1_5_1 25 21
+hunt_a.py 19 2.0 AP1_6_2 25 21
+hunt_a.py 19 2.5 AP1_6_1 25 21
+hunt_a.py 19 2.5 AP1_7_3 25 21
+hunt_a.py 23 2.0 AP1_5_1 25 21
+hunt_a.py 23 2.0 AP1_6_2 25 21
+hunt_a.py 23 2.5 AP1_6_1 25 21
+hunt_a.py 23 2.5 AP1_7_3 25 21
+hunt_a.py 29 2.0 AP1_5_1 25 21
+hunt_a.py 29 2.0 AP1_6_2 25 21
+hunt_a.py 29 2.5 AP1_6_1 25 21
+hunt_a.py 29 2.5 AP1_7_3 25 21
+hunt_a.py 31 2.0 AP1_5_1 25 21
+hunt_a.py 31 2.0 AP1_6_2 25 21
+hunt_a.py 31 2.5 AP1_6_1 25 21
+hunt_a.py 31 2.5 AP1_7_3 25 21
+hunt_a.py 37 2.0 F 15 31
+hunt_a.py 37 2.5 F 15 31
+hunt_a.py 41 2.0 F 12 31
+hunt_a.py 41 2.5 F 12 31
+hunt_a.py 43 2.0 F 10 31
+hunt_a.py 43 2.5 F 10 31
+hunt_safety.py 11 2 2.0 F 3 41
+hunt_safety.py 11 2 2.5 F 3 41
+hunt_safety.py 13 2 2.0 F 3 41
+hunt_safety.py 13 2 2.5 F 3 41
+hunt_safety.py 17 2 2.0 F 3 41
+hunt_safety.py 17 2 2.5 F 3 41
+hunt_safety.py 19 2 2.0 F 3 41
+hunt_safety.py 19 2 2.5 F 3 41
+hunt_safety.py 23 2 2.0 F 3 41
+hunt_safety.py 23 2 2.5 F 3 41
+hunt_fejer.py 11 2.0 Sstar 24 81
+hunt_fejer.py 11 2.0 AP1_5_1 24 82
+hunt_fejer.py 11 2.5 Sstar 24 81
+hunt_fejer.py 11 2.5 AP1_5_1 24 82
+hunt_fejer.py 17 2.0 Sstar 24 81
+hunt_fejer.py 17 2.0 AP1_6_1 24 82
+hunt_fejer.py 17 2.5 Sstar 24 81
+hunt_fejer.py 17 2.5 AP1_6_1 24 82
+hunt_fejer.py 23 2.0 Sstar 24 81
+hunt_fejer.py 23 2.0 AP1_6_1 24 82
+hunt_fejer.py 23 2.5 Sstar 24 81
+hunt_fejer.py 23 2.5 AP1_6_1 24 82
+hunt_fejer.py 31 2.0 Sstar 24 81
+hunt_fejer.py 31 2.0 AP1_6_1 24 82
+hunt_fejer.py 31 2.5 Sstar 24 81
+hunt_fejer.py 31 2.5 AP1_6_1 24 82

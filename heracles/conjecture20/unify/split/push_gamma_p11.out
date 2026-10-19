@@ -1,0 +1,8 @@
+net 0: after frontier push  R_Q=0.99321 gamma=0.83639 split=0.36089 secondary=3.565e-02
+        after gamma ascent    R_Q=0.99225 gamma=0.83760 split=0.36468 secondary=3.613e-02 dc=8.84e-04
+net 1: after frontier push  R_Q=1.05624 gamma=0.79098 split=0.09852 secondary=4.491e-02
+        after gamma ascent    R_Q=1.05662 gamma=0.79228 split=0.09992 secondary=4.488e-02 dc=5.36e-04
+net 2: after frontier push  R_Q=1.00169 gamma=0.97592 split=0.95980 secondary=4.217e-05
+        after gamma ascent    R_Q=0.99999 gamma=0.99576 split=0.99572 secondary=1.878e-09 dc=3.05e-13
+net 3: after frontier push  R_Q=0.99955 gamma=0.99212 split=0.98920 secondary=3.137e-04
+        after gamma ascent    R_Q=1.00000 gamma=0.99998 split=0.99998 secondary=2.041e-10 dc=1.45e-13

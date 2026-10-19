@@ -1,0 +1,7 @@
+=== (i) the copositive second-moment lemma on random class-C networks (Q entrywise >= 0, random Delta)
+  225 cases: max (rhs - lhs)/|lhs| = -1.02e+00  (<= 0 required)
+=== (ii) joint quadratic detectability of the support on the binding set (entrywise-nonnegative Q, LP)
+  144 (p,s) cases with K* >= 2 (p in [5,61]):
+    every support feature individually detectable on the binding set: 144/144
+    all support features JOINTLY detectable by one entrywise-nonnegative Q:  9/144
+    jointly undetectable cases (p, s, K*, |Delta|): [(5, 1.05, 2, 4), (5, 1.2, 2, 4), (5, 1.35, 2, 4), (5, 1.5, 2, 4), (5, 1.75, 2, 4), (5, 2.0, 2, 4), (5, 2.5, 2, 4), (5, 3.0, 2, 4), (5, 4.0, 2, 4), (7, 1.05, 3, 6), (7, 1.2, 3, 6), (7, 1.35, 3, 6), (7, 1.5, 3, 6), (7, 1.75, 2, 4), (7, 2.0, 2, 4), (7, 2.5, 2, 4), (7, 3.0, 2, 4), (7, 4.0, 2, 4), (11, 1.05, 5, 10), (11, 1.2, 5, 10), (11, 1.35, 3, 6), (11, 1.5, 3, 6), (11, 1.75, 3, 6), (11, 2.0, 3, 6), (11, 2.5, 3, 6)]

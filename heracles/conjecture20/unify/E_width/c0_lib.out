@@ -1,0 +1,17 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=5 n=2: clean=sum atoms 1.1e-16; signflip=atoms*xi 1.1e-16; phi(0)=conj beta 6.2e-17; phi(2l1_T)=conj beta_T 6.2e-17; budget ok
+p=7 n=2: clean=sum atoms 7.9e-17; signflip=atoms*xi 1.2e-16; phi(0)=conj beta 2.0e-16; phi(2l1_T)=conj beta_T 2.7e-16; budget ok
+p=5 n=3: clean=sum atoms 2.8e-17; signflip=atoms*xi 5.6e-17; phi(0)=conj beta 2.8e-17; phi(2l1_T)=conj beta_T 5.7e-17; budget ok
+p=3 n=2: clean=sum atoms 1.1e-16; signflip=atoms*xi 2.6e-16; phi(0)=conj beta 2.2e-16; phi(2l1_T)=conj beta_T 3.0e-16; budget ok
+p=7 n=3: clean=sum atoms 4.4e-17; signflip=atoms*xi 5.0e-17; phi(0)=conj beta 7.5e-17; phi(2l1_T)=conj beta_T 1.3e-16; budget ok
+IF network p=5 n=2 s=1.5: gamma/gamma_IF = 1.0000000000; y* = [0.35355 0.35355]; #maximisers 1
+IF network p=7 n=2 s=1.2: gamma/gamma_IF = 1.0000000000; y* = [0.26758 0.26758 0.26758]; #maximisers 1
+IF network p=5 n=3 s=1.7: gamma/gamma_IF = 1.0000000000; y* = [0.30779 0.30779]; #maximisers 1
+IF network p=11 n=2 s=1.45: gamma/gamma_IF = 1.0000000000; y* = [0.26796 0.      0.19519 0.      0.15194]; #maximisers 2
+s=1.0: Gamma(5)=1.2500000000 vs 1.2500000000;  Gamma(7)=1.1666666667 vs 1.1666666667
+s=1.2: Gamma(5)=1.0881882041 vs 1.0881882041;  Gamma(7)=0.9365318221 vs 0.9365318221
+s=1.5: Gamma(5)=0.8838834765 vs 0.8838834765;  Gamma(7)=0.6735753141 vs 0.6735753141
+Gamma_1(5) = 1.250000000000  p/(p-1) = 1.250000000000
+Gamma_1(7) = 1.166666666667  p/(p-1) = 1.166666666667
+Gamma_1(11) = 1.100000000000  p/(p-1) = 1.100000000000
+Gamma_1(13) = 1.083333333333  p/(p-1) = 1.083333333333

@@ -1,0 +1,226 @@
+% E_kkt: the KKT route to (E_S).  Proofs of the PROVED claims R1-R9, R12 of the structured report.
+% Sanity checks (all in this directory): check_kkt_if.py, check_p3_sym.py, search_localmax.py (lm_*.out),
+% check_lemmas.py, check_k7.py, check_k3plus.py, check_departure.py, check_offsupport.py, check_tau.py (outputs *.out).
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.2cm]{geometry}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}\newcommand{\R}{\mathbb R}\newcommand{\Re}{\operatorname{Re}}
+\begin{document}
+\title{The KKT route to $(E_S)$: what first- and second-order optimality give, and where they stop}
+\author{E\_kkt}\date{}\maketitle
+
+Every statement holds for every odd prime $p$, every $n\ge2$ and every $b$ in the stated range; no case is split by $(p,n)$
+and no parameter is sent to a limit. Notation is that of \texttt{unify/BRIEF.md} and \texttt{unify/BRIEF\_E.md}.
+
+\section*{Setting}
+$\nu=n+1$, $F=\{1,\dots,\frac{p-1}2\}$, $s=\nu/b\in[1,\nu/2]$, $r=1/s$, $a=1/(s-1)$ for $s>1$.
+A network $\theta=(\omega_i)_{i\le m}$ has non-zero neurons $\omega_i=(v_{i1},\dots,v_{in},v_{i0})$ (inputs $v_{it}=u_{it}$, output $v_{i0}=w_i$).
+$g_\omega(x,\delta)=(w(y(x))-w(y(x)-\delta))\prod_tu_t(x_t)$, $g=\sum_ig_{\omega_i}$, $\mathcal A=\mathbb Z_p^n\times\mathbb Z_p^*$,
+$h=\min_{\mathcal A}g$, $A(\theta)=\arg\min g$. $P=\sum_i\|\omega_i\|^b$, $a_i=\|\omega_i\|^\nu$, $w_i=a_i^{1/s}/P$ (cost shares),
+$H=-\sum w_i\log w_i$, $\gamma=h/P^s$, $F(\theta;s)=\log\gamma+(s-1)H$.
+For a probability $q$ on $\mathcal A$: $T_q(\omega)=\E_q[g_\omega]$ (multilinear in the $\nu$ factors), $t(\hat u)=T_q(\hat u)$ for unit factors,
+$\tau(q)=\max\{T_q(\hat u):\|\hat u_t\|=1\ \forall t\}$ (injective norm of the dual tensor $M_q[x,c]=\sum_\delta q(x,\delta)([c=y]-[c=y-\delta])$).
+$\mu_q$ = $\delta$-marginal of $q$; $c_l(\delta)=1-\rho^{-l\delta}$, $\tilde K_l(\mu)=\sum_\delta\mu_\delta c_l(\delta)$, $K_l(\mu)=\Re\tilde K_l(\mu)=\sum_\delta\mu_\delta\kappa_l(\delta)$.
+Atoms $\beta_{il}$, $\beta_l=\sum_i\beta_{il}$, $\beta_{l,T}$, $Q_l=\sum_i|\beta_{il}|^r$; feature $l$ is \emph{cheap} if $|\beta_l|>\nu^{1-s}Q_l^s$.
+\emph{Class $\mathcal C$}: every neuron has all $\nu$ factors in one frequency plane $l\in F$ (no DC). \emph{IF on $S$}: $\beta_{l,T}=0$ for $l\in S$, $T\ne\emptyset$.
+
+Imported facts (all refereed): Paper Lemma 2 ($h\le\sum_l\Re\beta_l\kappa_l(\delta)$ for every $\delta$, because
+$\E_xg(\cdot,\delta)=\sum_l\Re(\overline{\beta_l}c_l(\delta))$); Paper Lemma 7 with its equality clause (KM2); the single-neuron budget
+$\sum_{l\in F}|\beta_{il}|^r\le C_b\|\omega_i\|^b$, $C_b^s=B_p$; the temperature identities and Danskin (GLOBAL R1, R2);
+$L_S'{}_+=H^{\rm dec}_S-H^*_S$ and $(E_S)$ a.e.\ $\iff W_S\equiv D_S\iff(EW_S)$ (E\_reduce Thm A, E\_split E4);
+the Gibbs curve $\psi$ of a decoupled maximiser (E\_reduce Lemma 2(b)).
+
+\begin{lemma}[budget equality]\label{l:budget}
+For $b>2$ a neuron satisfies $\sum_l|\beta_l|^r=C_b\|\omega\|^b$ iff it is balanced, DC-free and all its factors lie in one plane $l$.
+\end{lemma}
+\begin{proof}
+With $A_t(l)=|\hat v_t(l)|/(\sqrt{p/2}\|v_t\|)$, Parseval gives $\sum_{l\in F}A_t(l)^2=1-(\text{DC fraction of }v_t)\le1$ and
+$|\beta_l|=2(2p)^{-\nu/2}\prod_tA_t(l)\prod_t\|v_t\|$. Hölder with $\nu$ factors and $\|x\|_{r\nu}\le\|x\|_2$ ($r\nu=b\ge2$) give
+$\sum_l\prod_tA_t(l)^r\le\prod_t(\sum_lA_t(l)^{b})^{1/\nu}\le\prod_t(\sum_lA_t(l)^2)^{r/2}\le1$; AM--GM gives $\prod_t\|v_t\|\le(\|\omega\|^2/\nu)^{\nu/2}$.
+For $b>2$, $\|x\|_b=\|x\|_2$ iff $x$ has at most one non-zero entry; if the non-zero indices differ between factors the left side is $0$.
+Equality therefore forces one common plane, no DC and equal factor norms; the converse is direct.
+\end{proof}
+
+\section{R1. KKT structure theorem}
+\begin{theorem}\label{t:kkt}
+Let $\theta$ be a local maximiser of $\gamma(\cdot;s)$ among networks of its width (e.g.\ a global maximiser), $h>0$. Then:
+(a) there is a probability $q$ on $A(\theta)$ with $\sum_aq_a\nabla g_a=\frac{sh}P\nabla P$;
+(b) every neuron is balanced, $\|v_{it}\|^2=\|\omega_i\|^2/\nu$, and $T_q(\omega_i)=h\,w_i>0$;
+(c) the unit-factor tuple $\hat u_i$ is a singular tuple of $T_q$: $\nabla_tT_q(\hat u_i)=t_i\hat u_{it}$ for every factor $t$, with singular value
+\[t_i=T_q(\hat u_i)=\nu^{\nu/2}\tfrac hP\,a_i^{-(s-1)/s}=\nu^{\nu/2}\gamma\,w_i^{\,1-s}\qquad\text{(critical-value law)};\]
+(d) for $s>1$: $w_i=t_i^{-a}/\sum_jt_j^{-a}$, $\gamma=\nu^{-\nu/2}(\sum_it_i^{-a})^{-(s-1)}$,
+$\log(\nu^{\nu/2}\gamma)=\E_w\log t-(s-1)H$, $F=\E_w\log t-\frac\nu2\log\nu$, $H=a\,\E_w\log\frac{t_i}{\nu^{\nu/2}\gamma}$; for $s=1$ all $t_i=\nu^{\nu/2}\gamma$;
+(e) $t_i$ does not depend on the choice of $q$; $t_i\le\tau(q)$ for every KKT measure $q$, hence $w_i\ge(\nu^{\nu/2}\gamma/\tau(q))^a$,
+$m\le(\tau(q)/\nu^{\nu/2}\gamma)^a$, $H\le a\log(\tau(q)/\nu^{\nu/2}\gamma)$; and $\tau(q)\le\sqrt2\min(1,\|q_X\|_2)$ ($q_X$ the $x$-marginal);
+(f) for every probability $q$: $\tau(q)\ge\tau(p^{-n}\mu_q)=\nu^{\nu/2}B_p\max_l|\tilde K_l(\mu_q)|$.
+\end{theorem}
+\begin{proof}
+(a) $h$ is a minimum of finitely many polynomials, so $h'(\theta;v)=\min_{a\in A}\langle\nabla g_a,v\rangle$; $P$ is $C^1$ ($b\ge2$).
+At a local maximum $\min_{a\in A}\langle\nabla g_a,v\rangle/h-s\langle\nabla P,v\rangle/P\le0$ for all $v$. If $0\notin
+C=\mathrm{conv}\{\nabla g_a/h-s\nabla P/P:a\in A\}$, strict separation gives $v$ with $\langle c,v\rangle>0$ on $C$, a contradiction.
+(b) $g_a$ is linear in each factor $v_{it}$, so $\langle v_{it},\nabla_{it}g_a\rangle=g_{\omega_i}(a)$, and $\langle v_{it},\nabla_{it}P\rangle=b\|\omega_i\|^{b-2}\|v_{it}\|^2$.
+Pairing the $(i,t)$ block of (a) with $v_{it}$ and using $sb=\nu$: $T_q(\omega_i)=\frac{\nu h}P\|\omega_i\|^{b-2}\|v_{it}\|^2$ for every $t$. The left side does not
+depend on $t$, so all factor norms are equal ($\ne0$), and $T_q(\omega_i)=\frac hP\|\omega_i\|^b$.
+(c) Put $\rho_i=\|\omega_i\|/\sqrt\nu$. Multilinearity gives $\nabla_{it}T_q(\omega_i)=\rho_i^{\nu-1}\nabla_tT_q(\hat u_i)$ and (a) gives
+$\nabla_{it}T_q(\omega_i)=\frac{\nu h}P\|\omega_i\|^{b-2}\rho_i\hat u_{it}$, so $\nabla_tT_q(\hat u_i)=t_i\hat u_{it}$ with
+$t_i=\nu^{b/2}\frac hP\rho_i^{b-\nu}=\nu^{\nu/2}\frac hPa_i^{(b-\nu)/\nu}$; pairing with $\hat u_{it}$ gives $T_q(\hat u_i)=t_i$. Finally
+$a_i^{-(s-1)/s}=(Pw_i)^{1-s}$ and $h/P^s=\gamma$.
+(d) From $t_i=\nu^{\nu/2}\gamma w_i^{1-s}$: $w_i=(\nu^{\nu/2}\gamma/t_i)^a$; summing, $(\nu^{\nu/2}\gamma)^{-a}=\sum t_i^{-a}$; taking $\E_w\log$ of the law gives the rest.
+(e) The law expresses $t_i$ through $\gamma,w_i$ only. $t_i\le\tau(q)$ by definition. For unit factors $|\hat w(y)-\hat w(y-\delta)|\le\sqrt2$ and
+$|\prod_t\hat u_t(x_t)|\le1$, so $|T_q(\hat u)|\le\sqrt2\sum_xq_X(x)|\hat U(x)|\le\sqrt2\min(1,\|q_X\|_2\|\hat U\|_2)$ with $\|\hat U\|_2=1$.
+(f) For $\alpha\in\mathbb Z_p^n$ let $R_\alpha$ shift inputs $v_t\mapsto v_t(\cdot-\alpha_t)$ and the output $w\mapsto w(\cdot-\sum\alpha_t)$ (orthogonal on every factor).
+Since $y(x)-\sum\alpha_t=y(x-\alpha)$, $g_{R_\alpha\omega}(x,\delta)=g_\omega(x-\alpha,\delta)$, so $T_{\alpha\cdot q}(R_\alpha\hat u)=T_q(\hat u)$ with
+$(\alpha\cdot q)(x,\delta)=q(x-\alpha,\delta)$; thus $\tau(\alpha\cdot q)=\tau(q)$. $\tau$ is convex in $q$ and the average of $\alpha\cdot q$ is $p^{-n}\mu_q$.
+For $x$-uniform $q$: $T_q(\omega)=\sum_l\Re(\overline{\beta_l(\omega)}\tilde K_l(\mu))$ ($\E_x\Phi_l=\overline{\beta_l}$); the budget at $b=\nu$
+gives $\sum_l|\beta_l(\hat u)|\le B_p\nu^{\nu/2}$, attained by a frequency-pure balanced unit neuron at the maximising $l$ with suitable phases.
+\end{proof}
+\begin{remark}[R2, conditional]
+On $N_S$, $S\ne F$, the same proof works on the manifold $N_S$ when the gradients of $\{\Re\beta_j,\Im\beta_j\}_{j\notin S}$ are linearly independent at $\theta$
+(LICQ): one gets $\sum q_a\nabla g_a-\frac{sh}P\nabla P\in\mathrm{span}\{\nabla\Re\beta_j,\nabla\Im\beta_j\}$ and everything above holds for the augmented form
+$T_{q,\eta}=\E_q g+\Re\sum_{j\notin S}\bar\eta_j\beta_j$ (the extra terms vanish on $N_S$ after summing over neurons). LICQ fails at class-$\mathcal C$ points
+(where $\nabla\beta_j=0$); the decoupled unions are covered instead by Proposition \ref{p:dec}(a), which gives an unconstrained KKT measure.
+\end{remark}
+
+\section{R3. Co-maximisers: dual measures, critical values, entropies}
+\begin{proposition}\label{p:dec}
+Let $S\subseteq F$, $s\in(1,\nu/2]$, $y$ a maximiser of $\Gamma^{(S)}_s$ and $\mu$ a programme KKT dual of $y$ (a symmetric probability on the
+binding offsets $B(y)$ with $K_j(\mu)=\Gamma^{(S)}_sy_j^{r-1}$ for $j\in\mathrm{spt}\,y$; it exists by the argument of Theorem \ref{t:kkt}(a)).
+Let $\Theta$ be the IF union of KM2 blocks with allocation $y$ (block $j$: $\nu$ equal frequency-$j$ neurons with positive real atoms).
+(a) $q^*=p^{-n}\mu$ is a KKT measure of $\Theta$ for the unconstrained problem, and the critical values are $t=\nu^{\nu/2}B_pK_j(\mu)$ on block $j$.
+(b) (Critical-value law of co-maximisers.) All maximisers of $\gamma(\cdot;s)$ (on $N_F$) satisfy $t_i=\nu^{\nu/2}W(s)\,w_i^{1-s}$: their neurons lie on one curve
+in the $(w,t)$ plane, and two co-maximisers have $H_A-H_B=a(\E_{w_A}\log t^A-\E_{w_B}\log t^B)$.
+(c) (Cross-duality is vacuous.) For every network $\theta'$ and every probability $\mu'$ on $\mathbb Z_p^*$, $\E_{p^{-n}\mu'}g_{\theta'}=\sum_l\Re(\overline{\beta_l}\tilde K_l(\mu'))\ge h(\theta')$;
+for every IF network $\Theta'$ and every probability $q$, $\E_qg_{\Theta'}=\sum_l\Re(\overline{\beta_l}\tilde K_l(\mu_q))\ge h(\Theta')$.
+Hence, for a decoupled IF co-maximiser $\Theta$ and any other co-maximiser $\theta_c$, both weak-duality inequalities $h(\theta_c)\le\E_{q^*}g_{\theta_c}$ and
+$h(\Theta)\le\E_{q_c}g_\Theta$ hold for \emph{all} networks: they carry no information beyond Paper Lemma 2.
+\end{proposition}
+\begin{proof}
+(a) $\E_{q^*}g_{\theta'}=\sum_lK_l(\mu)\Re\beta_l(\theta')$ for every $\theta'$ ($\mu$ symmetric), so $\sum q^*_a\nabla g_a=\nabla[\sum_lK_l\Re\beta_l](\Theta)$.
+At a frequency-$j$ neuron, $\beta_l$ ($l\ne j$) has zero gradient (it is multilinear in the frequency-$l$ components, which vanish in all $\nu\ge3$ factors), and
+$\nabla_{v_t}\Re\beta_j=(\Re\beta_{ij}/\|v_t\|^2)v_t$: $v_t$ and the gradient lie in the plane $j$, and the in-plane phase derivative of $\Re\beta_j$ vanishes at a positive real atom.
+So the stationarity condition reads $K_j\nu\Re\beta_{ij}=\frac{\nu h}P\|\omega_i\|^b$, i.e.\ $K_jB_pa_i=\frac hPa_i^{1/s}$. In $\Theta$ (cost $P$),
+$a_i=P^s\nu^{-s}y_j$ and $h=\nu^{1-s}B_p\Gamma^{(S)}_sP^s$, which turns this into $K_j(\mu)=\Gamma^{(S)}_sy_j^{r-1}$, true by assumption.
+$g_\Theta(x,\delta)=\nu^{1-s}B_pP^s\sum_jy_j\kappa_j(\delta)$ is $x$-independent and minimal exactly on $B(y)$, so $\mathrm{spt}\,q^*\subseteq A(\Theta)$.
+Critical values: $T_{q^*}(\hat u_i)=K_j\Re\beta_j(\hat u_i)=K_jB_p\nu^{\nu/2}$ (budget-tight unit neuron).
+(b) Theorem \ref{t:kkt}(c) with $\gamma=W$. (c) $\E_x\Phi_l=\overline{\beta_l}$ and $g=\sum_l\Re(\Phi_lc_l)$ give the formula; an average of $g$ over a
+probability is $\ge\min g$. For IF $\Theta'$, $g_{\Theta'}(x,\delta)=\sum_l\Re(\overline{\beta_l}c_l(\delta))$ does not depend on $x$.
+\end{proof}
+
+\section{R4--R6. Departures need interference, and in fact cheap features}
+\begin{theorem}[R4: IF maximisers satisfy $(E_S)$]\label{t:if}
+Let $s\in(1,\nu/2)$ ($b>2$), $S\subseteq F$, and let $\theta\in N_S$ be IF on $S$ with $\gamma(\theta;s)=W_S(s)$. Then $W_S(s)=D_S(s)$, $\pi(s)=\nu^{1-s}$,
+every neuron of $\theta$ is balanced, DC-free and frequency-pure, each feature $j$ is carried by exactly $\nu$ equal neurons forming a Lemma-7 (KM2) block,
+the budget shares are $z(y)$ for a maximiser $y$ of $\Gamma^{(S)}_s$, the features are $\mathrm{spt}\,y$, and $H(\theta;s)=\log\nu+H(z(y))\ge H^{\rm dec}_S(s)$.
+\end{theorem}
+\begin{proof}
+Lemma 2, Lemma 7 for each feature (IF), and the budget give
+$h\le\min_\delta\sum_{l\in S}\Re\beta_l\kappa_l(\delta)\le\min_\delta\sum_{l\in S}|\beta_l|\kappa_l(\delta)\le\nu^{1-s}\min_\delta\sum_{l\in S}Q_l^s\kappa_l(\delta)
+\le\nu^{1-s}\Gamma^{(S)}_s(\sum_{l\in S}Q_l)^s\le\nu^{1-s}B_p\Gamma^{(S)}_sP^s\le D_SP^s\le W_SP^s=h.$
+So all are equalities. (i) $\sum_{l\in S}Q_l=C_bP$: every neuron is budget-tight and carries no atom off $S$; by Lemma \ref{l:budget} it is frequency-pure, balanced, DC-free.
+(ii) $\pi=\nu^{1-s}$ and $W_S=D_S$. (iii) $y_l=Q_l^s/(\sum Q)^s$ is a maximiser of $\Gamma^{(S)}_s$. (iv) $|\beta_l|=\nu^{1-s}Q_l^s$ for every $l$ with $Q_l>0$:
+otherwise $y'_l=|\beta_l|/(\nu^{1-s}(\sum Q)^s)\le y_l$ with strict inequality somewhere has the same $\min_\delta\sum y'_l\kappa_l=\Gamma^{(S)}_s$ and
+$\sum y_l'^{\,r}<1$, and rescaling $y'$ to the budget beats $\Gamma^{(S)}_s$. (v) By the equality clause of Lemma 7 (KM2), feature $l$ has exactly $\nu$ non-zero atoms
+of equal modulus; budget-tight frequency-pure neurons have $|\beta_{il}|=B_pa_i$, so these are $\nu$ equal neurons of total cost $Q_l/C_b$. Shares:
+$z_l=Q_l/\sum Q=y_l^r$, each neuron $z_l/\nu$, so $H=\sum_lz_l\log(\nu/z_l)=\log\nu+H(z(y))$. The block is an optimal single feature ($\pi=\nu^{1-s}$) of
+entropy $\log\nu$, so $H^{(1)}_{\min}\le\log\nu$ and $H\ge H^{(1)}_{\min}+\min_{M^{(S)}}H(z)=H^{\rm dec}_S$.
+\end{proof}
+
+\begin{lemma}[R6: one constant fibre forces IF in class $\mathcal C$]\label{l:fibre}
+For a class-$\mathcal C$ network, $\hat g_\delta(2l\mathbf1_T)=\frac12\overline{\beta_{l,T}}c_l(\delta)$ for all $l\in F$, $T\ne\emptyset$, $\delta\ne0$
+($\hat g_\delta(\chi)=\E_xg(x,\delta)\rho^{-\langle\chi,x\rangle}$). Hence if $g(\cdot,\delta_0)$ is constant in $x$ for one $\delta_0$, the network is IF.
+In particular, a class-$\mathcal C$ network whose arg-min set carries an $x$-uniform probability $p^{-n}\mu$ is IF.
+\end{lemma}
+\begin{proof}
+By SPLIT R4, $\hat g_\delta(\chi)=\frac12\sum_j[\phi_j(\chi)c_j(\delta)+\overline{\phi_j(-\chi)c_j(\delta)}]$ with
+$\phi_j(\chi)=2p^{-\nu}\sum_i\hat w_i(j)\prod_t\hat u_{it}(\chi_t-j)$. A frequency-$j$ class-$\mathcal C$ neuron has $\hat u_{it}$ supported on $\pm j$.
+For $\chi=2l\mathbf1_T$: $\phi_j(\chi)\ne0$ needs $2l\equiv2j$, i.e.\ $j=l$, and then $\phi_l(\chi)=\overline{\beta_{l,T}}$; $\phi_j(-\chi)\ne0$ needs $-2l\in\{0,2j\}$, impossible.
+$c_l(\delta)\ne0$ for $\delta\ne0$.
+\end{proof}
+
+\begin{theorem}[R5: no-cheap networks lose linearly in interference; departures need cheap features]\label{t:cheap}
+(i) Every class-$\mathcal C$ network with features in $S$ and no cheap feature satisfies, at every $b\in[2,\nu]$,
+\[\gamma(\theta;s)\le\nu^{1-s}B_p\Gamma^{(S)}_s-P^{-s}\max_{l\in F,T\ne\emptyset}|\beta_{l,T}|\sqrt{\kappa_l(\delta^\circ)/2},\qquad
+\delta^\circ\in\arg\min_\delta\textstyle\sum_{l\in S}Q_l^s\kappa_l(\delta).\]
+(ii) Let $s\in(1,\nu/2)$. A maximiser of $\gamma(\cdot;s)$ on $N_S$ with no cheap feature is IF; hence Theorem \ref{t:if} applies, and it satisfies $(E_S)$.
+(iii) Consequently, if $L_S$ departs at $s_0\in(1,\nu/2)$ with $L_S'{}_+(s_0)>0$ (a jump), the co-maximiser $\theta_0$ at $s_0$ with $H(\theta_0;s_0)<H^{\rm dec}_S(s_0)$ has a cheap feature;
+at $n=2$ this feature sits in a network with $\ge2$ output frequencies, since single-feature networks are never cheap (Note Thm q1n2).
+\end{theorem}
+\begin{proof}
+(i) Pick the sign of $\pm\delta^\circ$ with $\E_xg(\cdot,\pm\delta^\circ)\le\sum_l\Re\beta_l\kappa_l(\delta^\circ)$ (their average). For every $\chi\ne0$ the Riesz test
+$1-\cos(2\pi\langle\chi,x\rangle/p+\psi)\ge0$ gives $\min_xg\le\E_xg-|\hat g(\chi)|$; with Lemma \ref{l:fibre}, $|\hat g_{\pm\delta}(2l\mathbf1_T)|=|\beta_{l,T}|\,|\sin(\pi l\delta/p)|=|\beta_{l,T}|\sqrt{\kappa_l(\delta)/2}$.
+Then $h\le\sum_{l\in S}\Re\beta_l\kappa_l(\delta^\circ)-\mathrm{det}\le\nu^{1-s}\sum_{l\in S}Q_l^s\kappa_l(\delta^\circ)-\mathrm{det}\le\nu^{1-s}\Gamma^{(S)}_s(\sum_SQ_l)^s-\mathrm{det}
+\le\nu^{1-s}B_p\Gamma^{(S)}_sP^s-\mathrm{det}$.
+(ii) As in Theorem \ref{t:if} (Lemma 7 replaced by the no-cheap hypothesis) all inequalities of the chain are equalities, so every neuron is budget-tight, hence
+class $\mathcal C$ (Lemma \ref{l:budget}). Then (i) gives $\mathrm{det}\le0$; $\kappa_l(\delta^\circ)>0$, so all $\beta_{l,T}=0$.
+(iii) $L_S'{}_+(s_0)=H^{\rm dec}_S(s_0)-H^*_S(s_0)>0$ gives a maximiser with $H<H^{\rm dec}_S$; apply (ii).
+\end{proof}
+\begin{corollary}[KKT characterisation of decoupling in class $\mathcal C$]
+For $s\in(1,\nu/2)$, a class-$\mathcal C$ global maximiser admits an $x$-uniform KKT measure iff it is a decoupled IF union (Proposition \ref{p:dec}(a), Lemma \ref{l:fibre}, Theorem \ref{t:if}).
+\end{corollary}
+
+\section{R7. Critical values versus entropy}
+\begin{proposition}\label{p:renyi}
+(a) If feature $l$ is carried by budget-tight neurons with aligned atoms ($|\beta_l|=\sum_i|\beta_{il}|$), its cheapness is
+$|\beta_l|/(\nu^{1-s}Q_l^s)=\exp\big((s-1)(\log\nu-H_s(w^{(l)}))\big)$, $H_s$ the Rényi entropy of order $s$ of the within-feature cost shares.
+So for such features: cheap $\iff H_s(w^{(l)})<\log\nu$, and Lemma 7 $\iff$ IF features have $H_s\ge\log\nu$.
+(b) Every network satisfies $\gamma\le B_p\min_\delta\sum_l(\sum_iv_{il}^s)\kappa_l(\delta)\le B_p\Gamma_s\exp(-(s-1)\min_lH_s(v^{(l)}))$,
+$v_{il}=|\beta_{il}|^r/(C_bP)$ (atom cost shares, $\sum_{i,l}v_{il}\le1$).
+(c) Let $q$ be any probability on $A(\theta)$ with $\delta$-marginal $\mu$, $c_i=T_{p^{-n}\mu}(\hat u_i)$ (clean critical value), $\iota_i=T_q(\hat u_i)-c_i$, $\rho_i^\nu=\prod_t\|v_{it}\|$. Then
+$\sum_i\rho_i^\nu\iota_i=-\mathrm{Det}_\mu:=-\sum_\delta\mu_\delta(\E_xg(\cdot,\delta)-h)\le0$, and in class $\mathcal C$
+$\mathrm{Det}_\mu\ge\sum_\delta\mu_\delta\max_{l,T\ne\emptyset}|\beta_{l,T}|\sqrt{\kappa_l(\delta)/2}$, which is $>0$ unless the network is IF.
+\end{proposition}
+\begin{proof}
+(a) $|\beta_{il}|=B_pa_i$, $Q_l=B_p^rP_l$ ($P_l$ the feature's cost), $|\beta_l|=B_p\sum a_i$, so the ratio is $\nu^{s-1}\sum_ia_i/P_l^s=\nu^{s-1}\sum_i(w^{(l)}_i)^s$.
+(b) $h\le\min_\delta\sum_l\sum_i|\beta_{il}|\kappa_l$ (Lemma 2) and $|\beta_{il}|=B_pP^sv_{il}^s$; then $\min_\delta\sum_ly_l\kappa_l\le\Gamma_s(\sum y_l^r)^s$
+with $y_l^r=V_le^{-(s-1)rH_s(v^{(l)})}$, $\sum V_l\le1$.
+(c) $\sum_i\rho_i^\nu T_q(\hat u_i)=\E_qg=h$ and $\sum_i\rho_i^\nu c_i=\E_{p^{-n}\mu}g$; then the Riesz bound and Lemma \ref{l:fibre}.
+\end{proof}
+
+\section{R8. Second order in $s$ at a departure}
+\begin{lemma}\label{l:dep}
+Let $L_S(s_0)=0$, $s_0\in[1,\nu/2)$, $\Theta_0$ a decoupled maximiser at $s_0$ and $\psi$ its Gibbs curve ($\psi\le D_S$, $\psi(s_0)=D_S(s_0)$,
+$(\log\psi)'=-H(\Theta_0;\cdot)$, $(\log\psi)''=-\mathrm{Var}(\Theta_0;\cdot)/\sigma$). For every $\theta\in N_S$ with $h(\theta)>0$ and every $s>s_0$:
+\[\log\frac{\gamma(\theta;s)}{D_S(s)}\le-\Delta(\theta)+\big[H(\Theta_0;s_0)-H(\theta;s_0)\big](s-s_0)+\int_{s_0}^{s}(s-\tau)\frac{\mathrm{Var}(\Theta_0;\tau)-\mathrm{Var}(\theta;\tau)}\tau\,d\tau,\]
+$\Delta(\theta)=\log D_S(s_0)-\log\gamma(\theta;s_0)\ge0$. Hence every network that overtakes $D_S$ just after $s_0$ is, at $s_0$, entropy-lower than $\Theta_0$ to first order,
+or variance-lower (flatter cost shares) to second order, by more than its value deficit $\Delta$. With $L'_{S+}=H^{\rm dec}_S-H^*_S$: either a co-maximiser at $s_0$
+has $H<H^{\rm dec}_S$ (jump; Theorem \ref{t:cheap}(iii)), or the overtaking networks have $H(\cdot;s_0)\to H^{\rm dec}_S(s_0)$ and $\Delta=o(s-s_0)$ (tangential).
+\end{lemma}
+\begin{proof}
+$\log D_S\ge\log\psi$; $\phi=\log\gamma(\theta;\cdot)-\log\psi$ is smooth with $\phi(s_0)=-\Delta$, $\phi'=H(\Theta_0)-H(\theta)$, $\phi''=(\mathrm{Var}_{\Theta_0}-\mathrm{Var}_\theta)/\sigma$
+(GLOBAL R1 for both Gibbs curves); Taylor with integral remainder. $\Delta\ge0$ because $\gamma(\theta;s_0)\le W_S(s_0)=D_S(s_0)$.
+\end{proof}
+
+\section{R9. The decoupled optimum's own dual prefers non-features}
+\begin{proposition}\label{p:off}
+Let $s>1$, $y$ a maximiser of $\Gamma_s$ that is uniform on its support $S\ne F$ ($|S|=k$), $\mu$ any programme KKT dual. Then
+$\frac1{|F|-k}\sum_{l\notin S}K_l(\mu)>K_j(\mu)$ for every $j\in S$. Hence the $x$-uniform KKT measure $q^*=p^{-n}\mu$ of the decoupled IF optimum has
+$\tau(q^*)=\nu^{\nu/2}B_p\max_lK_l(\mu)$ attained only at non-feature frequencies, strictly above every neuron's critical value.
+\end{proposition}
+\begin{proof}
+$\sum_{l\in F}\kappa_l(\delta)=p/2$ for $\delta\ne0$, so $\sum_{l\in F}K_l(\mu)=p/2$. On $S$, $K_j=\Gamma_sy_j^{r-1}=\Gamma_sk^{s-1}=\frac1k\min_\delta\sum_{j\in S}\kappa_j(\delta)$
+(as $y_j=k^{-s}$). This is $<\frac1k\cdot\frac1{p-1}\sum_{\delta\ne0}\sum_{j\in S}\kappa_j(\delta)=\frac p{p-1}$, strictly, because $\sum_{j\in S}\kappa_j(\delta)$ is not constant
+on $\mathbb Z_p^*$ when $S\ne F$ (a non-zero function supported on $\pm S$ in Fourier that is constant off $0$ has Fourier support $\{0\}$ or all of $\mathbb Z_p$).
+So $(p/2-kK_S)/(|F|-k)>K_S\iff K_S<p/(p-1)$. The last claim is Theorem \ref{t:kkt}(f) and Proposition \ref{p:dec}(a).
+\end{proof}
+\begin{remark}
+At $s=1$ complementary slackness puts the support inside $\arg\max_lK_l(\mu)$ (convex duality certifies ``no extra features''). For $s>1$ Proposition \ref{p:off} shows the
+opposite: the dual favours the non-features, which are excluded only by the concavity of the cost ($\frac d{dy}y^r=\infty$ at $0$). An upper-half proof must
+therefore use the size of a would-be extra feature, not dual optimality. Numerically the conclusion holds also for non-uniform optimal allocations (check\_offsupport.out).
+\end{remark}
+
+\section{R12. What the KKT route can and cannot give}
+\begin{proposition}\label{p:obs}
+Fix $p,n,S$. (a) $(E_S)$ a.e.\ $\iff W_S\equiv D_S\iff$ every $\theta\in N_S$ with a cheap feature and $H(\theta;s)<H^{\rm dec}_S(s)$ has $\gamma(\theta;s)\le D_S(s)$.
+(b) At every maximiser the KKT form of $(E_S)$, $\E_w\log t\ge\log(\nu^{\nu/2}W_S)+(s-1)H^{\rm dec}_S$, is $(E_S)$ itself (critical-value law); the remaining KKT relations
+($t_i\le\tau(q)$, $q\ge0$ on $A$) bound $H$ from above only (Theorem \ref{t:kkt}(e)).
+(c) Co-maximality adds no inequality beyond Lemma 2 (Proposition \ref{p:dec}(c)).
+(d) At $n=2$, $(E_F)$ implies $\gamma^*=\gamma_{\rm IF}$ for every $p$ and $b\in[2,3]$, hence the relations-case and class-$\mathcal C$ value bounds at every prime.
+\end{proposition}
+\begin{proof}
+(a) Imported equivalences, plus: networks without cheap features have $\gamma\le\nu^{1-s}B_p\Gamma^{(S)}_s\le D_S$ (the chain of Theorem \ref{t:if} with the no-cheap
+hypothesis). (b) Theorem \ref{t:kkt}(c),(e). (c) Proposition \ref{p:dec}(c). (d) $\pi_{2,b}=3^{1-s}$ (Note Thm q1n2) and Theorem A of E\_reduce.
+\end{proof}
+\end{document}

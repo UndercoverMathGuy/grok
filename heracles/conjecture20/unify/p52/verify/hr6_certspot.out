@@ -1,0 +1,21 @@
+box [0.2 0.2 0.8]-[0.3 0.4 1. ] phi_pay [-1.1781,-0.7854]: rigorous box F = 0.7830;  my grid circle payment at centre = 0.8200 (need F <= mine)
+   alpha=0.0: SDP 0.82188; my eval bound 0.821877 (qmin 1.91e-06); cert_hs rigorous 0.821880; |a0 diff| 6.1e-07; n mine 0.105667 vs [0.105667,0.105667]
+   alpha=0.3: SDP 0.53675; my eval bound 0.536747 (qmin -2.27e-08); cert_hs rigorous 0.536749; |a0 diff| 1.4e-06; n mine 0.027239 vs [0.027239,0.027239]
+   alpha=0.6: SDP 0.04755; my eval bound 0.047553 (qmin -1.45e-08); cert_hs rigorous 0.047555; |a0 diff| 1.1e-06; n mine 0.001810 vs [0.001810,0.001810]
+box [0.6 0.6 0.6]-[0.7 0.7 0.8] phi_pay [0.0,0.3927]: rigorous box F = 0.7497;  my grid circle payment at centre = 0.8113 (need F <= mine)
+   alpha=0.0: SDP 0.89077; my eval bound 0.890771 (qmin 1.38e-05); cert_hs rigorous 0.890771; |a0 diff| 1.0e-08; n mine 0.110516 vs [0.110516,0.110516]
+   alpha=0.3: SDP 0.55344; my eval bound 0.553442 (qmin 5.77e-08); cert_hs rigorous 0.553443; |a0 diff| 1.3e-07; n mine 0.035719 vs [0.035719,0.035719]
+   alpha=0.6: SDP 0.04929; my eval bound 0.049285 (qmin -1.41e-08); cert_hs rigorous 0.049287; |a0 diff| 9.0e-07; n mine 0.002441 vs [0.002441,0.002441]
+box [0.9 0.9 0.9]-[1. 1. 1.] phi_pay [-0.3927,0.0]: rigorous box F = 0.5774;  my grid circle payment at centre = 0.5885 (need F <= mine)
+   alpha=0.0: SDP 0.66554; my eval bound 0.665537 (qmin 3.15e-06); cert_hs rigorous 0.665537; |a0 diff| 1.2e-08; n mine 0.116639 vs [0.116639,0.116639]
+   alpha=0.3: SDP 0.57934; my eval bound 0.579340 (qmin 1.18e-06); cert_hs rigorous 0.579341; |a0 diff| 1.2e-07; n mine 0.092517 vs [0.092517,0.092517]
+   alpha=0.6: SDP 0.05851; my eval bound 0.058508 (qmin 1.08e-07); cert_hs rigorous 0.058510; |a0 diff| 3.5e-07; n mine 0.006599 vs [0.006599,0.006599]
+net 4: rotated bound 0.42289 vs normal-form bound 0.42289; gamma/gIF -2.2712; sum q g - (a+Rn) = -2.850e-01
+net 8: rotated bound 0.20352 vs normal-form bound 0.20352; gamma/gIF -6.0016; sum q g - (a+Rn) = -1.982e-01
+net 11: rotated bound 0.00000 vs normal-form bound 0.00000; gamma/gIF -2.0855; sum q g - (a+Rn) = -1.824e-10
+net 14: rotated bound 0.00000 vs normal-form bound 0.00000; gamma/gIF -3.8797; sum q g - (a+Rn) = -5.900e-11
+net 19: rotated bound 0.00000 vs normal-form bound 0.00000; gamma/gIF -3.2605; sum q g - (a+Rn) = -1.761e-10
+net 20: rotated bound 0.00000 vs normal-form bound 0.00000; gamma/gIF -3.4174; sum q g - (a+Rn) = -2.095e-09
+net 23: rotated bound 0.00000 vs normal-form bound 0.00000; gamma/gIF -2.5047; sum q g - (a+Rn) = -5.956e-11
+net 24: rotated bound 0.00000 vs normal-form bound 0.00000; gamma/gIF -2.0482; sum q g - (a+Rn) = -9.026e-11
+end-to-end: 8 networks, max [sum q g - (a + R n)] = -5.900e-11 (<=0)

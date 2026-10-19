@@ -1,0 +1,2 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+s in [1.0,1.175] TARGET=0.999: boxes=39676 fails=0 worst=0.99900

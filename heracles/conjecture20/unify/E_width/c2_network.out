@@ -1,0 +1,8 @@
+perturbed IF networks: 91 checked, min slack Xi = -1.776e-15 (must be >= -1e-10)
+opt (5,2,b=2.0,m=6): gamma/gamma_IF=0.83682 features=[1, 2] | entropy term=0.0635 Delta'=0.1849 slack Xi=0.0568
+opt (5,2,b=2.0,m=4): gamma/gamma_IF=0.78176 features=[2] | entropy term=0.0000 Delta'=0.0000 slack Xi=0.0000
+opt (7,2,b=2.5,m=9): gamma/gamma_IF=1.00000 features=[1, 2, 3] | entropy term=-0.0000 Delta'=0.0000 slack Xi=0.0000
+opt (5,3,b=2.0,m=8): gamma/gamma_IF=0.90451 features=[1, 2] | entropy term=0.0000 Delta'=0.1004 slack Xi=0.0000
+opt (7,2,b=2.0,m=5): gamma/gamma_IF=0.55227 features=[1, 2, 3] | entropy term=0.0477 Delta'=0.6383 slack Xi=0.0031
+p=3 certificate n=11: gamma/gamma_IF = 1.054399; Htil = 2.0748 (log nu = 2.4849, log m = 2.0794); winner width e^Htil = 7.963 <= nu G^(-1/(s-1)) e^(-Delta'/(s-1)) = 10.076; Delta'=0.8208; Xi=1.1770
+p=3 certificate n=13: gamma/gamma_IF = 1.109163; Htil = 2.2849 (log nu = 2.6391, log m = 2.3026); winner width e^Htil = 9.825 <= nu G^(-1/(s-1)) e^(-Delta'/(s-1)) = 12.410; Delta'=0.6197; Xi=1.4016

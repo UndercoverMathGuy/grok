@@ -1,0 +1,9 @@
+p=7 n=2 l=1 input freqs [1, 2]: 2l-pair present: False  |pseudo-variance| = 1.227e-18  -> OK
+p=7 n=2 l=1 input freqs [0, 1]: 2l-pair present: False  |pseudo-variance| = 6.939e-18  -> OK
+p=7 n=2 l=1 input freqs [1, 3]: 2l-pair present: True  |pseudo-variance| = 8.002e-02  -> OK
+p=7 n=2 l=1 input freqs [0, 2, 1]: 2l-pair present: True  |pseudo-variance| = 1.011e-01  -> OK
+p=11 n=2 l=2 input freqs [2, 1]: 2l-pair present: False  |pseudo-variance| = 1.748e-18  -> OK
+p=11 n=2 l=2 input freqs [2, 3]: 2l-pair present: False  |pseudo-variance| = 1.378e-17  -> OK
+p=7 n=3 l=2 input freqs [2, 1]: 2l-pair present: True  |pseudo-variance| = 1.666e-02  -> OK
+p=5 n=2 l=1 input freqs [0, 1]: 2l-pair present: False  |pseudo-variance| = 6.206e-17  -> OK
+p=3 n=2 l=1 input freqs [0, 1]: 2l-pair present: True  |pseudo-variance| = 2.623e+00  -> OK

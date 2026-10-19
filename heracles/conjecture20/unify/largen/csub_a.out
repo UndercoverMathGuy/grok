@@ -1,0 +1,35 @@
+n=2 b=2 R=1.0000: c_sub >= 0.2572 (m=2)   explicit family A(1+z1..zn): 0.1835
+n=2 b=2 R=0.8090: c_sub >= 0.3604 (m=4)   explicit family A(1+z1..zn): 0.2804
+n=3 b=2 R=1.0000: c_sub >= 0.3791 (m=3)   explicit family A(1+z1..zn): 0.2500
+n=3 b=2 R=0.8090: c_sub >= 0.6119 (m=3)   explicit family A(1+z1..zn): 0.4722
+n=4 b=2 R=1.0000: c_sub >= 0.4416 (m=3)   explicit family A(1+z1..zn): 0.2845
+n=4 b=2 R=0.8090: c_sub >= 0.8101 (m=4)   explicit family A(1+z1..zn): 0.6641
+n=6 b=2 R=1.0000: c_sub >= 0.3988 (m=6)   explicit family A(1+z1..zn): 0.3198
+Traceback (most recent call last):
+  File "/home/user/grok/heracles/conjecture20/unify/largen/csub.py", line 53, in <module>
+    v, z, mm = search(n, s, R, m, starts, seed=7 * n + m)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/grok/heracles/conjecture20/unify/largen/csub.py", line 38, in search
+    res = minimize(fun, z0, method='L-BFGS-B', options=dict(maxiter=3000))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/uv/archive-v0/-thZPK3RE6shebeG/lib/python3.12/site-packages/scipy/optimize/_minimize.py", line 784, in minimize
+    res = _minimize_lbfgsb(fun, x0, args, jac, bounds,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/uv/archive-v0/-thZPK3RE6shebeG/lib/python3.12/site-packages/scipy/optimize/_lbfgsb_py.py", line 420, in _minimize_lbfgsb
+    f, g = func_and_grad(x)
+           ^^^^^^^^^^^^^^^^
+  File "/root/.cache/uv/archive-v0/-thZPK3RE6shebeG/lib/python3.12/site-packages/scipy/optimize/_differentiable_functions.py", line 412, in fun_and_grad
+    self._update_fun()
+  File "/root/.cache/uv/archive-v0/-thZPK3RE6shebeG/lib/python3.12/site-packages/scipy/optimize/_differentiable_functions.py", line 362, in _update_fun
+    fx = self._wrapped_fun(self.x)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/uv/archive-v0/-thZPK3RE6shebeG/lib/python3.12/site-packages/scipy/_lib/_util.py", line 545, in __call__
+    fx = self.f(np.copy(x), *self.args)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/grok/heracles/conjecture20/unify/largen/csub.py", line 36, in fun
+    v = f(z, m)
+        ^^^^^^^
+  File "/home/user/grok/heracles/conjecture20/unify/largen/csub.py", line 19, in f
+    IF = math.exp((1 - s) * math.log(nu) + s * lQ); num = A.real - IF
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OverflowError: math range error

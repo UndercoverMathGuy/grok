@@ -1,0 +1,166 @@
+% E_width: entropic width route. Statements and proofs. Checks: c0_lib.py ... c10_dc.py (.out alongside).
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Hr}{H_{1/s}}
+\begin{document}
+\section*{Setting}
+Notation of \texttt{unify/BRIEF.md}, \texttt{BRIEF\_E.md}. For a network $\theta$ with $h(\theta)>0$:
+$a_i=\|\omega_i\|^\nu$ (mass), $m_i=a_i/\sum_j a_j$ (mass shares), $P_b=\sum_i a_i^{1/s}$, $P_\nu=\sum_i a_i$,
+cost shares $w_i(s)=a_i^{1/s}/P_b$, $H(\theta,s)=H(w(s))$. Rényi entropy $H_\alpha(m)=\frac1{1-\alpha}\log\sum_i m_i^\alpha$
+($\alpha\ne1$), non-increasing in $\alpha$, $H_1=$ Shannon. For a feature class $S$: $N_S$, $W_S$, $D_S=\pi B_p\Gamma^{(S)}_s$,
+$H^{\rm dec}_S$ as in BRIEF\_E \S1; $\bar H^{\rm dec}_S(s)=\frac1{s-1}\int_1^sH^{\rm dec}_S$; $\Delta_S(\theta)=\log\frac{D_S(1)}{\gamma(\theta;1)}$,
+$D_S(1)=B_p\Gamma^{(S)}_1$.
+
+\section{Whole-network bookkeeping}
+\begin{theorem}[W1, Rényi temperature identity]\label{W1}
+For every network with $h>0$ and every $s\ge1$:
+$\gamma(\theta;s)=\gamma(\theta;1)\,e^{-(s-1)\Hr(m_\theta)}$, equivalently $\int_1^sH(\theta,\sigma)\,d\sigma=(s-1)\Hr(m_\theta)$.
+\end{theorem}
+\begin{proof}
+$P_b^s=(\sum a_i^{1/s})^s=P_\nu(\sum m_i^{1/s})^s$ and $s\log\sum m_i^{1/s}=s(1-\tfrac1s)\Hr(m)=(s-1)\Hr(m)$. The integral form is
+GLOBAL R1 ($\partial_s\log\gamma=-H$) integrated.
+\end{proof}
+
+\begin{theorem}[W2, equivalences]\label{W2}
+For every $p,n$ and $S\subseteq F$ the following are equivalent:
+(a) $(E_S)$: for a.e.\ $s$, every maximiser of $\gamma(\cdot;s)$ on $N_S$ has $H\ge H^{\rm dec}_S(s)$;
+(b) $(EW_S)$: $H(\theta,s)<H^{\rm dec}_S(s)\Rightarrow\gamma(\theta;s)\le D_S(s)$ for all $\theta\in N_S$, $s$;
+(c) $(EWR_S)$: $\log\gamma(\theta;1)-(s-1)\Hr(m_\theta)\le\log D_S(s)$ for all $\theta\in N_S$, $s$;
+(d) $\Delta_S(\theta)\ge(s-1)[\bar H^{\rm dec}_S(s)-\Hr(m_\theta)]$ for all $\theta\in N_S$, $s$;
+(e) $W_S\equiv D_S$ on $[1,\nu/2]$.
+Moreover under (e) every maximiser has $H(\theta^*,s)=H^{\rm dec}_S(s)$ for a.e.\ $s$.
+\end{theorem}
+\begin{proof}
+\emph{Lipschitz.} Width reduction (GLOBAL R2) keeps the table and does not raise $P_b$, so $W_S(s)=\sup$ over width $\le D=p^{\nu}$.
+There $|\partial_s\log\gamma|=H\le\log D$, so $\log W_S$ is $\log D$-Lipschitz; likewise $\log\pi$ (width $3p^n$) and $\log\Gamma^{(S)}_s$
+(maximum of finitely many smooth vertex curves), hence $\log D_S$ and $L_S=\log W_S-\log D_S$ are Lipschitz.
+\emph{Dini bound for $D_S$.} Fix $\sigma$, an optimal single feature $\theta_1$ and a maximiser $y^*$ of $\Gamma^{(S)}_\sigma$; put
+$f(\sigma')=\log e(\theta_1;\sigma')+\log G_{\sigma'}(y^*)$ with $G_{\sigma'}(Y)=\min_\delta\sum Y_j\kappa_j(\delta)/(\sum Y_j^{1/\sigma'})^{\sigma'}$.
+Then $f\le\log D_S$, $f(\sigma)=\log D_S(\sigma)$, and $f'(\sigma)=-H(\theta_1,\sigma)-H(z^*)$ (temperature identity for the cone efficiency and
+for $G$). So $D_+\log D_S\ge-H^{\rm dec}_S$ everywhere.
+(a)$\Rightarrow$(e): BRIEF\_E: $D^+\log W_S=-H^*_S$ (Danskin, restricted GLOBAL R2), so $D^+L_S\le H^{\rm dec}-H^*\le0$ a.e.\ on $\{L_S>0\}$;
+$L_S$ absolutely continuous, $L_S(1)=0$, $L_S\ge0$ give $L_S\equiv0$.
+(b)$\Rightarrow$(e): on $\{L_S>0\}$ every maximiser has $\gamma=W_S>D_S$, so $H\ge H^{\rm dec}$ by (b); conclude as before.
+(e)$\Rightarrow$(b),(c): every $\theta$ has $\gamma\le W_S=D_S$; (c) is this by W1.
+(c)$\Rightarrow$(e): (c) is $\gamma(\theta;s)\le D_S(s)$ by W1.
+(d)$\Rightarrow$(e): $\log\gamma(\theta;s)=\log D_S(1)-\Delta_S-(s-1)\Hr\le\log D_S(1)-\int_1^sH^{\rm dec}\le\log D_S(s)$, the last step
+by the Dini bound integrated (absolute continuity).
+(e)$\Rightarrow$(d),(a) and the equality: decoupled networks $\Theta$ (BRIEF\_E) lie in $N_S$ and have $\gamma\ge\pi B_p\Gamma^{(S)}=W_S$, so they
+are maximisers. At every differentiability point of $\log W_S$ (a.e.), Danskin gives a common entropy for all maximisers; $\Theta$ has
+$H(\theta_1,s)+H(z^*)$ for every admissible choice, so this common value is $H^{\rm dec}_S(s)$, and
+$(\log D_S)'=-H^{\rm dec}_S$ a.e.; integrating, $\log D_S(s)=\log D_S(1)-\int_1^sH^{\rm dec}_S$, which turns $\gamma(\theta;s)\le D_S(s)$ into (d).
+\end{proof}
+
+\begin{theorem}[W3, integrated entropic width inequality; all networks]\label{W3}
+For every $p,n,b$, $S$, every $\theta\in N_S$ and every $s\in(1,\nu/2]$:
+\[\log\gamma(\theta;s)\le\log D_S(s)+(s-1)\big[\bar H^{\rm dec}_S(s)-\Hr(m_\theta)\big]-\Delta_S(\theta),\qquad\Delta_S(\theta)\ge0.\]
+In particular (free half) $\Hr(m_\theta)\ge\bar H^{\rm dec}_S(s)\Rightarrow\gamma(\theta;s)\le D_S(s)e^{-\Delta_S(\theta)}$.
+\end{theorem}
+\begin{proof}
+W1, the definition of $\Delta_S$, and $\log D_S(1)\le\log D_S(s)+\int_1^sH^{\rm dec}_S$ (Dini bound of W2, integrated; $H^{\rm dec}_S$ is
+lower semicontinuous, hence Borel and bounded). $\Delta_S\ge0$: Lemma 2 and the budget at $r=1$ give
+$h\le\Gamma^{(S)}_1\sum_{j\in S}|\beta_j|\le\Gamma^{(S)}_1B_pP_\nu$.
+\end{proof}
+
+\begin{theorem}[W4, $\delta$-Fourier isolation for every mode; convex-end detection]\label{W4}
+For every network, every $j\in F$, every $\chi\in\mathbb Z_p^n\setminus\{0\}$ and every symmetric probability $\mu$ on $\mathbb Z_p^*$:
+$h\le\sum_{l\in F}K_l(\mu)\,\mathrm{Re}\,\beta_l-\frac p2\min_\delta\mu_\delta\,|\phi_j(\chi)|$, where $\phi_j(\chi)=\mathbb E_x\Phi_j(x)\rho^{-\langle\chi,x\rangle}$
+ranges over all non-clean coefficients (sign-flipped, partner, foreign, mixed). With $\mu$ uniform, $K_l=p/(p-1)=\Gamma_1$, so with
+$M(\theta)=\max_{j,\chi\ne0}|\phi_j(\chi)|$: $\gamma(\theta;1)\le B_p\Gamma_1\big(1-\frac{M}{2B_pP_\nu}\big)$, i.e.\
+$\Delta_F(\theta)\ge-\log\big(1-\frac{M(\theta)}{2B_pP_\nu(\theta)}\big)$.
+\end{theorem}
+\begin{proof}
+p52 R12 verbatim with $\chi_{j,T}$ replaced by any $\chi\ne0$: $\sum_\delta\rho^{j\delta}\mathbb E_x[g\rho^{-\langle\chi,x\rangle}]=-\frac p2\phi_j(\chi)$
+(only $\sum_{\delta\ne0}\rho^{j\delta}c_l(\delta)=-p[l=j]$ and $\sum_\delta\rho^{j\delta}\overline{c_l(\delta)}=0$ are used), and
+$q_w=p^{-n}[\mu_\delta+2\mathrm{Re}(w\rho^{j\delta}\rho^{-\langle\chi,x\rangle})]$ is a probability for $|w|\le\min\mu/2$ because $\chi\ne0$.
+For the corollary: $\sum_l\mathrm{Re}\,\beta_l\le\sum_{i,l}|\beta_{il}|\le B_pP_\nu$ and $\Gamma_1=p/(p-1)$ (uniform $y$, $\sum_{l\in F}\kappa_l(\delta)=p/2$).
+\end{proof}
+
+\begin{theorem}[W5, sharing exchange identity]\label{W5}
+Let $\theta_{\rm split}$ be the frequency split (SPLIT R1; same $\beta_{ij},\xi_{itj}$). For every $s\in[1,\nu/2]$:
+$\log P_\nu(\theta)+(s-1)\Hr(m_\theta)=s\log P_b(\theta)\ge s\log P_b(\theta_{\rm split})=\log P_\nu(\theta_{\rm split})+(s-1)\Hr(m_{\rm split})$,
+with equality at $s=\nu/2$ iff $\theta$ has no DC. Hence $(s-1)[\Hr(m_{\rm split})-\Hr(m_\theta)]\le\log\frac{P_\nu(\theta)}{P_\nu(\theta_{\rm split})}$,
+with equality at $b=2$ without DC: shared neurons lower the Rényi entropy by exactly the convex-end cost excess at $b=2$ and by at most it for $b>2$.
+Since $h$ is the only other ingredient, $\gamma(\theta;s)\le\frac{h(\theta)}{h(\theta_{\rm split})}\gamma(\theta_{\rm split};s)$ when $h(\theta_{\rm split})>0$.
+\end{theorem}
+\begin{proof}
+W1's algebra for any positive vector; SPLIT R1 ($P_b(\theta)\ge P_b(\theta_{\rm split})$ for $b\ge2$, equality at $b=2$ iff no DC).
+\end{proof}
+
+\section{Spectral entropy of one feature (all $n$)}
+Atom system of one frequency: $\beta_l=\rho_lp_l$ ($|p_l|=1$), $\xi_{lt}$ unimodular, $A=\sum\beta_l$, $L=\sum\rho_l$, $Q=\sum\rho_l^r$, $r=1/s$,
+chain vectors $m_l=(1,\xi_{l1},\xi_{l1}\xi_{l2},\dots)$, interval coefficients $\beta_I=\sum_l\beta_l\prod_{t\in I}\xi_{lt}$, gain
+$G=|A|/(\nu^{1-s}Q^s)$ ($G>1$ means cheap).
+\begin{theorem}[W6, spectral Lemma 7]\label{W6}
+(a) Chain matrix $H=\sum\beta_lm_lm_l^*$, eigenvalues $\lambda_k$, $\Lambda=\frac1\nu\sum|\lambda_k|\ge|A|$, $\mu_k=|\lambda_k|/(\nu\Lambda)$:
+$\sum_k|\lambda_k|^r\le\nu^rQ$, hence $Q^s\ge\Lambda e^{(s-1)\Hr(\mu)}\ge|A|e^{(s-1)H(\mu)}$ and $G\le\frac{|A|}{\Lambda}e^{(s-1)(\log\nu-\Hr(\mu))}$.
+If $H-AI$ is nilpotent (e.g.\ the system is IF) then $\mu$ is uniform: Lemma 7.
+(b) Twisted Hermitian $K=\sum\rho_lu_lu_l^*$ ($u_{l,0}=1$, $u_{l,t}=p_l\prod_{u\le t}\xi_{lu}$ for $t\ge1$), $\pi=\mathrm{spec}(K)/(\nu L)$:
+$Q^s\ge Le^{(s-1)\Hr(\pi)}$; Schur--Horn: $\rho/L\prec\pi$, so $H_\alpha(\rho/L)\ge H_\alpha(\pi)$ for all $\alpha$. ($\nu=3$: GIBBS.)
+(c) $K_{t0}=\beta_{[1,t]}$, $|K_{tt'}-\bar\alpha\beta_{[t'+1,t]}|\le\sqrt{2L(L-|A|)}$ ($t>t'\ge1$, $\alpha=A/|A|$), and
+$G\le\frac{|A|}{L}\big(1+\frac{2}{\nu L^2}\sum_{t>t'}|K_{tt'}|^2\big)^{s-1}$. If the atoms are phase-aligned ($L=|A|$):
+$G\le\big(1+\frac2\nu\sum_I|\beta_I|^2/|A|^2\big)^{s-1}\le\exp\big(\sum_I|\beta_I|^2/|A|^2\big)$ for all $n$ and $b\in[2,\nu]$.
+\end{theorem}
+\begin{proof}
+(a) Rotfel'd/McCarthy: $\|\sum X_l\|_{S_r}^r\le\sum\|X_l\|_{S_r}^r$ ($0<r\le1$, any matrices); $X_l=\beta_lm_lm_l^*$ has one singular value
+$\nu\rho_l$. Weyl's majorant theorem: $\sum|\lambda_k|^r\le\sum\sigma_k^r$. Then $\sum\mu_k^r\le(\nu\Lambda)^{-r}\nu^rQ$, i.e.\
+$Q^s\ge\Lambda(\sum\mu^r)^s=\Lambda e^{(s-1)\Hr(\mu)}$; $\Hr\ge H$; $\nu\Lambda\ge|\mathrm{tr}H|=\nu|A|$. Nilpotent $H-AI$: all $\lambda_k=A$.
+(b) Rotfel'd for the PSD rank-ones $\rho_lu_lu_l^*$ (trace $\nu\rho_l$), same algebra with $\mathrm{tr}K=\nu L$. Schur on the Gram side
+$V^*V$, $V=[\sqrt{\rho_l}u_l]$, whose diagonal is $(\nu\rho_l)$ and whose non-zero spectrum is that of $K$.
+(c) $(u_lu_l^*)_{t0}=p_l\prod_{u\le t}\xi$, $(u_lu_l^*)_{tt'}=\prod_{u=t'+1}^t\xi$ ($t>t'\ge1$); $|\sum\rho_l(1-p_l\bar\alpha)\prod\xi|\le
+\sqrt{L\sum\rho_l|p_l-\alpha|^2}=\sqrt{2L(L-|A|)}$. $\Hr(\pi)\ge H_2(\pi)=\log\nu-\log(1+V)$, $V=\frac{2}{\nu L^2}\sum_{t>t'}|K_{tt'}|^2$
+(Frobenius). So $\nu^{1-s}Q^s\ge L(1+V)^{-(s-1)}$. Finally $(s-1)\frac2\nu\le1-\frac2\nu<1$.
+\end{proof}
+
+\begin{theorem}[W7, spectral network inequality; all networks]\label{W7}
+For $\theta\in N_S$, $s\in[1,\nu/2]$, let $H_j=\max\{\Hr(\mu_j),\Hr(\rho_j/L_j)\}$ for feature $j$ (any slot order), $q_j=|A_j|^r/\sum_l|A_l|^r$,
+$\tilde H=\frac1{1-r}\log\sum_jq_je^{(1-r)H_j}$ and $\Delta'=\log\frac{\Gamma^{(S)}_s(\sum_j|A_j|^r)^s}{h}\ge0$. Then
+\[\log\gamma(\theta;s)\le\log\gamma^{(S)}_{\rm IF}(s)+(s-1)[\log\nu-\tilde H]-\Delta'=\log D_S(s)+(s-1)[\log\nu-\tilde H]-\Delta'-\log(\pi\nu^{s-1}).\]
+Corollary (winner width): if $\gamma(\theta;s)\ge G\gamma^{(S)}_{\rm IF}(s)$ then $e^{\tilde H}\le\nu G^{-1/(s-1)}e^{-\Delta'/(s-1)}$.
+\end{theorem}
+\begin{proof}
+W6(a) and $Q_j^s=L_je^{(s-1)\Hr(\rho_j/L_j)}$ give $Q_j\ge|A_j|^re^{(1-r)H_j}$; the budget gives $\sum_jQ_j\le B_p^rP_b$; so
+$P_b^s\ge B_p^{-1}(\sum|A_j|^r)^se^{(s-1)\tilde H}$. Lemma 2 gives $h\le\Gamma^{(S)}_s(\sum|A_j|^r)^s$.
+\end{proof}
+
+\section{An $n$-uniform entropic width theorem for circular single features}
+\begin{lemma}\label{elem}$-\log(1-u)\ge\sqrt5\,u^2$ on $[0,1)$, with equality only at $u=0$.\end{lemma}
+\begin{proof}$F(u)=-\log(1-u)-\sqrt5u^2$ has $F(0)=0$ and $F'(u)=\frac1{1-u}-2\sqrt5u$, which is negative exactly on $(u_1,u_2)$,
+$u_{1,2}=\frac12(1\mp\sqrt{1-2/\sqrt5})$. So $F$ increases on $[0,u_1]$ (hence $F>0$ on $(0,u_1]$), decreases on $[u_1,u_2]$ and increases on
+$[u_2,1)$; thus $F\ge F(u_2)$ on $[u_1,1)$, and $u_2=0.662460\ldots$, $F(u_2)=1.086070\ldots-0.981305\ldots=0.10476\ldots>0$.\end{proof}
+
+\begin{theorem}[W8]\label{W8}
+Let $p$ be an odd prime with $\cos(2\pi/p)>0$ (every $p\ge5$), $n\ge1$, $b\in[2,\nu]$, and $k_p=\sec(2\pi/p)-1\le\sqrt5$. Let $\theta$ be a
+single-feature network (outputs at frequency $j$, DC allowed) whose field is circular ($\mathbb E(\Phi_j-A)^2=0$; e.g.\ no input slot carries
+a $2j$-pair, SPLIT R6(c): class $\mathcal C$, or single-frequency inputs with DC), with cone margin $c=\min_x\mathrm{cm}(\Phi_j(x))>0$, and with
+phase-aligned atoms. Put $x=1-c/|A|\in[0,1)$. Then
+(i) $\sum_{T\ne\emptyset}|\beta_{j,T}|^2\le k_px^2|A|^2$;
+(ii) $e^{H_2(\pi)}\ge\nu/(1+2k_px^2/\nu)$ and $e^{H_2(\rho/L)}\ge e^{H_2(\pi)}$ (effective number of atoms $>\nu-2k_p$);
+(iii) $\gamma(\theta;s)\le\gamma^{(\{j\})}_{\rm IF}(s)\,(1-x)(1+2k_px^2/\nu)^{s-1}\le\gamma^{(\{j\})}_{\rm IF}(s)$, with equality iff $x=0$ (IF).
+\end{theorem}
+\begin{proof}
+(i) $\Phi-c\in K$ (sector of half-angle $\vartheta=\pi/p$), so $\mathrm{Re}(\Phi-c)^2\ge\cos2\vartheta\,|\Phi-c|^2$; circularity gives
+$\mathbb E(\Phi-c)^2=(A-c)^2$ and Parseval $\mathbb E|\Phi-c|^2\ge|A-c|^2+\sum_T|\beta_T|^2$. With $A-c=\varrho e^{i\varphi}$, $|\varphi|\le\vartheta$,
+$|A|=a$, $t=\varrho/a$, $u=t\cos\varphi$: $\sum_T|\beta_T|^2\le a^2t^2\frac{\cos2\varphi-\cos2\vartheta}{\cos2\vartheta}
+=a^2\frac{2u^2-2t^2\cos^2\vartheta}{\cos2\vartheta}\le a^2k_pu^2$, and $c/a=\cos\psi-u\le1-u$ ($\psi=\arg A$), so $u\le x$.
+(ii) W6(b,c) with $L=a$: $V=\frac2{\nu a^2}\sum_I|\beta_I|^2\le\frac{2k_px^2}\nu$.
+(iii) Cone lemma: $h\le\kappa_{\min}c$ (take $j\delta\equiv\pm1$); budget: $P_b^s\ge B_p^{-1}Q^s$; W6(c): $\nu^{1-s}Q^s\ge a(1+V)^{-(s-1)}$.
+Hence $\gamma/\gamma_{\rm IF}\le(c/a)(1+V)^{s-1}\le(1-x)\exp(k_px^2(1-2/\nu))\le(1-x)e^{\sqrt5x^2}\le1$ by Lemma \ref{elem};
+equality forces $x=0$, i.e.\ $\Phi\equiv A$.
+\end{proof}
+\begin{remark}Cheapness of a circular single feature therefore needs atom cancellation ($L>|A|$). With cancellation W6(c) still gives
+$G\le\frac{|A|}{L}(1+V)^{s-1}$, but the $\binom n2$ non-prefix entries carry the twist error $\sqrt{2L(L-|A|)}$, which buys up to
+$e^{O(n^2)(1-|A|/L)}$ against the factor $|A|/L$: cancellation is exactly where the large-$n$ obstruction (LARGEN R5, R9) lives.\end{remark}
+
+\begin{proposition}[W9]One product neuron has $h\le0$ for every $n\ge1$ and odd $p$.\end{proposition}
+\begin{proof}If $h>0$ then $\prod_tu_t(x_t)\ne0$ for all $x$; inputs with positive product all have label equal to the strict
+argmax of $w$, negative ones the strict argmin, so only two labels occur, but $y$ takes all $p\ge3$ values.\end{proof}
+
+\section{Refutations (s-local forms)}
+At $n=2$ ($\pi=3^{1-s}$, $H(\theta_1)=\log3$): (R1) the uniform IF network on $F$ at $p=11$, $s=1.45$ has
+$\log\gamma-[\log D_F+(s-1)(H^{\rm dec}_F-H)]=+0.181>0$ (also $p=13$; $+0.12$ to $+0.38$); being IF, any detection term vanishes.
+(R2) The single IF block at $p=5$, $s\in(1.4276,1.5]$ violates $\log\gamma\le\log D_F-(s-1)(H^{\rm dec}_F-H)$ (\texttt{c4\_refute.out}).
+\end{document}

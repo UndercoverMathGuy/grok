@@ -1,0 +1,20 @@
+(1) fixed networks: finite differences in s
+  p=5 n=2 s=1.2: dlog/ds fd -1.9977832  -H -1.9977832 | d2 fd -0.23040  -V/s -0.23040
+  p=5 n=2 s=1.4: dlog/ds fd -2.0404458  -H -2.0404458 | d2 fd -0.19630  -V/s -0.19630
+  p=7 n=3 s=1.2: dlog/ds fd -2.1596781  -H -2.1596781 | d2 fd -0.24862  -V/s -0.24862
+  p=7 n=3 s=1.4: dlog/ds fd -2.2068994  -H -2.2068994 | d2 fd -0.22321  -V/s -0.22321
+(2) programme: d/ds log Gamma_s vs -H(z*)  and (3) IF network entropy
+  p=5 s=1.5: fd -0.693147  -H(z*) -0.693147 | IF net H 1.791759 = log nu + H(z*) 1.791759
+  p=7 s=1.3: fd -1.098612  -H(z*) -1.098612 | IF net H 2.197225 = log nu + H(z*) 2.197225
+  p=7 s=2.0: fd -0.682427  -H(z*) -0.682427 | IF net H 2.068722 = log nu + H(z*) 2.068722
+  p=11 s=1.42: fd -1.085180  -H(z*) -1.085180 | IF net H 2.183793 = log nu + H(z*) 2.183793
+  p=11 s=1.8: fd -0.686406  -H(z*) -0.686406 | IF net H 2.072700 = log nu + H(z*) 2.072700
+(4) certified p=3 networks (b = 2): cost-share entropy and crossing with the IF value
+  n=11 nu=12 width=8: ratio(b=2) 1.06308  H(w) 2.0794  log(width) 2.0794  log nu 2.4849  ratio>=1 up to b=2.0515
+  n=12 nu=13 width=9: ratio(b=2) 1.19335  H(w) 2.1972  log(width) 2.1972  log nu 2.5649  ratio>=1 up to b=2.1595
+  n=13 nu=14 width=10: ratio(b=2) 1.18365  H(w) 2.3025  log(width) 2.3026  log nu 2.6391  ratio>=1 up to b=2.154
+  n=14 nu=15 width=10: ratio(b=2) 1.45693  H(w) 2.3026  log(width) 2.3026  log nu 2.7081  ratio>=1 up to b=2.282
+  n=15 nu=16 width=11: ratio(b=2) 1.61704  H(w) 2.3979  log(width) 2.3979  log nu 2.7726  ratio>=1 up to b=2.3815
+  n=16 nu=17 width=12: ratio(b=2) 1.59592  H(w) 2.4848  log(width) 2.4849  log nu 2.8332  ratio>=1 up to b=2.3745
+  n=17 nu=18 width=12: ratio(b=2) 2.01127  H(w) 2.4849  log(width) 2.4849  log nu 2.8904  ratio>=1 up to b=2.4735
+  n=18 nu=19 width=13: ratio(b=2) 2.21198  H(w) 2.5649  log(width) 2.5649  log nu 2.9444  ratio>=1 up to b=2.5645

@@ -1,0 +1,4 @@
+Gamma=0.327850, y* (support {2,3}) = [0.       0.762545 0.762545 0.       0.       0.      ]  coverage min 0.9999999999999993
+eps=1e-06: floor witness value 0.327387 -> tau <= 0.00141   (check floor: yhat_1 = 1.00e-06)
+eps=0.0001: floor witness value 0.323267 -> tau <= 0.01418   (check floor: yhat_1 = 1.00e-04)
+eps=0.001: floor witness value 0.313713 -> tau <= 0.04506   (check floor: yhat_1 = 1.00e-03)

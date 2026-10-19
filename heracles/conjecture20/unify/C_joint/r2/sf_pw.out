@@ -1,0 +1,18 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=3 n=2 s=1.500 m=3 mode=re: best ratio 1.000000  |A|/L=1.0000 minRe/|A|=1.0000  E|P-A|^2/|A|^2=0.0000
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=3 n=3 s=2.000 m=4 mode=re: best ratio 1.000000  |A|/L=1.0000 minRe/|A|=1.0000  E|P-A|^2/|A|^2=0.0000
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=3 n=4 s=2.500 m=5 mode=re: best ratio 0.999998  |A|/L=1.0000 minRe/|A|=1.0000  E|P-A|^2/|A|^2=0.0000
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=5 n=2 s=1.500 m=3 mode=re: best ratio 1.000000  |A|/L=1.0000 minRe/|A|=1.0000  E|P-A|^2/|A|^2=0.0000
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=5 n=3 s=2.000 m=4 mode=re: best ratio 1.000000  |A|/L=1.0000 minRe/|A|=1.0000  E|P-A|^2/|A|^2=0.0000
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=5 n=4 s=2.500 m=5 mode=re: best ratio 1.000000  |A|/L=1.0000 minRe/|A|=1.0000  E|P-A|^2/|A|^2=0.0000
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=7 n=2 s=1.500 m=4 mode=re: best ratio 0.999999  |A|/L=1.0000 minRe/|A|=1.0000  E|P-A|^2/|A|^2=0.0000
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=7 n=3 s=2.000 m=5 mode=re: best ratio 0.999999  |A|/L=1.0000 minRe/|A|=1.0000  E|P-A|^2/|A|^2=0.0000
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=11 n=2 s=1.500 m=4 mode=re: best ratio 1.000000  |A|/L=1.0000 minRe/|A|=1.0000  E|P-A|^2/|A|^2=0.0000

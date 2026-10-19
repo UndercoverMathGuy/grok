@@ -1,0 +1,17 @@
+cases: 144  (d_prog/d_int translation checked only where sum Re beta > 0; it FAILS when sum Re beta < 0, possible only for h < 0)
+  chain      1.469e-12
+  arim       8.434e-13
+  bounds     0.000e+00
+  cost1      5.339e-16
+  cost2      9.120e-16
+  fact       1.251e-14
+  el         2.259e-12
+  piw        1.257e-14
+  Esig       6.661e-16
+  dprog      3.886e-16
+  dint       4.174e-14
+  pifeat     2.220e-16
+  anyalloc   6.016e-16
+  wf         0.000e+00
+  neg_sum_cases 5.700e+01
+violations: {'nocheap_cd': 0, 'rho': 0, 'chain_red': 0}

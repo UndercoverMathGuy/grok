@@ -1,0 +1,14 @@
+/usr/local/lib/python3.13/dist-packages/cma/s.py:17: UserWarning: Could not import matplotlib.pyplot, therefore ``cma.plot()`` etc. is not available
+  _warnings.warn('Could not import matplotlib.pyplot, therefore'
+p=29 eta=0.01: sup ratio over substantial-gain region = 0.8016; argmax support (>=1% of max) size 11
+p=31 eta=0.01: sup ratio over substantial-gain region = 0.8266; argmax support (>=1% of max) size 11
+p=37 eta=0.01: sup ratio over substantial-gain region = 0.8309; argmax support (>=1% of max) size 13
+p=41 eta=0.01: sup ratio over substantial-gain region = 0.8395; argmax support (>=1% of max) size 13
+p=43 eta=0.01: sup ratio over substantial-gain region = 0.8371; argmax support (>=1% of max) size 16
+p=47 eta=0.01: sup ratio over substantial-gain region = 0.8327; argmax support (>=1% of max) size 15
+p=53 eta=0.01: sup ratio over substantial-gain region = 0.8311; argmax support (>=1% of max) size 15
+p=59 eta=0.01: sup ratio over substantial-gain region = 0.8439; argmax support (>=1% of max) size 12
+p=61 eta=0.01: sup ratio over substantial-gain region = 0.8385; argmax support (>=1% of max) size 15
+p=67 eta=0.01: sup ratio over substantial-gain region = 0.8345; argmax support (>=1% of max) size 15
+p=71 eta=0.01: sup ratio over substantial-gain region = 0.8537; argmax support (>=1% of max) size 15
+p=73 eta=0.01: sup ratio over substantial-gain region = 0.8322; argmax support (>=1% of max) size 14

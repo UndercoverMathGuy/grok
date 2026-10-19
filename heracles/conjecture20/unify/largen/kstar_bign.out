@@ -1,0 +1,5 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+n=40: ratio=2.12333 m=32 c=1.27 IFfree=2.4948 IF/A=0.1489 L/A=114.32 E/A2=0.32135
+n=48: ratio=2.36345 m=36 c=1.41 IFfree=3.0878 IF/A=0.2346 L/A=4345.8 E/A2=0.20977
+n=56: ratio=2.69462 m=44 c=1.34 IFfree=3.4571 IF/A=0.2206 L/A=5693.0 E/A2=0.16734
+n=64: ratio=2.76358 m=49 c=1.34 IFfree=2.9415 IF/A=0.06048 L/A=14906.0 E/A2=0.23115

@@ -1,0 +1,25 @@
+(1) closed forms:
+   q=5: max|P_q - closed| = 1.8e-15, max|P_2q - 2P_q(2x) - E_q| = 4.7e-15, max|E_q - closed| = 7.1e-15
+   q=84: max|P_q - closed| = 1.8e-13, max|P_2q - 2P_q(2x) - E_q| = 8.7e-14, max|E_q - closed| = 1.5e-12
+   q=300: max|P_q - closed| = 2.2e-12, max|P_2q - 2P_q(2x) - E_q| = 2.6e-13, max|E_q - closed| = 1.1e-11
+(2) R(x) = 2 eps P_q(2x) + lam(1-cos x) - E_q(x) >= 0 on fine grids (eps=1.01/q, lam=1.2q):
+   q=84: min R = 1.6821e-10 at x = 1.0000e-07
+   q=85: min R = 1.7220e-10 at x = 1.0000e-07
+   q=110: min R = 2.8738e-10 at x = 1.0000e-07
+   q=144: min R = 4.9110e-10 at x = 1.0000e-07
+   q=168: min R = 6.6757e-10 at x = 1.0000e-07
+   q=220: min R = 1.1427e-09 at x = 1.0000e-07
+   q=288: min R = 1.9554e-09 at x = 1.0000e-07
+   q=1000: min R = 2.3498e-08 at x = 1.0000e-07
+   q=5000: min R = 5.8682e-07 at x = 1.0000e-07
+   q=20000: min R = 9.3873e-06 at x = 1.0000e-07
+(3) explicit doubled dominator, re-certified directly (base q0=84 -> 168):
+   direct certificate of B_2 for q=168: certified=True rho <= 0.5125; doubling-lemma prediction rho^r <= 0.640389 i.e. rho <= 0.512467
+(4) induction along q_k = q0 2^k with outward rounding:
+   q0=84: rho_q0 <= [0.51115112288486661124699256028730954, 0.51115112288486661124699256028730954];  sup_k rho_(q0 2^k) <= [0.51246701351870608502470912075312656, 0.51246701351870608502470912075312656] (threshold 0.816497); tail invariant (R <= Rmax preserved for all later k): True;  each q_k covers [[0.73306254505780835480503056791516571, 0.73306254505780835480503056791556014] q_k, q_k]
+   q0=110: rho_q0 <= [0.48578103221815610347506047179312294, 0.48578103221815610347506047179312294];  sup_k rho_(q0 2^k) <= [0.48578103221815610347506047179312294, 0.48578103221815610347506047179312294] (threshold 0.816497); tail invariant (R <= Rmax preserved for all later k): True;  each q_k covers [[0.70738762049916103130654706107040046, 0.70738762049916103130654706107069628] q_k, q_k]
+   q0=144: rho_q0 <= [0.41889071093374870361987247929657079, 0.41889071093374870361987247929657079];  sup_k rho_(q0 2^k) <= [0.41889071093374870361987247929657079, 0.41889071093374870361987247929657079] (threshold 0.816497); tail invariant (R <= Rmax preserved for all later k): True;  each q_k covers [[0.64086158500094583062667539384063143, 0.64086158500094583062667539384092726] q_k, q_k]
+(5) coverage of q >= 62 by the three chains (each q_k covers [q_k (rho_sup/thr)^{2/3}, q_k]):
+   union covers [62, 7.916e+13] without gaps: True
+   (q in [17,144] is covered by the individual certificates in compress_certify_uniform.out / _warm.out / _big.out)
+(6) Parseval single-block range at b=2: max_x P_q(x) = 27.3959 (q=22), 28.6128 (q=23), 29.8297 (q=24) vs 1/c^2 = 29.6969

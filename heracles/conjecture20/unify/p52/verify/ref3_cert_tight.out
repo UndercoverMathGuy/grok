@@ -1,0 +1,17 @@
+net  0 iters=  0: ratio(s=1.5,1.25,1) = [0.07727, 0.06859, 0.05974]  |B,C,D|/|A| = [0.0934, 0.0235, 0.0546]  certified point bound = 0.78088  ok
+net  1 iters=  5: ratio(s=1.5,1.25,1) = [0.41678, 0.35299, 0.29767]  |B,C,D|/|A| = [0.0148, 0.0117, 0.03]  certified point bound = 0.77186  ok
+net  2 iters= 20: ratio(s=1.5,1.25,1) = [0.78174, 0.65737, 0.55278]  |B,C,D|/|A| = [0.0, 0.0, 0.0]  certified point bound = 0.78176  ok
+net  3 iters=500: ratio(s=1.5,1.25,1) = [0.78176, 0.65738, 0.55279]  |B,C,D|/|A| = [0.0, 0.0, 0.0]  certified point bound = 0.78176  ok
+net  4 iters=  0: ratio(s=1.5,1.25,1) = [0.15425, 0.13108, 0.1107]  |B,C,D|/|A| = [0.0206, 0.0179, 0.0325]  certified point bound = 0.72455  ok
+net  5 iters=  5: ratio(s=1.5,1.25,1) = [0.44247, 0.37341, 0.31443]  |B,C,D|/|A| = [0.0111, 0.011, 0.0137]  certified point bound = 0.77347  ok
+net  6 iters= 20: ratio(s=1.5,1.25,1) = [0.78173, 0.65736, 0.55277]  |B,C,D|/|A| = [0.0, 0.0, 0.0]  certified point bound = 0.78176  ok
+net  7 iters=500: ratio(s=1.5,1.25,1) = [0.78176, 0.65738, 0.55279]  |B,C,D|/|A| = [0.0, 0.0, 0.0]  certified point bound = 0.78176  ok
+net  8 iters=  0: ratio(s=1.5,1.25,1) = [0.12464, 0.10871, 0.09337]  |B,C,D|/|A| = [0.0542, 0.016, 0.0196]  certified point bound = 0.76248  ok
+net  9 iters=  5: ratio(s=1.5,1.25,1) = [0.36835, 0.3212, 0.27601]  |B,C,D|/|A| = [0.005, 0.0047, 0.0057]  certified point bound = 0.78017  ok
+net 10 iters= 20: ratio(s=1.5,1.25,1) = [0.77058, 0.65255, 0.55058]  |B,C,D|/|A| = [0.0002, 0.0001, 0.0005]  certified point bound = 0.78139  ok
+net 11 iters=500: ratio(s=1.5,1.25,1) = [0.78176, 0.65738, 0.55279]  |B,C,D|/|A| = [0.0, 0.0, 0.0]  certified point bound = 0.78176  ok
+net 12 iters=  0: ratio(s=1.5,1.25,1) = [0.15553, 0.13369, 0.11387]  |B,C,D|/|A| = [0.0193, 0.0075, 0.0325]  certified point bound = 0.75902  ok
+net 13 iters=  5: ratio(s=1.5,1.25,1) = [0.43452, 0.36823, 0.3108]  |B,C,D|/|A| = [0.0173, 0.0114, 0.0069]  certified point bound = 0.77916  ok
+net 14 iters= 20: ratio(s=1.5,1.25,1) = [0.78167, 0.65733, 0.55275]  |B,C,D|/|A| = [0.0, 0.0, 0.0]  certified point bound = 0.78176  ok
+net 15 iters=500: ratio(s=1.5,1.25,1) = [0.78176, 0.65738, 0.55279]  |B,C,D|/|A| = [0.0, 0.0, 0.0]  certified point bound = 0.78176  ok
+max ratio 0.78176; min(bound - ratio_{3/2}) = 0.00000  (37s)

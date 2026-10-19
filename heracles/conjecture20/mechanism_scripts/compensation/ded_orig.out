@@ -1,0 +1,3 @@
+p=17 l=5 rs=0.565 rt=0.565 gain=0.2140: V/a_l none=0.0038  block(b)=0.0038  single+siblings(a)=0.0038  t=22
+p=11 l=2 rs=0.565 rt=0.565 gain=0.2140: V/a_l none=0.0192  block(b)=0.0192  single+siblings(a)=0.0192  t=11
+p=19 l=8 rs=0.565 rt=0.565 gain=0.2140: V/a_l none=0.0383  block(b)=0.0383  single+siblings(a)=0.0383  t=25

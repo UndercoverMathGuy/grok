@@ -1,0 +1,5 @@
+=== (A) ghost networks in N_{1} at (5,2,2): IF block at 1 + ghost pair at 2 (beta_2 = 0)
+  amp=0.3: |beta_2|=9.2e-18  max_T|beta_2,T|=0.011  M(P^s)/(Gamma^(S) P^s) = 0.9516  (>1 => CD does not imply RD_S)  CD ratio 0.9065  RD_S ratio 0.8626
+  amp=0.6: |beta_2|=4.8e-17  max_T|beta_2,T|=0.085  M(P^s)/(Gamma^(S) P^s) = 0.9471  (>1 => CD does not imply RD_S)  CD ratio 0.3336  RD_S ratio 0.3160
+  amp=1.0: |beta_2|=1.2e-16  max_T|beta_2,T|=0.392  M(P^s)/(Gamma^(S) P^s) = 1.1271  (>1 => CD does not imply RD_S)  CD ratio -0.8022  RD_S ratio -0.9041
+  amp=1.5: |beta_2|=2.3e-16  max_T|beta_2,T|=1.322  M(P^s)/(Gamma^(S) P^s) = 1.1271  (>1 => CD does not imply RD_S)  CD ratio -1.1562  RD_S ratio -1.3031

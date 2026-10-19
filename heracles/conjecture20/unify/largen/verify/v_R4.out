@@ -1,0 +1,19 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(i) R4 inequality |A| <= min_q RHS(q) on random slot-symmetric class-C atom systems (any margin, c = min cm)
+  96 systems: max |A| / min_q RHS = 0.9913 (must be <= 1)
+(ii) R4(a): positive margin forces m > n pR^2/(4+pR); search for positive margin with m <= bound
+  p=5 n=4: bound says m > 1.627; best c/L by width m: m=1:-13.0902, m=2:-0.0000, m=3:-1.9274, m=4:-0.1804, m=5:-0.2653
+  p=5 n=7: bound says m > 2.847; best c/L by width m: m=2:-0.0000, m=3:-0.2960, m=4:-5.5865, m=5:-7.4622, m=6:-4.0800, m=7:-6.7142, m=8:-4.8284
+  p=7 n=6: bound says m > 3.308; best c/L by width m: m=3:-0.0000, m=4:-2.0590, m=5:-0.7737, m=6:-4.4206, m=7:-5.5131
+  p=11 n=6: bound says m > 4.175; best c/L by width m: m=4:-4.7281, m=5:-5.5720, m=6:-9.9951, m=7:-6.2540
+(iii) R4(b): p cos(pi/p)^(n+1) > 4n for all p >= 4n+5 (interval arithmetic at p = 4n+5, n <= 3000) + n-atom searches
+  at p=4n+5: failures 0, min lower-endpoint slack 3.7665; (p - (n+1)pi^2/(2p) increasing in p covers p > 4n+5)
+  p=13 n=2: condition True; best c/L with n atoms = -0.00000 (theorem: <= 0 if condition)
+  p=17 n=3: condition True; best c/L with n atoms = -0.05942 (theorem: <= 0 if condition)
+  p=23 n=4: condition True; best c/L with n atoms = -0.00000 (theorem: <= 0 if condition)
+  p=11 n=2: condition True; best c/L with n atoms = -0.00000 (theorem: <= 0 if condition)
+(iv) R4(c): equally spaced phases, nu atoms, arbitrary complex beta: c <= nu min|beta| under the condition
+  p=11 n=3: condition pR >= 4N_R: True (pR=10.55, 4N_R=7.37); max c/(nu min|beta|) found = -2.4906
+  p=13 n=4: condition pR >= 4N_R: True (pR=12.62, 4N_R=7.33); max c/(nu min|beta|) found = -6.1839
+  p=11 n=5: condition pR >= 4N_R: True (pR=10.55, 4N_R=7.58); max c/(nu min|beta|) found = -11.8811
+  p=7 n=2: condition pR >= 4N_R: False (pR=6.31, 4N_R=7.15); max c/(nu min|beta|) found = 0.8947

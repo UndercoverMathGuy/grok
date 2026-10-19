@@ -1,0 +1,6 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+Legendre single-T network p=347 (=3 mod 4), n=2, s=1.5: certified min_x sum psi / (nu^(r-1) sum Q) >= [1.0101681, 1.0101681]; PW_C fails: True; margin = sqrt(p)-2 > 0
+Legendre single-T network p=383 (=3 mod 4), n=2, s=1.5: certified min_x sum psi / (nu^(r-1) sum Q) >= [1.0127209, 1.0127209]; PW_C fails: True; margin = sqrt(p)-2 > 0
+Legendre single-T network p=467 (=3 mod 4), n=3, s=2.0: certified min_x sum psi / (nu^(r-1) sum Q) >= [1.0105973, 1.0105973]; PW_C fails: True; margin = sqrt(p)-2 > 0
+Legendre single-T network p=443 (=3 mod 4), n=3, s=2.0: certified min_x sum psi / (nu^(r-1) sum Q) >= [1.0088072, 1.0088072]; PW_C fails: True; margin = sqrt(p)-2 > 0
+p=43 optimised single-T network: certified PW ratio >= [1.0037379, 1.0037379] (>1 refutes PW_C); certified margin h >= [48105.453, 48105.453] > 0

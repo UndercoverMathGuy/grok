@@ -1,0 +1,9 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+n=2 s=1.250 T=(0, 1) aligned=False c_n=0.0964 | m=2: 1.000000 (viol 2e-09, |A|/L=1.000, |B_T|/L=1.000)  m=3: 1.000000 (viol 9e-10, |A|/L=1.000, |B_T|/L=1.000)  m=4: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)
+n=2 s=1.250 T=(0, 1) aligned=True c_n=0.0964 | m=2: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)  m=3: 1.000000 (viol 5e-10, |A|/L=1.000, |B_T|/L=1.000)  m=4: 1.000000 (viol 1e-08, |A|/L=1.000, |B_T|/L=0.000)
+n=2 s=1.250 T=(0,) aligned=False c_n=0.0964 | m=2: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)  m=3: 1.000000 (viol 2e-09, |A|/L=1.000, |B_T|/L=1.000)  m=4: 1.000000 (viol 8e-10, |A|/L=1.000, |B_T|/L=1.000)
+n=2 s=1.250 T=(0,) aligned=True c_n=0.0964 | m=2: 1.000000 (viol 9e-10, |A|/L=1.000, |B_T|/L=1.000)  m=3: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)  m=4: 1.000000 (viol 4e-08, |A|/L=1.000, |B_T|/L=0.000)
+n=2 s=1.500 T=(0, 1) aligned=False c_n=0.1835 | m=2: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)  m=3: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)  m=4: 1.000000 (viol 9e-10, |A|/L=1.000, |B_T|/L=1.000)
+n=2 s=1.500 T=(0, 1) aligned=True c_n=0.1835 | m=2: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)  m=3: 1.000000 (viol 7e-10, |A|/L=1.000, |B_T|/L=1.000)  m=4: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)
+n=2 s=1.500 T=(0,) aligned=False c_n=0.1835 | m=2: 1.000000 (viol 2e-09, |A|/L=1.000, |B_T|/L=1.000)  m=3: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)  m=4: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)
+n=2 s=1.500 T=(0,) aligned=True c_n=0.1835 | m=2: 1.000000 (viol 7e-10, |A|/L=1.000, |B_T|/L=1.000)  m=3: 1.000000 (viol 1e-09, |A|/L=1.000, |B_T|/L=1.000)  m=4: 1.000000 (viol 1e-07, |A|/L=1.000, |B_T|/L=0.000)

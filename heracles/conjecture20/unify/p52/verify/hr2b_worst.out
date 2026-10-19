@@ -1,0 +1,4 @@
+[hr2b (c)] high-precision max[closed - brute grid] = 3.207e-50 (<= 0 means closed form is the min)
+[hr2b (d)] aligned K=1 s=1.5: payment at L=|A| = 0.577350269189626  P1 = 0.577350269189626  diff = -1.7596e-18
+[hr2b (d)] aligned K=1 s=1.25: payment at L=|A| = 0.759835685651593  P1 = 0.759835685651593  diff = 5.3068e-17
+[hr2b (d)] aligned K=2 s=1.5: payment at L=|A| = 0.750555349946513  P1 = 1.006133039420583  diff = -0.25558

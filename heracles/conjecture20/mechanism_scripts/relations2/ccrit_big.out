@@ -1,0 +1,7 @@
+/usr/local/lib/python3.13/dist-packages/cma/s.py:17: UserWarning: Could not import matplotlib.pyplot, therefore ``cma.plot()`` etc. is not available
+  _warnings.warn('Could not import matplotlib.pyplot, therefore'
+p=17 s=1.5 K*=3  critical c in [0.531,0.535]   (needed 0.2887)
+p=19 s=1.5 K*=3  critical c in [0.566,0.570]   (needed 0.2887)
+p=23 s=1.5 K*=4  critical c in [0.570,0.574]   (needed 0.2887)
+p=29 s=1.5 K*=4  critical c in [0.613,0.617]   (needed 0.2887)
+p=31 s=1.5 K*=4  critical c in [0.609,0.613]   (needed 0.2887)

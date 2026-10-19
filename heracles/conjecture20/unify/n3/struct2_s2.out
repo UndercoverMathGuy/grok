@@ -1,0 +1,7 @@
+check a=0.9757 m=0.2747 g=0.4787: phase-only 0.74341  full 0.74474  phases [-1.262 -2.569  2.367]
+check a=0.95 m=0.35 g=0.6250: phase-only 0.69648  full 0.70240  phases [ 1.614 -3.217 -0.   ]
+/home/user/grok/heracles/conjecture20/unify/n3/struct_relax.py:17: RuntimeWarning: overflow encountered in exp
+  mods = 1 / (1 + np.exp(-v[:6]))
+check a=0.9 m=0.15 g=0.5660: phase-only 0.86753  full 0.86753  phases [ 0.    -3.142 -3.142]
+check a=0.97 m=0.45 g=0.6536: phase-only 0.63655  full 0.66520  phases [-3.449 -1.695 -1.473]
+K_struct(s=2.0000) ~ 0.8793 at (a,m,g,minMr)=[0.95   0.48   0.7299 0.5279]

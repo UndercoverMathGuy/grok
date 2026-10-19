@@ -1,0 +1,9 @@
+ptest2.py 2 1.5 60 303 1-2
+ptest2.py 2 1.5 60 303 1-12
+ptest2.py 2 1.5 60 303 2-12
+ptest2.py 2 1.2 60 303 1-2
+ptest2.py 2 1.2 60 303 1-12
+ptest2.py 2 1.2 60 303 2-12
+ptest2.py 3 2.0 60 304 singles
+ptest2.py 3 1.3333333333 60 304 all
+ptest2.py 3 1.3333333333 60 304 label

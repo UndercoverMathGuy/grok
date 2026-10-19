@@ -1,0 +1,34 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=11: certified Gamma_1.5 >= 0.49193496 with 5 features; uniform vertex <= 0.49193496; ratio 1.0000; FAIL
+p=13: certified Gamma_1.5 >= 0.46462435 with 5 features; uniform vertex <= 0.44226898; ratio 1.0505; OK
+p=17: certified Gamma_1.5 >= 0.40240295 with 4 features; uniform vertex <= 0.37565048; ratio 1.0712; OK
+p=19: certified Gamma_1.5 >= 0.39927656 with 6 features; uniform vertex <= 0.35185185; ratio 1.1348; OK
+p=23: certified Gamma_1.5 >= 0.35930372 with 6 features; uniform vertex <= 0.31521641; ratio 1.1399; OK
+p=29: certified Gamma_1.5 >= 0.34085229 with 5 features; uniform vertex <= 0.27680629; ratio 1.2314; OK
+p=31: certified Gamma_1.5 >= 0.30929863 with 5 features; uniform vertex <= 0.26680552; ratio 1.1593; OK
+p=37: certified Gamma_1.5 >= 0.30522206 with 7 features; uniform vertex <= 0.24224955; ratio 1.2599; OK
+p=41: certified Gamma_1.5 >= 0.28829153 with 7 features; uniform vertex <= 0.22919697; ratio 1.2578; OK
+p=43: certified Gamma_1.5 >= 0.29998943 with 7 features; uniform vertex <= 0.22341355; ratio 1.3428; OK
+p=47: certified Gamma_1.5 >= 0.26663846 with 7 features; uniform vertex <= 0.21304734; ratio 1.2515; OK
+p=53: certified Gamma_1.5 >= 0.27726749 with 7 features; uniform vertex <= 0.19988760; ratio 1.3871; OK
+p=59: certified Gamma_1.5 >= 0.25676694 with 7 features; uniform vertex <= 0.18889698; ratio 1.3593; OK
+p=61: certified Gamma_1.5 >= 0.24515422 with 7 features; uniform vertex <= 0.18561709; ratio 1.3208; OK
+p=101: certified Gamma_1.5 >= 0.22661469 with 8 features; uniform vertex <= 0.14283557; ratio 1.5865; OK
+p=103: certified Gamma_1.5 >= 0.25284100 with 6 features; uniform vertex <= 0.14140083; ratio 1.7881; OK
+p=401: certified Gamma_1.5 >= 0.15492441 with 10 features; uniform vertex <= 0.07088745; ratio 2.1855; OK
+p=503: certified Gamma_1.5 >= 0.13508355 with 10 features; uniform vertex <= 0.06324518; ratio 2.1359; OK
+p=601: certified Gamma_1.5 >= 0.15758961 with 11 features; uniform vertex <= 0.05783125; ratio 2.7250; OK
+p=701: certified Gamma_1.5 >= 0.15127599 with 10 features; uniform vertex <= 0.05352861; ratio 2.8261; OK
+Part A: primes 11..1000: failures [11]; smallest certified ratio 1.0000 at p=11
+Part B: lacunary bound 1.5 K^-1.5 vs uniform (p/2)((p-1)/2)^-1.5, p in (3*2^(K-2), 3*2^(K-1)] (RHS decreasing in p, so check block start)
+  K=4: block starts p=13: lacunary 0.18750 vs uniform 0.44227: no
+  K=5: block starts p=25: lacunary 0.13416 vs uniform 0.30070: no
+  K=6: block starts p=49: lacunary 0.10206 vs uniform 0.20838: no
+  K=7: block starts p=97: lacunary 0.08099 vs uniform 0.14584: no
+  K=8: block starts p=193: lacunary 0.06629 vs uniform 0.10259: no
+  K=9: block starts p=385: lacunary 0.05556 vs uniform 0.07236: no
+  K=10: block starts p=769: lacunary 0.04743 vs uniform 0.05110: no
+  K=11: block starts p=1537: lacunary 0.04112 vs uniform 0.03611: OK
+  K=12: block starts p=3073: lacunary 0.03608 vs uniform 0.02552: OK
+  K=13: block starts p=6145: lacunary 0.03200 vs uniform 0.01805: OK
+  K=14: block starts p=12289: lacunary 0.02864 vs uniform 0.01276: OK

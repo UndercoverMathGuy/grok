@@ -1,0 +1,147 @@
+b=2.0 start 0 m=9 gauss    : R=1.000000  |beta_2|/max|beta|=1.49e-17
+b=2.0 start 1 m=7 if       : R=1.000000  |beta_2|/max|beta|=9.49e-18
+b=2.0 start 2 m=7 sign     : R=1.000000  |beta_2|/max|beta|=1.59e-17
+b=2.0 start 3 m=3 dcpartner: R=1.000000  |beta_2|/max|beta|=1.78e-17
+b=2.0 start 4 m=5 gauss    : R=1.000000  |beta_2|/max|beta|=9.41e-18
+b=2.0 start 5 m=8 if       : R=1.000000  |beta_2|/max|beta|=8.68e-18
+b=2.0 start 6 m=9 sign     : R=1.000000  |beta_2|/max|beta|=2.34e-18
+b=2.0 start 7 m=9 dcpartner: R=1.000000  |beta_2|/max|beta|=5.90e-18
+b=2.0 start 8 m=8 gauss    : R=1.000000  |beta_2|/max|beta|=9.93e-18
+b=2.0 start 9 m=3 if       : R=1.000000  |beta_2|/max|beta|=1.70e-17
+b=2.0 start 10 m=6 sign     : R=1.000000  |beta_2|/max|beta|=1.03e-17
+b=2.0 start 11 m=9 dcpartner: R=1.000000  |beta_2|/max|beta|=9.10e-18
+b=2.0 start 12 m=6 gauss    : R=1.000000  |beta_2|/max|beta|=2.61e-18
+b=2.0 start 13 m=3 if       : R=1.000000  |beta_2|/max|beta|=2.68e-18
+b=2.0 start 14 m=5 sign     : R=1.000000  |beta_2|/max|beta|=6.33e-18
+b=2.0 start 15 m=3 dcpartner: R=1.000000  |beta_2|/max|beta|=1.42e-17
+b=2.0 start 16 m=5 gauss    : R=1.000000  |beta_2|/max|beta|=3.96e-18
+b=2.0 start 17 m=4 if       : R=1.000000  |beta_2|/max|beta|=1.19e-17
+b=2.0 start 18 m=9 sign     : R=1.000000  |beta_2|/max|beta|=1.88e-17
+b=2.0 start 19 m=8 dcpartner: R=1.000000  |beta_2|/max|beta|=1.08e-17
+b=2.0 start 20 m=3 gauss    : R=1.000000  |beta_2|/max|beta|=5.61e-18
+b=2.0 start 21 m=3 if       : R=1.000000  |beta_2|/max|beta|=6.60e-18
+b=2.0 start 22 m=4 sign     : R=1.000000  |beta_2|/max|beta|=1.42e-17
+b=2.0 start 23 m=6 dcpartner: R=1.000000  |beta_2|/max|beta|=1.43e-17
+b=2.0 start 24 m=9 gauss    : R=1.000000  |beta_2|/max|beta|=1.05e-17
+b=2.0 start 25 m=7 if       : R=1.000000  |beta_2|/max|beta|=4.02e-18
+b=2.0 start 26 m=7 sign     : R=1.000000  |beta_2|/max|beta|=1.62e-17
+b=2.0 start 27 m=4 dcpartner: R=0.404347  |beta_2|/max|beta|=2.90e-17
+b=2.0 start 28 m=3 gauss    : R=0.172600  |beta_2|/max|beta|=3.29e-17
+b=2.0 start 29 m=8 if       : R=1.000000  |beta_2|/max|beta|=1.93e-17
+b=2.0 start 30 m=5 sign     : R=1.000000  |beta_2|/max|beta|=9.45e-18
+b=2.0 start 31 m=9 dcpartner: R=1.000000  |beta_2|/max|beta|=1.02e-17
+b=2.0 start 32 m=5 gauss    : R=1.000000  |beta_2|/max|beta|=3.06e-17
+b=2.0 start 33 m=7 if       : R=1.000000  |beta_2|/max|beta|=8.54e-18
+b=2.0 start 34 m=3 sign     : R=1.000000  |beta_2|/max|beta|=7.42e-18
+b=2.0 start 35 m=5 dcpartner: R=1.000000  |beta_2|/max|beta|=1.23e-17
+b=2.0 start 36 m=6 gauss    : R=1.000000  |beta_2|/max|beta|=1.27e-17
+b=2.0 start 37 m=6 if       : R=1.000000  |beta_2|/max|beta|=1.07e-17
+b=2.0 start 38 m=5 sign     : R=1.000000  |beta_2|/max|beta|=5.56e-18
+b=2.0 start 39 m=8 dcpartner: R=1.000000  |beta_2|/max|beta|=1.27e-17
+b=2.0 start 40 m=4 gauss    : R=1.000000  |beta_2|/max|beta|=1.14e-17
+b=2.0 start 41 m=9 if       : R=1.000000  |beta_2|/max|beta|=1.74e-17
+b=2.0 start 42 m=5 sign     : R=1.000000  |beta_2|/max|beta|=1.09e-17
+b=2.0 start 43 m=8 dcpartner: R=1.000000  |beta_2|/max|beta|=1.16e-17
+b=2.0 start 44 m=7 gauss    : R=1.000000  |beta_2|/max|beta|=1.66e-17
+b=2.0 start 45 m=3 if       : R=1.000000  |beta_2|/max|beta|=3.53e-18
+b=2.0 start 46 m=7 sign     : R=1.000000  |beta_2|/max|beta|=4.38e-18
+b=2.0 start 47 m=4 dcpartner: R=0.137205  |beta_2|/max|beta|=2.87e-17
+b=2.0: best R with |beta_2|/max < 1e-4: 0.999999999968126; hypothesis needs R < 1.2792
+b=2.1 start 0 m=9 gauss    : R=1.000000  |beta_2|/max|beta|=1.50e-17
+b=2.1 start 1 m=7 if       : R=1.000000  |beta_2|/max|beta|=6.71e-18
+b=2.1 start 2 m=7 sign     : R=1.000000  |beta_2|/max|beta|=6.63e-18
+b=2.1 start 3 m=3 dcpartner: R=0.200743  |beta_2|/max|beta|=3.68e-17
+b=2.1 start 4 m=5 gauss    : R=1.000000  |beta_2|/max|beta|=2.50e-17
+b=2.1 start 5 m=8 if       : R=1.000000  |beta_2|/max|beta|=6.99e-18
+b=2.1 start 6 m=9 sign     : R=1.000000  |beta_2|/max|beta|=2.91e-18
+b=2.1 start 7 m=9 dcpartner: R=1.000000  |beta_2|/max|beta|=4.31e-18
+b=2.1 start 8 m=8 gauss    : R=1.000000  |beta_2|/max|beta|=3.80e-18
+b=2.1 start 9 m=3 if       : R=1.000000  |beta_2|/max|beta|=9.11e-18
+b=2.1 start 10 m=6 sign     : R=1.000000  |beta_2|/max|beta|=1.34e-17
+b=2.1 start 11 m=9 dcpartner: R=1.000000  |beta_2|/max|beta|=1.15e-17
+b=2.1 start 12 m=6 gauss    : R=1.000000  |beta_2|/max|beta|=8.28e-18
+b=2.1 start 13 m=3 if       : R=1.000000  |beta_2|/max|beta|=1.10e-17
+b=2.1 start 14 m=5 sign     : R=1.000000  |beta_2|/max|beta|=5.53e-18
+b=2.1 start 15 m=3 dcpartner: R=1.000000  |beta_2|/max|beta|=2.68e-17
+b=2.1 start 16 m=5 gauss    : R=1.000000  |beta_2|/max|beta|=1.33e-17
+b=2.1 start 17 m=4 if       : R=1.000000  |beta_2|/max|beta|=2.28e-17
+b=2.1 start 18 m=9 sign     : R=1.000000  |beta_2|/max|beta|=4.43e-18
+b=2.1 start 19 m=8 dcpartner: R=1.000000  |beta_2|/max|beta|=1.14e-17
+b=2.1 start 20 m=3 gauss    : R=1.000000  |beta_2|/max|beta|=1.84e-17
+b=2.1 start 21 m=3 if       : R=1.000000  |beta_2|/max|beta|=1.07e-17
+b=2.1 start 22 m=4 sign     : R=1.000000  |beta_2|/max|beta|=7.84e-18
+b=2.1 start 23 m=6 dcpartner: R=1.000000  |beta_2|/max|beta|=7.05e-18
+b=2.1 start 24 m=9 gauss    : R=1.000000  |beta_2|/max|beta|=6.53e-18
+b=2.1 start 25 m=7 if       : R=1.000000  |beta_2|/max|beta|=8.52e-18
+b=2.1 start 26 m=7 sign     : R=1.000000  |beta_2|/max|beta|=2.33e-17
+b=2.1 start 27 m=4 dcpartner: R=0.384333  |beta_2|/max|beta|=2.80e-17
+b=2.1 start 28 m=3 gauss    : R=1.000000  |beta_2|/max|beta|=1.13e-17
+b=2.1 start 29 m=8 if       : R=1.000000  |beta_2|/max|beta|=2.59e-17
+b=2.1 start 30 m=5 sign     : R=1.000000  |beta_2|/max|beta|=1.97e-17
+b=2.1 start 31 m=9 dcpartner: R=1.000000  |beta_2|/max|beta|=1.44e-17
+b=2.1 start 32 m=5 gauss    : R=1.000000  |beta_2|/max|beta|=5.35e-18
+b=2.1 start 33 m=7 if       : R=1.000000  |beta_2|/max|beta|=7.75e-18
+b=2.1 start 34 m=3 sign     : R=1.000000  |beta_2|/max|beta|=8.55e-18
+b=2.1 start 35 m=5 dcpartner: R=1.000000  |beta_2|/max|beta|=1.25e-17
+b=2.1 start 36 m=6 gauss    : R=1.000000  |beta_2|/max|beta|=1.04e-17
+b=2.1 start 37 m=6 if       : R=1.000000  |beta_2|/max|beta|=2.41e-17
+b=2.1 start 38 m=5 sign     : R=1.000000  |beta_2|/max|beta|=5.26e-19
+b=2.1 start 39 m=8 dcpartner: R=1.000000  |beta_2|/max|beta|=7.99e-18
+b=2.1 start 40 m=4 gauss    : R=1.000000  |beta_2|/max|beta|=8.62e-18
+b=2.1 start 41 m=9 if       : R=1.000000  |beta_2|/max|beta|=2.32e-17
+b=2.1 start 42 m=5 sign     : R=1.000000  |beta_2|/max|beta|=9.22e-18
+b=2.1 start 43 m=8 dcpartner: R=1.000000  |beta_2|/max|beta|=1.75e-17
+b=2.1 start 44 m=7 gauss    : R=1.000000  |beta_2|/max|beta|=7.39e-18
+b=2.1 start 45 m=3 if       : R=1.000000  |beta_2|/max|beta|=2.10e-17
+b=2.1 start 46 m=7 sign     : R=1.000000  |beta_2|/max|beta|=5.85e-18
+b=2.1 start 47 m=4 dcpartner: R=0.134472  |beta_2|/max|beta|=3.54e-17
+b=2.1: best R with |beta_2|/max < 1e-4: 0.9999999999871352; hypothesis needs R < 1.3441
+b=2.2 start 0 m=9 gauss    : R=1.000000  |beta_2|/max|beta|=4.91e-18
+b=2.2 start 1 m=7 if       : R=1.000000  |beta_2|/max|beta|=5.52e-18
+b=2.2 start 2 m=7 sign     : R=1.000000  |beta_2|/max|beta|=2.80e-18
+b=2.2 start 3 m=3 dcpartner: R=0.189689  |beta_2|/max|beta|=3.22e-17
+b=2.2 start 4 m=5 gauss    : R=1.000000  |beta_2|/max|beta|=1.14e-17
+b=2.2 start 5 m=8 if       : R=1.000000  |beta_2|/max|beta|=1.18e-17
+b=2.2 start 6 m=9 sign     : R=1.000000  |beta_2|/max|beta|=1.45e-17
+b=2.2 start 7 m=9 dcpartner: R=1.000000  |beta_2|/max|beta|=1.50e-17
+b=2.2 start 8 m=8 gauss    : R=1.000000  |beta_2|/max|beta|=1.45e-17
+b=2.2 start 9 m=3 if       : R=1.000000  |beta_2|/max|beta|=8.17e-18
+b=2.2 start 10 m=6 sign     : R=1.000000  |beta_2|/max|beta|=8.53e-18
+b=2.2 start 11 m=9 dcpartner: R=1.000000  |beta_2|/max|beta|=1.54e-17
+b=2.2 start 12 m=6 gauss    : R=1.000000  |beta_2|/max|beta|=1.29e-17
+b=2.2 start 13 m=3 if       : R=1.000000  |beta_2|/max|beta|=5.85e-18
+b=2.2 start 14 m=5 sign     : R=1.000000  |beta_2|/max|beta|=9.61e-18
+b=2.2 start 15 m=3 dcpartner: R=1.000000  |beta_2|/max|beta|=8.97e-18
+b=2.2 start 16 m=5 gauss    : R=1.000000  |beta_2|/max|beta|=1.48e-17
+b=2.2 start 17 m=4 if       : R=1.000000  |beta_2|/max|beta|=1.26e-17
+b=2.2 start 18 m=9 sign     : R=1.000000  |beta_2|/max|beta|=9.82e-18
+b=2.2 start 19 m=8 dcpartner: R=1.000000  |beta_2|/max|beta|=2.46e-17
+b=2.2 start 20 m=3 gauss    : R=1.000000  |beta_2|/max|beta|=1.43e-17
+b=2.2 start 21 m=3 if       : R=1.000000  |beta_2|/max|beta|=4.13e-18
+b=2.2 start 22 m=4 sign     : R=1.000000  |beta_2|/max|beta|=1.37e-17
+b=2.2 start 23 m=6 dcpartner: R=1.000000  |beta_2|/max|beta|=1.14e-17
+b=2.2 start 24 m=9 gauss    : R=1.000000  |beta_2|/max|beta|=4.71e-18
+b=2.2 start 25 m=7 if       : R=1.000000  |beta_2|/max|beta|=1.19e-17
+b=2.2 start 26 m=7 sign     : R=1.000000  |beta_2|/max|beta|=8.35e-18
+b=2.2 start 27 m=4 dcpartner: R=0.136007  |beta_2|/max|beta|=7.19e-17
+b=2.2 start 28 m=3 gauss    : R=1.000000  |beta_2|/max|beta|=1.64e-17
+b=2.2 start 29 m=8 if       : R=1.000000  |beta_2|/max|beta|=2.16e-18
+b=2.2 start 30 m=5 sign     : R=1.000000  |beta_2|/max|beta|=5.81e-18
+b=2.2 start 31 m=9 dcpartner: R=1.000000  |beta_2|/max|beta|=2.46e-17
+b=2.2 start 32 m=5 gauss    : R=1.000000  |beta_2|/max|beta|=8.75e-18
+b=2.2 start 33 m=7 if       : R=1.000000  |beta_2|/max|beta|=1.48e-17
+b=2.2 start 34 m=3 sign     : R=1.000000  |beta_2|/max|beta|=1.91e-17
+b=2.2 start 35 m=5 dcpartner: R=1.000000  |beta_2|/max|beta|=1.47e-17
+b=2.2 start 36 m=6 gauss    : R=1.000000  |beta_2|/max|beta|=1.78e-17
+b=2.2 start 37 m=6 if       : R=1.000000  |beta_2|/max|beta|=2.97e-18
+b=2.2 start 38 m=5 sign     : R=1.000000  |beta_2|/max|beta|=8.63e-18
+b=2.2 start 39 m=8 dcpartner: R=1.000000  |beta_2|/max|beta|=8.10e-18
+b=2.2 start 40 m=4 gauss    : R=1.000000  |beta_2|/max|beta|=1.25e-17
+b=2.2 start 41 m=9 if       : R=1.000000  |beta_2|/max|beta|=1.00e-17
+b=2.2 start 42 m=5 sign     : R=1.000000  |beta_2|/max|beta|=1.46e-17
+b=2.2 start 43 m=8 dcpartner: R=1.000000  |beta_2|/max|beta|=2.65e-18
+b=2.2 start 44 m=7 gauss    : R=1.000000  |beta_2|/max|beta|=1.43e-17
+b=2.2 start 45 m=3 if       : R=1.000000  |beta_2|/max|beta|=2.51e-17
+b=2.2 start 46 m=7 sign     : R=1.000000  |beta_2|/max|beta|=2.15e-17
+b=2.2 start 47 m=4 dcpartner: R=0.131031  |beta_2|/max|beta|=8.69e-17
+b=2.2: best R with |beta_2|/max < 1e-4: 0.9999999999931499; hypothesis needs R < 1.4060

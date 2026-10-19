@@ -1,0 +1,12 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+/home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Objective contains too many subexpressions. Consider vectorizing your CVXPY code to speed up compilation.
+  C['p'].solve(solver=cp.CLARABEL)
+/home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Constraint #0 contains too many subexpressions. Consider vectorizing your CVXPY code to speed up compilation.
+  C['p'].solve(solver=cp.CLARABEL)
+/home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Constraint #1 contains too many subexpressions. Consider vectorizing your CVXPY code to speed up compilation.
+  C['p'].solve(solver=cp.CLARABEL)
+/home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Constraint #2 contains too many subexpressions. Consider vectorizing your CVXPY code to speed up compilation.
+  C['p'].solve(solver=cp.CLARABEL)
+/home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  C['p'].solve(solver=cp.CLARABEL)
+DONE: I=0 II=3 fail=0 certs=13 worstII=0.9946 time=12s

@@ -1,0 +1,9 @@
+p=3 n=11: gamma/gIF cert 1.063085 polished 1.063086; KKT res 1.1e-07, lambda 5.520006e-16 vs s h/P 5.520006e-16, |A| 56, balance err 1.6e-07
+   width 8; H = 2.07944 < log nu = 2.48491;  max|t/t_pred-1| = 1.45e-07;  identity diff -3.64e-12
+   E_w log t = -11.61812, IF block log t_IF = -9.65194: deficit 1.96618 < (s-1)(log nu - H) = 2.02736
+p=3 n=12: gamma/gIF cert 1.193354 polished 1.193392; KKT res 3.3e-06, lambda 8.740060e-18 vs s h/P 8.740060e-18, |A| 75, balance err 2.5e-07
+   width 9; H = 2.19720 < log nu = 2.56495;  max|t/t_pred-1| = 1.45e-06;  identity diff -6.69e-12
+   E_w log t = -12.39363, IF block log t_IF = -10.54782: deficit 1.84581 < (s-1)(log nu - H) = 2.02261
+p=3 n=13: gamma/gIF cert 1.183652 polished 1.183886; KKT res 3.2e-03, lambda 1.118950e-19 vs s h/P 1.118938e-19, |A| 77, balance err 2.5e-04
+   width 10; H = 2.30251 < log nu = 2.63906;  max|t/t_pred-1| = 1.90e-03;  identity diff -1.36e-06
+   E_w log t = -13.29419, IF block log t_IF = -11.44370: deficit 1.85048 < (s-1)(log nu - H) = 2.01929

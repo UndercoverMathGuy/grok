@@ -1,0 +1,3 @@
+REF3 R14 B&B: s in [1.0,1.175] TARGET=0.999: boxes=9496 fails=0 worst=0.998995 maxdepth=30 time=33s
+REF3 R14 B&B: s in [1.175,1.182] TARGET=0.9995: boxes=10090 fails=0 worst=0.999496 maxdepth=34 time=37s
+REF3 R14 B&B: s in [1.0,1.182] TARGET=0.9995: boxes=15946 fails=0 worst=0.999500 maxdepth=38 time=57s

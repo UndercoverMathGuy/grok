@@ -1,0 +1,1 @@
+prefix entries exact: max err 5.3e-15; non-prefix twist error excess -2.9e-15 (<=0); gain bound excess 2.9e-15 (<=0)

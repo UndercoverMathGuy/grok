@@ -1,0 +1,5 @@
+p=100003 K=16 rep=0 unif-min-cov=6.493 gamma_unif=0.406 Gamma_S=0.10677 |S'|=16 99s
+p=100003 K=16 rep=1 unif-min-cov=6.541 gamma_unif=0.409 Gamma_S=0.10736 |S'|=16 209s
+p=100003 K=19 rep=0 unif-min-cov=8.672 gamma_unif=0.456 Gamma_S=0.10928 |S'|=19 205s
+p=100003 K=19 rep=1 unif-min-cov=8.694 gamma_unif=0.458 Gamma_S=0.11074 |S'|=19 348s
+p=100003 K=22 rep=0 unif-min-cov=11.098 gamma_unif=0.504 Gamma_S=0.11209 |S'|=22 423s

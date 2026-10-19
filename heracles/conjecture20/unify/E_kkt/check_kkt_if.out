@@ -1,0 +1,31 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(p,n,b)=(5,2,2.5) s=1.2000 gamma/gIF=1.00000000  KKT residual=1.12e-13  |act|=100  TV(q,unif x mu)=8.00e-01
+   max|t-t_pred|/t = 8.90e-14   critical-point residual max = 4.38e-13
+   identity log(nu^(nu/2) gamma) = E_w log t - (s-1)H : -2.8959388015 vs -2.8959388015  diff -2.66e-15
+   H = 1.791759  log nu + H(z*) = 1.791759
+   tau(q) = 1.25000000e-01  nu^(nu/2) B_p max_l K_l(mu) = 7.90569415e-02   t/tau in [0.632456, 0.632456]
+   distinct t_i: [0.632456]   K_l(mu)/K_max: [1. 1.]
+(p,n,b)=(5,2,2.0) s=1.5000 gamma/gIF=1.00000000  KKT residual=4.41e-14  |act|=100  TV(q,unif x mu)=8.00e-01
+   max|t-t_pred|/t = 3.37e-14   critical-point residual max = 1.73e-13
+   identity log(nu^(nu/2) gamma) = E_w log t - (s-1)H : -3.4334666422 vs -3.4334666422  diff -2.22e-15
+   H = 1.791759  log nu + H(z*) = 1.791759
+   tau(q) = 1.25000000e-01  nu^(nu/2) B_p max_l K_l(mu) = 7.90569415e-02   t/tau in [0.632456, 0.632456]
+   distinct t_i: [0.632456]   K_l(mu)/K_max: [1. 1.]
+(p,n,b)=(7,2,2.2) s=1.3636 gamma/gIF=1.00000000  KKT residual=3.74e-14  |act|=294  TV(q,unif x mu)=6.13e-01
+   max|t-t_pred|/t = 3.32e-14   critical-point residual max = 1.84e-13
+   identity log(nu^(nu/2) gamma) = E_w log t - (s-1)H : -3.9102788894 vs -3.9102788894  diff -1.78e-15
+   H = 2.197225  log nu + H(z*) = 2.197225
+   tau(q) = 5.84630401e-02  nu^(nu/2) B_p max_l K_l(mu) = 4.45435403e-02   t/tau in [0.761909, 0.761909]
+   distinct t_i: [0.761909]   K_l(mu)/K_max: [1. 1. 1.]
+(p,n,b)=(5,3,2.5) s=1.6000 gamma/gIF=1.00000000  KKT residual=2.62e-14  |act|=500  TV(q,unif x mu)=8.05e-01
+   max|t-t_pred|/t = 2.18e-14   critical-point residual max = 1.34e-13
+   identity log(nu^(nu/2) gamma) = E_w log t - (s-1)H : -4.9365443791 vs -4.9365443791  diff -2.66e-15
+   H = 2.079442  log nu + H(z*) = 2.079442
+   tau(q) = 6.27841722e-02  nu^(nu/2) B_p max_l K_l(mu) = 2.50000000e-02   t/tau in [0.398190, 0.398190]
+   distinct t_i: [0.39819]   K_l(mu)/K_max: [1. 1.]
+(p,n,b)=(7,3,3.0) s=1.3333 gamma/gIF=1.00000000  KKT residual=1.25e-14  |act|=2058  TV(q,unif x mu)=8.93e-01
+   max|t-t_pred|/t = 1.11e-14   critical-point residual max = 2.91e-14
+   identity log(nu^(nu/2) gamma) = E_w log t - (s-1)H : -5.2591190154 vs -5.2591190154  diff -3.55e-15
+   H = 2.484907  log nu + H(z*) = 2.484907
+   tau(q) = 2.79130180e-02  nu^(nu/2) B_p max_l K_l(mu) = 1.19047619e-02   t/tau in [0.426495, 0.426495]
+   distinct t_i: [0.426495]   K_l(mu)/K_max: [1. 1. 1.]

@@ -1,0 +1,3 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+pwpos_p43_n2_s1.5.npy {'field_err': np.float64(5.007586242006019e-14), 'PW_ratio': np.float64(1.0037379483732092), 'h': np.float64(48105.453089388495), 'gamma_over_IF_upper': np.float64(0.09392368557533227), 'Gamma_lower': np.float64(0.3279726716682426), 'width': 105}
+pwpos_p59_n2_s1.5.npy {'field_err': np.float64(6.755607103043403e-14), 'PW_ratio': np.float64(1.0129948919882787), 'h': np.float64(1217221.4223209694), 'gamma_over_IF_upper': np.float64(0.09633174713029384), 'Gamma_lower': np.float64(0.30791549273326685), 'width': 145}

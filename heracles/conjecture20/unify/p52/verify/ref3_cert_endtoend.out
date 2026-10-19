@@ -1,0 +1,14 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+/home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Objective contains too many subexpressions. Consider vectorizing your CVXPY code to speed up compilation.
+  C['p'].solve(solver=cp.CLARABEL)
+/home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Constraint #0 contains too many subexpressions. Consider vectorizing your CVXPY code to speed up compilation.
+  C['p'].solve(solver=cp.CLARABEL)
+/home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Constraint #1 contains too many subexpressions. Consider vectorizing your CVXPY code to speed up compilation.
+  C['p'].solve(solver=cp.CLARABEL)
+/home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Constraint #2 contains too many subexpressions. Consider vectorizing your CVXPY code to speed up compilation.
+  C['p'].solve(solver=cp.CLARABEL)
+/home/user/grok/heracles/conjecture20/unify/p52/hs2.py:70: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  C['p'].solve(solver=cp.CLARABEL)
+Part 1: identity checks bad=0, max |my pairing - enclosure centre| = 2.22e-16 (14s)
+Part 2: 102 (network, s) checks: max ratio -0.9221, max point bound 0.7147, min(bound - ratio) = 0.9221 (36s)
+Part 3: 40 random domain points x 3 s: max point bound 0.7428 (<= 0.995 expected), max direct ratio -0.2326, min(bound - ratio) = 0.5602 (49s)

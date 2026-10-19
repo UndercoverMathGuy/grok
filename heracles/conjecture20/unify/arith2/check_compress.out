@@ -1,0 +1,3 @@
+max [h_model - min_d K(a_Bc + b'')]          = -7.105e-01   (must be <= 0)
+max [||a_Bc + b''||^r - ||a||^r]               = -1.392e-01   (must be < 0)
+max h_model / (Gamma_ref ||a||) over the trials = 0.4302     (closure: < 1)

@@ -1,0 +1,3 @@
+p=10007: block m=32, weak set |Z|=70 wrong answers; best patcher min strength on Z 0.02
+  control (no discount)     : worst case 0.9724 x clean optimum | budget: block 0.000, patchers 0.008, programme support 0.980
+  cheater (block x1.225)    : worst case 0.9724 x clean optimum | budget: block 0.000, patchers 0.008, programme support 0.980

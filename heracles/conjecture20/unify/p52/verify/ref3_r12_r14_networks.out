@@ -1,0 +1,6 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(A) p=7: 5400 R12 identity checks, max rel err 1.2e-15, min q_w = 4.69e-13; min(R12 bound - h) = 6.769e-01; min(cost/ledger - 1) = 1.906e+00; min(simple bound - ratio) = 1.1587; max ratio -1.1693; bad=0 (2s)
+(B) adversarial SLSQP two-feature search at s=1.182 (b=2.538): top ratios [(np.float64(0.0419), np.int64(2), 6), (np.float64(0.0419), np.int64(2), 6), (np.float64(0.0305), np.int64(2), 5), (np.float64(0.0204), np.int64(2), 6), (np.float64(-0.0), np.int64(2), 5)] (106s)
+(C) p=3, n=11: h=2.731227e+00, Re beta_1=4.137573e+00; R12 identity max rel err 1.2e-15; min over |T| of (R12 bound - h) = 2.0802e+00 (1s)
+(C) p=3, n=13: h=4.150480e+00, Re beta_1=5.141789e+00; R12 identity max rel err 3.4e-16; min over |T| of (R12 bound - h) = 2.8288e+00 (12s)
+TOTAL BAD = 0

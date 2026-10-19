@@ -1,0 +1,5 @@
+  ... boxes 1500 stack 8 fails 0 [73s]
+  ... boxes 2000 stack 6 fails 0 [92s]
+/home/user/grok/heracles/conjecture20/unify/n2mix/rig72.py:100: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  self.wK.value = 3.0 ** (s - 1) * KSCALE
+DONE s in [1,1.5] TARGET=0.996 ledger=nopaid: boxes=2518 solves=7562 fails=0 worst=0.99599 [113s]

@@ -1,0 +1,6 @@
+[hr5 B&B] s in [1.0,1.175] (70 s-cells) XMAX=2.0 TARGET=0.999: boxes=167746 fails=0 worst=0.99900
+[hr5 pointwise] s=1.0: sup over (tau,x1,x2) of optimal-mu bound = 0.78907 at tau=0.6431 x1=0.6961 x2=0.1011
+[hr5 pointwise] s=1.175: sup over (tau,x1,x2) of optimal-mu bound = 0.98828 at tau=0.6431 x1=1.0000 x2=0.6560
+[hr5 B&B] s in [1.175,1.182] (28 s-cells) XMAX=2.0 TARGET=0.9995: boxes=364634 fails=0 worst=0.99950
+[hr5 pointwise] s=1.175: sup over (tau,x1,x2) of optimal-mu bound = 0.98828 at tau=0.6431 x1=1.0000 x2=0.6560
+[hr5 pointwise] s=1.182: sup over (tau,x1,x2) of optimal-mu bound = 0.99710 at tau=0.6431 x1=1.0000 x2=0.6560

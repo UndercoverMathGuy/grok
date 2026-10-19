@@ -1,0 +1,2 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+# c_p5_n4_b2.6_s71: Gamma=0.6909830056 K*=1 y*=[0.0, 1.0] bind=[2]

@@ -1,0 +1,10 @@
+Gamma_1.5(5) = 0.883883; gamma_IF = D_F at n=2
+viol0: gamma/gamma_IF=0.790214  H_{2/3}(m)=1.537697  Shannon H_1(m)=1.507615  gamma_1/B_p=0.869933 ; best decoupled IF-block M at H_{2/3}<=eta: 0.818484
+        own IF projection: H=1.642579, M(yhat)=0.901812 ; rho(gamma) = gamma_1/B_p / M(yhat) = 0.9646
+viol1: gamma/gamma_IF=0.785339  H_{2/3}(m)=1.528468  Shannon H_1(m)=1.495119  gamma_1/B_p=0.860585 ; best decoupled IF-block M at H_{2/3}<=eta: 0.812734
+        own IF projection: H=1.630753, M(yhat)=0.890351 ; rho(gamma) = gamma_1/B_p / M(yhat) = 0.9666
+viol2: gamma/gamma_IF=0.776161  H_{2/3}(m)=1.511953  Shannon H_1(m)=1.473364  gamma_1/B_p=0.843534 ; best decoupled IF-block M at H_{2/3}<=eta: 0.802948
+        own IF projection: H=1.609206, M(yhat)=0.871054 ; rho(gamma) = gamma_1/B_p / M(yhat) = 0.9684
+viol3: gamma/gamma_IF=0.999656  H_{2/3}(m)=1.791759  Shannon H_1(m)=1.791759  gamma_1/B_p=1.249570 ; best decoupled IF-block M at H_{2/3}<=eta: 1.249582
+        own IF projection: H=1.791759, M(yhat)=1.249594 ; rho(gamma) = gamma_1/B_p / M(yhat) = 1.0000
+log 3 = 1.098612

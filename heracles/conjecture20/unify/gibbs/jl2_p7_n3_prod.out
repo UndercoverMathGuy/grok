@@ -1,0 +1,12 @@
+  cabs, carg, kap = parts(d); E = (mod**2*kap).sum()
+  r = A*Ap/E; dA = [Ap/E, A/E]
+  r = A*Ap/E; dA = [Ap/E, A/E]
+  mod = np.exp(z[:NT*K]).reshape(NT, K); ang = z[NT*K:].reshape(NT, K)
+  a = ph[t] + ang[t] + sgn*carg; args.append(a); Zv += (np.cos(a)*(mod[t]*cabs)).sum(1)
+  return umr_sum(a, axis, dtype, out, keepdims, initial, where)
+p=7 n=3 d=1 [prod]: min = 0.9207   (prod 0.9207, mean^2 0.9207)
+  m = v.min(); w = np.exp(-tau*(v - m)); return m - np.log(w.mean())/tau, w/w.sum()
+p=7 n=3 d=2 [prod]: min = 1.0000   (prod 1.0000, mean^2 1.0208)
+  cabs, carg, kap = parts(d); E = (mod**2*kap).sum()
+p=7 n=3 d=3 [prod]: min = 1.0000   (prod 1.0000, mean^2 1.0208)
+p=7 n=3 [prod] overall min 0.9207

@@ -1,0 +1,4 @@
+p=53 K=5 plane: R=Det/Pay with Pi=min(c1 max,||.||/2sqrt3): min over d0 2.622 (max 2.693)
+p=101 K=7 plane: R=Det/Pay with Pi=min(c1 max,||.||/2sqrt3): min over d0 2.632 (max 3.074)
+p=151 K=6 plane: R=Det/Pay with Pi=min(c1 max,||.||/2sqrt3): min over d0 3.216 (max 3.660)
+p=211 K=8 plane: R=Det/Pay with Pi=min(c1 max,||.||/2sqrt3): min over d0 2.921 (max 3.108)

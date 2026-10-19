@@ -1,0 +1,192 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\Z}{\mathbb Z}
+\title{The single-set core RT$_n$ for the Legendre family, at every prime}
+\date{}
+\begin{document}\maketitle
+
+\paragraph{Setting.}
+$p$ is an odd prime, $F=\{1,\dots,(p-1)/2\}$ indexes the frequency classes $\{\pm l\}$, and
+$\kappa_l(\delta)=1-\cos(2\pi l\delta/p)$. For $s\ge1$ and $r=1/s$ the programme is
+\[\Gamma_s=\max\Big\{M(y):\ y\ge0,\ \textstyle\sum_l y_l^r\le1\Big\},\qquad M(y)=\min_{\delta\ne0}\sum_l y_l\kappa_l(\delta).\]
+For $n\ge2$ and $s\in[1,\nu/2]$, where $\nu=n+1$, put $\lambda=(n/\nu)^{1-r}$. The single-set core is
+\[\textbf{(RT$_n$)}\qquad \min_{\delta\ne0}\Big[\sum_l(\alpha_l+\beta_l)\kappa_l(\delta)-\max_w\big|U(w)-U(w-\delta)\big|\Big]\le
+\Gamma_s\Big(\sum_l\alpha_l^r+\lambda\sum_l\beta_l^r\Big)^s,\]
+with interference $U(w)=\sum_{l\in F}\beta_l\cos(2\pi lw/p+\phi_l)$ (C\_joint J4; BRIEF\_PROVE \S1(A)).
+
+\paragraph{The Legendre family.}
+Let $\chi$ be the Legendre symbol. The \emph{Legendre networks} are those with interference $U=t\chi$, $t\ge0$
+(equivalently $\beta_l=2t/\sqrt p$ for every $l\in F$, with the phases of $\hat\chi$), together with arbitrary
+interference-free amplitudes $\alpha\ge0$. Their interference is flat at every offset: $\max_w|\chi(w)-\chi(w-\delta)|=2$
+for every $\delta\ne0$. So every efficiency-blind detection inequality fails for them (C\_joint J6). They are also the
+networks that refute the ``exact factorisation'' CD$_C$ (X\_core NOTES, item 1).
+
+\begin{theorem}\label{thm:main}
+For every odd prime $p$, every $n\ge2$, every $s\in[1,(n+1)/2]$, every $\alpha\ge0$ and every $t\ge0$, the Legendre
+networks satisfy RT$_n$.
+\end{theorem}
+
+\section{Reductions}
+
+\begin{lemma}[pure case suffices]
+It suffices to treat $\alpha=0$ and $t=1$.
+\end{lemma}
+\begin{proof}
+For $U=t\chi$ we have $\sum_l\beta_l\kappa_l(\delta)=t\sqrt p$ for every $\delta$, because
+$\sum_{l\in F}\kappa_l(\delta)=p/2$. The lag depth is $2t$. Hence the left side equals $M(\alpha)+t(\sqrt p-2)$.
+
+On the right, $(A+B)^s\ge A^s+B^s$ for $s\ge1$, and $M(\alpha)\le\Gamma_s(\sum\alpha^r)^s$. So the right side is at least
+$M(\alpha)+\Gamma_s(\lambda\sum\beta^r)^s$. Both sides of the pure inequality are homogeneous of degree one in $t$.
+\end{proof}
+
+Let $U_s=\tfrac p2 F^{-s}$ be the value of the uniform allocation $y_l=|F|^{-s}$, which has coverage $p/2$ at every offset.
+Put $\rho(s,p)=\Gamma_s/U_s\ge1$, $n_{\min}(s)=\max(2,\lceil 2s-1\rceil)$ and $T(s)=(1+1/n_{\min})^{s-1}$.
+
+\begin{lemma}[reduction to the programme]
+The pure case of RT$_n$, for all admissible $n$, is equivalent to
+\[\rho(s,p)\ \ge\ T(s)\,\big(1-2/\sqrt p\big).\tag{P}\]
+\end{lemma}
+\begin{proof}
+With $\beta_l=2/\sqrt p$ on all of $F$, the left side is $\sqrt p-2$. The right side is
+$\Gamma_s\lambda^s|F|^s\cdot 2/\sqrt p=\rho\,\lambda^s\sqrt p$. Now $\lambda^{-s}=(1+1/n)^{s-1}$ decreases in $n$, and
+$s\le(n+1)/2$ forces $n\ge n_{\min}(s)$.
+\end{proof}
+
+Note that $T(s)\le(3/2)^{s-1}$ and $T(s)\le e^{1/2}$ for every $s$. If $p\le23$, then
+$T(s)(1-2/\sqrt p)\le e^{1/2}(1-2/\sqrt{23})<0.97$, so (P) is trivial. From now on $p\ge29$.
+
+\section{The compression: positive part of the field-row oscillation}
+
+Write $\theta_l(w)=2\pi lw/p+\phi_l$, so that $U(w)=\sum_l\beta_l\cos\theta_l(w)$. Every lower bound on $\Gamma_s$ comes
+from exhibiting an allocation. Ours is
+\[ y_l(w_0)=\beta_l\,\big(\cos\theta_l(w_0)\big)_+ ,\]
+i.e.\ the positive part of the field-row oscillation of the network at a single point $w_0$. For Legendre networks:
+\begin{itemize}
+\item if $p\equiv1\pmod4$, then $\hat\chi$ is real and $w_0=0$ gives $y_l\propto\mathbf 1[\chi(l)=1]$: the quadratic-residue
+half of $F$;
+\item if $p\equiv3\pmod4$, then $\hat\chi$ is imaginary and $w_0=1$ gives $y_l\propto\sin(2\pi l/p)\,(1+\chi(l))$: the
+sine-weighted quadratic residues.
+\end{itemize}
+Both are checked in \texttt{unified.py}. Recall that $\sum_{l=1}^{p-1}\chi(l)e^{2\pi ilk/p}=\chi(k)g$, with $g=\sqrt p$ if
+$p\equiv1\pmod 4$ and $g=i\sqrt p$ if $p\equiv3\pmod4$.
+
+\subsection{$p\equiv1\pmod4$}
+\begin{proposition}
+Let $y=\mathbf 1[\chi(l)=1]$ on $F$. Then $M(y)\ge(p-\sqrt p)/4$, and $\rho(s,p)\ge 2^{s-1}(1-1/\sqrt p)$ for every $s\ge1$.
+In particular (P) holds.
+\end{proposition}
+\begin{proof}
+$\chi$ is even, so $\sum_{l\in F}\chi(l)=0$ and $\sum_{l\in F}\chi(l)\cos(2\pi l\delta/p)=\tfrac12\chi(\delta)\sqrt p$.
+Hence
+\[\textstyle\sum_l y_l\kappa_l(\delta)=\tfrac12\sum_l(1+\chi(l))\kappa_l(\delta)=\tfrac12\big(\tfrac p2-\tfrac12\chi(\delta)\sqrt p\big)\ge\tfrac{p-\sqrt p}4 .\]
+Also $\sum_l y_l^r=|F|/2$. So $\rho\ge\frac{(p-\sqrt p)/4}{(|F|/2)^s}\big/\frac{p/2}{|F|^s}=2^{s-1}(1-1/\sqrt p)$.
+Finally $2^{s-1}\ge(3/2)^{s-1}\ge T(s)$.
+\end{proof}
+
+\subsection{$p\equiv3\pmod4$}
+Write $\sin_l=\sin(2\pi l/p)>0$ for $l\in F$, $S_1=\sum_{l\in F}\sin_l=\tfrac12\cot(\pi/2p)$ and
+$y_l=\sin_l\,(1+\chi(l))$.
+
+\begin{lemma}[exact coverage]\label{lem:cov}
+$\sum_l y_l\kappa_l(\delta)\ge S_1$ for every $\delta\ne0$.
+\end{lemma}
+\begin{proof}
+The summand $\chi(l)\sin(2\pi lk/p)$ is even in $l$. With $g=i\sqrt p$ this gives
+$\sum_{l\in F}\chi(l)\sin(2\pi lk/p)=\tfrac12\chi(k)\sqrt p$. Hence:
+\begin{itemize}
+\item $\sum_l\chi(l)\sin_l=\sqrt p/2$;
+\item $C_\chi(\delta):=\sum_l\chi(l)\sin_l\cos(2\pi l\delta/p)=\tfrac{\sqrt p}4[\chi(1+\delta)+\chi(1-\delta)]\le\tfrac{\sqrt p}2$.
+\end{itemize}
+Next let $C_1(\delta):=\sum_l\sin_l\cos(2\pi l\delta/p)$. The closed form
+$\sum_{l=1}^{(p-1)/2}\sin(2\pi lk/p)=\tfrac12\cot(\pi k/2p)$ for odd $k$ and $=-\tfrac12\tan(\pi k/2p)$ for even $k$ gives,
+for $1\le\delta\le(p-1)/2$:
+\begin{itemize}
+\item for even $\delta$: $C_1=\tfrac14[\cot(\pi(1+\delta)/2p)-\cot(\pi(\delta-1)/2p)]<0$;
+\item for odd $\delta$: $C_1=-\tfrac14[\tan(\pi(1+\delta)/2p)-\tan(\pi(\delta-1)/2p)]<0$.
+\end{itemize}
+The arguments lie in $[0,\pi/2)$. By symmetry under $\delta\mapsto-\delta$, $C_1\le0$ for every $\delta$. Therefore
+\[\textstyle\sum_l y_l\kappa_l(\delta)=S_1+\tfrac{\sqrt p}2-C_1(\delta)-C_\chi(\delta)\ \ge\ S_1 .\qedhere\]
+\end{proof}
+
+\begin{lemma}[cost]\label{lem:cost}
+$\sum_l y_l^r=2^r Q_r$ with $2Q_r=P_r+B_r$, where:
+\begin{itemize}
+\item $P_r=\sum_{l\in F}\sin_l^r\le(|F|+\tfrac12)\sigma_r+1$, with $\sigma_r=\Gamma(\frac{r+1}2)/(\sqrt\pi\,\Gamma(\frac r2+1))$;
+\item $|B_r|=|\sum_l\chi(l)\sin_l^r|\le\tfrac{\sqrt p}2 K(r)$, with $K(r)=\sum_{j\ \rm odd}|b_j(r)|$, where $b_j(r)$ are the
+sine coefficients of $\operatorname{sgn}(\sin\theta)|\sin\theta|^r$;
+\item $K(r)\le k(r):=|b_1(r)|+c(r)2^{1+r}\big[(3-r)^{-1-r}+(3-r)^{-r}/(2r)\big]$, with
+$c(r)=2\Gamma(r+1)\cos(\pi r/2)/(\pi2^r)$ and $b_1(r)=2\Gamma(r+1)/(2^r\Gamma(\frac{3+r}2)\Gamma(\frac{1+r}2))$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+\emph{$P_r$.} The function $\sin^r(2\pi u)$ is unimodal on $[0,\tfrac12]$ with maximum $1$. A Riemann sum with step $1/p$
+therefore exceeds $p\int_0^{1/2}$ by at most $1$, and $p\int_0^{1/2}\sin^r(2\pi u)\,du=\tfrac p2\sigma_r$.
+
+\emph{$B_r$.} The odd function $G_r=\operatorname{sgn}(\sin)|\sin|^r$ has the absolutely convergent expansion
+$G_r(\theta)=\sum_{j\ \rm odd}b_j\sin j\theta$, since $|b_j|=O(j^{-1-r})$. Evaluate at $\theta=2\pi l/p$, multiply by
+$\chi(l)$, sum over $l\in F$, and use $\sum_{l\in F}\chi(l)\sin(2\pi lj/p)=\tfrac12\chi(j)\sqrt p$.
+
+\emph{$K(r)$.} Gradshteyn--Ryzhik 3.631 gives
+$b_j=\frac{2\Gamma(r+1)\sin(j\pi/2)}{2^r\Gamma(1+\frac{r+j}2)\Gamma(1+\frac{r-j}2)}$. Reflection then gives
+$|b_j|=c(r)\,\Gamma(a)/\Gamma(a+r+1)$ with $a=(j-r)/2\ge1$ for $j\ge3$. Wendel's inequality gives
+$\Gamma(a)/\Gamma(a+r+1)\le a^{-1-r}$. Finally compare the remaining sum with an integral.
+\end{proof}
+
+\begin{proposition}\label{prop:3mod4}
+For $p\equiv3\pmod4$ with $p\ge29$, (P) holds for every $s\ge1$.
+\end{proposition}
+\begin{proof}
+\emph{Case $s\ge3$.} Use a single frequency. Then $\rho\ge\kappa_{\min}|F|^s/(p/2)\ge 4\sin^2(\pi/p)|F|^3/p$. Since
+$\sin(\pi/p)\ge3/p$ for $p\ge29$, this is at least $\tfrac92(1-1/p)^3>4>e^{1/2}\ge T(s)$.
+
+\emph{Case $1\le s\le3$.} By Lemmas~\ref{lem:cov} and \ref{lem:cost},
+\[\rho(s,p)\ \ge\ \frac{2S_1}{p}\;2^{s-1}\Big(\frac{|F|}{(|F|+\frac12)\sigma_r+1+\frac{\sqrt p}2k(r)}\Big)^{s}.\tag{L}\]
+This bound contains no arithmetic of $p$: it is an explicit elementary function of the real variables $(p,s)$.
+
+\emph{Asymptotics.} Put $x=1/\sqrt p$ and $s=1+\tau x$. Then
+\[\log\frac{\text{(L)}}{T(s)(1-2x)}=x\big[(\log2\pi-1-\log\tfrac32)\tau+2-\tfrac\pi2\big]+O(x^2(1+\tau^2)),\]
+because $\sigma_1=2/\pi$, $k(1)=1$, $\frac{d}{ds}\big(-s\log\sigma_{1/s}\big)\big|_{s=1}=\log\pi-1$ and $2S_1/p\to2/\pi$.
+Both coefficients are positive: $0.433\tau+0.429$.
+
+For fixed $s>1$, the limit as $p\to\infty$ is
+$A(s)=\log\frac2\pi+(s-1)\log2-s\log\sigma_{1/s}-\log T(s)>0$ on $(1,3]$.
+
+\emph{Uniform range.} On the region where $T(s)(1-2/\sqrt p)>1$, the ratio (L)$/[T(s)(1-2/\sqrt p)]$ was evaluated on a
+fine grid of real $p\in[29,10^9]$ and $s\in(1,3]$ (\texttt{leg\_analytic.py}). Its minimum is $1.00008$, attained at
+$p=10^9$ near the trivial boundary, where the asymptotic expansion takes over. The arithmetic statements
+(Lemma~\ref{lem:cov} and the exact coverage) were checked independently for every prime $p\equiv3\pmod4$ below $3000$
+(\texttt{leg\_sinqr.py}).
+\end{proof}
+
+\begin{remark}[what remains for full rigour]
+Every step is analytic except the last: the explicit two-variable inequality ``(L) $\ge T(s)(1-2/\sqrt p)$'' on the
+compact range $29\le p\le10^9$, $1\le s\le3$. It involves no network parameters and no arithmetic of $p$, only
+$\cot,\Gamma,\cos$ and powers. It can be closed with a routine interval-arithmetic pass, or by sharpening the error terms
+of the asymptotic expansion until they cover $p\ge29$ directly.
+\end{remark}
+
+\section{What the proof says about the general core}
+
+\begin{enumerate}
+\item \textbf{The comparison must be with the programme, and the programme wins by compression.} The Legendre network is
+flat at every offset, so its interference is invisible to detection. RT$_n$ survives only because $\Gamma_s$ beats the
+network's own flat allocation. That is exactly why CD$_C$ (comparison with the network's own allocation) is false.
+\item \textbf{The compressing allocation is built from the network's own phases:} $y_l=\beta_l(\cos\theta_l(w_0))_+$.
+Splitting $(c)_+=\tfrac12(|c|+c)$:
+\begin{itemize}
+\item the signed part $\sum_l\beta_l\cos\theta_l(w_0)\kappa_l(\delta)=U(w_0)-\tfrac12[U(w_0+\delta)+U(w_0-\delta)]$ is
+controlled by the same flatness that makes the network hard;
+\item the absolute part $\sum_l\beta_l|\cos\theta_l(w_0)|\kappa_l(\delta)$ is a ``base'' allocation, which for Legendre
+networks is of positive type (Lemma~\ref{lem:cov}).
+\end{itemize}
+So flatness of $U$ \emph{helps} the compression exactly as much as it hurts detection.
+\item \textbf{Next target: the general core.} For an arbitrary $U$, use the positive-part compression $y(w_0)$ at the best
+$w_0$, combined with the interference-free part $\alpha$. The task is to prove RT$_n$ whenever the base part is of
+positive type, and to understand when it is not.
+\end{enumerate}
+\end{document}

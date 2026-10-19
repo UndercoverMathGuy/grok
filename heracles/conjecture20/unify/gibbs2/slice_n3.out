@@ -1,0 +1,5 @@
+p=5 n=3: min (AA' - best slicing bound)/E = 3.087e-01 (>=0);  min AA'/E seen = 1.3087;  n=3 guaranteed kap/(2+kap) = 0.2500;  Note Thm loc: 1/(2^n-1) = 0.1429
+p=7 n=3: min (AA' - best slicing bound)/E = 7.797e-01 (>=0);  min AA'/E seen = 1.7797;  n=3 guaranteed kap/(2+kap) = 0.2727;  Note Thm loc: 1/(2^n-1) = 0.1429
+p=11 n=3: min (AA' - best slicing bound)/E = 1.536e+00 (>=0);  min AA'/E seen = 2.5359;  n=3 guaranteed kap/(2+kap) = 0.2941;  Note Thm loc: 1/(2^n-1) = 0.1429
+p=5 n=4: min (AA' - best slicing bound)/E = 2.322e+00 (>=0);  min AA'/E seen = 3.0309;  n=3 guaranteed kap/(2+kap) = 0.2500;  Note Thm loc: 1/(2^n-1) = 0.0667
+p=7 n=4: min (AA' - best slicing bound)/E = 2.759e+00 (>=0);  min AA'/E seen = 3.6814;  n=3 guaranteed kap/(2+kap) = 0.2727;  Note Thm loc: 1/(2^n-1) = 0.0667

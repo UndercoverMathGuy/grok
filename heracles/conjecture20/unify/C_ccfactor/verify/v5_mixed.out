@@ -1,0 +1,14 @@
+viol_p5_n2_b2[0]: RD ratio 0.79021  CD_prop 1.03000  CD_split 1.03320  DC share 2.27e-03
+viol_p5_n2_b2[1]: RD ratio 0.78534  CD_prop 1.02960  CD_split 1.03305  DC share 2.47e-03
+viol_p5_n2_b2[2]: RD ratio 0.77616  CD_prop 1.02702  CD_split 1.03105  DC share 2.85e-03
+viol_p5_n2_b2[3]: RD ratio 0.99966  CD_prop 0.99998  CD_split 0.99998  DC share 5.33e-07
+viol_p7_n2_b2[0]: RD ratio 0.71971  CD_prop 1.06622  CD_split 1.06804  DC share 1.18e-03
+viol_p7_n2_b2[1]: RD ratio 0.86288  CD_prop 1.04360  CD_split 1.04363  DC share 2.49e-05
+viol_p7_n2_b2[2]: RD ratio 0.85617  CD_prop 1.04273  CD_split 1.04298  DC share 2.08e-04
+viol_p7_n2_b2[3]: RD ratio 0.97549  CD_prop 0.99986  CD_split 0.99986  DC share 3.04e-07
+viol_p11_n2_b2[0]: RD ratio 0.67403  CD_prop 1.10485  CD_split 1.10542  DC share 2.59e-04
+viol_p11_n2_b2[1]: RD ratio 0.66389  CD_prop 1.10609  CD_split 1.10757  DC share 6.50e-04
+viol_p11_n2_b2[2]: RD ratio 0.67771  CD_prop 1.10240  CD_split 1.10418  DC share 6.25e-04
+viol_p11_n2_b2[3]: RD ratio 0.47235  CD_prop 1.09848  CD_split 1.09936  DC share 4.55e-04
+lm_p5_n2_b2.0_k4: RD ratio 0.83476  CD_prop 1.01464  CD_split 1.01659  DC share 1.38e-03
+lm_p7_n2_b2.0_k6: RD ratio 0.56043  CD_prop 1.00978  CD_split 1.02342  DC share 8.91e-03

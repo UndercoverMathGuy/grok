@@ -1,0 +1,8 @@
+L_B  max[(non-own mass) - 4(e^2-|beta|^2)]   = -7.085086176010979e-06 (must be <= 0)
+L_C  max[sqrt(P1^2+cR^2) - 3^{1-s}B5 P^s]    = -0.006157182524510807 (must be <= 0)
+L_D  max[h - sum q g]                        = -0.7236189634153332 (must be <= 0)
+L_D  max[sum q g - certificate bound]        = -0.0871364374480289 (must be <= 0)
+L_F  max[twisted bound - P_1]                = 1.7763568394002505e-15 (must be <= 0)
+L_F  max[|X' - alpha^{+-1} X| - sqrt(2L(L-|A|))] = 1.9860273225978185e-15 (must be <= 0)
+L_S  monotonicity violations: 0 / 15964
+L_A  |beta'_1 - beta_2| = 5.647850449853784e-17  |beta'_2| - |beta_1| = 0.0  margin diff = 0.0

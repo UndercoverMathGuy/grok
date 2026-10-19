@@ -1,0 +1,11 @@
+p=  13 p%4=1 beta_l=0.5547(2/sqrt p=0.5547) LHS=1.6056 sqrt(p)-2=1.6056 | n=2 c=0.184 CD ok | n=3 c=0.250 CD ok | n=10 c=0.349 CD ok | QR-half: |A|=3 min cov=2.349 formula (p-sqrt p)/4=2.349
+p=  17 p%4=1 beta_l=0.4851(2/sqrt p=0.4851) LHS=2.1231 sqrt(p)-2=2.1231 | n=2 c=0.184 CD ok | n=3 c=0.250 CD ok | n=10 c=0.349 CD ok | QR-half: |A|=4 min cov=3.219 formula (p-sqrt p)/4=3.219
+p=  29 p%4=1 beta_l=0.3714(2/sqrt p=0.3714) LHS=3.3852 sqrt(p)-2=3.3852 | n=2 c=0.184 CD ok | n=3 c=0.250 CD ok | n=10 c=0.349 CD ok | QR-half: |A|=7 min cov=5.904 formula (p-sqrt p)/4=5.904
+p=  37 p%4=1 beta_l=0.3288(2/sqrt p=0.3288) LHS=4.0828 sqrt(p)-2=4.0828 | n=2 c=0.184 CD ok | n=3 c=0.250 CD ok | n=10 c=0.349 CD FAILS | QR-half: |A|=9 min cov=7.729 formula (p-sqrt p)/4=7.729
+p= 101 p%4=1 beta_l=0.1990(2/sqrt p=0.1990) LHS=8.0499 sqrt(p)-2=8.0499 | n=2 c=0.184 CD ok | n=3 c=0.250 CD FAILS | n=10 c=0.349 CD FAILS | QR-half: |A|=25 min cov=22.738 formula (p-sqrt p)/4=22.738
+p= 127 p%4=3 beta_l=0.1775(2/sqrt p=0.1775) LHS=9.2694 sqrt(p)-2=9.2694 | n=2 c=0.184 CD FAILS | n=3 c=0.250 CD FAILS | n=10 c=0.349 CD FAILS
+p= 131 p%4=3 beta_l=0.1747(2/sqrt p=0.1747) LHS=9.4455 sqrt(p)-2=9.4455 | n=2 c=0.184 CD FAILS | n=3 c=0.250 CD FAILS | n=10 c=0.349 CD FAILS
+p= 137 p%4=1 beta_l=0.1709(2/sqrt p=0.1709) LHS=9.7047 sqrt(p)-2=9.7047 | n=2 c=0.184 CD FAILS | n=3 c=0.250 CD FAILS | n=10 c=0.349 CD FAILS | QR-half: |A|=34 min cov=31.324 formula (p-sqrt p)/4=31.324
+p= 149 p%4=1 beta_l=0.1638(2/sqrt p=0.1638) LHS=10.2066 sqrt(p)-2=10.2066 | n=2 c=0.184 CD FAILS | n=3 c=0.250 CD FAILS | n=10 c=0.349 CD FAILS | QR-half: |A|=37 min cov=34.198 formula (p-sqrt p)/4=34.198
+p= 197 p%4=1 beta_l=0.1425(2/sqrt p=0.1425) LHS=12.0357 sqrt(p)-2=12.0357 | n=2 c=0.184 CD FAILS | n=3 c=0.250 CD FAILS | n=10 c=0.349 CD FAILS | QR-half: |A|=49 min cov=45.741 formula (p-sqrt p)/4=45.741
+p= 227 p%4=3 beta_l=0.1327(2/sqrt p=0.1327) LHS=13.0665 sqrt(p)-2=13.0665 | n=2 c=0.184 CD FAILS | n=3 c=0.250 CD FAILS | n=10 c=0.349 CD FAILS

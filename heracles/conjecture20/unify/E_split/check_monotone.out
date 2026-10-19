@@ -1,0 +1,2 @@
+M'_+ = -J/(s-1)^2 on 4200 points of 200 synthetic envelopes: max relative error 9.99e-05 (finite differences, kinks included)
+bifurcation: winners at s_k just above the first departure point have H(theta_k, s0) - H^D(s0) <= -7.700e-03 over 561 cases (predicted <= o(1))

@@ -1,0 +1,16 @@
+--- random class-C networks
+  chain        4.885e-15
+  arimoto_lo   1.110e-16
+  arimoto_hi   1.110e-15
+  fact         1.040e-15
+  feat         1.110e-16
+  split        4.056e-16
+  mean_id      1.110e-16
+--- IF / decoupled optimum: Pi_feat = Gamma_s, Pi_within = nu^{1-s} (n=2: = pi)
+  (p,n,b)=(5,2,2.0) Pi_feat/Gamma=1.000000000000  Pi_within/nu^(1-s)=1.000000000000  CD ratio=1.000000000000  dint=1.38e-15 Esig=1.67e-16
+  (p,n,b)=(7,2,2.5) Pi_feat/Gamma=1.000000000000  Pi_within/nu^(1-s)=1.000000000000  CD ratio=1.000000000000  dint=1.30e-15 Esig=1.23e-17
+  (p,n,b)=(11,2,2.0) Pi_feat/Gamma=1.000000000000  Pi_within/nu^(1-s)=1.000000000000  CD ratio=1.000000000000  dint=1.42e-15 Esig=2.94e-17
+  (p,n,b)=(13,2,2.2) Pi_feat/Gamma=1.000000000000  Pi_within/nu^(1-s)=1.000000000000  CD ratio=1.000000000000  dint=1.84e-15 Esig=5.83e-17
+  (p,n,b)=(7,3,2.0) Pi_feat/Gamma=1.000000000000  Pi_within/nu^(1-s)=1.000000000000  CD ratio=1.000000000000  dint=2.42e-15 Esig=5.76e-17
+--- general (shared-neuron) networks: split + W5 accounting
+  W5 identity err 1.78e-15;  b=2 no-DC cost gap (should be 0) 1.78e-15

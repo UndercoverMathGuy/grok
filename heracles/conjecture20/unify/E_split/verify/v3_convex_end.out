@@ -1,0 +1,66 @@
+== (A) attainment by non-block aligned IF networks, and H vs H^dec(1) ==
+  (p,n)=(5,2) S=(1, 2) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = -0.0000
+  (p,n)=(5,2) S=(1, 2) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5108
+  (p,n)=(5,2) S=(1, 2) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5682
+  (p,n)=(5,2) S=(1,) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = -0.0000
+  (p,n)=(5,2) S=(1,) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5108
+  (p,n)=(5,2) S=(1,) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5682
+  (p,n)=(5,2) S=(2,) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.0000
+  (p,n)=(5,2) S=(2,) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5108
+  (p,n)=(5,2) S=(2,) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5682
+  (p,n)=(7,2) S=(1, 2, 3) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.0000
+  (p,n)=(7,2) S=(1, 2, 3) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5108
+  (p,n)=(7,2) S=(1, 2, 3) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5682
+  (p,n)=(7,2) S=(1,) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = -0.0000
+  (p,n)=(7,2) S=(1,) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5108
+  (p,n)=(7,2) S=(1,) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5682
+  (p,n)=(7,2) S=(2, 3) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = -0.0000
+  (p,n)=(7,2) S=(2, 3) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5108
+  (p,n)=(7,2) S=(2, 3) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5682
+  (p,n)=(5,3) S=(1, 2) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.0000
+  (p,n)=(5,3) S=(1, 2) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4055
+  (p,n)=(5,3) S=(1, 2) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4914
+  (p,n)=(5,3) S=(1,) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.0000
+  (p,n)=(5,3) S=(1,) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4055
+  (p,n)=(5,3) S=(1,) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4914
+  (p,n)=(5,3) S=(2,) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = -0.0000
+  (p,n)=(5,3) S=(2,) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4055
+  (p,n)=(5,3) S=(2,) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4914
+  (p,n)=(11,2) S=(1, 2, 3, 4, 5) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = -0.0000
+  (p,n)=(11,2) S=(1, 2, 3, 4, 5) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5108
+  (p,n)=(11,2) S=(1, 2, 3, 4, 5) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5682
+  (p,n)=(11,2) S=(1,) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = -0.0000
+  (p,n)=(11,2) S=(1,) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5108
+  (p,n)=(11,2) S=(1,) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5682
+  (p,n)=(11,2) S=(2, 3, 4, 5) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.0000
+  (p,n)=(11,2) S=(2, 3, 4, 5) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5108
+  (p,n)=(11,2) S=(2, 3, 4, 5) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.5682
+  (p,n)=(3,3) S=(1,) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.0000
+  (p,n)=(3,3) S=(1,) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4055
+  (p,n)=(3,3) S=(1,) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4914
+  (p,n)=(3,3) S=(1,) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.0000
+  (p,n)=(3,3) S=(1,) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4055
+  (p,n)=(3,3) S=(1,) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4914
+  (p,n)=(3,3) S=(1,) block: gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.0000
+  (p,n)=(3,3) S=(1,) wide : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4055
+  (p,n)=(3,3) S=(1,) mix  : gamma(.;1)/(B_p Gamma_1^S) = 1.000000000000;  H - [log nu + H(y)] = +0.4914
+== (B) Fourier coefficient of g(.,delta) at 2l 1_T for class-C networks ==
+  max |ghat(2l 1_T) - (1/2) conj(beta_(l,T)) (1 - rho^(-l d))| = 7.52e-16  (nonzero factor for d != 0)
+== (C) violating (i)/(ii)/(iii) lowers gamma(.;1) strictly ==
+  DC on one factor              : gamma/gamma_opt = 0.952361
+  leak plane                    : gamma/gamma_opt = 0.966076
+  unequal factor norms          : gamma/gamma_opt = 0.997973
+  rotate one atom phase         : gamma/gamma_opt = 0.893187
+  drop one neuron (interference): gamma/gamma_opt = 0.329571
+== (D) local maximisation at s=1 from random starts ((5,2), width 6 and 8) ==
+  (p,n,m)=(5,2,6) run 0: gamma/(B Gamma_1) = 0.000289, H - H^dec(1) = -0.3205
+  (p,n,m)=(5,2,6) run 1: gamma/(B Gamma_1) = -0.000056, H - H^dec(1) = -0.1644
+  (p,n,m)=(5,2,6) run 2: gamma/(B Gamma_1) = 0.756256, H - H^dec(1) = -0.1787
+  (p,n,m)=(5,2,6) run 3: gamma/(B Gamma_1) = -0.000119, H - H^dec(1) = -0.6447
+  (p,n,m)=(5,2,8) run 0: gamma/(B Gamma_1) = 0.912875, H - H^dec(1) = +0.1621
+  (p,n,m)=(5,2,8) run 1: gamma/(B Gamma_1) = 0.068391, H - H^dec(1) = -0.3115
+  (p,n,m)=(5,2,8) run 2: gamma/(B Gamma_1) = 0.001679, H - H^dec(1) = -0.1171
+  (p,n,m)=(5,2,8) run 3: gamma/(B Gamma_1) = 0.989640, H - H^dec(1) = +0.2524
+== (E) p=3 certified networks at s=1 (b = nu) ==
+  n=11: gamma(.;1)/(B_3 Gamma_1) = 0.138761 (<=1 required);  at b=2: gamma/gamma_IF = 1.054399
+  n=13: gamma(.;1)/(B_3 Gamma_1) = 0.147224 (<=1 required);  at b=2: gamma/gamma_IF = 1.109163

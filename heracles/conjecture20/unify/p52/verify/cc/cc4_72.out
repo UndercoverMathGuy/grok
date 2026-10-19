@@ -1,0 +1,34 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+vertex lemma (closed form minus grid min over mu; must be <= ~0): 0.0
+s=1.0: sup of the closed-form bound = 0.789071 at tau=0.6431 x1=-0.0001 x2=-0.0001 inf=(False, False)
+s=1.1: sup of the closed-form bound = 0.898014 at tau=0.6431 x1=1.0000 x2=0.6560 inf=(False, False)
+s=1.15: sup of the closed-form bound = 0.957336 at tau=0.6431 x1=1.0000 x2=0.6560 inf=(False, False)
+s=1.175: sup of the closed-form bound = 0.988279 at tau=0.6431 x1=1.0000 x2=0.6560 inf=(False, False)
+s=1.18: sup of the closed-form bound = 0.994573 at tau=0.6431 x1=1.0000 x2=0.6560 inf=(False, False)
+s=1.182: sup of the closed-form bound = 0.997087 at tau=0.6431 x1=0.9998 x2=0.6560 inf=(False, False)
+s=1.19: sup of the closed-form bound = 1.007267 at tau=0.6431 x1=1.0000 x2=0.6560 inf=(False, False)
+s=1.2: sup of the closed-form bound = 1.020104 at tau=0.6431 x1=1.0000 x2=0.6560 inf=(False, False)
+Part B: 0 enclosure failures over 150 random tiny boxes; max(box - point) = 5.32e-07
+random+DC    A=[0.1113 0.3655] x=[3.362 0.846] | s=1.0: ratio=-3.5991 bound=0.3917 R12viol=0 R13slack=+4.91e+00 | s=1.1: ratio=-3.7564 bound=0.4512 R12viol=0 R13slack=+5.33e+00 | s=1.182: ratio=-3.8840 bound=0.5065 R12viol=0 R13slack=+5.70e+00
+random+DC    A=[0.1421 0.2156] x=[1.316 1.019] | s=1.0: ratio=-1.9800 bound=0.6096 R12viol=0 R13slack=+3.84e+00 | s=1.1: ratio=-2.0392 bound=0.7087 R12viol=0 R13slack=+4.21e+00 | s=1.182: ratio=-2.0880 bound=0.8019 R12viol=0 R13slack=+4.54e+00
+random+DC    A=[0.4118 0.2046] x=[0.567 1.175] | s=1.0: ratio=-1.6749 bound=0.5324 R12viol=0 R13slack=+4.66e+00 | s=1.1: ratio=-1.7077 bound=0.6021 R12viol=0 R13slack=+5.17e+00 | s=1.182: ratio=-1.7335 bound=0.6650 R12viol=0 R13slack=+5.63e+00
+random+DC    A=[0.3139 0.011 ] x=[ 1.041 14.045] | s=1.0: ratio=-2.5442 bound=0.2343 R12viol=0 R13slack=+3.07e+00 | s=1.1: ratio=-2.6881 bound=0.2739 R12viol=0 R13slack=+3.29e+00 | s=1.182: ratio=-2.8085 bound=0.3112 R12viol=0 R13slack=+3.49e+00
+random+DC    A=[0.1988 0.0308] x=[1.332 1.296] | s=1.0: ratio=-3.6214 bound=0.3166 R12viol=0 R13slack=+1.50e+00 | s=1.1: ratio=-4.0261 bound=0.3786 R12viol=0 R13slack=+1.53e+00 | s=1.182: ratio=-4.3831 bound=0.4373 R12viol=0 R13slack=+1.55e+00
+random+DC    A=[0.0278 0.1916] x=[5.818 0.804] | s=1.0: ratio=-2.6241 bound=0.3032 R12viol=0 R13slack=+2.65e+00 | s=1.1: ratio=-2.8996 bound=0.3483 R12viol=0 R13slack=+2.69e+00 | s=1.182: ratio=-3.1407 bound=0.3899 R12viol=0 R13slack=+2.73e+00
+random+DC    A=[0.0715 0.1398] x=[2.703 3.631] | s=1.0: ratio=-3.9236 bound=0.0000 R12viol=0 R13slack=+4.57e+00 | s=1.1: ratio=-4.0430 bound=0.0000 R12viol=0 R13slack=+5.04e+00 | s=1.182: ratio=-4.1356 bound=0.0000 R12viol=0 R13slack=+5.47e+00
+random+DC    A=[0.042 0.111] x=[4.593 1.383] | s=1.0: ratio=-4.2802 bound=0.1630 R12viol=0 R13slack=+2.49e+00 | s=1.1: ratio=-4.5763 bound=0.1896 R12viol=0 R13slack=+2.63e+00 | s=1.182: ratio=-4.8300 bound=0.2146 R12viol=0 R13slack=+2.75e+00
+random+DC    A=[0.3028 0.2044] x=[1.103 2.401] | s=1.0: ratio=-1.8354 bound=0.3174 R12viol=0 R13slack=+4.07e+00 | s=1.1: ratio=-1.8644 bound=0.3695 R12viol=0 R13slack=+4.59e+00 | s=1.182: ratio=-1.8876 bound=0.4185 R12viol=0 R13slack=+5.05e+00
+random+DC    A=[0.108  0.3484] x=[2.08  1.085] | s=1.0: ratio=-2.6166 bound=0.4437 R12viol=0 R13slack=+3.05e+00 | s=1.1: ratio=-2.7630 bound=0.5173 R12viol=0 R13slack=+3.28e+00 | s=1.182: ratio=-2.8841 bound=0.5864 R12viol=0 R13slack=+3.49e+00
+random+DC    A=[0.0346 0.3515] x=[7.501 1.456] | s=1.0: ratio=-2.0761 bound=0.1689 R12viol=0 R13slack=+3.12e+00 | s=1.1: ratio=-2.1888 bound=0.1973 R12viol=0 R13slack=+3.39e+00 | s=1.182: ratio=-2.2830 bound=0.2240 R12viol=0 R13slack=+3.62e+00
+random+DC    A=[0.0637 0.2801] x=[3.318 0.96 ] | s=1.0: ratio=-2.6254 bound=0.3951 R12viol=0 R13slack=+3.12e+00 | s=1.1: ratio=-2.8042 bound=0.4585 R12viol=0 R13slack=+3.31e+00 | s=1.182: ratio=-2.9571 bound=0.5177 R12viol=0 R13slack=+3.46e+00
+random       A=[0.0753 0.1942] x=[0.871 0.756] | s=1.0: ratio=-2.3524 bound=0.6879 R12viol=0 R13slack=+2.91e+00 | s=1.1: ratio=-2.4745 bound=0.7878 R12viol=0 R13slack=+3.11e+00 | s=1.182: ratio=-2.5767 bound=0.8784 R12viol=0 R13slack=+3.29e+00
+random       A=[0.2309 0.2874] x=[3.43  1.421] | s=1.0: ratio=-1.5049 bound=0.1019 R12viol=0 R13slack=+6.17e+00 | s=1.1: ratio=-1.5440 bound=0.1190 R12viol=0 R13slack=+6.87e+00 | s=1.182: ratio=-1.5738 bound=0.1350 R12viol=0 R13slack=+7.50e+00
+random       A=[0.087  0.1914] x=[1.35 1.52] | s=1.0: ratio=-2.2094 bound=0.3256 R12viol=0 R13slack=+3.43e+00 | s=1.1: ratio=-2.3390 bound=0.3816 R12viol=0 R13slack=+3.66e+00 | s=1.182: ratio=-2.4463 bound=0.4343 R12viol=0 R13slack=+3.87e+00
+random       A=[0.0561 0.1033] x=[8.613 1.246] | s=1.0: ratio=-1.5992 bound=0.0000 R12viol=0 R13slack=+1.84e+00 | s=1.1: ratio=-1.7167 bound=0.0000 R12viol=0 R13slack=+1.97e+00 | s=1.182: ratio=-1.8175 bound=0.0000 R12viol=0 R13slack=+2.08e+00
+IFpair+0.0   A=[0.75 0.75] x=[0. 0.] | s=1.0: ratio=+0.6853 bound=0.6853 R12viol=0 R13slack=+2.22e-16 | s=1.1: ratio=+0.7137 bound=0.7137 R12viol=0 R13slack=+2.22e-16 | s=1.182: ratio=+0.7378 bound=0.7378 R12viol=0 R13slack=+2.00e-15
+IFpair+0.05  A=[0.7614 0.7455] x=[0.04  0.045] | s=1.0: ratio=+0.5106 bound=0.6815 R12viol=0 R13slack=+1.07e-02 | s=1.1: ratio=+0.5318 bound=0.7129 R12viol=0 R13slack=+1.86e-02 | s=1.182: ratio=+0.5498 bound=0.7394 R12viol=0 R13slack=+2.53e-02
+IFpair+0.3   A=[0.8112 1.03  ] x=[0.197 0.147] | s=1.0: ratio=-0.1867 bound=0.7284 R12viol=0 R13slack=+5.40e-01 | s=1.1: ratio=-0.1944 bound=0.7726 R12viol=0 R13slack=+6.14e-01 | s=1.182: ratio=-0.2009 bound=0.8099 R12viol=0 R13slack=+6.79e-01
+opt s=1.0    A=[0.0026 0.0047] x=[0. 0.] | s=1.0: ratio=+0.7891 bound=0.7891 R12viol=0 R13slack=+2.07e-13 | s=1.1: ratio=+0.8234 bound=0.8248 R12viol=0 R13slack=+1.37e-05 | s=1.182: ratio=+0.8519 bound=0.8550 R12viol=0 R13slack=+2.97e-05
+opt s=1.1    A=[0.0022 0.004 ] x=[0. 0.] | s=1.0: ratio=+0.7891 bound=0.7891 R12viol=0 R13slack=+9.31e-14 | s=1.1: ratio=+0.8248 bound=0.8248 R12viol=0 R13slack=+8.13e-13 | s=1.182: ratio=+0.8550 bound=0.8550 R12viol=0 R13slack=+3.94e-12
+opt s=1.182  A=[0.0019 0.0034] x=[0. 0.] | s=1.0: ratio=+0.7891 bound=0.7891 R12viol=0 R13slack=+5.50e-13 | s=1.1: ratio=+0.8248 bound=0.8248 R12viol=0 R13slack=+2.83e-12 | s=1.182: ratio=+0.8550 bound=0.8550 R12viol=0 R13slack=+1.18e-11
+Part C: networks=22 violations=0 max ratio=0.8550  time=53s

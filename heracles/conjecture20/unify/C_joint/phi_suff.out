@@ -1,0 +1,2 @@
+upper slack min: (np.float64(2.0042878489702487e-13), (1, np.float64(0.0001), np.float64(0.999999999)))
+lower slack min: (np.float64(0.0002), (1, np.float64(0.0001), np.float64(0.0)))

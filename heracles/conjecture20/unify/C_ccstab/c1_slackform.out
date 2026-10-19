@@ -1,0 +1,17 @@
+random networks (general and frequency-pure), cases [(5, 2, 2.0, 6), (7, 2, 2.5, 9), (5, 3, 2.0, 8), (3, 2, 2.2, 4), (11, 2, 2.0, 7), (7, 3, 3.0, 6)]
+max rel err identity            : 8.488090162739472e-16
+max |dint - min_delta sbar_sym/N|: 1.7763568394002505e-15
+max |dprog - (mean-min)sbar/N|   : 1.2715523078909996e-15
+max rel err slack Parseval        : 1.2528903575566231e-15
+IF (5, 2, 2.0) dint=1.38e-15 dprog=0.0000  max_x-var of slack=2.63e-31
+IF (11, 2, 2.0) dint=1.56e-15 dprog=0.3162  max_x-var of slack=3.76e-30
+IF (7, 3, 2.0) dint=4.10e-15 dprog=0.2109  max_x-var of slack=9.31e-30
+
+S2 joint detection (every network) and the class-C spike bound:
+  min [2(1-1/p) smax N D' - sum E]/N^2  (>=0) = 0.9018539078316404
+  min [2^{n+2} N/Gamma_1 - smax]/N       (>=0) = 7.6782876377353055
+  smallest observed D' N^2 / sum E on class-C samples = 3.9341713088286347
+
+S2' uniform-offset variance identity (general networks) and single-offset off-diagonal size:
+  max rel err of the uniform-offset identity = 5.802702073262712e-16
+  max rel deviation of E_x F_delta^2 from sum kappa E on general networks = 0.7023663532825652 (nonzero: cross terms)

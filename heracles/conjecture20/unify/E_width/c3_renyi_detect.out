@@ -1,0 +1,5 @@
+(R) Renyi identity max error 8.9e-16; integral of cost-share entropy = (s-1) H_(1/s): max error 6.7e-16
+(D) identity sum_delta rho^(j delta) E[g rho^-<chi,x>] = -(p/2) phi_j(chi): max rel error 5.1e-15
+(D) convex-end bound h - (p/(p-1))[sum Re beta - M/2]: max over 90 networks = -2.367e-01 (must be <= 0)
+(X) split exchange identity at b=2: max error 1.8e-15; P_2 equal, clean atoms equal
+(O) single neuron: max normalised margin found over random + optimised single neurons = -9.062e-11 (theorem: <= 0)

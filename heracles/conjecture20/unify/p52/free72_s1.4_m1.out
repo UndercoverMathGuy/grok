@@ -1,0 +1,5 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+start 0: 0.98249  best 0.98249
+start 1: 1.08550  best 1.08550
+start 2: 1.00762  best 1.08550
+s=1.4 Gamma7=0.75179: free-relaxation sup (two features, 1 atoms each) >= 1.08550

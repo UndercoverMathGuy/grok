@@ -1,0 +1,10 @@
+[rounded] h = 206.6068869298; class C labels [np.int64(1), np.int64(1), np.int64(2), np.int64(2), np.int64(2), np.int64(2), np.int64(2)]; |beta| = [3.39765926e-02 3.02675997e+02]; P = [   1.98253747 1268.53818901]; binding offsets [np.int64(2), np.int64(3)]
+[rounded] CD ratio = 0.9415955117; cheapness Re beta_l/(pi B P_l^s) = [1.7320491  0.95331051]
+[rounded]  delta=2: Shapley charge/price = 2.39361071; argmin charge/price = 6.26635127; relative gap between 1st and 2nd smallest g(.,+-delta): 5.24e-04, 1.94e-03; v(1)=0.11395 v(2)=1.92901 v(12)=1.76810
+[rounded]  delta=3: Shapley charge/price = 2.39361071; argmin charge/price = 6.26635127; relative gap between 1st and 2nd smallest g(.,+-delta): 1.94e-03, 5.24e-04; v(1)=0.11395 v(2)=1.92901 v(12)=1.76810
+rounded network: max relative off-plane (other frequency or DC) amplitude = 1.67e-10
+[unrounded-projected] h = 206.6068868990; class C labels [np.int64(1), np.int64(1), np.int64(2), np.int64(2), np.int64(2), np.int64(2), np.int64(2)]; |beta| = [3.39765926e-02 3.02675997e+02]; P = [   1.98253747 1268.53818901]; binding offsets [np.int64(2), np.int64(3)]
+[unrounded-projected] CD ratio = 0.9415955115; cheapness Re beta_l/(pi B P_l^s) = [1.7320491  0.95331051]
+[unrounded-projected]  delta=2: Shapley charge/price = 2.39361071; argmin charge/price = 6.26635127; relative gap between 1st and 2nd smallest g(.,+-delta): 5.24e-04, 1.94e-03; v(1)=0.11395 v(2)=1.92901 v(12)=1.76810
+[unrounded-projected]  delta=3: Shapley charge/price = 2.39361071; argmin charge/price = 6.26635127; relative gap between 1st and 2nd smallest g(.,+-delta): 1.94e-03, 5.24e-04; v(1)=0.11395 v(2)=1.92901 v(12)=1.76810
+exact margin of the stored (rounded) network: 206.606886929798 > 0: True

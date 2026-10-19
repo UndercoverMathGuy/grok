@@ -1,0 +1,20 @@
+s=1.5 uniform q=16: certified=True eta=0.001 rho_q <= 0.8206 (threshold 0.8165, NOT below) x_s=1.37e-01 cells=583 min cell lower bound=3.42e-03 |spt b'|=5 maxfreq=16
+s=1.5 uniform q=17: certified=True eta=0.001 rho_q <= 0.8009 (threshold 0.8165, OK) x_s=1.23e-01 cells=589 min cell lower bound=2.65e-03 |spt b'|=5 maxfreq=16
+s=1.5 uniform q=18: certified=True eta=0.001 rho_q <= 0.7867 (threshold 0.8165, OK) x_s=2.41e-02 cells=671 min cell lower bound=1.60e-03 |spt b'|=7 maxfreq=21
+s=1.5 uniform q=19: certified=True eta=0.001 rho_q <= 0.7592 (threshold 0.8165, OK) x_s=9.66e-03 cells=717 min cell lower bound=1.82e-04 |spt b'|=5 maxfreq=54
+s=1.5 uniform q=20: certified=True eta=0.001 rho_q <= 0.7501 (threshold 0.8165, OK) x_s=7.67e-03 cells=729 min cell lower bound=8.76e-05 |spt b'|=5 maxfreq=49
+s=1.5 uniform q=21: certified=True eta=0.001 rho_q <= 0.7581 (threshold 0.8165, OK) x_s=7.38e-03 cells=731 min cell lower bound=9.55e-05 |spt b'|=5 maxfreq=21
+s=1.5 uniform q=22: certified=True eta=0.001 rho_q <= 0.7406 (threshold 0.8165, OK) x_s=6.95e-03 cells=738 min cell lower bound=9.34e-05 |spt b'|=5 maxfreq=21
+s=1.5 uniform q=23: certified=True eta=0.001 rho_q <= 0.7463 (threshold 0.8165, OK) x_s=6.64e-03 cells=743 min cell lower bound=9.70e-05 |spt b'|=5 maxfreq=22
+s=1.5 uniform q=24: certified=True eta=0.001 rho_q <= 0.7290 (threshold 0.8165, OK) x_s=2.64e-02 cells=673 min cell lower bound=3.18e-03 |spt b'|=6 maxfreq=49
+s=1.5 uniform q=25: certified=True eta=0.001 rho_q <= 0.7289 (threshold 0.8165, OK) x_s=6.10e-03 cells=753 min cell lower bound=1.04e-04 |spt b'|=7 maxfreq=22
+s=1.5 uniform q=26: certified=True eta=0.001 rho_q <= 0.7128 (threshold 0.8165, OK) x_s=1.22e-02 cells=714 min cell lower bound=2.30e-03 |spt b'|=6 maxfreq=49
+s=1.5 uniform q=28: certified=True eta=0.001 rho_q <= 0.7057 (threshold 0.8165, OK) x_s=5.88e-03 cells=755 min cell lower bound=1.60e-04 |spt b'|=7 maxfreq=22
+s=1.5 uniform q=30: certified=True eta=0.001 rho_q <= 0.6819 (threshold 0.8165, OK) x_s=7.38e-03 cells=749 min cell lower bound=6.02e-04 |spt b'|=8 maxfreq=36
+s=1.5 uniform q=32: certified=True eta=0.001 rho_q <= 0.6981 (threshold 0.8165, OK) x_s=3.21e-02 cells=669 min cell lower bound=5.92e-03 |spt b'|=7 maxfreq=49
+s=1.5 uniform q=36: certified=True eta=0.001 rho_q <= 0.6795 (threshold 0.8165, OK) x_s=3.01e-02 cells=674 min cell lower bound=4.32e-03 |spt b'|=7 maxfreq=70
+s=1.5 uniform q=40: certified=True eta=0.001 rho_q <= 0.6446 (threshold 0.8165, OK) x_s=2.06e-02 cells=697 min cell lower bound=1.94e-03 |spt b'|=7 maxfreq=49
+s=1.5 uniform q=44: certified=True eta=0.001 rho_q <= 0.6428 (threshold 0.8165, OK) x_s=3.61e-02 cells=680 min cell lower bound=1.06e-03 |spt b'|=8 maxfreq=54
+s=1.5 uniform q=48: certified=True eta=0.001 rho_q <= 0.6454 (threshold 0.8165, OK) x_s=2.18e-02 cells=693 min cell lower bound=1.71e-03 |spt b'|=6 maxfreq=70
+s=1.5 uniform q=56: certified=True eta=0.001 rho_q <= 0.7396 (threshold 0.8165, OK) x_s=2.11e-02 cells=803 min cell lower bound=4.35e-04 |spt b'|=14 maxfreq=184
+s=1.5 uniform q=64: certified=True eta=0.003 rho_q <= 0.7622 (threshold 0.8165, OK) x_s=1.12e-02 cells=1046 min cell lower bound=6.39e-04 |spt b'|=20 maxfreq=381

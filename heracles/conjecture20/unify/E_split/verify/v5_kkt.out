@@ -1,0 +1,18 @@
+(p,n,b)=(5,2,2.5) IF network: gamma/gamma_IF = 1.00000000, |A| = 100, KKT LP residual = 0.00e+00
+   same network with block 1 rescaled x1.3 (not stationary): KKT LP residual = 6.74e-02
+   share floor check: min w = 0.1667 >= floor 1.61e-08: True
+(p,n,b)=(7,2,2.2) IF network: gamma/gamma_IF = 1.00000000, |A| = 294, KKT LP residual = 0.00e+00
+   same network with block 1 rescaled x1.3 (not stationary): KKT LP residual = 8.72e-02
+   share floor check: min w = 0.1111 >= floor 3.18e-06: True
+(p,n,b)=(5,3,3.2) IF network: gamma/gamma_IF = 1.00000000, |A| = 500, KKT LP residual = 0.00e+00
+   same network with block 1 rescaled x1.3 (not stationary): KKT LP residual = 4.42e-02
+   share floor check: min w = 0.1250 >= floor 3.05e-09: True
+== p=3 certified networks (b=2): KKT on near-argmin set ==
+  n=11: tol 1e-06: |A_tol| = 1, KKT LP residual max_i|E_q g_i/h - w_i| = 9.74e+02  (w_i range 0.1239-0.1266)
+  n=11: tol 1e-04: |A_tol| = 1, KKT LP residual max_i|E_q g_i/h - w_i| = 9.74e+02  (w_i range 0.1239-0.1266)
+  n=11: tol 1e-03: |A_tol| = 1, KKT LP residual max_i|E_q g_i/h - w_i| = 9.74e+02  (w_i range 0.1239-0.1266)
+  n=11: share floor (if it were a maximiser) 1.064e-02 <= min w 0.1239: True
+  n=13: tol 1e-06: |A_tol| = 1, KKT LP residual max_i|E_q g_i/h - w_i| = 1.73e+04  (w_i range 0.0986-0.1005)
+  n=13: tol 1e-04: |A_tol| = 1, KKT LP residual max_i|E_q g_i/h - w_i| = 1.73e+04  (w_i range 0.0986-0.1005)
+  n=13: tol 1e-03: |A_tol| = 1, KKT LP residual max_i|E_q g_i/h - w_i| = 1.73e+04  (w_i range 0.0986-0.1005)
+  n=13: share floor (if it were a maximiser) 9.613e-03 <= min w 0.0986: True

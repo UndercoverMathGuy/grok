@@ -1,0 +1,5 @@
+n=9: arc m=6 Delta=2pi/(1.38n+2): ratio(with IF price, beta=G^-1 1) = 0.99612  IF-free sqrt(2Xi) = 1.40048  IF/A = 0.2887  L/A = 2.5525  E/A^2 = 1.0197
+n=13: arc m=9 Delta=2pi/(1.38n+2): ratio(with IF price, beta=G^-1 1) = 1.19581  IF-free sqrt(2Xi) = 1.58007  IF/A = 0.2432  L/A = 4.6926  E/A^2 = 0.80108
+n=17: arc m=13 Delta=2pi/(1.3n+2): ratio(with IF price, beta=G^-1 1) = 1.38779  IF-free sqrt(2Xi) = 2.00159  IF/A = 0.3067  L/A = 6.9025  E/A^2 = 0.49921
+n=20: arc m=15 Delta=2pi/(1.3n+2): ratio(with IF price, beta=G^-1 1) = 1.49756  IF-free sqrt(2Xi) = 1.87778  IF/A = 0.2025  L/A = 9.486  E/A^2 = 0.56721
+n=24: arc m=18 Delta=2pi/(1.3n+2): ratio(with IF price, beta=G^-1 1) = 1.60925  IF-free sqrt(2Xi) = 1.89709  IF/A = 0.1517  L/A = 15.718  E/A^2 = 0.55572

@@ -1,0 +1,23 @@
+L2: intervals S={1..K} with Rudin-Shapiro signs
+  K=8: sup|RS poly| = 4.00 <= sqrt(2K) = 4.00; (1/2)osc = 3.74; sum s_l(delta=62500) = 5.6 = 0.697 K; sigma_delta <= 0.6704
+  K=32: sup|RS poly| = 8.00 <= sqrt(2K) = 8.00; (1/2)osc = 7.91; sum s_l(delta=15625) = 20.9 = 0.652 K; sigma_delta <= 0.3792
+  K=128: sup|RS poly| = 16.00 <= sqrt(2K) = 16.00; (1/2)osc = 15.78; sum s_l(delta=3906) = 82.0 = 0.640 K; sigma_delta <= 0.1925
+  K=512: sup|RS poly| = 32.00 <= sqrt(2K) = 32.00; (1/2)osc = 31.98; sum s_l(delta=977) = 326.5 = 0.638 K; sigma_delta <= 0.0979
+  K=2048: sup|RS poly| = 64.00 <= sqrt(2K) = 64.00; (1/2)osc = 63.92; sum s_l(delta=244) = 1303.9 = 0.637 K; sigma_delta <= 0.0490
+L3: R8a family
+  n=2: max |beta_T - target| = 1.2e-16  (P = A(1 + z_1...z_n))
+  n=3: max |beta_T - target| = 7.6e-16  (P = A(1 + z_1...z_n))
+  n=4: max |beta_T - target| = 3.7e-16  (P = A(1 + z_1...z_n))
+  n=5: max |beta_T - target| = 5.6e-16  (P = A(1 + z_1...z_n))
+  n=6: max |beta_T - target| = 1.7e-15  (P = A(1 + z_1...z_n))
+  n=7: max |beta_T - target| = 7.5e-16  (P = A(1 + z_1...z_n))
+  b=2 n=4: gain/A = 0.2845; required C >= gain / R^n at R=1/2: 4.551
+  b=2 n=8: gain/A = 0.3378; required C >= gain / R^n at R=1/2: 86.49
+  b=2 n=16: gain/A = 0.3654; required C >= gain / R^n at R=1/2: 2.394e+04
+  b=2 n=32: gain/A = 0.3793; required C >= gain / R^n at R=1/2: 1.629e+09
+  b=2 n=64: gain/A = 0.3864; required C >= gain / R^n at R=1/2: 7.127e+18
+Bohr-type illustration, multi-affine degree 2: ratio sum|c_T| / sup_{T^n} |sum c_T z^T| (random signs)
+  n=4: sum|c|/sup ~ 1.34 (sqrt(n) = 2.00)
+  n=8: sum|c|/sup ~ 1.79 (sqrt(n) = 2.83)
+  n=16: sum|c|/sup ~ 2.47 (sqrt(n) = 4.00)
+  n=32: sum|c|/sup ~ 3.37 (sqrt(n) = 5.66)

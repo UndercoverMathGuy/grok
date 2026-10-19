@@ -1,0 +1,22 @@
+lm_p5_n2_b2.0_k1.npz (b=2.0): gamma/gIF=0.8370; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.647, 0.984, 0.976]; l=2: [0.353, 1.096, 1.051];  M of non-features: 0.000
+lm_p5_n2_b2.0_k4.npz (b=2.0): gamma/gIF=0.8348; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.336, 1.112, 1.062]; l=2: [0.664, 0.981, 0.978];  M of non-features: 0.000
+lm_p5_n3_b2.0_k0.npz (b=2.0): gamma/gIF=0.9045; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.500, 1.000, 1.000]; l=2: [0.500, 1.000, 1.000];  M of non-features: 0.000
+lm_p5_n3_b2.0_k1.npz (b=2.0): gamma/gIF=0.5398; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.495, 1.035, 0.960]; l=2: [0.505, 1.080, 0.985];  M of non-features: 0.000
+lm_p5_n3_b2.0_k2.npz (b=2.0): gamma/gIF=0.7653; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.329, 1.234, 1.083]; l=2: [0.671, 0.971, 0.976];  M of non-features: 0.000
+lm_p5_n3_b2.0_k3.npz (b=2.0): gamma/gIF=0.9045; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.500, 1.000, 1.000]; l=2: [0.500, 1.000, 1.000];  M of non-features: 0.000
+lm_p5_n3_b2.0_k4.npz (b=2.0): gamma/gIF=0.9045; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.500, 1.000, 1.000]; l=2: [0.500, 1.000, 1.000];  M of non-features: 0.000
+lm_p5_n3_b2.0_k5.npz (b=2.0): gamma/gIF=0.7653; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.332, 1.230, 1.077]; l=2: [0.668, 0.973, 0.976];  M of non-features: 0.000
+lm_p5_n3_b2.0_k6.npz (b=2.0): gamma/gIF=0.7653; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.329, 1.234, 1.083]; l=2: [0.671, 0.971, 0.976];  M of non-features: 0.000
+lm_p5_n3_b2.0_k7.npz (b=2.0): gamma/gIF=0.7653; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.671, 0.971, 0.976]; l=2: [0.329, 1.234, 1.083];  M of non-features: 0.000
+lm_p5_n3_b2.6_k0.npz (b=2.6): gamma/gIF=0.8029; per feature [cost share, cheapness G_l, Xi_l]: l=2: [1.000, 1.000, 1.000];  M of non-features: 0.000
+lm_p5_n3_b2.6_k1.npz (b=2.6): gamma/gIF=0.8029; per feature [cost share, cheapness G_l, Xi_l]: l=1: [1.000, 1.000, 1.000];  M of non-features: 0.000
+lm_p5_n3_b2.6_k4.npz (b=2.6): gamma/gIF=0.7857; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.694, 0.992, 0.986]; l=2: [0.306, 1.113, 1.052];  M of non-features: 0.000
+lm_p7_n2_b2.0_k0.npz (b=2.0): gamma/gIF=0.8743; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.333, 1.084, 1.016]; l=2: [0.333, 1.084, 1.016]; l=3: [0.333, 1.084, 1.016];  M of non-features: 0.000
+lm_p7_n2_b2.0_k1.npz (b=2.0): gamma/gIF=0.7524; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.320, 1.158, 1.079]; l=2: [0.647, 0.978, 0.979]; l=3: [0.034, 0.099, 1.752];  M of non-features: 0.000
+lm_p7_n2_b2.0_k2.npz (b=2.0): gamma/gIF=0.9801; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.597, 1.000, 1.000]; l=3: [0.403, 1.000, 1.000];  M of non-features: 0.000
+lm_p7_n2_b2.0_k3.npz (b=2.0): gamma/gIF=0.9801; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.403, 1.000, 1.000]; l=2: [0.597, 1.000, 1.000];  M of non-features: 0.000
+lm_p7_n2_b2.0_k4.npz (b=2.0): gamma/gIF=0.8418; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.285, 1.154, 1.034]; l=2: [0.282, 1.074, 1.023]; l=3: [0.433, 0.984, 0.984];  M of non-features: 0.000
+lm_p7_n2_b2.0_k5.npz (b=2.0): gamma/gIF=0.9801; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.597, 1.000, 1.000]; l=3: [0.403, 1.000, 1.000];  M of non-features: 0.000
+lm_p7_n2_b2.0_k6.npz (b=2.0): gamma/gIF=0.5604; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.106, 1.339, 1.147]; l=2: [0.776, 0.986, 0.978]; l=3: [0.118, 1.465, 1.331];  M of non-features: 0.000
+lm_p7_n2_b2.0_k7.npz (b=2.0): gamma/gIF=0.9801; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.597, 1.000, 1.000]; l=3: [0.403, 1.000, 1.000];  M of non-features: 0.000
+viol_p5_n2_b2.npz (b=2.0): gamma/gIF=0.7902; per feature [cost share, cheapness G_l, Xi_l]: l=1: [0.748, 0.987, 0.985]; l=2: [0.252, 1.170, 1.078];  M of non-features: 0.000

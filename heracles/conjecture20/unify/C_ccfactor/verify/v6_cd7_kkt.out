@@ -1,0 +1,24 @@
+=== (a) CC7 construction
+  (5,2,2.0) j=1 l=2 k=2 d0=2 eps=0.3: binding [np.int64(2), np.int64(3)] (expect [2, 3]); CD ratio 0.836059; predicted pair term 0.836059; DU ratio min(m(+-l))/(pi kappa_1(l)) = 0.4550
+  (5,2,2.0) j=1 l=2 k=2 d0=2 eps=0.05: binding [np.int64(2), np.int64(3)] (expect [2, 3]); CD ratio 0.984500; predicted pair term 0.984500; DU ratio min(m(+-l))/(pi kappa_1(l)) = 0.4550
+  (5,2,2.0) j=1 l=2 k=2 d0=2 eps=0.01: binding [np.int64(2), np.int64(3)] (expect [2, 3]); CD ratio 0.998577; predicted pair term 0.998577; DU ratio min(m(+-l))/(pi kappa_1(l)) = 0.4550
+  (5,2,2.0) j=2 l=2 k=1 d0=1 eps=0.3: binding [np.int64(1), np.int64(4)] (expect [1, 4]); CD ratio 0.836059; predicted pair term 0.836059; DU ratio min(m(+-l))/(pi kappa_1(l)) = 0.4550
+  (5,2,2.0) j=2 l=2 k=1 d0=1 eps=0.05: binding [np.int64(1), np.int64(4)] (expect [1, 4]); CD ratio 0.984500; predicted pair term 0.984500; DU ratio min(m(+-l))/(pi kappa_1(l)) = 0.4550
+  (5,2,2.0) j=2 l=2 k=1 d0=1 eps=0.01: binding [np.int64(1), np.int64(4)] (expect [1, 4]); CD ratio 0.998577; predicted pair term 0.998577; DU ratio min(m(+-l))/(pi kappa_1(l)) = 0.4550
+  (7,3,2.0) j=1 l=2 k=3 d0=2 eps=0.3: binding [np.int64(2), np.int64(5)] (expect [2, 5]); CD ratio 0.743298; predicted pair term 0.743298; DU ratio min(m(+-l))/(pi kappa_1(l)) = -0.1351
+  (7,3,2.0) j=1 l=2 k=3 d0=2 eps=0.05: binding [np.int64(2), np.int64(5)] (expect [2, 5]); CD ratio 0.990860; predicted pair term 0.990860; DU ratio min(m(+-l))/(pi kappa_1(l)) = -0.1351
+  (7,3,2.0) j=1 l=2 k=3 d0=2 eps=0.01: binding [np.int64(2), np.int64(5)] (expect [2, 5]); CD ratio 0.999632; predicted pair term 0.999632; DU ratio min(m(+-l))/(pi kappa_1(l)) = -0.1351
+  (7,3,2.0) j=2 l=3 k=3 d0=5 eps=0.3: binding [np.int64(2), np.int64(5)] (expect [2, 5]); CD ratio 0.708178; predicted pair term 0.708178; DU ratio min(m(+-l))/(pi kappa_1(l)) = 0.0660
+  (7,3,2.0) j=2 l=3 k=3 d0=5 eps=0.05: binding [np.int64(2), np.int64(5)] (expect [2, 5]); CD ratio 0.988357; predicted pair term 0.988357; DU ratio min(m(+-l))/(pi kappa_1(l)) = 0.0660
+  (7,3,2.0) j=2 l=3 k=3 d0=5 eps=0.01: binding [np.int64(2), np.int64(5)] (expect [2, 5]); CD ratio 0.999529; predicted pair term 0.999529; DU ratio min(m(+-l))/(pi kappa_1(l)) = 0.0660
+  (11,2,2.4) j=1 l=2 k=5 d0=2 eps=0.3: binding [np.int64(2), np.int64(9)] (expect [2, 9]); CD ratio -0.161925; predicted pair term -0.161925; DU ratio min(m(+-l))/(pi kappa_1(l)) = -1.5831
+  (11,2,2.4) j=1 l=2 k=5 d0=2 eps=0.05: binding [np.int64(2), np.int64(9)] (expect [2, 9]); CD ratio 0.793113; predicted pair term 0.793113; DU ratio min(m(+-l))/(pi kappa_1(l)) = -1.5831
+  (11,2,2.4) j=1 l=2 k=5 d0=2 eps=0.01: binding [np.int64(2), np.int64(9)] (expect [2, 9]); CD ratio 0.970266; predicted pair term 0.970266; DU ratio min(m(+-l))/(pi kappa_1(l)) = -1.5831
+  (11,2,2.4) j=2 l=5 k=4 d0=8 eps=0.3: binding [np.int64(3), np.int64(8)] (expect [3, 8]); CD ratio 0.231777; predicted pair term 0.231777; DU ratio min(m(+-l))/(pi kappa_1(l)) = -0.0485
+  (11,2,2.4) j=2 l=5 k=4 d0=8 eps=0.05: binding [np.int64(3), np.int64(8)] (expect [3, 8]); CD ratio 0.763122; predicted pair term 0.763122; DU ratio min(m(+-l))/(pi kappa_1(l)) = -0.0485
+  (11,2,2.4) j=2 l=5 k=4 d0=8 eps=0.01: binding [np.int64(3), np.int64(8)] (expect [3, 8]); CD ratio 0.960609; predicted pair term 0.960609; DU ratio min(m(+-l))/(pi kappa_1(l)) = -0.0485
+=== (b) CC3(iv) with NON-IF features: Pi_within >= own cone price c(theta_1) at random allocations
+  min over cases of Pi_within/c(theta_1) - 1 = 7.572e-14 (>= 0 required)
+=== (c) CC5: E_q g(T_i) = h a_i^r / P at a KKT point (E_kkt lm_p5_n2_b2.0_k0)
+  active constraints 100; KKT residual |G q - s(h/P) grad P| / |target| = 1.38e-09; sum q = 1.000000
+  E_q g(T_i) / (h a_i^r / P): min 1.000000 max 1.000000

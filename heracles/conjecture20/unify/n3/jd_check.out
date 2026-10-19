@@ -1,0 +1,4 @@
+p=5: min AA'/E over class-C-type profiles = 1.9321  vs guaranteed (3kap-zeta)/4 = 0.2977
+p=7: min AA'/E over class-C-type profiles = 3.0871  vs guaranteed (3kap-zeta)/4 = 0.3373
+p=11: min AA'/E over class-C-type profiles = 3.9830  vs guaranteed (3kap-zeta)/4 = 0.3851
+min normalised slack (must be >= 0): {'S1': np.float64(0.99027), 'S2': np.float64(0.71003), 'S3': np.float64(0.71058), 'S123': np.float64(0.82142), 'L1': np.float64(0.63322), 'L2': np.float64(0.87906), 'L3': np.float64(0.8781), 'L12': np.float64(0.62697), 'L13': np.float64(0.62664), 'L23': np.float64(1.21634)}

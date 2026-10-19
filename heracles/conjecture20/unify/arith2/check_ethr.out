@@ -1,0 +1,2 @@
+max h_model / [m(a)(1+tau'(c-sqrt(2/p))_+)] over 60 adversarial configs = 0.8404  (must be <= 1)
+max h_model / (Gamma ||a||) at p <= 59 = 0.5468  (must be <= 1)

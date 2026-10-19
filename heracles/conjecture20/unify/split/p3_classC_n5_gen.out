@@ -1,0 +1,5 @@
+Installed 30 packages in 183ms
+p=3 class C (gen) n=5 N=6: best gamma/gamma_IF = 0.923508   (27s)
+p=3 class C (gen) n=5 N=8: best gamma/gamma_IF = 0.643183   (51s)
+p=3 class C (gen) n=5 N=10: best gamma/gamma_IF = 0.437724   (86s)
+p=3 class C (gen) n=5: overall best 0.923508

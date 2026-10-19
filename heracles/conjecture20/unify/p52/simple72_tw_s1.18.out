@@ -1,0 +1,2 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+s=1.18: sup ratio with twisted payment curve = 0.97722 at A2/A1, M1, M2 = [1.8019 1.     1.1736];  F_tw table (x=0,0.2,..,1): [1.     0.9929 0.9637 0.918  0.8852 0.8206]

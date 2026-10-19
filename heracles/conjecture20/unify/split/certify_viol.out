@@ -1,0 +1,9 @@
+theta (mixed, width 6): h = +2.588972e+08 (exact rational), P = 14064794.157769
+   h / RHS(D_Q)     in [1.033200, 1.033200]
+   h / RHS(D_split) in [1.029689, 1.029689]
+   gamma/gamma_IF   in [0.790214, 0.790214]
+theta_split (class C, 12 pieces): h = +1.235799e+08 (exact rational), P = 14032884.749923
+   h / RHS(D_Q)     in [0.494862, 0.494862]
+   h / RHS(D_split) in [0.493181, 0.493181]
+   gamma/gamma_IF   in [0.378482, 0.378482]
+CERTIFIED: theta violates (D_Q) and (D_split): True ; gamma(theta) < gamma_IF: True ; split satisfies both: True

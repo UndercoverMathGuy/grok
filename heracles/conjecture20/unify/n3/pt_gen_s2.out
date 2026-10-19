@@ -1,0 +1,10 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+which=pt mode=gen s=2.0 N=1: best 0.750000
+which=pt mode=gen s=2.0 N=2: best 0.767385
+which=pt mode=gen s=2.0 N=3: best 0.824302
+which=pt mode=gen s=2.0 N=4: best 0.823464
+BEST which=pt mode=gen s=2.0 value=0.824302 N=3  single-atom: pt=0.750000 L2=0.283473
+  |beta_i|/|A| = [0.37165, 0.32634, 0.32687]
+  arg(beta_i/A) = [0.00115, 0.27628, -0.27718]
+  xi angles = [[3.8088, 2.7185, 5.2024], [5.2394, 4.1514, 0.3557], [2.3745, 1.2865, 3.7741]]
+  |beta_T|/|A| = {'1': 0.28156, '2': 0.28156, '3': 0.28156, '12': 0.28156, '13': 0.28155, '23': 0.28156, '123': 0.28156}

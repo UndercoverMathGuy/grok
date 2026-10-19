@@ -1,0 +1,4 @@
+p=347 n=2 s=1.5: Gamma_s >= 0.20118 (support 12), uniform efficiency e <= 0.3790, gamma/gamma_IF <= tau (1-2/sqrt p) e = 0.4143
+p=383 n=2 s=1.5: Gamma_s >= 0.20035 (support 12), uniform efficiency e <= 0.3621, gamma/gamma_IF <= tau (1-2/sqrt p) e = 0.3982
+p=443 n=3 s=2.0: Gamma_s >= 0.05964 (support 11), uniform efficiency e <= 0.0760, gamma/gamma_IF <= tau (1-2/sqrt p) e = 0.0918
+p=467 n=3 s=2.0: Gamma_s >= 0.06305 (support 10), uniform efficiency e <= 0.0682, gamma/gamma_IF <= tau (1-2/sqrt p) e = 0.0825

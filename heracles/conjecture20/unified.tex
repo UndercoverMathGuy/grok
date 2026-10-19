@@ -1,0 +1,221 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref,mathtools}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\Re}{\operatorname{Re}}
+\title{The feature count as one inequality:\\ a local payment and a global detection}
+\author{}
+\date{18 October 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The open cases of the feature-count theorem (relations, mixed slot-sets, compensation, $n\ge3$) are not different
+problems.  They are one inequality, split into two ingredients.  The \emph{local} ingredient bounds how much cheaper a single
+feature can be bought than its interference-free price, given its own sign-flipped coefficients.  It involves one feature's
+neurons only, is finite-dimensional and does not depend on $p$.  At $n=2$ it is known sharply.  The \emph{global} ingredient
+says that the interference a network carries shows up in its worst input, unless the network pays for hiding it.  All dependence
+on $p$, on the frequency set, on the other features and on compensation sits in this one statement.  We state both, prove that
+together they give the count for every $n,p,b$, check that every case of the earlier notes is an instance, and reduce the global
+ingredient in the compensation-free class to a single statement about real trigonometric polynomials on $\mathbb Z_p^n$.  References
+of the form ``Note, X'' are to \texttt{mechanism\_note.tex}.
+\end{abstract}
+
+\section{Setting}
+As in the Note: $p$ an odd prime, $n\ge2$ operands, $\nu=n+1$, $b\in[2,\nu]$, $s=\nu/b$, $r=1/s$, $\rho=e^{2\pi i/p}$,
+$F=\{1,\dots,\frac{p-1}2\}$, $\kappa_l(\delta)=1-\cos(2\pi l\delta/p)$, $c_l(\delta)=1-\rho^{-l\delta}$ (so $|c_l(\delta)|^2=2\kappa_l(\delta)$).
+A network $\theta$ has neurons $f_i(x)[c]=W_i[c]\prod_tu_{it}(x_t)$; $P=\|\theta\|_{2,b}^b$; $g(x,\delta)=f(x)[y(x)]-f(x)[y(x)-\delta]$ with
+$y(x)=\sum_tx_t$; $h(\theta)=\min_{x,\delta\ne0}g(x,\delta)$.  For $l\in F$: clean coefficient $\beta_l$ with atoms $\beta_{il}$,
+$Q_l=\sum_i|\beta_{il}|^r$, interference-free (IF) price $a_l=\nu^{1-s}Q_l^{\,s}$, cheap set $L'=\{l:|\beta_l|>a_l\}$.  For $\emptyset\ne T\subseteq[n]$,
+$\beta_{l,T}$ is the sign-flipped coefficient of feature $l$'s own atoms; it sits at the character $\chi_{l,T}=2l\mathbf 1_T\in\mathbb Z_p^n$
+(Note, Theorem~11 and Lemma~6 of the paper: this holds for arbitrary inputs).  $\Delta(\theta)$, $\mathcal M(\theta)$, $K_l(\mu)$, the unused
+budget $U(\theta)$ and the coverage gap $G(\theta)$ are as in the Note's section ``Architecture of a proof of the count''; in
+particular $U+G=\nu^{1-s}(C_bP)^s\Gamma_s(p)-\min_\delta\sum_la_l\kappa_l(\delta)\ge0$.
+
+\section{The statement}
+\begin{definition}[admissible payment]
+A function $\Pi=\Pi_{n,s}$ of a vector $(\beta_T)_{\emptyset\ne T\subseteq[n]}\in\mathbb C^{2^n-1}$ is an \emph{admissible payment} if for every
+finite atom system $(\beta_i,\xi_{it})$ (one feature; $A=\sum_i\beta_i$, $Q=\sum_i|\beta_i|^r$, $\beta_T=\sum_i\beta_i\prod_{t\in T}\xi_{it}$)
+\[(\mathrm L)\qquad \Re A-\nu^{1-s}Q^s\ \le\ \Pi\big((\beta_T)_T\big).\]
+\end{definition}
+By the paper's Lemma~6 every feature of every network is such an atom system, so $\Re\beta_l-a_l\le\Pi(\beta_{l,\cdot})$ for all $l$.
+(L) mentions one feature only; it does not depend on $p$, the width, or the other features.
+
+\begin{definition}[detection and the global ratio]
+For a network $\theta$ with $L'(\theta)\neq\emptyset$ and $\mu\in\mathcal M(\theta)$ put
+\[\mathrm{Det}_\mu(\theta)=\sum_\delta\mu_\delta\big(\mathbb E_xg(x,\delta)-\min_xg(x,\delta)\big),\qquad
+\mathrm{Pay}_\mu(\theta)=\sum_{l\in L'}K_l(\mu)\,\Pi(\beta_{l,\cdot}),\]
+\[R_\Pi(\theta)=\sup_{\mu\in\mathcal M(\theta)}\frac{\mathrm{Det}_\mu(\theta)+U(\theta)+G(\theta)}{\mathrm{Pay}_\mu(\theta)},\qquad
+\sigma^*_\Pi(n,p,b)=\inf\{R_\Pi(\theta):L'(\theta)\ne\emptyset\}.\]
+The \emph{global ingredient} is
+\[(\mathrm G)\qquad R_\Pi(\theta)>1\quad\text{for every network $\theta$ with a cheap feature.}\]
+\end{definition}
+
+\begin{theorem}[the two ingredients give the count]\label{thm:main}
+Fix $n,p,b$ and an admissible payment $\Pi$.  If (G) holds, then every global maximiser of the $L_{2,b}$-margin uses exactly
+$|\operatorname{spt}y^\star|$ features for some maximiser $y^\star$ of $\Gamma_s(p)$.  In particular this holds if $\sigma^*_\Pi(n,p,b)>1$.
+\end{theorem}
+\begin{proof}
+Let $\theta$ have a cheap feature.  By (G) pick $\mu$ with $\mathrm{Det}_\mu+U+G>\mathrm{Pay}_\mu$.  By (L), $\sum_l(\Re\beta_l-a_l)K_l(\mu)\le\mathrm{Pay}_\mu$
+(non-cheap features contribute $\le0$, and $K_l\ge0$).  Taking point masses at the minimisers of $g(\cdot,\delta)$ as tests in the master
+inequality (Note, Proposition ``master inequality'') gives the strict form of (MI), so $\gamma(\theta)<\nu^{1-s}B_p\Gamma_s(p)\le\gamma^*_b$.
+Hence no global maximiser has a cheap feature, and Note, Proposition ``no cheap features $\Rightarrow$ exact count'' finishes.
+\end{proof}
+
+\begin{remark}[what each side carries]
+$\mathrm{Pay}$ is linear in the features: each cheap feature contributes its own payment, weighted by how much it covers $\mu$.
+$\mathrm{Det}$ is the gap between mean and worst input of the actual margin profile.  It sees every mode of $g$: the cheap features'
+own interference, the other features' interference, partner and foreign modes (compensation), and all coincidences between them.
+$U$ pays for norm that buys no clean amplitude (in particular for paid compensation, Note, Lemma ``paid compensation is
+quadratic''), and $G$ pays for an inefficient allocation.  So (G) is a single statement about how interference, compensation and
+coverage trade off.  The global ratio is measured in units of the local payment: $\sigma^*_\Pi>1$ means detection beats the best
+conceivable discount.
+\end{remark}
+
+\begin{remark}[the price need not be the IF price]
+Note, Proposition ``decoupling suffices'' shows that the count needs only decoupling with a \emph{common} price.  Replacing
+$\nu^{1-s}Q^s$ in (L) and in $a_l$, $U$, $G$ by $\pi_{n,b}(p)Q^s$, the best single-feature price, gives a version (L$_\pi$)+(G$_\pi$) of
+Theorem~\ref{thm:main} with the same proof.  Single-feature cheats are then absorbed into the price, which can only lower $\Pi$.  This is
+the form to use for $n\ge3$, where the IF price may not be the true single-feature price (open problems O3, O4 of the Note).
+\end{remark}
+
+\section{Coverage: every case is an instance of (G)}
+(G) quantifies over all networks, so nothing is left out.  The table records how the earlier cases sit inside it, and which parts
+of (G) are proved.  ``Line'' means that all cheap features' interference sits on characters of one slot-set $T$, so that it depends on
+$x$ through one linear form $s_T(x)$ only; ``plane'' (and higher) means several slot-sets.
+\begin{center}
+\small
+\begin{tabular}{p{0.24\textwidth}p{0.30\textwidth}p{0.38\textwidth}}
+\toprule
+class of networks & what (G) becomes & proved\\
+\midrule
+interference-free & vacuous ($L'=\emptyset$) & all $n,p,b$ (Note, no-cheap-features proposition)\\
+one frequency, any inputs & single cheap feature, cone geometry & $n=2$: every $p$ (Note, Thm.\ ``price of a feature''); every $n$: large $p$\\
+class $\mathcal C$, line ($T=\{1,2\}$, $n=2$) & trig polynomial on $\mathbb Z_p$ with spectrum $2S$ (Prop.~\ref{prop:classC}) & $p\le59$; any $p$ if $\sum_{L'}\kappa<29.7$; near-IF; inefficient allocations\\
+class $\mathcal C$, plane ($n=2$, several $T$) & trig polynomial on $\mathbb Z_p^2$ & $p=5,7$; few cheap features; (D$_3$)-dissociated cheap sets; near-IF\\
+compensation (outside $\mathcal C$) & extra modes at $\chi_{l,T}$ inside $g$; paid part in $U$ & single cheap feature: $p=5,7,13$ proved, $p\le41$ numerical\\
+$n\ge3$ & same, with $\Pi_n$ & $\Pi_n$ finite (crude); dissociated sets if $k^\flat(n,s)<1$\\
+$p=3$ & (G) \emph{fails} & the counterexamples; see below\\
+\bottomrule
+\end{tabular}
+\end{center}
+\emph{Consistency at $p=3$.}  The certified $p=3$ networks beat the IF value, so (G) must fail there, and it does in the place the
+statement predicts: their interference is hidden by compensation through the coincidence $2\equiv-1\pmod3$ (constant input
+components put a mode exactly on $-\chi_{1,T}$; Note, remark after the Riesz-product theorem).  The local ingredient (L) holds at
+$p=3$ (it does not depend on $p$).  So the only way the count could fail at $p\ge5$ is the same way: a global failure of detection.
+
+\section{The compensation-free class: one statement about trigonometric polynomials}
+\begin{proposition}[class $\mathcal C$]\label{prop:classC}
+Let $\theta\in\mathcal C$, $a_l$ its IF prices, $e(a)=\min_\delta\sum_la_l\kappa_l(\delta)/(\Gamma_s\|a\|_{1/s})$ its efficiency, $\delta_0\in\Delta(\theta)$,
+and $\mu=\frac12(\mathbf 1_{\delta_0}+\mathbf 1_{-\delta_0})$.  Then
+\[\mathrm{Det}_\mu=\tfrac12\big(-\min_xF_{\delta_0}(x)-\min_xF_{-\delta_0}(x)\big),\qquad
+F_\delta(x)=\sum_{l\in F}\sum_{T\ne\emptyset}|\beta_{l,T}|\,|c_l(\delta)|\cos\Big(\tfrac{2\pi}p\,2l\,s_T(x)+\psi_{l,T}+\arg c_l(\delta)\Big),\]
+with phases $\psi_{l,T}$, and $G(\theta)\ge(1/e(a)-1)\sum_la_l\kappa_l(\delta_0)$, $|\beta_{l,T}|\le\nu^{s-1}a_l$.
+\end{proposition}
+\begin{proof}
+The proof of Note, Lemma ``interference profiles are slack potentials'' gives $g(x,\delta)=\mathbb E_xg(\cdot,\delta)+F_\delta(x)$ with
+$F_\delta(x)=\sum_{l,T}\Re\big(a_{l,T}c_l(\delta)\rho^{2ls_T(x)}\big)$ and $|a_{l,T}|=|\beta_{l,T}|$.  The identity for $G$ is its definition with
+$\|a\|_{1/s}=\nu^{1-s}(\sum Q_l)^s$, after dropping $U\ge0$; $|\beta_{l,T}|\le\sum_i|\beta_{il}|\le Q_l^s$.
+\end{proof}
+So, in class $\mathcal C$, (G) follows from the following statement, in which no network appears.
+
+\begin{conjecture}[no unicorns, class $\mathcal C$]\label{conj:unicorn}
+For every allocation $a\ge0$ on $F$, every $\delta_0$ minimising $\sum_la_l\kappa_l$, every set $L'\subseteq\operatorname{spt}a$ and every family
+$(\beta_{l,T},\psi_{l,T})$ with $\beta_{l,T}=0$ for $l\notin L'$, $0<\max_{l,T}|\beta_{l,T}|$ and $|\beta_{l,T}|\le\nu^{s-1}a_l$,
+\[\tfrac12\big(-\min F_{\delta_0}-\min F_{-\delta_0}\big)+\big(\tfrac1{e(a)}-1\big)\sum_la_l\kappa_l(\delta_0)\ >\ \sum_{l\in L'}\kappa_l(\delta_0)\,\Pi(\beta_{l,\cdot}).\]
+\end{conjecture}
+At $n=2$ the admissible payments are $\Pi=c_1\max_T|\beta_T|$ with $c_1=1-3^{1-s}$ (sharp, Note, Thm.\ ``sharp pointwise payment''),
+and $\Pi=c_{12}|\beta_{\{1,2\}}|$ with $c_{12}=1-(\frac23)^{s-1}$ when only $T=\{1,2\}$ is present (Note, P$_{12}$).  The conjecture is homogeneous
+except for the efficiency term.  At an optimal allocation ($e=1$) it says: the worst input sees more interference than the best discount.
+Two facts already in the Note show where it is delicate:
+\begin{itemize}
+\item \emph{Typical versus worst input.}  For $|S|=K$ frequencies the root-mean-square of $F_\delta$ is of order $\sqrt K$ times a coefficient, while
+the payment is of order $K$ times a coefficient.  The conjecture therefore needs the worst of the $p^n$ inputs to see order $K$.  With
+$K\approx1.4\ln p$ there are $p\approx e^{0.7K}$ inputs per line, enough for large deviations of order $K$ when the frequencies are spread out
+(measured: worst input $\ge0.54K$ with adversarial phases at $p=10007$, $K=13$, against $0.18K$ needed in the line geometry).
+\item \emph{Structure.}  A set with many short additive relations (a progression) admits flat polynomials (measured $0.17K$), but covers
+badly ($e\approx0$).  A unicorn would be a set that is both an efficient cover and flat.
+\end{itemize}
+
+\section{Measurement protocol}
+For programme supports $S=\operatorname{spt}y^\star$ at $n=2$, $b=2$ (so $e=1$), binding offsets $\delta_0$, and each geometry, compute
+\[\rho_{\rm geom}(p,S,\delta_0)=\min_{(\beta_{l,T},\psi_{l,T})}\frac{\frac12(-\min F_{\delta_0}-\min F_{-\delta_0})}{\sum_{l}\kappa_l(\delta_0)\Pi(\beta_{l,\cdot})}\]
+by adversarial search (smoothed minimum, random and structured restarts).  Geometries: line $T=\{1,2\}$ with $\Pi=c_{12}|\beta_{12}|$; line
+$T=\{1\}$ with $\Pi=c_{12}|\beta_1|$ (proved below, Section~\ref{sec:push}); plane (all $T$) with $\Pi=c_1\max_T|\beta_T|$.  Fixing $\delta_0$
+only helps the network, so each measured value is a lower bound for the corresponding restriction of $\sigma^*_\Pi$.  The conjecture at $e=1$
+needs $\rho>1$.
+
+
+\section{First push: configurations, corrections and the refined crux}\label{sec:push}
+\paragraph{Correction: the flatness that matters is two-sided.}  In the line geometry the detection at $\delta_0$ is
+$\frac12\operatorname{osc}_wD_{\delta_0}(w)$ (Note, Lemma ``oscillation''), half the peak-to-trough range of a cosine sum with free phases.  Its Sidon-type constant
+$\sigma_2(S)=\inf_{u\ge0,\theta}\frac12\operatorname{osc}_w\sum_{l\in S}u_l\cos(2\pi lw/p+\theta_l)/\sum u_l$ obeys Parseval, $\sigma_2\ge1/\sqrt{2K_{\rm eff}}$.  The one-sided analogue
+(depth of the deepest dip) is the wrong object: glued Fej\'er-weighted progressions are one-sided flat with good coverage (agent A, \texttt{agents/A\_result.md}).
+
+\paragraph{Measured global ratios} (Section 5 protocol, adversarial, $b=2$; \texttt{mechanism\_scripts/unified/}).  Line geometry with the sharp constant: $3.9$--$5.1$ on programme supports for
+$101\le p\le2003$ (most pessimistic constant $c_1$: $1.7$--$2.2$).  Plane geometry with $\Pi=\min(c_1\max_T,\|\cdot\|_2/2\sqrt3)$: $2.6$--$3.2$ for $p\le151$.  The cheater needs $<1$.
+
+\paragraph{Building the cheater} (\texttt{unified/unicorn/}).  (i) \emph{The detection side turns at small size:} a block of $32$ frequencies placed antipodally to a binding
+offset ($l\delta_0\equiv\frac{p-1}2-j$) and phased to be flat has half peak-to-trough $0.175\cdot\sum u<c_{12}$.  (ii) \emph{Embedded in the programme support at $p=10007$ it loses at every
+budget share, even with interference free:} the value is $(1-f)^{3/2}$ times the optimum, i.e.\ the block adds nothing to the worst case.  The bottleneck moves to a tied-worst wrong answer
+where the block is nearly blind (strength $0.18$ against average $1$).  (iii) Re-optimising all weights, placing the block to be strong ($\ge0.89$) at all $480$ worst wrong answers of a
+$120$-frequency cover ($p=30011$), or adding $100$ clean ``patching'' frequencies does not help: the optimiser drops the block ($\times0.950$ to $\times0.985$), while a random block of the same
+size gains $\times1.088$ with free interference.  The flat block's own help profile has minimum $0.000$ (structural blind spots); the random block's is $0.56$.
+
+\paragraph{The trilemma.}  A profitable dirty block must (a) cover on its own, since once it takes budget its blind spots become the bottleneck; (b) be two-sided flat; (c) be small in the
+$r$-participation sense, since thin layers are paid for by the concave cost.  Random sets have (a),(c); progressions (b),(c); glued flat blocks (a),(b) but need many frequencies: with optimised
+Rudin--Shapiro-type blocks, $\sigma_2\le0.18$ with coverage $t$ needs $K\approx11.6\ln p$ ($t=0.3$) to $22.4\ln p$ ($t=0.6$) as $p\to\infty$, against
+$K^*\approx1.4\ln p$ (agent A, \texttt{agents/A\_result2.md}; best explicit witness $p=100003$, $t=0.36$, $K=8.3\ln p$, $\sigma_2=0.173$).  Inside the window
+$K\le2.5\ln p$ with coverage $\ge0.3$, the smallest $\sigma_2$ found is $0.36$, and programme supports with free weights give $0.357$--$0.551$.  The conjecture is that
+no set has all three.
+
+\paragraph{Proved in this push} (agents B, C; proofs in \texttt{agents/}).
+\begin{itemize}
+\item \emph{Slot symmetry} (checked here).  With $\beta_i=r_ie^{i\alpha_i}$, $\xi_i=e^{i\theta_i}$, $\eta_i=e^{i\phi_i}$ and $(\omega_0,\omega_1,\omega_2)=(\alpha+\frac{\theta+\phi}2,-\frac\theta2,-\frac\phi2)$, the
+coefficients $A,B,C,\bar D$ are the sign flips of $\omega_\cdot$ in none, slot $1$, slot $2$, slot $0$.  Permuting the $\omega$'s atomwise is a symmetry that fixes $|A|,Q$ and permutes $(|D|,|B|,|C|)$.
+Hence P$_{12}$ gives the sharp constant $c_{12}$ for \emph{every} single slot-set, and the $\ell^1$ payment $c_{12}(|\beta_1|+|\beta_2|+|\beta_{12}|)$ is numerically sharp (proved on the axes and
+away from them; open: one dominant slot-set plus small others).
+\item \emph{Only short relations matter} (B).  A degree-$D$ polynomial certificate sees only relations of length $\le D$; if $S$ has no relation of length $\le2n+1$ then $\sigma_2(S)$ is at
+least the smallest Gauss node of the independent model, with no coverage hypothesis.
+\item \emph{Size must be counted with order $<1$} (B).  With $K_{\rm eff}=(\sum u)^2/\sum u^2$ the clean lemma is false even two-sided (a Gauss-sum ``thin layer'' over all of $F$ gives coverage
+with no oscillation).  In the application the right size is the $r$-participation number, which the concave cost bounds.
+\item \emph{Reductions} (C): thin blocks are closed; a block weak at a near-tied offset of the rest is closed for small shares (the lopsided-help mechanism); the plane reduces to the
+line with the same payment constant and at most $3\times$ the requirement on $\sigma$; compensation reduces to the line lemma plus a per-feature quadratic game whose constants depend on $p$.
+\end{itemize}
+
+\paragraph{The refined crux.}  A first guess, \emph{stability} (near-optimal covers have few short relations), is false as stated and not
+needed (agent B, \texttt{agents/B\_result2.md}).  Forcing three-term relations into an optimal support costs about $3\%$ efficiency each
+($e=0.98$--$1$ with none, $0.88$--$0.94$ with three) but never creates flatness: two-sided certificates stay at $0.32$--$0.36$, above $c_{12}=0.18$.  What does
+threaten is a \emph{dense flat sub-block}: adding a dilated Rudin--Shapiro block of $N$ frequencies with a small budget share $\beta$ keeps $e\ge(1+\beta)^{-3/2}$ and $K_r$ small,
+and interference concentrated on it is flat ($0.170$ at $N=64$, $p=10007$).  So any statement uniform over the interference weights must charge the block's
+share of coverage, as inequality (NU) of the chat sheet does.  Every flat sub-block $B$ of an efficient allocation is then in one of three cases:
+\begin{itemize}
+\item[(i)] \emph{thin}: closed by the dilution lemma (B; proved): if $a'$ is closed at $\delta$ then $a'+b$ is, whenever $\sum_Bb_l\phi_l(\delta)\le1.5\Gamma_s\beta$ ($\phi_l\le6.10$), which holds at every
+$\delta$ once $\beta\le(1.5\Gamma_s/6.10)^2|B|$ and at every $\delta$ in the block's blind set for any $\beta$;
+\item[(ii)] \emph{costly}: closed by the efficiency--Sidon reduction;
+\item[(iii)] \emph{blind}: its blind set $Z$ (a Bohr-type set) must be over-covered by the rest of the allocation, and one needs that this cannot beat $\Gamma_s(p)$ by more than
+a factor $1+O(\ln N/\ln p)$.
+\end{itemize}
+Case (iii) is the remaining obligation in the relations case.  In a numerical model, every single Rudin--Shapiro block is closed up to $p\approx10^8$, and a window that needs (iii) opens near
+$p\approx10^{12}$ ($N\approx76$--$312$, $\beta\approx0.06$--$0.08$).  The direct experiments above (blocks lose because the bottleneck moves into their blind set) are case (iii) at work.
+
+\section{Proof plan}
+\begin{enumerate}
+\item \emph{Clean lemma (line).}  If the frequencies carrying interference cover $\mathbb Z_p$ with their own weights
+($\min_{\delta\ne0}\sum_lv_l\kappa_l(\delta)\ge t\sum_lv_l$) and their effective number is $O(\ln p)$, then every real polynomial with those
+frequencies and amplitudes has $-\min\ge\sigma(t)\sum_lv_l$ for an explicit $\sigma(t)>0$ independent of $p$: a deterministic Sudakov
+minoration for short trigonometric polynomials on $\mathbb Z_p$.
+\item \emph{Blind spots.}  Reduce arbitrary interference supports to the clean lemma, using the efficiency term: a sub-block that covers
+badly is blind on a large set of offsets, which the rest of the support must over-cover at a cost in $e(a)$.
+\item \emph{Plane to line.}  $-\min$ over $\mathbb Z_p^2$ is at least $-\min$ over any line $\{(t,mt)\}$, on which the three slot-sets become
+the frequency sets $2S$, $2mS$, $2(1+m)S$.  Average or choose $m$.
+\item \emph{Compensation.}  Compensating modes enter $F$ as extra coefficients at the same characters.  Paid ones are charged to $U$;
+free ones need the coincidences (F1), (F2) of the Note, which are short relations of the same kind as in step 2.
+\end{enumerate}
+\end{document}

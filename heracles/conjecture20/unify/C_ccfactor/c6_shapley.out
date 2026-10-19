@@ -1,0 +1,8 @@
+(p,n,b)=(7,2,2.0) S=[1, 2]: objective sh_bind: max = 2.1174;  sh_bind=2.1174, sh_all=2.1174, tm_bind=5.2809, cd=0.0006, cheap=1.7320
+(p,n,b)=(7,2,2.0) S=[1, 2]: objective sh_all: max = 2.1175;  sh_bind=-0.6184, sh_all=2.1175, tm_bind=-0.1228, cd=0.0000, cheap=1.7321
+(p,n,b)=(7,2,2.0) S=[1, 2, 3]: objective sh_bind: max = 3.4075;  sh_bind=3.4075, sh_all=3.4075, tm_bind=6.5844, cd=0.0114, cheap=1.7315
+(p,n,b)=(7,2,2.0) S=[1, 2, 3]: objective sh_all: max = 3.3626;  sh_bind=1.4457, sh_all=3.3626, tm_bind=2.7511, cd=0.9154, cheap=1.5557
+(p,n,b)=(5,2,2.0) S=[1, 2]: objective sh_bind: max = 2.3936;  sh_bind=2.3936, sh_all=2.3936, tm_bind=6.2664, cd=0.9416, cheap=1.7320
+(p,n,b)=(5,2,2.0) S=[1, 2]: objective sh_all: max = 2.8914;  sh_bind=1.3750, sh_all=2.8914, tm_bind=4.2029, cd=0.7243, cheap=1.6718
+(p,n,b)=(11,2,2.0) S=[1, 2, 3]: objective sh_bind: max = 3.4121;  sh_bind=3.4121, sh_all=3.4121, tm_bind=7.3632, cd=0.0011, cheap=1.7202
+(p,n,b)=(11,2,2.0) S=[1, 2, 3]: objective sh_all: max = 3.2076;  sh_bind=-0.3608, sh_all=3.2076, tm_bind=0.3110, cd=0.9527, cheap=1.0763

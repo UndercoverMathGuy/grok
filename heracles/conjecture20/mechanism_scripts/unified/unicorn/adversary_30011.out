@@ -1,0 +1,5 @@
+p=30011 cover=120 block m=32: best placement gives the block min strength 0.89 (avg 1, max 2) on the cover's 480 worst wrong answers
+  free interference: worst case 0.9627 x cover alone, block gets 0.050 of budget
+  exact, interference charged: worst case 0.9497 x cover alone   (block wave half peak-to-trough / total size 0.182)
+
+[exited with code 0]

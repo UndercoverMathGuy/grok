@@ -1,0 +1,12 @@
+hunt_c.py 5 3 2.0 18 71
+hunt_c.py 5 3 2.6 18 71
+hunt_c.py 5 4 2.0 12 71
+hunt_c.py 5 4 2.6 12 71
+hunt_c.py 5 5 2.0 8 71
+hunt_c.py 5 5 2.6 8 71
+hunt_c.py 7 3 2.0 12 71
+hunt_c.py 7 3 2.6 12 71
+hunt_c.py 7 4 2.0 8 71
+hunt_c.py 7 4 2.6 8 71
+hunt_c.py 7 5 2.0 5 71
+hunt_c.py 7 5 2.6 5 71

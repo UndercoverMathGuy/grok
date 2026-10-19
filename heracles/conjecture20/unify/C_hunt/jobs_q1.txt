@@ -1,0 +1,10 @@
+dict_lp.py 11 2 2.5 b1 6 5 34
+dict_lp.py 5 2 2.0 gS 6 10 36
+dict_lp.py 5 2 2.5 gS 6 10 36
+dict_lp.py 7 2 2.0 gS 6 6 37
+dict_lp.py 7 2 2.5 gS 6 6 37
+dict_lp.py 13 2 2.5 cS 6 4 39
+hunt_gen2.py 11 2.0 8 121
+hunt_gen2.py 11 2.5 8 121
+hunt_gen2.py 13 2.0 6 121
+hunt_gen2.py 13 2.5 6 121

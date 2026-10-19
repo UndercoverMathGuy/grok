@@ -1,0 +1,6 @@
+s=2.0 n=3: k*_sym (search) >= 0.5426 (m=2)   arc family 0.5319
+s=2.0 n=5: k*_sym (search) >= 0.4358 (m=3)   arc family 0.4178
+s=2.0 n=8: k*_sym (search) >= 0.3391 (m=5)   arc family 0.3092
+s=2.0 n=11: k*_sym (search) >= 0.2771 (m=7)   arc family 0.2351
+s=2.0 n=14: k*_sym (search) >= 0.2374 (m=10)   arc family 0.1839
+s=2.0 n=17: k*_sym (search) >= 0.2082 (m=13)   arc family 0.1520

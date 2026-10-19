@@ -1,0 +1,8 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+IF data (0,0,0,0): (np.float64(0.7817580008125441), np.float64(0.7817580303394192), np.float64(0.7817580008125441))
+single atom (0,1,1,1,0): (np.float64(0.6055459615055683), np.float64(1.3540385359136198), np.float64(0.6055459615055683))
+random sample: top values [np.float64(0.779), np.float64(0.7632), np.float64(0.7624), np.float64(0.7466), np.float64(0.7376), np.float64(0.7248), np.float64(0.6782), np.float64(0.6521)]
+  polished from 0.7790: 0.80205 at [ 0.0014  0.0202  0.6059  0.6587 -0.6182]
+  polished from 0.7632: 0.82014 at [0.0039 0.3653 0.3653 0.5421 3.5612]
+  polished from 0.7624: 0.82555 at [-0.0323  0.361   0.48    0.361  -3.8421]
+adversarial pointwise sup of min(trivial, LP-certificate) found = 0.82555 (claim needs <= 0.995) at [-0.0323  0.361   0.48    0.361  -3.8421]; time 384s

@@ -1,0 +1,3 @@
+W3 checked on 36 networks: max [log gamma - RHS] = 1.78e-15 (must be <= ~1e-6, quadrature error)
+   10 of them have H_1/s >= Hbar^dec (free half), all with gamma <= D_S
+convex-end detection: max [ -log(1 - M/(2 B_p P_nu)) - Delta_F ] = -1.221e-15 (must be <= 0)

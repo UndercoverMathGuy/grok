@@ -1,0 +1,211 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\title{C\_joint: joint detection, single-$T$ cores and the field-row inequality}
+\date{}
+\begin{document}
+\maketitle
+
+\noindent Notation as in \texttt{unify/BRIEF.md}: $p$ odd prime, $\rho=e^{2\pi i/p}$, $F=\{1,\dots,\frac{p-1}2\}$,
+$n\ge2$, $\nu=n+1$, $b\in[2,\nu]$, $s=\nu/b$, $r=1/s$. Fields
+$\Phi_l(x)=\frac2p\rho^{l y(x)}\sum_c f(x)[c]\rho^{-lc}$, gaps $g(x,\delta)=\sum_{l\in F}\Re(\Phi_l(x)c_l(\delta))$ with
+$c_l(\delta)=1-\rho^{-l\delta}$, $\kappa_l(\delta)=1-\cos(2\pi l\delta/p)=\Re c_l(\delta)$.
+Clean atoms $\beta_{il}$, $Q_l=\sum_i|\beta_{il}|^r$; single-neuron budget $\sum_l|\beta_{il}|^r\le B_p^r\|\omega_i\|^b$.
+$\gamma_{\rm IF}=\nu^{1-s}B_p\Gamma_s$. All statements hold for every odd prime $p$, every $n\ge2$ and every $b\in[2,\nu]$.
+
+\section{The field-row inequality (joint detection in the $\ell_r$ currency)}
+
+\begin{theorem}[FR]\label{thm:fr}
+For every product network $\theta$ (any inputs, outputs, width) put $\psi_l(x)=(\Re\Phi_l(x))_+^{\,r}$,
+$M_l=\mathbb E_x\psi_l(x)$ and $\Xi_l=\nu^{1-r}M_l/Q_l$. Then
+\[
+h(\theta)\ \le\ \Gamma_s\Big(\min_{x}\sum_{l\in F}\psi_l(x)\Big)^{s}\ \le\ \Gamma_s\Big(\sum_l M_l\Big)^s,
+\qquad
+\gamma(\theta;s)\ \le\ B_p\Gamma_s\Big(\frac{\sum_l M_l}{\sum_l Q_l}\Big)^{s}
+=\gamma_{\rm IF}\Big(\frac{\sum_l Q_l\,\Xi_l}{\sum_l Q_l}\Big)^{s}.
+\]
+(Non-feature frequencies have $Q_l=0$ and enter only the numerator.) For class-$\mathcal C$ networks with features in $S$,
+$\Gamma_s$ may be replaced by $\Gamma^{(S)}_s$; with feature weights $\lambda$, by $\Gamma^{\lambda}_s$.
+Equality holds for interference-free networks at programme allocations.
+\end{theorem}
+\begin{proof}
+Fix $x$ and $\delta\neq0$. Since $c_l(\delta)+c_l(-\delta)=2\kappa_l(\delta)$,
+$h\le\min(g(x,\delta),g(x,-\delta))\le\frac12(g(x,\delta)+g(x,-\delta))=\sum_l\Re\Phi_l(x)\kappa_l(\delta)$.
+Put $y_l=\Re\Phi_l(x)$. As $\kappa\ge0$, $\min_\delta\sum_l y_l\kappa_l(\delta)\le\min_\delta\sum_l (y_l)_+\kappa_l(\delta)$, and if
+$y_+\ne0$ the vector $y_+/(\sum (y_l)_+^r)^s$ is feasible for $\Gamma_s$, so the right side is $\le\Gamma_s(\sum_l\psi_l(x))^s$
+(also true if $y_+=0$). Minimise over $x$; $\min\le$ mean and linearity of $\mathbb E_x$ give the second bound. Finally
+$\sum_lQ_l\le B_p^r\sum_i\|\omega_i\|^b=B_p^rP_b$, so $P_b^s\ge B_p^{-1}(\sum_lQ_l)^s$, and $\nu^{1-r}\sum M_l=\sum Q_l\Xi_l$,
+$(\nu^{r-1})^s=\nu^{1-s}$. For an IF network at a programme allocation $\Phi_l\equiv A_l>0$, $Q_l=\nu^{1-r}A_l^r$ (KM2) and
+$h=\Gamma_s(\sum A_l^r)^s$, so all inequalities are equalities.
+\end{proof}
+
+\begin{remark}[what FR detects]
+Write $G_l=|A_l|/(\nu^{1-s}Q_l^s)$ (cheapness) so that $G_l^r=\nu^{1-r}|A_l|^r/Q_l$. Then $\Xi_l=G_l^r D_l$ with
+$D_l=\mathbb E_x(\Re\Phi_l)_+^r/|A_l|^r$. Lemma~2 plus the budget is the case $D_l\equiv1$. For a field with small
+fluctuation $f_l$ (circular, $\mathbb E|f_l|^2=E_l$), $D_l=1-\frac{r(1-r)}{4}E_l/|A_l|^2+O(\|f_l\|^3)$: a quadratic detection that
+\emph{adds over features with no loss}, because $\sum_l\psi_l$ is averaged before the programme is applied. This is the joint
+detection matching the joint payment ``gain $\le$ cost-weighted mean of per-feature quantities''. FR reduces the IF value to the
+\emph{single-feature} inequality $\Xi_l\le1$ for every feature carrying cost.
+\end{remark}
+
+\section{Single-$T$ features: the sharp payment for every $n$}
+
+\begin{theorem}[aligned single-$T$ payment]\label{thm:pt}
+Let $\beta_i=\rho_i\alpha$ ($\rho_i>0$, $|\alpha|=1$) and $\xi_{it}\in\mathbb T$, $i=1..m$, $t=1..n$, and let $T\ne\emptyset$ be a set of slots
+with $B_{T'}:=\sum_i\beta_i\prod_{t\in T'}\xi_{it}=0$ for every $\emptyset\ne T'\ne T$. Put $L=\sum\rho_i=|A|$, $D=B_T$, $\vartheta=|D|/L$,
+$Q=\sum\rho_i^r$. Then for every $r\in(0,1]$
+\[
+\nu^{1-s}Q^s\ \ge\ L\,\mathcal F_n(\vartheta)\ \ge\ L-c_n(s)|D|,\qquad
+\mathcal F_n(\vartheta)=\nu^{1-s}\Phi_n(\vartheta)^s,\quad c_n(s)=1-\Big(\frac n\nu\Big)^{s-1},
+\]
+\[
+\Phi_n(\vartheta)=\tfrac12\big[(1+\vartheta)^r(\nu+(n-1)\vartheta)^{1-r}+(1-\vartheta)^r(\nu-(n-1)\vartheta)^{1-r}\big].
+\]
+Both inequalities are equalities at $\vartheta=0$ (the KM2 block) and at $\vartheta=1$ ($n$ equal atoms,
+$\xi_{it}=e^{2\pi i\,i/n}$ on the slots of $T$ arranged as below). For $n=2$, $T=\{1,2\}$ this is P$_{12}$ restricted to aligned atoms.
+\end{theorem}
+\begin{proof}
+\emph{Chain matrix.} Order the slots so that $T=\{1,\dots,k\}$. Let $m_i=(1,\xi_{i1},\xi_{i1}\xi_{i2},\dots,\prod_{u\le n}\xi_{iu})\in\mathbb C^\nu$ and
+$H=\sum_i\rho_im_im_i^*\succeq0$. For $t>t'$, $H_{tt'}=\sum_i\rho_i\prod_{u=t'+1}^t\xi_{iu}=\bar\alpha B_{[t'+1,t]}$, which vanishes unless
+$[t'+1,t]=T$, i.e. $(t,t')=(k,0)$. Hence $H=LI+\bar\alpha D\,e_ke_0^*+\alpha\bar D\,e_0e_k^*$.
+
+\emph{Leverage.} If $\vartheta<1$, $H$ is invertible; $\rho_im_im_i^*\preceq H$ gives $\rho_iw_i\le1$ with $w_i=m_i^*H^{-1}m_i$. Inverting the
+$2\times2$ block on $\{0,k\}$ and writing $y_i=\prod_{u\le k}\xi_{iu}$, $X_i=\Re(\alpha\bar Dy_i)/|D|\in[-1,1]$:
+$Lw_i=(\nu-2)+\frac{2(1-\vartheta X_i)}{1-\vartheta^2}$, and $\sum_i\rho_iX_i=L\vartheta$ because $\sum_i\rho_iy_i=\bar\alpha D$.
+
+\emph{Cost.} $\rho_i^r=\rho_i\rho_i^{r-1}\ge\rho_iw_i^{1-r}$, so $Q\ge L^{r-1}\sum_i\rho_i\psi(X_i)$ with $\psi(X)=((\nu-2)+2\frac{1-\vartheta X}{1-\vartheta^2})^{1-r}$,
+concave in $X$. Among probability laws on $[-1,1]$ with mean $\vartheta$, $\mathbb E\psi$ is smallest for the two-point law on $\{\pm1\}$
+(weights $\frac{1\pm\vartheta}2$). Substituting gives $Q\ge L^r\Phi_n(\vartheta)$, i.e. the first inequality.
+If $\vartheta=1$, use $H^+$: $\rho_iw_i\le1$ still holds, $\sum\rho_iX_i=L$ forces $X_i=1$, so $w_i=n/L$ and $Q\ge n^{1-r}L^r=L^r\Phi_n(1)$.
+
+\emph{Concavity.} $\mathcal F_n(0)=1$, $\mathcal F_n(1)=(n/\nu)^{s-1}=1-c_n$, so the second inequality follows from concavity of $\mathcal F_n$ on $[0,1]$.
+Write $\Phi=G_++G_-$, $G_\pm=u_\pm^rv_\pm^{1-r}$, $u_\pm=1\pm\vartheta$, $v_\pm=\nu\pm N\vartheta$, $N=n-1$. Since $\log G$ is a combination of
+logs of affine maps, $G''=-r(1-r)G(u'/u-v'/v)^2$, and $u'_\pm/u_\pm-v'_\pm/v_\pm=\pm2/(u_\pm v_\pm)$. With $a_\pm=G_\pm/(u_\pm v_\pm)$ one finds
+$G_\pm'=\pm a_\pm(N+2r\pm N\vartheta)$. Now $\mathcal F_n''\le0$ iff $(s-1)\Phi'^2+\Phi\Phi''\le0$ iff (using $s-1=(1-r)/r$)
+$\Phi'^2\le4r^2(G_++G_-)(a_+^2/G_++a_-^2/G_-)$. By Cauchy--Schwarz the right side is $\ge4r^2(a_++a_-)^2$, so it suffices that
+$|(N+2r)(a_+-a_-)+N\vartheta(a_++a_-)|\le2r(a_++a_-)$, i.e.
+\[
+N\vartheta-2r\ \le\ (N+2r)\,\mathsf T\ \le\ N\vartheta+2r,\qquad \mathsf T=\frac{a_--a_+}{a_-+a_+}=\tanh\big((1-r)\operatorname{artanh}\vartheta+r\operatorname{artanh}(\varepsilon\vartheta)\big),
+\ \varepsilon=\tfrac N{N+2}.
+\]
+\emph{Lower:} $\tanh$ is concave on $[0,\infty)$, so $\mathsf T\ge(1-r)\vartheta+r\varepsilon\vartheta=\vartheta(1-\frac{2r}{N+2})$, and
+$(N+2r)(1-\frac{2r}{N+2})=N+\frac{4r(1-r)}{N+2}\ge N$.
+\emph{Upper} ($N\ge1$; for $N=0$ it is $\mathsf T\le1$): put $U(r)=\frac{N\vartheta+2r}{N+2r}$. Then
+$\operatorname{artanh}U(r)=\frac12\log\frac{N(1+\vartheta)+4r}{N(1-\vartheta)}$ is concave in $r$, while $(1-r)\operatorname{artanh}\vartheta+r\operatorname{artanh}(\varepsilon\vartheta)$ is affine in $r$;
+their difference vanishes at $r=0$ and is positive at $r=1$ (since $\frac{N\vartheta+2}{N+2}>\frac{N\vartheta}{N+2}$), hence is $\ge0$ on $[0,1]$.
+Equality cases: $\vartheta=0$ is KM2; $\vartheta=1$: $n$ atoms $\beta/n$ with $\xi_{it}=1$ off $T$ handled by the realisation in
+Proposition~\ref{prop:emb}.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:pt} does not depend on $|T|$. For non-aligned atoms the same inequality held in every numerical test
+($n=2$: it is P$_{12}$; $n=3$: \texttt{payment\_T2.py}); for $n\ge3$ it is open (the twist of P$_{12}$ controls only adjacent chain entries).
+\end{remark}
+
+\section{The single-$T$ core is present at every $n$}
+
+\begin{proposition}[explicit single-$T$ networks]\label{prop:emb}
+For $l\in F$ let $\alpha_l,\beta_l\ge0$, $\varphi_l\in\mathbb R$. Feature $l$ is carried by (i) the KM2 block ($\nu$ balanced class-$\mathcal C$ neurons,
+atoms $\alpha_l/\nu$, $\xi_{it}=e^{2\pi i\,i/\nu}$) and (ii) $n$ balanced neurons with atoms $\beta_l/n$,
+$\xi_{it}=e^{2\pi i\,i/n}$ for all $t$, times $e^{i\varphi_l}$ in slot $1$. Then with $w=2y(x)$
+\[
+\Phi_l(x)=\alpha_l+\beta_l+\beta_le^{i\varphi_l}\rho^{lw},\qquad
+\gamma=\frac{B_p\min_{w,\delta}\sum_l\big[(\alpha_l+\beta_l)\kappa_l(\delta)+\beta_l\Re(e^{i\varphi_l}\rho^{lw}c_l(\delta))\big]}
+{\big(\nu^{1-r}\sum_l\alpha_l^r+n^{1-r}\sum_l\beta_l^r\big)^s}.
+\]
+Consequently (RD restricted to class $\mathcal C$ at $(p,n,b)$) implies the one-variable inequality RT$_n(p,s)$: for all such
+$(\alpha,\beta,\varphi)$ the displayed ratio is $\le\pi B_p\Gamma_s$. With $\tilde\beta_l=(n/\nu)^{s-1}\beta_l$ (IF-equivalent amplitude) the
+single-$T$ part of each feature has coverage amplified by $\tau_n(s)=(1+\frac1n)^{s-1}=1/(1-c_n(s))$, and Theorem~\ref{thm:pt}
+shows that no aligned single-$T$ atom system does better. At $n=2$ RT$_2$ is the relations core (O1).
+\end{proposition}
+\begin{proof}
+A balanced frequency-$l$ class-$\mathcal C$ neuron has field $c_i\prod_t(1+\xi_{it}\rho^{2lx_t})$ with $|c_i|=B_p\|\omega_i\|^\nu$ and
+$\|\omega_i\|^b=(|c_i|/B_p)^r$. Block (i): $B_{T'}=\frac{\alpha_l}\nu\sum_i e^{2\pi i\,i|T'|/\nu}=0$ for $1\le|T'|\le n$.
+Block (ii): $B_{T'}=\frac{\beta_l}ne^{i\varphi_l[1\in T']}\sum_ie^{2\pi i\,i|T'|/n}$, which is $0$ unless $|T'|=n$; then it is $\beta_le^{i\varphi_l}$
+and $\rho^{2l\sum_tx_t}=\rho^{lw}$. Sum the two fields and the costs $\nu(\alpha_l/\nu)^r+n(\beta_l/n)^r$.
+\end{proof}
+
+\section{The $\delta$-phases as translations (direction 3)}
+
+\begin{lemma}[balanced families]\label{lem:bal}
+Let $f_l(x)=\sum_{T\in\mathcal T}B_{l,T}\rho^{2lx_T}$ ($x_T=\sum_{t\in T}x_t$) and $d_\delta=\sum_l\Re(f_lc_l(\delta))$.
+If some $u\in\mathbb Z_p^n$ has $\langle\mathbf 1_T,u\rangle\equiv1$ for all $T\in\mathcal T$ (``$\mathcal T$ balanced''), then
+$d_{-\delta}(x)=-d_\delta(x+\tfrac\delta2u)$ for all $x,\delta$. Hence for every class-$\mathcal C$ network with balanced interference family,
+$h\le\sum_l\Re A_l\,\kappa_l(\delta)-\tfrac12\operatorname{osc}_xd_\delta\le\sum_l\Re A_l\kappa_l(\delta)-\big(\sum_l\kappa_l(\delta)E_l\big)^{1/2}$.
+$\mathcal T$ is balanced iff no relation $\sum_T\lambda_T\mathbf 1_T=0$ has $\sum_T\lambda_T\not\equiv0$; every single-$T$ family and every
+single-level family with $p\nmid|T|$ is balanced.
+\end{lemma}
+\begin{proof}
+$f_l(x+\frac\delta2u)=\rho^{l\delta}f_l(x)$ and $c_l(-\delta)=-\rho^{l\delta}c_l(\delta)$. The margin bound: take minimisers for $\pm\delta$,
+$\min d_{-\delta}=-\max d_\delta$, average the two mean gaps ($=\sum\Re A_l\kappa_l(\delta)$), then Bhatia--Davis and Parseval
+($\mathbb Ed_\delta^2=\sum_l\kappa_l(\delta)E_l$, distinct characters). Balance is solvability of a linear system (Fredholm alternative over $\mathbb Z_p$).
+\end{proof}
+
+\begin{proposition}[flat at every offset]\label{prop:leg}
+Let $\chi$ be the Legendre symbol mod $p$ and, in Proposition~\ref{prop:emb}, $\alpha=0$, $\beta_le^{i\varphi_l}=2\widehat\chi(l)$
+($|\beta_l|=2/\sqrt p$). Then the interference potential is $\chi$ itself, and for \emph{every} $\delta\ne0$
+\[
+\operatorname{depth}_\delta:=\max_w[\chi(w-\delta)-\chi(w)]\le2=\frac2{\sqrt p}\sum_{l\in F}|\beta_l|\kappa_l(\delta).
+\]
+Hence no inequality of the form ``$\operatorname{depth}_\delta\ge c\sum_l v_l\kappa_l(\delta)$ for some $\delta$ in a set $\Delta$'' (Riesz, $\Lambda(p)$,
+hypercontractive or extreme-value detection, at any set of offsets) holds with $c$ independent of $p$: it fails for $p>4/c^2$.
+\end{proposition}
+\begin{proof}
+$\chi$ is real with $\widehat\chi(0)=0$ and $|\widehat\chi(l)|=p^{-1/2}$ (Gauss sum), so $\chi(w)=\sum_{l\in F}2\Re(\widehat\chi(l)\rho^{lw})$;
+$|\chi|\le1$ and $\sum_{l\in F}\kappa_l(\delta)=p/2$.
+\end{proof}
+
+\begin{corollary}[Parseval closure for single-$T$ networks at every $n$]
+Let every feature of a class-$\mathcal C$ network be an aligned single-$T_l$ atom system with $\{T_l\}$ balanced, cheap set $L'$
+(features with $B_{l,T_l}\ne0$). If $c_n(s)^2\max_\delta\sum_{l\in L'}\kappa_l(\delta)\le1$ --- in particular if $|L'|\le3$, or if
+$p<2/c_n(s)^2$ --- then $\gamma\le\gamma^{(S)}_{\rm IF}$. (Note $c_n(s)<1-e^{-1/2}$ for all $n$ and $s\le\nu/2$.)
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:pt}: $\Re A_l\le\tilde a_l+c_nv_l$ with $\tilde a_l=\nu^{1-s}Q_l^s$, $v_l=|B_{l,T_l}|$. Lemma~\ref{lem:bal} with $E_l=v_l^2$ and
+Cauchy--Schwarz give $h\le\sum_l\tilde a_l\kappa_l(\delta)+c_n\sum_{L'}v_l\kappa_l-(\sum v_l^2\kappa_l)^{1/2}\le\sum_l\tilde a_l\kappa_l(\delta)$ at
+$\delta=\arg\min\sum\tilde a_l\kappa_l$; then $\Gamma^{(S)}_s$ and the budget.
+\end{proof}
+
+\begin{corollary}[p-uniform gain cap for aligned single-$T$ networks]
+For every class-$\mathcal C$ network whose features are aligned single-$T$ atom systems (any $T_l$, any number of features),
+\[\gamma\le\gamma_{\rm IF}\,\Xi^*_{n,p}(s)^s,\qquad
+\Xi^*_{n,p}(s)=\sup_{\vartheta\in[0,1],\,\theta}\frac{\frac1p\sum_{k\in\mathbb Z_p}(1+\vartheta\cos(\theta+2\pi k/p))_+^r}{\mathcal F_n(\vartheta)^r}.\]
+\end{corollary}
+\begin{proof}
+$\Re\Phi_l(x)=\Re A_l+v_l\cos(\cdot)$ depends on $x$ only through $lw$, $w=2x_{T_l}$, which is uniform on $\mathbb Z_p$; $\Re A_l\le L_l$; and
+Theorem~\ref{thm:pt} gives $Q_l\ge\nu^{1-r}L_l^r\mathcal F_n(\vartheta_l)^r$. Insert in Theorem~\ref{thm:fr}.
+\end{proof}
+
+\section{The pointwise covering form of the residual}
+By Theorem~\ref{thm:fr} (first inequality) a class-$\mathcal C$ network can beat $\gamma_{\rm IF}$ only if the \emph{excess function}
+$\Psi(x)=\sum_l\big[(\Re\Phi_l(x))_+^r-\nu^{r-1}Q_l\big]$ is strictly positive at every $x\in\mathbb Z_p^n$.
+\begin{lemma}[one cheap single-$T$ feature]
+If all features but one are interference-free and the remaining one is an aligned single-$T$ atom system, then $\min_x\Psi\le0$;
+hence $\gamma\le\gamma_{\rm IF}$. This holds at every odd prime $p$.
+\end{lemma}
+\begin{proof}
+IF features: $\Re\Phi_l\equiv\Re A_l$ and $(\Re A_l)^r\le|A_l|^r\le\nu^{r-1}Q_l$ (Lemma 7). The single-$T$ feature has
+$\Re\Phi(x)=\Re A+v\cos(\theta+2\pi lw/p)$ with $lw$ ranging over $\mathbb Z_p$, so some $x$ gives $\Re\Phi(x)\le L-v\cos(\pi/p)$.
+Theorem~\ref{thm:pt}: $\nu^{1-s}Q^s\ge L-c_n(s)v\ge L-v\cos(\pi/p)$ because $c_n(s)<1-e^{-1/2}<\frac12\le\cos(\pi/p)$. Raise to the power $r$.
+\end{proof}
+\noindent\textbf{Conjecture (PW$_{\mathcal C}$).} For every odd prime $p$ and every class-$\mathcal C$ network, $\min_x\Psi(x)\le0$.
+It implies the class-$\mathcal C$ IF value through Theorem~\ref{thm:fr}. For several cheap features it is a covering statement: the
+low-field points of each cheap feature cannot all be covered by the excess of the others.
+
+\section{The obstruction}
+Any general proof of RD in class $\mathcal C$ must prove RT$_n(p,s)$ (Prop.~\ref{prop:emb}) for every $n$, $s\in[1,\nu/2]$ and $p$, with
+amplification up to $\tau_n(\nu/2)\uparrow e^{1/2}$. By Prop.~\ref{prop:leg} RT$_n$ cannot follow from any detection statement that ignores the
+efficiency of the allocation, and by Lemma~\ref{lem:bal} the single-$T$ class carries no $\delta$-rigidity. By Theorem~\ref{thm:fr} the
+difficulty is not jointness: FR detects all features at once with no loss. What FR leaves is single-feature: features with $\Xi_l>1$,
+namely (a) single-$T$ features at small $n$ / $b$ near $2$ ($\Xi\le1.054$), whose detection needs the minimum over $x$ (one-sided Sidon with
+coverage), and (b) wild features (fields leaving the half plane; a single atom has $\Xi=1.24$ at $(n,b)=(2,2)$ and $3.7$ at $(10,2)$), which must be compensated by
+other features at their holes.
+\end{document}

@@ -1,0 +1,23 @@
+s=1.1: c0(r)=0.97371  c0*tau^r=1.01027  Xi_rel(T)=1.01473 at t=0.727  -> gain bound Xi^s=1.0162
+      p=5: Xi_rel(p)=1.01485 (t=0.742)  Xi^s=1.0164
+      p=7: Xi_rel(p)=1.01474 (t=0.735)  Xi^s=1.0162
+      p=11: Xi_rel(p)=1.01473 (t=0.727)  Xi^s=1.0162
+      p=13: Xi_rel(p)=1.01473 (t=0.727)  Xi^s=1.0162
+      p=31: Xi_rel(p)=1.01473 (t=0.727)  Xi^s=1.0162
+      p=101: Xi_rel(p)=1.01473 (t=0.727)  Xi^s=1.0162
+s=1.25: c0(r)=0.94654  c0*tau^r=1.02650  Xi_rel(T)=1.03515 at t=0.772  -> gain bound Xi^s=1.0441
+      p=5: Xi_rel(p)=1.03561 (t=0.795)  Xi^s=1.0447
+      p=7: Xi_rel(p)=1.03519 (t=0.772)  Xi^s=1.0442
+      p=11: Xi_rel(p)=1.03515 (t=0.772)  Xi^s=1.0441
+      p=13: Xi_rel(p)=1.03515 (t=0.772)  Xi^s=1.0441
+      p=31: Xi_rel(p)=1.03515 (t=0.772)  Xi^s=1.0441
+      p=101: Xi_rel(p)=1.03515 (t=0.772)  Xi^s=1.0441
+s=1.5: c0(r)=0.92037  c0*tau^r=1.05356  Xi_rel(T)=1.06537 at t=0.825  -> gain bound Xi^s=1.0996
+      p=5: Xi_rel(p)=1.06691 (t=0.870)  Xi^s=1.1020
+      p=7: Xi_rel(p)=1.06558 (t=0.833)  Xi^s=1.1000
+      p=11: Xi_rel(p)=1.06538 (t=0.833)  Xi^s=1.0997
+      p=13: Xi_rel(p)=1.06537 (t=0.825)  Xi^s=1.0996
+      p=31: Xi_rel(p)=1.06537 (t=0.825)  Xi^s=1.0996
+      p=101: Xi_rel(p)=1.06537 (t=0.825)  Xi^s=1.0996
+class C n=2, s=1.5: Xi_C(T, grid 48) >= 1.23808 with 1 atoms; gain bound Xi^s = 1.3776
+class C n=2, s=1.25: Xi_C(T, grid 48) >= 1.15250 with 1 atoms; gain bound Xi^s = 1.1941

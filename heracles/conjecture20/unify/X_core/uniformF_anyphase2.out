@@ -1,0 +1,2 @@
+worst max(sine-QR, single freq)/need: (np.float64(0.8987601255910825), (29.0, 2.3927))   #grid failures: 286
+failing p (real p grid, integer) with s-range: [(29, 2.37, 2.44), (30, 2.34, 2.45), (31, 2.32, 2.46), (32, 2.29, 2.46), (33, 1.99, 2.47)] ... [(78, 1.44, 1.5), (79, 1.43, 1.48), (80, 1.43, 1.45)]   count 39

@@ -1,0 +1,5 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+s=1.5 uniform q=64: certified=True eta=0.001 rho_q <= 0.5358 (threshold 0.8165, OK) covers q' in [49,64] by monotonicity; x_s=8.19e-03 cells=770 min cell lb=4.17e-03 |spt b'|=9 maxfreq=59
+s=1.5 uniform q=84: certified=True eta=0.001 rho_q <= 0.5112 (threshold 0.8165, OK) covers q' in [62,84] by monotonicity; x_s=1.73e-03 cells=872 min cell lb=2.64e-04 |spt b'|=11 maxfreq=94
+s=1.5 uniform q=110: certified=True eta=0.001 rho_q <= 0.4858 (threshold 0.8165, OK) covers q' in [78,110] by monotonicity; x_s=1.28e-03 cells=905 min cell lb=2.97e-04 |spt b'|=12 maxfreq=110
+s=1.5 uniform q=144: certified=True eta=0.001 rho_q <= 0.4189 (threshold 0.8165, OK) covers q' in [93,144] by monotonicity; x_s=5.95e-03 cells=818 min cell lb=1.08e-02 |spt b'|=8 maxfreq=108

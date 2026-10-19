@@ -1,0 +1,9 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+n=2 s=1.25 aligned    max g/R over 4000 random rays: eps=1e-01: 2.144e-02; eps=1e-02: 1.820e-03; eps=1e-03: 1.873e-04; eps=1e-04: 1.887e-05
+n=2 s=1.25 misaligned max g/R over 4000 random rays: eps=1e-01: 1.401e-02; eps=1e-02: 1.787e-03; eps=1e-03: 1.473e-04; eps=1e-04: 1.836e-05
+n=2 s=1.50 aligned    max g/R over 4000 random rays: eps=1e-01: 2.948e-02; eps=1e-02: 3.640e-03; eps=1e-03: 3.497e-04; eps=1e-04: 3.296e-05
+n=2 s=1.50 misaligned max g/R over 4000 random rays: eps=1e-01: 2.359e-02; eps=1e-02: 2.717e-03; eps=1e-03: 2.602e-04; eps=1e-04: 3.026e-05
+n=3 s=1.25 aligned    max g/R over 4000 random rays: eps=1e-01: 1.209e-02; eps=1e-02: 1.342e-03; eps=1e-03: 1.501e-04; eps=1e-04: 1.351e-05
+n=3 s=1.25 misaligned max g/R over 4000 random rays: eps=1e-01: 1.066e-02; eps=1e-02: 1.187e-03; eps=1e-03: 1.043e-04; eps=1e-04: 1.097e-05
+n=3 s=2.00 aligned    max g/R over 4000 random rays: eps=1e-01: 3.308e-02; eps=1e-02: 3.786e-03; eps=1e-03: 3.417e-04; eps=1e-04: 3.849e-05
+n=3 s=2.00 misaligned max g/R over 4000 random rays: eps=1e-01: 2.517e-02; eps=1e-02: 3.072e-03; eps=1e-03: 2.919e-04; eps=1e-04: 3.281e-05

@@ -1,0 +1,9 @@
+rep 0: class C  R_Q = 0.53310  gamma/gamma_IF = 0.47802
+rep 1: class C  R_Q = 0.99999  gamma/gamma_IF = 0.99818
+rep 2: class C  R_Q = 0.99981  gamma/gamma_IF = 0.97581
+rep 3: class C  R_Q = 1.00000  gamma/gamma_IF = 0.99962
+rep 4: class C  R_Q = 0.99999  gamma/gamma_IF = 0.99884
+rep 5: class C  R_Q = 0.99987  gamma/gamma_IF = 0.97697
+rep 6: class C  R_Q = 0.99999  gamma/gamma_IF = 0.97855
+rep 7: class C  R_Q = 0.99999  gamma/gamma_IF = 0.99868
+SUMMARY class C p=7 n=2 b=2.0: max R_Q over positive-margin runs = 1.00000 (gamma/gamma_IF 0.9996238815600967)

@@ -1,0 +1,4 @@
+== s=1.1 p=307 Gamma=0.60666 (K*=153/153)  best all-pair network ratio 0.9225 [full-legendre]   best c*=0.1140 [full-legendre] vs c_sharp=0.0397 (x2.87)  [118s]
+== s=1.1 p=311 Gamma=0.62688 (K*=31/155)  best all-pair network ratio 0.8923 [full-legendre]   best c*=0.1443 [full-legendre] vs c_sharp=0.0397 (x3.63)  [93s]
+== s=1.1 p=401 Gamma=0.61015 (K*=20/200)  best all-pair network ratio 0.9067 [full-legendre]   best c*=0.1302 [full-legendre] vs c_sharp=0.0397 (x3.28)  [127s]
+== s=1.1 p=499 Gamma=0.60351 (K*=83/249)  best all-pair network ratio 0.9066 [full-legendre]   best c*=0.1305 [full-legendre] vs c_sharp=0.0397 (x3.28)  [161s]

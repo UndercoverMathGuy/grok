@@ -1,0 +1,17 @@
+networks tested=1073  reduction applicable (theta_net >= theta_pay)=1073  failures=0
+  (5, 2, 1.5): max ratio overall=0.781758; applicable=150; max ratio among applicable=0.781758; min theta_net among cheap nets=0.2725
+  (7, 2, 1.5): max ratio overall=0.979762; applicable=150; max ratio among applicable=0.979762; min theta_net among cheap nets=0.4551
+  (11, 2, 1.5): max ratio overall=1.000000; applicable=153; max ratio among applicable=1.000000; min theta_net among cheap nets=0.4086
+  (13, 2, 1.2): max ratio overall=1.000000; applicable=152; max ratio among applicable=1.000000; min theta_net among cheap nets=0.3406
+  (7, 3, 2.0): max ratio overall=0.800873; applicable=150; max ratio among applicable=0.800873; min theta_net among cheap nets=0.3459
+  (5, 3, 1.333): max ratio overall=0.829922; applicable=150; max ratio among applicable=0.829922; min theta_net among cheap nets=0.3481
+  (5, 4, 2.5): max ratio overall=1.000000; applicable=150; max ratio among applicable=1.000000; min theta_net among cheap nets=0.2710
+  (11, 2, 1.2): max ratio overall=1.000000; applicable=2; max ratio among applicable=1.000000; min theta_net among cheap nets=nan
+  (13, 2, 1.5): max ratio overall=1.000000; applicable=2; max ratio among applicable=1.000000; min theta_net among cheap nets=nan
+  (17, 2, 1.5): max ratio overall=1.000000; applicable=2; max ratio among applicable=1.000000; min theta_net among cheap nets=nan
+  (17, 2, 1.2): max ratio overall=1.000000; applicable=2; max ratio among applicable=1.000000; min theta_net among cheap nets=nan
+  (19, 2, 1.5): max ratio overall=1.000000; applicable=2; max ratio among applicable=1.000000; min theta_net among cheap nets=nan
+  (19, 2, 1.2): max ratio overall=1.000000; applicable=2; max ratio among applicable=1.000000; min theta_net among cheap nets=nan
+  (23, 2, 1.5): max ratio overall=1.000000; applicable=2; max ratio among applicable=1.000000; min theta_net among cheap nets=nan
+  (23, 2, 1.2): max ratio overall=0.999723; applicable=2; max ratio among applicable=0.999723; min theta_net among cheap nets=0.3673
+  (29, 2, 1.5): max ratio overall=1.000000; applicable=2; max ratio among applicable=1.000000; min theta_net among cheap nets=nan

@@ -1,0 +1,10 @@
+p=3 n=11: gamma/gamma_IF = 1.054399 (exact True), DC share = 0.1410
+   |beta_1| = 4.1376e+00,  max_k |beta_(1,|T|=k)| = 1.8600e+00  (min 1.468e-01) -> NOT interference-free: True
+   split: h_split = -2.844718e+02 (<0: True), gamma_split/gamma_IF = -273.40, cost(split) <= cost: True
+   R8 ratio h / (B_3 (P_live)^s kappa) = 1.0549e-05 (<= 1: True)
+   R2(4): E_sigma h(sigma theta) = -4.2180e+03 <= h(split) = -2.8447e+02: True;  h(|S|=k) for k=0..n: 2.73e+00, -1.62e+04, -9.29e+03, -9.42e+03, -6.54e+03, -4.41e+03, -2.83e+03, -1.92e+03, -1.22e+03, -8.34e+02, -5.55e+02, -5.45e+02
+p=3 n=13: gamma/gamma_IF = 1.109163 (exact True), DC share = 0.1444
+   |beta_1| = 5.1420e+00,  max_k |beta_(1,|T|=k)| = 9.7787e-01  (min 7.281e-02) -> NOT interference-free: True
+   split: h_split = -7.463014e+02 (<0: True), gamma_split/gamma_IF = -593.99, cost(split) <= cost: True
+   R8 ratio h / (B_3 (P_live)^s kappa) = 4.3873e-07 (<= 1: True)
+   R2(4): E_sigma h(sigma theta) = -1.7412e+04 <= h(split) = -7.4630e+02: True;  h(|S|=k) for k=0..n: 4.15e+00, -9.69e+04, -5.96e+04, -5.28e+04, -3.80e+04, -2.58e+04, -1.64e+04, -1.12e+04, -7.07e+03, -4.86e+03, -3.40e+03, -2.21e+03, -1.56e+03, -1.15e+03

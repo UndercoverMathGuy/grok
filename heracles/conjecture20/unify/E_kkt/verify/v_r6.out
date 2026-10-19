@@ -1,0 +1,15 @@
+R6 identity: max rel error over 40 random class-C networks = 2.1e-16
+R3(c) test: mixed neuron (1,2;3) at p=7: max|beta_l| = 8.3e-33, max|beta_lT| = 8.3e-33, but g(.,delta) ranges over [-1.543,1.901] -> E_q g != sum Re(conj(beta)K~) = 0 for point-mass q (E_q g = 1.901)
+budget ratio of an equal-profile 2-frequency neuron (p=7,n=2) at b=2.0: 1.000000
+budget ratio of an equal-profile 2-frequency neuron (p=7,n=2) at b=2.2: 0.935098
+budget ratio of an equal-profile 2-frequency neuron (p=7,n=2) at b=3.0: 0.717740
+  budget ratios of the three neurons at b=2: [1.0, 1.0, 1.0]
+  R7(a) b=2 feature 1: aligned=True; cheapness ratio 1.241982 vs exp((s-1)(log nu - H_s(w))) = 1.057185;  |beta_il| = B_p a_i ? False
+  R7(a) b=2 feature 2: aligned=True; cheapness ratio 1.226189 vs exp((s-1)(log nu - H_s(w))) = 1.057185;  |beta_il| = B_p a_i ? False
+  R5(i) (p,n,b)=(5,2,2.0) S=[1, 2] nonfeat=None: 31 no-cheap samples; max (gamma - bound)/gIF = -3.50e-01 (<=0); det/gIF in [5.0e-02,1.2e-01]
+  R5(i) (p,n,b)=(5,2,2.6) S=[1, 2] nonfeat=None: 47 no-cheap samples; max (gamma - bound)/gIF = -2.96e-01 (<=0); det/gIF in [4.6e-02,1.5e-01]
+  R5(i) (p,n,b)=(7,2,2.0) S=[1, 2, 3] nonfeat=None: 22 no-cheap samples; max (gamma - bound)/gIF = -2.75e-01 (<=0); det/gIF in [4.9e-02,9.9e-02]
+  R5(i) (p,n,b)=(5,3,2.0) S=[1] nonfeat=None: 21 no-cheap samples; max (gamma - bound)/gIF = -8.69e-01 (<=0); det/gIF in [1.1e-01,3.7e-01]
+  R5(i) (p,n,b)=(5,3,2.0) S=[1] nonfeat=(2, 0.05): 51 no-cheap samples; max (gamma - bound)/gIF = -5.49e-01 (<=0); det/gIF in [8.1e-02,3.6e-01]
+  R5(i) (p,n,b)=(7,2,2.4) S=[1, 3] nonfeat=(2, 0.05): 42 no-cheap samples; max (gamma - bound)/gIF = -3.29e-01 (<=0); det/gIF in [5.1e-02,1.9e-01]
+  R5(i) (p,n,b)=(7,3,4.0) S=[1, 2, 3] nonfeat=None: 60 no-cheap samples; max (gamma - bound)/gIF = -6.42e-01 (<=0); det/gIF in [4.4e-02,1.2e-01]

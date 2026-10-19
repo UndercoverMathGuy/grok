@@ -1,0 +1,12 @@
+p=5 s=1.5 ratio=0.78176 |beta_kill|=1.7e-22 |beta_j|=[0.00703, 0.0] width=6
+p=5 s=1.5: best over 40 starts = 0.78176   (38s)
+p=5 s=1.25 ratio=0.65738 |beta_kill|=1.2e-17 |beta_j|=[0.00925, 0.0] width=5
+p=5 s=1.25: best over 20 starts = 0.65738   (38s)
+p=5 s=1.0 ratio=0.55279 |beta_kill|=1.2e-18 |beta_j|=[0.01217, 0.0] width=6
+p=5 s=1.0: best over 20 starts = 0.55279   (63s)
+p=7 s=1.182 ratio=0.85499 |beta_kill|=2.1e-28 |beta_j|=[0.0019, 0.00343, 0.0] width=7
+p=7 s=1.182: best over 30 starts = 0.85499   (321s)
+p=7 s=1.0 ratio=0.78907 |beta_kill|=1.2e-22 |beta_j|=[0.00262, 0.00473, 0.0] width=8
+p=7 s=1.0: best over 15 starts = 0.78907   (242s)
+p=7 s=1.5 ratio=0.98006 |beta_kill|=2.8e-29 |beta_j|=[0.00109, 0.00196, 0.0] width=7
+p=7 s=1.5: best over 15 starts = 0.98006   (91s)

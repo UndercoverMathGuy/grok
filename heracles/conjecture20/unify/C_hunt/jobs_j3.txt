@@ -1,0 +1,42 @@
+ptest.py 2 1.2 60 105 theta
+ptest.py 2 1.5 60 105 theta
+ptest.py 3 1.5 60 105 theta
+ptest.py 3 2.0 60 105 theta
+ptest.py 4 2.0 60 105 theta
+ptest.py 4 2.5 60 105 theta
+ptest.py 5 2.0 60 105 theta
+ptest.py 5 3.0 60 105 theta
+jtest2.py 5 2 150 201
+jtest2.py 7 2 120 201
+jtest2.py 11 2 80 201
+jtest2.py 13 2 80 201
+jtest2.py 17 2 60 201
+jtest2.py 19 2 50 201
+jtest2.py 23 2 40 201
+jtest2.py 29 2 30 201
+jtest2.py 31 2 30 201
+jtest2.py 37 2 20 201
+jtest2.py 41 2 16 201
+jtest2.py 5 3 80 202
+jtest2.py 7 3 50 202
+jtest2.py 11 3 20 202
+jtest2.py 5 4 30 203
+jtest2.py 5 2 60 204 cplx
+jtest2.py 7 2 50 204 cplx
+jtest2.py 11 2 40 204 cplx
+jtest2.py 13 2 40 204 cplx
+jtest2.py 17 2 30 204 cplx
+jtest2.py 23 2 20 204 cplx
+jtest2.py 7 3 30 205 cplx
+detect_lp.py 11 2.0 Sstar 8 96 2 ghost
+detect_lp.py 17 2.0 Sstar 8 96 2 ghost
+detect_lp.py 23 2.0 Sstar 8 96 2 ghost
+detect_lp.py 31 2.0 Sstar 8 96 2 ghost
+detect_lp.py 13 2.0 Sstar 8 96 2 ghost
+detect_lp.py 7 2.0 Sstar 6 97 3 ghost
+hunt_gen.py 13 2.0 15 121
+hunt_gen.py 13 2.5 15 121
+hunt_gen.py 17 2.0 15 121
+hunt_gen.py 17 2.5 15 121
+hunt_gen.py 19 2.0 15 121
+hunt_gen.py 19 2.5 15 121

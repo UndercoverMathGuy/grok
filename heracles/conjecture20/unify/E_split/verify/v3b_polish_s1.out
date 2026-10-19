@@ -1,0 +1,13 @@
+(p,n,m)=(5,2,6) run 0: gamma/(B Gamma_1) = 1.000000, H - H^dec(1) = -0.00000, off-dominant-plane share = 9.1e-15, max|beta_T|/max|beta| = 8.2e-14
+(p,n,m)=(5,2,6) run 1: gamma/(B Gamma_1) = 1.000000, H - H^dec(1) = -0.00000, off-dominant-plane share = 3.0e-15, max|beta_T|/max|beta| = 1.5e-14
+(p,n,m)=(5,2,6) run 2: gamma/(B Gamma_1) = 1.000000, H - H^dec(1) = -0.00000, off-dominant-plane share = 4.4e-14, max|beta_T|/max|beta| = 1.1e-14
+(p,n,m)=(5,2,6) run 3: gamma/(B Gamma_1) = 1.000000, H - H^dec(1) = -0.00000, off-dominant-plane share = 9.4e-14, max|beta_T|/max|beta| = 4.1e-14
+(p,n,m)=(5,2,6) run 4: gamma/(B Gamma_1) = 0.764910, H - H^dec(1) = -0.01144, off-dominant-plane share = 6.5e-02, max|beta_T|/max|beta| = 2.2e-01
+(p,n,m)=(5,2,6) run 5: gamma/(B Gamma_1) = -0.000000, H - H^dec(1) = -0.07190, off-dominant-plane share = 4.7e-01, max|beta_T|/max|beta| = 7.1e-01
+(p,n,m)=(5,2,7) run 0: gamma/(B Gamma_1) = 1.000000, H - H^dec(1) = +0.11562, off-dominant-plane share = 2.3e-13, max|beta_T|/max|beta| = 1.7e-14
+(p,n,m)=(5,2,7) run 1: gamma/(B Gamma_1) = 1.000000, H - H^dec(1) = +0.09114, off-dominant-plane share = 6.4e-14, max|beta_T|/max|beta| = 4.4e-14
+(p,n,m)=(5,2,7) run 2: gamma/(B Gamma_1) = 1.000000, H - H^dec(1) = +0.08781, off-dominant-plane share = 7.7e-14, max|beta_T|/max|beta| = 1.6e-14
+(p,n,m)=(5,2,7) run 3: gamma/(B Gamma_1) = 1.000000, H - H^dec(1) = +0.01600, off-dominant-plane share = 3.8e-14, max|beta_T|/max|beta| = 6.4e-15
+(p,n,m)=(7,2,9) run 0: gamma/(B Gamma_1) = 0.842407, H - H^dec(1) = -0.01567, off-dominant-plane share = 1.5e-02, max|beta_T|/max|beta| = 1.6e-01
+(p,n,m)=(7,2,9) run 1: gamma/(B Gamma_1) = 1.000000, H - H^dec(1) = -0.00000, off-dominant-plane share = 1.0e-14, max|beta_T|/max|beta| = 5.3e-14
+(p,n,m)=(7,2,9) run 2: gamma/(B Gamma_1) = 1.000000, H - H^dec(1) = -0.00000, off-dominant-plane share = 2.4e-15, max|beta_T|/max|beta| = 1.9e-14

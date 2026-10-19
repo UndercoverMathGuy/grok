@@ -1,0 +1,9 @@
+p=10007 K*=18 block=antipodal m=32: block wave half peak-to-trough / total size = 0.175  (cheater needs < 0.184)
+   block share f=0.02: clean efficiency 0.971 | cheater margin / clean optimum 0.970 | without the interference loss it would be 0.971
+   block share f=0.05: clean efficiency 0.929 | cheater margin / clean optimum 0.926 | without the interference loss it would be 0.929
+   block share f=0.10: clean efficiency 0.861 | cheater margin / clean optimum 0.855 | without the interference loss it would be 0.863
+   block share f=0.20: clean efficiency 0.736 | cheater margin / clean optimum 0.719 | without the interference loss it would be 0.741
+   block share f=0.30: clean efficiency 0.624 | cheater margin / clean optimum 0.593 | without the interference loss it would be 0.633
+   block share f=0.50: clean efficiency 0.436 | cheater margin / clean optimum 0.369 | without the interference loss it would be 0.455
+
+[exited with code 0]

@@ -1,0 +1,45 @@
+p=    61 K=  5 e=1.0000  kappa-mass on binding set: [3.26,3.80]  Phi_TDP/Gamma=1.0000
+p=    67 K=  6 e=1.0000  kappa-mass on binding set: [3.88,5.31]  Phi_TDP/Gamma=1.0000
+p=    71 K=  6 e=1.0000  kappa-mass on binding set: [4.05,4.74]  Phi_TDP/Gamma=1.0000
+p=    73 K=  6 e=1.0000  kappa-mass on binding set: [4.09,4.63]  Phi_TDP/Gamma=1.0000
+p=    79 K=  6 e=1.0000  kappa-mass on binding set: [4.15,4.95]  Phi_TDP/Gamma=1.0000
+p=    83 K=  6 e=1.0000  kappa-mass on binding set: [3.79,4.99]  Phi_TDP/Gamma=1.0000
+p=    89 K=  6 e=1.0000  kappa-mass on binding set: [3.88,4.82]  Phi_TDP/Gamma=1.0000
+p=    97 K=  6 e=1.0000  kappa-mass on binding set: [3.62,4.80]  Phi_TDP/Gamma=1.0000
+p=   101 K=  7 e=1.0000  kappa-mass on binding set: [4.28,5.91]  Phi_TDP/Gamma=1.0000
+p=   151 K=  6 e=1.0000  kappa-mass on binding set: [3.37,4.11]  Phi_TDP/Gamma=1.0000
+p=   211 K=  8 e=1.0000  kappa-mass on binding set: [4.62,6.08]  Phi_TDP/Gamma=1.0000
+p=   307 K=  9 e=1.0000  kappa-mass on binding set: [5.29,6.64]  Phi_TDP/Gamma=1.0000
+p=   401 K=  8 e=1.0000  kappa-mass on binding set: [4.50,5.26]  Phi_TDP/Gamma=1.0000
+p=   503 K=  9 e=1.0000  kappa-mass on binding set: [4.98,5.89]  Phi_TDP/Gamma=1.0000
+p=   601 K= 12 e=1.0000  kappa-mass on binding set: [7.43,8.81]  Phi_TDP/Gamma=1.0000
+p=   701 K= 10 e=1.0000  kappa-mass on binding set: [5.53,6.80]  Phi_TDP/Gamma=1.0000
+p=   809 K= 11 e=1.0000  kappa-mass on binding set: [5.91,7.95]  Phi_TDP/Gamma=1.0000
+p=  1009 K= 11 e=1.0000  kappa-mass on binding set: [5.84,8.01]  Phi_TDP/Gamma=1.0000
+p=  2003 K= 12 e=1.0000  kappa-mass on binding set: [6.54,7.57]  Phi_TDP/Gamma=1.0000
+p=  2003 K= 12 e=0.9930  kappa-mass on binding set: [6.50,7.60]  Phi_TDP/Gamma=0.9930
+p=  2003 K= 10 e=0.9819  kappa-mass on binding set: [4.90,5.52]  Phi_TDP/Gamma=0.9819
+p=  2003 K= 14 e=0.9808  kappa-mass on binding set: [7.94,9.65]  Phi_TDP/Gamma=0.9808
+p=  5003 K= 13 e=1.0000  kappa-mass on binding set: [6.52,7.53]  Phi_TDP/Gamma=1.0000
+p=  5003 K= 17 e=0.9899  kappa-mass on binding set: [9.94,10.95]  Phi_TDP/Gamma=0.9899
+p=  5003 K= 15 e=0.9842  kappa-mass on binding set: [8.10,9.34]  Phi_TDP/Gamma=0.9842
+p=  5003 K= 15 e=0.9837  kappa-mass on binding set: [8.10,9.52]  Phi_TDP/Gamma=0.9837
+p= 10007 K= 18 e=1.0000  kappa-mass on binding set: [9.79,12.13]  Phi_TDP/Gamma=1.0000
+p= 10007 K= 18 e=0.9902  kappa-mass on binding set: [9.68,12.01]  Phi_TDP/Gamma=0.9902
+p= 10007 K= 17 e=0.9853  kappa-mass on binding set: [8.01,12.10]  Phi_TDP/Gamma=0.9853
+p= 10007 K= 16 e=0.9767  kappa-mass on binding set: [8.34,9.38]  Phi_TDP/Gamma=0.9767
+p= 30011 K= 18 e=1.0000  kappa-mass on binding set: [8.66,11.64]  Phi_TDP/Gamma=1.0000
+p= 30011 K= 17 e=0.9911  kappa-mass on binding set: [8.25,9.60]  Phi_TDP/Gamma=0.9911
+p= 30011 K= 17 e=0.9910  kappa-mass on binding set: [8.25,9.11]  Phi_TDP/Gamma=0.9910
+p= 30011 K= 20 e=0.9891  kappa-mass on binding set: [10.60,12.20]  Phi_TDP/Gamma=0.9891
+Traceback (most recent call last):
+  File "/home/user/grok/heracles/conjecture20/unify/arith2/tail_on_runs.py", line 20, in <module>
+    K = kmat(p); out = []
+        ^^^^^^^
+  File "/home/user/grok/heracles/conjecture20/unify/arith2/lib.py", line 17, in kmat
+    return 1-np.cos(2*np.pi*np.outer(j, j)/p)
+                            ^^^^^^^^^^^^^^
+  File "/root/.cache/uv/archive-v0/-thZPK3RE6shebeG/lib/python3.12/site-packages/numpy/_core/numeric.py", line 989, in outer
+    return multiply(a.ravel()[:, newaxis], b.ravel()[newaxis, :], out)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 18.6 GiB for an array with shape (50001, 50001) and data type int64

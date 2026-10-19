@@ -1,0 +1,191 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\title{C\_joint, round 2: three-moment joint detection, cubic relations, and the failure of $\ell_r$ covering}
+\date{}
+\begin{document}
+\maketitle
+
+\noindent Notation as in \texttt{unify/BRIEF.md} and \texttt{C\_joint/joint\_proofs.tex} (round 1, results J1--J12).
+$p$ odd prime, $\rho=e^{2\pi i/p}$, $F=\{1,\dots,\tfrac{p-1}2\}$, $n\ge2$, $\nu=n+1$, $b\in[2,\nu]$, $s=\nu/b$, $r=1/s$.
+Gaps $g(x,\delta)=\sum_{l\in F}\Re(\Phi_l(x)c_l(\delta))$, $c_l(\delta)=1-\rho^{-l\delta}$, $\kappa_l(\delta)=\Re c_l(\delta)$,
+$A_l=\mathbb E_x\Phi_l=\overline{\beta_l}$. In class $\mathcal C$, $\Phi_l=A_l+f_l$, $f_l(x)=\sum_{T\neq\emptyset}B_{l,T}\rho^{2l x_T}$,
+$E_l=\sum_T|B_{l,T}|^2$. $Q_l=\sum_i|\beta_{il}|^r$, $\tilde a_l=\nu^{1-s}Q_l^s$ (IF-equivalent amplitude),
+$c_n(s)=1-(n/\nu)^{s-1}<1-e^{-1/2}$, $C:=2(s-1)/\nu$. Every statement holds for every odd prime $p$, every $n\ge2$ and every
+$b\in[2,\nu]$ unless a hypothesis says otherwise.
+
+\section{A sharp three-moment depth bound}
+
+\begin{lemma}[polynomial tilts; three-moment bound]\label{lem:psi}
+Let $F$ be a real random variable on a finite probability space with $\mathbb EF=0$, $\sigma^2=\mathbb EF^2>0$,
+$t=\mathbb EF^3/\sigma^3$, and $m=-\min F$. Then
+\begin{enumerate}
+\item for every real polynomial $q$ with $\mathbb Eq(F)^2>0$: $m\ \ge\ -\mathbb E[Fq(F)^2]/\mathbb E[q(F)^2]$, with equality for the
+Lagrange polynomial that vanishes on every value of $F$ except $\min F$;
+\item $m\ \ge\ \sigma\,\psi(t)$, where $\psi(t)=\tfrac12(\sqrt{t^2+4}-t)$. Equality holds for every two-point law. In particular
+$m\ge\sigma$ whenever $\mathbb EF^3\le0$;
+\item if $\mathbb EF^{2k-1}=0$ and $\mathbb EF^{2k+1}\le0$ for some $k\ge1$, then $m\ge(\mathbb EF^{2k}/\mathbb EF^{2k-2})^{1/2}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+$F+m\ge0$ pointwise, so $\mathbb E[(F+m)q(F)^2]\ge0$, which is (1). For (2) take $q(F)=F-\lambda$:
+$0\le\mathbb E[(F+m)(F-\lambda)^2]=\mathbb EF^3-2\lambda\sigma^2+m\sigma^2+m\lambda^2$ (using $\mathbb EF=0$). With $\lambda=\sigma^2/m$ this is
+$\mathbb EF^3+m\sigma^2-\sigma^4/m\ge0$, i.e. $\mu^2+t\mu-1\ge0$ for $\mu=m/\sigma>0$, so $\mu\ge\psi(t)$. Equality in
+$\mathbb E[(F+m)(F-\lambda)^2]\ge0$ forces $F\in\{-m,\lambda\}$ a.s., i.e. a two-point law; conversely for a two-point law with atoms
+$-m,\lambda=\sigma^2/m$ every step is an equality. (3): $q(F)=F^k-\lambda F^{k-1}$ gives
+$\mathbb EF^{2k+1}-2\lambda\mathbb EF^{2k}+m(\mathbb EF^{2k}+\lambda^2\mathbb EF^{2k-2})\ge0$ when $\mathbb EF^{2k-1}=0$; with
+$\mathbb EF^{2k+1}\le0$, optimise $\lambda=(\mathbb EF^{2k}/\mathbb EF^{2k-2})^{1/2}$.
+\end{proof}
+\noindent\emph{Reading.} A mean-zero deficit can be shallow (``flat-bottomed'') relative to its standard deviation only if it is
+positively skewed; the exact price is $\psi(t)$. Equivalently $\mathbb EF^3\ge m^{-1}\sigma^2(\sigma^2-m^2)$: compensation that keeps the
+minimum above $-m$ costs third-moment mass.
+
+\section{Second-moment joint detection for every network}
+
+\begin{theorem}[three-moment joint detection]\label{thm:det}
+For every product network (any inputs, outputs, width) and every $\delta\neq0$ write $g(x,\delta)=\mu_\delta+d_\delta(x)$ with
+$\mu_\delta=\mathbb E_xg$, $\sigma_\delta^2=\mathbb E_xd_\delta^2$, $t_\delta=\mathbb E_xd_\delta^3/\sigma_\delta^3$. Then
+\[ h\ \le\ \mu_\delta-\sigma_\delta\psi(t_\delta),\qquad
+   h\ \le\ \sum_{l\in F}\Re A_l\,\kappa_l(\delta)-\tfrac12\big(\sigma_\delta\psi(t_\delta)+\sigma_{-\delta}\psi(t_{-\delta})\big).\]
+For a class-$\mathcal C$ network, $\sigma_\delta^2=\sigma_{-\delta}^2=\sum_l\kappa_l(\delta)E_l$ (the interference energies of all features
+\emph{add}), and $\mathbb E_xd_\delta^3$ is a finite sum, over the ordered triples of signed characters $\varepsilon_j2l_j\mathbf 1_{T_j}$
+($B_{l_j,T_j}\neq0$) with zero sum in $\mathbb Z_p^n$, of products of the coefficients $B_{l,T}c_l(\delta)$ or their conjugates (with a
+factor $1/8$). In particular $t_\delta=0$ if no such triple exists.
+\end{theorem}
+\begin{proof}
+$h\le\min_xg(x,\delta)=\mu_\delta-m_\delta$ and Lemma~\ref{lem:psi}(2). Average the bounds at $\pm\delta$ and use
+$\mu_\delta+\mu_{-\delta}=\sum_l\Re(A_l(c_l(\delta)+c_l(-\delta)))=2\sum_l\Re A_l\kappa_l(\delta)$ (field decomposition, every network).
+Class $\mathcal C$: $d_\delta=\frac12\sum_{l,T}(a_{l,T}\chi_{l,T}+\overline{a_{l,T}\chi_{l,T}})$ with $a_{l,T}=B_{l,T}c_l(\delta)$ and
+$\chi_{l,T}(x)=\rho^{2lx_T}$. Two characters $2l\mathbf 1_T,2l'\mathbf 1_{T'}$ never sum to $0$ (on $T\cap T'$ the entry is $2(l+l')\not\equiv0$,
+on $T\setminus T'$ it is $2l\not\equiv0$), and distinct pairs $(l,T)$ give distinct characters; hence
+$\mathbb Ed_\delta^2=\frac12\sum|a_{l,T}|^2=\sum_l\kappa_l(\delta)E_l$ since $|c_l|^2=2\kappa_l$. Expanding $d_\delta^3$ and using
+$\mathbb E_x\chi=[\chi\equiv1]$ gives the triple formula.
+\end{proof}
+
+\begin{proposition}[classification of cubic relations in class $\mathcal C$]\label{prop:cls}
+Let $\varepsilon_j\in\{\pm1\}$, $l_j\in F$, $\emptyset\neq T_j\subseteq[n]$ ($j=a,b,c$) with $\sum_j\varepsilon_j l_j\mathbf 1_{T_j}\equiv0$. Then either
+\textbf{(A)} $T_a=T_b=T_c$ and $\varepsilon_al_a+\varepsilon_bl_b+\varepsilon_cl_c\equiv0\pmod p$ (a common-set additive triple; for $p\ge5$ it
+involves at least two features, and with exactly two it is a harmonic pair $l'\equiv\pm2l$); or
+\textbf{(B)} $l_a=l_b=l_c$ and, after relabelling, $T_a=T_b\sqcup T_c$, $\varepsilon_b=\varepsilon_c=-\varepsilon_a$ (a single-feature
+nested triple). For $p=3$, (A) includes $\chi+\chi+\chi=0$.
+\end{proposition}
+\begin{proof}
+Divide by $2$. On a coordinate $t$ the sum of $\varepsilon_jl_j$ over $\{j:t\in T_j\}$ vanishes mod $p$. One term is never $0$ ($1\le l\le\frac{p-1}2$);
+two terms vanish iff $l_a=l_b$ and $\varepsilon_a=-\varepsilon_b$ (if the signs agree, $0<l_a+l_b<p$). Let $W=T_a\cap T_b\cap T_c$ and
+$X_{ab}=(T_a\cap T_b)\setminus T_c$ etc.; coordinates in exactly one set do not occur. If some $X_{ab}\ne\emptyset$ then
+$\varepsilon_al_a+\varepsilon_bl_b\equiv0$, so on $W$ we would need $\varepsilon_cl_c\equiv0$: hence $W=\emptyset$. Thus either all $X$ are empty and
+$T_a=T_b=T_c=W$ (case A), or $W=\emptyset$. In the latter case the three $X$'s cannot all be nonempty (the sign conditions
+$\varepsilon_a=-\varepsilon_b=-\varepsilon_c$ and $\varepsilon_b=-\varepsilon_c$ clash), and they cannot have only one nonempty member (some $T_j$ would be empty);
+so exactly two are nonempty, giving case B. The remarks on $p\ge5$: one feature in case A needs $(\varepsilon_a+\varepsilon_b+\varepsilon_c)l\equiv0$, i.e.
+$p\mid l$ or $p\mid3l$; two features need $\pm2l\pm l'\equiv0$.
+\end{proof}
+
+\begin{corollary}\label{cor:skew}
+(i) If every feature of a class-$\mathcal C$ network is single-set (interference on one set $T_l$), then $t_\delta\neq0$ is possible only through
+additive triples $\varepsilon_al_a+\varepsilon_bl_b+\varepsilon_cl_c\equiv0$ among features \emph{sharing the same set}. Features on different
+sets never interact at third order.
+(ii) If the interference family is balanced (round 1, J5), then $t_{-\delta}=-t_\delta$, hence $\frac12(\psi(t_\delta)+\psi(t_{-\delta}))
+=\frac12\sqrt{t_\delta^2+4}\ge1$ and $h\le\sum_l\Re A_l\kappa_l(\delta)-\sigma_\delta$.
+\end{corollary}
+\begin{proof}
+(i) Case B needs one feature with two different sets. (ii) J5 gives $d_{-\delta}(x)=-d_\delta(x+\frac\delta2u)$, so the third moments are opposite
+and the variances equal; $\psi(t)+\psi(-t)=\sqrt{t^2+4}$.
+\end{proof}
+
+\section{Matching the joint payment: a unified closure}
+
+\begin{theorem}[unified closure]\label{thm:clo}
+Let $\theta$ be a class-$\mathcal C$ network with features in $S$ whose atoms are phase-aligned within each feature ($\beta_{il}=\rho_{il}\alpha_l$,
+$\rho_{il}>0$, $|\alpha_l|=1$); put $L_l=\sum_i\rho_{il}=|A_l|$. Define $w_l=0$ if $E_l=0$, $w_l=\min(c_n(s),C\sqrt{E_l}/L_l)$ if feature $l$ is
+single-set, and $w_l=C\sqrt{E_l}/L_l$ otherwise. Let $\delta^*\in\arg\min_\delta\sum_l\tilde a_l\kappa_l(\delta)$ and
+$\bar\psi=\frac12(\psi(t_{\delta^*})+\psi(t_{-\delta^*}))$. If
+\[ \sum_{l}\kappa_l(\delta^*)\,w_l^2\ \le\ \bar\psi^{\,2}, \]
+then $\gamma(\theta;s)\le\gamma^{(S)}_{\rm IF}=\nu^{1-s}B_p\Gamma^{(S)}_s$. If the family is balanced or has no zero-sum triple
+(e.g. single-set without common-set additive triples), $\bar\psi\ge1$ and the hypothesis reads $\sum_l\kappa_l(\delta^*)w_l^2\le1$.
+\end{theorem}
+\begin{proof}
+\emph{Payment.} For aligned atoms the twist error of W6(c) vanishes and the chain entries are interval coefficients, so
+$\tilde a_l\ge L_l(1+V_l)^{-(s-1)}\ge L_l(1-(s-1)V_l)$ with $V_l=\frac2{\nu L_l^2}\sum_{I}|B_{l,I}|^2\le\frac{2E_l}{\nu L_l^2}$; hence
+$L_l-\tilde a_l\le CE_l/L_l$. For a single-set feature J2 gives also $L_l-\tilde a_l\le c_n|B_{l,T_l}|=c_n\sqrt{E_l}$. In all cases
+$L_l-\tilde a_l\le w_l\sqrt{E_l}$.
+\emph{Detection.} Theorem~\ref{thm:det} at $\pm\delta^*$: $h\le\sum_l\Re A_l\kappa_l(\delta^*)-\bar\psi\,\sigma$, $\sigma^2=\sum_l\kappa_l(\delta^*)E_l$
+(class $\mathcal C$: $\sigma_{\delta^*}=\sigma_{-\delta^*}$).
+\emph{Matching.} $\Re A_l\le L_l$, and by Cauchy--Schwarz
+$\sum_l(L_l-\tilde a_l)\kappa_l\le(\sum_l\kappa_lw_l^2)^{1/2}\sigma\le\bar\psi\sigma$. So
+$h\le\sum_l\tilde a_l\kappa_l(\delta^*)=\min_\delta\sum_l\tilde a_l\kappa_l(\delta)\le\Gamma^{(S)}_s(\sum_l\tilde a_l^r)^s=\nu^{1-s}\Gamma^{(S)}_s(\sum_lQ_l)^s$.
+The single-neuron budget $\sum_lQ_l\le B_p^rP_b$ finishes. The last sentence is Corollary~\ref{cor:skew} and $\psi(0)=1$.
+\end{proof}
+
+\begin{corollary}\label{cor:three}
+(a) Every class-$\mathcal C$ network whose features are aligned single-set atom systems (on \emph{arbitrary} sets $T_l$; IF features allowed)
+and which has at most three cheap features ($B_{l,T_l}\neq0$) satisfies $\gamma\le\gamma^{(S)}_{\rm IF}$, at every odd $p$, every $n\ge2$ and every
+$b\in[2,\nu]$. (Round 1, J7, needed the family to be balanced.)
+(b) More generally the same holds with up to $\lfloor 1/(2c_n(s)^2)\rfloor$ cheap features whenever the family is balanced or has no
+common-set additive triple. ($1/(2c_n^2)\ge3.2$ for all $(n,s)$; it is $14.8$ at $(n,b)=(2,2)$.)
+\end{corollary}
+\begin{proof}
+$w_l\le c_n<1-e^{-1/2}$ and $\kappa\le2$ give $\sum\kappa w^2\le2|L'|c_n^2$, which is $<0.93$ for $|L'|\le3$. If the three cheap features have only one or two
+distinct sets the family is balanced (two distinct indicator vectors are linearly independent, so $\langle\mathbf 1_T,u\rangle=1$ is solvable); otherwise the sets
+are distinct and Proposition~\ref{prop:cls} rules out every triple. Either way $\bar\psi\ge1$. (b) is the same count.
+\end{proof}
+
+\begin{lemma}[Kronecker splitting]\label{lem:split}
+Partition the features into groups $G_1,\dots,G_k$ and let $M_j\subseteq\mathbb Z_p^n$ be the span of $\{\mathbf 1_T:B_{l,T}\neq0,\ l\in G_j\}$. If
+$M_1+\dots+M_k$ is direct, then for all functions $\phi_j$ of the group-$j$ fields, $\min_x\sum_j\phi_j(x)=\sum_j\min_x\phi_j(x)$; in particular
+$\operatorname{depth}_\delta=\sum_j\operatorname{depth}^{(j)}_\delta$. Compensation between features can only happen inside linked groups.
+\end{lemma}
+\begin{proof}
+Let the rows of $R_j$ be a basis of $M_j$. Group-$j$ fields depend on $x$ only through $R_jx$. The stacked matrix has independent rows, so
+$x\mapsto(R_1x,\dots,R_kx)$ is onto the product of the images, and a minimum of a separable sum over a product is the sum of minima.
+\end{proof}
+
+\section{The pointwise $\ell_r$ covering (J12, PW$_{\mathcal C}$) is false}
+
+\begin{proposition}[three-value lemma]\label{prop:leg}
+Take the J6 network: in Prop.~\ref{prop:emb} of round 1 put $\alpha=0$, $\beta_le^{i\varphi_l}=2\widehat\chi(l)$ ($\chi$ the Legendre symbol).
+If $p\equiv3\pmod4$ then $\varphi_l=-\chi(l)\pi/2$, $\Re\Phi_l(x)=\frac2{\sqrt p}(1+\chi(l)\sin\frac{2\pi lw}p)$ with $w=2y(x)$, and
+$\sum_{l\in F}(\Re\Phi_l(x))^r\in(\tfrac2{\sqrt p})^r\{|F|,\ \tfrac12S_+,\ \tfrac12S_-\}$,
+$S_\pm=\sum_{m=1}^{p-1}(1\pm\chi(m)\sin\frac{2\pi m}p)^r$. Since $\nu^{r-1}\sum_lQ_l=(n/\nu)^{1-r}(\frac2{\sqrt p})^r|F|$, PW$_{\mathcal C}$ fails for this
+network iff $\min(S_+,S_-)>(n/\nu)^{1-r}(p-1)$. If $p\equiv1\pmod4$, $\varphi_l\in\{0,\pi\}$ and PW$_{\mathcal C}$ holds at $w=0$ because
+$2^{r-1}\le(n/\nu)^{1-r}$. The margin is $h\ge\sqrt p-2>0$ for every $p\ge5$.
+\end{proposition}
+\begin{proof}
+$\sum_x\chi(x)\rho^{-lx}=\chi(-l)G$ with $G=i\sqrt p$ ($p\equiv3$) or $\sqrt p$ ($p\equiv1$), and $\chi(-1)=-1$ resp. $+1$; so
+$\widehat\chi(l)=-i\chi(l)/\sqrt p$ resp. $\chi(l)/\sqrt p$. Then $\cos(\theta-\chi(l)\frac\pi2)=\chi(l)\sin\theta$. The summand is even in
+$l\mapsto-l$, so $\sum_{l\in F}=\frac12\sum_{l\in\mathbb Z_p^*}$; for $w\ne0$ substitute $m=lw$, $\chi(l)=\chi(m)\chi(w)$. The value at $w=0$ is $|F|$.
+For $p\equiv1$, at $w=0$ half of $F$ has $\chi=1$, giving $2^r|F|/2$. Margin: $\sum_l\beta_l\kappa_l(\delta)=\frac2{\sqrt p}\cdot\frac p2$ and the
+potential is $\chi$, so $h=\min_\delta[\sqrt p+\min_w(\chi(w)-\chi(w-\delta))]\ge\sqrt p-2$.
+\end{proof}
+
+\begin{corollary}[refutation of PW$_{\mathcal C}$]
+Interval arithmetic (\texttt{r2/pw\_certify.py}) gives $\min(S_+,S_-)/((n/\nu)^{1-r}(p-1))\ge1.0102,\ 1.0127$ at $p=347,383$ ($n=2$, $b=2$) and
+$\ge1.0088,\ 1.0106$ at $p=443,467$ ($n=3$, $b=2$). These positive-margin class-$\mathcal C$ networks violate PW$_{\mathcal C}$, while their
+$\gamma/\gamma_{\rm IF}\le0.97$ (round 1, J11(b)). An optimised positive-margin single-set network at $(p,n,b)=(43,2,2)$, certified in interval
+arithmetic, has PW ratio $\ge1.0037$, $h>0$ and $\gamma/\gamma_{\rm IF}\le0.094$. Hence the first inequality of FR,
+$h\le\Gamma_s(\min_x\sum_l(\Re\Phi_l)_+^r)^s$, cannot certify the IF value in class $\mathcal C$, and no proof of RD can factor through the
+$\ell_r$ cost of single field rows.
+\end{corollary}
+
+\section{What is left}
+\begin{conjecture}[PWE$_{\mathcal C}$, efficiency-aware covering]
+For every odd prime $p$, $n\ge2$, $b\in[2,\nu]$ and every class-$\mathcal C$ network with features in $S$ there is $x$ with
+$\min_\delta\sum_l\Re\Phi_l(x)\kappa_l(\delta)\le\nu^{1-s}\Gamma^{(S)}_s(\sum_lQ_l)^s$.
+\end{conjecture}
+\noindent It implies the class-$\mathcal C$ IF value (pairing $\delta$ with $-\delta$ gives $h\le\min_x\min_\delta\sum_l\Re\Phi_l(x)\kappa_l(\delta)$), and is
+equivalent to it on every network whose margin is attained at a pair $(x,\pm\delta)$; numerically this holds at all 75 stored optimised networks.
+Its single-feature case is
+\begin{conjecture}[PL7, pointwise Lemma 7]
+Every class-$\mathcal C$ single feature satisfies $\min_x\Re\Phi(x)\le\nu^{1-s}Q^s$, at every odd $p$ (including $p=3$).
+\end{conjecture}
+\noindent Its common-set case is RT$_n$ in symmetrised form. The detection side is settled at every finite order by Lemma~\ref{lem:psi}(1);
+what is missing is the inverse theorem tying a small symmetrised depth at the binding offsets of an allocation to the inefficiency of that allocation.
+\end{document}

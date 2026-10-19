@@ -1,0 +1,12 @@
+ptest2.py 2 1.5 60 301 all
+ptest2.py 2 1.5 60 301 label
+ptest2.py 2 1.5 60 301 1-2
+ptest2.py 2 1.5 60 301 1-12
+ptest2.py 2 1.2 60 301 all
+ptest2.py 2 1.2 60 301 label
+ptest2.py 2 1.2 60 301 1-2
+ptest2.py 3 2.0 60 302 all
+ptest2.py 3 2.0 60 302 label
+ptest2.py 3 2.0 60 302 singles
+ptest2.py 3 1.3333333333 60 302 all
+ptest2.py 3 1.3333333333 60 302 label

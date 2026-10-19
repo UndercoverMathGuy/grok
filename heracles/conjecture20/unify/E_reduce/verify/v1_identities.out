@@ -1,0 +1,15 @@
+R2(a) weighted restricted bound with cancelling non-features: max ratio = -0.059684 over 240 nets (must be <= 1)
+gap = sum_l G_l                            6.750e-14
+E Phi_l - conj beta_l                      1.157e-15
+h(theta) - h_lam(tau theta)                2.842e-14
+cost(tau) - cost_mu                        1.058e-15
+beta(tau) - sqrt(mu) beta                  9.421e-16
+budget ratio (<=1)                         7.922e-01
+dlog gamma/ds + H                          1.007e-10
+dlog gamma_mu/dmu_l + nu/2 E_l             1.017e-10
+P(-j)/P - (1-E_j) (<=0)                    -6.147e-04
+b=2 DC-free: |P - P_split|/P               4.106e-16
+b=2 DC-free: |E - E_split|                 2.220e-16
+b=2 DC-free: H - H_split (<=0)             -4.198e-01
+b=2: |beta - beta_split|                   1.132e-15
+b=2 with DC: |E - (Psplit/P) E_split|      1.110e-16

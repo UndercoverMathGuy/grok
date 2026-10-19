@@ -1,0 +1,87 @@
+% Proof document for task P52 (unification push, round 2): the feature count at (p,n) = (5,2).
+% Scripts referenced are in this directory.  Computer-assisted step: run_certificate.sh (bb52.py).
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{corollary}[theorem]{Corollary}
+\begin{document}
+\section*{The feature count at $(p,n)=(5,2)$ for every $b\in[2,3]$}
+
+\textbf{Setting.} $p=5$, $n=2$, $\nu=3$, $s=3/b\in[1,\tfrac32]$, $r=1/s$, $\rho=e^{2\pi i/5}$, $c_j(\delta)=1-\rho^{-j\delta}$,
+$\kappa_a=1-\cos\frac{2\pi}5$, $\Gamma_s=\Gamma_s(5)=\tfrac52 2^{-s}$, $B_5=2\cdot30^{-3/2}$, $\gamma_{\rm IF}(s)=3^{1-s}B_5\Gamma_s$.
+For a neuron $\omega=(u_1,u_2,w)$ put $m(j;k_1,k_2)=\tfrac2{125}\hat w(j)\hat u_1(k_1)\hat u_2(k_2)$ ($j\in\{1,2\}$, $k\in\mathbb Z_5^2$), so that
+$\Phi_j(x)=\sum_i\sum_k m_i(j;k)\rho^{\langle k+j\mathbf 1,x\rangle}$.  Own modes of feature 1: $(1;\pm1,\pm1)$.  $e(\omega)=B_5\|\omega\|^3$,
+$\beta_i=\beta_{i1}=\tfrac2{125}\overline{\hat w_i(1)}\hat u_{i1}(1)\hat u_{i2}(1)$, own data $A=\beta_1$, $B,C,D=\beta_{1,\{1\}},\beta_{1,\{2\}},\beta_{1,\{12\}}$
+(paper Lemma 6: $\beta_{1,T}=\sum_i\beta_i\prod_{t\in T}\xi_{it}$, $|\xi|=1$).  $Q=\sum_i|\beta_i|^r$, $P_1=3^{1-s}Q^s$, $L=\sum_i|\beta_i|$.
+
+\begin{theorem}[count at (5,2)]
+For every $b\in[2,3]$ and every network $\theta$ with $\beta_2(\theta)=0$: $\gamma(\theta)\le 0.995\,\gamma_{\rm IF}$.  Consequently every
+global maximiser of the $L_{2,b}$ margin at $(5,2)$ uses exactly $2=|\operatorname{spt}y^\star|$ features: (C) holds at $(5,2)$ for all $b\in[2,3]$.
+\end{theorem}
+
+\begin{lemma}[reduction]  $\Gamma_s$ has the unique maximiser $y^\star=(2^{-s},2^{-s})$ for $s<1.855$.  A global maximiser with one feature can be dilated
+($a\mapsto 3a$ in all slots and the output) to a network with only feature 1 and the same margin and cost.  Hence the Theorem's first sentence implies the second
+(maximisers exist, GLOBAL R2, and $\gamma^\ast\ge\gamma_{\rm IF}$, paper Thm 8).\end{lemma}
+
+\begin{lemma}[mode budget]  For every neuron, $\sum_{(j,k)\ \rm non\text{-}own}|m(j;k)|^2\le 4\,(e^2-|\beta_1(\omega)|^2)$.\end{lemma}
+\begin{proof} $\sum_{j\in\{1,2\},k}|m|^2=(\tfrac2{125})^2(|\hat w(1)|^2+|\hat w(2)|^2)\prod_t\sum_k|\hat u_t(k)|^2\le(\tfrac2{125})^2\tfrac52\|w\|^2\,25\|u_1\|^2\|u_2\|^2\le 4B_5^2\|\omega\|^6$
+(Parseval, AM--GM), and the four own modes have modulus $|\beta_1(\omega)|$.\end{proof}
+
+\begin{lemma}[Pythagorean cost]  With $\rho_i=(e_i^2-|\beta_i|^2)^{1/2}$ and $R=2\sum_i\rho_i$:
+$3^{1-s}B_5P^s\ge\big(P_1^2+3^{2-2s}R^2/4\big)^{1/2}$.  The non-own part of $(\Phi_1,\Phi_2)$ has $\ell^2$ norm $\le R$.\end{lemma}
+\begin{proof} $e_i^r=B_5^r\|\omega_i\|^b$.  Minkowski in $\ell^{2/r}$: $\sum_i(|\beta_i|^2+\rho_i^2)^{r/2}\ge((\sum|\beta_i|^r)^{2/r}+(\sum\rho_i^r)^{2/r})^{r/2}$, and $(\sum\rho_i^r)^{s}\ge\sum\rho_i$.
+The second claim: Minkowski over neurons with the mode budget.\end{proof}
+
+\begin{lemma}[certificates]  For every probability $q$ on $\mathbb Z_5^2\times\mathbb Z_5^\ast$, with $C_j(x)=\sum_\delta q(x,\delta)c_j(\delta)$ and
+$a_0=25\hat C_1(0)$, $a_T=25\hat C_1(-\chi_{1,T})$, $n=25\|(\hat C_j(-\chi))_{(j,\chi)\ \rm non\text{-}own,\ (j,\chi)\ne(2,0)}\|_2$:
+$h\le\operatorname{Re}(\bar A a_0)+\sum_T\operatorname{Re}(\overline{\beta_{1,T}}a_T)+R\,n$.\end{lemma}
+\begin{proof} $h\le\sum q g=25\operatorname{Re}\sum_{j,\chi}\phi_j(\chi)\hat C_j(-\chi)$, split own/non-own, $\phi_2(0)=\overline{\beta_2}=0$, Cauchy--Schwarz.\end{proof}
+
+Hermitian-square certificates: $25q(x,\delta)=v(\vartheta)^\ast G_\delta v(\vartheta)$, $v=(e^{i\langle e,\vartheta\rangle})_{e\in\{0,1,2\}^2}$, $\vartheta_t=2\pi\cdot2x_t/5$,
+$G_\delta\succeq0$, $\sum_\delta\operatorname{tr}G_\delta=1$.  No aliasing ($2f\bmod5$ is injective on $\{-2,..,2\}^2$); the family is equivariant under the torus action
+$(B,C,D)\mapsto(Be^{i\theta_1},Ce^{i\theta_2},De^{i(\theta_1+\theta_2)})$, so it suffices to treat $B,C\ge0$ (torus normal form).
+
+\begin{lemma}[twisted Rotfel'd payment]  Write $\beta_i=\varrho_ip_i$.  For each chain $u_i\in\{(1,p_i\xi_i,p_i^2\xi_i\eta_i),(1,p_i\xi_i,p_i\xi_i\eta_i),(1,p_i\eta_i,p_i\xi_i\eta_i)\}$
+the matrix $H=\sum\varrho_iu_iu_i^\ast\succeq0$ has diagonal $L$, two exact below-diagonal entries among $B,C,D$ and one uncertain entry $X'$ with
+$|X'-\alpha^{\pm1}X|\le\sqrt{2L(L-|A|)}$, $\alpha=A/|A|$; and $P_1\ge L\,M_r(\nu(H/L))$ (power mean of the eigenvalues), by Rotfel'd's inequality.
+The spectrum depends on $P=\sum|{\rm offdiag}|^2/L^2$ and $q=2\operatorname{Re}(\cdot\cdot\bar\cdot)/L^3$ only; $S_r=\sum\nu_k^r$ is decreasing in $P$ and increasing in $q$
+(divided differences of $(1+\mu)^r$); the minimum over the uncertainty disk is attained on its boundary circle.\end{lemma}
+
+\begin{lemma}[$s$-monotonicity]  $\Gamma_s$, $3^{2-2s}$, and every payment lower bound used ($|A|-c_1(s)M$, Thm A, $3^{1-s}\max(|A|,M)$, $L M_{1/s}(\nu)$) are non-increasing in $s$;
+the certificate bound on $h$ does not depend on $s$.  Hence the ratio bound at $s=3/2$ dominates the ratio at every $s\in[1,3/2]$.\end{lemma}
+
+\textbf{Elimination of $R$.}  $\sup_{R\ge0}(a+nR)/\sqrt{F^2+cR^2}\le\sqrt{\max(a,0)^2/F^2+n^2/c}$ (Cauchy--Schwarz), $c=1/12$ at $s=3/2$.
+
+\textbf{Computer-assisted step} (bb52.py, interval arithmetic iv.py, payment pay\_adapt.py, certificates cert\_hs.py): the torus-normalised data
+$(\alpha,|B|,|C|,|D|,\varphi_{\rm pay})\in[0,\tfrac\pi2]\times[0,1.4]^3\times[-\pi,\pi]$ (with $|B|\ge|C|$, $\alpha\ge0$ by the slot-swap and conjugation symmetries;
+$|B|,|C|,|D|>1.4$ is trivial) is covered by boxes on each of which either $\kappa_a/(\Gamma F)\le0.995$ (trivial certificate) or a rigorised Hermitian-square
+certificate gives $\sqrt{\max(B_0,0)^2/F^2+12n^2}/\Gamma\le0.995$.  Re-run: \texttt{./run\_certificate.sh}; every log must end with \texttt{fail=0}.
+Official run: Region I boxes $575$, Region II boxes $1540$, SDP certificates $1842$, worst certified bound $\le0.995$, \texttt{fail=0} in all four chunks.
+
+\section*{$(p,n)=(7,2)$: the count for $b\in[2.5381,3]$}
+$\Gamma_s(7)=\tfrac72 3^{-s}$ with the unique maximiser $y^\star=(3^{-s},3^{-s},3^{-s})$ (since $\sum_{j=1}^3\kappa_j(\delta)=\tfrac72$ for every $\delta\ne0$ and
+$\sum_jy_j\le3^{1-s}$ when $\sum_jy_j^r=1$), so $K^\ast=3$.
+
+\begin{lemma}[$\delta$-Fourier isolation; every odd $p$, every $n$, every network]
+Let $\mu$ be a symmetric probability on $\mathbb Z_p^\ast$, $K_l(\mu)=\sum_\delta\mu_\delta\kappa_l(\delta)$, $j\in F$, $\emptyset\ne T\subseteq[n]$, $\chi_{j,T}=2j\mathbf 1_T$.
+Then $h\le\sum_{l\in F}K_l(\mu)\Re\beta_l-\tfrac p2\,\min_\delta\mu_\delta\,|\beta_{j,T}|$.
+\end{lemma}
+\begin{proof}
+Put $q(x,\delta)=p^{-n}[\mu_\delta+2\Re(w\rho^{j\delta}\rho^{-\langle\chi_{j,T},x\rangle})]$ with $w=\tfrac12\min\mu\,\beta_{j,T}/|\beta_{j,T}|$; $q\ge0$ and $\sum q=1$.
+Since $g=\sum_{l\in F}\Re(\Phi_lc_l)$, $\sum_{\delta}\rho^{j\delta}c_l(\delta)=-p[l=j]$ and $\sum_\delta\rho^{j\delta}\overline{c_l(\delta)}=-p[l=-j]=0$, one gets
+$\sum q g=\sum_lK_l(\mu)\Re\beta_l-p\Re(w\overline{\beta_{j,T}})$, using $E_x\Phi_l=\overline{\beta_l}$ and $E_x\Phi_j\rho^{-\langle\chi_{j,T},x\rangle}=\overline{\beta_{j,T}}$.
+\end{proof}
+\textbf{Cost ledger.} $\sum_j|\beta_{ij}|^r\le e_i^r$ (Parseval, AM--GM, $r\ge\frac23$) and Note Thm.~c1sharp give
+$3^{1-s}B_7P^s\ge(\sum_j(F_jA_j)^r)^s$, $F_j=\max(1-c_1x_j,3^{1-s}\max(1,x_j))$, $A_j=|\beta_j|$, $x_j=\max_T|\beta_{j,T}|/A_j$.
+
+\begin{theorem}[count at (7,2) for $b\ge2.5381$]
+(a) Every network with exactly one feature has $\gamma\le3^{2s-1}\kappa_{\min}(7)/\tfrac72\cdot\gamma_{\rm IF}\le0.9682\,\gamma_{\rm IF}$ for all $b\in[2,3]$.
+(b) For $s\in[1,1.182]$ every network with exactly two features has $\gamma\le0.9995\,\gamma_{\rm IF}$ ($\le0.999\gamma_{\rm IF}$ for $s\le1.175$).
+Hence (C) holds at $(7,2)$ for every $b\in[3/1.182,3]=[2.5381,3]$ (the Note's dense theorem gives $b\ge2.600$).
+\end{theorem}
+\begin{proof}
+(a) $h\le\kappa_{\min}|A|$ (paper Lemma 2) and $B_7P^s\ge Q^s\ge L\ge|A|$.  (b) Relabel so the features are $\{1,2\}$; combine the isolation lemma (best $\mu$ per box)
+with the cost ledger; homogeneity gives $A_1+A_2=1$; \texttt{simple72\_rig.py} covers $(\tau,x_1,x_2)\in[0,1]\times([0,1.75]\cup\{\infty\})^2$ and the $s$-range by an interval
+branch and bound ($39{,}676$ boxes for $[1,1.175]$, $78{,}408$ for $[1.175,1.182]$, no failures).
+\end{proof}
+\end{document}

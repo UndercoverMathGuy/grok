@@ -1,0 +1,2 @@
+field coefficient modulus vs |beta_lT|: max rel err 4.30e-15
+504 (network, family, delta) cases: max (detection - D) = -4.375e-01 (<= 0 required); max detection/D = 0.3014

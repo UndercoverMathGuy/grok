@@ -1,0 +1,10 @@
+Theorem A, all b in [2,3]: closes all primes p <= 19
+b=2.00 s=1.5000: c(s) = 0.24402; closes all primes p <= 31;  cheap-set threshold sum kappa < 16.79(p-1)/(p+1)
+b=2.10 s=1.4286: c(s) = 0.21681; closes all primes p <= 37;  cheap-set threshold sum kappa < 21.27(p-1)/(p+1)
+b=2.20 s=1.3636: c(s) = 0.19015; closes all primes p <= 53;  cheap-set threshold sum kappa < 27.66(p-1)/(p+1)
+b=2.25 s=1.3333: c(s) = 0.17704; closes all primes p <= 61;  cheap-set threshold sum kappa < 31.91(p-1)/(p+1)
+b=2.40 s=1.2500: c(s) = 0.13866; closes all primes p <= 101;  cheap-set threshold sum kappa < 52.01(p-1)/(p+1)
+b=2.50 s=1.2000: c(s) = 0.11389; closes all primes p <= 151;  cheap-set threshold sum kappa < 77.10(p-1)/(p+1)
+b=2.60 s=1.1538: c(s) = 0.08978; closes all primes p <= 241;  cheap-set threshold sum kappa < 124.06(p-1)/(p+1)
+b=2.75 s=1.0909: c(s) = 0.05488; closes all primes p <= 661;  cheap-set threshold sum kappa < 332.07(p-1)/(p+1)
+b=2.90 s=1.0345: c(s) = 0.02146; closes all primes p <= 4339;  cheap-set threshold sum kappa < 2170.85(p-1)/(p+1)

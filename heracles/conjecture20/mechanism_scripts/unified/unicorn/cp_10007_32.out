@@ -1,0 +1,3 @@
+p=10007 K*=18 block=antipodal m=32: best cheater allocation puts 0.000 of budget on the block
+   discount only (interference free of charge): 1.0000 x clean optimum
+   exact, with interference:                   1.0000 x clean optimum   (block wave flatness 0.355)

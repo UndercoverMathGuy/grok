@@ -1,0 +1,218 @@
+% N2MIX (unification push, round 2): channel-resolved isolation at n = 2.
+% Scripts referenced are in this directory.  Computer-assisted steps: rig72.py (p = 7) and rigp.py (general p).
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\begin{document}
+\section*{Channel-resolved isolation at $n=2$}
+
+\textbf{Setting.} $p$ odd prime, $n=2$, $\nu=3$, $b\in[2,3]$, $s=3/b\in[1,\tfrac32]$, $r=1/s$, $\theta=3^{1-s}$, $c_1=1-\theta$,
+$\rho=e^{2\pi i/p}$, $F=\{1,\dots,\frac{p-1}2\}$, $c_l(\delta)=1-\rho^{-l\delta}$, $\kappa_l(\delta)=1-\cos\frac{2\pi l\delta}p$,
+$B_p=2(6p)^{-3/2}$.  A neuron is $\omega=(u_1,u_2,w)\in(\mathbb R^p)^3$, $e(\omega)=B_p\|\omega\|^3$, $\hat u(k)=\sum_au(a)\rho^{-ka}$.
+Modes: $m(l;k)=\frac2{p^3}\hat w(l)\hat u_1(k_1)\hat u_2(k_2)$ ($l\in F$, $k\in\mathbb Z_p^2$); field coefficients
+$\phi_l(\chi)=\sum_i m_i(l;\chi-l\mathbf 1)$, so that $g(x,\delta)=\sum_{l\in F}\Re(\Phi_l(x)c_l(\delta))$ with
+$\Phi_l(x)=\sum_\chi\phi_l(\chi)\rho^{\langle\chi,x\rangle}$; $\phi_l(0)=\overline{\beta_l}$ and $\phi_l(2l\mathbf 1_T)=\overline{\beta_{l,T}}$.
+Cost $P=\sum_i\|\omega_i\|^b$; $Q_l=\sum_i|\beta_{il}|^r$; $P_l=\theta Q_l^s$; $\gamma_{\rm IF}=\theta B_p\Gamma_s(p)$.
+
+\textbf{Pair classes relative to a set $L\subseteq F$ containing the features.}  A pair $(l,\chi)$ ($l\in F$, $\chi\in\mathbb Z_p^2$, mode
+input $k=\chi-l\mathbf 1$) is \emph{clean} if $\chi=0$; \emph{own} if $l\in L$, $\chi\ne0$, $k\in\{\pm l\}^2$; \emph{free} if $l\in L$,
+$k\in(\pm L)^2$ and the pair is not clean or own; \emph{paid} otherwise.  Free modes are exactly the ones a neuron whose three factors
+live in the frequency planes of $L$ (an \emph{$L$-pure} neuron) can carry; every paid mode has a factor at DC or at a frequency outside $L$.
+
+\begin{lemma}[atoms and modes of one neuron]\label{l:modes}
+Let $x_l=2|\hat w(l)|^2/(p\|w\|^2)$ ($l\in F$; $\sum_Fx_l\le1$), $y_{t,0}=|\hat u_t(0)|^2/(p\|u_t\|^2)$, $y_{t,c}=2|\hat u_t(c)|^2/(p\|u_t\|^2)$
+($c\in F$; $\sum_cy_{t,c}=1$), and $E^2=\frac1{2p^3}\|w\|^2\|u_1\|^2\|u_2\|^2\le e^2$.  Then
+(a) $|m(l;k)|=E\sqrt{2^{z(k)}x_l\,y_{1,|k_1|}\,y_{2,|k_2|}}$ with $z(k)=\#\{t:k_t=0\}$; in particular $|\beta_l(\omega)|=E\sqrt{x_ly_{1,l}y_{2,l}}$;
+(b) with $b_L=(\sum_{l\in L}|\beta_l|^{2/3})^{3/2}$, $X_L=\sum_Lx_l$, $Y_t=\sum_{c\in L}y_{t,c}$:
+$b_L\le E\sqrt{X_LY_1Y_2}$, hence $\varrho:=\sqrt{e^2-b_L^2}\ge E\sqrt{1-X_LY_1Y_2}$;
+(c) the paid modes of $\omega$ have total squared modulus $\le4E^2(1-X_LY_1Y_2)\le4\varrho^2$.
+\end{lemma}
+\begin{proof}
+(a) $|\hat u_t(k)|^2=\frac p2\|u_t\|^2y_{t,|k|}$ for $k\ne0$ and $=p\|u_t\|^2y_{t,0}$ for $k=0$; multiply.  $E\le e$ is AM--GM
+($\|w\|^2\|u_1\|^2\|u_2\|^2\le(\|\omega\|^2/3)^3$, and $e^2=\|\omega\|^6/(54p^3)$).  (b) H\"older:
+$\sum_l(x_ly_{1l}y_{2l})^{1/3}\le X_L^{1/3}Y_1^{1/3}Y_2^{1/3}$.  (c) Summing (a): all modes $4E^2\sum_Fx_l\le4E^2$; the modes with
+$l\in L$, $k\in(\pm L)^2$ (clean, own and free) have $4E^2X_LY_1Y_2$.
+\end{proof}
+
+\begin{lemma}[Pythagorean ledger with several features]\label{l:ledger}
+For every network, every $L\supseteq$ features and $s\in[1,\frac32]$:
+$\ \theta B_pP^s\ \ge\ \big((\textstyle\sum_{l\in L}P_l^{\,r})^{2s}+3^{2-2s}(\sum_i\varrho_i)^2\big)^{1/2}$.
+\end{lemma}
+\begin{proof}
+$e_i^r=B_p^r\|\omega_i\|^b$, so $B_pP^s=(\sum_ie_i^r)^s$.  With $e_i^2=b_{L,i}^2+\varrho_i^2$, Minkowski in $\ell^{2/r}$ gives
+$\sum_ie_i^r\ge((\sum_ib_{L,i}^r)^{2/r}+(\sum_i\varrho_i^r)^{2/r})^{r/2}$.  Since $r\ge\frac23$, $b_{L,i}^r\ge\sum_{l\in L}|\beta_{il}|^r$
+($\ell^q$ quasi-norms decrease in $q$), so $\sum_ib_{L,i}^r\ge\sum_LQ_l$; and $(\sum\varrho_i^r)^s\ge\sum\varrho_i$.  Finally
+$\theta(\sum_LQ_l)^s=(\sum_LP_l^r)^s$.
+\end{proof}
+
+\begin{lemma}[single-character tests; $\delta$-Fourier isolation resolved by channel]\label{l:tests}
+Let $\mu$ be a symmetric probability on $\mathbb Z_p^*$ and, for each $l\in L$, let $T_l\ne\emptyset$, $\chi_l=2l\mathbf 1_{T_l}$ and
+$w^{(l)}\in\mathbb C^{p-1}$ (index $m\in\mathbb Z_p^*$).  Put $z_l(\delta)=-\frac1p\sum_mw^{(l)}_m\rho^{-m\delta}$ and
+$q(x,\delta)=p^{-2}[\mu_\delta+\sum_l2\Re(z_l(\delta)\rho^{-\langle\chi_l,x\rangle})]$.
+(a) $\sum_\delta z_l(\delta)(1-\rho^{m\delta})=w^{(l)}_m$; the transform $T_{l'}(\chi)=\sum_{x,\delta}q\,c_{l'}(\delta)\rho^{\langle\chi,x\rangle}$
+equals $w^{(l)}_{-l'}$ at $\chi=\chi_l$ and $\overline{w^{(l)}_{l'}}$ at $\chi=-\chi_l$, and vanishes at every $\chi\ne0,\pm\chi_l$.
+(b) $\sum_{x,\delta}qg=\sum_{l'\in F}K_{l'}(\mu)\Re\beta_{l'}+\sum_l\Re\big(\overline{\beta_{l,T_l}}w^{(l)}_{-l}\big)
++\sum_l\sum_{m\ne-l}\Re(\text{field coefficient at the pair of }m)\,w^{(l)}_m$, where the pair of $m=-l'$ is $(l',\chi_l)$ and the pair of
+$m=l'$ is $(l',-\chi_l)$ (conjugated); $K_{l'}(\mu)=\sum_\delta\mu_\delta\kappa_{l'}(\delta)$.
+(c) The pair of $m$ is free iff $m=-l'$ with $l'\in L\setminus\{l\}$, $|2l-l'|\in L$, or $m=l'\in L$ with $|2l+l'|\in L$
+(F2 channels: foreign $2l=l'\pm q$, partner $q=|3l|$).  This set does not depend on $T_l$.
+(d) $q\ge0$ iff $\mu_\delta\ge2\sum_l|z_l(\delta)|$ for every $\delta$ (sufficient; and necessary in the worst case over phases);
+then $q$ is a probability.  The rigid test of p52 R12 is $w^{(l)}=$ own coordinate only.
+\end{lemma}
+\begin{proof}
+(a) $\sum_{\delta\ne0}\rho^{-m'\delta}=-1$ and $\sum_{\delta\ne0}\rho^{(m-m')\delta}=p[m=m']-1$ give the first identity; the transform of
+$p^{-2}z(\delta)\rho^{-\langle\chi,x\rangle}$ at $\chi$ is $\sum_\delta z(\delta)c_{l'}(\delta)=\sum_\delta z(\delta)(1-\rho^{-l'\delta})=w_{-l'}$, that of
+the conjugate term at $-\chi$ is $\overline{\sum_\delta z(\delta)\overline{c_{l'}(\delta)}}=\overline{w_{l'}}$.  The characters $\pm\chi_l$ are pairwise
+distinct and non-zero ($2l\mathbf 1_T=\pm2l'\mathbf 1_{T'}$ forces $l=l'$, $T=T'$).
+(b) $\sum qg=\Re\sum_{l',\chi}\phi_{l'}(\chi)T_{l'}(\chi)$; the mean part gives $\sum_\delta\mu_\delta\mathbb E_xg(\cdot,\delta)
+=\sum_{l'}K_{l'}(\mu)\Re\beta_{l'}$ (paper Lemma~2; symmetry kills the $\Im\beta\sin$ terms); $\phi_l(\chi_l)=\overline{\beta_{l,T_l}}$.
+(c) The pair $(l',\pm\chi_l)$ has mode input $\pm2l\mathbf 1_T-l'\mathbf 1$: on $T$ the class $|2l\mp l'|$, off $T$ the class $l'\in L$.
+(d) $|2\Re(z\rho^{-\langle\chi,x\rangle})|\le2|z|$.
+\end{proof}
+
+\begin{lemma}[neuron-level paid constant]\label{l:K}
+Let $q$ be a test whose transform vanishes on every free pair.  For a neuron, its paid pairing
+$\Re\sum_{\rm paid}m(l';\chi-l'\mathbf 1)T_{l'}(\chi)$ is at most $K\varrho(\omega)$, where
+$K=\sup N/\sqrt{1-X_LY_1Y_2}$, $N=\sum_{f}2^{z_f/2}\sqrt{x_{l}y_{1,a}y_{2,b}}\;c_f$, the sum over paid families $f=(l;a,b)$ (output class, input
+classes) and $c_f=\sum_{\text{members }(l',\chi)\text{ of }f}|T_{l'}(\chi)|$.  Moreover $K\le(I_A^2+I_B^2+I_C^2)^{1/2}$, where $I_X$ is the injective
+norm of the nonnegative tensor $\mathcal T[l,a,b]=2^{z_f/2}c_f$ restricted to block $X$ (A: $l\notin L$; B: $l\in L$, $a\notin L$; C: $l,a\in L$,
+$b\notin L$); and $K\le2(\sum_{\rm paid}|T|^2)^{1/2}$ (the $\ell^2$ ledger).  Hence the network's paid pairing is $\le K\sum_i\varrho_i$.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{l:modes}(a) the modulus of a mode is constant on its family; the pairing is $\le E\cdot N$ and
+$\varrho\ge E\sqrt{1-X_LY_1Y_2}$.  With $X_l=\sqrt{x_l}$, $Y_a=\sqrt{y_{1a}}$, $Z_b=\sqrt{y_{2b}}$, $N=\mathcal T(X,Y,Z)$ and
+$1-X_LY_1Y_2=\alpha^2+\beta^2+\gamma^2$, $\alpha=\sqrt{1-X_L}\ge X_{\notin L}$, $\beta=\sqrt{X_L}\|Y_{\notin L}\|$,
+$\gamma=\sqrt{X_LY_1}\|Z_{\notin L}\|$; each block is bounded by its injective norm times the matching product, and Cauchy--Schwarz.
+The $\ell^2$ form: $N\le\|(c_f2^{z_f/2})\|\cdot(\sum_fx_ly_{1a}y_{2b})^{1/2}$ and a family has $4/2^{z_f}$ members.
+Injective norms of the blocks are bounded by: maximum over connected components of the $(Y,Z)$ support graph; a single output slice
+by its operator norm ($=\max$ entry for a partial permutation, $=\ell^2$ norm for one row or column, $\le$ Frobenius otherwise); two
+slices $M_1,M_2$ by $\max(\|M_1\|,\|M_2\|)$ if their row or column supports are disjoint, else $(\|M_1\|^2+\|M_2\|^2)^{1/2}$ (\texttt{kplan.py}).
+\end{proof}
+
+\begin{lemma}[payment curve]\label{l:pay}
+For a feature with $A=|\beta_l|>0$ and $x=\max_T|\beta_{l,T}|/A$:
+$P_l\ge A\,\max\{1-c_1x,\ \theta\max(1,x),\ [x\le1]\,\theta\,g(x)\}$, $g(x)=\big((\frac{1+x}2)^r+(\frac{1-x}2)^r\big)^s$.
+\end{lemma}
+\begin{proof}
+$1-c_1x$: Note Thm c1sharp ($|A|\le\theta Q^s+c_1\max_T|\beta_T|$; equivalently gibbs R6 with $R_T\le\sqrt3\max_T$).
+$\theta\max(1,x)$: $Q^s\ge\sum|\beta_i|\ge\max(|A|,|\beta_T|)$.  $\theta g$: two-atom cap (arith2 R1) $Q\ge(\frac{L+b}2)^r+(\frac{L-b}2)^r$ with
+$b=\min_T|\beta_T|\le xA$, decreasing in $b$ and increasing in $L\ge A$.
+\end{proof}
+
+\begin{theorem}[channel-resolved bound]\label{t:main}
+Every network at $(p,2)$ with features in $L$ satisfies, for every test of Lemma~\ref{l:tests} blind to the free pairs and every
+$s\in[1,\frac32]$: $\ \gamma/\gamma_{\rm IF}\le\sqrt{(a_+/F)^2+3^{2s-2}K^2}\,/\,\Gamma_s(p)$, where $a$ is any upper bound of
+$\sum_{l\in L}K_l(\mu)\Re\beta_l+\sum_l\Re(\overline{\beta_{l,T_l}}w^{(l)}_{-l})$, $K$ is as in Lemma~\ref{l:K} and $F\le(\sum_LP_l^r)^s$.
+In the phase-blind form ($T_l$ a slot-set maximising $|\beta_{l,T}|$; the vector $w^{(l)}$ rotated so that
+$\overline{\beta_{l,T_l}}w^{(l)}_{-l}=-|\beta_{l,T_l}|S_l$ with $S_l\ge0$; rotations change neither $|z_l|$ nor $|w^{(l)}_m|$):
+$a=\sum_lA_l(K_l(\mu)-S_lx_l)$, $A_l=|\beta_l|$, $x_l=|\beta_{l,T_l}|/A_l$, $F=(\sum_l(A_l\,\mathrm{pay}(x_l))^r)^s$.
+\end{theorem}
+\begin{proof}
+$h\le\sum qg\le a+K\sum_i\varrho_i$ (Lemmas~\ref{l:tests}, \ref{l:K}; the free pairings vanish).  $\gamma/\gamma_{\rm IF}=h/(\theta B_pP^s\Gamma_s)$ and
+Lemma~\ref{l:ledger}: $(a+KR)/\sqrt{F^2+3^{2-2s}R^2}\le\sqrt{(a_+/F)^2+3^{2s-2}K^2}$ (Cauchy--Schwarz).
+\end{proof}
+
+\begin{lemma}[$s$-monotonicity]\label{l:smono}
+Fix the test and the configuration $(A_l,x_l)$, and let $\Gamma^{\rm lb}_s\le\Gamma_s(p)$ with $-\frac{d}{ds}\log\Gamma^{\rm lb}_s\ge\log|L|$ (e.g.
+$\Gamma^{\rm lb}_s=\frac p2|F|^{-s}$ when $|L|<|F|$, or $\Gamma_s(7)=\frac72 3^{-s}$ with $|L|=2$).  Then
+$B(s)=\sqrt{(a_+/F_s)^2+3^{2s-2}K^2}/\Gamma^{\rm lb}_s$ is nondecreasing in $s$; a certificate at $s_1$ covers $[1,s_1]$.
+\end{lemma}
+\begin{proof}
+$\frac{d}{ds}\log\|y\|_{1/s}=H(w)\le\log|L|$ ($w_l=y_l^r/\sum y^r$; temperature identity), each $\mathrm{pay}(x,s)$ is nonincreasing in $s$
+(each piece is; $\theta g$: $\frac d{ds}\log=-\log3+H\le-\log3+\log2$), so $\frac{d}{ds}\log(F_s\Gamma^{\rm lb}_s)\le\log|L|-\log|F|<0$
+(resp. $\log2-\log3$); and $3^{s-1}/\Gamma^{\rm lb}_s$ increases.
+\end{proof}
+
+\section*{$(p,n)=(7,2)$}
+$\Gamma_s(7)=\frac723^{-s}$, unique maximiser uniform, $K^*=3$ (p52 R11).  One-feature networks: $\gamma\le0.9682\,\gamma_{\rm IF}$ (p52 R11).
+Two-feature networks: relabel so that $L=\{1,2\}$.  Free pairs: only for feature 2, coordinates $m\in\{1,2\}$ ($4\equiv-1-2$).
+
+\begin{theorem}[count at (7,2) for $b\ge2.3576$; computer-assisted]\label{t:72}
+For every $s\in[1,1.2725]$, every network at $(7,2)$ with $\beta_3=0$ has $\gamma\le0.99995\,\gamma_{\rm IF}$.  Hence every global
+maximiser uses all three frequencies, i.e. (C) holds at $(7,2)$ for $b\in[3/1.2725,3]=[2.3576,3]$ (p52 had $[2.538,3]$).
+\end{theorem}
+\begin{proof}
+Theorem~\ref{t:main} with $L=\{1,2\}$, the K-plan ledger and Lemma~\ref{l:pay}; by scale invariance $A_1+A_2=1$, $\tau=A_2$;
+slot symmetry reduces the slot-set pairs $(T_1,T_2)$ of the maximal sign-flip coefficients to five; the slab $x_j>1.75$ uses
+$\mathrm{pay}\ge\theta\cdot1.75\ge1$ and no detection.  \texttt{rig72.py 1.2725 0.99995 pat}: interval branch and bound over
+$(\tau,x_1,x_2)$ at $s_1=1.2725$ (Lemma~\ref{l:smono}); per box and case an SOCP test at the centre, made exact (free coordinates $0$,
+positivity verified in interval arithmetic and enforced by raising $\mu$, renormalisation by the exact mass), then $a$ maximised over
+the box vertices (multilinear), $F$ minimised at the endpoints of $\tau$ (quasi-concave) with payment lower bounds, all with outward
+rounding.  Result: 1416 boxes, no failure, worst certified value $0.99993$.
+\end{proof}
+
+\begin{theorem}[$L$-pure networks at (7,2), every $b\in[2,3]$; computer-assisted]\label{t:pure}
+Every network at $(7,2)$ whose neurons have no DC component and no frequency-3 component in any factor and that has at most the two
+features $\{1,2\}$ satisfies $\gamma\le0.996\,\gamma_{\rm IF}$ for every $b\in[2,3]$.  In particular the F2 shared neurons of p52 R17
+(free modes, zero marginal cost at $b=2$) never lift a two-feature network to $\gamma_{\rm IF}$.
+\end{theorem}
+\begin{proof}
+Such networks have no paid modes, so $K=0$ in Theorem~\ref{t:main}.  \texttt{rig72.py 1.5 0.996 nopaid}: 2518 boxes, no failure,
+worst $0.99599$; Lemma~\ref{l:smono} gives all $s\le1.5$.
+\end{proof}
+
+\section*{General $p$}
+\begin{proposition}[free coordinates; every odd prime]\label{p:free}
+For a single-character component of feature $j\in L$ the free coordinates are
+$\mathrm{Free}(j)=\{-l: l\in L\setminus\{j\},\ |2j-l|\in L\}\cup\{l\in L: |2j+l|\in L\}$, independent of the slot-set $T$.
+(i) $|L|=1$: $\mathrm{Free}(j)=\emptyset$ for every $p\ge5$ (the partner class $|3j|\ne j$), so every non-own mode is paid --- the
+situation of the $(5,2)$ proof.  (ii) For $L=F\setminus\{j_0\}$ (the dense count) only $3$ to $5$ of the $p-2$ non-own coordinates are
+paid, for every $p\le31$ (\texttt{freechan\_table.py}); as $p$ grows the semi-rigid freedom stays bounded and the tests become
+essentially rigid.
+\end{proposition}
+\begin{proof}
+Lemma~\ref{l:tests}(c).  (ii): direct enumeration, cross-checked against the pair classification of \texttt{chanlib.py}.
+\end{proof}
+
+\begin{lemma}[one neuron has no margin]\label{l:oneneuron}
+At $n=2$ and every odd $p\ge3$, a single product neuron has $h\le0$.
+\end{lemma}
+\begin{proof}
+$g(x,\delta)=(w(y)-w(y-\delta))u_1(x_1)u_2(x_2)$.  If $h>0$ then $u_1u_2\ne0$ everywhere, $y(x)$ is the strict maximiser of $w$ where
+$u_1u_2>0$ and the strict minimiser where $u_1u_2<0$; so all $p^2$ inputs lie on two lines $x_1+x_2=c$, impossible for $p\ge3$.
+\end{proof}
+
+\begin{remark}[dense-regime counts at larger $p$]
+If $K^*(s,p)=|F|$, the count follows from ``networks with features in $L=F\setminus\{1\}$ have $\gamma<\gamma_{\rm IF}$'' (relabelling
+is transitive on $F$), and Theorem~\ref{t:main} applies with $\Gamma^{\rm lb}_s=\frac p2|F|^{-s}$ (Lemma~\ref{l:smono}: one certificate at
+$s_1$ covers $[1,s_1]$; such a certificate also proves that the uniform allocation maximises $\Gamma_s(p)$ on $[1,s_1]$).  \texttt{rigp.py}
+implements the phase-blind version with the $\ell^2$ ledger (slot-set independent, so no case analysis).
+\end{remark}
+
+\begin{theorem}[count at (11,2) for $b\ge2.7273$; computer-assisted]\label{t:11}
+For every $s\in[1,1.10]$, every network at $(11,2)$ with at most four features satisfies
+$\gamma\le0.99\cdot3^{1-s}B_{11}\cdot\frac{11}2\,5^{-s}\le0.99\,\gamma_{\rm IF}$.  Hence on $b\in[3/1.10,3]=[2.7273,3]$ every maximiser of
+$\Gamma_s(11)$ has full support ($K^*=5$, and $\Gamma_s(11)=\frac{11}25^{-s}$), every global maximiser uses all five frequencies, and (C)
+holds at $(11,2)$.  The Note's dense theorem gave $b\ge2.780$.
+\end{theorem}
+\begin{proof}
+Relabelling is transitive on $F$, so the features lie in $L=\{2,3,4,5\}$.  Theorem~\ref{t:main} with the $\ell^2$ ledger (slot-set
+independent; Lemma~\ref{l:K}), Lemma~\ref{l:pay}, $\Gamma^{\rm lb}_s=\frac{11}2 5^{-s}\le\Gamma_s(11)$, and Lemma~\ref{l:smono}
+($\log4<\log5$).  Scale invariance: the largest amplitude is $1$.  \texttt{rigp.py 11 1 1.10 0.99 l2 44 $m$}, $m=2,3,4,5$ (the
+feature with the largest amplitude): $518+5504+7486+27084$ boxes, no failure, worst $0.99000$.  On a box the bound uses the maximum of
+$a$ over the $x$-vertices (multilinear) and the vertices of the amplitude box ($a/F$ is quasi-convex there: a maximum of linear
+functions minus $t$ times the concave $F$).  An IF network on a support of size $\le4$ obeys the same bound, so no such allocation
+reaches $\frac{11}25^{-s}\le\Gamma_s(11)$; global maximisers have $\gamma^*\ge\gamma_{\rm IF}$ (paper Thm~8).
+\end{proof}
+
+\section*{Obstruction below $b=2.3576$ at $(7,2)$ (numerical)}
+The phase-blind bound of Theorem~\ref{t:main} (K-plan ledger, payment of Lemma~\ref{l:pay}) has supremum
+$0.9939$ ($s=1.27$), $1.0183$ ($s=1.285$), $1.043$ ($s=1.3$), $1.131$ ($s=1.35$), attained with \emph{both} features single atoms
+($x_1=x_2=1$, $\tau\approx0.55$): there the Pythagorean ledger is tight (one shared neuron can carry both atoms and all strays) and
+phase-blind positivity is triangle-limited.  Without paid modes the same bound stays below $1$ up to $b=2$ (Theorem~\ref{t:pure}).
+With exact phases (the full test on $\mathbb Z_7^2\times\mathbb Z_7^*$, same K-plan ledger, exact atom payments) the worst
+phase-blind family gives only $0.59$--$0.76$ at $b=2$ (\texttt{fullsocp72b.py}), random atom systems give at most $0.87$, but a
+local maximisation over atom systems reaches $1.043$ (\texttt{fullsocp72c.py}; feature 1 two atoms with
+$(|A|,|B|,|C|,|D|)=(2.41,1.49,1.48,1.65)$, feature 2 a single atom, $\tau=0.459$), and $1.033$ with the numerical neuron
+supremum $K_{\rm true}=0.175$ in place of the K-plan value $0.185$ (\texttt{ktrue\_full.py}).  So at $b=2$ the channel-resolved
+Pythagorean ledger is insufficient even with full phase information and exact atom costs: a cost accounting that sees how the
+atoms are distributed over neurons (the ledger is tight only for strays in a neuron carrying all the atom cost, while a two-atom
+feature forces at least two neurons) is needed.  A cheaper paid ledger alone does not rescue the phase-blind bound at $b=2$ (with the paid term divided by
+$11$ the supremum is still $1.165$, both features single atoms).  Single neurons have no positive margin at $n=2$
+(\texttt{single\_neuron\_margin.py}), which is the natural tool for the regime where the Pythagorean ledger is tight (one neuron
+carrying all atoms and all strays).
+
+\end{document}

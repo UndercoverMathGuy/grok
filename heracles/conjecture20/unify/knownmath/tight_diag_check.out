@@ -1,0 +1,10 @@
+/home/user/grok/heracles/conjecture20/unify/knownmath/tight_diag_check.py:1: SyntaxWarning: invalid escape sequence '\{'
+  """Check of Theorem KM2 (tight case of Paper Lemma 7 is the diagonal Fourier configuration).
+n=2: 60 solutions; max |xi_lt/xi_0t - xi_l1/xi_01| = 1.5e-15; max |zeta^nu-1| = 3.4e-15; max |prod(1-xi_l0/xi_sigma)-nu| = 3.1e-15
+n=3: 60 solutions; max |xi_lt/xi_0t - xi_l1/xi_01| = 2.3e-15; max |zeta^nu-1| = 5.3e-15; max |prod(1-xi_l0/xi_sigma)-nu| = 6.3e-15
+n=4: 60 solutions; max |xi_lt/xi_0t - xi_l1/xi_01| = 1.7e-15; max |zeta^nu-1| = 5.0e-15; max |prod(1-xi_l0/xi_sigma)-nu| = 8.9e-15
+n=5: 54 solutions; max |xi_lt/xi_0t - xi_l1/xi_01| = 1.9e-15; max |zeta^nu-1| = 6.8e-15; max |prod(1-xi_l0/xi_sigma)-nu| = 1.8e-14
+Craigen F4(a=0.000): chain orthogonality defect 0.0e+00; max JF violation 0.000 (T={1,3}: 0.000)
+Craigen F4(a=0.300): chain orthogonality defect 2.2e-16; max JF violation 1.182 (T={1,3}: 1.182)
+Craigen F4(a=1.000): chain orthogonality defect 0.0e+00; max JF violation 3.366 (T={1,3}: 3.366)
+Craigen F4(a=1.571): chain orthogonality defect 7.5e-33; max JF violation 4.000 (T={1,3}: 4.000)

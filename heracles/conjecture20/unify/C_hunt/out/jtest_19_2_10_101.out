@@ -1,0 +1,3 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+{"p": 19, "n": 2, "variant": "pair", "delta0": 1, "rho": 0.47593581339250063, "J_holds": false, "nused": 27, "used": [[[1, [0, 1]], 0.0351], [[1, [1, 0]], 0.0482], [[1, [1, 1]], 0.0445], [[2, [0, 1]], 0.02], [[2, [1, 0]], 0.0161], [[2, [1, 1]], 0.0348], [[3, [0, 1]], 0.0307], [[3, [1, 0]], 0.0395], [[3, [1, 1]], 0.0452], [[4, [0, 1]], 0.0341], [[4, [1, 0]], 0.0298], [[4, [1, 1]], 0.0295]]}
+# SUMMARY jtest[pair] p=19 n=2: min_delta0 rho* = 0.475936 at delta0=1 ((J) needs >= 1) time=41s

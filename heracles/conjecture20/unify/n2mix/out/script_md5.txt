@@ -1,0 +1,5 @@
+6a3bdf991bad9bb7da550e3e0f4012d1  rig72.py
+c6c55f1f799c0668f1f15b513816e8ef  rigp.py
+9b5eba3de0327201d1c58ce6f908d853  kplan.py
+8d63b65ce4de0fef1864219c7033077e  chanlib.py
+7402cd829aa75fa16f24dfbf65b69a13  iv.py

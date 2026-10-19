@@ -1,0 +1,3 @@
+R2(b): cone lemma per delta, max [kappa cm - g] = 5.00e-16 (<= 0); min gamma_lam(Theta)/psi - 1 = -2.22e-16 (>= 0); max |H(Theta)-H(z)-H(theta1)| = 4.44e-16; max |beta_j| off spt A = 2.54e-17
+p=3 n=11: gamma/gamma_IF=1.054399; h - kappa_min*min cm(Phi) = 2.49e-14; gamma/(B_3 Gamma_s)=0.0000 (<=1); balance max| ||u||-||w|| |=1.02e-07; nu E_1=1.000000; H=2.07942, log m=2.07944, log nu=2.48491
+p=3 n=13: gamma/gamma_IF=1.109163; h - kappa_min*min cm(Phi) = -6.18e-11; gamma/(B_3 Gamma_s)=0.0000 (<=1); balance max| ||u||-||w|| |=7.50e-08; nu E_1=1.000000; H=2.30257, log m=2.30259, log nu=2.63906

@@ -1,0 +1,28 @@
+=== (a) gamma = B_p (1-delta_int) M(e o zhat) K_r(zhat)^{1-s}; e_l identity; Arimoto
+  rel. err factorised identity 2.08e-15; per-feature efficiency identity 6.67e-14; H_r(m) - H_r(zhat) - H^A_r 1.09e-14
+=== (b) sum_l Psi^(l) = (p/2)(I+J); equal energies -> pair cone moment vacuous
+  max |sum_l Psi^(l) - (p/2)(I+J)| = 2.27e-13;  max_d sum_l kappa_l cos(phi_l) (equal V) = -1.2500 (< 0: vacuous)
+=== (c) CD => DU_min construction: small feature theta_1 at frequency j + optimal feature at k = j l^{-1}
+  (7,2,2.0) j=1 l=2 k=3 eps=0.3: h - sum-of-profiles bound = 9.54e-18 (>=0); CD ratio 0.694456; pair-term ratio 0.694456; min(m(l),m(-l))/(pi kappa) = 0.1218
+  (7,2,2.0) j=1 l=2 k=3 eps=0.1: h - sum-of-profiles bound = 9.11e-18 (>=0); CD ratio 0.918222; pair-term ratio 0.918222; min(m(l),m(-l))/(pi kappa) = 0.1218
+  (7,2,2.0) j=1 l=2 k=3 eps=0.03: h - sum-of-profiles bound = 9.11e-18 (>=0); CD ratio 0.985429; pair-term ratio 0.985429; min(m(l),m(-l))/(pi kappa) = 0.1218
+  (7,2,2.0) j=2 l=3 k=3 eps=0.3: h - sum-of-profiles bound = 1.86e-17 (>=0); CD ratio 0.717181; pair-term ratio 0.717181; min(m(l),m(-l))/(pi kappa) = 0.3763
+  (7,2,2.0) j=2 l=3 k=3 eps=0.1: h - sum-of-profiles bound = 1.89e-17 (>=0); CD ratio 0.914127; pair-term ratio 0.914127; min(m(l),m(-l))/(pi kappa) = 0.3763
+  (7,2,2.0) j=2 l=3 k=3 eps=0.03: h - sum-of-profiles bound = 1.89e-17 (>=0); CD ratio 0.984055; pair-term ratio 0.984055; min(m(l),m(-l))/(pi kappa) = 0.3763
+  (11,2,2.5) j=1 l=2 k=5 eps=0.3: h - sum-of-profiles bound = 4.34e-18 (>=0); CD ratio -0.106858; pair-term ratio -0.106858; min(m(l),m(-l))/(pi kappa) = -1.3815
+  (11,2,2.5) j=1 l=2 k=5 eps=0.1: h - sum-of-profiles bound = 3.85e-18 (>=0); CD ratio 0.550978; pair-term ratio 0.550978; min(m(l),m(-l))/(pi kappa) = -1.3815
+  (11,2,2.5) j=1 l=2 k=5 eps=0.03: h - sum-of-profiles bound = 3.74e-18 (>=0); CD ratio 0.876296; pair-term ratio 0.876296; min(m(l),m(-l))/(pi kappa) = -1.3815
+  (11,2,2.5) j=2 l=3 k=3 eps=0.3: h - sum-of-profiles bound = 1.21e-17 (>=0); CD ratio -0.005152; pair-term ratio -0.005152; min(m(l),m(-l))/(pi kappa) = -0.5975
+  (11,2,2.5) j=2 l=3 k=3 eps=0.1: h - sum-of-profiles bound = 1.20e-17 (>=0); CD ratio 0.501161; pair-term ratio 0.501161; min(m(l),m(-l))/(pi kappa) = -0.5975
+  (11,2,2.5) j=2 l=3 k=3 eps=0.03: h - sum-of-profiles bound = 1.17e-17 (>=0); CD ratio 0.845508; pair-term ratio 0.845508; min(m(l),m(-l))/(pi kappa) = -0.5975
+  (7,3,2.0) j=1 l=2 k=3 eps=0.3: h - sum-of-profiles bound = 1.13e-18 (>=0); CD ratio 0.311476; pair-term ratio 0.311476; min(m(l),m(-l))/(pi kappa) = -2.0446
+  (7,3,2.0) j=1 l=2 k=3 eps=0.1: h - sum-of-profiles bound = 1.12e-18 (>=0); CD ratio 0.904250; pair-term ratio 0.904250; min(m(l),m(-l))/(pi kappa) = -2.0446
+  (7,3,2.0) j=1 l=2 k=3 eps=0.03: h - sum-of-profiles bound = 1.14e-18 (>=0); CD ratio 0.991129; pair-term ratio 0.991129; min(m(l),m(-l))/(pi kappa) = -2.0446
+  (7,3,2.0) j=2 l=3 k=3 eps=0.3: h - sum-of-profiles bound = 4.13e-19 (>=0); CD ratio 0.208453; pair-term ratio 0.208453; min(m(l),m(-l))/(pi kappa) = -1.5335
+  (7,3,2.0) j=2 l=3 k=3 eps=0.1: h - sum-of-profiles bound = 4.13e-19 (>=0); CD ratio 0.878234; pair-term ratio 0.878234; min(m(l),m(-l))/(pi kappa) = -1.5335
+  (7,3,2.0) j=2 l=3 k=3 eps=0.03: h - sum-of-profiles bound = 4.47e-19 (>=0); CD ratio 0.988540; pair-term ratio 0.988540; min(m(l),m(-l))/(pi kappa) = -1.5335
+=== (d) E_kkt lm_p5_n2_b2.0_k4 (canonical CD_prop = 1.0146): re-optimise from perturbations
+  perturbation 1e-03: gamma after re-optimisation / gamma(k4) = 0.999998
+  perturbation 1e-02: gamma after re-optimisation / gamma(k4) = 0.999998
+  perturbation 3e-02: gamma after re-optimisation / gamma(k4) = 0.999998
+  perturbation 1e-01: gamma after re-optimisation / gamma(k4) = 0.999998

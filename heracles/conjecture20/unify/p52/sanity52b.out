@@ -1,0 +1,6 @@
+R4  max[grid sup - closed form] = 0 (<= 0 up to grid error)
+R7  theta=(0.4,-1.3): bound original 0.4047540787  rotated 0.4047540787  min grid density 3.47e-04
+R7  theta=(2.2,0.9): bound original 0.4047540787  rotated 0.4047540787  min grid density 6.92e-05
+R7  theta=(-3.0,1.7): bound original 0.4047540787  rotated 0.4047540787  min grid density 3.76e-04
+R10 max over s in [1,1.5] of 3^{s-1} kappa_min(7) / ((7/2) 3^{-s}) = 0.9681690809346849
+R13 |b1|^(2/3)+|b2|^(2/3) = 0.793701  e^(2/3) = 0.793701;  non-own mass / e^2 = 3.0000 (=3 expected)

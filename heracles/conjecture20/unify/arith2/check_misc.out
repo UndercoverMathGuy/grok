@@ -1,0 +1,16 @@
+(1) KKT identity K_l(mu*) = Gamma y_l^{r-1}:
+   p=31: |B|=4 K*=4 feasible, residual 2.22e-16, Gamma(from file)=0.37009 vs m=0.37009
+   p=61: |B|=5 K*=5 feasible, residual 1.22e-15, Gamma(from file)=0.31203 vs m=0.31203
+   p=101: |B|=7 K*=7 feasible, residual 2.22e-16, Gamma(from file)=0.27893 vs m=0.27893
+   p=211: |B|=8 K*=8 feasible, residual 2.66e-14, Gamma(from file)=0.23420 vs m=0.23420
+   p=401: |B|=8 K*=8 feasible, residual 1.33e-15, Gamma(from file)=0.21075 vs m=0.21075
+   p=1009: |B|=11 K*=11 feasible, residual 8.44e-15, Gamma(from file)=0.18098 vs m=0.18098
+(2) first-order label rows:
+   p=61 eps=0.01: max |C(w)-sum y^r - (r/Gamma) psi_mu(w)| = 4.66e-06   (scale of psi term 3.90e-03)
+   p=61 eps=0.001: max |C(w)-sum y^r - (r/Gamma) psi_mu(w)| = 5.44e-08   (scale of psi term 4.04e-04)
+   p=211 eps=0.01: max |C(w)-sum y^r - (r/Gamma) psi_mu(w)| = 5.80e-06   (scale of psi term 3.79e-03)
+   p=211 eps=0.001: max |C(w)-sum y^r - (r/Gamma) psi_mu(w)| = 6.06e-08   (scale of psi term 3.88e-04)
+   p=1009 eps=0.01: max |C(w)-sum y^r - (r/Gamma) psi_mu(w)| = 5.70e-06   (scale of psi term 3.65e-03)
+   p=1009 eps=0.001: max |C(w)-sum y^r - (r/Gamma) psi_mu(w)| = 5.77e-08   (scale of psi term 3.89e-04)
+(3) ablation inequality h(theta - N) >= h(theta) - max g_N on random networks:
+   max over 200 trials of [h(theta) - max g_N] - h(theta - N) = 1.776e-15  (must be <= 0)
