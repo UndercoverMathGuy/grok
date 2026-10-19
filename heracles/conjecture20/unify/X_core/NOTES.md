@@ -74,3 +74,23 @@ M(a') >= the left side.
   - unpinned, the adversary only reaches 1.000, at the interference-free equality case.
 - Candidate general theorem (the compression theorem): for every (alpha, beta, phi) there are w0 and c such that
   M(alpha + c beta (cos theta(w0))_+) (sum alpha^r + lambda sum beta^r)^s >= LHS (sum y^r)^s. This implies RT_n.
+
+## The compression dichotomy (orchestrator, in progress)
+
+Pure cheap case (alpha = 0). L = min_delta [sum beta kappa(delta) - D_delta]. Two compressions:
+- **Linear**, y = beta. Its value is >= L/B^s iff L <= (1 - c_n) M(beta). This holds, for example, if the depth at the
+  binding offset of beta is >= c_n M(beta).
+- **Positive part**, y = 2 beta (cos theta(w0))_+ = r(w0) - e(w0), where r is the field row and
+  e = beta (1 - |cos theta(w0)|) is the "even remainder". By FR, L <= M(r(w0)). Its value is >= L/B^s iff
+  (1 - E_cov/L) >= Psi(w0), with E_cov the worst-offset coverage of e and
+  Psi(w0) = 2 tau_n (sum beta^r pi^r / sum beta^r)^s.
+- **Generic phases.** Psi ~ (2/pi) e^{-(log 2pi - 1 - log(1+1/n))(s-1)} = (2/pi) e^{-0.433(s-1)} at n = 2, and the
+  remainder fraction is 1 - 2/pi.
+- **The dichotomy.** If linear fails, then L > (1 - c_n) M(beta), and the positive part certifies whenever
+  (Q): max_delta sum beta (1 - |cos theta(w0)|) kappa(delta) <= (1 - Psi(w0)) (1 - c_n) min_delta sum beta kappa(delta).
+  (Q) is depth-free. It holds when the coverage profile of beta is flat in delta and some w0 makes the phases
+  reasonably real (e.g. Legendre at p = 1 mod 4: remainder 0).
+- **Gap.** (Q) fails for allocations whose coverage profile is far from flat, e.g. few features. There, depth has to
+  be brought back in at the offsets where the coverage is large.
+- **Numerics** (`dichotomy.py`): at p = 17..37 the adversary cannot push the combined certificate below ~1.4 (cheap share
+  >= 0.4). Small p is easy; the hard regime is large-p flat interference.
