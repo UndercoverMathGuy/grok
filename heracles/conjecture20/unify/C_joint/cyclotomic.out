@@ -1,0 +1,81 @@
+(a) Legendre on all of F
+  p=11: max|phi-chi|=1.8e-15  v_l in [0.60302,0.60302] (2/sqrt p=0.60302)  max_delta depth/sum v kappa = 0.60302  (2/sqrt p = 0.60302), min = 0.60302
+  p=13: max|phi-chi|=2.7e-15  v_l in [0.55470,0.55470] (2/sqrt p=0.55470)  max_delta depth/sum v kappa = 0.55470  (2/sqrt p = 0.55470), min = 0.55470
+  p=101: max|phi-chi|=3.2e-14  v_l in [0.19901,0.19901] (2/sqrt p=0.19901)  max_delta depth/sum v kappa = 0.19901  (2/sqrt p = 0.19901), min = 0.19901
+  p=103: max|phi-chi|=2.8e-14  v_l in [0.19707,0.19707] (2/sqrt p=0.19707)  max_delta depth/sum v kappa = 0.19707  (2/sqrt p = 0.19707), min = 0.19707
+  p=401: max|phi-chi|=1.5e-13  v_l in [0.09988,0.09988] (2/sqrt p=0.09988)  max_delta depth/sum v kappa = 0.09988  (2/sqrt p = 0.09988), min = 0.09988
+  p=1009: max|phi-chi|=4.5e-13  v_l in [0.06296,0.06296] (2/sqrt p=0.06296)  max_delta depth/sum v kappa = 0.06296  (2/sqrt p = 0.06296), min = 0.06296
+  p=1013: max|phi-chi|=4.2e-13  v_l in [0.06284,0.06284] (2/sqrt p=0.06284)  max_delta depth/sum v kappa = 0.06284  (2/sqrt p = 0.06284), min = 0.06284
+(b) cyclotomic classes
+  p=101 d=2: |H_d cap F|=25 v in [1.932,1.932] max_delta depth/coverage=0.3277 (2d/sqrt p=0.3980)
+     n=2 s=1.02: tau=1.0081 Gamma_ref=0.93399 (lp 0.93399) R<= 0.61884
+     n=2 s=1.05: tau=1.0205 Gamma_ref=0.83056 (lp 0.83056) R<= 0.63957
+     n=2 s=1.10: tau=1.0414 Gamma_ref=0.68301 (lp 0.68301) R<= 0.67569
+     n=2 s=1.20: tau=1.0845 Gamma_ref=0.52563 (lp 0.48129) R<= 0.66268
+     n=3 s=1.02: tau=1.0058 Gamma_ref=0.93399 (lp 0.93399) R<= 0.61738
+     n=3 s=1.05: tau=1.0145 Gamma_ref=0.83056 (lp 0.83056) R<= 0.63582
+     n=3 s=1.10: tau=1.0292 Gamma_ref=0.68301 (lp 0.68301) R<= 0.66777
+     n=3 s=1.20: tau=1.0592 Gamma_ref=0.52563 (lp 0.48129) R<= 0.64725
+  p=197 d=2: |H_d cap F|=49 v in [1.414,1.414] max_delta depth/coverage=0.2246 (2d/sqrt p=0.2850)
+     n=2 s=1.02: tau=1.0081 Gamma_ref=0.91703 (lp 0.91703) R<= 0.73618
+     n=2 s=1.05: tau=1.0205 Gamma_ref=0.79919 (lp 0.79919) R<= 0.76085
+     n=2 s=1.10: tau=1.0414 Gamma_ref=0.63546 (lp 0.63546) R<= 0.80381
+     n=2 s=1.20: tau=1.0845 Gamma_ref=0.43755 (lp 0.43755) R<= 0.82377
+     n=3 s=1.02: tau=1.0058 Gamma_ref=0.91703 (lp 0.91703) R<= 0.73445
+     n=3 s=1.05: tau=1.0145 Gamma_ref=0.79919 (lp 0.79919) R<= 0.75638
+     n=3 s=1.10: tau=1.0292 Gamma_ref=0.63546 (lp 0.63546) R<= 0.79440
+     n=3 s=1.20: tau=1.0592 Gamma_ref=0.43755 (lp 0.43755) R<= 0.80459
+  p=401 d=2: |H_d cap F|=100 v in [1.414,1.414] max_delta depth/coverage=0.1523 (2d/sqrt p=0.1998)
+     n=2 s=1.02: tau=1.0081 Gamma_ref=0.90170 (lp 0.90170) R<= 0.82322
+     n=2 s=1.05: tau=1.0205 Gamma_ref=0.76919 (lp 0.76919) R<= 0.85081
+     n=2 s=1.10: tau=1.0414 Gamma_ref=0.60272 (lp 0.59018) R<= 0.88014
+     n=2 s=1.20: tau=1.0845 Gamma_ref=0.43263 (lp 0.42751) R<= 0.80568
+     n=3 s=1.02: tau=1.0058 Gamma_ref=0.90170 (lp 0.90170) R<= 0.82129
+     n=3 s=1.05: tau=1.0145 Gamma_ref=0.76919 (lp 0.76919) R<= 0.84581
+     n=3 s=1.10: tau=1.0292 Gamma_ref=0.60272 (lp 0.59018) R<= 0.86984
+     n=3 s=1.20: tau=1.0592 Gamma_ref=0.43263 (lp 0.42751) R<= 0.78692
+  p=401 d=4: |H_d cap F|=50 v in [1.000,1.000] max_delta depth/coverage=0.3159 (2d/sqrt p=0.3995)
+     n=2 s=1.02: tau=1.0081 Gamma_ref=0.90170 (lp 0.90170) R<= 0.62484
+     n=2 s=1.05: tau=1.0205 Gamma_ref=0.76919 (lp 0.76919) R<= 0.65934
+     n=2 s=1.10: tau=1.0414 Gamma_ref=0.60272 (lp 0.59018) R<= 0.70613
+     n=2 s=1.20: tau=1.0845 Gamma_ref=0.43263 (lp 0.42751) R<= 0.69278
+     n=3 s=1.02: tau=1.0058 Gamma_ref=0.90170 (lp 0.90170) R<= 0.62337
+     n=3 s=1.05: tau=1.0145 Gamma_ref=0.76919 (lp 0.76919) R<= 0.65547
+     n=3 s=1.10: tau=1.0292 Gamma_ref=0.60272 (lp 0.59018) R<= 0.69786
+     n=3 s=1.20: tau=1.0592 Gamma_ref=0.43263 (lp 0.42751) R<= 0.67665
+  p=409 d=2: |H_d cap F|=102 v in [1.414,1.414] max_delta depth/coverage=0.1577 (2d/sqrt p=0.1978)
+     n=2 s=1.02: tau=1.0081 Gamma_ref=0.90130 (lp 0.90130) R<= 0.81847
+     n=2 s=1.05: tau=1.0205 Gamma_ref=0.76839 (lp 0.76839) R<= 0.84589
+     n=2 s=1.10: tau=1.0414 Gamma_ref=0.61339 (lp 0.58898) R<= 0.85809
+     n=2 s=1.20: tau=1.0845 Gamma_ref=0.43111 (lp 0.42923) R<= 0.80063
+     n=3 s=1.02: tau=1.0058 Gamma_ref=0.90130 (lp 0.90130) R<= 0.81654
+     n=3 s=1.05: tau=1.0145 Gamma_ref=0.76839 (lp 0.76839) R<= 0.84093
+     n=3 s=1.10: tau=1.0292 Gamma_ref=0.61339 (lp 0.58898) R<= 0.84804
+     n=3 s=1.20: tau=1.0592 Gamma_ref=0.43111 (lp 0.42923) R<= 0.78199
+  p=409 d=4: |H_d cap F|=51 v in [0.518,0.518] max_delta depth/coverage=0.3721 (2d/sqrt p=0.3956)
+     n=2 s=1.02: tau=1.0081 Gamma_ref=0.90130 (lp 0.90130) R<= 0.56985
+     n=2 s=1.05: tau=1.0205 Gamma_ref=0.76839 (lp 0.76839) R<= 0.60132
+     n=2 s=1.10: tau=1.0414 Gamma_ref=0.61339 (lp 0.58898) R<= 0.63150
+     n=2 s=1.20: tau=1.0845 Gamma_ref=0.43111 (lp 0.42923) R<= 0.63150
+     n=3 s=1.02: tau=1.0058 Gamma_ref=0.90130 (lp 0.90130) R<= 0.56851
+     n=3 s=1.05: tau=1.0145 Gamma_ref=0.76839 (lp 0.76839) R<= 0.59779
+     n=3 s=1.10: tau=1.0292 Gamma_ref=0.61339 (lp 0.58898) R<= 0.62410
+     n=3 s=1.20: tau=1.0592 Gamma_ref=0.43111 (lp 0.42923) R<= 0.61680
+  p=1009 d=2: |H_d cap F|=252 v in [1.000,1.000] max_delta depth/coverage=0.1116 (2d/sqrt p=0.1259)
+     n=2 s=1.02: tau=1.0081 Gamma_ref=0.88386 (lp 0.88386) R<= 0.87959
+     n=2 s=1.05: tau=1.0205 Gamma_ref=0.73531 (lp 0.73335) R<= 0.90664
+     n=2 s=1.10: tau=1.0414 Gamma_ref=0.58839 (lp 0.55335) R<= 0.87695
+     n=2 s=1.20: tau=1.0845 Gamma_ref=0.40275 (lp 0.40275) R<= 0.76749
+     n=3 s=1.02: tau=1.0058 Gamma_ref=0.88386 (lp 0.88386) R<= 0.87752
+     n=3 s=1.05: tau=1.0145 Gamma_ref=0.73531 (lp 0.73335) R<= 0.90132
+     n=3 s=1.10: tau=1.0292 Gamma_ref=0.58839 (lp 0.55335) R<= 0.86668
+     n=3 s=1.20: tau=1.0592 Gamma_ref=0.40275 (lp 0.40275) R<= 0.74962
+  p=1009 d=4: |H_d cap F|=126 v in [0.518,0.518] max_delta depth/coverage=0.2373 (2d/sqrt p=0.2519)
+     n=2 s=1.02: tau=1.0081 Gamma_ref=0.88386 (lp 0.88386) R<= 0.72296
+     n=2 s=1.05: tau=1.0205 Gamma_ref=0.73531 (lp 0.73335) R<= 0.76085
+     n=2 s=1.10: tau=1.0414 Gamma_ref=0.58839 (lp 0.55335) R<= 0.76188
+     n=2 s=1.20: tau=1.0845 Gamma_ref=0.40275 (lp 0.40275) R<= 0.71464
+     n=3 s=1.02: tau=1.0058 Gamma_ref=0.88386 (lp 0.88386) R<= 0.72125
+     n=3 s=1.05: tau=1.0145 Gamma_ref=0.73531 (lp 0.73335) R<= 0.75638
+     n=3 s=1.10: tau=1.0292 Gamma_ref=0.58839 (lp 0.55335) R<= 0.75296
+     n=3 s=1.20: tau=1.0592 Gamma_ref=0.40275 (lp 0.40275) R<= 0.69800

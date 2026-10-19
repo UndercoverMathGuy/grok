@@ -1,0 +1,2 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+{"p": 7, "n": 2, "cplx": false, "restarts": 120, "rho_star": 0.43463470017608186, "theta_star": 0.21731735008804093, "median_restart": 0.35144327434963557, "nused": 9, "used_features": [1, 2, 3], "cplx_A": null, "time": 37.5}

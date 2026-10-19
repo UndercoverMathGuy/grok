@@ -1,0 +1,2 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+{"n": 3, "s": 2.0, "starts": 60, "theta_P": 0.24992013767575785, "at_G": 1.3332228675809188, "at_eps": 1.0000709034103479, "m": 4, "masses": [0.3334, 0.3334, 0.3332, 0.0], "time": 21.9}

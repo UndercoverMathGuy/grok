@@ -1,0 +1,64 @@
+detect_lp.py 11 2.0 Sstar 12 91
+detect_lp.py 11 2.0 AP1_5_1 12 92
+detect_lp.py 11 2.5 Sstar 12 91
+detect_lp.py 11 2.5 AP1_5_1 12 92
+detect_lp.py 13 2.0 Sstar 12 91
+detect_lp.py 13 2.0 AP1_6_1 12 92
+detect_lp.py 13 2.5 Sstar 12 91
+detect_lp.py 13 2.5 AP1_6_1 12 92
+detect_lp.py 17 2.0 Sstar 12 91
+detect_lp.py 17 2.0 AP1_6_1 12 92
+detect_lp.py 17 2.5 Sstar 12 91
+detect_lp.py 17 2.5 AP1_6_1 12 92
+detect_lp.py 19 2.0 Sstar 12 91
+detect_lp.py 19 2.0 AP1_6_1 12 92
+detect_lp.py 19 2.5 Sstar 12 91
+detect_lp.py 19 2.5 AP1_6_1 12 92
+detect_lp.py 23 2.0 Sstar 12 91
+detect_lp.py 23 2.0 AP1_6_1 12 92
+detect_lp.py 23 2.5 Sstar 12 91
+detect_lp.py 23 2.5 AP1_6_1 12 92
+detect_lp.py 29 2.0 Sstar 12 91
+detect_lp.py 29 2.0 AP1_6_1 12 92
+detect_lp.py 29 2.5 Sstar 12 91
+detect_lp.py 29 2.5 AP1_6_1 12 92
+detect_lp.py 31 2.0 Sstar 12 91
+detect_lp.py 31 2.0 AP1_6_1 12 92
+detect_lp.py 31 2.5 Sstar 12 91
+detect_lp.py 31 2.5 AP1_6_1 12 92
+detect_lp.py 37 2.0 Sstar 12 91
+detect_lp.py 37 2.0 AP1_6_1 12 92
+detect_lp.py 37 2.5 Sstar 12 91
+detect_lp.py 37 2.5 AP1_6_1 12 92
+detect_lp.py 41 2.0 Sstar 12 91
+detect_lp.py 41 2.0 AP1_6_1 12 92
+detect_lp.py 41 2.5 Sstar 12 91
+detect_lp.py 41 2.5 AP1_6_1 12 92
+detect_lp.py 43 2.0 Sstar 12 91
+detect_lp.py 43 2.0 AP1_6_1 12 92
+detect_lp.py 43 2.5 Sstar 12 91
+detect_lp.py 43 2.5 AP1_6_1 12 92
+detect_lp.py 5 2.0 Sstar 8 93 3
+detect_lp.py 5 2.0 F 8 94 3
+detect_lp.py 5 3.0 Sstar 8 93 3
+detect_lp.py 5 3.0 F 8 94 3
+detect_lp.py 7 2.0 Sstar 8 93 3
+detect_lp.py 7 2.0 F 8 94 3
+detect_lp.py 7 3.0 Sstar 8 93 3
+detect_lp.py 7 3.0 F 8 94 3
+detect_lp.py 11 2.0 Sstar 8 93 3
+detect_lp.py 11 2.0 F 8 94 3
+detect_lp.py 11 3.0 Sstar 8 93 3
+detect_lp.py 11 3.0 F 8 94 3
+detect_lp.py 13 2.0 Sstar 8 93 3
+detect_lp.py 13 2.0 F 8 94 3
+detect_lp.py 13 3.0 Sstar 8 93 3
+detect_lp.py 13 3.0 F 8 94 3
+detect_lp.py 13 2.0 Sstar 8 95 2 single
+detect_lp.py 13 2.0 AP1_6_1 8 95 2 single
+detect_lp.py 23 2.0 Sstar 8 95 2 single
+detect_lp.py 23 2.0 AP1_6_1 8 95 2 single
+detect_lp.py 31 2.0 Sstar 8 95 2 single
+detect_lp.py 31 2.0 AP1_6_1 8 95 2 single
+detect_lp.py 43 2.0 Sstar 8 95 2 single
+detect_lp.py 43 2.0 AP1_6_1 8 95 2 single

@@ -1,0 +1,20 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(5, 2, 2.0) {'gamma': -0.016787, 'pred': -0.016787, 'Em_sig': 0.986284, 'dprog': 0.038419, 'dint': 2.497841, 'H': 1.653821, 'maxbudget': 0.470814, 'minsig': 0.849895}
+(5, 2, 2.0) {'gamma': -0.011998, 'pred': -0.011998, 'Em_sig': 0.954646, 'dprog': 0.008771, 'dint': 1.776466, 'H': 1.582622, 'maxbudget': 0.513427, 'minsig': 0.842301}
+(5, 2, 2.0) {'gamma': -0.020628, 'pred': -0.020628, 'Em_sig': 0.974995, 'dprog': 0.062376, 'dint': 3.083601, 'H': 1.667456, 'maxbudget': 0.534753, 'minsig': 0.699193}
+(7, 2, 2.5) {'gamma': -0.0111, 'pred': -0.0111, 'Em_sig': 0.991059, 'dprog': 0.036149, 'dint': 1.955761, 'H': 2.130821, 'maxbudget': 0.496481, 'minsig': 0.795763}
+(7, 2, 2.5) {'gamma': -0.006853, 'pred': -0.006853, 'Em_sig': 0.92908, 'dprog': 0.071579, 'dint': 1.229429, 'H': 2.15473, 'maxbudget': 0.521456, 'minsig': 0.528997}
+(7, 2, 2.5) {'gamma': -0.009986, 'pred': -0.009986, 'Em_sig': 0.985818, 'dprog': 0.022445, 'dint': 1.761018, 'H': 2.089594, 'maxbudget': 0.510349, 'minsig': 0.772414}
+(5, 3, 2.0) {'gamma': -0.001005, 'pred': -0.001005, 'Em_sig': 1.050615, 'dprog': 0.053379, 'dint': 4.823227, 'H': 2.036341, 'maxbudget': 0.358595, 'minsig': 0.788581}
+(5, 3, 2.0) {'gamma': -0.000648, 'pred': -0.000648, 'Em_sig': 1.00834, 'dprog': 0.015349, 'dint': 3.080227, 'H': 2.012754, 'maxbudget': 0.220345, 'minsig': 0.899801}
+(5, 3, 2.0) {'gamma': -0.000577, 'pred': -0.000577, 'Em_sig': 1.0367, 'dprog': 0.003642, 'dint': 2.58146, 'H': 1.959437, 'maxbudget': 0.260407, 'minsig': 0.95812}
+(3, 2, 2.2) {'gamma': -0.02517, 'pred': -0.02517, 'Em_sig': 0.928067, 'dprog': 0.0, 'dint': 1.035404, 'H': 1.121896, 'maxbudget': 0.571659, 'minsig': 0.807464}
+(3, 2, 2.2) {'gamma': -0.026372, 'pred': -0.026372, 'Em_sig': 1.144487, 'dprog': -0.0, 'dint': 0.955182, 'H': 1.357168, 'maxbudget': 0.473849, 'minsig': 0.547172}
+(3, 2, 2.2) {'gamma': -0.049678, 'pred': -0.049678, 'Em_sig': 0.912483, 'dprog': 0.0, 'dint': 2.10964, 'H': 1.29084, 'maxbudget': 0.579456, 'minsig': 0.774112}
+IF (5, 2, 2.0) {'gamma': 0.006211, 'pred': 0.006211, 'Em_sig': 0.0, 'dprog': 0.0, 'dint': 0.0, 'H': 1.791759, 'maxbudget': 1.0, 'minsig': 0.0} gamma_IF 0.0062112999374994175
+IF (7, 2, 2.5) {'gamma': 0.005524, 'pred': 0.005524, 'Em_sig': 0.0, 'dprog': 0.0, 'dint': 0.0, 'H': 2.197225, 'maxbudget': 1.0, 'minsig': -0.0} gamma_IF 0.005524008622584041
+IF (11, 2, 2.0) {'gamma': 0.001154, 'pred': 0.001154, 'Em_sig': 0.0, 'dprog': 0.316199, 'dint': 0.0, 'H': 1.777322, 'maxbudget': 1.0, 'minsig': -0.0} gamma_IF 0.0011537085974820927
+--- violators / near-optima
+viol_p5_n2_b2 {'gamma': 0.00621, 'pred': 0.00621, 'Em_sig': 0.0, 'dprog': 0.00032, 'dint': 2e-05, 'H': 1.79176, 'maxbudget': 1.0, 'minsig': 0.0} gamma/gIF 0.99966
+viol_p7_n2_b2 {'gamma': 0.00279, 'pred': 0.00279, 'Em_sig': 1e-05, 'dprog': 0.21485, 'dint': 0.0001, 'H': 1.7628, 'maxbudget': 1.0, 'minsig': 1e-05} gamma/gIF 0.97549
+viol_p11_n2_b2 {'gamma': 0.00054, 'pred': 0.00054, 'Em_sig': 0.03093, 'dprog': 0.64073, 'dint': 0.00298, 'H': 1.79192, 'maxbudget': 0.99567, 'minsig': 0.0045} gamma/gIF 0.47235

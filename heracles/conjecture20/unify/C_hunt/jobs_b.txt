@@ -1,0 +1,48 @@
+hunt_b.py 5 2 2.0 14 51 struct
+hunt_b.py 5 2 2.0 14 51 pen
+hunt_b.py 5 2 2.0 14 51 sf
+hunt_b2.py 5 2 2.0 10 61
+hunt_b.py 5 2 2.5 14 51 struct
+hunt_b.py 5 2 2.5 14 51 pen
+hunt_b.py 5 2 2.5 14 51 sf
+hunt_b2.py 5 2 2.5 10 61
+hunt_b.py 5 3 2.0 14 51 struct
+hunt_b.py 5 3 2.0 14 51 pen
+hunt_b.py 5 3 2.0 14 51 sf
+hunt_b2.py 5 3 2.0 10 61
+hunt_b.py 5 3 3.0 14 51 struct
+hunt_b.py 5 3 3.0 14 51 pen
+hunt_b.py 5 3 3.0 14 51 sf
+hunt_b2.py 5 3 3.0 10 61
+hunt_b.py 7 2 2.0 14 51 struct
+hunt_b.py 7 2 2.0 14 51 pen
+hunt_b.py 7 2 2.0 14 51 sf
+hunt_b2.py 7 2 2.0 10 61
+hunt_b.py 7 2 2.5 14 51 struct
+hunt_b.py 7 2 2.5 14 51 pen
+hunt_b.py 7 2 2.5 14 51 sf
+hunt_b2.py 7 2 2.5 10 61
+hunt_b.py 7 3 2.0 14 51 struct
+hunt_b.py 7 3 2.0 14 51 pen
+hunt_b.py 7 3 2.0 14 51 sf
+hunt_b2.py 7 3 2.0 10 61
+hunt_b.py 7 3 3.0 14 51 struct
+hunt_b.py 7 3 3.0 14 51 pen
+hunt_b.py 7 3 3.0 14 51 sf
+hunt_b2.py 7 3 3.0 10 61
+hunt_b.py 11 2 2.0 14 51 struct
+hunt_b.py 11 2 2.0 14 51 pen
+hunt_b.py 11 2 2.0 14 51 sf
+hunt_b2.py 11 2 2.0 10 61
+hunt_b.py 11 2 2.5 14 51 struct
+hunt_b.py 11 2 2.5 14 51 pen
+hunt_b.py 11 2 2.5 14 51 sf
+hunt_b2.py 11 2 2.5 10 61
+hunt_b.py 11 3 2.0 10 51 struct
+hunt_b.py 11 3 2.0 10 51 pen
+hunt_b.py 11 3 2.0 10 51 sf
+hunt_b2.py 11 3 2.0 6 61
+hunt_b.py 11 3 3.0 10 51 struct
+hunt_b.py 11 3 3.0 10 51 pen
+hunt_b.py 11 3 3.0 10 51 sf
+hunt_b2.py 11 3 3.0 6 61

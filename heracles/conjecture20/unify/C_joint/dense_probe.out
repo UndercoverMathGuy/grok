@@ -1,0 +1,20 @@
+p=101 s=1.002: best modulated/uniform = 1.000000 at None;  Legendre-network ratio vs this reference <= 0.80164
+p=101 s=1.005: best modulated/uniform = 1.000000 at None;  Legendre-network ratio vs this reference <= 0.80262
+p=101 s=1.01: best modulated/uniform = 1.000000 at None;  Legendre-network ratio vs this reference <= 0.80425
+p=101 s=1.02: best modulated/uniform = 1.000000 at None;  Legendre-network ratio vs this reference <= 0.80751
+p=101 s=1.05: best modulated/uniform = 1.003103 at (2, 0.95);  Legendre-network ratio vs this reference <= 0.81487
+p=1009 s=1.002: best modulated/uniform = 1.000000 at None;  Legendre-network ratio vs this reference <= 0.93780
+p=1009 s=1.005: best modulated/uniform = 1.000382 at (252, 0.95);  Legendre-network ratio vs this reference <= 0.93858
+p=1009 s=1.01: best modulated/uniform = 1.001700 at (252, 0.95);  Legendre-network ratio vs this reference <= 0.93925
+p=1009 s=1.02: best modulated/uniform = 1.004317 at (252, 0.95);  Legendre-network ratio vs this reference <= 0.94061
+p=1009 s=1.05: best modulated/uniform = 1.012030 at (252, 0.95);  Legendre-network ratio vs this reference <= 0.94486
+p=1019 s=1.002: best modulated/uniform = 1.000000 at None;  Legendre-network ratio vs this reference <= 0.93811
+p=1019 s=1.005: best modulated/uniform = 1.000391 at (169, 0.95);  Legendre-network ratio vs this reference <= 0.93888
+p=1019 s=1.01: best modulated/uniform = 1.001709 at (169, 0.95);  Legendre-network ratio vs this reference <= 0.93955
+p=1019 s=1.02: best modulated/uniform = 1.004327 at (169, 0.95);  Legendre-network ratio vs this reference <= 0.94091
+p=1019 s=1.05: best modulated/uniform = 1.012040 at (169, 0.95);  Legendre-network ratio vs this reference <= 0.94516
+p=4007 s=1.002: best modulated/uniform = 1.000295 at (2, 0.95);  Legendre-network ratio vs this reference <= 0.96891
+p=4007 s=1.005: best modulated/uniform = 1.001090 at (2, 0.95);  Legendre-network ratio vs this reference <= 0.96931
+p=4007 s=1.01: best modulated/uniform = 1.002412 at (2, 0.95);  Legendre-network ratio vs this reference <= 0.97000
+p=4007 s=1.02: best modulated/uniform = 1.005037 at (2, 0.95);  Legendre-network ratio vs this reference <= 0.97140
+p=4007 s=1.05: best modulated/uniform = 1.012773 at (2, 0.95);  Legendre-network ratio vs this reference <= 0.97577

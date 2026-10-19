@@ -1,0 +1,119 @@
+hunt_b2.py 5 2 2.0 10 61
+hunt_b.py 5 2 2.0 14 51 struct
+hunt_b.py 5 2 2.0 14 51 pen
+hunt_b.py 5 2 2.0 14 51 sf
+hunt_b2.py 5 2 2.5 10 61
+hunt_b.py 5 2 2.5 14 51 struct
+hunt_b.py 5 2 2.5 14 51 pen
+hunt_b.py 5 2 2.5 14 51 sf
+hunt_b2.py 5 3 2.0 10 61
+hunt_b.py 5 3 2.0 14 51 struct
+hunt_b.py 5 3 2.0 14 51 pen
+hunt_b.py 5 3 2.0 14 51 sf
+hunt_b2.py 5 3 3.0 10 61
+hunt_b.py 5 3 3.0 14 51 struct
+hunt_b.py 5 3 3.0 14 51 pen
+hunt_b.py 5 3 3.0 14 51 sf
+hunt_b2.py 7 2 2.0 10 61
+hunt_b.py 7 2 2.0 14 51 struct
+hunt_b.py 7 2 2.0 14 51 pen
+hunt_b.py 7 2 2.0 14 51 sf
+hunt_b2.py 7 2 2.5 10 61
+hunt_b.py 7 2 2.5 14 51 struct
+hunt_b.py 7 2 2.5 14 51 pen
+hunt_b.py 7 2 2.5 14 51 sf
+hunt_b2.py 7 3 2.0 10 61
+hunt_b.py 7 3 2.0 14 51 struct
+hunt_b.py 7 3 2.0 14 51 pen
+hunt_b.py 7 3 2.0 14 51 sf
+hunt_b2.py 7 3 3.0 10 61
+hunt_b.py 7 3 3.0 14 51 struct
+hunt_b.py 7 3 3.0 14 51 pen
+hunt_b.py 7 3 3.0 14 51 sf
+hunt_b2.py 11 2 2.0 10 61
+hunt_b.py 11 2 2.0 14 51 struct
+hunt_b.py 11 2 2.0 14 51 pen
+hunt_b.py 11 2 2.0 14 51 sf
+hunt_b2.py 11 2 2.5 10 61
+hunt_b.py 11 2 2.5 14 51 struct
+hunt_b.py 11 2 2.5 14 51 pen
+hunt_b.py 11 2 2.5 14 51 sf
+hunt_b2.py 11 3 2.0 4 61
+hunt_b.py 11 3 2.0 6 51 struct
+hunt_b.py 11 3 2.0 6 51 pen
+hunt_b.py 11 3 2.0 6 51 sf
+hunt_b2.py 11 3 3.0 4 61
+hunt_b.py 11 3 3.0 6 51 struct
+hunt_b.py 11 3 3.0 6 51 pen
+hunt_b.py 11 3 3.0 6 51 sf
+hunt_c.py 5 3 2.0 18 71
+hunt_c.py 5 3 2.6 18 71
+hunt_c.py 5 4 2.0 12 71
+hunt_c.py 5 4 2.6 12 71
+hunt_c.py 5 5 2.0 8 71
+hunt_c.py 5 5 2.6 8 71
+hunt_c.py 7 3 2.0 12 71
+hunt_c.py 7 3 2.6 12 71
+hunt_c.py 7 4 2.0 8 71
+hunt_c.py 7 4 2.6 8 71
+hunt_c.py 7 5 2.0 4 71
+hunt_c.py 7 5 2.6 4 71
+hunt_straddle.py 11 2.0 12 111
+hunt_straddle.py 11 2.5 12 111
+hunt_straddle.py 13 2.0 12 111
+hunt_straddle.py 13 2.5 12 111
+hunt_straddle.py 17 2.0 12 111
+hunt_straddle.py 17 2.5 12 111
+hunt_straddle.py 19 2.0 12 111
+hunt_straddle.py 19 2.5 12 111
+hunt_straddle.py 23 2.0 12 111
+hunt_straddle.py 23 2.5 12 111
+detect_lp.py 11 2.0 Sstar 10 91
+detect_lp.py 11 2.0 AP1_6_1 10 92
+detect_lp.py 13 2.0 Sstar 10 91
+detect_lp.py 13 2.0 AP1_6_1 10 92
+detect_lp.py 17 2.0 Sstar 10 91
+detect_lp.py 17 2.0 AP1_6_1 10 92
+detect_lp.py 23 2.0 Sstar 10 91
+detect_lp.py 23 2.0 AP1_6_1 10 92
+detect_lp.py 31 2.0 Sstar 10 91
+detect_lp.py 31 2.0 AP1_6_1 10 92
+detect_lp.py 43 2.0 Sstar 10 91
+detect_lp.py 43 2.0 AP1_6_1 10 92
+detect_lp.py 13 2.5 Sstar 10 91
+detect_lp.py 23 2.5 Sstar 10 91
+detect_lp.py 31 2.5 Sstar 10 91
+detect_lp.py 23 2.0 AP1_6_1 8 95 2 single
+detect_lp.py 43 2.0 AP1_6_1 8 95 2 single
+detect_lp.py 5 2.0 Sstar 6 93 3
+detect_lp.py 7 2.0 Sstar 6 93 3
+detect_lp.py 11 2.0 Sstar 6 93 3
+hunt_a.py 13 2.0 AP1_6_1 20 21
+hunt_a.py 13 2.5 AP1_6_2 20 21
+hunt_a.py 19 2.0 AP1_6_1 20 21
+hunt_a.py 19 2.5 AP1_7_2 20 21
+hunt_a.py 23 2.0 AP1_6_1 20 21
+hunt_a.py 23 2.5 AP1_7_2 20 21
+hunt_a.py 31 2.0 AP1_6_1 20 21
+hunt_a.py 31 2.5 AP1_7_2 20 21
+hunt_a.py 37 2.0 F 10 31
+hunt_a.py 37 2.5 F 10 31
+hunt_a.py 43 2.0 F 10 31
+hunt_a.py 43 2.5 F 10 31
+hunt_safety.py 11 2 2.0 F 3 41
+hunt_safety.py 13 2 2.0 F 3 41
+hunt_safety.py 17 2 2.0 F 3 41
+hunt_safety.py 19 2 2.0 F 3 41
+hunt_safety.py 23 2 2.0 F 3 41
+hunt_safety.py 13 2 2.5 F 3 41
+hunt_safety.py 19 2 2.5 F 3 41
+hunt_fejer.py 11 2.0 Sstar 24 81
+hunt_fejer.py 11 2.0 AP1_5_1 24 82
+hunt_fejer.py 17 2.0 Sstar 24 81
+hunt_fejer.py 17 2.0 AP1_6_1 24 82
+hunt_fejer.py 23 2.0 Sstar 24 81
+hunt_fejer.py 23 2.0 AP1_6_1 24 82
+hunt_fejer.py 31 2.0 Sstar 24 81
+hunt_fejer.py 31 2.0 AP1_6_1 24 82
+hunt_fejer.py 17 2.5 Sstar 24 81
+hunt_fejer.py 31 2.5 Sstar 24 81
