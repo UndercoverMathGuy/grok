@@ -10,6 +10,26 @@ Labels used below:
 Agent reports and referee verdicts are in `unify/<angle>/REPORT*.md` and `VERIFY*.md`. The p=5, n=2 proof is
 written up in `unify/p52/p52_count_theorem_proof.tex`.
 
+## 0. The general programme (every p, n, b at once): see `E_SYNTHESIS.md`
+
+The user requires proofs valid for all p, n, b simultaneously. The case-wise results in sections 1-2 are now only
+sanity anchors.
+
+The (E) round (five routes, all refereed) proved the following, for every p, n, b:
+- **Reduction (Theorem T).** (C) follows from two statements:
+  - **RD**: for every feature class S, sup over N_S of gamma <= pi B_p Gamma^{(S)}_s, also with feature weights
+    near 1;
+  - **FE**: a non-straddling (frequency-resolved entropy) inequality at global maximisers.
+- **No free lunch.** Every entropic, dual, split and KKT reformulation of RD is equivalent to it.
+- **Unconditional pieces:**
+  - convex-end rigidity;
+  - "no cheap feature implies decoupled" for b in (2, nu);
+  - the Renyi temperature identity;
+  - spectral Lemma 7 for all n;
+  - aligned circular single features are never cheap, for all n.
+
+The open core is a joint payment-versus-detection inequality for cheap features under compensation.
+
 ## 1. Where (C) is now a theorem (all networks)
 
 | case | b range | status | source |
