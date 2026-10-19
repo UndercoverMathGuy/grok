@@ -1,0 +1,21 @@
+== R3: maximisers at s = 1 (b = nu) ==
+(p,n)=(5,2): 8 runs with h>0; showing near-maximisers (ratio >= 0.9999)
+(p,n)=(5,2) m=6: gamma/(B Gamma_1) = 0.999999; H(theta,1) = 1.7918 vs H^dec(1) = log nu + H(z*) = 1.7918 (diff -0.0000); max|beta_T|/max|beta| = 1.21e-07; off-dominant energy share = 2.29e-07
+(p,n)=(5,2) m=6: gamma/(B Gamma_1) = 0.999998; H(theta,1) = 1.7918 vs H^dec(1) = log nu + H(z*) = 1.7918 (diff -0.0000); max|beta_T|/max|beta| = 1.17e-07; off-dominant energy share = 1.22e-07
+(p,n)=(5,2) m=6: gamma/(B Gamma_1) = 0.999998; H(theta,1) = 1.7918 vs H^dec(1) = log nu + H(z*) = 1.7918 (diff -0.0000); max|beta_T|/max|beta| = 7.52e-07; off-dominant energy share = 2.87e-08
+(p,n)=(5,2) m=6: gamma/(B Gamma_1) = 0.999994; H(theta,1) = 1.7918 vs H^dec(1) = log nu + H(z*) = 1.7918 (diff -0.0000); max|beta_T|/max|beta| = 8.85e-07; off-dominant energy share = 3.57e-07
+(p,n)=(5,2) m=8: gamma/(B Gamma_1) = 0.999993; H(theta,1) = 1.8542 vs H^dec(1) = log nu + H(z*) = 1.7918 (diff +0.0625); max|beta_T|/max|beta| = 1.22e-07; off-dominant energy share = 1.58e-07
+(p,n)=(5,2) m=8: gamma/(B Gamma_1) = 0.999986; H(theta,1) = 1.7921 vs H^dec(1) = log nu + H(z*) = 1.7918 (diff +0.0003); max|beta_T|/max|beta| = 1.85e-07; off-dominant energy share = 6.58e-07
+(p,n)=(7,2): 8 runs with h>0; showing near-maximisers (ratio >= 0.9999)
+(p,n)=(7,2) m=9: gamma/(B Gamma_1) = 0.999998; H(theta,1) = 2.1972 vs H^dec(1) = log nu + H(z*) = 2.1972 (diff -0.0000); max|beta_T|/max|beta| = 1.99e-07; off-dominant energy share = 2.84e-07
+(p,n)=(7,2) m=9: gamma/(B Gamma_1) = 0.999998; H(theta,1) = 2.1972 vs H^dec(1) = log nu + H(z*) = 2.1972 (diff -0.0000); max|beta_T|/max|beta| = 5.64e-07; off-dominant energy share = 5.45e-08
+(p,n)=(7,2) m=9: gamma/(B Gamma_1) = 0.999997; H(theta,1) = 2.1972 vs H^dec(1) = log nu + H(z*) = 2.1972 (diff -0.0000); max|beta_T|/max|beta| = 1.02e-07; off-dominant energy share = 7.18e-07
+(p,n)=(7,2) m=12: gamma/(B Gamma_1) = 0.999947; H(theta,1) = 2.1977 vs H^dec(1) = log nu + H(z*) = 2.1972 (diff +0.0005); max|beta_T|/max|beta| = 1.45e-06; off-dominant energy share = 5.97e-06
+(p,n)=(7,2) m=12: gamma/(B Gamma_1) = 0.999922; H(theta,1) = 2.1976 vs H^dec(1) = log nu + H(z*) = 2.1972 (diff +0.0004); max|beta_T|/max|beta| = 2.55e-06; off-dominant energy share = 1.62e-05
+(p,n)=(5,3): 4 runs with h>0; showing near-maximisers (ratio >= 0.9999)
+(p,n)=(5,3) m=8: gamma/(B Gamma_1) = 0.999999; H(theta,1) = 2.0794 vs H^dec(1) = log nu + H(z*) = 2.0794 (diff -0.0000); max|beta_T|/max|beta| = 2.85e-08; off-dominant energy share = 7.40e-08
+(p,n)=(5,3) m=8: gamma/(B Gamma_1) = 0.999997; H(theta,1) = 2.0794 vs H^dec(1) = log nu + H(z*) = 2.0794 (diff -0.0000); max|beta_T|/max|beta| = 1.56e-07; off-dominant energy share = 3.11e-07
+== R5: KKT margin-share identity at numerically found maximisers (b in (2, nu)) ==
+(p,n,b)=(5,2,2.5) width 6: gamma/gamma_IF = 1.000000; |argmin set| = 100; min_q max_i |E_q g_i / h - w_i| = 2.63e-08 (w_i range 0.167-0.167); H = 1.7918
+(p,n,b)=(7,2,2.7) width 9: gamma/gamma_IF = 1.000000; |argmin set| = 294; min_q max_i |E_q g_i / h - w_i| = 2.12e-08 (w_i range 0.111-0.111); H = 2.1972
+(p,n,b)=(5,3,3.2) width 8: gamma/gamma_IF = 0.999998; |argmin set| = 500; min_q max_i |E_q g_i / h - w_i| = 3.07e-08 (w_i range 0.125-0.125); H = 2.0794

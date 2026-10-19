@@ -1,0 +1,38 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(1) p=5 transition: one-sided slopes of log Gamma_s at s_c
+  h=1e-04: right -0.000007 (Danskin -min H(z*) = 0), left -0.693147 (Danskin -max H(z*) = -0.693147)
+  h=1e-05: right -0.000074 (Danskin -min H(z*) = 0), left -0.693147 (Danskin -max H(z*) = -0.693147)
+(2) slope of log D_S at n=2 (pi = 3^{1-s}, every optimal single feature has H = log 3):
+    right derivative of log D_S  vs  -H^dec_S = -(log 3 + min H(z*))
+  p= 7 S=(1, 2)    s=1.1: slope -1.757181  -H^dec -1.757181  diff -3.0e-08
+  p= 7 S=(1, 2)    s=1.3: slope -1.766755  -H^dec -1.766755  diff -1.8e-08
+  p= 7 S=(1, 2)    s=1.45: slope -1.771561  -H^dec -1.771561  diff -1.3e-08
+  p= 7 S=None      s=1.1: slope -2.197225  -H^dec -2.197225  diff -5.8e-11
+  p= 7 S=None      s=1.3: slope -2.197225  -H^dec -2.197225  diff +8.3e-10
+  p= 7 S=None      s=1.45: slope -2.197225  -H^dec -2.197225  diff -5.8e-11
+  p=11 S=None      s=1.1: slope -2.708050  -H^dec -2.708050  diff +1.3e-10
+  p=11 S=None      s=1.3: slope -2.708050  -H^dec -2.708050  diff +1.3e-10
+  p=11 S=None      s=1.45: slope -2.184341  -H^dec -2.184341  diff -8.4e-09
+  p=11 S=(1, 2, 3) s=1.1: slope -1.911846  -H^dec -1.911845  diff -1.3e-07
+  p=11 S=(1, 2, 3) s=1.3: slope -1.778914  -H^dec -1.778914  diff -8.9e-09
+  p=11 S=(1, 2, 3) s=1.45: slope -1.781408  -H^dec -1.781408  diff -6.9e-09
+  p=13 S=None      s=1.1: slope -2.890372  -H^dec -2.890372  diff +8.5e-10
+  p=13 S=None      s=1.3: slope -2.453407  -H^dec -2.453407  diff -2.3e-08
+  p=13 S=None      s=1.45: slope -2.190443  -H^dec -2.190443  diff -4.6e-09
+(3) multiplicity of programme maximisers (dilation orbits):
+  p=11 s=1.5: Gamma=0.535726, 5 maximisers, supports [(1, 3), (2, 5), (1, 4), (4, 5), (2, 3)]
+  p=11 s=1.2: Gamma=0.797258, 1 maximisers, supports [(1, 2, 3, 4, 5)]
+  p=13 s=1.5: Gamma=0.497772, 6 maximisers, supports [(1, 2, 5), (1, 4, 6), (1, 3, 5), (2, 3, 6), (2, 3, 4), (4, 5, 6)]
+  p=7 s=1.8: Gamma=0.538748, 3 maximisers, supports [(1, 3), (1, 2), (2, 3)]
+  p=5 s=1.9: Gamma=0.690983, 2 maximisers, supports [(2,), (1,)]
+(4) D-side Danskin in the tax direction (lambda_l = mu_l^{-1/2}) at p=11, s=1.5:
+  j=1 dir=tax: FD +0.000000  max_y <grad,eta> -0.000000
+  j=1 dir=sub: FD +0.284727  max_y <grad,eta> +0.284727
+  j=2 dir=tax: FD +0.000000  max_y <grad,eta> -0.000000
+  j=2 dir=sub: FD +0.284720  max_y <grad,eta> +0.284727
+  j=3 dir=tax: FD +0.000000  max_y <grad,eta> -0.000000
+  j=3 dir=sub: FD +0.284727  max_y <grad,eta> +0.284727
+  j=4 dir=tax: FD +0.000000  max_y <grad,eta> -0.000000
+  j=4 dir=sub: FD +0.284712  max_y <grad,eta> +0.284727
+  j=5 dir=tax: FD +0.000000  max_y <grad,eta> -0.000000
+  j=5 dir=sub: FD +0.284727  max_y <grad,eta> +0.284727

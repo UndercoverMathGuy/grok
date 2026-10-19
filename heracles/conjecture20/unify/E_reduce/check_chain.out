@@ -1,0 +1,5 @@
+max |sum nu E - 1| (balanced, DC-free) = 5.6e-16;  class-C chain rule max error = 8.9e-16
+p=11 s=1.5: union of optimal supports = [1, 2, 3, 4, 5]; H(z) on orbit = [0.683468 0.683468 0.683468 0.683468 0.683468]; orbit average zbar has support 5/5, JS gap H(zbar)-H(z) = 0.9260
+p=13 s=1.5: union of optimal supports = [1, 2, 3, 4, 5, 6]; H(z) on orbit = [1.092272 1.092272 1.092272 1.092272 1.092272 1.092272]; orbit average zbar has support 6/6, JS gap H(zbar)-H(z) = 0.6995
+p=7 s=1.8: union of optimal supports = [1, 2, 3]; H(z) on orbit = [0.679946 0.679946 0.679946]; orbit average zbar has support 3/3, JS gap H(zbar)-H(z) = 0.4187
+p=5 s=1.9: union of optimal supports = [1, 2]; H(z) on orbit = [-0. -0.]; orbit average zbar has support 2/2, JS gap H(zbar)-H(z) = 0.6931

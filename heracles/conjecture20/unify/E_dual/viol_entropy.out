@@ -1,0 +1,11 @@
+net0 m=6 gamma/gIF=0.790214  H(w_s)=1.5591  H_r(p)=1.5377  K_r=4.654  cost shares=[0.254 0.251 0.246 0.125 0.124 0.   ]  |beta|=[2.33290537e+08 5.42154181e+07]  cheap=[0.987 1.17 ]
+net1 m=6 gamma/gIF=0.785339  H(w_s)=1.5525  H_r(p)=1.5285  K_r=4.611  cost shares=[0.258 0.253 0.249 0.12  0.12  0.   ]  |beta|=[17543688.07196 80839214.11585]  cheap=[1.172 0.99 ]
+net2 m=6 gamma/gIF=0.776161  H(w_s)=1.5400  H_r(p)=1.5120  K_r=4.536  cost shares=[0.261 0.258 0.257 0.113 0.111 0.   ]  |beta|=[2.19905645e+12 1.14545355e+13]  cheap=[1.181 0.995]
+net3 m=6 gamma/gIF=0.999656  H(w_s)=1.7918  H_r(p)=1.7918  K_r=6.000  cost shares=[0.167 0.167 0.167 0.167 0.167 0.167]  |beta|=[5420.23542 5428.11213]  cheap=[1. 1.]
+IF optimum: gamma/gIF=1.000000 H=1.7918 (log3+log2=1.7918)
+one-feature IF block: gamma/gIF=0.781758 H=1.0986
+  IF two-block, gamma>=0.79 gIF: min entropy 1.7043 at y2/y1=0.2687
+  IF two-block, gamma>=0.80 gIF: min entropy 1.7163 at y2/y1=0.2973
+  IF two-block, gamma>=0.85 gIF: min entropy 1.7567 at y2/y1=0.4453
+  IF two-block, gamma>=0.90 gIF: min entropy 1.7782 at y2/y1=0.6079
+  IF two-block, gamma>=0.95 gIF: min entropy 1.7887 at y2/y1=0.7911

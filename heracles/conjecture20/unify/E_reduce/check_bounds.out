@@ -1,0 +1,2 @@
+N2 weighted restricted universal bound: max h_lam/(B_p Gamma^lam_S P^s) = 0.830673 over 600 cases (must be <= 1)
+N3 tax derivative: max |d/dmu_l log gamma + (nu/2) E_l| = 1.17e-09;  temperature identity max err 9.72e-10

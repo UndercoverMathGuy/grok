@@ -1,0 +1,4 @@
+theta_v: gamma/gamma_IF = 0.790214100482   H(w_s) = 1.55910363758
+IF-block decoupled: level 0.790214 first reached at y2/y1 = 0.2693156166 with entropy log3 + H(z) = 1.70457111454
+   (on t in (0,t0) the two-block value is below the level: ratio(t0/2) = 0.74518339, ratio(0) = kappa_a/Gamma = 0.78175803)
+profile yhat = (0.81142854, 0.18857146);  D_C/gamma_IF = 0.7773208803  <  gamma(theta_v)/gamma_IF = 0.7902141005  (excess 0.016587)

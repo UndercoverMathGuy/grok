@@ -1,0 +1,8 @@
+n=11  gamma/gIF=1.0631  K_r=7.9997  bound (nu/K_r)^(s-1)=7.5951  H(w_s)=2.0794 log nu=2.4849
+n=12  gamma/gIF=1.1934  K_r=8.9985  bound (nu/K_r)^(s-1)=7.5641  H(w_s)=2.1972 log nu=2.5649
+n=13  gamma/gIF=1.1837  K_r=9.9955  bound (nu/K_r)^(s-1)=7.5498  H(w_s)=2.3025 log nu=2.6391
+n=14  gamma/gIF=1.4569  K_r=9.9985  bound (nu/K_r)^(s-1)=13.9646  H(w_s)=2.3026 log nu=2.7081
+n=15  gamma/gIF=1.6170  K_r=10.9964  bound (nu/K_r)^(s-1)=13.8064  H(w_s)=2.3979 log nu=2.7726
+n=16  gamma/gIF=1.5959  K_r=11.9913  bound (nu/K_r)^(s-1)=13.7047  H(w_s)=2.4848 log nu=2.8332
+n=17  gamma/gIF=2.0113  K_r=11.9962  bound (nu/K_r)^(s-1)=25.6931  H(w_s)=2.4849 log nu=2.8904
+n=18  gamma/gIF=2.2120  K_r=12.9951  bound (nu/K_r)^(s-1)=25.2510  H(w_s)=2.5649 log nu=2.9444
