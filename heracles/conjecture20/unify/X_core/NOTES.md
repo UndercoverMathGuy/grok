@@ -51,7 +51,7 @@ M(a') >= the left side.
   truncated Rudin-Shapiro is sqrt 6 ~ 2.45, so the instance is razor-thin. It explains the "safety factor 3.4" of J11e.
 - Order-m character allocations (m > 2) are flat but continuous-valued, and their gain m_r^{-s} is too small for n = 2.
 
-**5. The phase-free L2 version is FALSE.**
+**5. [CORRECTED below: these 'violations' were artifacts of a weak Gamma_s estimate] The phase-free L2 version is FALSE.**
 - The L2 version replaces D_delta by sqrt(sum beta^2 kappa), a valid lower bound on the depth.
 - With an LP lower bound for Gamma it fails: 1.065 at (29,3,2), 1.032 at (23,3,2), 1.011 at (29,2,2.5).
 - So RT_n genuinely needs the sup-norm (phase) structure of U at moderate p, i.e. an additive-structure / flatness
@@ -116,3 +116,39 @@ arithmetic (exact profiles). In general it must come from the flatness of U.
 Useful fact: depth <= D at ALL offsets is equivalent to osc(U) <= D (take delta = w - w'), which gives sum beta^2 <= 2 D^2.
 Fully flat networks are therefore small-oscillation functions. Networks need flatness only at their binding offsets,
 however, so the general case mixes the two regimes.
+
+
+## Correction and the two extremes of the core (orchestrator)
+
+**Item 5 above is withdrawn.** The phase-free L2 core is
+
+    L2-RT: min_delta [ sum (alpha+beta) kappa(delta) - sqrt(sum beta^2 kappa(delta)) ] <= Gamma_s (sum alpha^r + lambda sum beta^r)^s .
+
+Its apparent violations disappear once Gamma_s is computed with a strong multi-start solver (`l2rt_recheck.py`,
+`l2rt_strong.py`): 1.008 at (23,3,2) becomes 0.9993. Further evidence:
+- the maximum is always at the IF equality case (ratio 1.000);
+- with the cheap share pinned at 0.2-1.0 the ratio is <= 0.83 (`l2rt_pinned.py`);
+- with beta uniform on subsets of F, p <= 199, s in the window, the ratio is <= 0.80.
+
+L2-RT implies RT_n, because the true depth is at least the L2 depth. It involves only allocations and the programme: no
+trigonometric polynomials.
+
+**The proof of the Legendre theorem gives more than it states.** Its programme lemma
+(Gamma_s / U_s >= T(s)(1 - c/sqrt p)) does not depend on U. Together with the L2 depth sqrt(p/2) beta, it gives RT_n
+for EVERY network whose cheap part is uniform on all of F, for any phases. Only the constants need rechecking with
+c = sqrt 2.
+
+**Danger test** (`optsupport_test.py`/`.out`): an all-cheap network sitting on a programme-optimal allocation y*,
+which is where the L2 bound is weakest.
+- K* grows like log p: 10, 13, 16, 19, 23 for p = 101..1601 at s = 1.5; 27 and 39 at s = 1.25.
+- The L2 ratio stays below 1 but creeps up (0.78 -> 0.90). Heuristically it would cross 1 once K* >~ 1/(2 c_n^2), at
+  astronomically large p.
+- The TRUE depth with the flattest phases found gives a ratio of only 0.07-0.39. Optimal supports behave like Sidon
+  sets: no phase choice makes them flat, and the depth is ~ l1, not l2.
+- So this is not a counterexample, and not even close.
+
+**Shape of a general proof of RT_n:**
+(i) spread allocations: phase-free L2 depth plus programme compression (the Legendre / uniform-on-F mechanism);
+(ii) concentrated, efficient allocations: Sidon-type sup-norm depth (Kronecker / Riesz products), with
+    depth >= sum beta kappa.
+The bridge between (i) and (ii) is the remaining work.
