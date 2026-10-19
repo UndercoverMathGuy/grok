@@ -75,8 +75,10 @@ for p in primes(pmin, pmax):
         if sig_u > maxsig[0]: maxsig = (sig_u, (p, d))
         if sig_u < thr: continue
         ncand += 1
-        R = H2.prog_best(p, s, S=S, restarts=40)
+        R = H2.prog_bb(p, s, S=S, maxnodes=3000 if len(S) <= 12 else 200, restarts=40)
         G = R['G']; y = R['y']; ys = y[[l - 1 for l in S]]
+        if len(S) ** (-s) * Keu > G:           # the uniform allocation is better than the incumbent: use it
+            G = len(S) ** (-s) * Keu; ys = np.full(len(S), len(S) ** (-s)); R = dict(R, supp=S)
         K = H2.kmat(p)[:, [l - 1 for l in S]]; cov = K @ ys
         B = np.nonzero(cov < G * (1 + 1e-7))[0]
         ell = np.sqrt((K[B] * ys[None, :] ** 2).sum(1)).max() / G

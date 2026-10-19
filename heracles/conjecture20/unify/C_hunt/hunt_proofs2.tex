@@ -58,6 +58,22 @@ maximal relative excess of the pair minimum over the bound $=-1.3\cdot10^{-2}$ (
 $5\cdot10^{-14}$.  For inconsistent families the bound can fail: the CCP-LP search \texttt{detl2.py} finds pair detection exactly
 $\sqrt{(p-1)/(p+1)}\cdot L^2$ (the sharp GIBBS R3 constant) at $p=5,\dots,43$ ($n=2$) and at $p=5,7$ ($n=3$), and never less.
 
+\begin{proposition}[the $n=2$ detection constant is an upper bound at every $n$]\label{prop:embed}
+For $n\ge2$ let $c_n(p)$ be the best constant $c$ such that, for every class-$\mathcal C$ fluctuation design $(a_{l,T})$ at $n$ and every $\delta\ne0$,
+$\frac12\big(\max_x(-D_\delta)+\max_x(-D_{-\delta})\big)\ge c\,(\sum_{l,T}|a_{l,T}|^2\kappa_l(\delta))^{1/2}$.  Then $c_n(p)\le c_2(p)$, and
+$c_2(p)=\sqrt{(p-1)/(p+1)}$ (GIBBS R3: proved lower bound, sawtooth attains it).
+\end{proposition}
+\begin{proof}
+Given an $n=2$ design $a_{l,\{1\}},a_{l,\{2\}},a_{l,\{1,2\}}$, put $T_1=\{1\}$, $T_2=\{2,\dots,n\}$, $T_3=[n]$ and $a'_{l,T_i}$ equal to the corresponding $n=2$
+coefficients (all other $a'_{l,T}=0$).  With $\pi(x)=(x_1,x_2+\dots+x_n)$ we have $\mathbf 1_{T_i}\cdot x=\mathbf 1_{T_i^{(2)}}\cdot\pi(x)$, hence
+$D'_{\pm\delta}=D_{\pm\delta}\circ\pi$.  $\pi:\mathbb Z_p^n\to\mathbb Z_p^2$ is a surjective homomorphism, so extrema are unchanged and the uniform measure
+pushes forward to the uniform measure; the $L^2$ aggregates coincide.  So every $n=2$ ratio is an $n$ ratio.
+\end{proof}
+\emph{Check} (\texttt{detl2.py}, seeded CCP-LP, \texttt{out2/detl2\_*kseed.out}): the minimal ratio found equals $\sqrt{(p-1)/(p+1)}$ to $10^{-12}$ at
+$n=2$, $p=5,\dots,43$, and also at $(p,n)=(5,3),(7,3),(11,3),(13,3),(5,4)$; the $n\ge3$ minimisers use exactly three characters of the form
+$T_1,T_2,T_1\sqcup T_2$, i.e.\ they are the embedded $n=2$ sawtooth.  So numerically $c_n(p)=c_2(p)$ (the lower bound at $n\ge3$ is a
+CONJECTURE; GIBBS proves only $\kappa/(2+\kappa)$ at $n=3$).
+
 \begin{remark}[the L2 relaxation]
 Combine Lemma~\ref{lem:L2} or, for arbitrary class-$\mathcal C$ networks at $n=2$, the proved two-plane Bhatia--Davis inequality of GIBBS R3
 (pair detection $\ge\sqrt{(p-1)/(p+1)}$ times the $L^2$ aggregate), with the certified sharp $L^2$ payment of GIBBS R6

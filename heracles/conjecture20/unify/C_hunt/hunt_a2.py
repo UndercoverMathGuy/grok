@@ -31,8 +31,26 @@ def red(l):
     return min(l, p - l)
 
 
+PCACHE = os.path.join(OUT, 'prog_cache.json')
+
+
 def prog(S, nodes=4000):
-    return H2.prog_bb(p, s, S=S, maxnodes=nodes) if len(S) <= 10 else H2.prog_best(p, s, S=S, restarts=200)
+    # |S| <= 10: B&B (exact up to the reported gap).  Larger S: reweighted-LP incumbent (300 restarts) + short B&B for the gap;
+    # a LOWER bound on Gamma^{(S)}, which can only inflate the reported ratios (conservative for "no violation").
+    key = f"{p}_{bexp}_{','.join(map(str, S))}"
+    try:
+        C = json.load(open(PCACHE))
+    except Exception:
+        C = {}
+    if key in C:
+        d = C[key]; d['y'] = np.array(d['y']); return d
+    R = H2.prog_bb(p, s, S=S, maxnodes=nodes) if len(S) <= 10 else H2.prog_bb(p, s, S=S, maxnodes=200, restarts=300)
+    try:
+        C = json.load(open(PCACHE)) if os.path.exists(PCACHE) else {}
+        C[key] = dict(R, y=list(map(float, R['y']))); json.dump(C, open(PCACHE, 'w'))
+    except Exception:
+        pass
+    return R
 
 
 R0 = prog(list(range(1, F + 1)))

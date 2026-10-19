@@ -33,7 +33,7 @@ for fn in sys.argv[1:]:
     mp.iv.dps = 30
     cost_iv = sum(c ** (mp.iv.mpf(b) / 2) for c in costs)                        # sum ||omega||^b, enclosed
     gam_up = float((hu / cost_iv ** mp.iv.mpf(s)).b)                               # rigorous upper bound on gamma
-    R = H2.prog_bb(p, s, S=T, maxnodes=200000) if len(T) <= 12 else H2.prog_best(p, s, S=T)
+    R = H2.prog_bb(p, s, S=T, maxnodes=20000, restarts=60)   # gap > 0: Gamma^{(T)} is a lower bound, ratio_up stays an upper bound
     pi = 3 ** (1 - s) if n == 2 else nu ** (1 - s)
     Dt = pi * H.Bp(p, n) * R['G']
     out = dict(file=fn.split('/')[-1], p=p, n=n, b=b, m=U.shape[0], T=T, gamma_float=gam_float, ratio_float=gam_float / Dt,
