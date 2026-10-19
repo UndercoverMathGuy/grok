@@ -1,0 +1,22 @@
+# dict_p5_n2_b2.5_b1_g6_s31: S=[1] D=6.751359e-03 specs=17 dictionary columns=3624 rows=100
+{"it": 0, "lp_ratio": 0.8618916829708828, "net_ratio": 0.8618916821079313, "polished": 0.9999999999889201, "neurons": 7, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 1}
+{"it": 1, "lp_ratio": 0.6272937427672964, "net_ratio": 0.6272937427461373, "polished": 0.9999999993639037, "neurons": 8, "nonpure": 2, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 2}
+{"it": 2, "lp_ratio": 0.7775429125467851, "net_ratio": 0.8461047753972705, "polished": 0.999999999960877, "neurons": 5, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 3}
+{"it": 3, "lp_ratio": 0.5356534834063785, "net_ratio": 0.5356534826400545, "polished": 0.9999999998558275, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 4}
+{"it": 4, "lp_ratio": 0.5933834546745157, "net_ratio": 0.5933834545043515, "polished": 0.9999999999788155, "neurons": 8, "nonpure": 2, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 5}
+{"it": 5, "lp_ratio": 0.6676610255272372, "net_ratio": 0.7138901287215498, "polished": 0.9999999999375588, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 6}
+{"it": 6, "lp_ratio": 0.5075910332636041, "net_ratio": 0.575181949889257, "polished": 0.9999999995860207, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 6}
+{"it": 7, "lp_ratio": 0.5788745176639146, "net_ratio": 0.5966472711837898, "polished": 0.9999999999895818, "neurons": 7, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 7}
+{"it": 8, "lp_ratio": 0.5629459272334197, "net_ratio": 0.5629459268656227, "polished": 0.9999999997307516, "neurons": 9, "nonpure": 3, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 8}
+{"it": 9, "lp_ratio": 0.5299978585511059, "net_ratio": 0.5931849018997023, "polished": 0.999999999859328, "neurons": 8, "nonpure": 2, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 9}
+{"it": 10, "lp_ratio": 0.6486190898412575, "net_ratio": 0.6486190894413149, "polished": 0.9999999999778554, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 9}
+{"it": 11, "lp_ratio": 0.8053669576031653, "net_ratio": 0.8619508897973659, "polished": 0.9999999996948216, "neurons": 6, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 10}
+{"it": 12, "lp_ratio": 0.4044049342034992, "net_ratio": 0.40440493332857175, "polished": 0.9999999996373014, "neurons": 7, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 11}
+{"it": 13, "lp_ratio": 0.6032826769224278, "net_ratio": 0.6032826767838202, "polished": 0.99999999975464, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 12}
+{"it": 14, "lp_ratio": 0.347620481766531, "net_ratio": 0.38205503342971425, "polished": 0.9999999999735649, "neurons": 17, "nonpure": 10, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 13}
+{"it": 15, "lp_ratio": 0.5437046571455381, "net_ratio": 0.5437046566205304, "polished": 0.9999999999024025, "neurons": 7, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 13}
+{"it": 16, "lp_ratio": 0.5787474741004347, "net_ratio": 0.5956217462310113, "polished": 0.9999999998540824, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 14}
+{"it": 17, "lp_ratio": 0.8032934022719506, "net_ratio": 0.8032934015610632, "polished": 0.9999999999135156, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 14}
+{"it": 18, "lp_ratio": 0.44608611469772325, "net_ratio": 0.44608611405954435, "polished": 0.9999999999051221, "neurons": 7, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 15}
+{"it": 19, "lp_ratio": 0.7677533794209038, "net_ratio": 0.7677533785904515, "polished": 0.9999999998706071, "neurons": 6, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 16}
+# SUMMARY dict_p5_n2_b2.5_b1_g6_s31: runs=20 best LP ratio=0.8618916830 best polished=1.0000000000 max nonpure neurons in a solution=10 time=16s
