@@ -94,3 +94,25 @@ Pure cheap case (alpha = 0). L = min_delta [sum beta kappa(delta) - D_delta]. Tw
   be brought back in at the offsets where the coverage is large.
 - **Numerics** (`dichotomy.py`): at p = 17..37 the adversary cannot push the combined certificate below ~1.4 (cheap share
   >= 0.4). Small p is easy; the hard regime is large-p flat interference.
+
+## Harmonic analysis of the positive-part compression (orchestrator)
+
+Write |cos t| = (2/pi)[1 + 2 sum_{j>=1} (-1)^{j+1} cos(2jt)/(4j^2-1)], and set U_k(w) = sum_l beta_l cos(k theta_l(w)).
+
+The coverage of y = beta f(theta(w0)) at delta is sum_k fhat_k [U_k(w0) - (U_k(w0 + delta/k) + U_k(w0 - delta/k))/2]:
+- k = 0: the clean term fhat_0 sum beta kappa(delta);
+- k = 1: the signed field-row term, bounded by the depth D_delta (it is the only harmonic the network controls);
+- k >= 2: the phase-multiplied interferences U_k, not controlled by D.
+
+Choices of w0 tried:
+- **w0 = argmax U_2 or argmin U_2** makes the k = 2 term favourable (Fejer-type, as C_1 <= 0 was for Legendre). But the
+  realised phases then cluster where f is large, so the cost goes up. The trade-off is intrinsic.
+- **Random w0.** Coverage concentrates around (2/pi) sum beta kappa with fluctuation ~ (sum beta^2 kappa^2)^{1/2}. A union
+  bound over offsets costs sqrt(log p), the same log gap as random halving.
+
+So in the window s - 1 ~ 1/sqrt p with K_eff ~ p, a DERANDOMISED compression is needed. Legendre provides one through
+arithmetic (exact profiles). In general it must come from the flatness of U.
+
+Useful fact: depth <= D at ALL offsets is equivalent to osc(U) <= D (take delta = w - w'), which gives sum beta^2 <= 2 D^2.
+Fully flat networks are therefore small-oscillation functions. Networks need flatness only at their binding offsets,
+however, so the general case mixes the two regimes.
