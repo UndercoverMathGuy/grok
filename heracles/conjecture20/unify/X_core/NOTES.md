@@ -176,3 +176,23 @@ The bridge between (i) and (ii) is the remaining work.
    arithmetic compressions nor random halvings (sqrt log loss) obviously apply there. Whether near-flat U even exists
    on random dense S is itself the question: flatness and halving discrepancy are governed by the same harmonic
    analysis of S.
+
+## New general results this round (orchestrator)
+
+- **Theorem (real phases)**, `compression_theorems.tex`: if the interference U is symmetric about some point w0, i.e.
+  all phases are real there, then RT_n holds for EVERY p, n, s, alpha, beta.
+  - Proof in two lines: take y = alpha + beta (1 +- eps) with eps = sign pattern of U at w0, whichever half is cheaper.
+  - Coverage is >= L by the signed field-row identity.
+  - Cost is <= sum alpha^r + 2^{r-1} sum beta^r <= budget, because 2^{r-1} <= lambda is equivalent to 1/2 <= n/(n+1).
+  - Checked on 3000 random real-phase configurations: min ratio 1.003 (`realphase_check.py`).
+  - This contains Legendre at p = 1 mod 4.
+- **Even-part compression** (complex phases, any w0): RT_n holds if (E) holds. The loss is the remainder
+  sum beta (1 - |cos theta(w0)|) kappa(delta).
+- **Uniform cheap part on all of F, ANY phases** (depth >= L2 = sqrt 2 in Legendre units):
+  - the explicit bounds (sine-QR, QR, single frequency) prove it for all p >= 81;
+  - for 29 <= p <= 80 they are too lossy in narrow s-windows (`uniformF_anyphase2.out`), and sharper estimates are
+    needed there;
+  - this is a bonus result, not needed for the main chain.
+- **What remains for RT_n:** complex-phase interference on general supports. A single w0 must keep the even-part
+  remainder below its average (1 - 2/pi) sum beta kappa, up to O(depth), at the binding offsets. A random w0 loses
+  sqrt(log p), so derandomisation is needed. This is "realifying" the phase field of a flat polynomial.
