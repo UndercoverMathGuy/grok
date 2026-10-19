@@ -1,0 +1,19 @@
+max deviations / violations (should be ~0 or <=0):
+  field                  2.262e-15
+  gaps                   4.263e-14
+  clean                  5.551e-17
+  total<=4e^2            -4.029e-03
+  paid<=4(e^2-bL^2)      -4.029e-03
+  bL<=e                  -6.232e-02
+R17 shared neuron: bL/e = 1.000000, free/e^2 = 3.0000, paid/e^2 = 5.35e-31
+stray output 3, eps=0.05: paid/(4(e^2-bL^2)) = 0.9835
+stray output 3, eps=1.0: paid/(4(e^2-bL^2)) = 0.7297
+dedicated paid neuron (balanced): paid/(4(e^2-bL^2)) = 1.000000
+
+free-mode reach at p=7, L={1,2}: (output j, character) labels at +-chi_{l,T}
+  l=1 T=(1, 0): at chi=(2, 0): ['own', 'paid', 'paid'];  at -chi=(5, 0): ['paid', 'paid', 'paid']
+  l=1 T=(0, 1): at chi=(0, 2): ['own', 'paid', 'paid'];  at -chi=(0, 5): ['paid', 'paid', 'paid']
+  l=1 T=(1, 1): at chi=(2, 2): ['own', 'paid', 'paid'];  at -chi=(5, 5): ['paid', 'paid', 'paid']
+  l=2 T=(1, 0): at chi=(4, 0): ['paid', 'own', 'paid'];  at -chi=(3, 0): ['free', 'free', 'paid']
+  l=2 T=(0, 1): at chi=(0, 4): ['paid', 'own', 'paid'];  at -chi=(0, 3): ['free', 'free', 'paid']
+  l=2 T=(1, 1): at chi=(4, 4): ['paid', 'own', 'paid'];  at -chi=(3, 3): ['free', 'free', 'paid']

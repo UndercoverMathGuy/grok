@@ -1,0 +1,10 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+target m=(0.5, 0.1, 1.1) ph=-2.55: achieved m=[0.5 0.1 1.1] ratio(b=2)=+0.1158 bound=0.5919 F=0.8457 P1=1.1164 ok=True
+target m=(0.9, 0.95, 0.7) ph=-2.8: no feasible optimum found
+target m=(0.3, 0.1, 1.1) ph=-2.60: achieved m=[0.3 0.1 1.1] ratio(b=2)=-0.0000 bound=0.6183 F=0.8560 P1=1.5320 ok=True
+target m=(0.9, 0.1, 0.9) ph=-2.00: achieved m=[0.9 0.1 0.9] ratio(b=2)=+0.1408 bound=0.6195 F=0.7571 P1=1.1776 ok=True
+target m=(0.7, 0.5, 0.9) ph=+2.00: achieved m=[0.7 0.5 0.9] ratio(b=2)=+0.1457 bound=0.6034 F=0.7598 P1=0.9715 ok=True
+target m=(1.1, 0.3, 0.1) ph=-1.20: achieved m=[1.1 0.3 0.1] ratio(b=2)=+0.1195 bound=0.6178 F=0.8560 P1=1.1196 ok=True
+target m=(0.35, 0.35, 0.9) ph=+1.00: achieved m=[0.35 0.35 0.9 ] ratio(b=2)=+0.2371 bound=0.7901 F=0.7978 P1=0.8437 ok=True
+target m=(0.6, 0.6, 0.6) ph=+0.00: achieved m=[0.6 0.6 0.6] ratio(b=2)=+0.3674 bound=0.8624 F=0.8527 P1=0.9192 ok=True
+failures=0; time 96s
