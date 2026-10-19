@@ -13,8 +13,10 @@ ns = {'__file__': os.path.join(HERE, 'v3_kkt.py')}
 exec(compile(src, 'v3', 'exec'), ns)
 from vlib import *
 
-for (p, n, b, m, seed) in [(5, 2, 2.0, 6, 1), (5, 2, 2.5, 7, 2), (7, 2, 2.2, 8, 3), (5, 3, 2.4, 8, 4), (5, 2, 2.0, 9, 5),
-                           (7, 2, 2.6, 6, 6), (3, 3, 2.0, 6, 7)]:
+CASES = [(5, 2, 2.0, 6, 1), (5, 2, 2.5, 7, 2), (7, 2, 2.2, 8, 3), (5, 3, 2.4, 8, 4), (5, 2, 2.0, 9, 5),
+         (7, 2, 2.6, 6, 6), (3, 3, 2.0, 6, 7), (5, 2, 2.3, 6, 8), (5, 2, 2.0, 6, 9)]
+SEL = [int(a) for a in sys.argv[1:]] or range(len(CASES))
+for (p, n, b, m, seed) in [CASES[k] for k in SEL]:
     t0 = time.time()
     nu = n + 1; s = nu / b; r = 1 / s
     v, g, J, c, gc = ns['find_local_max'](p, n, b, m, np.random.default_rng(seed))
