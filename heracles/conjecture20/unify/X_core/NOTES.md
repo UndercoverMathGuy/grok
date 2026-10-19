@@ -56,3 +56,21 @@ M(a') >= the left side.
 - With an LP lower bound for Gamma it fails: 1.065 at (29,3,2), 1.032 at (23,3,2), 1.011 at (29,2,2.5).
 - So RT_n genuinely needs the sup-norm (phase) structure of U at moderate p, i.e. an additive-structure / flatness
   statement: on those supports no phase choice is as flat as its L2 norm suggests.
+
+## Update: the Legendre family is closed, and a candidate general mechanism
+
+- `legendre_theorem.tex` proves that RT_n holds for the Legendre family at every prime p, every n and every s.
+  - p = 1 mod 4: the quadratic-residue half.
+  - p = 3 mod 4: the sine-weighted quadratic residues, with exact coverage and Fourier control of the cost bias.
+  - For s >= 3: a single frequency.
+  - The only non-analytic step is one explicit two-variable calculus inequality in (p, s). It is checked on a dense
+    grid for real p in [29, 1e9] and handled asymptotically beyond.
+- Unified mechanism: both compressions are y_l = beta_l (cos theta_l(w0))_+, the positive part of the field-row
+  oscillation at one point (`unified.py`).
+- General-interference test (`general_pp.py`, `pp_adversarial.py`, `pp_adversarial2.py`):
+  - the compression alpha + c beta (cos theta(w0))_+ (best w0, c) certified RT_n on every configuration found, without
+    knowing Gamma_s;
+  - with the cheap share pinned at 0.3, 0.6 and 1.0 (p <= 19), the minimum certificate was >= 1.39;
+  - unpinned, the adversary only reaches 1.000, at the interference-free equality case.
+- Candidate general theorem (the compression theorem): for every (alpha, beta, phi) there are w0 and c such that
+  M(alpha + c beta (cos theta(w0))_+) (sum alpha^r + lambda sum beta^r)^s >= LHS (sum y^r)^s. This implies RT_n.
