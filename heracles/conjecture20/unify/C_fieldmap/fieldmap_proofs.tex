@@ -1,0 +1,235 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.4cm]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Re}{\operatorname{Re}}
+\newcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\title{C\_fieldmap: field-map geometry of restricted decoupling}
+\date{}
+\begin{document}
+\maketitle
+
+\noindent All statements hold for every odd prime $p$, every $n\ge2$ and every $b\in[2,\nu]$ ($\nu=n+1$, $s=\nu/b$, $r=1/s$)
+unless a hypothesis says otherwise; no case split is used.  Checks: \texttt{v0}--\texttt{v7} in this directory.
+
+\section{Setting}
+$\rho=e^{2\pi i/p}$, $F=\{1,\dots,\frac{p-1}2\}$, $c_l(\delta)=1-\rho^{-l\delta}$, $\kappa_l(\delta)=1-\cos\frac{2\pi l\delta}p$,
+$s_l(\delta)=\sin\frac{2\pi l\delta}p$, so $\Re(zc_l(\delta))=\Re z\,\kappa_l(\delta)-\Im z\,s_l(\delta)$.
+Gaps: $g(x,\delta)=\sum_{l\in F}\Re(\Phi_l(x)c_l(\delta))$, $h=\min_{x,\delta}g$ (Companion, Lemma dec).
+For $y\in\mathbb R^F$: $M(y)=\min_{\delta}\sum_ly_l\kappa_l(\delta)$; $P_h=\{a\in\mathbb R^F:M(a)\ge h\}$ (the programme polyhedron).
+$K_h=\{\phi\in\mathbb C^F:\sum_l\Re(\phi_lc_l(\delta))\ge h\ \forall\delta\ne0\}$,
+$D_h=\{\phi:\exists a,\ \phi_l\in a_l+K_p,\ M(a)\ge h\}$, $K_p=\{w:|\Im w|\le\tan(\pi/p)\Re w\}$.
+
+\emph{Class C.} A frequency-$l$ class-C feature is an atom system $(C_i,\xi_i)$, $C_i\in\mathbb C$, $\xi_i\in\mathbb T^n$, with field
+$\Phi_l(x)=\sum_iC_i\prod_t(1+\xi_{it}\rho^{2lx_t})$ and cost $Q_l=\sum_i|C_i|^r$ ($B_p$ units: balanced DC-free neurons are
+budget-tight, so $\gamma=B_ph/(\sum_lQ_l)^s$; checked in \texttt{v0}).  Translating feature $l$ by $a\in\mathbb Z_p^n$ replaces
+$\xi_{it}$ by $\xi_{it}\rho^{2la_t}$: the result is a class-C feature with the same $Q_l$.
+
+\emph{Prices.} $\pi=\pi_{n,b}(p)$ (Companion).  For $k\in F$ let $\mathrm{cm}_k(z)=\Re z-\cot(\pi k/p)|\Im z|$ ($\mathrm{cm}_1=\mathrm{cm}$)
+and define the \emph{centred directional price}
+\[\pi^c_k=\sup\Big\{\frac{\min_x\mathrm{cm}_k(\Phi_1(x)+i\eta)}{B_p\|\theta\|_{2,b}^\nu}:\ \theta\ \text{single-feature},\ \eta\in\mathbb R\Big\}.\]
+$\pi^c_k$ is non-decreasing in $k$ (the cones widen) and $\pi^c_1\ge\pi$.  For $j\in\mathbb Z_p^*$ let $k(j)\in F$ be the residue of
+$\pm j$ in $F$; then $|s_l(\delta)|/\kappa_l(\delta)=\cot(\pi k(l\delta)/p)$.
+
+\section{Pointwise geometry}
+\begin{theorem}[geometry of $K_h$ and $D_h$]\label{thm:G}
+Let $S=(s_l(\delta))_{\delta,l\in F}$ and $\kappa=(\kappa_l(\delta))_{\delta,l\in F}$.
+\begin{enumerate}
+\item[(i)] $L(\phi)(\delta)=\sum_l\Re(\phi_lc_l(\delta))$ is a linear bijection $\mathbb C^F\to\mathbb R^{\mathbb Z_p^*}$ with inverse
+$\phi_l=-\frac2p\sum_{\delta\ne0}L(\phi)(\delta)\rho^{l\delta}$.  Hence
+$K_h=\{(\frac2p(h-\sum_\delta\sigma_\delta\rho^{l\delta}))_l:\sigma\ge0\}$ is a simplicial cone with apex $\frac{2h}p\mathbf 1$ and the
+$p-1$ edges $e_\delta=-\frac2p(\rho^{l\delta})_{l\in F}$; its (unique) Choquet coordinates are the slacks $\sigma=L(\phi)-h$.
+\item[(ii)] $S^2=\frac p4I$, and $\kappa$ is invertible.
+\item[(iii)] For $\phi=a+ib$: $\phi\in K_h\iff a\in P_h$ and $b=\frac4pSu$ with $|u_\delta|\le\sigma^+_\delta(a):=(\kappa a)(\delta)-h$
+for all $\delta\in F$;\quad $\phi\in D_h\iff a\in P_h$ and $\cot\frac\pi p\,(\kappa|b|)(\delta)\le\sigma^+_\delta(a)$ for all $\delta\in F$.
+In particular $K_h\cap\mathbb R^F=D_h\cap\mathbb R^F=P_h$ and $\Re(K_h)=P_h$: pointwise, compensation is purely imaginary.
+\item[(iv)] $\mathrm{Gap}(b,\delta):=\cot\frac\pi p(\kappa|b|)(\delta)-|(Sb)(\delta)|\ge0$, with equality iff $b=0$ or $b=te_l$ with $l\delta\equiv\pm1$.
+So every $b$ with at least two non-zero entries has $\mathrm{Gap}>0$ at every offset.
+\item[(v)] If $a\in P_h$ has a binding offset ($\sigma^+_\delta(a)=0$ for $\delta\in B\ne\emptyset$), the $D_h$-fibre over $a$ is $\{0\}$ and the
+$K_h$-fibre is $\frac4pS\big(\prod_{\delta\notin B}[-\sigma^+_\delta,\sigma^+_\delta]\times\{0\}^B\big)$, of dimension $|F|-|B|$.
+\item[(vi)] (compensation lineality) With $I_B=\{b:(Sb)|_B=0\}=\frac4pS(\mathbb R^{F\setminus B})$:
+$iI_B\subset T_{K_h}(a)\cap-T_{K_h}(a)$ and $iI_B\cap T_{D_h}(a)=\{0\}$.  Every probability $\mu$ on $B$ (in particular a programme
+dual $\mu^\star$ of the allocation $a$) satisfies $\E_\mu L(a+itb)=\E_\mu L(a)$ for $b\in I_B$.  For an IF network with allocation $a$
+the first-order cost change along $ib$ is $0$ iff $b\in I_B\cap\mathbb R^{\mathrm{spt}\,a}=\ker S_{B,\mathrm{spt}\,a}$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(i) For $l,j\in F$, $\sum_{\delta\ne0}\rho^{j\delta}c_l(\delta)=-p[l=j]$ and $\sum_{\delta\ne0}\rho^{j\delta}\overline{c_l(\delta)}=0$
+($j+l\not\equiv0$), so $\sum_\delta L(\phi)(\delta)\rho^{j\delta}=-\frac p2\phi_j$.  Both spaces have real dimension $p-1$.
+The image of $\{\sigma\ge0\}$ under the inverse affine map is the stated cone.  (This is the Note's slack identity.)
+(ii) $\sum_{l\in F}s_l(\delta)s_l(\delta')=\frac12[\Sigma(\delta-\delta')-\Sigma(\delta+\delta')]$ with $\Sigma(m)=\sum_{l\in F}\cos\frac{2\pi lm}p$
+$=\frac{p-1}2$ if $m\equiv0$ and $-\frac12$ otherwise; for $\delta,\delta'\in F$, $\delta+\delta'\not\equiv0$, giving $\frac p4[\delta=\delta']$.
+For $\kappa=J-C$ with $C=(\cos\frac{2\pi l\delta}p)$: the same computation gives $C^2=\frac p4I-\frac12J$, so $C$ is invertible and
+$C\mathbf 1=-\frac12\mathbf 1$.  If $\kappa v=0$ then $Cv=(\mathbf 1^\top v)\mathbf 1$, so $v=-2(\mathbf 1^\top v)\mathbf 1$; summing,
+$(1+2|F|)\mathbf 1^\top v=0$, hence $v=0$.
+(iii) $L(\phi)(\pm\delta)=(\kappa a)(\delta)\mp(Sb)(\delta)$, so $\phi\in K_h$ iff $(\kappa a)(\delta)-h\ge|(Sb)(\delta)|$ for $\delta\in F$; put $u=Sb$,
+$b=\frac4pSu$ by (ii).  By the cone lemma $\phi_l\in a'_l+K_p$ iff $a'_l\le\mathrm{cm}(\phi_l)$, and $M$ is monotone, so
+$\phi\in D_h\iff M(\mathrm{cm}(\phi))\ge h\iff\sum_l(a_l-\cot\frac\pi p|b_l|)\kappa_l(\delta)\ge h$ for all $\delta$.  For $b=0$ both
+conditions read $a\in P_h$; and $\Re\phi\in P_h$ whenever $\phi\in K_h$.
+(iv) $|s_l(\delta)|=|\cot\frac{\pi l\delta}p|\kappa_l(\delta)\le\cot\frac\pi p\kappa_l(\delta)$ with equality iff $l\delta\equiv\pm1$, which holds for
+exactly one $l\in F$; then use the triangle inequality.
+(v) If $\sigma^+_{\delta_0}=0$ then $\sum_l|b_l|\kappa_l(\delta_0)=0$ forces $b=0$ since every $\kappa_l(\delta_0)>0$.  The $K_h$ fibre is (iii).
+(vi) $L(a+itb)(\pm\delta)=L(a)(\pm\delta)\mp t(Sb)(\delta)$; on $B$ this is $L(a)$, off $B$ the slack is positive, so small $|t|$ of both
+signs stay in $K_h$.  $T_{D_h}(a)$ requires $\cot\frac\pi p(\kappa|b|)(\delta)\le0$ on $B$, so $b=0$.  An IF block of amplitude
+$a_l+itb_l$ costs $\nu^{1-r}|a_l+itb_l|^r$, which is $\nu^{1-r}a_l^r+O(t^2)$ if $a_l>0$ and $\nu^{1-r}|tb_l|^r$ if $a_l=0$.
+\end{proof}
+
+\begin{remark}
+In all $231$ programme maximisers computed ($p\le41$, $s\in[1.05,3]$; \texttt{v1b}) $|B|\ge K^*$ and $S_{B,\mathrm{spt}}$ is injective, so the
+decoupled IF optimum admits no first-order cost-free pointwise compensation; with E\_kkt R6 (no first-order fluctuation
+compensation in class C) the optimum is first-order rigid and compensation can act only non-linearly (flat bottoms).
+Injectivity in general is NUMERICAL.
+\end{remark}
+
+\section{Projection principles}
+\begin{proposition}[mean projection]\label{prop:mean}
+For every product network (any inputs), with $A_l=\overline{\beta_l}$ and $Q_l=\sum_i|\beta_{il}|^r$:
+$h\le M(\Re A)\le\Gamma^{(S)}_s\big(\sum_l|A_l|^r\big)^s$.  Hence if $\sum_l|A_l|^r\le\pi^r\sum_lQ_l$ (\emph{aggregate non-cheap})
+then $\gamma\le\pi B_p\Gamma^{(S)}_s$.  The x-mean of a field map is a $D_h$-feasible (IF) field map with margin $\ge h$; it is no
+more expensive than the network exactly in the aggregate non-cheap case.
+\end{proposition}
+\begin{proof}
+$h\le\frac12\E_x[g(x,\delta)+g(x,-\delta)]=\sum_l\Re A_l\kappa_l(\delta)$ (Paper Lemma 2), then $M$ is monotone and 1-homogeneous and
+$y=|A|/(\sum|A|^r)^s$ is programme-feasible.  The single-neuron budget gives $\sum_lQ_l\le B_p^rP_b$.
+\end{proof}
+
+\begin{proposition}[per-feature projection]\label{prop:pf}
+For a class-C network the following are equivalent: (a) there is a decoupled field map ($\Phi'_l\in a'_l+K_p$ for all $x$,
+$M(a')\ge h$) with $Q(\Phi'_l)\le Q_l$ for every $l$ (up to $\varepsilon$); (b) (CD) $h\le\pi\,M\big((Q_l^s)_l\big)$.
+\end{proposition}
+\begin{proof}
+A single feature of cost $Q$ has cone margin at most $\pi Q^s$ and (scaled optimal single features, GLOBAL R2) attains it.
+\end{proof}
+
+\begin{theorem}[Legendre networks refute per-feature projection]\label{thm:L}
+Let $\chi$ be the Legendre symbol, $\hat\chi(l)=p^{-1}\sum_w\chi(w)\rho^{-lw}$, $\beta=2p^{-1/2}$.  For $l\in F$ let feature $l$ consist of
+$n$ atoms $C_k=\beta/n$, $\xi_{k1}=e^{2\pi ik/n}e^{i\varphi_l}$, $\xi_{kt}=e^{2\pi ik/n}$ ($t\ge2$), $e^{i\varphi_l}=\hat\chi(l)/|\hat\chi(l)|$.
+Then $\Phi_l(x)=\beta+2\hat\chi(l)\rho^{lw}$ with $w=2\sum_tx_t$, $g(x,\delta)=\sqrt p+\chi(w)-\chi(w-\delta)$, $h\ge\sqrt p-2$,
+$Q_l=n^{1-r}\beta^r$ and
+\[\frac{h}{\pi M(Q^s)}\ \ge\ \Big(1-\frac2{\sqrt p}\Big)\frac{n^{1-s}}{\pi}.\]
+Hence (CD) fails at $(p,n,b)$ whenever $\pi_{n,b}(p)<(1-2/\sqrt p)\,n^{1-s}$.  At $n=2$, where $\pi=3^{1-s}$ (Note Thm q1n2), CD fails
+for every $b\in[2,3)$ and every prime $p>4/c_2(s)^2$, $c_n(s)=1-(n/\nu)^{s-1}$ (e.g.\ $p\ge127$ at $b=2$).  For every $n$:
+either CD fails at every $p>4/c_n(s)^2$, or single features are strictly cheaper than IF there.
+Nevertheless RD holds for these networks (their uniform allocation is inefficient).
+\end{theorem}
+\begin{proof}
+For $T\subseteq[n]$, $\sum_kC_k\prod_{t\in T}\xi_{kt}=\beta e^{i\varphi_l[1\in T]}\cdot\frac1n\sum_ke^{2\pi ik|T|/n}$, which vanishes unless
+$|T|\in\{0,n\}$; so $\Phi_l=\beta+\beta e^{i\varphi_l}\rho^{2l\sum x_t}$ and $\beta e^{i\varphi_l}=2\hat\chi(l)$ because $|\hat\chi(l)|=p^{-1/2}$ (Gauss).
+$\sum_{l\in F}\kappa_l(\delta)=p/2$, and $\sum_{l\in F}2\Re(\hat\chi(l)\rho^{lu})=\sum_{l\ne0}\hat\chi(l)\rho^{lu}=\chi(u)$ ($\chi$ real,
+$\hat\chi(0)=0$), which gives $g$.  $|\chi|\le1$.  $M(Q^s)=n^{s-1}\beta\,p/2=n^{s-1}\sqrt p$.  At $n=2$ the condition reads
+$(1-2/\sqrt p)(3/2)^{s-1}>1\iff 2/\sqrt p<c_2(s)$.
+\end{proof}
+
+\begin{theorem}[alignment]\label{thm:R}
+For any product network and any partition $\mathcal P$ of its neurons into blocks, block-wise translations
+($u_{it}(\cdot)\mapsto u_{it}(\cdot+a_{\beta t})$, $w_i(\cdot)\mapsto w_i(\cdot+\sum_ta_{\beta t})$ for $i$ in block $\beta$) preserve every
+neuron's cost and satisfy
+\[\min_{(a_\beta)}h(\tau_a\theta)=h^{\rm prof}_{\mathcal P}(\theta):=\min_{\delta\ne0}\sum_{\beta\in\mathcal P}\min_xg_\beta(x,\delta).\]
+In class C with the partition into features, $m_l(\delta)=\min_x\Re(\Phi_l(x)c_l(\delta))=Q_l^s\hat m_{\psi_l}(l\delta)$ where $\psi_l$ is
+feature $l$ relabelled to frequency 1, so
+$\sup_{\theta\in\mathcal C\cap N_S}h^{\rm prof}(\theta)/(\sum Q_l)^s=\Gamma^{\mathcal P,(S)}_s$, the (class-C) profile programme of
+GLOBAL R8.  Writing $AG=h-h^{\rm prof}\ge0$ (alignment gain), $PS=\pi M(Q^s)-h^{\rm prof}$ (profile slack) and
+$\mathrm{Ineff}=\pi\Gamma^{(S)}_s(\sum Q)^s-\pi M(Q^s)\ge0$ (allocation inefficiency):
+\[\mathrm{RD}(\theta)\iff AG\le\mathrm{Ineff}+PS,\qquad\mathrm{CD}(\theta)\iff AG\le PS .\]
+$AG=0$ when at most one feature is non-constant.
+\end{theorem}
+\begin{proof}
+A translation is orthogonal on every factor, and $y(x+a)=y(x)+\sum_ta_t$ gives $g_\beta\mapsto g_\beta(\cdot+a_\beta,\cdot)$.  For a fixed
+$\delta$ the blocks can be translated independently, so the minimum over $a$ of $\min_x\sum_\beta g_\beta(x+a_\beta,\delta)$ is
+$\sum_\beta\min_xg_\beta(\cdot,\delta)$; take the minimum over $\delta$.  Relabelling: $\Phi_l(x)=\Psi_l(lx)$ and $c_l(\delta)=c_1(l\delta)$.
+Decoupled unions attain the profile value (Companion Thm pp).  The ledger is the identity $h=h^{\rm prof}+AG$.  If all features
+but one have constant fields, translations act as a global translation, so $h$ is constant on the orbit.
+\end{proof}
+
+\begin{remark}[dilation orbit]
+Averaging over the dilation orbit is the union of the $|F|$ relabellings $\theta\circ u$, each with table scaled by $1/|F|$:
+margin $\ge h$, cost $|F|^{1-r}P_b$, so it certifies only $\gamma(\theta)\le|F|^{s-1}\gamma(\text{symmetric network})$.  It is free only
+at $s=1$ (the convex-end mechanism, E3) and useless for $s>1$ outside the dense regime.
+\end{remark}
+
+\section{Single-feature reduction}
+\begin{lemma}[telescoping]\label{lem:T}
+Call (SSI) the statement: for every class-C network $\theta$ and feature $l$ of $\theta$,
+$h(\theta)\le\min_\delta[m_{B_l}(\delta)+\pi Q_l^s\kappa_l(\delta)]$, where $m_{B_l}(\delta)=\min_x\sum_{m\ne l}\Re(\Phi_m(x)c_m(\delta))$.
+Then (SSI) $\Rightarrow$ (CD).  Hence (SSI) is false (Theorem~\ref{thm:L}); on the Legendre networks it already fails at the first step.
+\end{lemma}
+\begin{proof}
+Let $\theta_k$ be $\theta$ with features $1,\dots,k$ replaced by IF blocks of real amplitude $\pi Q_l^s$ (contributing exactly
+$\pi Q_l^s\kappa_l(\delta)$).  The right side of (SSI) for $\theta_{k-1}$ and feature $k$ equals $h(\theta_k)$, so
+$h(\theta)\le h(\theta_1)\le\dots\le h(\theta_{|F|})=\pi M(Q^s)$.  Only the original costs of not-yet-replaced features enter.
+\end{proof}
+
+\begin{theorem}[one coupled feature against a constant background]\label{thm:S}
+Let $\theta=\theta_l\cup\Theta$, where $\theta_l$ is a single-feature network at frequency $l$ (any inputs, field $\Phi_l$, cost $P_l$)
+and $\Theta$ is a union of IF blocks at $m\ne l$ with complex amplitudes $A_m$.  Put $b^{\rm Re}(\delta)=\sum_{m\ne l}\Re A_m\kappa_m(\delta)$
+and $J(\delta)=\sum_{m\ne l}\Im A_m\,s_m(\delta)$.
+\begin{enumerate}
+\item[(i)] $h(\theta)=\min_{\delta\in F}\big[b^{\rm Re}(\delta)+\kappa_l(\delta)\min_x\mathrm{cm}_{k(l\delta)}\big(\Phi_l(x)+iJ(\delta)/s_l(\delta)\big)\big]$.
+\item[(ii)] $h(\theta)\le\min_\delta\big[b^{\rm Re}(\delta)+\pi^c_{k(l\delta)}B_pP_l^s\kappa_l(\delta)\big]$.
+\item[(iii)] (sharpness, $p\ge5$) For every $k\in F$, $\theta_l$ and $\eta$ there are backgrounds with
+$h(\theta)=b^{\rm Re}(\delta_0)+\kappa_l(\delta_0)\min_x\mathrm{cm}_k(\Phi_l+i\eta)$, $\delta_0=l^{-1}k$, and $b^{\rm Re}$ uniquely minimal at
+$\pm\delta_0$ with arbitrarily large gap.
+\item[(iv)] The following are equivalent: (a) every such $\theta$ satisfies $h\le\min_\delta[b^{\rm Re}(\delta)+\pi B_pP_l^s\kappa_l(\delta)]$;
+(b) $\pi^c_k\le\pi$ for every $k\in F$.  Under (b) every such $\theta$ satisfies CD and RD.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(i) $g(x,\pm\delta)=b^{\rm Re}(\delta)+\kappa_l\Re\Phi_l\mp(J+s_l\Im\Phi_l)$; the minimum over the sign is
+$b^{\rm Re}+\kappa_l\Re\Phi_l-|s_l||\Im\Phi_l+J/s_l|$ and $|s_l(\delta)|/\kappa_l(\delta)=\cot(\pi k(l\delta)/p)$; $s_l(\delta)\ne0$.
+(ii) Definition of $\pi^c_k$.  (iii) By Thm~\ref{thm:G}(ii) $\{\kappa_m\}_{m\in F}$ is a basis of $\mathbb R^F$ and
+$\mathbf 1=\frac2p\sum_m\kappa_m$; writing $e_{\delta_0}=\sum_m\alpha_m\kappa_m$, the function $-Ge_{\delta_0}+\frac{pG\alpha_l}2\mathbf 1$ has no
+$\kappa_l$-component, so it equals $\sum_{m\ne l}R_m\kappa_m$ for real $R_m$.  Choose $\Im A_m$ (any one $m\ne l$ suffices, as
+$s_m(\delta_0)\ne0$) with $J(\delta_0)=\eta s_l(\delta_0)$.  The other offsets carry $b^{\rm Re}$ larger by $G$ and a bounded field
+term, so for $G$ large the minimum in (i) is at $\delta_0$.  (iv) (b)$\Rightarrow$(a) by (ii); (a)$\Rightarrow$(b) by (iii) at
+$\delta=\delta_0$.  For CD: Lemma 7 gives $|A_m|\le\nu^{1-s}Q_m^s\le\pi Q_m^s$ and $b^{\rm Re}\le\sum|A_m|\kappa_m$; RD follows from
+$M(y)\le\Gamma^{(S)}_s(\sum y^r)^s$.
+\end{proof}
+
+\begin{corollary}[$n=2$]\label{cor:n2}
+At $n=2$ and $p\ge5$, every single-\emph{frequency} single feature (DC allowed) has $\min_x\mathrm{cm}_k(\Phi+i\eta)\le
+\min_x\Re\Phi\le3^{1-s}Q^s$ for every $k,\eta$; for arbitrary inputs the same holds for $|\cos(\pi k/p)|\ge\frac12$ (GLOBAL R9(i)).  So at
+$n=2$ one coupled single-frequency feature against any IF background never beats CD or RD.
+\end{corollary}
+\begin{proof}
+$\Re\Phi$ has coefficient $\frac12\overline{\beta_{1,T}}$ at $2\cdot\mathbf 1_T$: $\Phi$'s characters lie in $\{0,1,2\}^n$ (Companion Lemma
+supp) and $-2\equiv p-2\notin\{0,1,2\}$.  The Riesz test $1-\cos(\langle2\mathbf 1_T,x\rangle2\pi/p+\psi)\ge0$ gives
+$\min\Re\Phi\le\Re\beta_1-\frac12|\beta_{1,T}|$; Part I's Theorem A gives $\Re\beta_1\le3^{1-s}Q^s+\frac12\max_T|\beta_{1,T}|$.  The bound
+does not involve $\Im$, so the shift $i\eta$ is harmless.
+\end{proof}
+
+\begin{proposition}[directional W8]\label{prop:W8a}
+Let $K^*=\min_{0<u<1}-\log(1-u)/u^2=2.45541$ and $\alpha^*=\frac12\arccos\frac1{1+K^*}=36.589^\circ$.  Let $\theta$ be a single feature
+with circular field and phase-aligned atoms (W8's hypotheses), $0<\alpha\le\alpha^*$, and $z_0\in\mathbb C$ with
+$\Phi(x)\in z_0+K_\alpha$ for all $x$.  Then $\sum_{T\ne\emptyset}|\beta_T|^2\le k_\alpha x^2|A|^2$ with $k_\alpha=\sec2\alpha-1$,
+$x=1-\Re z_0/|A|$, and $\Re z_0\le\nu^{1-s}Q^s$.  In particular $\pi^c_k\le\nu^{1-s}$ on this class for every direction with
+$\pi k/p\le\alpha^*$ ($k\le0.2033\,p$), for every $n$ and $b$.
+\end{proposition}
+\begin{proof}
+For $w\in K_\alpha$, $\Re w^2\ge\cos2\alpha|w|^2$.  Circularity gives $\E(\Phi-z_0)^2=(A-z_0)^2$ and Parseval
+$\E|\Phi-z_0|^2\ge|A-z_0|^2+\sum_T|\beta_T|^2$.  With $A-z_0=\varrho e^{i\phi}$ ($|\phi|\le\alpha$, convexity), $a=|A|$, $u=\varrho\cos\phi/a$:
+$\sum_T|\beta_T|^2\le\varrho^2(\cos2\phi-\cos2\alpha)/\cos2\alpha\le a^2k_\alpha u^2$, and $\Re z_0=\Re A-au\le a(1-u)$, so $u\le x$.  W6(c)
+with $L=a$: $\nu^{1-s}Q^s\ge a(1+V)^{-(s-1)}$, $V\le2k_\alpha x^2/\nu$.  Hence
+$\Re z_0/(\nu^{1-s}Q^s)\le(1-x)e^{k_\alpha(1-2/\nu)x^2}\le(1-x)e^{K^*x^2}\le1$.  The real part of the apex is all that W8 uses, so
+the complex apex costs nothing.
+\end{proof}
+
+\begin{proposition}[second-moment detection stops at $45^\circ$]\label{prop:OB}
+For $0<\alpha<\pi/2$ let $k^{cc}_\alpha=\inf(\Re A-c)/\sigma$ over circular random variables $Z\in c+K_\alpha$ a.s.\ ($\sigma^2=\frac12\E|Z-A|^2>0$).
+Then $k^{cc}_\alpha=\sqrt{\cot^2\alpha-1}$ for $\alpha<\pi/4$ (Lemma cc is sharp) and $k^{cc}_\alpha=0$ for $\alpha\ge\pi/4$.
+\end{proposition}
+\begin{proof}
+$Z=c+X+iY$, $X=M\cdot1_E$, $\Pr E=\varepsilon$, $Y=\pm\lambda X$ with a fair independent sign, $\lambda=\sqrt{1-\varepsilon}$.  Then
+$\E(Z-A)^2=\mathrm{Var}X-\E Y^2=M^2\varepsilon(1-\varepsilon)-\lambda^2M^2\varepsilon=0$, $Z-c\in K_\alpha$ iff $\lambda\le\tan\alpha$, and
+$(\Re A-c)/\sigma=\sqrt{\varepsilon/(1-\varepsilon)}$.  For $\alpha\ge\pi/4$ every $\varepsilon\in(0,1)$ is allowed; for $\alpha<\pi/4$ the
+smallest allowed $\varepsilon=1-\tan^2\alpha$ gives $\sqrt{\cot^2\alpha-1}$, matching Lemma cc.
+\end{proof}
+
+\end{document}

@@ -107,7 +107,10 @@ for (p, s) in [(11, 1.5), (13, 2.0), (17, 1.5), (23, 1.4)]:
         tt = 1e-4 * tmax
         dc = np.sum(np.abs(a + 1j * tt * b) ** r - a ** r)
         cost1 = max(cost1, abs(dc) / tt)
-    out2.append(f'(G7) p={p} s={s}: |B|={len(B)}, dim i*I_B = {F-len(B)}; two-sided in K_h: {ok_K}; outside D_h: {ok_notD}; '
-                f'|first-order cost slope| <= {cost1:.1e}')
+    spt = np.where(a > 1e-12)[0]
+    dim_spt = len(spt) - np.linalg.matrix_rank(Smat[np.ix_(B, spt)], tol=1e-9)
+    out2.append(f'(G7) p={p} s={s}: |B|={len(B)}, K*={len(spt)}, dim i*I_B = {F-len(B)}; two-sided in K_h: {ok_K}; '
+                f'outside D_h: {ok_notD}; cost slope (off-support entries, r<1) up to {cost1:.1e}; '
+                f'dim of I_B restricted to spt y* (first-order cost-free) = {dim_spt}')
 for s_ in out2: print(s_)
 with open('v1_geometry.out', 'a') as fh: fh.write('\n'.join(out2) + '\n')

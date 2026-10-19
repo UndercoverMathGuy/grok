@@ -1,0 +1,10 @@
+# gen p=11 b=2.0: Gamma=0.5357259258 S*=[1, 4] F2-related pairs=[(4, 1)]
+{"it": 0, "kind": "merge", "start": -1.3708928501896076, "ratio": 0.5538971318803437, "feats": [1, 2, 3, 4, 5], "count": 5, "Kstar": 2, "split_ratio": 0.02577040321469871, "dc_share": 0.00016643431056065152, "m": 5}
+{"it": 1, "kind": "merge", "start": -1.6499760480345962, "ratio": 0.3227787068858498, "feats": [1, 2, 4], "count": 3, "Kstar": 2, "split_ratio": 0.1854615366823634, "dc_share": 1.8834897718498415e-09, "m": 4}
+{"it": 2, "kind": "dc", "start": -0.08301437820176794, "ratio": 0.999996579162394, "feats": [1, 4], "count": 2, "Kstar": 2, "split_ratio": 0.9999897411006127, "dc_share": 1.412959271275307e-13, "m": 6}
+{"it": 3, "kind": "mixjit", "start": -0.3373810698689503, "ratio": 0.999993163174832, "feats": [1, 4], "count": 2, "Kstar": 2, "split_ratio": 0.9999936684331733, "dc_share": 3.900247403974349e-15, "m": 6}
+{"it": 4, "kind": "cheap", "start": -0.33245451360778444, "ratio": 0.5539083704304067, "feats": [1, 2, 3, 4, 5], "count": 5, "Kstar": 2, "split_ratio": 0.026911037480791912, "dc_share": 0.00016630557755240128, "m": 5}
+{"it": 5, "kind": "merge", "start": -1.9540124417838787, "ratio": 0.3227437129203562, "feats": [1, 2, 4], "count": 3, "Kstar": 2, "split_ratio": 0.18725058128632177, "dc_share": 2.3334734048510086e-09, "m": 4}
+{"it": 6, "kind": "merge", "start": -1.3346611186466326, "ratio": 0.5544668286764403, "feats": [1, 2, 3, 4, 5], "count": 5, "Kstar": 2, "split_ratio": 0.02557197590892632, "dc_share": 4.236278371152657e-05, "m": 5}
+{"it": 7, "kind": "dc", "start": -0.028275051223321582, "ratio": 0.9999986236552395, "feats": [1, 4], "count": 2, "Kstar": 2, "split_ratio": 0.9999986008999113, "dc_share": 5.638133324035306e-16, "m": 6}
+# SUMMARY gen p=11 b=2.0: runs=8 best=0.9999986237 near-opt counts=[] K*=2 best mixing-reliant (ratio > split + 1e-4)=0.5544668286764403 time=49s
