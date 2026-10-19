@@ -1,0 +1,6 @@
+npz keys: ['U0', 'U1', 'U2', 'U3', 'W0', 'W1', 'W2', 'W3']
+violator 0: m=6 h>0? True  gamma/gIF = 0.790214100482  H(w_s) = 1.559103638  profile = (0.81142854, 0.18857146)  D_{yhat}/gIF = 0.7773208803  excess = 0.0165867
+violator 1: m=6 h>0? True  gamma/gIF = 0.785338558338  H(w_s) = 1.552478371  profile = (0.1783205, 0.8216795)  D_{yhat}/gIF = 0.7719934958  excess = 0.0172865
+violator 2: m=6 h>0? True  gamma/gIF = 0.776161054772  H(w_s) = 1.540015641  profile = (0.16106065, 0.83893935)  D_{yhat}/gIF = 0.763442241  excess = 0.0166598
+R(0) = 0.7817580303 ; argmin R on grid t = 0.05575 (R = 0.73029675) ; first t with R >= level: t0 = 0.2693156166 ; eta_dec = 1.704571115 vs H(theta_v) = 1.559103638
+grid: all R(t) < level for t < t0: True ; R increasing after argmin: True

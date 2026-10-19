@@ -1,0 +1,6 @@
+p=5: sup log F = 0.000000  (attained at rho->0 if 0); interior local max on grid excluding rho<1e-3: -0.000809
+p=7: sup log F = 0.000000  (attained at rho->0 if 0); interior local max on grid excluding rho<1e-3: -0.000901
+p=11: sup log F = 0.000000  (attained at rho->0 if 0); interior local max on grid excluding rho<1e-3: -0.000959
+p=13: sup log F = 0.000000  (attained at rho->0 if 0); interior local max on grid excluding rho<1e-3: -0.000971
+p=17: sup log F = 0.000000  (attained at rho->0 if 0); interior local max on grid excluding rho<1e-3: -0.000983
+p=101: sup log F = 0.000000  (attained at rho->0 if 0); interior local max on grid excluding rho<1e-3: -0.000999

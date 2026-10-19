@@ -149,6 +149,13 @@ $R_I^2=\sum_I|\beta_I|^2$; $\nu^{1-s}Q^s=(K_r/\nu)^{s-1}L$ (Prop.~\ref{p:renyi}(
 (c): if $c\le0$ trivial; else by (a),(b) $\nu^{1-s}Q^s\ge|A|-\frac{2(s-1)\tau_p}{\nu}\frac{(|A|-c)^2}{|A|}\ge c$ since $0\le|A|-c\le|A|$.
 \end{proof}
 
+\begin{remark}[what the alignment hypothesis costs]
+Numerically (gain\_rays.out, gain\_order.out) the gain $|A|-\nu^{1-s}Q^s$ is of second order in $R=(\sum_{T\ne\emptyset}|\beta_T|^2)^{1/2}$ near the KM2 block for
+\emph{all} phases ($\max g/R\propto\varepsilon$ along random rays, $n=2,3$). The alignment hypothesis of Prop.~\ref{p:al} is therefore an artefact of the
+Frobenius/Schur--Horn method, whose phase term $\sqrt{2(1-|A|/L)}$ is of first order in the phase spread while the true effect is of second order.
+Only the determinantal (Lemma~7) mechanism sees phases exactly. Far from IF the gain is linear in $R$ (a single atom has $g/R=(1-\nu^{1-s})/\sqrt{2^n-1}$).
+\end{remark}
+
 \begin{proposition}[D7, static entropic gain bound; all networks]\label{p:gain}
 For every $\theta$ with $h>0$: $\gamma(\theta;s)\le B_pM(\hat y_\theta)K_{1/s}(p_\theta)^{1-s}$. Hence, with $\nu_\pi(s)=\pi(s)^{-1/(s-1)}\in[1,\nu]$,
 \[\frac{\gamma(\theta;s)}{\pi B_p\Gamma_s}\le\Big(\frac{\nu_\pi K_{1/s}(\hat y_\theta)}{K_{1/s}(p_\theta)}\Big)^{s-1}\frac{M(\hat y_\theta)K_{1/s}(\hat y_\theta)^{1-s}}{\Gamma_s},\]

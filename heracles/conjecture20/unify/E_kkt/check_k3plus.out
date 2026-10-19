@@ -1,0 +1,4 @@
+no-cheap class-C perturbations of IF optima: 190 samples
+  max gamma/(nu^(1-s) B_p Gamma)          = 0.999571  (<= 1)
+  max (h - [bound - detection])/bound      = -3.338e-04  (<= 0: equality forces zero detection, i.e. IF)
+  detection/bound ranges over [6.88e-05, 9.88e-02]; cheapness max 1.000000

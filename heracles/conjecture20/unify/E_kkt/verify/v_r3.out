@@ -1,0 +1,39 @@
+== R3(a)/R13 ==
+(p,n,b)=(5,2,2.3) S=[1, 2] spt y=[1, 2] y=[0.4049 0.4049] h/hIF=1.0000000000 x-dependence 2.4e-15 dual resid 1.1e-15 q* on argmin True KKT resid 2.3e-15 crit-value err 4.4e-16
+      K_l(mu) = [1.25 1.25] ; tau(q*) = 7.905694e-02 vs nu^(nu/2) B_p max K = 7.905694e-02 (rel 0.0e+00); argmax_l K_l = 1 in spt? True
+(p,n,b)=(7,2,2.0) S=[1, 2, 3] spt y=[1, 2, 3] y=[0.19245 0.19245 0.19245] h/hIF=1.0000000000 x-dependence 2.7e-15 dual resid 2.2e-16 q* on argmin True KKT resid 1.7e-15 crit-value err 6.7e-16
+      K_l(mu) = [1.1667 1.1667 1.1667] ; tau(q*) = 4.454354e-02 vs nu^(nu/2) B_p max K = 4.454354e-02 (rel 2.2e-16); argmax_l K_l = 2 in spt? True
+(p,n,b)=(7,3,2.5) S=[1, 3] spt y=[1, 3] y=[0.43104 0.23921] h/hIF=1.0000000000 x-dependence 5.7e-15 dual resid 1.7e-15 q* on argmin True KKT resid 3.4e-15 crit-value err 4.4e-16
+      K_l(mu) = [0.846 1.599 1.055] ; tau(q*) = 1.631636e-02 vs nu^(nu/2) B_p max K = 1.631636e-02 (rel 4.4e-16); argmax_l K_l = 2 in spt? False
+(p,n,b)=(11,2,2.2) S=[1, 2, 4] spt y=[1, 2, 4] y=[0.21436 0.16687 0.29428] h/hIF=1.0000000000 x-dependence 3.9e-15 dual resid 1.1e-16 q* on argmin True KKT resid 1.7e-15 crit-value err 5.6e-16
+      K_l(mu) = [0.9327 0.9971 1.0522 0.8571 1.6608] ; tau(q*) = 3.218891e-02 vs nu^(nu/2) B_p max K = 3.218891e-02 (rel 4.4e-16); argmax_l K_l = 5 in spt? False
+R13 (p,n,b)=(5,3,2.0) S=[1] spt y=[1] y=[1.] h/hIF=1.0000000000 x-dependence 6.0e-15 dual resid 1.1e-16 q* on argmin True KKT resid 3.2e-15 crit-value err 2.2e-16
+      K_l(mu) = [0.691 1.809] ; tau(q*) = 3.618034e-02 vs nu^(nu/2) B_p max K = 3.618034e-02 (rel 4.4e-16); argmax_l K_l = 2 in spt? False
+p=3 (p,n,b)=(3,3,2.5) S=[1] spt y=[1] y=[1.] h/hIF=1.0000000000 x-dependence 2.3e-15 dual resid 2.2e-16 q* on argmin True KKT resid 1.1e-15 crit-value err 6.7e-16
+      K_l(mu) = [1.5] ; tau(q*) = 8.333333e-02 vs nu^(nu/2) B_p max K = 8.333333e-02 (rel 4.4e-16); argmax_l K_l = 1 in spt? True
+== R9: uniform optimal allocations with proper support ==
+p= 7 s=1.8: k=2 spt=[1, 3] max/min y=1.8019 dual resid 1.4e-15; sum_F K = 3.500000 (p/2=3.5); K on S = [0.8318 1.0806] < p/(p-1)=1.1667; mean off-S K = 1.5876; max off = 1.5876; claim(avg off > all on) True
+p= 7 s=2.2: k=2 spt=[1, 3] max/min y=1.8019 dual resid 8.9e-16; sum_F K = 3.500000 (p/2=3.5); K on S = [0.811  1.1181] < p/(p-1)=1.1667; mean off-S K = 1.5709; max off = 1.5709; claim(avg off > all on) True
+p= 7 s=3.0: k=1 spt=[1] max/min y=1.0000 dual resid 1.1e-16; sum_F K = 3.500000 (p/2=3.5); K on S = [0.3765] < p/(p-1)=1.1667; mean off-S K = 1.5617; max off = 1.9010; claim(avg off > all on) True
+p=11 s=1.5: k=2 spt=[1, 3] max/min y=1.5211 dual resid 1.3e-15; sum_F K = 5.500000 (p/2=5.5); K on S = [0.8165 0.7099] < p/(p-1)=1.1000; mean off-S K = 1.3245; max off = 1.7888; claim(avg off > all on) True
+p=11 s=1.8: k=2 spt=[1, 4] max/min y=1.5211 dual resid 1.2e-15; sum_F K = 5.500000 (p/2=5.5); K on S = [0.6956 0.8382] < p/(p-1)=1.1000; mean off-S K = 1.3221; max off = 1.7932; claim(avg off > all on) True
+p=11 s=2.2: k=2 spt=[1, 4] max/min y=1.5211 dual resid 1.4e-15; sum_F K = 5.500000 (p/2=5.5); K on S = [0.6826 0.8581] < p/(p-1)=1.1000; mean off-S K = 1.3198; max off = 1.7973; claim(avg off > all on) True
+p=11 s=3.0: k=2 spt=[1, 4] max/min y=1.5211 dual resid 4.4e-16; sum_F K = 5.500000 (p/2=5.5); K on S = [0.6668 0.882 ] < p/(p-1)=1.1000; mean off-S K = 1.3171; max off = 1.8021; claim(avg off > all on) True
+p=13 s=1.5: k=3 spt=[2, 3, 4] max/min y=1.5150 dual resid 2.2e-16; sum_F K = 6.500000 (p/2=6.5); K on S = [0.8633 0.8078 0.9278] < p/(p-1)=1.0833; mean off-S K = 1.3004; max off = 1.7324; claim(avg off > all on) True
+p=13 s=1.8: k=2 spt=[2, 3] max/min y=1.0000 dual resid 4.4e-16; sum_F K = 6.500000 (p/2=6.5); K on S = [0.6557 0.6557] < p/(p-1)=1.0833; mean off-S K = 1.2972; max off = 1.6628; claim(avg off > all on) True
+p=13 s=2.2: k=2 spt=[2, 3] max/min y=1.0000 dual resid 8.9e-16; sum_F K = 6.500000 (p/2=6.5); K on S = [0.6557 0.6557] < p/(p-1)=1.0833; mean off-S K = 1.2972; max off = 1.6628; claim(avg off > all on) True
+p=13 s=3.0: k=2 spt=[2, 3] max/min y=1.0000 dual resid 5.6e-15; sum_F K = 6.500000 (p/2=6.5); K on S = [0.6557 0.6557] < p/(p-1)=1.0833; mean off-S K = 1.2972; max off = 1.6628; claim(avg off > all on) True
+p=17 s=1.5: k=3 spt=[3, 4, 5] max/min y=1.9495 dual resid 5.6e-16; sum_F K = 8.500000 (p/2=8.5); K on S = [0.6847 0.8234 0.8553] < p/(p-1)=1.0625; mean off-S K = 1.2273; max off = 1.6891; claim(avg off > all on) True
+p=17 s=1.8: k=3 spt=[2, 6, 7] max/min y=1.9495 dual resid 8.9e-16; sum_F K = 8.500000 (p/2=8.5); K on S = [0.842  0.8858 0.6584] < p/(p-1)=1.0625; mean off-S K = 1.2228; max off = 1.6829; claim(avg off > all on) True
+p=17 s=2.2: k=2 spt=[3, 5] max/min y=1.0000 dual resid 7.3e-15; sum_F K = 8.500000 (p/2=8.5); K on S = [0.4876 0.4876] < p/(p-1)=1.0625; mean off-S K = 1.2541; max off = 1.7264; claim(avg off > all on) True
+p=17 s=3.0: k=2 spt=[6, 7] max/min y=1.0000 dual resid 7.7e-15; sum_F K = 8.500000 (p/2=8.5); K on S = [0.4876 0.4876] < p/(p-1)=1.0625; mean off-S K = 1.2541; max off = 1.7264; claim(avg off > all on) True
+p=19 s=1.2: k=6 spt=[1, 2, 3, 6, 7, 8] max/min y=2.6271 dual resid 1.1e-15; sum_F K = 9.500000 (p/2=9.5); K on S = [1.0538 0.9565 0.9281 1.0718 0.9125 0.9961] < p/(p-1)=1.0556; mean off-S K = 1.1937; max off = 1.6024; claim(avg off > all on) True
+p=19 s=1.5: k=3 spt=[1, 4, 6] max/min y=1.4284 dual resid 6.7e-16; sum_F K = 9.500000 (p/2=9.5); K on S = [0.83   0.737  0.7407] < p/(p-1)=1.0556; mean off-S K = 1.1987; max off = 1.7816; claim(avg off > all on) True
+p=19 s=1.8: k=3 spt=[3, 4, 5] max/min y=1.4284 dual resid 1.0e-15; sum_F K = 9.500000 (p/2=9.5); K on S = [0.7282 0.8533 0.7331] < p/(p-1)=1.0556; mean off-S K = 1.1976; max off = 1.7842; claim(avg off > all on) True
+p=19 s=2.2: k=2 spt=[5, 6] max/min y=1.4684 dual resid 1.1e-15; sum_F K = 9.500000 (p/2=9.5); K on S = [0.4302 0.5305] < p/(p-1)=1.0556; mean off-S K = 1.2199; max off = 1.8432; claim(avg off > all on) True
+p=19 s=3.0: k=2 spt=[5, 6] max/min y=1.4684 dual resid 1.8e-15; sum_F K = 9.500000 (p/2=9.5); K on S = [0.421  0.5439] < p/(p-1)=1.0556; mean off-S K = 1.2193; max off = 1.8392; claim(avg off > all on) True
+p=23 s=1.2: k=8 spt=[1, 2, 3, 4, 7, 8, 9, 10] max/min y=3.3425 dual resid 2.2e-16; sum_F K = 11.500000 (p/2=11.5); K on S = [1.1384 0.979  0.931  0.9853 1.1315 0.9482 0.9312 1.055 ] < p/(p-1)=1.0455; mean off-S K = 1.1334; max off = 1.4718; claim(avg off > all on) False
+p=23 s=1.5: k=4 spt=[2, 5, 6, 9] max/min y=2.5798 dual resid 2.2e-16; sum_F K = 11.500000 (p/2=11.5); K on S = [0.7594 0.7539 0.7601 1.034 ] < p/(p-1)=1.0455; mean off-S K = 1.1704; max off = 1.6178; claim(avg off > all on) True
+p=23 s=1.8: k=3 spt=[1, 3, 8] max/min y=1.1543 dual resid 5.6e-16; sum_F K = 11.500000 (p/2=11.5); K on S = [0.652  0.6904 0.6477] < p/(p-1)=1.0455; mean off-S K = 1.1887; max off = 1.7971; claim(avg off > all on) True
+p=23 s=2.2: k=2 spt=[3, 8] max/min y=1.0496 dual resid 4.0e-15; sum_F K = 11.500000 (p/2=11.5); K on S = [0.4318 0.4205] < p/(p-1)=1.0455; mean off-S K = 1.1831; max off = 1.8868; claim(avg off > all on) True
+p=23 s=3.0: k=2 spt=[3, 8] max/min y=1.0496 dual resid 1.1e-15; sum_F K = 11.500000 (p/2=11.5); K on S = [0.433  0.4193] < p/(p-1)=1.0455; mean off-S K = 1.1831; max off = 1.8871; claim(avg off > all on) True

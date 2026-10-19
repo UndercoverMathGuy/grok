@@ -1,0 +1,49 @@
+n=2 m=3 r=1.000: min over exact IF optima of H(esc_r)-log nu = -2.220e-16
+n=2 m=3 r=0.600: min over exact IF optima of H(esc_r)-log nu = -2.220e-16
+n=2 m=3 r=0.667: min over exact IF optima of H(esc_r)-log nu = -2.220e-16
+n=2 m=4 r=1.000: min over exact IF optima of H(esc_r)-log nu = +9.317e-09
+n=2 m=4 r=0.600: min over exact IF optima of H(esc_r)-log nu = +5.121e-09
+n=2 m=4 r=0.667: min over exact IF optima of H(esc_r)-log nu = +1.336e-08
+n=2 m=5 r=1.000: min over exact IF optima of H(esc_r)-log nu = +4.181e-09
+n=2 m=5 r=0.600: min over exact IF optima of H(esc_r)-log nu = +6.638e-08
+n=2 m=5 r=0.667: min over exact IF optima of H(esc_r)-log nu = +2.919e-08
+n=2 m=7 r=1.000: min over exact IF optima of H(esc_r)-log nu = +4.455e-08
+n=2 m=7 r=0.600: min over exact IF optima of H(esc_r)-log nu = +8.286e-08
+n=2 m=7 r=0.667: min over exact IF optima of H(esc_r)-log nu = +6.025e-08
+n=3 m=4 r=1.000: min over exact IF optima of H(esc_r)-log nu = +0.000e+00
+n=3 m=4 r=0.600: min over exact IF optima of H(esc_r)-log nu = +0.000e+00
+n=3 m=4 r=0.500: min over exact IF optima of H(esc_r)-log nu = +0.000e+00
+n=3 m=5 r=1.000: min over exact IF optima of H(esc_r)-log nu = +inf
+n=3 m=5 r=0.600: min over exact IF optima of H(esc_r)-log nu = +2.639e-08
+n=3 m=5 r=0.500: min over exact IF optima of H(esc_r)-log nu = +2.322e-08
+n=3 m=6 r=1.000: min over exact IF optima of H(esc_r)-log nu = +inf
+n=3 m=6 r=0.600: min over exact IF optima of H(esc_r)-log nu = +3.437e-08
+n=3 m=6 r=0.500: min over exact IF optima of H(esc_r)-log nu = +1.267e-07
+n=3 m=8 r=1.000: min over exact IF optima of H(esc_r)-log nu = +inf
+n=3 m=8 r=0.600: min over exact IF optima of H(esc_r)-log nu = +1.678e-07
+n=3 m=8 r=0.500: min over exact IF optima of H(esc_r)-log nu = +8.689e-08
+n=4 m=5 r=1.000: min over exact IF optima of H(esc_r)-log nu = +0.000e+00
+n=4 m=5 r=0.600: min over exact IF optima of H(esc_r)-log nu = +2.220e-16
+n=4 m=5 r=0.400: min over exact IF optima of H(esc_r)-log nu = +0.000e+00
+n=4 m=6 r=1.000: min over exact IF optima of H(esc_r)-log nu = +inf
+n=4 m=6 r=0.600: min over exact IF optima of H(esc_r)-log nu = +7.778e-08
+n=4 m=6 r=0.400: min over exact IF optima of H(esc_r)-log nu = +1.091e-07
+n=4 m=7 r=1.000: min over exact IF optima of H(esc_r)-log nu = +inf
+n=4 m=7 r=0.600: min over exact IF optima of H(esc_r)-log nu = +8.941e-08
+n=4 m=7 r=0.400: min over exact IF optima of H(esc_r)-log nu = +2.192e-07
+n=4 m=9 r=1.000: min over exact IF optima of H(esc_r)-log nu = +inf
+n=4 m=9 r=0.600: min over exact IF optima of H(esc_r)-log nu = +2.263e-07
+n=4 m=9 r=0.400: min over exact IF optima of H(esc_r)-log nu = +3.678e-07
+OVERALL min = -2.220e-16  (E2 predicts >= 0)
+== E2b non-aligned example ==
+  T=(0,): |sum beta_l prod xi| = 4.44e-09
+  T=(1,): |sum beta_l prod xi| = 2.50e-09
+  T=(0, 1): |sum beta_l prod xi| = 3.33e-09
+  H(|beta|) = 0.948612 vs log 3 = 1.098612;  |beta| = 0.12491
+  r=0.667: Lemma 7 sum|b|^r = 1.3901 >= 3^(1-r)|beta|^r = 0.3604
+  r=0.800: Lemma 7 sum|b|^r = 1.2144 >= 3^(1-r)|beta|^r = 0.2359
+  r=1.000: Lemma 7 sum|b|^r = 1.0000 >= 3^(1-r)|beta|^r = 0.1249
+  realised atoms match: 1.67e-16
+  realised beta_(1,(0,)) = 4.44e-09
+  realised beta_(1,(1,)) = 2.50e-09
+  realised beta_(1,(0, 1)) = 3.33e-09

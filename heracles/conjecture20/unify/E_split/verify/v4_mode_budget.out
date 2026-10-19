@@ -1,0 +1,10 @@
+(i)  max [sum|beta|^2 + 2^-n N]/e^2 - 1 over 1280 neurons (p in 3..11, n in 2,3): 1.29e-14
+(ii) max [sum|beta|^r + c_b e^(r-2) 2^-n N]/e^r - 1: 6.66e-16
+b=2 example (p,n)=(7,2): sum|beta|^(2/nu)/e^(2/nu) = 1.000000000000, 2^-n N/e^2 = 0.840000 vs 1-sum a^nu = 0.840000
+b=2 example (p,n)=(11,2): sum|beta|^(2/nu)/e^(2/nu) = 1.000000000000, 2^-n N/e^2 = 0.840000 vs 1-sum a^nu = 0.840000
+b=2 example (p,n)=(7,3): sum|beta|^(2/nu)/e^(2/nu) = 1.000000000000, 2^-n N/e^2 = 0.927800 vs 1-sum a^nu = 0.927800
+p=3, n=2, b=2: min over 400 neurons of [e^r - |beta|^r]/(e^(r-2) 2^-n N) = 0.3560 >= 1/nu = 0.3333
+p=3, n=3, b=2: min over 400 neurons of [e^r - |beta|^r]/(e^(r-2) 2^-n N) = 0.2931 >= 1/nu = 0.2500
+p=3, n=4, b=2: min over 400 neurons of [e^r - |beta|^r]/(e^(r-2) 2^-n N) = 0.2223 >= 1/nu = 0.2000
+(iii) single own feature: max sqrt(Q^2s + 2^-n R^2)/(B P^s) - 1 = -3.12e-06 (<= 0)
+(iii) several features (b>2): max normalised excess = 1.12e-16 (<= 0)

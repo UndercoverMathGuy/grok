@@ -1,0 +1,9 @@
+p=5 n=2 seed=11: gamma/(B_p Gamma_1)=1.000000  beta/(2h/p)=[1. 1.]  max|beta_T|/|beta|=3.1e-08  width>1e-6: 8  H(p)=1.9925 vs log(nu F)=1.7918
+p=5 n=2 seed=12: gamma/(B_p Gamma_1)=0.999999  beta/(2h/p)=[1. 1.]  max|beta_T|/|beta|=3.0e-07  width>1e-6: 8  H(p)=2.0002 vs log(nu F)=1.7918
+p=5 n=2 seed=13: gamma/(B_p Gamma_1)=0.999999  beta/(2h/p)=[1. 1.]  max|beta_T|/|beta|=1.9e-07  width>1e-6: 8  H(p)=1.9231 vs log(nu F)=1.7918
+p=5 n=2 seed=14: gamma/(B_p Gamma_1)=1.000000  beta/(2h/p)=[1. 1.]  max|beta_T|/|beta|=1.7e-08  width>1e-6: 8  H(p)=2.0056 vs log(nu F)=1.7918
+p=3 n=2 seed=21: gamma/(B_p Gamma_1)=0.999999  beta/(2h/p)=[1.]  max|beta_T|/|beta|=3.7e-07  width>1e-6: 5  H(p)=1.4188 vs log(nu F)=1.0986
+p=3 n=2 seed=22: gamma/(B_p Gamma_1)=1.000000  beta/(2h/p)=[1.]  max|beta_T|/|beta|=5.5e-10  width>1e-6: 5  H(p)=1.4974 vs log(nu F)=1.0986
+p=3 n=2 seed=23: gamma/(B_p Gamma_1)=1.000000  beta/(2h/p)=[1.]  max|beta_T|/|beta|=7.0e-09  width>1e-6: 5  H(p)=1.3299 vs log(nu F)=1.0986
+p=7 n=2 seed=31: gamma/(B_p Gamma_1)=0.843745  beta/(2h/p)=[0.6079 1.244  1.5916]  max|beta_T|/|beta|=1.9e-01  width>1e-6: 10  H(p)=2.2566 vs log(nu F)=2.1972
+p=7 n=2 seed=32: gamma/(B_p Gamma_1)=0.842218  beta/(2h/p)=[1.6643 0.5398 1.2607]  max|beta_T|/|beta|=1.7e-01  width>1e-6: 10  H(p)=2.1645 vs log(nu F)=2.1972

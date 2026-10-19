@@ -1,0 +1,2 @@
+lam=[1.       1.01     1.013912]: #programme maximisers=1, supports=[(np.int64(2), np.int64(3))]
+lam=[1.       0.98     0.972427]: #programme maximisers=2, supports=[(np.int64(1), np.int64(3)), (np.int64(1), np.int64(2))]

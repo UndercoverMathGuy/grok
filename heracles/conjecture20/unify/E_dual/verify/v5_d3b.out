@@ -1,0 +1,4 @@
+p=3 n=2: q uniform ALS/(B_p Gamma_1) = 1.00000000 (analytic upper bound 1) ; random q: min ALS lower bound/(B_p Gamma_1) = 1.3885
+p=5 n=2: q uniform ALS/(B_p Gamma_1) = 1.00000000 (analytic upper bound 1) ; random q: min ALS lower bound/(B_p Gamma_1) = 1.2880
+p=7 n=2: q uniform ALS/(B_p Gamma_1) = 1.00000000 (analytic upper bound 1) ; random q: min ALS lower bound/(B_p Gamma_1) = 1.2090
+p=5 n=3: q uniform ALS/(B_p Gamma_1) = 1.00000000 (analytic upper bound 1) ; random q: min ALS lower bound/(B_p Gamma_1) = 1.2542

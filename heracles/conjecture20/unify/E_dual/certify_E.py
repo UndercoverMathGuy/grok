@@ -60,3 +60,8 @@ M = min(ka * yh[0] + kb * yh[1], kb * yh[0] + ka * yh[1])
 DC = M / (yh[0] ** r + yh[1] ** r) ** s / Gam
 print('profile yhat = (%s, %s);  D_C/gamma_IF = %s  <  gamma(theta_v)/gamma_IF = %s  (excess %s)'
       % (mp.nstr(yh[0], 8), mp.nstr(yh[1], 8), mp.nstr(DC, 10), mp.nstr(lev, 10), mp.nstr(lev / DC - 1, 5)))
+# Unimodality (exact): on t in [0,1], R(t) = (ka + t kb)(1+t^{2/3})^{-3/2}/Gamma; with u = t^{1/3},
+# d log R/dt = kb/(ka + u^3 kb) - 1/(u (1+u^2)) vanishes only at u = ka/kb.  So R decreases on [0,(ka/kb)^3] and increases
+# after; R(0) < level, hence R < level on [0,t0) and the least entropy over IF-block decoupled networks at that level is
+# log 3 + H(z(t0)) (H(z(t)) increases on [0,1]; t > 1 is the mirror case).
+print('turning point (ka/kb)^3 = %s, R there = %s' % (mp.nstr((ka / kb) ** 3, 8), mp.nstr(ratio((ka / kb) ** 3), 8)))

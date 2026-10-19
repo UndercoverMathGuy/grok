@@ -1,0 +1,29 @@
+== E1(a),(b): F formulas, tangent intercept, dF/ds, integral identity ==
+  max discrepancy (a),(b) over 5 (p,n) cases incl. p=3: 9.73e-10
+== E1(c): replication with arbitrary cost fractions t (incl. s=1 equality case) ==
+  max error: 2.44e-15;  at s=1 dF for NON-uniform t = 4.4e-16 (equality without uniformity: 'iff' fails at s=1)
+  s=1.2 tau=1e-02: rate (s-1)H_s/H = 0.1436  (s/log(1/tau) = 0.2606)
+  s=1.2 tau=1e-04: rate (s-1)H_s/H = 0.1020  (s/log(1/tau) = 0.1303)
+  s=1.2 tau=1e-08: rate (s-1)H_s/H = 0.0605  (s/log(1/tau) = 0.0651)
+  s=1.2 tau=1e-16: rate (s-1)H_s/H = 0.0293  (s/log(1/tau) = 0.0326)
+  s=2.0 tau=1e-02: rate (s-1)H_s/H = 0.3571  (s/log(1/tau) = 0.4343)
+  s=2.0 tau=1e-04: rate (s-1)H_s/H = 0.1959  (s/log(1/tau) = 0.2171)
+  s=2.0 tau=1e-08: rate (s-1)H_s/H = 0.1030  (s/log(1/tau) = 0.1086)
+  s=2.0 tau=1e-16: rate (s-1)H_s/H = 0.0585  (s/log(1/tau) = 0.0543)
+== E1(d): merging; isolated pair formula; proportional tables via even sign flips ==
+  merge strictly cheaper (s>1): True; isolated-pair F formula max err 1.73e-15
+== E1(e): Sigma elements (global and per-neuron, incl. DC flips) preserve every c_i ==
+  max |c change| and |beta, beta_T change| under random per-neuron flips: 7.11e-15
+== E1(f): split cost / entropy chain rule; b=2 no-DC monotonicity; block split = block-group average ==
+  split formula max err: 8.88e-16
+  block split = block-group average & keeps beta, beta_T: max err 1.78e-15; cost not raised: True
+== E1(g): dilation union ==
+  H additivity err 1.11e-15; h and F lower bounds hold (min slack 2.23e-02), bound >= 0
+== E1(h): cancelling pairs ==
+  N=1: gamma ratio 0.9294 (pred 0.9294), F-F0 = -0.0076
+  N=100: gamma ratio 0.9294 (pred 0.9294), F-F0 = 0.0999
+  N=10000: gamma ratio 0.9294 (pred 0.9294), F-F0 = 0.2102
+== E9: explicit split-entropy decreases ==
+  b=2.0: H(theta) = 0.3046, H(split) = 0.4509
+  b=3.0: H(theta) = 0.1370, H(split) = 0.0959
+  b=2 with DC: H(theta) = 0.6931, H(split) = 0.3046
