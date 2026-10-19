@@ -1,0 +1,60 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+which=L2 mode=sym s=2.0 N=1: best 0.283473
+which=L2 mode=sym s=2.0 N=2: best 0.383693
+which=L2 mode=sym s=2.0 N=3: best 0.383693
+which=L2 mode=sym s=2.0 N=4: best 0.383688
+BEST which=L2 mode=sym s=2.0 value=0.383693 N=2  single-atom: pt=0.750000 L2=0.283473
+  |beta_i|/|A| = [0.52602, 0.52602]
+  arg(beta_i/A) = [0.31583, -0.31583]
+  xi angles = [[5.5705, 5.5705, 5.5705], [4.3155, 4.3155, 4.3155]]
+  |beta_T|/|A| = {'1': 0.61766, '2': 0.61766, '3': 0.61766, '12': 0.0, '13': 0.0, '23': 0.0, '123': 0.61766}
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+which=L2 mode=sym s=1.9 N=1: best 0.269423
+which=L2 mode=sym s=1.9 N=2: best 0.353431
+which=L2 mode=sym s=1.9 N=3: best 0.353431
+which=L2 mode=sym s=1.9 N=4: best 0.353429
+BEST which=L2 mode=sym s=1.9 value=0.353431 N=2  single-atom: pt=0.712825 L2=0.269423
+  |beta_i|/|A| = [0.52133, 0.52133]
+  arg(beta_i/A) = [0.28701, -0.28701]
+  xi angles = [[4.4036, 4.4036, 4.4036], [3.1198, 3.1198, 3.1198]]
+  |beta_T|/|A| = {'1': 0.62425, '2': 0.62425, '3': 0.62425, '12': 0.0, '13': 0.0, '23': 0.0, '123': 0.62425}
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+which=L2 mode=sym s=1.8552 N=1: best 0.262468
+which=L2 mode=sym s=1.8552 N=2: best 0.339378
+which=L2 mode=sym s=1.8552 N=3: best 0.339378
+which=L2 mode=sym s=1.8552 N=4: best 0.339378
+BEST which=L2 mode=sym s=1.8552 value=0.339378 N=2  single-atom: pt=0.694425 L2=0.262468
+  |beta_i|/|A| = [0.51936, 0.51936]
+  arg(beta_i/A) = [0.2739, -0.2739]
+  xi angles = [[5.5917, 5.5917, 5.5917], [4.2948, 4.2948, 4.2948]]
+  |beta_T|/|A| = {'1': 0.62733, '2': 0.62733, '3': 0.62733, '12': 0.0, '13': 0.0, '23': 0.0, '123': 0.62733}
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+which=L2 mode=sym s=1.75 N=1: best 0.244334
+which=L2 mode=sym s=1.75 N=2: best 0.305114
+which=L2 mode=sym s=1.75 N=3: best 0.305114
+which=L2 mode=sym s=1.75 N=4: best 0.305113
+BEST which=L2 mode=sym s=1.75 value=0.305114 N=2  single-atom: pt=0.646447 L2=0.244334
+  |beta_i|/|A| = [0.51509, 0.51509]
+  arg(beta_i/A) = [0.24265, -0.24265]
+  xi angles = [[4.4248, 4.4248, 4.4248], [3.0966, 3.0966, 3.0966]]
+  |beta_T|/|A| = {'1': 0.63493, '2': 0.63493, '3': 0.63493, '12': 0.0, '13': 0.0, '23': 0.0, '123': 0.63493}
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+which=L2 mode=sym s=1.5 N=1: best 0.188982
+which=L2 mode=sym s=1.5 N=2: best 0.216041
+which=L2 mode=sym s=1.5 N=3: best 0.216041
+which=L2 mode=sym s=1.5 N=4: best 0.216041
+BEST which=L2 mode=sym s=1.5 value=0.216041 N=2  single-atom: pt=0.500000 L2=0.188982
+  |beta_i|/|A| = [0.50694, 0.50694]
+  arg(beta_i/A) = [0.16563, -0.16563]
+  xi angles = [[5.6458, 5.6458, 5.6458], [4.2407, 4.2407, 4.2407]]
+  |beta_T|/|A| = {'1': 0.65516, '2': 0.65516, '3': 0.65516, '12': 0.0, '13': 0.0, '23': 0.0, '123': 0.65516}
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+which=L2 mode=sym s=1.25 N=1: best 0.110703
+which=L2 mode=sym s=1.25 N=2: best 0.114938
+which=L2 mode=sym s=1.25 N=3: best 0.114938
+which=L2 mode=sym s=1.25 N=4: best 0.114938
+BEST which=L2 mode=sym s=1.25 value=0.114938 N=2  single-atom: pt=0.292893 L2=0.110703
+  |beta_i|/|A| = [0.5018, 0.5018]
+  arg(beta_i/A) = [0.08474, -0.08474]
+  xi angles = [[5.6857, 5.6857, 5.6857], [4.1997, 4.1997, 4.1997]]
+  |beta_T|/|A| = {'1': 0.67896, '2': 0.67896, '3': 0.67896, '12': 0.0, '13': 0.0, '23': 0.0, '123': 0.67896}

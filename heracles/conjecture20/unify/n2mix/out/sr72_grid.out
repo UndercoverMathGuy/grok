@@ -1,0 +1,6 @@
+/home/user/grok/heracles/conjecture20/unify/n2mix/sr72.py:103: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  self.prob.solve(solver=cp.CLARABEL)
+s=1.22 ledger=blk NG=11: grid sup 0.95672 at (np.float64(0.6), np.float64(0.8), np.float64(0.8))  [149s]
+/home/user/grok/heracles/conjecture20/unify/n2mix/sr72.py:103: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  self.prob.solve(solver=cp.CLARABEL)
+s=1.25 ledger=blk NG=11: grid sup 0.99578 at (np.float64(0.6), np.float64(0.8), np.float64(0.8))  [152s]

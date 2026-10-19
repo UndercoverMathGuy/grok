@@ -1,0 +1,13 @@
+[consistency] p=5 n=2: max |modes->field - field| and own-coefficient identities: 4.38e-16
+[consistency] p=7 n=2: max |modes->field - field| and own-coefficient identities: 8.40e-16
+[consistency] p=5 n=3: max |modes->field - field| and own-coefficient identities: 1.78e-16
+[consistency] p=3 n=2: max |modes->field - field| and own-coefficient identities: 7.64e-16
+[R2] max normalised [non-own - 4(e^2-|beta|^2)] / (B5^2|w|^6) = 4.307e-15 (must be <= 0); own-mass identity err 4.5e-13
+[R3] max rel [sqrt(P1^2+cR^2) - 3^(1-s)B5 P^s] = 4.138e-16 (<=0);  max [||nonown phi|| - R] = -4.021e-02 (<=0)
+[R4] identity err 1.11e-15; max [sum q g - (a + R n)] = -4.188e-01 (<=0); R5 closed form held in 300 cases
+[R12] identity rel err 7.77e-15; aligned test: min q 6.92e-11 (>=0), max [h - bound] -9.896e-01 (<=0)
+[R13] max rel [ledger - 3^(1-s) B_p P^s] over p=5,7,11 = 6.799e-16 (<=0)
+[R17] (|b1|^(2/3)+|b2|^(2/3))/e^(2/3) = 1.000000; total/e^2 = 4.000000; non-own/e^2 = 3.000000
+[R17] non-own modes whose character is +-(feature-2 sign-flip character): [(1, (2, 2), (np.int64(3), np.int64(3))), (1, (2, 6), (np.int64(3), np.int64(0))), (1, (6, 2), (np.int64(0), np.int64(3))), (2, (1, 1), (np.int64(3), np.int64(3))), (2, (1, 5), (np.int64(3), np.int64(0))), (2, (5, 1), (np.int64(0), np.int64(3)))] ... total 6
+[relabel x->3x at p=5] margin diff 0.0e+00; beta'_1 = beta_2 (err 0.0e+00); beta'_2 = conj beta_1 (err 0.0e+00)
+[relabel x->2x at p=7] margin diff 0.0e+00; beta'_1 = conj beta_3 (err 7.9e-17); beta'_2 = beta_1 (err 2.1e-17); beta'_3 = conj beta_2 (err 3.1e-17)

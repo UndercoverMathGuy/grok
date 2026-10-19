@@ -1,0 +1,24 @@
+start 13: gamma/gIF = 0.78176  resid beta_killed = 2.7e-21  |beta_j| = [0.00703 0.     ]
+start 14: gamma/gIF = 0.78176  resid beta_killed = 8.2e-21  |beta_j| = [0.00703 0.     ]
+start 15: gamma/gIF = 0.78176  resid beta_killed = 6.4e-21  |beta_j| = [0.00703 0.     ]
+p=5 kill=[2] b=2.0 s=1.5000 m=6: Gamma_s=0.883883; BEST gamma/gamma_IF (feasible) = 0.78176
+start 7: gamma/gIF = 0.63498  resid beta_killed = 2.6e-18  |beta_j| = [0.00977 0.     ]
+start 8: gamma/gIF = 0.63498  resid beta_killed = 3.4e-18  |beta_j| = [0.00977 0.     ]
+start 9: gamma/gIF = 0.63498  resid beta_killed = 3.2e-18  |beta_j| = [0.00977 0.     ]
+p=5 kill=[2] b=2.5 s=1.2000 m=6: Gamma_s=1.088188; BEST gamma/gamma_IF (feasible) = 0.63498
+start 7: gamma/gIF = 0.78176  resid beta_killed = 9.4e-21  |beta_j| = [0.00703 0.     ]
+start 8: gamma/gIF = 0.78176  resid beta_killed = 5.6e-21  |beta_j| = [0.00703 0.     ]
+start 9: gamma/gIF = 0.78176  resid beta_killed = 1.2e-20  |beta_j| = [0.00703 0.     ]
+p=5 kill=[2] b=2.0 s=1.5000 m=9: Gamma_s=0.883883; BEST gamma/gamma_IF (feasible) = 0.78176
+start 9: gamma/gIF = 0.39415  resid beta_killed = 9.5e-18  |beta_j| = [0.00602 0.      0.     ]
+start 10: gamma/gIF = -0.00000  resid beta_killed = 6.5e-20  |beta_j| = [0.00068 0.00013 0.     ]
+start 11: gamma/gIF = 0.39415  resid beta_killed = 1.0e-17  |beta_j| = [0.00602 0.      0.     ]
+p=7 kill=[3] b=2.5381 s=1.1820 m=6: Gamma_s=0.955250; BEST gamma/gamma_IF (feasible) = 0.85498
+start 7: gamma/gIF = 0.55897  resid beta_killed = 2.6e-21  |beta_j| = [0.00424 0.      0.     ]
+start 8: gamma/gIF = -0.00000  resid beta_killed = 1.2e-20  |beta_j| = [0. 0. 0.]
+start 9: gamma/gIF = 0.55897  resid beta_killed = 1.1e-20  |beta_j| = [0.00424 0.      0.     ]
+p=7 kill=[3] b=2.0 s=1.5000 m=6: Gamma_s=0.673575; BEST gamma/gamma_IF (feasible) = 0.55897
+start 5: gamma/gIF = 0.55897  resid beta_killed = 1.7e-20  |beta_j| = [0.00424 0.      0.     ]
+start 6: gamma/gIF = -0.00000  resid beta_killed = 2.3e-16  |beta_j| = [0. 0. 0.]
+start 7: gamma/gIF = 0.55897  resid beta_killed = 4.4e-21  |beta_j| = [0.00424 0.      0.     ]
+p=7 kill=[2, 3] b=2.0 s=1.5000 m=5: Gamma_s=0.673575; BEST gamma/gamma_IF (feasible) = 0.55897

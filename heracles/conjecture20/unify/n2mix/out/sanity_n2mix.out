@@ -1,0 +1,12 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+L1/L2/L5 done
+L3 done
+L4 done
+  L1 mode formula rel err                   4.381e-16
+  L1 rho >= E sqrt(1-XYY) (viol/e)         -4.660e-04
+  L1 paid <= 4 rho^2 (viol/e^2)            -5.842e-03
+  L2 ledger (rhs-lhs)/lhs                   5.394e-16
+  L5 payment (bound - P)/A                  4.840e-16
+  L3 own coefficient = conj beta_T          0.000e+00
+  L3 identity |lhs-rhs|                     6.237e-15
+  L4 neuron ratio / K_plan                  9.499e-01

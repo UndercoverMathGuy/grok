@@ -1,0 +1,9 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(a) LB_Smin: min(S - LB) = 3.553e-15  violations=0  (18s)
+(b) random/adversarial atom systems done (142s), violations=0
+    single    : n=20  min_s(P_1(s)-F) = -1.1102e-16   min(P_1(3/2)-F) = -1.1102e-16
+    two       : n=30  min_s(P_1(s)-F) = 4.8104e-03   min(P_1(3/2)-F) = 4.8104e-03
+    IF/nearIF : n=20  min_s(P_1(s)-F) = 0.0000e+00   min(P_1(3/2)-F) = 1.2512e-01
+    random    : n=74  min_s(P_1(s)-F) = 0.0000e+00   min(P_1(3/2)-F) = 0.0000e+00
+(c) adversarial min (P_1 - F) over 6 Nelder-Mead runs = 4.9279e-04 (659s)
+TOTAL VIOLATIONS = 0

@@ -1,0 +1,10 @@
+/home/user/grok/heracles/conjecture20/unify/n2mix/rigp.py:84: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  self.prob.solve(solver=cp.CLARABEL)
+  ... boxes 2000 stack 66 fails 0 worst 0.98997 [57s]
+  ... boxes 4000 stack 68 fails 0 worst 0.99000 [114s]
+  ... boxes 8000 stack 70 fails 0 worst 0.99000 [219s]
+  ... boxes 24000 stack 68 fails 0 worst 0.99000 [795s]
+  ... boxes 28000 stack 66 fails 0 worst 0.99000 [970s]
+  ... boxes 32000 stack 66 fails 0 worst 0.99000 [1155s]
+  ... boxes 36000 stack 66 fails 0 worst 0.99000 [1380s]
+  ... boxes 40000 stack 68 fails 0 worst 0.99000 [1595s]

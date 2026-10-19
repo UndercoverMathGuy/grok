@@ -1,0 +1,7 @@
+[R7 chains] entry err 3.6e-15; max[|X'-alpha^{+-1}X| - rho_L] 7.02e-16 (<=0); max rel[L M_r(nu) - P1] 8.66e-11 (<=0)
+[R7 monotone] violations 0/7811
+[R7 (c)] max[closed - brute] 1.56e-08 (<= ~0: closed is a valid lower bound); min 0.00e+00 (grid coarseness)
+[R7 (d) full circle payment] max rel [payment - P1] = 5.275e-06 (<=0 up to grid)
+[R7 (d) disk->circle] max [min_circle Smin - S(interior point)] = -4.44e-16 (<=0)
+[imported c1sharp] max normalised violation over adversarial search (s in [1,1.5]) = 4.728e-16 (<=0)
+[imported Thm A] max normalised violation over adversarial search (s in [1,1.5]) = -2.001e-13 (<=0)

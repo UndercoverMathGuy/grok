@@ -1,0 +1,3 @@
+  ... boxes 500 stack 8 fails 0 [23s]
+  ... boxes 1000 stack 6 fails 0 [44s]
+DONE s in [1,1.27] TARGET=0.9995 ledger=pat: boxes=1100 solves=3326 fails=0 worst=0.99950 [48s]
