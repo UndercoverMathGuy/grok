@@ -1,0 +1,9 @@
+(p,n)=( 5,2): margin>0:True  gamma/gamma_IF=0.1293  L1 ratio=1.491 (formula 2(s-1)sqrt(p) O/(nu*2)=0.745)  (L): lhs=0.504 vs det=0.500 -> fails
+(p,n)=( 7,2): margin>0:True  gamma/gamma_IF=0.2989  L1 ratio=1.764 (formula 2(s-1)sqrt(p) O/(nu*2)=0.882)  (L): lhs=0.596 vs det=0.500 -> fails
+(p,n)=(11,2): margin>0:True  gamma/gamma_IF=0.4465  L1 ratio=2.211 (formula 2(s-1)sqrt(p) O/(nu*2)=1.106)  (L): lhs=0.748 vs det=0.500 -> fails
+(p,n)=(13,2): margin>0:True  gamma/gamma_IF=0.4846  L1 ratio=2.404 (formula 2(s-1)sqrt(p) O/(nu*2)=1.202)  (L): lhs=0.813 vs det=0.500 -> fails
+(p,n)=(17,2): margin>0:True  gamma/gamma_IF=0.5284  L1 ratio=2.749 (formula 2(s-1)sqrt(p) O/(nu*2)=1.374)  (L): lhs=0.929 vs det=0.500 -> fails
+(p,n)=(19,2): margin>0:True  gamma/gamma_IF=0.5422  L1 ratio=2.906 (formula 2(s-1)sqrt(p) O/(nu*2)=1.453)  (L): lhs=0.983 vs det=0.500 -> fails
+(p,n)=( 5,3): margin>0:True  gamma/gamma_IF=0.1273  L1 ratio=2.236 (formula 2(s-1)sqrt(p) O/(nu*2)=1.118)  (L): lhs=0.745 vs det=0.500 -> fails
+(p,n)=( 7,3): margin>0:True  gamma/gamma_IF=0.2692  L1 ratio=2.646 (formula 2(s-1)sqrt(p) O/(nu*2)=1.323)  (L): lhs=0.882 vs det=0.500 -> fails
+(p,n)=(11,3): margin>0:True  gamma/gamma_IF=0.3063  L1 ratio=3.317 (formula 2(s-1)sqrt(p) O/(nu*2)=1.658)  (L): lhs=1.106 vs det=0.500 -> fails

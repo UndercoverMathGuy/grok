@@ -1,0 +1,10 @@
+(p,n)=( 5,2): averaged detection 0.528-0.563 ; true depth 3.394-3.611 (x|beta|kappa_min); payment at b=2: 1-nu^{1-s} = 0.423
+(p,n)=( 7,2): averaged detection 0.693-0.704 ; true depth 5.060-5.399 (x|beta|kappa_min); payment at b=2: 1-nu^{1-s} = 0.423
+(p,n)=(11,2): averaged detection 1.041-1.053 ; true depth 8.392-8.589 (x|beta|kappa_min); payment at b=2: 1-nu^{1-s} = 0.423
+(p,n)=(13,2): averaged detection 1.220-1.232 ; true depth 10.068-10.313 (x|beta|kappa_min); payment at b=2: 1-nu^{1-s} = 0.423
+(p,n)=( 5,3): averaged detection 0.564-0.586 ; true depth 6.862-7.776 (x|beta|kappa_min); payment at b=2: 1-nu^{1-s} = 0.750
+(p,n)=( 7,3): averaged detection 0.728-0.738 ; true depth 11.044-11.531 (x|beta|kappa_min); payment at b=2: 1-nu^{1-s} = 0.750
+(p,n)=( 5,4): averaged detection 0.570-0.598 ; true depth 15.375-16.092 (x|beta|kappa_min); payment at b=2: 1-nu^{1-s} = 0.911
+(p,n)=( 5,5): averaged detection 0.568-0.621 ; true depth 29.880-34.516 (x|beta|kappa_min); payment at b=2: 1-nu^{1-s} = 0.972
+(p,n)=( 5,6): averaged detection 0.570-0.606 ; true depth 63.288-72.590 (x|beta|kappa_min); payment at b=2: 1-nu^{1-s} = 0.992
+(p,n)=( 7,4): averaged detection 0.731-0.748 ; true depth 23.014-24.581 (x|beta|kappa_min); payment at b=2: 1-nu^{1-s} = 0.911

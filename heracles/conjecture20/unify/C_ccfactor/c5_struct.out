@@ -1,0 +1,21 @@
+=== (a) adversarial search: Shapley / isolated-proportional charge rules at P^s-binding offsets (n=2, pi=3^{1-s})
+  (p,n,b)=(7,2,2.0) S=[1, 2, 3] extra=1: max Shapley charge/price = 1.0000 [sh,tm,prop,CD]=(np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(0.2139));  max isolated-proportional charge/price = 1.0000 [sh,tm,prop,CD]=(np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(0.6321))
+  (p,n,b)=(7,2,2.0) S=[1, 2] extra=2: max Shapley charge/price = 1.0000 [sh,tm,prop,CD]=(np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(0.345));  max isolated-proportional charge/price = 1.0000 [sh,tm,prop,CD]=(np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(0.2288))
+  (p,n,b)=(11,2,2.0) S=[1, 2, 4] extra=1: max Shapley charge/price = 1.0000 [sh,tm,prop,CD]=(np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(0.0504));  max isolated-proportional charge/price = 1.0000 [sh,tm,prop,CD]=(np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(0.8996))
+  (p,n,b)=(5,2,2.0) S=[1, 2] extra=2: max Shapley charge/price = 1.0000 [sh,tm,prop,CD]=(np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(0.0572));  max isolated-proportional charge/price = 1.0000 [sh,tm,prop,CD]=(np.float64(1.0), np.float64(1.0), np.float64(1.0), np.float64(0.7066))
+=== (b) single offset pair: no copositive 2x2 form gives a positive weight to an antipodal feature
+  99805 random (copositive Q, antipodal kappa >= 1): positive weights found = 0; acute features with positive weight: 50475
+=== (c) programme maximisers: does every binding offset carry an antipodal support feature (cos(2 pi l d/p) <= 0)?
+  144 (p,s) cases, p in [5,61]; cases with K*>=2 and an all-acute binding offset: 1 [(61, 4.0, 5, 5, 1)]
+  K*=1 cases: []
+=== (d) compensation survival rho(d) = D(d)/sum_l D_l^iso(d) vs DU tightness tau(d) = sum_l E_l kappa_l / sum_l D_l^iso
+  best_cd_p11_n2_b2.0_S1-2-3-4-5_w3_s2.npz: CD=1.00000 max_l,T |beta_lT|/|beta_l|=3.9e-06  at binding d: rho=[0.684 0.684] tau=[-0.314 -0.314]
+  best_cd_p11_n2_b2.0_S1-3-4_w4_s5.npz: CD=0.99999 max_l,T |beta_lT|/|beta_l|=1.2e-05  at binding d: rho=[0.81 0.81] tau=[-0.888 -0.888]
+  best_cd_p11_n2_b2.5_S1-2-4_w4_s3.npz: CD=1.00000 max_l,T |beta_lT|/|beta_l|=1.0e-06  at binding d: rho=[0.721 0.721] tau=[-2.741 -2.741]
+  best_cd_p13_n2_b2.0_S1-2-5_w4_s8.npz: CD=1.00000 max_l,T |beta_lT|/|beta_l|=1.9e-07  at binding d: rho=[0.806 0.806] tau=[-0.783 -0.783]
+  best_cd_p13_n2_b2.2_S1-2-3-4-5-6_w3_s4.npz: CD=1.00000 max_l,T |beta_lT|/|beta_l|=1.1e-05  at binding d: rho=[0.571 0.571] tau=[-0.199 -0.199]
+  best_cd_p5_n3_b2.0_S1-2_w5_s6.npz: CD=1.00000 max_l,T |beta_lT|/|beta_l|=8.5e-08  at binding d: rho=[0.812 0.812] tau=[-2.11 -2.11]
+  best_cd_p7_n2_b2.0_S1-2-3_w4_s0.npz: CD=0.99995 max_l,T |beta_lT|/|beta_l|=2.5e-05  at binding d: rho=[0.686 0.686] tau=[-0.335 -0.335]
+  best_cd_p7_n2_b2.0_S1-2-3_w4_s1.npz: CD=1.00000 max_l,T |beta_lT|/|beta_l|=1.0e-07  at binding d: rho=[0.607 0.607] tau=[-1.371 -1.371]
+  best_cd_p7_n2_b2.5_S1-3_w5_s9.npz: CD=1.00000 max_l,T |beta_lT|/|beta_l|=3.3e-07  at binding d: rho=[0.845 0.845] tau=[-8.186 -8.186]
+  best_cd_p7_n3_b2.0_S1-2-3_w4_s7.npz: CD=1.00000 max_l,T |beta_lT|/|beta_l|=3.2e-07  at binding d: rho=[0.713 0.713] tau=[-0.253 -0.253]

@@ -1,0 +1,9 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(i) 2180 (network, delta) pairs with nonpositive skew at +-delta: max (h - [sum Re A kappa - sigma])/scale = -2.231e-03 (<= 0)
+(ii) 233 networks meeting the closure hypothesis: max h / sum_l at_l kappa_l(d*) = 0.9958 (<= 1)
+   adversarial unbalanced {1},{2},{1,2} family, p=7, s=1.25: max h / sum at kappa(d*) = 1.00000
+   adversarial unbalanced {1},{2},{1,2} family, p=7, s=1.5: max h / sum at kappa(d*) = 1.00000
+   adversarial unbalanced {1},{2},{1,2} family, p=11, s=1.25: max h / sum at kappa(d*) = 1.00000
+   adversarial unbalanced {1},{2},{1,2} family, p=11, s=1.5: max h / sum at kappa(d*) = 1.00000
+   adversarial unbalanced {1},{2},{1,2} family, p=13, s=1.25: max h / sum at kappa(d*) = 1.00000
+   adversarial unbalanced {1},{2},{1,2} family, p=13, s=1.5: max h / sum at kappa(d*) = 1.00000

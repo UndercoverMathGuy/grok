@@ -1,0 +1,45 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+  lm_p5_n2_b2.0_k0.npz: gamma/gamma_IF = 1.0000   FRE/IF = 1.0000
+  lm_p5_n2_b2.0_k1.npz: gamma/gamma_IF = 0.8370   FRE/IF = 0.8370
+  lm_p5_n2_b2.0_k2.npz: gamma/gamma_IF = 1.0000   FRE/IF = 1.0000
+  lm_p5_n2_b2.0_k3.npz: gamma/gamma_IF = 1.0000   FRE/IF = 1.0000
+  lm_p5_n2_b2.0_k4.npz: gamma/gamma_IF = 0.8348   FRE/IF = 0.8348
+  lm_p5_n2_b2.0_k5.npz: gamma/gamma_IF = 1.0000   FRE/IF = 1.0000
+  lm_p5_n3_b2.0_k0.npz: gamma/gamma_IF = 0.9045   FRE/IF = 0.9045
+  lm_p5_n3_b2.0_k1.npz: gamma/gamma_IF = 0.5398   FRE/IF = 0.5398
+  lm_p5_n3_b2.0_k2.npz: gamma/gamma_IF = 0.7653   FRE/IF = 0.7653
+  lm_p5_n3_b2.0_k3.npz: gamma/gamma_IF = 0.9045   FRE/IF = 0.9045
+  lm_p5_n3_b2.0_k4.npz: gamma/gamma_IF = 0.9045   FRE/IF = 0.9045
+  lm_p5_n3_b2.0_k5.npz: gamma/gamma_IF = 0.7653   FRE/IF = 0.7653
+  lm_p5_n3_b2.0_k6.npz: gamma/gamma_IF = 0.7653   FRE/IF = 0.7653
+  lm_p5_n3_b2.0_k7.npz: gamma/gamma_IF = 0.7653   FRE/IF = 0.7653
+  lm_p5_n3_b2.6_k0.npz: gamma/gamma_IF = 0.8029   FRE/IF = 0.8029
+  lm_p5_n3_b2.6_k1.npz: gamma/gamma_IF = 0.8029   FRE/IF = 0.8029
+  lm_p5_n3_b2.6_k2.npz: gamma/gamma_IF = 1.0000   FRE/IF = 1.0000
+  lm_p5_n3_b2.6_k3.npz: gamma/gamma_IF = 1.0000   FRE/IF = 1.0000
+  lm_p5_n3_b2.6_k4.npz: gamma/gamma_IF = 0.7857   FRE/IF = 0.7857
+  lm_p5_n3_b2.6_k5.npz: gamma/gamma_IF = 1.0000   FRE/IF = 1.0000
+  lm_p7_n2_b2.0_k0.npz: gamma/gamma_IF = 0.8743   FRE/IF = 0.8743
+  lm_p7_n2_b2.0_k1.npz: gamma/gamma_IF = 0.7524   FRE/IF = 0.7524
+  lm_p7_n2_b2.0_k2.npz: gamma/gamma_IF = 0.9801   FRE/IF = 0.9801
+  lm_p7_n2_b2.0_k3.npz: gamma/gamma_IF = 0.9801   FRE/IF = 0.9801
+  lm_p7_n2_b2.0_k4.npz: gamma/gamma_IF = 0.8418   FRE/IF = 0.8418
+  lm_p7_n2_b2.0_k5.npz: gamma/gamma_IF = 0.9801   FRE/IF = 0.9801
+  lm_p7_n2_b2.0_k6.npz: gamma/gamma_IF = 0.5604   FRE/IF = 0.5604
+  lm_p7_n2_b2.0_k7.npz: gamma/gamma_IF = 0.9801   FRE/IF = 0.9801
+  viol_p5:0 (mixed): gamma/gamma_IF = 0.7902   FRE/IF = 0.7904
+  viol_p5:1 (mixed): gamma/gamma_IF = 0.7853   FRE/IF = 0.7857
+  viol_p5:2 (mixed): gamma/gamma_IF = 0.7762   FRE/IF = 0.7767
+  viol_p5:3 (mixed): gamma/gamma_IF = 0.9997   FRE/IF = 0.9997
+  viol_p7:0 (mixed): gamma/gamma_IF = 0.7197   FRE/IF = 0.7201
+  viol_p7:1 (mixed): gamma/gamma_IF = 0.8629   FRE/IF = 0.8634
+  viol_p7:2 (mixed): gamma/gamma_IF = 0.8562   FRE/IF = 0.8565
+  viol_p7:3 (mixed): gamma/gamma_IF = 0.9755   FRE/IF = 0.9755
+  viol_p11:0 (mixed): gamma/gamma_IF = 0.6740   FRE/IF = 0.6745
+  viol_p11:1 (mixed): gamma/gamma_IF = 0.6639   FRE/IF = 0.6644
+  viol_p11:2 (mixed): gamma/gamma_IF = 0.6777   FRE/IF = 0.6780
+  viol_p11:3 (mixed): gamma/gamma_IF = 0.4724   FRE/IF = 0.4729
+  max FRE/IF over 40 stored networks: 1.00000
+  p=3 n=11 DC winner (not class C): gamma/gamma_IF = 1.0544  FRE/IF = 1.0579
+  p=3 n=13 DC winner (not class C): gamma/gamma_IF = 1.1092  FRE/IF = 1.1773
+  (5,6) width-6 single feature (DC inputs): gamma/gamma_IF = 0.1772  FRE/IF = 0.1772

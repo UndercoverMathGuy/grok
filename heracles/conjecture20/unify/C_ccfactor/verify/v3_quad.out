@@ -1,0 +1,11 @@
+  cov_err         2.082934081418508e-15
+  cop_min         0.9965803095697909
+  pcm_min         0.7211738364761228
+  Vnorm           1.7082028420907316e-15
+  w_err           6.750155989720952e-14
+  dense           1.2434497875801753e-14
+  lin_min         0.012183803212187625
+  lin_ratio       0.41615490808203975
+  same_feat_viol  0
+  cases           350
+reading: cov_err/Vnorm/w_err/dense ~ 0 (identities); cop_min, pcm_min >= 0 (inequalities hold); lin_min >= 0 (CC11 holds); same_feat_viol counts failures of the excluded same-feature case

@@ -1,0 +1,11 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+viol0: H_2/3(m)=1.537697  gamma_1/B=0.869933
+viol1: H_2/3(m)=1.528468  gamma_1/B=0.860585
+viol2: H_2/3(m)=1.511953  gamma_1/B=0.843534
+KM2 frontier at cap 1.537697: best M = 0.818485
+copy k=1: best gamma_1/B = -0.000000 at H_2/3 = 0.639406 (cap 1.537697, target to beat 0.869933)
+copy k=2: best gamma_1/B = 0.147992 at H_2/3 = 1.385586 (cap 1.537697, target to beat 0.869933)
+copy k=3: best gamma_1/B = 0.035795 at H_2/3 = 1.499774 (cap 1.537697, target to beat 0.869933)
+free k=1: best gamma_1/B = -0.000001 at H_2/3 = 0.283049 (cap 1.537697, target to beat 0.869933)
+free k=2: best gamma_1/B = -0.003834 at H_2/3 = 0.433759 (cap 1.537697, target to beat 0.869933)
+free k=3: best gamma_1/B = 0.428774 at H_2/3 = 1.258835 (cap 1.537697, target to beat 0.869933)

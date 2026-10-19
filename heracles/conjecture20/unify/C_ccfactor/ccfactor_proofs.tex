@@ -1,0 +1,214 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.2cm]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Re}{\operatorname{Re}}
+\newcommand{\Im}{\operatorname{Im}}
+\title{CC-FACTOR: restricted decoupling as a factorisation statement\\
+\small (every odd prime $p$, every $n\ge2$, every $b\in[2,\nu]$; no case analysis)}
+\date{}
+\begin{document}
+\maketitle
+
+\paragraph{Setting.} Notation is that of \texttt{unify/BRIEF.md}; $s=\nu/b\in[1,\nu/2]$, $r=1/s$,
+$\kappa_l(\delta)=1-\cos(2\pi l\delta/p)$, $c_l(\delta)=1-\rho^{-l\delta}$, $M(v)=\min_{\delta\ne0}\sum_l v_l\kappa_l(\delta)$,
+$K_r(q)=e^{H_r(q)}$ (Hill number), $H_r$ the R\'enyi entropy of order $r$.
+A network $\theta$ is in \emph{class C} if each neuron $i$ has all factors in one frequency plane $l(i)\in F$ and no DC.
+For class C put $a_i=\|\omega_i\|^\nu$, $A_l=\sum_{l(i)=l}a_i$, $M_l=A_l/\sum a$, $m^{(l)}_i=a_i/A_l$,
+$P_l=\sum_{l(i)=l}a_i^{r}$ (the $b$-cost of feature $l$), $P=\sum_lP_l$, $K_l=K_r(m^{(l)})$,
+$\hat z_l=P_l^s/\sum_kP_k^s$ (cost profile), $\beta_l$ the clean coefficients, and
+\[
+ e_l:=\frac{\Re\beta_l}{B_pP_l^s}\quad\text{(efficiency of feature $l$ at temperature $s$)},\qquad
+ \delta_{\rm int}:=1-\frac{h}{M(\Re\beta)}\ \ (h\ge0).
+\]
+$\pi$ is the single-feature price of the class under consideration; $W_S$, $\Gamma^{(S)}_s$ as in BRIEF\_CORE.
+
+\section{Accounting}
+
+\begin{theorem}[R\'enyi chain rule = Arimoto]\label{thm:chain}
+For every class-C network and every $s>1$,
+\[
+H_r(m)=H_r(\hat z)+H^{A}_r(N\,|\,L),\qquad H^A_r(N|L)=\frac1{s-1}\log\sum_lM_lK_l^{\,s-1},
+\]
+where $H^A_r(N|L)$ is Arimoto's conditional R\'enyi entropy of order $r$ of the neuron given the feature under $m$, and
+$\hat z_l\propto M_lK_l^{s-1}\propto P_l^s$ is the tilted (escort) feature marginal. Moreover
+$\min_lH_r(m^{(l)})\le H^A_r\le\max_lH_r(m^{(l)})$, and for decoupled networks ($K_l$ constant) $\hat z=M$ and
+the entropy is additive. Equivalently $P^s=\big(\sum_lP_l^s\big)K_r(\hat z)^{s-1}$ and $\sum_lP_l^s=\big(\sum_ia_i\big)e^{(s-1)H^A_r}$.
+\end{theorem}
+\begin{proof}
+$P_l^s=A_lK_l^{s-1}$ (apply $s\log\sum q^r=(s-1)H_r(q)$ to $m^{(l)}$). Hence $\sum_im_i^r=\sum_lM_l^rK_l^{1-r}
+=\sum_l(M_lK_l^{s-1})^r=Z^r\sum_l\hat z_l^r$ with $Z=\sum_lM_lK_l^{s-1}$, because $(s-1)r=1-r$. Taking logarithms and
+dividing by $1-r$ gives the identity, since $r/(1-r)=1/(s-1)$. Arimoto's quantity of order $\alpha$ is
+$\frac{\alpha}{1-\alpha}\log\sum_lM_l\big(\sum_i(m^{(l)}_i)^\alpha\big)^{1/\alpha}$, and $(\sum_i(m^{(l)}_i)^r)^{1/r}=K_l^{(1-r)/r}=K_l^{s-1}$.
+The bounds are those of a power mean. The two cost identities are the same algebra applied to $(P_l)$.
+\end{proof}
+
+\begin{theorem}[Factorised convex-plus-correction identity]\label{thm:fact}
+For every class-C network with $h\ge0$ and every $s\ge1$,
+\[
+\boxed{\ \gamma(\theta;s)=B_p\,(1-\delta_{\rm int})\,M(e\circ\hat z)\,K_r(\hat z)^{1-s},\qquad
+e_l=\big[1-\mathbb E_{m^{(l)}}\sigma\big]\,e^{-(s-1)H_r(m^{(l)})}\ }
+\]
+where $\sigma_i$ is the per-neuron misalignment of \texttt{C\_cc/IDENTITY.md}. Equivalently
+$\gamma=B_p\,\Pi_{\rm feat}(\hat z)\,\Pi_{\rm within}(\theta)$ with $\Pi_{\rm feat}(\hat z)=M(\hat z)K_r(\hat z)^{1-s}\le\Gamma^{(S)}_s$ and
+$\Pi_{\rm within}=h/(B_pM(P^s))=(1-\delta_{\rm int})M(e\circ\hat z)/M(\hat z)$. The terms of IDENTITY.md read
+$1-\mathbb E_m\sigma=\mathbb E_{\hat z}[e]\,e^{(s-1)H^A_r}$, $d_{\rm prog}=(1-\mathbb E_m\sigma)(1-M(\hat y)/\Gamma_1)$,
+$d_{\rm int}=(1-\mathbb E_m\sigma)\,(M(\hat y)/\Gamma_1)\,\delta_{\rm int}$ with $\hat y\propto\Re\beta\propto e\circ\hat z$.
+\end{theorem}
+\begin{proof}
+$B_pM(e\circ\hat z)=M(\Re\beta)/\sum_kP_k^s$ (homogeneity, $e_l\hat z_l=\Re\beta_l/(B_p\sum P^s)$), and
+$K_r(\hat z)^{1-s}=\sum_kP_k^s/P^s$ (Theorem~\ref{thm:chain}); so the right side is $(h/M(\Re\beta))\cdot M(\Re\beta)/P^s=h/P^s$.
+The formula for $e_l$: $\Re\beta_l=\sum_{l(i)=l}\Re\beta_{il}=B_pA_l(1-\mathbb E_{m^{(l)}}\sigma)$ and $P_l^s=A_lK_l^{s-1}$.
+$\Pi_{\rm feat}\le\Gamma^{(S)}_s$ is E\_dual D1(iv). The translation to IDENTITY.md: $1-\mathbb E_m\sigma=\sum\Re\beta/(B_p\sum a)
+=\sum_le_lP_l^s/\sum a$ and Theorem~\ref{thm:chain}; $d_{\rm prog},d_{\rm int}$ follow from their definitions and
+$M(\Re\beta)=(\sum\Re\beta)M(\hat y)$.
+\end{proof}
+
+\begin{corollary}\label{cor:nocheap}
+(i) $\mathrm{RD}$ at $\theta$ $\iff(1-\delta_{\rm int})M(e\circ\hat z)K_r(\hat z)^{1-s}\le\pi\Gamma^{(S)}_s$.
+(ii) Canonical decoupling $\mathrm{CD}$: $h\le\pi B_pM(P^s)$ $\iff(1-\delta_{\rm int})M(e\circ\hat z)\le\pi M(\hat z)$, and CD$\Rightarrow$RD at $\theta$.
+(iii) If no feature is cheap at price $\pi$ ($e_l\le\pi$ for all $l$), CD holds.
+(iv) Decoupled networks (relabelled scaled copies of an optimal single feature, ANY allocation) have $\Pi_{\rm within}\ge\pi$;
+if that feature is interference-free (the KM2 block: always at $n=2$, and wherever $\pi=\nu^{1-s}$) then $e_l\equiv\pi$,
+$\delta_{\rm int}=0$ and $\Pi_{\rm within}=\pi$: CD is an equality on the whole decoupled manifold.
+\end{corollary}
+\begin{proof} (i),(ii) rewrite Theorem~\ref{thm:fact}; CD$\Rightarrow$RD because $M(P^s)\le\Gamma^{(S)}_sP^s$
+(take $y=P^s$, $\sum y^r=P$). (iii) $M$ is monotone and $\delta_{\rm int}\ge0$ (Lemma 2). (iv) gaps of a union add and the
+optimal (cone) feature has profile $\ge\pi\kappa_1$ in every direction (cone lemma, $|\cot(\pi l/p)|\le\cot(\pi/p)$; GLOBAL R8(a)),
+so $h\ge\pi B_pM(P^s)$. For IF copies the gaps are constant in $x$ and equal $\pi B_pP_l^s\kappa_l$, so equality holds. (For a
+non-IF optimal feature, copies may compensate each other in $x$ and $\Pi_{\rm within}>\pi$ is not excluded; then CD fails.)\end{proof}
+
+\begin{proposition}[Two-level variational formula]\label{prop:var}
+For $\hat z\in\Delta_S$ let $\omega_S(\hat z)=\sup\{\Pi_{\rm within}(\theta):\theta\in N^C_S,\ h(\theta)>0,\ \hat z(\theta)=\hat z\}$. Then
+\[W^C_S(s)=B_p\sup_{\hat z\in\Delta_S}\Pi_{\rm feat}(\hat z)\,\omega_S(\hat z),\qquad \omega_S\ge\pi^C,\qquad\omega_S(e_l)=\pi^C .\]
+RD$_S$ (class C) $\iff\omega_S(\hat z)\le\pi^C\Gamma^{(S)}_s/\Pi_{\rm feat}(\hat z)$ for all $\hat z$; CD on $N^C_S\iff\omega_S\equiv\pi^C$.
+RD forces $\omega_S=\pi^C$ only at programme maximisers; CD (exact factorisation) forces it at every allocation.
+\end{proposition}
+\begin{proof} Theorem~\ref{thm:fact} for each $\theta$; $\omega\ge\pi^C$ by Corollary~\ref{cor:nocheap}(iv) with an optimal class-C
+single feature (attained, GLOBAL R2); at a vertex $e_l$ the network is a single feature and $M(P^s)=\kappa_{\min}P_l^s$.\end{proof}
+
+\begin{remark}[general networks, any allocation]
+For an arbitrary network and ANY allocation $\tilde P\ge0$ with $\sum_l\tilde P_l=P_b(\theta)$ the same algebra gives
+$\gamma=B_p\,\Pi_{\rm feat}(\tilde z)\,h/(B_pM(\tilde P^s))$, $\tilde z\propto\tilde P^s$. RD holds at $\theta$ iff CD holds for SOME
+allocation (take $\tilde P_l=P_b\,(y^*_l)^r$). A factorisation theorem therefore has content only for a canonical allocation.
+For class C the canonical one is $\tilde P=P$; for general networks the natural canonical choices (frequency pieces rescaled to
+the full neuron cost, or atom costs $Q_l$) FAIL (Section~\ref{sec:ref}).
+\end{remark}
+
+\section{Charging the interference: the reduction}
+
+\begin{theorem}[KKT charges are cost-proportional]\label{thm:kkt}
+Let $\theta$ be a KKT point of $\gamma(\cdot;s)$ with $h>0$, normalised to $P_b=1$, with Fritz--John measure $q^*$ (E\_dual D3c).
+Then for every neuron $\mathbb E_{q^*}[g(T_i)]=h\,a_i^{\,r}$, where $g(T_i)$ is the gap function of neuron $i$'s table.
+Hence every set $J$ of neurons is charged $h\sum_{i\in J}a_i^r$; in class C feature $l$ is charged $hP_l$.
+Consequently any per-feature inequality $\mathbb E_{q^*}g_l\le\Lambda P_l$ is equivalent, at that point, to $\gamma\le\Lambda$:
+the KKT ($\delta$-marginal) charge rule is circular.
+\end{theorem}
+\begin{proof} D3c: neurons are balanced and $t_i=\mathbb E_{q^*}g(\hat u_{i1},\dots,\hat w_i)=h\nu^{\nu/2}a_i^{r-1}$. By multilinearity
+$\mathbb E_{q^*}g(T_i)=(\|\omega_i\|/\sqrt\nu)^\nu t_i=\nu^{-\nu/2}a_i\,h\nu^{\nu/2}a_i^{r-1}=ha_i^r$.\end{proof}
+
+\begin{definition}[pair quantities, charge rules]
+For $\delta\ne0$: $\bar R(\delta)=\sum_l\Re\beta_l\kappa_l(\delta)$ (the $\pm\delta$ mean of the gaps), $G(\delta)=\min_xg(x,\delta)$,
+$h_\delta=\min(G(\delta),G(-\delta))\ge h$, pair depth $X(\delta)=\bar R-h_\delta$, symmetric depth $D(\delta)=\bar R-\tfrac12(G(\delta)+G(-\delta))\le X(\delta)$,
+excess $E_l=\Re\beta_l-\pi B_pP_l^s$, isolated depth $D_l^{\rm iso}$ (the same with feature $l$ alone).
+A charge rule assigns $D_l(\delta)$ with $\sum_lD_l(\delta)=X(\delta)$ (or $=D(\delta)$). The within-feature charged inequality is
+\[(\mathrm{WF}_l(\delta))\qquad D_l(\delta)\ge E_l\kappa_l(\delta)\iff\big[1-\mathbb E_{m^{(l)}}\sigma-d_l\big]e^{-(s-1)H_r(m^{(l)})}\le\pi,
+\quad d_l=\tfrac{D_l(\delta)}{B_pA_l\kappa_l(\delta)} ,\]
+i.e. the per-feature IDENTITY with the feature's charged interference; with no background and $\delta=\pm l^{-1}$ it is the definition of $\pi$.
+\end{definition}
+
+\begin{theorem}[Reduction]\label{thm:red}
+For every class-C $\theta\in N_S$ and every charge rule:
+$\mathrm{WF}_l(\delta_0)\ \forall l$ at one $\delta_0\in\Delta(P^s)=\arg\min_\delta\sum_lP_l^s\kappa_l(\delta)$
+$\Rightarrow$ $\mathrm{CD}_{\rm pair}(\delta_0)$: $X(\delta_0)\ge\sum_lE_l\kappa_l(\delta_0)$ $\Rightarrow$ CD $\Rightarrow$ RD$_S$ at $\theta$.
+Conversely $\mathrm{CD}_{\rm pair}(\delta_0)$ implies $\mathrm{WF}$ for the free rule $D_l=E_l\kappa_l(\delta_0)+\frac1{|S|}(X-\sum_kE_k\kappa_k)$.
+So the weakest charged within-feature inequality implying RD is $\mathrm{CD}_{\rm pair}$ at a $P^s$-binding pair, an aggregate.
+Its exact factorised form (symmetric version): with $\rho(\delta)=D(\delta)/\sum_lD^{\rm iso}_l(\delta)\in[0,1]$ (compensation survival)
+and $\bar\tau(\delta)=\sum_lE_l\kappa_l(\delta)/\sum_lD^{\rm iso}_l(\delta)$ (iso-depth weighted DU tightness),
+$\ D(\delta)\ge\sum_lE_l\kappa_l(\delta)\iff\rho(\delta)\ge\bar\tau(\delta)$.
+\end{theorem}
+\begin{proof} Summing $\mathrm{WF}$: $X(\delta_0)\ge\sum E_l\kappa_l(\delta_0)$, i.e. $h\le h_{\delta_0}\le\sum_l(\Re\beta_l-E_l)\kappa_l(\delta_0)
+=\pi B_p\sum_lP_l^s\kappa_l(\delta_0)=\pi B_pM(P^s)$; then Corollary~\ref{cor:nocheap}(ii). The converse is immediate. $\rho\le1$ because
+the minimum of a sum is at least the sum of minima; the last equivalence divides by $\sum_lD_l^{\rm iso}>0$.\end{proof}
+
+\begin{proposition}[CD forces direction-uniform prices]\label{prop:du}
+Let $p\ge5$ and suppose CD holds on $N_F$ (all frequencies allowed). Then for every single feature $\theta_1$ (frequency 1) and every
+$l\not\equiv\pm1$: $\min\big(m_{\theta_1}(l),m_{\theta_1}(-l)\big)\le\pi\,\kappa_1(l)\,B_pP_b(\theta_1)^s$, where $m(l)=\min_xg(x,l)$.
+(RD does not give this: the construction below has allocation slack $\Gamma_s-\kappa_{\min}>0$.)
+\end{proposition}
+\begin{proof} Pick $j\in F$, $\delta_0=j^{-1}l$, $k\equiv\pm jl^{-1}$ ($k\not\equiv\pm j$ as $l\not\equiv\pm1$), so $k\delta_0\equiv\pm1$.
+Let $\theta=\theta_1^{(j)}$ (relabelled, cost $\varepsilon$) $\cup$ an optimal feature at $k$ (cost $1$, attained). Gaps add, so
+$h\ge B_p\min_\delta[\varepsilon^s\hat m(j\delta)+\hat m_{\rm opt}(k\delta)]$ with $\hat m_{\rm opt}\ge\pi\kappa_1$ in every direction. For
+$\varepsilon^s<\frac12(\kappa_1(2)-\kappa_1(1))$ the unique binding pair of $P^s$ is $\pm\delta_0$, $M(P^s)=\kappa_{\min}+\varepsilon^s\kappa_1(l)$,
+and every $\delta\ne\pm\delta_0$ gives a value $\ge\pi B_p(\kappa_{\min}+{\rm gap})>\pi B_pM(P^s)$ for small $\varepsilon$. If
+$\min\hat m(\pm l)>\pi\kappa_1(l)$, also $\delta=\pm\delta_0$ exceed $\pi B_pM(P^s)$, contradicting CD.\end{proof}
+
+\section{Detection at a binding pair: what the per-feature tools give, and where they stop}
+
+\begin{theorem}[Copositive second-moment lemma; joint pair cone moment]\label{thm:jcm}
+For class C, every $\Delta\subseteq\mathbb Z_p^*$, every copositive $Q\in\mathbb R^{\Delta\times\Delta}$ and $h_\Delta=\min_{x,a\in\Delta}g(x,a)$:
+\[\sum_{a,b\in\Delta}Q_{ab}(\bar g_a-h_\Delta)(\bar g_b-h_\Delta)\ \ge\ -\tfrac12\sum_lV_l\langle Q,\Psi^{(l)}\rangle,\qquad
+\Psi^{(l)}_{ab}=\Re\big(c_l(a)\overline{c_l(b)}\big)=\kappa_l(a)+\kappa_l(b)-\kappa_l(a-b),\]
+$V_l=\mathbb E_x|\Phi_l-\mathbb E\Phi_l|^2=\sum_{T\ne\emptyset}|\beta_{l,T}|^2$. For $\Delta=\{\pm\delta\}$, $Q=\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix}$:
+\[(\bar R(\delta)-h_\delta)^2\ \ge\ \bar I(\delta)^2+\sum_l\kappa_l(\delta)\cos(2\pi l\delta/p)\,V_l ,\qquad \bar I=-\textstyle\sum_l\Im\beta_l\sin(2\pi l\delta/p).\]
+For one feature at $\delta=l^{-1}$ this is exactly E\_width W8(i): $V\le k_px^2|A|^2$.
+\end{theorem}
+\begin{proof} $g(x,\cdot)-h_\Delta\ge0$ on $\Delta$, so $\mathbb E_x\sum Q_{ab}(g_a-h)(g_b-h)\ge0$; expand into means and covariances.
+In class C the fluctuations $f_l=\Phi_l-\mathbb E\Phi_l$ live on the characters $2l\mathbf 1_T$, so $\mathbb Ef_l^2=0$ (circular) and
+$\mathbb Ef_lf_k=\mathbb Ef_l\bar f_k=0$ ($l\ne k$); hence ${\rm Cov}(g_a,g_b)=\sum_lV_l\Re(c_l(a)\overline{c_l(b)})/2$.
+For the pair, $g(x,\pm\delta)=R\mp I$ with $R=\sum\Re\Phi_l\kappa_l$, $I=\sum\Im\Phi_l\sin\phi_l$; $\Re(c^2)=\kappa^2-\sin^2\phi=-2\kappa\cos\phi$.
+W8(i): $\kappa=1-\cos(2\pi/p)$, $x=1-h_\delta/(\kappa|A|)$, so $V\le\kappa x^2|A|^2/\cos(2\pi/p)=k_px^2|A|^2$.\end{proof}
+
+\begin{proposition}[Single-pair blindness]\label{prop:blind}
+On $\Delta=\{\pm\delta\}$ the weight of feature $l$ is $w_l(Q)=-\kappa_l[(Q_{++}+Q_{--})+2Q_{+-}(\kappa_l-1)]$. No copositive $Q$ gives
+$w_l>0$ to an antipodal feature ($\kappa_l(\delta)\ge1$, i.e. $\cos(2\pi l\delta/p)\le0$); acute features are detected by $Q_{+-}>0$,
+and then antipodal features enter with NEGATIVE weight (they compensate).
+\end{proposition}
+\begin{proof} $w_l>0$ with $\kappa_l\ge1$ needs $Q_{+-}<0$ and $2|Q_{+-}|(\kappa_l-1)>Q_{++}+Q_{--}\ge2\sqrt{Q_{++}Q_{--}}\ge2|Q_{+-}|$
+(copositivity), i.e. $\kappa_l>2$, impossible.\end{proof}
+
+\begin{proposition}[Dense blindness]\label{prop:dense}
+For every $p$ and every $\Delta$: $\sum_{l\in F}\Psi^{(l)}\big|_\Delta=\tfrac p2(I+J)$, which is completely positive. Hence for every
+class-C network whose fluctuation energies are equal on all of $F$, every copositive second-moment inequality on every offset set is
+vacuous (its right side is $\le0$). In particular no second-moment argument detects interference spread evenly over all features.
+\end{proposition}
+\begin{proof} $\sum_{l=1}^F\kappa_l(a)=p/2$ for $a\ne0$, and $\kappa_l(0)=0$. $I+J=\sum_ae_ae_a^T+\mathbf1\mathbf1^T$ is completely positive,
+so $\langle Q,I+J\rangle\ge0$ for every copositive $Q$ (CP is the dual cone of COP).\end{proof}
+
+\begin{lemma}[Background-immune additive linear detection]\label{lem:lin}
+For class C, distinct features $l_1,\dots,l_k$ and pairwise disjoint nonempty slot sets $T_1,\dots,T_k$ ($k\le n$), every $\delta$:
+\[D(\delta)\ \ge\ \sum_{i=1}^k|\beta_{l_i,T_i}|\,|\sin(\pi l_i\delta/p)| ,\]
+whatever the other features are. With overlapping slot sets the product test acquires the characters $2(l\pm l')\mathbf 1_T$
+(same slot set), which are feature characters exactly when $l\pm l'\equiv\pm k$, $k\in S$ (relations).
+\end{lemma}
+\begin{proof} $w(x)=\prod_i\big(1-\cos(2\pi\langle 2l_i\mathbf1_{T_i},x\rangle/p+\psi_i)\big)\ge0$. Every product character
+$\sum_{i\in I}\sigma_i2l_i\mathbf1_{T_i}$ ($|I|\ge2$) has the value $2\sigma_il_i$ on $T_i$, not constant over its support (distinct
+features), so it is neither $0$ nor $\pm$ a feature character $2k\mathbf 1_{T''}$: $\mathbb Ew=1$ and only the $|I|=1$ terms pair with
+$g(\cdot,\pm\delta)$. The coefficient of $g(\cdot,\delta)$ at $2l\mathbf1_T$ has modulus $|\beta_{l,T}||c_l(\delta)|/2=|\beta_{l,T}||\sin(\pi l\delta/p)|$;
+optimise the phases separately for $\pm\delta$ and use $G(\pm\delta)\le\mathbb E[wg(\cdot,\pm\delta)]$.\end{proof}
+
+\section{Refutations and numerical facts (scripts in this directory)}\label{sec:ref}
+\begin{itemize}
+\item REFUTED: argmin (test-measure) and Shapley charge rules as single-feature-with-background inequalities. Certified network at
+$(5,2,2)$ (\texttt{c9\_cex.py}, exact margins, 50 digits): CD ratio $0.9416$, cheap feature (one neuron, $e_1/\pi=\sqrt3$) charged
+$6.266$ (argmin) and $2.394$ (Shapley) times its price at both $P^s$-binding offsets; adding it lowers the background's depth
+($v(12)=1.768<v(2)=1.929$).
+\item REFUTED for general networks: canonical CD with frequency-piece or atom-cost allocations. SPLIT violators $1.027$--$1.106$;
+numerical LOCAL MAXIMISERS of $\gamma$ at $(5,2,2)$ and $(7,2,2)$ with CD ratio $1.0146$, $1.0098$ (\texttt{c4\_facts}, \texttt{c10\_lm7}).
+Optimal reallocation of shared neurons restores CD (equivalent to RD there).
+\item NUMERICAL: CD in class C. Adversarial searches at $(7,2)$, $(11,2)$, $(13,2)$, $(5,3)$, $(7,3)$, $b\in\{2,2.2,2.5\}$, many supports:
+maximum $1.00000$, attained by decoupled networks at NON-optimal allocations (RD ratio down to $0.82$): $\omega_S(\hat z)=\pi$ off the
+optimum. Widths $<\nu$ (all features cheap): maximum $0.23$--$0.55$.
+\item NUMERICAL: at the binding offsets of programme maximisers ($p\le61$, 9 values of $s$): an antipodal support feature at every
+binding offset in 143/144 cases; joint detection by one entrywise-nonnegative $Q$ fails in 135/144 cases, while each feature is
+individually detectable in all 144.
+\item $p=3$: CD with $\pi$ is the definition of $\pi$; with $\nu^{1-s}$ it fails at all certified winners ($1.054$--$1.457$); every
+acute/copositive statement above is vacuous at $p=3$ ($\cos(2\pi/3)<0$).
+\end{itemize}
+\end{document}

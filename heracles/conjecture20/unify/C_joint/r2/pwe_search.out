@@ -1,0 +1,11 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(p,n,s)=(7,2,1.5): max FRE/IF = 0.97998  (its h/IF = 0.97998, interference share 0.000)
+(p,n,s)=(11,2,1.5): max FRE/IF = 0.99996  (its h/IF = 0.99996, interference share 0.000)
+(p,n,s)=(13,2,1.5): max FRE/IF = 0.99783  (its h/IF = 0.99782, interference share 0.000)
+(p,n,s)=(17,2,1.5): max FRE/IF = 0.98607  (its h/IF = 0.98600, interference share 0.000)
+(p,n,s)=(19,2,1.5): max FRE/IF = 0.99051  (its h/IF = 0.99044, interference share 0.000)
+(p,n,s)=(23,2,1.5): max FRE/IF = 0.94911  (its h/IF = 0.94911, interference share 0.000)
+(p,n,s)=(13,3,2.0): max FRE/IF = 0.99983  (its h/IF = 0.99983, interference share 0.000)
+(p,n,s)=(17,3,2.0): max FRE/IF = 0.93473  (its h/IF = 0.93473, interference share 0.000)
+(p,n,s)=(13,5,3.0): max FRE/IF = 0.75776  (its h/IF = 0.75776, interference share 0.000)
+(p,n,s)=(19,2,1.2): max FRE/IF = 0.98862  (its h/IF = 0.98780, interference share 0.004)

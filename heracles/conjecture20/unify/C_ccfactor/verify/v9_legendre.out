@@ -1,0 +1,3 @@
+p=61: pair cone moment fraction: max over delta = -0.0167 (at delta=1), at delta=1: -0.0167; min off-diagonal of sum_l V_l Psi^(l) = +3.2787e-02 (relative +0.001)
+p=101: pair cone moment fraction: max over delta = -0.0100 (at delta=1), at delta=1: -0.0100; min off-diagonal of sum_l V_l Psi^(l) = +1.9802e-02 (relative +0.000)
+p=401: pair cone moment fraction: max over delta = -0.0025 (at delta=1), at delta=1: -0.0025; min off-diagonal of sum_l V_l Psi^(l) = +4.9875e-03 (relative +0.000)

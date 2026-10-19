@@ -1,0 +1,2 @@
+zero-sum triples enumerated: 3552; type A: 2640; type B: 912; neither: 0 (must be 0)
+balanced (common-set) families: max |E d_d^3 + E d_-d^3| / sigma^3 = 1.63e-14 (must be 0)

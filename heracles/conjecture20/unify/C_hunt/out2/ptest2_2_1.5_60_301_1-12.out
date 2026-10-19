@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/user/grok/heracles/conjecture20/unify/C_hunt/ptest2.py", line 67, in <module>
+    b_, ph_ = parts(best[4], best[3])
+                    ~~~~^^^
+IndexError: tuple index out of range

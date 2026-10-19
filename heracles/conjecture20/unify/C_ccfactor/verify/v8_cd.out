@@ -1,0 +1,33 @@
+=== (a) stored best_cd networks
+  best_cd_p11_n2_b2.0_S1-2-3-4-5_w2_s12.npz: CD ratio 0.517636
+  best_cd_p11_n2_b2.0_S1-2-3-4-5_w3_s2.npz: CD ratio 0.999999
+  best_cd_p11_n2_b2.0_S1-3-4_w4_s5.npz: CD ratio 0.999994
+  best_cd_p11_n2_b2.5_S1-2-3-4-5_w2_s14.npz: CD ratio 0.458350
+  best_cd_p11_n2_b2.5_S1-2-4_w4_s3.npz: CD ratio 0.999996
+  best_cd_p13_n2_b2.0_S1-2-3-4-5-6_w2_s13.npz: CD ratio 0.545377
+  best_cd_p13_n2_b2.0_S1-2-5_w4_s8.npz: CD ratio 1.000000
+  best_cd_p13_n2_b2.2_S1-2-3-4-5-6_w3_s4.npz: CD ratio 0.999998
+  best_cd_p5_n3_b2.0_S1-2_w3_s16.npz: CD ratio 0.235207
+  best_cd_p5_n3_b2.0_S1-2_w5_s6.npz: CD ratio 0.999999
+  best_cd_p7_n2_b2.0_S1-2-3_w2_s11.npz: CD ratio 0.358718
+  best_cd_p7_n2_b2.0_S1-2-3_w4_s0.npz: CD ratio 0.999953
+  best_cd_p7_n2_b2.0_S1-2-3_w4_s1.npz: CD ratio 1.000000
+  best_cd_p7_n2_b2.5_S1-3_w5_s9.npz: CD ratio 0.999995
+  best_cd_p7_n3_b2.0_S1-2-3_w3_s15.npz: CD ratio 0.318366
+  best_cd_p7_n3_b2.0_S1-2-3_w4_s7.npz: CD ratio 0.999999
+=== (b) CD search at (5,2,2), S={1,2}
+  rep 0: max CD ratio found = 0.999926
+  rep 1: max CD ratio found = 0.999929
+  rep 2: max CD ratio found = 1.000000
+  rep 3: max CD ratio found = 0.999929
+  rep 4: max CD ratio found = 0.999911
+  rep 5: max CD ratio found = 0.999826
+  rep 6: max CD ratio found = 0.999850
+  rep 7: max CD ratio found = 0.999797
+  rep 8: max CD ratio found = -0.000000
+  rep 9: max CD ratio found = 0.999820
+  rep 10: max CD ratio found = 0.999925
+  rep 11: max CD ratio found = 0.999935
+  rep 12: max CD ratio found = 0.999790
+  rep 13: max CD ratio found = 0.999850
+  best CD ratio at (5,2,2) S={1,2}: 1.000000

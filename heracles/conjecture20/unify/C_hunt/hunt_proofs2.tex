@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\title{C\_hunt (resumed): the consistent-family detection lemma and the L2 relaxation used as a safety map}
+\date{}
+\begin{document}
+\maketitle
+
+\noindent Notation as in \texttt{unify/BRIEF.md} and \texttt{hunt\_proofs.tex}: $p$ an odd prime, $\rho=e^{2\pi i/p}$, $F=\{1,\dots,\frac{p-1}2\}$,
+$n\ge2$, $\nu=n+1$, $b\in[2,\nu]$, $s=\nu/b$, $\kappa_l(\delta)=1-\cos(2\pi l\delta/p)$, $c_l(\delta)=1-\rho^{-l\delta}$ (so $|c_l(\delta)|^2=2\kappa_l(\delta)$).
+A class-$\mathcal C$ network has fields
+\[
+\Phi_l(x)=A_l+\sum_{\emptyset\neq T\subseteq[n]}a_{l,T}\,\chi_{l,T}(x),\qquad \chi_{l,T}(x)=\rho^{2l\,\mathbf 1_T\cdot x},
+\]
+and gaps $g(x,\delta)=\sum_{l\in F}\Re\big(\Phi_l(x)c_l(\delta)\big)$ (\texttt{hunt\_proofs.tex}, \S1).  Its \emph{character family} is
+$\Lambda=\{T:\ a_{l,T}\ne0\text{ for some }l\}$.  Call $\Lambda$ \emph{consistent} if some $v\in\mathbb Z_p^n$ has $\mathbf 1_T\cdot v\equiv1\pmod p$ for every $T\in\Lambda$.
+
+\begin{lemma}[pair detection for consistent families; every $p$, $n$, network]\label{lem:L2}
+If $\Lambda$ is consistent, then for every $\delta\ne0$
+\[
+\min\Big(\min_xg(x,\delta),\ \min_xg(x,-\delta)\Big)\ \le\ \sum_l\Re(A_l)\,\kappa_l(\delta)\ -\ \Big(\sum_{l,T}|a_{l,T}|^2\kappa_l(\delta)\Big)^{1/2}.
+\]
+Consequently $h\le\min_\delta\big[\sum_l\Re(A_l)\kappa_l(\delta)-(\sum_{l,T}|a_{l,T}|^2\kappa_l(\delta))^{1/2}\big]$.
+\end{lemma}
+\begin{proof}
+Write $g(x,\pm\delta)=C_{\pm}+D_{\pm}(x)$ with $C_\pm=\sum_l\Re(A_lc_l(\pm\delta))$ and $D_\pm(x)=\sum_{l,T}\Re\big(a_{l,T}\chi_{l,T}(x)c_l(\pm\delta)\big)$.
+Let $t\equiv\delta\cdot2^{-1}\pmod p$ and let $v$ witness consistency.  For $T\in\Lambda$,
+$\chi_{l,T}(x-tv)=\chi_{l,T}(x)\rho^{-2lt}=\chi_{l,T}(x)\rho^{-l\delta}$, hence
+$\chi_{l,T}(x-tv)\,c_l(-\delta)=\chi_{l,T}(x)\rho^{-l\delta}(1-\rho^{l\delta})=-\chi_{l,T}(x)c_l(\delta)$.  Therefore $D_-(x-tv)=-D_+(x)$ for every $x$, and
+$\min_xD_-=-\max_xD_+$.  So, with $m=\min D_+$ and $M=\max D_+$,
+\[
+\min\big(C_++m,\ C_--M\big)\le\tfrac12(C_++C_-)-\tfrac12(M-m)=\sum_l\Re(A_l)\kappa_l(\delta)-\tfrac12(M-m),
+\]
+using $\Re(Ac_l(\delta))+\Re(Ac_l(-\delta))=2\Re(A)\kappa_l(\delta)$.
+$D_+$ is real with $\mathbb E_xD_+=0$ (each $\chi_{l,T}$ is a nontrivial character, as $2l\mathbf 1_T\neq0$).  From $\mathbb E[(D_+-m)(M-D_+)]\ge0$ and
+$\mathbb ED_+=0$ we get $\mathbb ED_+^2\le-mM\le\big(\frac{M-m}2\big)^2$.  Finally the characters $2l\mathbf 1_T$ ($l\in F$, $T\ne\emptyset$) are pairwise
+distinct, no two are conjugate ($2l\mathbf 1_T=-2l'\mathbf 1_{T'}$ forces $T=T'$ and $l+l'\equiv0$, impossible in $F$) and none has order $2$;
+hence $\mathbb E_x\Re(\alpha\chi)\Re(\alpha'\chi')=\frac12\Re(\alpha\bar\alpha')[\chi=\chi']$, and
+$\mathbb ED_+^2=\frac12\sum_{l,T}|a_{l,T}|^2|c_l(\delta)|^2=\sum_{l,T}|a_{l,T}|^2\kappa_l(\delta)$.
+\end{proof}
+
+\begin{corollary}\label{cor:n2}
+At $n=2$ the family $\Lambda\subseteq\{\{1\},\{2\},\{1,2\}\}$ is consistent iff $|\Lambda|\le2$ (witnesses $(1,1)$, $(1,0)$, $(0,1)$; for all three,
+$v_1=v_2=1$ forces $v_1+v_2=2\not\equiv1$).  Hence a class-$\mathcal C$ network at $n=2$ whose fluctuations avoid one of the three directions
+$x_1$, $x_2$, $x_1+x_2$ has pair detection at least its $L^2$ aggregate at every offset; flat-bottoming below that aggregate needs all three.
+Label-only networks ($\Lambda=\{[n]\}$, witness $v=e_1$), and at any $n$ networks whose fluctuations sit on singletons only (witness $v=\mathbf 1$),
+are consistent.
+\end{corollary}
+
+\emph{Check} (\texttt{lemma\_l2.py}, \texttt{out2/lemma\_l2.out}): 1305 random consistent field configurations at $(p,n)\in\{(5,2),(7,2),(11,2),(13,2),(5,3),(7,3)\}$:
+maximal relative excess of the pair minimum over the bound $=-1.3\cdot10^{-2}$ (must be $\le0$); the shift identity $D_-(x-tv)=-D_+(x)$ holds to
+$5\cdot10^{-14}$.  For inconsistent families the bound can fail: the CCP-LP search \texttt{detl2.py} finds pair detection exactly
+$\sqrt{(p-1)/(p+1)}\cdot L^2$ (the sharp GIBBS R3 constant) at $p=5,\dots,43$ ($n=2$) and at $p=5,7$ ($n=3$), and never less.
+
+\begin{remark}[the L2 relaxation]
+Combine Lemma~\ref{lem:L2} or, for arbitrary class-$\mathcal C$ networks at $n=2$, the proved two-plane Bhatia--Davis inequality of GIBBS R3
+(pair detection $\ge\sqrt{(p-1)/(p+1)}$ times the $L^2$ aggregate), with the certified sharp $L^2$ payment of GIBBS R6
+($|A_l|-3^{1-s}Q_l^s\le\theta(s)\,(\sum_T|a_{l,T}|^2)^{1/2}$, $\theta(s)=(1-3^{1-s})/\sqrt3$, equality for one neuron).  With
+$y_l=(Q_l/Q)^s$, $G_l=|A_l|/(3^{1-s}Q_l^s)$ and $\eta_l=(\sum_T|a_{l,T}|^2)^{1/2}/|A_l|$:
+\[
+\frac{\gamma(\theta)}{3^{1-s}B_p\Gamma^{(S)}_s}\ \le\ \frac1{\Gamma^{(S)}_s}\min_\delta\Big[\sum_lG_ly_l\kappa_l(\delta)-\rho_p\Big(\sum_l\eta_l^2G_l^2y_l^2\kappa_l(\delta)\Big)^{1/2}\Big],
+\qquad G_l\le\min\Big(3^{s-1},\frac1{1-\theta(s)\eta_l}\Big),
+\]
+($\rho_p=\sqrt{(p-1)/(p+1)}$; ghosts only add to the subtracted term and are dropped).  The maximum $\mathrm{UB}(p,s,S)$ of the right-hand
+side over all $y$ in the $r$-ball on $S$ and all $\eta\ge0$ is a finite-dimensional programme with no network in it.  $\mathrm{UB}\ge1$ (take $\eta=0$,
+$y=y^\ast_S$), and $\mathrm{UB}=1$ means RD$_S$ for class $\mathcal C$ at $(p,n{=}2,s)$.  \texttt{relax\_check.py} verifies the chain on 201 networks
+(random, partially optimised, and every saved hunt optimum): maximal $h$ minus detection bound $=-1.0\cdot10^{-15}$, maximal $G(1-\theta\eta)=1.000000$,
+maximal ratio minus relaxation value $=-3.6\cdot10^{-15}$.  The \emph{numerical} maximisation of UB is reported in the hunt report; it is not a proof.
+\end{remark}
+\end{document}

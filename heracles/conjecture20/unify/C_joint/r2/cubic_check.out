@@ -1,0 +1,4 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(a) max [m(sigma^2-m^2) - S]/sigma^3 over 20000 random laws = -1.381e-09 (<= 0);  min m/sigma given S<=0 = 1.0007 (>= 1)
+    symmetric laws: min m / sqrt(M4/M2) = 1.0000 (>= 1)
+(b) |E d^3 - triple formula|/sigma^3 max = 3.85e-15;  Parseval rel err 2.15e-15;  no (A)/(B) triples => E d^3 = 0 in 240/240 (delta, network) cases
