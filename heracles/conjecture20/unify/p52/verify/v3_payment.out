@@ -1,2 +1,9 @@
 warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
 random: min[P1 - F_float] over 1500 atom systems = -3.5193e-11
+adversarial: best 6 values of min[P1 - F_float]: [np.float64(-0.001489), np.float64(-0.0), np.float64(-0.0), np.float64(-0.0), np.float64(-0.0), np.float64(0.000273)]
+  k=3 m=[0.6366 0.0119 0.6049] phi=-1.2172: P1/|A|=0.857222  F_float=0.858711 {'c1': np.float64(0.7309), 'thA': np.float64(0.7465), 'triv': 0.5774, 'tw': np.float64(0.8587)}  F_rig=0.852028  slack_rig=5.19e-03
+  k=2 m=[1. 1. 1.] phi=+0.0000: P1/|A|=0.577354  F_float=0.577354 {'c1': np.float64(0.5774), 'thA': np.float64(0.5), 'triv': 0.5774, 'tw': np.float64(0.5774)}  F_rig=0.577350  slack_rig=4.01e-06
+  k=3 m=[0.0028 0.0028 0.0025] phi=+2.9121: P1/|A|=0.999998  F_float=0.999998 {'c1': np.float64(0.9988), 'thA': np.float64(0.9987), 'triv': 0.5774, 'tw': np.float64(1.0)}  F_rig=0.999984  slack_rig=1.39e-05
+  k=3 m=[0.0028 0.0029 0.0025] phi=+1.2118: P1/|A|=0.999997  F_float=0.999998 {'c1': np.float64(0.9988), 'thA': np.float64(0.9986), 'triv': 0.5774, 'tw': np.float64(1.0)}  F_rig=0.999984  slack_rig=1.39e-05
+  k=3 m=[1. 1. 1.] phi=+0.0000: P1/|A|=0.577350  F_float=0.577350 {'c1': np.float64(0.5774), 'thA': np.float64(0.5), 'triv': 0.5774, 'tw': np.float64(0.5774)}  F_rig=0.577350  slack_rig=6.06e-12
+  k=3 m=[0.1457 0.1429 0.1037] phi=-2.3687: P1/|A|=0.993702  F_float=0.993430 {'c1': np.float64(0.9384), 'thA': np.float64(0.9339), 'triv': 0.5774, 'tw': np.float64(0.9934)}  F_rig=0.993388  slack_rig=3.15e-04
