@@ -1,0 +1,5 @@
+# dict_p5_n2_b2.5_gS_g6_s36: S=[1, 2] D=1.063232e-02 specs=18 dictionary columns=4056 rows=100
+{"it": 0, "lp_ratio": 0.8697854487847073, "net_ratio": 0.8697854483449433, "polished": 0.999999999305671, "neurons": 13, "nonpure": 0, "feats": [1, 2], "out_energy_share": [0.0, 0.5, 0.5], "t": 2}
+{"it": 1, "lp_ratio": 0.5609570678029404, "net_ratio": 0.5609570675005509, "polished": 0.9999999999669092, "neurons": 14, "nonpure": 0, "feats": [1, 2], "out_energy_share": [0.0, 0.5, 0.5], "t": 3}
+{"it": 2, "lp_ratio": 0.6006708967259814, "net_ratio": 0.600670896502041, "polished": 0.9999999997332574, "neurons": 11, "nonpure": 0, "feats": [1, 2], "out_energy_share": [0.0, 0.5, 0.5], "t": 4}
+{"it": 3, "lp_ratio": 0.6143330255605994, "net_ratio": 0.6269748326423195, "polished": 0.9999999999803595, "neurons": 16, "nonpure": 0, "feats": [1, 2], "out_energy_share": [0.0, 0.5, 0.5], "t": 5}
