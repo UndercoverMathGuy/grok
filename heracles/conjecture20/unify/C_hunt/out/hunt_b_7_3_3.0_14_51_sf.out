@@ -1,0 +1,2 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+{"it": 0, "ratio": 0.9999999337698932, "beta": [0.0004017605227333157, 1.6273037153469033e-21, 1.3790756103803815e-21], "rel_foreign_beta": 4.050432093914538e-18, "gain1": 0.9999999600514716, "out_energy": [0.0, 1.0, 0.0, 0.0], "m": 10, "own": "if", "extra": ["sf-rand", "sf-rand", "sf-rand", "sf-rand", "sf-rand", "sf-rand"]}
