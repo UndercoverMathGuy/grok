@@ -1,0 +1,2 @@
+Lemma 1(b): min gamma_lam(Theta)/psi - 1 = -3.33e-16 (>= 1);  max |H(Theta) - H(z) - H(theta_1)| = 4.4e-16
+Lemma 1(c): weighted IF networks at b = nu: max |h_lam/(B_p Gamma^lam_1 P) - 1| = 3.7e-15

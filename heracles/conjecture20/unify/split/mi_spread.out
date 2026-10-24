@@ -1,0 +1,4 @@
+viol_p5_n2_b2.npz[0] mu on Delta(theta)        : Det(split)=0.3923 Det(theta)=0.0011 hidden fraction=0.997 | bonus=0.0370 excess=0.0000  -> bonus - Det(theta) - excess = +0.0359
+viol_p5_n2_b2.npz[0] mu uniform on all delta   : Det(split)=0.3126 Det(theta)=0.2337 hidden fraction=0.252 | bonus=0.0183 excess=0.3242  -> bonus - Det(theta) - excess = -0.5396
+viol_p5_n2_b2.npz[1] mu on Delta(theta)        : Det(split)=0.3840 Det(theta)=0.0014 hidden fraction=0.996 | bonus=0.0369 excess=0.0000  -> bonus - Det(theta) - excess = +0.0355
+viol_p5_n2_b2.npz[1] mu uniform on all delta   : Det(split)=0.3076 Det(theta)=0.2111 hidden fraction=0.314 | bonus=0.0199 excess=0.3348  -> bonus - Det(theta) - excess = -0.5260

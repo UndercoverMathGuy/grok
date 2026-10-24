@@ -1,0 +1,12 @@
+# dict_p5_n3_b3.0_b1_g6_s33: S=[1] D=5.441150e-04 specs=53 dictionary columns=50136 rows=500
+{"it": 0, "lp_ratio": 0.6733426600390302, "net_ratio": 0.6733426595883858, "polished": 0.9999999331897872, "neurons": 15, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 37}
+{"it": 1, "lp_ratio": 0.5579755496377758, "net_ratio": 0.5579755490484121, "polished": 0.999999996451634, "neurons": 11, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 113}
+{"it": 2, "lp_ratio": 0.45874394179987676, "net_ratio": 0.48823667967157675, "polished": 0.9999999280872526, "neurons": 16, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 154}
+{"it": 3, "lp_ratio": 0.5234776744565923, "net_ratio": 0.5234776734001196, "polished": 0.999999980810257, "neurons": 16, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 188}
+{"it": 4, "lp_ratio": 0.5351691997880421, "net_ratio": 0.5351691992346576, "polished": 0.9999999860720373, "neurons": 16, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 227}
+{"it": 5, "lp_ratio": 0.4872070472149839, "net_ratio": 0.48720704676334947, "polished": 0.9999998862766697, "neurons": 14, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 311}
+{"it": 6, "lp_ratio": 0.5146774908838424, "net_ratio": 0.5146774903624282, "polished": 0.9999999128650019, "neurons": 16, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 367}
+{"it": 7, "lp_ratio": 0.5349951274175604, "net_ratio": 0.534995126454597, "polished": 0.999999985765428, "neurons": 14, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 428}
+{"it": 8, "lp_ratio": 0.5151989707646836, "net_ratio": 0.5151989696462067, "polished": 0.9999999692744238, "neurons": 16, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 478}
+{"it": 9, "lp_ratio": 0.4677687698639411, "net_ratio": 0.46776876949184526, "polished": 0.9999999903661178, "neurons": 15, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0], "t": 515}
+# SUMMARY dict_p5_n3_b3.0_b1_g6_s33: runs=10 best LP ratio=0.6733426600 best polished=0.9999999965 max nonpure neurons in a solution=0 time=515s

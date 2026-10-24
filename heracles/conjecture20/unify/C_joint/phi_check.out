@@ -1,0 +1,2 @@
+min interior slack f-(1-c d): (np.float64(8.264644524302867e-11), (60, np.float64(1.0001), np.float64(5e-05)))
+max second difference of f (concavity needs <=0): 7.771561172376096e-16 (54, np.float64(1.0001), np.float64(0.19870000000000002))

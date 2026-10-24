@@ -1,0 +1,10 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(a) independent modules: max |min(d1+d2) - (min d1 + min d2)| = 0.00e+00
+(b) p=7: distinct field-row sums [1.71964542 3.         3.72819753]  predicted [1.71964542 3.         3.72819753]  phases in {-pi/2,+pi/2}: True
+(b) p=11: distinct field-row sums [3.37430039 5.         5.75265049]  predicted [3.37430039 5.         5.75265049]  phases in {-pi/2,+pi/2}: True
+(b) p=19: distinct field-row sums [6.55363128 9.         9.93480669]  predicted [6.55363128 9.         9.93480669]  phases in {-pi/2,+pi/2}: True
+(b) p=23: distinct field-row sums [ 8.40036745 11.         11.76924515]  predicted [ 8.40036745 11.         11.76924515]  phases in {-pi/2,+pi/2}: True
+(b) p=43: distinct field-row sums [16.77493835 21.         21.80149565]  predicted [16.77493835 21.         21.80149565]  phases in {-pi/2,+pi/2}: True
+(b) p=227: distinct field-row sums [ 98.77333821 109.15101411 113.        ]  predicted [ 98.77333821 109.15101411 113.        ]  phases in {-pi/2,+pi/2}: True
+(b) p=347: distinct field-row sums [152.66611642 165.70277884 173.        ]  predicted [152.66611642 165.70277884 173.        ]  phases in {-pi/2,+pi/2}: True
+(b) p=499: distinct field-row sums [220.32321886 237.94211412 249.        ]  predicted [220.32321886 237.94211412 249.        ]  phases in {-pi/2,+pi/2}: True

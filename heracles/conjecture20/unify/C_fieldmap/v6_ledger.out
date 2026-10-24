@@ -1,0 +1,4 @@
+Legendre p=127 n=2 s=1.5: h=9.2694 h_prof=-3.0766 AG=12.3461 PS=12.2781 Ineff>=8.6716  => AG-PS=+0.0680 (CD ratio 1.0074),  AG <= Ineff+PS: True;  SSI first fails at step 1; h_F=9.2014 = pi M(Q^s)=9.2014
+Legendre p=199 n=2 s=1.5: h=12.1067 h_prof=-3.8532 AG=15.9599 PS=15.3713 Ineff>=14.1075  => AG-PS=+0.5886 (CD ratio 1.0511),  AG <= Ineff+PS: True;  SSI first fails at step 1; h_F=11.5181 = pi M(Q^s)=11.5181
+Legendre p=401 n=2 s=1.5: h=18.0250 h_prof=-5.4713 AG=23.4963 PS=21.8216 Ineff>=30.0513  => AG-PS=+1.6747 (CD ratio 1.1024),  AG <= Ineff+PS: True;  SSI first fails at step 1; h_F=16.3503 = pi M(Q^s)=16.3503
+random near-IF class-C networks: identity error 2.2e-16; sign/equivalence checks passed 120/120

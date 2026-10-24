@@ -1,0 +1,60 @@
+% knownmath: proofs of KM1-KM3 (round 2, task KNOWN-MATH). Checks: tight_designs.py, tight_diag_check.py, cosine_tensor_check.py (.out files alongside).
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}{Proposition}
+\begin{document}
+\section*{KM1. Pinching for the $\ell_r$ quasi-nuclear norm holds iff $b\ge2$}
+For real spaces $V_1,\dots,V_\nu$ and $f\in\bigotimes_tV_t$ put $N_r(f)^r=\inf\{\sum_i\|T_i\|_F^r: f=\sum_iT_i,\ T_i \text{ rank one}\}$, $r\in(0,1]$.
+Let each $V_t=\bigoplus_{k\in K}V_t^{(k)}$ orthogonally, with projections $P^{(k)}_t$, and let $\Pi_k=\bigotimes_tP^{(k)}_t$ (diagonal blocks).
+\begin{proposition}
+(a) If $r\nu\ge2$ (i.e.\ $b=r\nu\ge2$) then $\sum_kN_r(\Pi_kf)^r\le N_r(f)^r$ for every $f$; in particular $N_r(\bigoplus_kA_k)^r=\sum_kN_r(A_k)^r$.
+(b) If $r\nu<2$ and every $V_t^{(k)}\neq0$ for two blocks $k$, (a) fails: there is a rank-one $f$ with $\sum_kN_r(\Pi_kf)^r>N_r(f)^r$.
+\end{proposition}
+\begin{proof}
+(a) Let $f=\sum_i\bigotimes_tv_{it}$. Then $\Pi_kf=\sum_i\bigotimes_tP^{(k)}_tv_{it}$, so $\sum_kN_r(\Pi_kf)^r\le\sum_i\sum_k\prod_t\|P^{(k)}_tv_{it}\|^r$.
+With $a_{kt}=\|P_t^{(k)}v_{it}\|$, H\"older with $\nu$ factors gives $\sum_k\prod_ta_{kt}^r\le\prod_t(\sum_ka_{kt}^{r\nu})^{1/\nu}\le\prod_t(\sum_ka_{kt}^2)^{r/2}=\prod_t\|v_{it}\|^r$,
+using $\|x\|_{r\nu}\le\|x\|_2$ for $r\nu\ge2$. Take the infimum over decompositions. For a direct sum, concatenating decompositions gives $\le$.
+(b) Take unit $e_t\in V_t^{(1)}$, $e'_t\in V_t^{(2)}$ and $f=\bigotimes_t(e_t+e'_t)/\sqrt2$, so $N_r(f)\le1$. Then $\Pi_1f+\Pi_2f=2^{-\nu/2}(\bigotimes e_t+\bigotimes e'_t)$.
+Flatten slot 1 against the rest: rank-one tensors go to rank-one matrices of the same Frobenius norm, so $N_r(g)\ge N_r^{\rm mat}(\flat g)$, and for matrices
+$N_r^{\rm mat}=$ Schatten-$r$ quasi-norm (Rotfel'd/McCarthy: $\|\sum A_i\|_{S_r}^r\le\sum\|A_i\|_{S_r}^r$ for $0<r\le1$). Each $\Pi_kf$ is rank one of norm $2^{-\nu/2}$,
+so $\sum_kN_r(\Pi_kf)^r=2\cdot2^{-r\nu/2}>1\ge N_r(f)^r$ when $r\nu<2$.
+\end{proof}
+Reading: the frequency split (seed S2, SPLIT R1) is the pinching inequality of the $\ell_r$ quasi-nuclear norm, and $b=2$ is exactly its threshold.
+At $r\to0$ additivity on direct sums is Strassen's conjecture (false, Shitov 2019); at $r=1$ it is the known additivity of the nuclear norm.
+
+\section*{KM2. The equality case of Paper Lemma 7 is the diagonal Fourier configuration}
+\begin{theorem}
+Let $n\ge1$, $\nu=n+1$, $0<r<1$, $\beta\ne0$, and let $(\beta_l,\xi_{lt})$ satisfy (JF) with equality in Lemma 7. Then, after relabelling $l=0,\dots,n$,
+$\beta_l=\beta/\nu$ and $\xi_{lt}=c_t\,\omega^{l}$ with $\omega=e^{2\pi i/\nu}$ and $|c_t|=1$ (the same root in every slot). Conversely these attain equality.
+\end{theorem}
+\begin{proof}
+By Lemma 7, exactly $\nu$ coefficients are nonzero, $|\beta_l|=|\beta|/\nu$, and $u_l=m_l/\sqrt\nu$ are orthonormal, so $U=[u_0\cdots u_n]$ is unitary.
+Normalise $\beta=1$, $d_l=\nu\beta_l$, $|d_l|=1$. (i) $H=\sum_ld_lu_lu_l^*=UDU^*$ is normal; by the chain lemma it is upper triangular with unit diagonal.
+A normal triangular matrix is diagonal ($\|H\|_F^2=\sum|\lambda_i|^2=\sum|H_{ii}|^2$), so $H=I$, hence $D=I$: all $\beta_l=\beta/\nu$.
+(ii) (JF) now reads $\sum_l\prod_{t\in T}\xi_{lt}=\nu[T=\emptyset]$, i.e.\ $\sum_l\prod_{t=1}^n(1+z_t\xi_{lt})=\nu$ for all $z\in\mathbb C^n$.
+(iii) Fix $l_0$ and a bijection $\sigma:[n]\to[\nu]\setminus\{l_0\}$; put $z_t=-\bar\xi_{\sigma(t)t}$. Every term $l\ne l_0$ vanishes, so
+$\prod_t w_{\sigma(t)t}=\nu$ with $w_{lt}:=1-\xi_{l_0t}/\xi_{lt}$. All $w_{lt}\neq0$. (n=1: $\xi_{1}=-\xi_{0}$, done.)
+(iv) $n\ge2$: exchanging $\sigma$ on two slots gives $w_{At}w_{Bu}=w_{Bt}w_{Au}$, so $w_{lt}=\alpha_l\gamma_t$ (rank one, nonzero entries).
+(v) $|1-\alpha_l\gamma_t|=|\xi_{l_0t}/\xi_{lt}|=1$: each $\gamma_t\neq0$ lies on every circle $\{z:|z-1/\alpha_l|=1/|\alpha_l|\}$, all passing through $0$.
+If all $\alpha_l$ were equal, two points $\xi_A=\xi_B$ would coincide, contradicting $m_A\perp m_B$. Two distinct such circles meet in $0$ and at most one
+other point, so $\gamma_t=\gamma$ for all $t$. Hence $\xi_{lt}=\xi_{l_0t}\zeta_l$ with $\zeta_l=(1-\alpha_l\gamma)^{-1}$ independent of $t$, $\zeta_{l_0}=1$.
+(vi) (JF) gives $\prod_{t\in T}\xi_{l_0t}\sum_l\zeta_l^{|T|}=0$, so the power sums $p_k(\zeta)=0$ for $k=1,\dots,\nu-1$. Newton: $e_1=\dots=e_{\nu-1}=0$, so the $\zeta_l$ are the roots
+of $z^\nu-c$, and $\zeta_{l_0}=1$ forces $c=1$: $\{\zeta_l\}=\mu_\nu$. Converse: $\sum_l\omega^{l|T|}=0$ for $1\le|T|\le n$, and the $m_l$ are the rows of a twisted Fourier matrix.
+\end{proof}
+Remark. Orthogonal chain vectors alone (a dephased complex Hadamard matrix) are not enough: Craigen's family $F_4(a)$ violates $T=\{1,3\}$ unless $a\equiv0$ (tight\_diag\_check.out).
+
+\section*{KM3. The $\ell_r$ quasi-nuclear norm of the cosine tensor}
+Let $C_\nu\in(\mathbb R^2)^{\otimes\nu}$ be the coefficient tensor of $\cos(\theta_1+\dots+\theta_\nu)=\mathrm{Re}\prod_t(\cos\theta_t+i\sin\theta_t)$.
+\begin{theorem}
+For every $r\in(0,1]$, in any ambient spaces containing the planes isometrically, $N_r(C_\nu)^r=\nu^{1-r}2^{(\nu-1)r}$; in particular $\|C_\nu\|_*=2^{\nu-1}$ and the real rank of $C_\nu$ is $\nu$.
+For $r<1$ the minimisers are exactly the $\nu$-term equally spaced decompositions $C_\nu=\frac{2^{\nu-1}}\nu\sum_{l=0}^{n}\bigotimes_t(\cos\varphi_{lt},-\sin\varphi_{lt})$, $\varphi_{lt}=\phi_t+\pi l/\nu$ ($t\le n$), $\varphi_{l\nu}=\phi_\nu-n\pi l/\nu$, $\sum_t\phi_t\equiv0$.
+\end{theorem}
+\begin{proof}
+Projecting every factor onto its plane is a product of contractions: it keeps $C_\nu$ and does not increase any $\|T_i\|$ (strictly decreases a term with out-of-plane part).
+For in-plane $T_i=\bigotimes_tv_{it}$ write $z_{it}=v_{it,1}+iv_{it,2}$, $\beta_i=\prod_t\bar z_{it}$ ($|\beta_i|=\|T_i\|_F$), $\xi_{it}=z_{it}/\bar z_{it}$.
+Expanding $\prod_t\mathrm{Re}(\bar z_{it}e^{i\theta_t})$ in characters $e^{i\sum\epsilon_t\theta_t}$ and matching with $\mathrm{Re}\,e^{i\sum\theta_t}$ (using $\epsilon\leftrightarrow-\epsilon$ conjugation to fix $\epsilon_\nu=+1$)
+gives exactly (JF) with $\beta=2^{\nu-1}$. Lemma 7 gives the lower bound and (via its coefficient bound $e_\nu(x)\ge1$) at least $\nu$ terms; the block attains it
+(each $\epsilon\ne\pm\mathbf 1$ carries phase $\omega^{\pm lm}$, $1\le m\le n$, summing to $0$). $\|C_\nu\|_\sigma=1$ and $\|C_\nu\|_F^2=2^{\nu-1}$ give $\|C_\nu\|_*\ge2^{\nu-1}$ independently.
+Equality for $r<1$: KM2.
+\end{proof}
+\end{document}

@@ -1,0 +1,14 @@
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+$(p,n)$, features $K^*$, IF width & from IF $+$ noise & one neuron deleted & two deleted\\
+\midrule
+$(5,2)$, $K^*=2$, $6$ & $1.000000$ & $0.837$ & $0.782$\\
+$(7,2)$, $K^*=3$, $9$ & $1.000000$ & $0.980$ & --\\
+$(7,3)$, $K^*=2$, $8$ & $0.999995$ & $0.764$ & --\\
+\bottomrule
+\end{tabular}
+\end{center}
+(Ratios to the IF value; best of 3--4 seeds.)  In every case the optimiser returns to the IF network, and removing
+neurons costs margin; $0.782=\kappa_{\min}(5)/\Gamma_{3/2}(5)$ is the single-feature IF network.  Random restarts at
+$(5,2)$ with widths $4$--$8$ (30 runs) never exceeded $0.782$.  No cross-feature gain was found.

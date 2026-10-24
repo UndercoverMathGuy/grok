@@ -1,0 +1,5 @@
+s=1.000 (b=3.0000): sup simple bound = 0.78907 at tau,x1,x2 = [0.6431 0.1519 0.5316]
+s=1.100 (b=2.7273): sup simple bound = 0.89801 at tau,x1,x2 = [0.6431 1.     0.656 ]
+s=1.150 (b=2.6087): sup simple bound = 0.95734 at tau,x1,x2 = [0.6431 1.     0.656 ]
+s=1.175 (b=2.5532): sup simple bound = 0.98828 at tau,x1,x2 = [0.6431 1.     0.656 ]
+s=1.182 (b=2.5381): sup simple bound = 0.99710 at tau,x1,x2 = [0.6431 1.     0.656 ]

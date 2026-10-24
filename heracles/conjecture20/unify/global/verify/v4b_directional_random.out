@@ -1,0 +1,8 @@
+random single features (n=2; p in 5,7,11,13; b in [2,3]); max normalised violation (must be <= 0):
+   ThmA     : -4.996e-04   (2000 nets)
+   ThmA_half: -5.304e-04   (2000 nets)
+   cone     :  2.741e-13   (2000 nets)
+   i        : -4.831e-03   (2000 nets)
+   ii       : -5.702e-01   (435 nets)
+   iii_arb  : -9.959e-03   (2000 nets)
+   iii_sf   : -1.353e+00   (435 nets)

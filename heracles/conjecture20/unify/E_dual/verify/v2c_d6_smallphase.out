@@ -1,0 +1,2 @@
+D6 random: 9000 cases, 135 with c>0; E Phi = conj(A) err 9.0e-16
+   (a) max (sum|b_T|^2 - tau (ReA-c)^2)/|A|^2 = -8.587e-02 ; (b) max rel = -2.981e-05 ; (c) max c/(nu^{1-s}Q^s)-1 = -4.720e-01

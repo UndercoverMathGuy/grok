@@ -1,0 +1,5 @@
+detl2.py 11 3 60 23 all F avg_kseed
+detl2.py 13 3 40 23 all F avg_kseed
+detl2.py 5 4 60 24 all F avg_kseed
+detl2.py 7 4 30 24 all F avg_kseed
+detl2.py 5 5 30 25 all F avg_kseed

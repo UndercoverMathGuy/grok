@@ -1,0 +1,13 @@
+(a) max |E(theta) - (P_split/P) E(split)| = 1.4e-16;  DC-free: max H(theta)-H(split) = -0.571 (<= 0)
+  (b) p=5 n=2 b=2 width 3: best gamma/D = 0.781758, H = 1.0986 (H^dec = 1.7918, e^Hdec = 6.00)
+  (b) p=5 n=2 b=2 width 4: best gamma/D = 0.781758, H = 1.0986 (H^dec = 1.7918, e^Hdec = 6.00)
+  (b) p=5 n=2 b=2 width 5: best gamma/D = 0.837038, H = 1.5999 (H^dec = 1.7918, e^Hdec = 6.00)
+  (b) p=5 n=2 b=2 width 6: best gamma/D = 1.000000, H = 1.7918 (H^dec = 1.7918, e^Hdec = 6.00)
+  (b) p=7 n=2 b=2 width 3: best gamma/D = 0.558973, H = 1.0986 (H^dec = 2.1972, e^Hdec = 9.00)
+  (b) p=7 n=2 b=2 width 5: best gamma/D = 0.775418, H = 1.6094 (H^dec = 2.1972, e^Hdec = 9.00)
+  (b) p=7 n=2 b=2 width 7: best gamma/D = 0.980054, H = 1.7729 (H^dec = 2.1972, e^Hdec = 9.00)
+  (b) p=7 n=2 b=2 width 9: best gamma/D = 0.980054, H = 1.7729 (H^dec = 2.1972, e^Hdec = 9.00)
+  (b) p=5 n=3 b=2 width 2: best gamma/D = -0.000005, H = 0.6452 (H^dec = 1.3863, e^Hdec = 4.00)
+  (b) p=5 n=3 b=2 width 3: best gamma/D = -0.000004, H = 1.0594 (H^dec = 1.3863, e^Hdec = 4.00)
+  (b) p=5 n=3 b=2 width 4: best gamma/D = 1.000000, H = 1.3863 (H^dec = 1.3863, e^Hdec = 4.00)
+time 165s

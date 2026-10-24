@@ -1,0 +1,14 @@
+# dict_p7_n2_b2.5_b1_g6_s32: S=[1] D=2.220795e-03 specs=46 dictionary columns=12132 rows=294
+{"it": 0, "lp_ratio": 0.8515893070502426, "net_ratio": 0.8515893059195823, "polished": 0.9999999998592581, "neurons": 7, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 5}
+{"it": 1, "lp_ratio": 0.4507075592648713, "net_ratio": 0.5252602421111626, "polished": 0.999999999477632, "neurons": 17, "nonpure": 10, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 11}
+{"it": 2, "lp_ratio": 0.3963097333198997, "net_ratio": 0.3963097321515024, "polished": 0.9999999998635877, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 16}
+{"it": 3, "lp_ratio": 0.38908280865122524, "net_ratio": 0.4415420935954858, "polished": 0.9999999990862455, "neurons": 36, "nonpure": 29, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 26}
+{"it": 4, "lp_ratio": 0.7740713772253499, "net_ratio": 0.774071375930824, "polished": 0.9999999998161561, "neurons": 5, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 31}
+{"it": 5, "lp_ratio": 0.6068793936560299, "net_ratio": 0.6068793924650824, "polished": 0.9999999998293321, "neurons": 7, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 36}
+{"it": 6, "lp_ratio": 0.4275196882114245, "net_ratio": 0.427519687155163, "polished": 0.9999999996944524, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 40}
+{"it": 7, "lp_ratio": 0.5175652585726773, "net_ratio": 0.5175652573930353, "polished": 0.9999999999317136, "neurons": 7, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 44}
+{"it": 8, "lp_ratio": 0.4249633013081584, "net_ratio": 0.42496330026868656, "polished": 0.9999999997362264, "neurons": 26, "nonpure": 21, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 76}
+{"it": 9, "lp_ratio": 0.38109099904395244, "net_ratio": 0.38109099816592723, "polished": 0.9999999998965813, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 80}
+{"it": 10, "lp_ratio": 0.6305049659716857, "net_ratio": 0.6305049647864164, "polished": 0.999999999662614, "neurons": 8, "nonpure": 0, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 87}
+{"it": 11, "lp_ratio": 0.616595189327219, "net_ratio": 0.6165951889036442, "polished": 0.9999999989775897, "neurons": 21, "nonpure": 14, "feats": [1], "out_energy_share": [0.0, 1.0, 0.0, 0.0], "t": 92}
+# SUMMARY dict_p7_n2_b2.5_b1_g6_s32: runs=12 best LP ratio=0.8515893071 best polished=0.9999999999 max nonpure neurons in a solution=29 time=92s

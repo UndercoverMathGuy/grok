@@ -1,0 +1,1418 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref,mathtools}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\title{The unrestricted optimum after Conjecture 20:\\ the one-dimensional mechanism, a width theorem,\\ and what can and cannot be proved}
+\author{}
+\date{17 October 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We tried to prove that the unrestricted maximum margin equals the paper's prediction, either the interference-free (IF) value
+$\nu^{1-s}B_p\Gamma_s(p)$ or the price--programme value $\pi_{n,b}(p)B_p\Gamma_s(p)$ of the companion note.  The outcome is
+as follows.
+(1) A universal proof of the IF value is impossible.  At $p=3$, $b=2$ we identify the mechanism behind the counterexamples
+exactly: a \emph{shared-sign, one-dimensional} family whose feature field is a rotating phase times a real exponential sum.
+Searching this family (exact LP for the weights, outer search over $m$ real slopes) gives new certified networks with
+$\gamma/\gamma_{\rm IF}=1.063,\,1.193,\,1.184,\,1.457,\,1.617,\,1.595,\,2.011,\,2.212$ for $n=11,\dots,18$.  The excess grows with $n$.
+(2) We prove a \emph{width theorem}: a slot-symmetric single-feature network whose input vectors share a sign pattern needs
+at least $\nu-\lfloor\nu/p\rfloor$ neurons.  Every network in (1) attains this bound.  The saving that drives the
+counterexamples is therefore at most a $1/p$ fraction of the neurons, and is zero when $p>\nu$, which covers the paper's
+experimental range.
+(3) For $p=5,7$ the same mechanism, run at its minimal width, loses to IF by a factor that grows with $n$ (efficiency
+$\le0.19$ for $p=5$, $n\le16$, and decreasing).  Releasing it into the full slot-symmetric class did not help at the point we tested ($n=10$).
+(4) Decoupling, the remaining step of the price--programme conjecture, is \emph{not} automatic: at $p=5$ a mean-zero
+frequency-2 field carried by the same neurons raises a feature's margin by factors $1.2$--$2.6$.  In every case we found
+it still stays $\ge4\times$ below IF.
+(5) The feature count (Section~\ref{sec:robust}).  Every global maximiser that buys no feature below its interference-free
+price uses exactly the programme's number of features, for all $n,p,b$.  At $n=2$ no single feature can be bought below that price
+at any prime, for arbitrary inputs: averaging a Riesz test over both cone edges leaves a factor $\cos(\pi/p)$ of every
+sign-flipped coefficient.  In multi-feature maximisers, cheap features force exact arithmetic coincidences: additive relations
+among doubled frequencies, or modes landing on sign-flipped characters.  A product of quadratic tests, one per cheap feature, detects each
+feature's whole $L^2$ interference without the $\sqrt{|L'|}$ loss of Cauchy--Schwarz.  It gives a proved surplus of $39\%$ at $n=2$ (class $\mathcal C$,
+order-three dissociation) and reduces every $n$ to a single-feature atom constant.  The single-feature payments at $n=2$ are proved sharp and $p$-free (P$_{12}$, and $c_1(2,s)=1-3^{1-s}$, the latter computer-assisted).  With them the relations case at $n=2$ is closed for every $p\le59$.  Near the interference-free networks the discount from interference is quadratic and the slack it forces is linear.  So at $n=2$, in the relations case and in class $\mathcal C$, at every prime and for any number of cheap features, no network close to an interference-free one beats the prediction (Theorem~\ref{thm:nearif}).  In the relations case what remains is wholesale rebuilds with macroscopic, cancelling interference.  Section~\ref{sec:arch} shows how the open steps fit together.
+The remaining steps are stated as open problems
+(O1)--(O4): a coverage-to-Sidon inequality, compensation costs, single-feature constants for $n\ge3$, and $p=5$ at large $n$.
+Every numerical test at $p\ge5$ found no network beating the interference-free value.
+So the correct universal statement is the price--programme form, and the open content is concentrated in precise questions for $p\ge5$.
+\end{abstract}
+
+\section{Setting and notation}
+As in the paper and the companion note: $p$ odd prime, $\rho=e^{2\pi i/p}$, $\theta:=\pi/p$, $\nu=n+1$, $s=\nu/b$.  A
+\emph{single-feature} network has output vectors at frequency $1$ only; its margin is $h=\kappa_{\min}(p)\min_x\mathrm{cm}(\Phi(x))$,
+where $\Phi(x)=\sum_iW_i\prod_tu_{it}(x_t)\rho^{x_t}$ and $\mathrm{cm}(z)=\Re z-\cot\theta\,|\Im z|$ (companion note,
+Lemmas 1--2).  So $h>0$ iff every value $\Phi(x)$ lies in the open sector $|\arg z|<\theta$.  A network is
+\emph{slot-symmetric} if $u_{it}=u_i$ for all $t$; then $\Phi$ depends on $x$ only through the count vector
+$N\in\mathbb Z_{\ge0}^p$, $N_a=\#\{t:x_t=a\}$:
+\[\Phi(N)=\sum_{i=1}^mW_i\prod_{a\in\mathbb Z_p}\big(u_i(a)\rho^a\big)^{N_a}.\]
+\emph{Efficiency} means $\gamma/\gamma_{\rm IF}$ at $b=2$ (for single-feature networks at $p\ge5$, $n\ge3$ this is the same as
+the ratio of the single-feature margin to the IF single-feature margin, because $K^*(s,p)=1$).
+
+\section{Shared-sign networks and their fields}
+\begin{definition}
+A slot-symmetric network has a \emph{shared sign pattern} $\varepsilon\in\{\pm1\}^{p}$ if $\varepsilon_au_i(a)\ge0$ for all
+$i,a$.  The \emph{sine pattern} is $\varepsilon_a=+1$ for $0\le a<p/2$ and $-1$ for $p/2<a<p$, with exponents
+$e_a:=2a$ resp.\ $2a-p$, a permutation of $\{0,\dots,p-1\}$ satisfying $\varepsilon_a\rho^a=e^{i\theta e_a}$.  The
+\emph{one-dimensional (1-D) family} consists of the sine-pattern networks with $u_i(a)=\varepsilon_a e^{\lambda_ie_a}$
+(up to scale), $\lambda_i\in\mathbb R$.
+\end{definition}
+
+\begin{lemma}[fields]\label{lem:field}
+For a sine-pattern network, $\Phi(N)=e^{i\theta\tau(N)}S(N)$ with $\tau(N)=\sum_ae_aN_a\in\{0,\dots,(p-1)n\}$ and
+$S(N)=\sum_iW_i\prod_a|u_i(a)|^{N_a}$, an exponential sum with positive bases.  In the 1-D family
+\[\Phi(N)=e^{i\theta\tau}\sum_{i=1}^mV_ie^{\lambda_i\tau},\qquad\tau=\tau(N),\]
+so the margin condition is a condition on the $L+1$ values $\tau=0,\dots,L$, $L=(p-1)n$, of a rotating phase times a
+real-exponential sum.
+\end{lemma}
+\begin{proof}
+$u_i(a)\rho^a=|u_i(a)|\varepsilon_a\rho^a=|u_i(a)|e^{i\theta e_a}$; take the product over $a$ with exponents $N_a$.
+\end{proof}
+
+At $p=3$ the certified counterexample of the earlier notes ($n=11$, width $8$) is, to three digits, a 1-D network: all
+eight input vectors have the sign pattern $(-,+,+)$ (a translate of the sine pattern), and
+$\log|u_i(a)|-\log|u_i(0)|=\lambda_i\cdot(0,-1,1)$ with ratio $-1.00\pm0.03$.  Re-optimising it inside the 1-D family
+raises its efficiency from $1.0544$ to $1.0631$.
+
+\section{A width theorem}
+\begin{theorem}[width]\label{thm:width}
+Let $p$ be an odd prime, $n\ge1$, and let a slot-symmetric single-feature network with a shared sign pattern have
+positive margin.  Then its width is
+\[m\ \ge\ \nu-\Big\lfloor\frac{\nu}{p}\Big\rfloor .\]
+\end{theorem}
+\begin{proof}
+Positive margin is an open condition, so we may perturb zero entries of the $u_i$ to small values of the prescribed sign.
+Hence assume all $u_i(a)\ne0$.  Put $d=(p-1)/2$.  The map $a\mapsto a+d$ is a cyclic permutation of $\mathbb Z_p$ of odd
+length, so $\varepsilon$ cannot alternate along it, and there is a symbol $b$ with $\varepsilon_b=\varepsilon_{b+d}$.  Let
+$a=b+d$ and consider the $n+1$ count vectors $N(k)=(n-k)\mathbf e_b+k\mathbf e_a$, $k=0,\dots,n$.  With
+$r_i=u_i(a)/u_i(b)>0$,
+\[\Phi(N(k))=C\,\big(e^{i(\pi-\theta)}\big)^k\,S(k),\qquad S(k)=\sum_ic_ir_i^k ,\]
+for constants $C\in\mathbb C\setminus\{0\}$, $c_i\in\mathbb C$, because $\rho^{d}=e^{i(\pi-\theta)}$.  Positive margin gives
+$\arg S(k)\in I_k:=(\omega_k-\theta,\omega_k+\theta)$ with $\omega_k=-\arg C-(\pi-\theta)k$.  Note
+$\omega_k\equiv-\arg C+\theta k\pmod\pi$.
+
+For $\psi\in\mathbb R$ let $h_\psi(k)=\Im(e^{-i\psi}S(k))=\sum_i\Im(e^{-i\psi}c_i)\,r_i^k$.  After merging equal bases this is
+a real exponential sum with at most $m$ terms.  By Laguerre's rule of signs it has at most $m-1$ real zeros unless it
+vanishes identically, so the sequence $h_\psi(0),\dots,h_\psi(n)$ has at most $m-1$ sign changes.  Fix a residue $k_0$ and
+take $\psi=-\arg C+\theta k_0$.  The arc $I_k$ meets the line $\psi+\pi\mathbb Z$ iff
+$\theta(k-k_0)\in(-\theta,\theta)+\pi\mathbb Z$, i.e.\ iff $k\equiv k_0\pmod p$.  Call these $k$ \emph{undetermined}.  For
+every other $k$ the sign of $h_\psi(k)$ is fixed by the side of the line on which $I_k$ lies.
+\begin{itemize}
+\item If $k,k+1$ are both determined, $I_{k+1}=I_k-\pi+\theta$; an arc of length $2\theta$ on one side, rotated by
+$-\pi+\theta$ and still avoiding the line, lies on the other side, so the signs differ.
+\item If $k$ is undetermined and $0<k<n$, then $k\pm1$ are determined ($p\ge3$), and with $I_k$ centred on the line,
+$I_{k-1}$ and $I_{k+1}$ are the arcs of length $2\theta$ immediately on either side of it, so $h_\psi(k-1)$ and
+$h_\psi(k+1)$ again have opposite signs.
+\end{itemize}
+So the determined values alternate in sign and there are $|D|-1$ sign changes, where $D$ is the set of determined $k$.
+$h_\psi\not\equiv0$, since otherwise every $S(k)$ would lie on the line, contradicting $D\ne\emptyset$.  Choosing $k_0$ in a
+least populated residue class of $\{0,\dots,n\}$ gives $|D|=n+1-\lfloor\nu/p\rfloor$, hence
+$m-1\ge n-\lfloor\nu/p\rfloor$.
+\end{proof}
+
+\begin{corollary}\label{cor:width}
+(i) For $p>\nu$ a shared-sign single-feature network needs at least $\nu$ neurons, as many as the IF block.
+(ii) For every $p$, the width saving is at most $\lfloor\nu/p\rfloor$.  For networks with equal amplitudes at $b=2$, the
+width factor $(\nu/m)^{s-1}$ in the cost comparison with the IF block is therefore at most
+$\big(\nu/(\nu-\lfloor\nu/p\rfloor)\big)^{s-1}\le\big(p/(p-1)\big)^{s-1}$: up to $(3/2)^{s-1}$ at $p=3$, but at most
+$(5/4)^{s-1}$ at $p=5$.
+(iii) Every certified counterexample in Table~\ref{tab:p3} attains the bound with equality.
+\end{corollary}
+
+\begin{remark}
+The paper's experiments use $\nu\le5$ and $p\ge11$, so by (i) the mechanism behind the counterexamples has no width
+advantage anywhere in that range.  Width is not the only lever: per unit cost, a flat sign vector has $2^{n/2}$ times
+the raw output of a cosine input.  But numerically this lever alone never sufficed (Section~\ref{sec:p5}).
+\end{remark}
+
+\section{The $p=3$ optimum: reduction and certified values}
+\paragraph{Reduction.}  In the 1-D family, for fixed slopes $\lambda_1,\dots,\lambda_m$ the cone constraints at
+$\tau=0,\dots,L$ are linear in $(\Re V_i,\Im V_i)$, and the cost amplitude of neuron $i$ is
+$\sqrt{p/2}\,|V_i|\,Z(\lambda_i)^n$ with $Z(\lambda)^2=\sum_{k<p}e^{2\lambda k}$.  Maximising the margin under a weighted
+$\ell_1$ budget is therefore a second-order cone programme (an LP after polygonal approximation of $|V_i|$).  The concave
+$\ell_{2/\nu}$ cost is handled by reweighting; in practice the optimal amplitudes are nearly equal and uniform weights
+suffice.  The whole problem reduces to choosing $m$ real slopes.  We search them with CMA-ES and continuation in $n$.
+All values below are then re-verified independently.
+
+\paragraph{Structure of the optimum.}  Each term sits at the cost-optimal tilt for the stretch of $\tau$ it covers.  The
+cost amplitudes agree to within $\sim10\%$, consecutive terms have nearly antipodal phases ($\approx172^\circ$ apart at
+$n=11$), and the margin is active at most $\tau$.  The field is a $10^{-3}$--$10^{-4}$ residue of terms up to $10^3$ times
+larger, kept inside the $60^\circ$ sector at every count class.
+
+\begin{table}[h]
+\centering\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccccccc}
+\toprule
+$n$ & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18\\
+width $m$ (bound $\nu-\lfloor\nu/3\rfloor$) & 8 (8) & 9 (9) & 10 (10) & 10 (10) & 11 (11) & 12 (12) & 12 (12) & 13 (13)\\
+$\gamma/\gamma_{\rm IF}$ & $1.06308$ & $1.19335$ & $1.18360$ & $1.45687$ & $1.61704$ & $1.59546$ & $2.01105$ & $2.21197$\\
+previously certified & $1.0544$ & -- & $1.1091$ & $1.4293$ & -- & -- & -- & --\\
+\bottomrule
+\end{tabular}
+\caption{$p=3$, $b=2$.  All values are certified by \texttt{certify\_1d.py}: weights are rounded to ten
+significant digits, the margin is computed in exact rational arithmetic from the logits over all count vectors (hence over
+all $3^n$ inputs), and $\gamma/\gamma_{\rm IF}$ is enclosed by interval arithmetic.}
+\label{tab:p3}
+\end{table}
+
+Hence $\pi_{n,2}(3)\,\nu^{s-1}$ is at least $1.06$, $1.19$, $1.18$, $1.46$, $1.62$, $1.60$, $2.01$, $2.21$ for
+$n=11,\dots,18$.  The interference-free prediction
+underestimates the $p=3$ optimum by a factor that, numerically, grows by about $10\%$ per unit of $n$.
+
+\section{$p\ge5$: the mechanism loses}\label{sec:p5}
+\paragraph{Gain/loss accounting.}  For a 1-D network with nearly equal amplitudes,
+$\gamma/\gamma_{\rm IF}=\zeta\cdot2^{n/2}\cdot(\nu/m)^{s-1}$.  Here $2^{n/2}$ is the raw advantage of flat sign vectors
+over cosines, $(\nu/m)^{s-1}$ the width saving (capped by Theorem~\ref{thm:width}), and $\zeta$ the fraction of the
+mid-range envelope that survives cancellation.  The available gain per unit of $n$ is
+$\tfrac12\log\frac{2p}{p-1}$: $0.55$ at $p=3$, $0.46$ at $p=5$, $0.42$ at $p=7$.  Numerically, $\log\zeta/n\approx-0.48$ at $p=3$ ($n=18$) and
+$\approx-0.575$ at $p=5$ (stable over $n=13$--$17$).  That leaves net rates of about $+0.07$ and $-0.12$ per unit of $n$,
+consistent with the observed growth at $p=3$ and decline at $p=5$.
+
+\begin{table}[h]
+\centering\footnotesize\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{lccccccccccc}
+\toprule
+$n$ & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
+\midrule
+$p=5$ & .192 & .179 & .166 & .147 & .132 & .127 & .126 & .120 & .108 & .097 & .093\\
+width (bound) & 6 (6) & 7 (7) & 8 (8) & 9 (8) & 10 (9) & 10 (10) & 11 (11) & 12 (12) & 13 (12) & 14 (13) & 14 (14)\\
+\midrule
+$p=7$ & .126 & .107 & .089 & .076 & .066 & .063 & .058 & .049 & .044 & .035 & --\\
+\bottomrule
+\end{tabular}
+\caption{Best 1-D efficiency $\gamma/\gamma_{\rm IF}$ found (slope search with exact LP, continuation in $n$ with insertion
+and deletion moves and fresh global candidates at every $n$).}
+\label{tab:p5}
+\end{table}
+
+\paragraph{The 1-D restriction is not the bottleneck.}  At $p=5$, $n=10$, released into the full slot-symmetric
+single-feature class (arbitrary input vectors, \texttt{cone.py}), the 1-D optimum $0.1318$ is a local optimum (trial with
+no noise: $0.1318$; with noise: lower).  Mixing in positive-input neurons, which keeps the field a function of $\tau$
+but breaks the shared sign pattern, lowered the efficiency at $p=3$, $n=11$ ($1.063\to0.82$).
+
+\section{Cross-feature compensation: decoupling is not automatic}
+At $p\ge5$ several frequencies coexist, and the margin condition at $x$ is that the vector $(\Phi_l(x))_l$ lies in a
+polyhedron, not that each $\Phi_l(x)$ lies in its own sector.  Concretely, at $p=5$ a frequency-2 value
+$\Phi_2\approx0.25|\Phi_1|e^{-i18^\circ}$ makes $\Phi_1$ admissible at $\arg\Phi_1=60^\circ$, the $p=3$ sector.
+The same neurons can produce such a $\Phi_2$ almost for free: the field is a $10^{-3}$ residue of much larger terms, so a
+frequency-2 output component with $\sim10^{-3}$ relative weight, costing $\sim10^{-6}$ of the budget, gives a $\Phi_2$ of the
+right size.  It is limited only by geometry: its phase follows a different linear functional of the counts.
+
+We tested this with an exact LP over output vectors spanning frequencies $1$ and $2$, at the slopes of the best 1-D networks,
+on all count classes and all four shifts $\delta$.  Measured gains over frequency-1 outputs at the same neurons: $\times1.17$
+($n=8$), $\times1.36$ ($n=12$), up to $\times2.6$ at non-optimal widths.  With a CMA search over slopes for the joint problem:
+$0.197$ ($n=8$) and $0.173$ ($n=12$).  The frequency-2 output carries $0.2$--$3\%$ of the output energy.  So the decoupling half of
+the price--programme conjecture (companion note, Conjecture~20$'$) cannot be proved feature by feature: one feature can live outside its own sector where
+another, interference-only, field compensates.  In every configuration we tried, the compensated feature still stays
+$\ge4\times$ below IF.
+
+\section{The number of features of the unrestricted optimum}\label{sec:count}
+The paper's target is the \emph{count}: a frequency $j$ is a feature of $\theta$ if $A_j(\theta)=|\beta_j(\theta)|>0$, and the
+prediction is that every globally margin-optimal network uses $K^*(s,p)=|\operatorname{spt}y^\star|$ features, with
+amplitudes proportional to a maximiser $y^\star$ of the programme $\Gamma_s(p)$.  This is weaker than the value prediction,
+and it survives the counterexamples.
+
+\begin{proposition}[what is unconditional]\label{prop:count}
+Let $\theta^\star$ be a global maximiser of the $L_{2,b}$-margin.
+\begin{enumerate}
+\item[(a)] If $p=3$, then $\theta^\star$ uses exactly $K^*(s,3)=1$ feature, for every $n$ and $b$.
+\item[(b)] If $\theta^\star$ is interference-free, its amplitudes are proportional to a maximiser of $\Gamma_s(p)$, so it uses
+exactly $|\operatorname{spt}y^\star|$ features (paper, Theorem 8(1)).
+\item[(c)] If $b_0\le b\le\nu$ (interval of the earlier notes, Part II), then $\theta^\star$ is interference-free and uses all
+$F=K^*(s,p)$ frequencies with equal amplitudes.
+\item[(d)] For every $p,n,b$: write $\eta(\theta):=\|A(\theta)\|_{1/s}/(B_p\|\theta\|_{2,b}^\nu)\le1$ for the clean efficiency
+and $y=A/\|A\|_{1/s}$ for the clean allocation of $\theta^\star$.  Then $\eta(\theta^\star)\ge\pi_{n,b}(p)$ and
+$\min_{\delta\ne0}\sum_jy_j\kappa_j(\delta)\ge\frac{\pi_{n,b}(p)}{\eta(\theta^\star)}\,\Gamma_s(p)$.  In particular, if
+$\eta(\theta^\star)=\pi_{n,b}(p)$, then $y$ is a programme maximiser and $\theta^\star$ uses exactly $|\operatorname{spt}y|$ features.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(a) $F=\{1\}$, and $A_1>0$ by the paper's Lemma 2 because the margin is positive.  (b), (c) are the cited results.
+(d) By the price--programme theorem of the companion note,
+$h(\theta^\star)=\gamma^*_b\|\theta^\star\|^\nu\ge\pi B_p\Gamma_s\|\theta^\star\|^\nu$.
+By the paper's Lemma 2, $h\le\min_\delta\sum_jA_j\kappa_j(\delta)=\|A\|_{1/s}\min_\delta\sum_jy_j\kappa_j(\delta)\le\|A\|_{1/s}\Gamma_s$.
+Divide by $B_p\|\theta^\star\|^\nu$.
+\end{proof}
+
+\begin{proposition}[decoupling suffices; the price is irrelevant]\label{prop:dec}
+Suppose a global maximiser $\theta^\star$ satisfies the decoupling inequality
+\[h(\theta^\star)\ \le\ \pi_{n,b}(p)\,B_p\,\min_{\delta\ne0}\sum_{j}P_j^{\,s}\kappa_j(\delta)\qquad\text{for some }P_j\ge0,\ \ \sum_jP_j\le\|\theta^\star\|_{2,b}^b .\]
+Then $(P_j^{\,s}/\|\theta^\star\|^{\nu}_{2,b})_j$ is a maximiser of $\Gamma_s(p)$.  If moreover the features of $\theta^\star$ are exactly
+the frequencies it pays for ($A_j>0\iff P_j>0$), then $\theta^\star$ uses exactly $K^*$ features.
+\end{proposition}
+\begin{proof}
+With $z_j=P_j^s/\|\theta^\star\|^\nu$ we have $\sum_jz_j^{1/s}\le1$, and
+\[\pi B_p\Gamma_s\|\theta^\star\|^\nu\le h(\theta^\star)\le\pi B_p\|\theta^\star\|^\nu\min_\delta\sum_jz_j\kappa_j(\delta).\]
+Hence $z$ attains $\Gamma_s$.
+\end{proof}
+The price enters only as a common factor, because relabelling $a\mapsto ja$ makes it the same for every frequency and scaling
+makes it homogeneous of degree $s$ in the budget.  So the count needs \emph{only} decoupling.  Neither $\pi=\nu^{1-s}$ nor
+interference-freeness is needed.
+
+\begin{theorem}[exact count in the dense regime; lower bound in general]\label{thm:dense}
+For $S\subseteq F$ let $\Gamma_s^{(S)}(p)$ be the programme restricted to allocations supported on $S$, and
+$K_{\rm low}(s,p,\nu):=\min\{|S|:\Gamma^{(S)}_s(p)\ge\nu^{1-s}\Gamma_s(p)\}$.  Every global maximiser of the $L_{2,b}$-margin,
+of any width and with interference allowed, uses at least $K_{\rm low}$ features.  In particular, if
+\[\nu^{s-1}\,\Gamma_s^{(F\setminus\{j\})}(p)<\Gamma_s(p)\qquad(\text{independent of }j\text{ by relabelling}),\]
+every global maximiser uses all $F=(p-1)/2$ frequencies.  This is the exact count $K^*(s,p)=F$ in the dense regime.  The
+condition holds for $s\le1.331,1.285,1.257$ ($p=5$; $\nu=3,4,5$), $s\le1.154,1.130,1.115$ ($p=7$), $s\le1.079,1.066,1.058$
+($p=11$), $s\le1.064,1.053,1.047$ ($p=13$).  In every case computed this is $2.5$ to $5$ times the range $s-1\le1/(F(2\nu+1)-2)$ of Part II.
+\end{theorem}
+\begin{proof}
+If the features of $\theta^\star$ lie in $S$, Proposition 3 of the paper restricted to $S$ and the single-neuron budget give
+$\gamma(\theta^\star)\le B_p\Gamma_s^{(S)}$, while $\gamma(\theta^\star)=\gamma^*_b\ge\nu^{1-s}B_p\Gamma_s$ (Theorem 8).  Relabelling
+$a\mapsto ka$ maps allocations on $S$ to allocations on $kS$ with the same value, and acts transitively on $F$.
+\end{proof}
+\paragraph{Why the upper bound is the hard half.}  Let $q$ be KKT multipliers of a maximiser on its active constraints
+$(x,\delta)$.  Stationarity in the output vector makes neuron $i$'s frequency-$j$ output proportional to
+$\sum_xg_i(x)\rho^{-jy(x)}\overline{Q_j(x)}$, with $g_i(x)=\prod_tu_{it}(x_t)$ and $Q_j(x)=\sum_\delta q(x,\delta)(1-\rho^{-j\delta})$.
+If $q$ is uniform in $x$, as for any interference-free maximiser (average $q$ over translations), this gives
+$\beta_{ij}\propto Q_j\,|\sum_xg_i(x)\rho^{-jy(x)}|^2$ with $\Re Q_j=\sum_\delta q(\delta)\kappa_j(\delta)>0$.  Then every frequency at which
+some neuron's input product has a non-zero clean projection is a feature.  So ``no more than $K^*$ features'' is
+equivalent to frequency purity of the maximiser's input products at the non-programme frequencies.  Interference-free
+maximisers have it (paper, Theorem 8(2)).  A maximiser built from sign-vector inputs, like the $p=3$ networks, would
+generically carry every frequency.  The upper bound is therefore not separable from the question of which
+input structure is optimal at $p\ge5$.
+
+\begin{theorem}[the count is $\Theta(\log p)$ for every near-optimal network]\label{thm:theta}
+Let $2\le b<\nu$, $s=\nu/b$, $r=1/s$, and for a non-zero amplitude vector $A$ let
+\[K_r(A):=\frac{\big(\sum_jA_j^{\,r}\big)^{1/(1-r)}}{\big(\sum_jA_j\big)^{r/(1-r)}}\ \le\ |\operatorname{spt}A| ,\]
+the participation number of $A$ (it equals $K$ for $K$ equal non-zero entries).  Let $\theta$ be any product network,
+of any width and with interference allowed, with $\gamma(\theta)\ge\lambda\,\nu^{1-s}B_p\Gamma_s(p)$ for some $\lambda\in(0,1]$.
+Every global maximiser has $\lambda\ge\pi_{n,b}(p)\nu^{s-1}\ge1$.  Then
+\[K_r(A(\theta))\ \le\ \nu\Big(\frac{p}{(p-1)\lambda\,\Gamma_s(p)}\Big)^{\frac1{s-1}}\ \le\ \nu\Big(\frac{2p}{(p-1)\lambda}\Big)^{\frac1{s-1}}\lceil8\ln p\rceil .\]
+Moreover, for every $M\ge1$ the $M$ largest amplitudes carry at least a fraction $1-(K_r/M)^{1-r}$ of $\sum_jA_j$.
+Together with the paper's Corollary~12, which shows that the support of such a network has at least $c_{\nu,b,\lambda}\ln p$
+frequencies, the feature count of every margin-optimal network is $\Theta_{\nu,b}(\log p)$.  This is the order of
+$K^*(s,p)$ (paper, Theorem~11), for every odd prime, unconditionally.
+\end{theorem}
+\begin{proof}
+Averaging the paper's Lemma 2 over $\delta\ne0$ and using $\sum_{\delta\ne0}\kappa_j(\delta)=p$ gives
+$h\le\frac{p}{p-1}\sum_jA_j$.  The single-neuron budget gives $\sum_jA_j^r\le\sum_{i,j}|\beta_{ij}|^r\le C_bP$ with
+$P=\|\theta\|_{2,b}^b$.  Hence, with $h=\gamma P^s$ and $sr=1$,
+\[K_r(A)\le\frac{(C_bP)^{1/(1-r)}}{\big(\frac{p-1}p\gamma P^s\big)^{r/(1-r)}}
+=\Big(\frac{p\,C_b^{1/r}}{(p-1)\gamma}\Big)^{\frac r{1-r}}=\Big(\frac{p\,B_p}{(p-1)\gamma}\Big)^{\frac1{s-1}},\]
+because $C_b^{1/r}=C_b^{\nu/b}=B_p$ and $r/(1-r)=1/(s-1)$.  Insert $\gamma\ge\lambda\nu^{1-s}B_p\Gamma_s$, then
+$\Gamma_s\ge\frac12\lceil8\ln p\rceil^{1-s}$ (paper, Theorem 10).  The bound $\lambda\ge\pi\nu^{s-1}$ for maximisers is the
+price--programme theorem.  For the tail statement, normalise $\sum_jA_j=1$ and sort; the amplitudes beyond the $M$-th are at
+most $1/M$ each, so their mass $t$ satisfies $tM^{1-r}\le\sum_{j>M}A_j^r\le K_r^{1-r}$.
+\end{proof}
+
+\begin{corollary}[$n=2$, every prime $p\ge5$]\label{cor:n2}
+For $n=2$ and $2\le b\le3$, no single-frequency network (inputs in $\mathrm{span}\{\mathbf1,\cos,\sin\}$ of one frequency,
+any width) beats the interference-free single-feature value at any prime $p\ge5$.
+\end{corollary}
+\begin{proof}
+For $n=2$ the robust constant of the companion note's Theorem 14 is $k^*(2,s)=\sup\,(\Re A-3^{1-s}(\sum|\beta_i|^{1/s})^s)/(R/\sqrt2)$
+with $R^2=|B|^2+|C|^2+|D|^2$, where $B,C,D$ are the three sign-flipped sums.  The four-moment inequality of the earlier notes
+(Part I, Theorem A: $|A|-R/(2\sqrt3)\le3^{1-s}(\sum|\beta_i|^{1/s})^s$ for $1\le s\le3/2$, valid for arbitrary unit phases) gives
+$k^*(2,s)\le\sqrt2/(2\sqrt3)=1/\sqrt6<0.41<k_5=0.946\le k_p$.  The companion note's Theorem 14 then applies.
+\end{proof}
+\begin{lemma}[slack identity]\label{lem:slack}
+For every logit table (any network, any $p,n$, any inputs), with margin $h$ and slack
+$\sigma(x,\delta):=f(x)[y(x)]-f(x)[y(x)-\delta]-h\ge0$,
+\[\Phi_j(x)=\tfrac2p\Big(h-\sum_{\delta\ne0}\sigma(x,\delta)\rho^{j\delta}\Big)\qquad(j\in F).\]
+Consequently every sign-flipped coefficient satisfies $|\beta_{j,T}|\le\frac2pS$ with
+$S:=\mathbb E_x\sum_\delta\sigma=p\sum_{j\in F}\Re\beta_j-(p-1)h$.  The same slack $S$ bounds the interference of
+\emph{every} frequency.
+\end{lemma}
+\begin{proof}
+$\hat f_x(j)=\sum_\delta f(x)[y-\delta]\rho^{-j(y-\delta)}=-\rho^{-jy}\sum_{\delta\ne0}(h+\sigma(x,\delta))\rho^{j\delta}$ because
+$\sum_{\delta}\rho^{j\delta}=0$, and $-\sum_{\delta\ne0}\rho^{j\delta}=1$.  Then $\beta_{j,T}=\overline{\mathbb E_x\Phi_j\chi}$ for a unimodular
+character $\chi$, and $|\mathbb E[\sigma\chi]|\le\mathbb E\sigma$.  For $S$, use $\mathbb E_x\Phi_j=\overline{\beta_j}$ and that
+$\sum_{j\in\mathbb Z_p}\hat{\bar\sigma}(j)=p\,\bar\sigma(0)=0$.
+\end{proof}
+\begin{proposition}[$n=2$, any inputs]\label{prop:n2gen}
+For $n=2$, $2\le b\le3$, every prime $p$ and every network, $h\le\frac p{p-1}\big(\sum_j\Re\beta_j-\max_jR_j/(2\sqrt3)\big)$,
+where $R_j^2=\sum_{T\ne\emptyset}|\beta_{j,T}|^2$.  For single-feature networks (any inputs) this gives
+$\gamma\le\frac{p}{p-1}\nu^{1-s}B_p$, i.e.\ $\pi_{2,b}(p)\le\nu^{1-s}\cdot\frac{p}{(p-1)\kappa_{\min}(p)}$.  This is Part I's
+sharp result at $p=3$, but it is weaker than the IF value at $p\ge5$.
+\end{proposition}
+\begin{proof}
+Lemma~\ref{lem:slack} with three non-empty $T$ gives $R_j\le2\sqrt3(\sum_{j'}\Re\beta_{j'}-\frac{p-1}ph)$.  For one feature,
+apply Part I's Theorem A ($|A|-R/(2\sqrt3)\le3^{1-s}(\sum|\beta_i|^{1/s})^s$; Lemma 6 of the paper supplies the unit phases for
+arbitrary inputs) and the single-neuron budget.
+\end{proof}
+Two losses separate Proposition~\ref{prop:n2gen} from the exact answer at $p\ge5$, and both are the multi-frequency
+obstacle.  (i) A single feature's gaps at its non-binding offsets carry structural slack, which uses up $S$ without any
+interference.  (ii) With several frequencies, one slack budget bounds each $R_j$ but not $\sum_jR_j$, so only one
+frequency's interference is charged.  Part II of the earlier notes overcomes (ii) only near $b=\nu$, by mixing the chain
+matrices of all frequencies.
+
+The general $n=2$ case (inputs with other frequencies) is also where the $L^2$ route stops.  Input energy $\varepsilon$ outside
+$\pm1$ costs only $O(\varepsilon)$ of clean amplitude, but it can create non-circular (partner-mode) interference of size
+$O(\sqrt\varepsilon)$.  So every $L^2$/moment bound fails in a thin regime next to the interference-free point, and a pointwise
+argument, like Part I's at $p=3$, is required.
+
+\paragraph{Numerical tests of the count with general networks.}  (i) \emph{Width.}  For slot-symmetric networks with
+arbitrary input vectors (any sign patterns) and outputs on all frequencies, we searched for the smallest width with
+positive margin (elimination from feasible starts, exact LP for the outputs).  It equals $\nu-\lfloor\nu/p\rfloor$ in every case
+tested: $p=3$, $n=3,4,5,6,8$ (widths $3,4,4,5,6$), and $p=5$, $n=4,5,6,7$ (widths $4,5,6,7$), with one output frequency
+or all of them.  So mixing frequencies does not save neurons, and Theorem~\ref{thm:width} appears to hold for all
+slot-symmetric networks.
+(ii) \emph{Allocation.}  At $(p,n,b)=(7,3,2)$ the programme has $K^*=2$ with unequal shares $(0.328,0,0.182)$.  Global
+search (inputs by CMA-ES from interference-free blocks on every frequency subset plus perturbations, outputs by exact
+conic programme with $\ell_r$ reweighting) gave: one frequency $0.801$; any two frequencies $1.00000$ with amplitude shares
+equal to the programme's up to relabelling, unchanged under perturbation; all three frequencies $0.827$.  At $(5,2,2)$
+($K^*=2$), random-start search reached $0.755$ (width 4, one feature), $0.821$, $0.941$, $0.970$ (widths 5--7, two features
+with near-equal shares), and never exceeded the $K^*$-feature block.
+
+\paragraph{Where a proof stops.}  Combining (a)--(c): the count prediction holds for every global optimiser, \emph{except
+possibly} when $p\ge5$, $b<b_0$ and the optimiser carries interference.  None of the known counterexamples is in that set,
+since they all have $p=3$.  Closing the remaining case requires a price-sharp upper bound, i.e.\ Conjecture~20$'$ or an
+equivalent.  The only unconditional upper bound, Theorem 4 of the paper, is too weak: it loses the factor
+$\pi\nu^{s-1}$, which swamps the differences between allocations (removing one feature changes $\Gamma_s$ by a
+factor $(1-w_j)^s$ only, paper Lemma 19).  The compensation of Section~6 is the precise danger.  It uses frequencies whose
+clean amplitude is tiny but non-zero and that the programme does not pay for.  An optimiser built that way would
+\emph{over}count, so the strict count statement at $p\ge5$ is exactly as hard as excluding compensation at the optimum.
+In every experiment at $p=5,7$, compensated networks stay $\ge4\times$ below the $K^*$-feature IF block.  Section~\ref{sec:robust} proves the count for a class that carries interference, and isolates what is left.
+
+\section{A Lipschitz form of Lemma 7 and a transport reduction}\label{sec:robust}
+\begin{lemma}[robust interference-free bound, every $n$]\label{lem:robust}
+Let $0<r\le1$, $s=1/r$, $\beta_1,\dots,\beta_N\in\mathbb C$, $\xi_l\in\mathbb T^n$, $A=\sum_l\beta_l$,
+$\beta_T=\sum_l\beta_l\prod_{t\in T}\xi_{lt}$, $Q=\sum_l|\beta_l|^r$, and let $\ell:=\max|\beta_T|$ over the non-empty
+\emph{intervals} $T=\{t'+1,\dots,t\}\subseteq[n]$.  Then
+\[\text{(i)}\ \ |A|^r\le\nu^{r-1}Q+\|L\|_{\rm op}^r,\qquad\qquad
+\text{(ii)}\ \ |A|\le\nu^{1-s}Q^s+K_{\nu,s}\,\ell,\quad K_{\nu,s}:=\tfrac{\nu!-1}{\nu}\,\nu^{(s-1)(\nu-1)},\]
+where $L$ is the strictly lower part of the chain matrix.  With $\ell=0$ both are the paper's Lemma 7.
+\end{lemma}
+\begin{proof}
+Let $H=\sum_l\beta_lm_lm_l^*$ with the chain vectors $m_l$ of the paper's Lemma (chain).  Its diagonal is $A$, its
+strictly lower entries are the interval sums $\beta_T$, so $H=H_0+L$ with $H_0=AI+U$ upper triangular and
+$|L_{tt'}|\le\ell$.  Rotfel'd's inequality for $0<r\le1$ gives $\sum_k\sigma_k(H)^r\le\sum_l\|\beta_lm_lm_l^*\|_{S_r}^r=\nu^rQ$.
+(i) All eigenvalues of $H_0$ equal $A$, so Weyl's majorant theorem gives $\sum_k\sigma_k(H_0)^r\ge\nu|A|^r$.  Weyl's
+perturbation bound $\sigma_k(H_0)\le\sigma_k(H)+\|L\|$ and subadditivity of $t\mapsto t^r$ give
+$\nu|A|^r\le\nu^rQ+\nu\|L\|^r$.
+(ii) Every non-identity permutation has a factor below the diagonal, and every entry of $H$ has modulus at most
+$S_1:=\sum_l|\beta_l|\le Q^s$.  So $|\det H-A^\nu|\le(\nu!-1)\,\ell\,S_1^{\nu-1}$.  By AM--GM on $\sigma_k^r$,
+$|\det H|\le(\nu^{-1}\sum_k\sigma_k^r)^{\nu/r}\le a^\nu$ with $a:=\nu^{1-s}Q^s$.  Hence
+$|A|^\nu\le a^\nu+(\nu!-1)\ell Q^{s(\nu-1)}$, and $(a+\varepsilon/(\nu a^{\nu-1}))^\nu\ge a^\nu+\varepsilon$ gives (ii), since
+$Q^{s(\nu-1)}/a^{\nu-1}=\nu^{(s-1)(\nu-1)}$.
+\end{proof}
+By the paper's Lemma 6 the lemma applies to the neurons of any network at any frequency $j$, with $A=\beta_j$ and
+$\ell=\ell_j:=\max_{T\text{ interval}}|\beta_{j,T}|$.
+
+\begin{corollary}[single-frequency networks, every $n$, all large $p$]\label{cor:largep}
+The constant of the companion note's Theorem 14 satisfies $k^*(n,s)\le\sqrt2\,K_{\nu,s}<\infty$ for every $n$ and $s$.
+Since $k_p=\sqrt{\cot^2(\pi/p)-1}\ge p/\pi-1$ for $p\ge5$, no single-frequency network beats the interference-free
+single-feature value at any prime $p\ge\pi(1+\sqrt2K_{\nu,s})$.  (For $n=2$, Corollary~\ref{cor:n2} already gives every $p\ge5$.)
+\end{corollary}
+\begin{proof}
+$\Re A-\nu^{1-s}Q^s\le K_{\nu,s}\ell\le K_{\nu,s}\sqrt E=\sqrt2K_{\nu,s}\sqrt{E/2}$.  For $k_p$: $\cot x\ge1/x-x/2$ on
+$(0,\pi/5]$ (the difference vanishes at $0$ and has derivative $1/x^2+1/2-\csc^2x\ge0$ there), so
+$\cot^2x-1\ge x^{-2}-2\ge(x^{-1}-1)^2$ for $x\le2/3$.
+\end{proof}
+The constant is crude ($K_{3,3/2}=5$, $K_{4,2}=368$), so the threshold is large, but it is finite and explicit for
+every $n$.
+
+\begin{definition}
+A network is \emph{frequency-pure without input DC} (class $\mathcal C$) if every neuron $i$ has a frequency $j_i\in F$ with
+$u_{it}\in\mathrm{span}\{\cos(2\pi j_i\cdot/p),\sin(2\pi j_i\cdot/p)\}$ for all $t$ and
+$w_i\in\mathrm{span}\{\mathbf1,\cos(2\pi j_i\cdot/p),\sin(2\pi j_i\cdot/p)\}$.  Neurons of different frequencies may
+coexist in any numbers.  Every interference-free block of the paper is in $\mathcal C$.
+\end{definition}
+For $\theta\in\mathcal C$, expanding $u(a)\rho^{la}=p^{-1}(\hat u(-l)+\hat u(l)\rho^{2la})$ gives
+$\Phi_l(x)=\sum_{T\subseteq[n]}a_{l,T}\,\rho^{2l s_T(x)}$ with $s_T(x)=\sum_{t\in T}x_t$, $a_{l,\emptyset}=\overline{\beta_l}$ and
+$|a_{l,T}|=|\beta_{l,T}|$ (companion note, Lemma 11).  For $T\ne\emptyset$ define the \emph{interference profile}
+\[\varphi_T(w):=\sum_{l\in F}\Re\big(a_{l,T}\rho^{lw}\big),\qquad w\in\mathbb Z_p,\]
+a mean-zero real function on $\mathbb Z_p$ whose Fourier coefficients are the sign-flipped coefficients of all features at once.
+Write $m_\delta:=\mathbb E_xg(x,\delta)-h\ge0$ for the mean slack and $\bar m_\delta=\frac12(m_\delta+m_{-\delta})$.
+
+\begin{lemma}[interference profiles are slack potentials]\label{lem:potential}
+Let $\theta\in\mathcal C$, $p$ any odd prime.  For every non-empty $T$, every $w\in\mathbb Z_p$ and every $\delta\ne0$,
+\[\varphi_T(w)-\varphi_T(w-\delta)\ \ge\ -m_\delta .\]
+Consequently $|\beta_{l,T}|\,|1-\rho^{l\delta}|\le2m_\delta$ for all $l,T,\delta$, i.e.\
+$|\beta_{l,T}|\le\sqrt2\,\min(m_\delta,m_{-\delta})/\sqrt{\kappa_l(\delta)}$.
+\end{lemma}
+\begin{proof}
+With $c_l(\delta)=1-\rho^{-l\delta}$,
+$\Re(a_{l,T}c_l(\delta)\rho^{2ls_T})=\Re(a_{l,T}\rho^{l\cdot2s_T})-\Re(a_{l,T}\rho^{l(2s_T-\delta)})$, so by the
+companion note's Lemma 2
+\[g(x,\delta)=\mathbb E_xg(\cdot,\delta)+\sum_{T\ne\emptyset}\big(\varphi_T(2s_T(x))-\varphi_T(2s_T(x)-\delta)\big).\]
+Fix $T_0\ne\emptyset$ and condition on $s_{T_0}(x)=z$.  For $T\ne T_0$ the forms $s_T,s_{T_0}$ are linearly independent
+over $\mathbb Z_p$, so $s_T$ is conditionally uniform and $\varphi_T$ averages to $0$.  Hence
+$h\le\mathbb E[g\mid s_{T_0}=z]=h+m_\delta+\varphi_{T_0}(2z)-\varphi_{T_0}(2z-\delta)$; put $w=2z$ ($p$ odd).  For the
+consequence, $w\mapsto m_\delta+\varphi_T(w)-\varphi_T(w-\delta)$ is non-negative with mean $m_\delta$, and its coefficient at
+$\rho^{lw}$ is $\frac12a_{l,T}c_l(\delta)$, with $|c_l(\delta)|=\sqrt{2\kappa_l(\delta)}$.
+\end{proof}
+So the pointwise margin constraints, projected onto each $T$, say exactly that $\varphi_T(w')-\varphi_T(w)\le m_{w-w'}$: the
+interference profile is a potential for the slack, i.e.\ $1$-Lipschitz for the path quasi-metric $D_m$ that the mean
+slacks induce on the Cayley graph of $\mathbb Z_p$.  By Kantorovich--Rubinstein duality, the largest coefficient a
+feature $l$ can carry at $T$ is a transport cost: $\max|\beta_{l,T}|=\frac2p\max_\phi W_{D_m}(\nu^+_{l,\phi},\nu^-_{l,\phi})$,
+$\nu_{l,\phi}(w)=\cos(2\pi lw/p+\phi)$.  No circularity is used, so this holds at $p=3$ as well.
+
+\begin{theorem}[decoupling when few features are bought cheaply]\label{thm:loc}
+Let $\theta\in\mathcal C$, let $a_l:=\nu^{1-s}Q_l^{\,s}$ with $Q_l=\sum_{i}|\beta_{il}|^r$ be the interference-free price of the
+amplitudes $\theta$ pays for, let $\delta^\star$ minimise $\sum_la_l\kappa_l(\delta)$, and let $L'=\{l:|\beta_l|>a_l\}$ be the
+frequencies bought \emph{below} the interference-free price.  If
+\[\sum_{l\in L'}\kappa_l(\delta^\star)\ \le\ \frac{2}{(2^n-1)\,k^*(n,s)^2}\qquad(\,=4\ \text{for }n=2\,),\]
+then $\gamma(\theta)\le\nu^{1-s}B_p\Gamma_s(p)$, and if the inequality is strict, equality forces $\theta$ to be
+interference-free.  For $n=2$ the condition holds whenever $|L'|\le2$, because $\kappa_l<2$.  Hence, for $n=2$, every odd
+prime $p$ and every $b\in[2,3]$: among networks of $\mathcal C$ in which at most two frequencies are bought below the
+interference-free price (any width, any interference elsewhere), the maximum is the interference-free value, and every
+maximiser is interference-free and uses exactly $|\operatorname{spt}y^\star|=K^*(s,p)$ features.
+\end{theorem}
+\begin{proof}
+Averaging $g(\cdot,\pm\delta)$ over $x$ gives, for every $\delta$, $h=\sum_l\Re\beta_l\,\kappa_l(\delta)-\bar m_\delta$.  By the
+companion note's Theorem 14 (whose constant is finite by Corollary~\ref{cor:largep}),
+$|\beta_l|-a_l\le k^*\sqrt{E_l/2}$ with $E_l=\sum_{T\ne\emptyset}|\beta_{l,T}|^2$.  For $n=2$ take $k^*=1/\sqrt6$ (Part I, Theorem A).
+Fix $T$.  By the proof of Lemma~\ref{lem:potential}, $D_T(w):=\varphi_T(w)-\varphi_T(w-\delta^\star)$ has mean zero and values in
+$[-m_{\delta^\star},m_{-\delta^\star}]$ (the upper bound is the constraint at $(w-\delta^\star,-\delta^\star)$).  So
+$\frac1p\sum_wD_T^2\le m_{\delta^\star}m_{-\delta^\star}\le\bar m^2$ (Bhatia--Davis), and Parseval, with coefficients
+$a_{l,T}c_l(\delta^\star)$ and $|c_l|^2=2\kappa_l$, gives $\sum_l|\beta_{l,T}|^2\kappa_l(\delta^\star)\le\bar m^2$.  Summing over $T$:
+$\sum_lE_l\kappa_l(\delta^\star)\le(2^n-1)\bar m^2$.  By Cauchy--Schwarz,
+\[h\le\sum_la_l\kappa_l(\delta^\star)+\frac{k^*}{\sqrt2}\sum_{l\in L'}\sqrt{E_l}\,\kappa_l(\delta^\star)-\bar m
+\le\sum_la_l\kappa_l(\delta^\star)+\bar m\Big(k^*\sqrt{\tfrac{2^n-1}2\textstyle\sum_{l\in L'}\kappa_l(\delta^\star)}-1\Big).\]
+Under the condition the bracket is $\le0$, so $h\le\nu^{1-s}\min_\delta\sum_lQ_l^{\,s}\kappa_l(\delta)\le\nu^{1-s}(C_bP)^s\Gamma_s$
+by the single-neuron budget $\sum_lQ_l\le C_bP$.  If the bracket is $<0$ and equality holds, then $\bar m=0$, and
+Lemma~\ref{lem:potential} gives $\beta_{l,T}=0$ for all $l,T$.  So the maximiser is interference-free, and the paper's
+Theorem 8 gives its amplitudes and its count.
+\end{proof}
+Theorem~\ref{thm:loc} is the first count result at $p\ge5$ outside the dense regime for a class of networks that carry
+interference.  Any number of features may carry interference, and up to two of them (for $n=2$) may use it to buy
+themselves below the interference-free price.  They still cannot beat the interference-free value, because the slack
+their interference forces at $\delta^\star$ is at least as large as what they gain.  What it does not cover is
+\emph{collective} undercutting: many features each bought a little below price, with phases arranged so that their
+profiles nearly cancel.  The proof charges these through Cauchy--Schwarz over $L'$, which loses $\sqrt{|L'|}$.  A proof of
+the general count must replace this step by an estimate that sees the cancellation.
+
+\paragraph{The count fails only through cheap features.}  The next proposition holds for every $n$, $p$, $b$ and every
+network.  It says that the count can fail only if the maximiser buys some frequency \emph{below} its interference-free
+price, so everything reduces to excluding cheap features.
+\begin{proposition}[no cheap features $\Rightarrow$ exact count]\label{prop:nocheap}
+Let $\theta^\star$ be a global maximiser of the $L_{2,b}$-margin, $a_l=\nu^{1-s}Q_l^{\,s}$, $Q_l=\sum_i|\beta_{il}|^r$.  If
+$|\beta_l|\le a_l$ for every $l$, then $(Q_l^{\,s})_l$ is proportional to a maximiser $y^\star$ of $\Gamma_s(p)$, $|\beta_l|=a_l$ for
+every $l$, and $\theta^\star$ uses exactly $|\operatorname{spt}y^\star|$ features.
+\end{proposition}
+\begin{proof}
+$h\le\min_\delta\sum_l\Re\beta_l\kappa_l(\delta)\le\nu^{1-s}\min_\delta\sum_lQ_l^{\,s}\kappa_l(\delta)\le\nu^{1-s}(\sum_lQ_l)^s\Gamma_s\le\nu^{1-s}(C_bP)^s\Gamma_s$,
+and the left side is at least the right side because interference-free networks attain it (paper, Theorem 8).  So
+every inequality is an equality.  The third makes $(Q_l^s)$ proportional to a programme maximiser.  The first two give
+$|\beta_l|=a_l$ wherever $\kappa_l(\delta)>0$, i.e.\ everywhere, so $\beta_l\ne0\iff Q_l>0$.
+\end{proof}
+Proposition~\ref{prop:nocheap} does not need the maximiser to be interference-free.  At $p=3$ the counterexamples buy their single
+feature below price, consistent with the proposition.
+
+\begin{theorem}[Riesz products: cheap features need arithmetic coincidences, $n=2$]\label{thm:riesz}
+Let $n=2$, $2\le b\le3$, $p$ any odd prime, and $\theta$ any network (inputs and outputs arbitrary).  Write
+$\Phi_l(x)=\sum_{k\in\mathbb Z_p^2}\phi_l(k)\rho^{k\cdot x}$; the sign-flipped coefficient sits at the character
+$\chi_{l,T}:=2l\,\mathbf 1_T$ with $|\phi_l(\chi_{l,T})|=|\beta_{l,T}|$ (the computation of the companion note's Lemma 11 uses no
+property of the inputs).  Let $\hat g_\delta(k)$ be the Fourier coefficients of $x\mapsto g(x,\delta)$, let $\delta^\star$ minimise
+$\sum_la_l\kappa_l(\delta)$, and let $L'=\{l:|\beta_l|>a_l\}$.  Suppose there are $T_l$ ($l\in L'$) with
+$|\beta_{l,T_l}|=\max_T|\beta_{l,T}|$ such that $\Lambda=\{\chi_{l,T_l}\}_{l\in L'}$ is
+\begin{itemize}
+\item[(D)] \emph{dissociated}: the $3^{|L'|}$ sums $\sum_l\sigma_l\chi_{l,T_l}$, $\sigma\in\{0,\pm1\}^{L'}$, are pairwise distinct (no relation with coefficients in $\{0,\pm1,\pm2\}$); and
+\item[(I)] \emph{isolated} at $\pm\delta^\star$: $\hat g_{\pm\delta^\star}$ vanishes on the sums $\sum_l\sigma_l\chi_{l,T_l}$ with
+$|\operatorname{spt}\sigma|\ge2$, and at $\pm\chi_{l,T_l}$ only feature $l$'s own sign-flipped mode contributes.
+\end{itemize}
+Then $\gamma(\theta)\le3^{1-s}B_p\Gamma_s(p)$, strictly if $L'\ne\emptyset$.  Hence every global maximiser either has no cheap
+feature, and then uses exactly $K^*(s,p)$ features (Proposition~\ref{prop:nocheap}), or its cheap features violate (D)
+or (I).
+\end{theorem}
+\begin{proof}
+For any $\nu\ge0$ with $\mathbb E\nu=1$, $h\le\mathbb E_x[\nu(x)g(x,\delta)]$.  Take
+$\nu=\prod_{l\in L'}\big(1-\cos(2\pi\langle\chi_{l,T_l},x\rangle/p+\psi_l)\big)$ with $\psi_l=\arg\hat g_\delta(\chi_{l,T_l})$.  By (D) every character of $\nu$ has a unique representation, so
+$\hat\nu(0)=1$ and $\hat\nu(\pm\chi_{l,T_l})=-\frac12e^{\pm i\psi_l}$, and $\hat\nu$ is supported on $\{\sum\sigma_l\chi_{l,T_l}\}$.  By (I),
+\[h\le\hat g_\delta(0)-\sum_{l\in L'}|\hat g_\delta(\chi_{l,T_l})|=\mathbb E_xg(\cdot,\delta)-\sum_{l\in L'}|\beta_{l,T_l}|\sqrt{\kappa_l(\delta)/2},\]
+because $|\hat g_\delta(\chi_{l,T_l})|=\frac12|\beta_{l,T_l}||1-\rho^{-l\delta}|$.  Average this over $\delta=\pm\delta^\star$ and use Part I's
+Theorem A for $l\in L'$ ($|\beta_l|-a_l\le R_l/(2\sqrt3)\le\frac12|\beta_{l,T_l}|$; Lemma 6 of the paper makes it valid for any
+inputs):
+\[h\le\sum_la_l\kappa_l(\delta^\star)+\sum_{l\in L'}|\beta_{l,T_l}|\Big(\tfrac12\kappa_l(\delta^\star)-\sqrt{\kappa_l(\delta^\star)/2}\Big).\]
+Each bracket is negative because $\kappa_l<2$, and $\beta_{l,T_l}\ne0$ for $l\in L'$ (the paper's Lemma 7).  Finally
+$\sum_la_l\kappa_l(\delta^\star)\le3^{1-s}(C_bP)^s\Gamma_s$ as before.  For the last sentence, $\gamma(\theta^\star)\ge3^{1-s}B_p\Gamma_s$.
+\end{proof}
+Two remarks on what Theorem~\ref{thm:riesz} says.  (i) It is pointwise, needs no circularity, and holds at $p=3$.  There
+the counterexamples violate (I): with constant input components, the mode $\mathbf 1_T$ coincides with $-\chi_{1,T}$
+because $2\equiv-1\pmod3$.  This is the non-circularity of the companion note, seen as a spectral coincidence.  (ii) It
+replaces the $\sqrt{|L'|}$ loss of Theorem~\ref{thm:loc} by nothing.  Collective undercutting, and compensation by other
+fields, are possible \emph{only} through exact arithmetic: an additive relation $\sum\sigma_l\,2l\mathbf 1_{T_l}=0$ among the cheap
+features, or a mode of some field landing exactly on a cheap feature's sign-flipped character (for instance an input
+frequency $3l$, whose mode is the conjugate partner of $\chi_{l,T}$).  In class $\mathcal C$ the second cannot happen, and
+(I) reduces to the absence of relations $\sum\sigma_l\chi_{l,T_l}\in\{\pm\chi_{k,T}\}$.  The programme supports have $K^*=2,4$ at $p=11,31$ ($b=2$; exhaustive vertex enumeration at $p=11$, and at $p=31$ for
+supports up to size $5$) and $K^*\approx6$--$7$ at $p=101$ (heuristic search only; the programme is a hard concave minimisation there), i.e.\ $K^*\approx1.3$--$1.5\ln p$, below the capacity $2\log_3p\approx1.8\ln p$ of dissociated sets in $\mathbb Z_p^2$.
+A dissociated choice of $T_l$ exists for the programme supports at $p=31$ and $211$, but none was found at $p=101$ or $401$.  Moreover the network, not the
+proof, decides which $T$ carries a feature's interference.  With all interference on $T=\{1,2\}$ the characters are
+$1$-dimensional, and $\log_3p\approx0.9\ln p<K^*$ forces relations, so exact dissociation cannot cover every feature being cheap at large $p$.  There one has to use $\nu=\prod(1-\varepsilon\cos)$ with
+$\varepsilon<1$, whose relation terms carry weight $(\varepsilon/2)^{\text{length}}$.  The room for that is $1/2$ against the sharp
+single-feature constant $c_1(2,s)=\sup(|\beta|-a)/\max_T|\beta_T|$, which equals $1-3^{1-s}$ (Theorem~\ref{thm:c1sharp}; a single neuron;
+$0.423$ at $b=2$) and so is strictly below $1/2$.
+
+\begin{theorem}[the price of a feature at $n=2$, every prime, arbitrary inputs]\label{thm:q1n2}
+For $n=2$, $2\le b\le3$ and every odd prime $p$, every single-feature network (outputs at frequency $1$, inputs
+arbitrary, any width) satisfies
+\[\min_x\mathrm{cm}(\Phi_1(x))\ \le\ \Re\beta_1-\cos(\pi/p)\max_T|\beta_{1,T}|\ \le\ 3^{1-s}Q^s\ \le\ 3^{1-s}B_p\|\theta\|_{2,b}^{\nu}.\]
+Hence $\pi_{2,b}(p)=3^{1-s}=\nu^{1-s}$: a single feature cannot be bought below the interference-free price at $n=2$, at any
+prime.  This settles (Q1) for $n=2$, and with the price--programme theorem the decoupled value is the interference-free
+value.  At $p=3$ it recovers Part I.
+\end{theorem}
+\begin{proof}
+Fix $T\ne\emptyset$ and $\chi=\chi_{1,T}=2\mathbf 1_T$.  A mode of $\Phi_1$ at $\pm\chi$ needs input indices $k_t$ with $k_t+1=\pm2$ on $T$ and
+$k_t+1=0$ off $T$.  So the only modes there are the sign-flipped mode, with coefficient $a$, $|a|=|\beta_{1,T}|$, and the
+conjugate partner (input frequency $3$ on $T$), with coefficient $a'$; this holds for arbitrary inputs.  Put $b=\overline{a'}$ and
+$c=1-\rho^{-1}=2\sin(\pi/p)e^{i\alpha}$, $\alpha=\frac\pi2-\frac\pi p$.  For $\delta=\pm1$ the gap $g_\delta=\Re(\Phi_1c_\delta)$, with $c_{\pm1}=c,\bar c$, has
+coefficient $\hat g_\delta(\chi)=\frac12(ac_\delta+b\bar c_\delta)$.  With $\nu=1-\cos(2\pi\langle\chi,x\rangle/p+\arg\hat g_\delta(\chi))$, $h\le\mathbb E[\nu g_\delta]=\mathbb E g_\delta-|\hat g_\delta(\chi)|$.
+Averaging over $\delta=\pm1$, $\frac12(\mathbb Eg_1+\mathbb Eg_{-1})=\kappa_{\min}\Re\beta_1$.  Moreover
+writing $ac+b\bar c=|c|X$ and $a\bar c+bc=|c|Y$, we have $Xe^{i\alpha}-Ye^{-i\alpha}=2ia\sin2\alpha$ (the $b$-terms cancel), so $|ac+b\bar c|+|a\bar c+bc|\ge2|a||c||\sin2\alpha|$.  So
+\[h\le\kappa_{\min}\Re\beta_1-\tfrac12|a|\cdot2\sin(\tfrac\pi p)\sin(\tfrac{2\pi}p)=\kappa_{\min}\big(\Re\beta_1-\cos(\tfrac\pi p)|\beta_{1,T}|\big),\]
+and $h=\kappa_{\min}\min_x\mathrm{cm}$ (companion note, Lemma 3).  Take $T$ maximising $|\beta_{1,T}|$.  Part I's Theorem A (valid for
+arbitrary inputs by the paper's Lemma 6) gives $\Re\beta_1\le3^{1-s}Q^s+\frac12\max_T|\beta_{1,T}|$, and $\cos(\pi/p)\ge\frac12$.
+Finally $Q=\sum_i|\beta_{i1}|^r\le C_bP$.
+\end{proof}
+The partner, which is the $p=3$ mechanism's lever (there $3\equiv0$, i.e.\ the constant input component), cannot help: it can
+cancel the sign-flipped coefficient at one edge, but not at both, and the residual is the factor $\cos(\pi/p)$.  For
+several features the same averaging over $\pm\delta^\star$ gives the gain $\kappa_l(\delta^\star)|\cos(\pi l\delta^\star/p)|\,|\beta_{l,T_l}|$ per
+feature when only its own partner interferes, so Theorem~\ref{thm:riesz} survives own partners whenever
+$|\cos(\pi l\delta^\star/p)|\ge\frac12$ for the cheap $l$.
+
+\paragraph{Every $n$.}  The proof of Theorem~\ref{thm:riesz} uses $n=2$ only through Theorem A.  For general $n$, give each
+cheap feature $l$ a family $\mathcal T_l$ of non-empty $T\subseteq[n]$ with linearly independent indicators (their characters
+$\chi_{l,T}$ are then dissociated for $p>2n$), and take the Riesz product over all $\chi_{l,T}$, $T\in\mathcal T_l$, $l\in L'$.  The same
+computation gives $\gamma(\theta)\le\nu^{1-s}B_p\Gamma_s(p)$ (strictly if $L'\ne\emptyset$) under (D), (I) for this larger set, provided
+\[(\mathrm H_n)\qquad|\beta_l|-\nu^{1-s}Q_l^{\,s}\ \le\ \tfrac12\textstyle\sum_{T\in\mathcal T_l}|\beta_{l,T}|\quad\text{for some admissible }\mathcal T_l .\]
+$(\mathrm H_n)$ is a single-feature statement about atoms $\beta_i\in\mathbb C$, $\xi_i\in\mathbb T^n$ (the paper's Lemma 6).  The families must be
+\emph{collision-free}: no signed sum of $\ge2$ members' indicators equals $\pm\mathbf 1_{T'}$, otherwise the feature's own coefficient at
+$\chi_{l,T'}$ enters with uncontrolled phase.  For $n=2$ only single sets qualify, and Theorem A gives $c_1\le\frac12$ on all of $b\in[2,3]$.
+For $n\ge3$, $(\mathrm H_n)$ at $\frac12$ is false in the relevant range (computed, with certified examples).
+\begin{itemize}
+\item[$n=3$:] two atoms $\beta=e^{\mp i\varphi}/(2\cos\varphi)$, $\xi_2=e^{i(\pi/2-\varphi)}(1,1,1)$ kill every $|T|=2$ coefficient and give
+$c_1^{\rm cf}(3,s)\ge(\cos\varphi-2^{1-s})/\cos(\frac\pi4+\frac\varphi2)$.  This exceeds $\frac12$ for $b<2.51$ and equals $0.767$ at $b=2$, still below $\cos(\pi/5)=0.809$.
+\item[$n=4$:] three atoms $d,ce^{\pm i\psi}$, $\xi=(e^{\pm i\theta},\dots)$ (certified at $50$ digits over all $80$ collision-free families) give
+$c_1^{\rm cf}(4,\frac52)\ge1.127>1$.  So at $n=4$, $b=2$ a feature's own sign-flipped characters cannot pay for its bonus pointwise at any prime.
+\end{itemize}
+So the pointwise (Riesz) route closes the single-feature question for $n=2$ (Theorem~\ref{thm:q1n2}), is consistent with it for $n=3$ at
+every $p\ge5$ (threshold $\cos(\pi/p)$, unproved), and cannot work for $n\ge4$ at $b=2$.  There the $L^2$ (circularity) route of the
+companion note's Theorem 14 is needed.  It is rigorous for single-frequency inputs whenever $k^*(n,s)\le k_p$, but $k^*$ is known
+only numerically ($0.35,0.54,0.67,0.76,0.93$ for $n=2,3,4,5,7$ at $b=2$, against $k_5=0.946$).  Files:
+\texttt{mechanism\_scripts/Hn/}.
+
+\begin{proposition}[joint $L^2$/pointwise bound for single features, $p\ge5$]\label{prop:joint}
+Let $p\ge5$ and let $\theta$ be a single-frequency single-feature network with mean-zero inputs (every $u_{it}$ and $w_i$ in
+$\mathrm{span}\{\cos,\sin\}$ of frequency $1$).  Put $\sigma^2=\frac12\sum_{T\ne\emptyset}|\beta_{1,T}|^2$.  Then
+\[\min_x\mathrm{cm}(\Phi_1)\ \le\ \Re\beta_1-\max\Big(k_p\,\sigma,\ \cos(\tfrac\pi p)\max_{\mathcal T}\textstyle\sum_{T\in\mathcal T}|\beta_{1,T}|\Big),\]
+with $\mathcal T$ ranging over collision-free families.  Hence $\theta$ does not beat the interference-free single-feature value whenever
+the joint constant $J(n,s,p):=\sup\,(|A|-\nu^{1-s}Q^s)/\max(k_p\sigma,\cos(\frac\pi p)\max_{\mathcal T}\sum|\beta_T|)$ (over atom systems) is at most $1$.
+\end{proposition}
+\begin{proof}
+The first term is the companion note's Theorem 14 (circularity holds for single-frequency fields at $p\ge5$).  For the second, run the
+proof of Theorem~\ref{thm:q1n2} with the Riesz product over the family: with mean-zero inputs every mode of $\Phi_1$ has per-slot
+characters in $\{0,2\}$, so a multi-sum $\sum\sigma_T\chi_T$ carries a mode only if it is $\pm2\mathbf 1_{T'}$, which collision-freeness excludes.
+\end{proof}
+Local search gives $J(3,2,5)\approx0.57$ and $J(4,\frac52,5)\approx0.71$ ($b=2$).  For $n\le7$ the $L^2$ term alone already suffices numerically
+($k^*<k_5$).  The joint constant matters from $n=8$, where $k^*(8,\frac92)\ge0.99>k_5$.  These are lower bounds on the suprema from local
+search, so they are evidence, not proof.  A direct search at $p=5$, $n=8$ (single-frequency inputs, seeded at the IF block) found nothing
+above the IF value, and no feasible network of width $8<\nu$.
+
+\paragraph{Room in Theorem~\ref{thm:riesz}.}  The factor $1-\cos\theta$ extracts half of each character's amplitude.
+A shifted Fej\'er kernel $F_d(\theta+\pi)=1+2\sum_{k=1}^d(1-\frac k{d+1})\cos k(\theta+\pi)\ge0$ extracts the fraction
+$\frac d{d+1}$.  The proof is the same, provided the representations $\sum_l k_l\chi_{l,T_l}$ with $|k_l|\le d$ are unique and
+$\hat g$ vanishes at the multiples $k\chi_{l,T_l}$, $2\le|k|\le d$.  In class $\mathcal C$ the latter fails only if some feature
+is a multiple $kl$ of a cheap feature $l$.  The conclusion then holds whenever $|\beta_l|-a_l\le\frac d{d+1}\max_T|\beta_{l,T}|$,
+which for $n=2$ leaves a factor $\frac{2d}{d+1}$ of room over Theorem A, and more against the sharp constant $1-3^{1-s}$.  That
+room is what a weighted product $\prod(1-\varepsilon\cos)$ needs to absorb the relations that dissociation cannot exclude at
+large $p$.  The price is a smaller capacity: unique representations allow at most $n\log_{2d+1}p$ characters.
+
+\begin{proposition}[hiding a character needs many modes; any network]\label{prop:hide}
+For $\chi\in\mathbb Z_p^n\setminus\{0\}$ let $\phi_j(\chi)$ be the coefficient of $\Phi_j$ at $\rho^{\langle\chi,x\rangle}$ and
+$F_\chi(\delta):=\mathbb E_x[\sigma(x,\delta)\rho^{-\langle\chi,x\rangle}]$ ($\delta\ne0$), $F_\chi(0):=0$.  Then
+$\phi_j(\chi)=-\frac2p\sum_\delta\rho^{j\delta}F_\chi(\delta)$ for every $j\in F$, and $\phi_j(-\chi)=-\frac2p\overline{\sum_\delta\rho^{-j\delta}F_\chi(\delta)}$.
+Consequently, if some field has a mode at $\pm\chi$ and $F_\chi$ vanishes on a symmetric set $B\subseteq\mathbb Z_p\setminus\{0\}$, then at least
+$|B|+1$ of the $p-1$ coefficients $\{\phi_j(\pm\chi)\}_{j\in F}$ are non-zero.
+\end{proposition}
+\begin{proof}
+The first formula is the $\chi$-coefficient of the slack identity (Lemma~\ref{lem:slack}); the second follows because $\sigma$
+is real.  So $\hat F_\chi(j)=\sum_\delta F_\chi(\delta)\rho^{j\delta}$ equals $-\frac p2\phi_j(\chi)$ for $j\in F$ and $-\frac p2\overline{\phi_{-j}(-\chi)}$
+for $j\in-F$.  $F_\chi\not\equiv0$ and $|\operatorname{spt}F_\chi|\le p-1-|B|$, so Tao's uncertainty principle for $\mathbb Z_p$
+($|\operatorname{spt}f|+|\operatorname{spt}\hat f|\ge p+1$) gives $|\operatorname{spt}\hat F_\chi|\ge|B|+2$, of which at most one is $j=0$.
+\end{proof}
+For $\chi=\chi_{l,T}$ every mode $(j,\pm\chi)$ other than feature $l$'s own needs input energy at an off-frequency ($2l-j$ or
+$-2l-j$ on $T$).  So hiding one sign-flipped character from the $|B|\ge2K^*$ binding directions of a programme vertex needs at
+least $2K^*$ off-frequency mode families.  And by the paper's Lemma 6 each such family comes with $2^n-1$ sign-flipped
+siblings of equal size at other characters, which must in turn be paid for or hidden.  The proposition is exact only
+where the slack vanishes identically.  Turning it into the quantitative statement the compensation case needs (a
+robust uncertainty principle on $\mathbb Z_p$, combined with this sibling conservation) is the remaining analytic step.
+
+\paragraph{The relations case is a one-sided Sidon problem.}  Suppose all interference sits on $T=\{1,2\}$, the case in
+which the network can force relations.  Then the conditional gap is $M_\delta+\varphi(w)-\varphi(w-\delta)$ with
+$\varphi(w)=\sum_lA_l\cos(2\pi lw/p+\theta_l)$ (for two aligned neurons per feature this is exact; see the relations note in
+\texttt{mechanism\_scripts}).  Evaluating every direction at one common point $w_0$ and averaging with the programme's dual
+weights $\mu$ (symmetric, on the binding set) gives
+\[h\ \le\ \sum_\delta\mu_\delta M_\delta-\Big(-\min_{w}\psi_\mu(w)\Big),\qquad \psi_\mu(w)=\sum_lA_lK_l(\mu)\cos(2\pi lw/p+\theta_l),\]
+because $\varphi-\mu\ast\varphi$ has coefficients $A_lK_l(\mu)$.  So the interference-free bound for this family follows from the
+one-sided Sidon inequality $-\min\psi_\mu\ge c\sum_lA_lK_l(\mu)$ with $c=1-(2/3)^{s-1}$ ($0.18$ at $b=2$), for adversarial phases.  That
+inequality holds with $c=\frac12$ for dissociated $S$ (Riesz), and numerically with $c\approx0.8$ for the programme supports.  It fails
+for arithmetic progressions, whose Rudin--Shapiro polynomials are flat, but those have poor coverage.  What is missing
+is a ``coverage implies one-sided Sidon'' lemma for $|S|\approx1.5\ln p$, which is Chowla's cosine problem with phases and with a
+coverage hypothesis.
+
+\paragraph{Spurious features need all-slot content.}  A clean amplitude at $q$ needs a neuron with frequency-$q$ content in
+every input slot and an output at $q$.  So a cheap single-feature mechanism built from single-frequency inputs, even if it
+beat the interference-free value, would not change the count: compensating outputs at other frequencies carry no clean
+amplitude.  The count can change only through (i) a shift of the allocation's support or (ii) neurons with
+multi-frequency inputs in all slots (sign-vector type mechanisms).
+
+\paragraph{Parasitic orbits: compensation is cheap, but does not pay in the models tested.}  An interference-free block
+for feature $j$ can carry a hidden compensating mode.  Give its three neurons input components at the off-frequency
+$q=2l-j$ in slot $1$, with relative size $\rho$ and phases $w_i=e^{i\arg\hat u_{i1}(q)}$.  With the paper's block phases
+$\alpha_i=\pi(i-1)/3$, the three sibling modes $(-q,-j),(q,j),(-q,j)$ cancel iff $w_1=w_2e^{i\pi/3}$ and $w_3=w_2e^{-i\pi/3}$.  The surviving
+mode lands on $\chi_{l,\{1\}}=(2l,0)$ with size exactly $\rho\,a_j/\sqrt{1+\rho^2}$, while the block's clean amplitude drops to
+$a_j/\sqrt{1+\rho^2}$ at fixed cost.  So a compensating mode of size $M$ costs only $O(M^2)$.  We tested the most favourable
+configuration (one feature on two aligned neurons, interference on the single character $(2l,0)$, all other features
+carrying parasitic orbits, all phases, sizes and the allocation optimised).  In the large-$p$ limit the margin is
+exactly $\min_\delta[\sum_ka_k\kappa_k/\sqrt{1+\rho_k^2}+(\tfrac32)^{s-1}a_l\kappa_l-|Z(\delta)|]$, where $Z$ is the total coefficient at
+$(2l,0)$.  When the allocation is left free, the optimiser always switches the cheap feature off.  With the cheap feature forced to
+keep $1,\frac12,\frac15$ of its programme share at $p=31$ ($b=2$), the best margins are $0.49$--$0.64$, $0.60$--$0.75$ and $0.67$--$0.82$ of the IF value
+(over the four choices of cheap feature).  They rise monotonically back towards $1$ as the share shrinks.  (An earlier run reported gains; they came entirely
+from a suboptimal programme solver, since corrected.)  By Proposition~\ref{prop:hide}, exact hiding from a programme vertex's
+$2K^*$ binding directions needs more modes than the features' outputs provide.
+
+\begin{remark}[why the remaining step is a question of constants]\label{rem:scaling}
+Let $K$ features each carry interference of size $\varepsilon$ (relative to their amplitudes).  Their total gain at a
+binding direction is at most $k^*\varepsilon\sum_l\kappa_l(\delta^\star)\asymp k^*\varepsilon K$.  The slack they force is
+at least $\varepsilon\sqrt{\sum_l\kappa_l(\delta^\star)/(2^n-1)}\asymp\varepsilon\sqrt K$ (proof of Theorem~\ref{thm:loc}).  This is
+also the right order for an upper bound: translating each feature's inputs rotates its sign-flipped phases
+independently, and a sum of $K$ cosines with independent phases has supremum $O(\sqrt{K\log p})$.  At the programme's
+own scale $K=K^*=\Theta(\log p)$ (paper, Theorem 11), gain and forced slack are therefore of the same order, uniformly in $p$.
+So collective undercutting is neither negligible nor dominant at any prime, and no order-of-magnitude argument can
+settle the count.  A proof has to compare three sharp constants: the true $k^*(n,s)$ (at least $c_n(s-1)$, from
+$\nu-1$ equal aligned atoms), the best cancellation constant for the profiles $\varphi_T$ under the joint pointwise
+constraint, and the coverage constant of the programme at its binding directions.  The experiments at $p=5,7$ (no
+compensated network within $4\times$ of IF) say the first is small against the other two at those primes.
+Theorem~\ref{thm:riesz} is such a comparison, and it is won by the sharp pair $\frac12$ (Riesz gain per feature) against
+$c_1(2,s)\le\frac12$ (Theorem A) whenever the cheap features' characters are dissociated.  A dissociated set in $\mathbb Z_p^n$ has
+at most $n\log_3p$ elements ($3^K$ distinct sums in a group of order $p^n$).  For $n=2$, $b=2$ that is $\approx1.8\ln p$,
+against $K^*\approx1.3$--$1.5\ln p$, so exact dissociation is in reach in principle.  But an adversarial choice of $T$ (all interference on
+$T=\{1,2\}$) reduces the capacity to $\log_3p\approx0.9\ln p$, which is below $K^*$.
+A direct test agrees that phases cannot flatten the profiles: realising every feature of a $6$-feature allocation at $p=31$ by a
+two-neuron sub-network and optimising all translations gives margin $-0.47\times$ the IF margin, not the $>1$ needed.
+Each feature's field is a product polynomial $P_l(\zeta^l)$, whose coherent excursions phases do not remove.
+\end{remark}
+
+\section{Architecture of a proof of the count}\label{sec:arch}
+Everything proved above, and everything still open, is an instance of one inequality.  Throughout this section $\theta$ is an
+arbitrary network (any $n$, $p$, $b$, width and inputs), $P=\|\theta\|_{2,b}^b$, $a_l=\nu^{1-s}Q_l^{\,s}$,
+$\Delta(\theta)=\arg\min_{\delta\ne0}\sum_la_l\kappa_l(\delta)$, $\mathcal M(\theta)$ is the set of symmetric probability measures on
+$\Delta(\theta)$, and $K_l(\mu)=\sum_\delta\mu_\delta\kappa_l(\delta)$.  Two non-negative accounts measure how far the allocation is
+from the interference-free optimum:
+\[U(\theta)=\nu^{1-s}\Big((C_bP)^s-\big(\textstyle\sum_lQ_l\big)^s\Big)\Gamma_s,\qquad
+G(\theta)=\nu^{1-s}\big(\textstyle\sum_lQ_l\big)^s\,\Gamma_s-\min_{\delta\ne0}\sum_la_l\kappa_l(\delta).\]
+The \emph{unused budget} $U$ collects norm that buys no clean amplitude: off-frequency input content, unbalanced or constant
+components, and at $b>2$ multi-frequency neurons.  The \emph{coverage gap} $G$ vanishes iff $(Q_l^{\,s})_l$ is proportional to a
+maximiser of $\Gamma_s$.  For a density $w\ge0$ on $\mathbb Z_p^n$ with $\mathbb Ew=1$ let
+$D_\delta(w)=\mathbb E_xg(x,\delta)-\mathbb E_x[w(x)g(x,\delta)]$ be the slack that $w$ detects in direction $\delta$, and let
+$L'(\theta)=\{l:|\beta_l|>a_l\}$ be the cheap features.
+
+\begin{proposition}[master inequality]\label{prop:master}
+For every $\mu\in\mathcal M(\theta)$ and all densities $(w_\delta)_{\delta\ne0}$,
+\[h(\theta)\ \le\ \nu^{1-s}B_p\Gamma_s(p)\,\|\theta\|_{2,b}^{\nu}\;+\;\sum_l(\Re\beta_l-a_l)K_l(\mu)\;-\;\sum_\delta\mu_\delta D_\delta(w_\delta)\;-\;U(\theta)-G(\theta).\]
+So $\gamma(\theta)\le\nu^{1-s}B_p\Gamma_s(p)$ as soon as
+\[(\mathrm{MI})\qquad\sum_l(\Re\beta_l-a_l)K_l(\mu)\ \le\ \sum_\delta\mu_\delta D_\delta(w_\delta)+U(\theta)+G(\theta)\]
+for some $\mu\in\mathcal M(\theta)$ and some tests $(w_\delta)$, and the inequality is strict if (MI) is.  If (MI) holds strictly for
+every network with $L'(\theta)\ne\emptyset$, then every global maximiser of the $L_{2,b}$-margin uses exactly
+$|\operatorname{spt}y^\star|$ features for some maximiser $y^\star$ of $\Gamma_s(p)$.
+\end{proposition}
+\begin{proof}
+For each $\delta$, $h\le\mathbb E[w_\delta g(\cdot,\delta)]=\mathbb Eg(\cdot,\delta)-D_\delta(w_\delta)$.  Average with $\mu$.  Since $\mu$ is symmetric,
+$\sum_\delta\mu_\delta\mathbb Eg(\cdot,\delta)=\sum_l\Re\beta_l\,K_l(\mu)$.  Since $\mu$ lives on $\Delta(\theta)$,
+$\sum_la_lK_l(\mu)=\min_\delta\sum_la_l\kappa_l(\delta)=\nu^{1-s}(C_bP)^s\Gamma_s-U-G$, and $(C_bP)^s=B_p\|\theta\|^\nu_{2,b}$.
+A global maximiser $\theta^\star$ has $\gamma(\theta^\star)\ge\nu^{1-s}B_p\Gamma_s$ (paper, Theorem 8), so (MI) cannot hold strictly for it.
+Hence $L'(\theta^\star)=\emptyset$, and Proposition~\ref{prop:nocheap} applies.
+\end{proof}
+Point masses at the minimisers of $g(\cdot,\delta)$ are admissible tests, so (MI) loses nothing beyond the choice of $\mu$.  The
+count, for all $n,p,b$, is therefore the single statement that \emph{a cheap feature is always strictly paid for}, by detected
+slack, unused budget or coverage gap.
+
+\paragraph{Two factors.}  Every argument in Section~\ref{sec:robust} proves (MI) in the same way.  For each $l\in L'$ it chooses characters
+$X_l\subseteq\mathbb Z_p^n\setminus\{0\}$ and weights $\lambda_{l,\chi}>0$, and then proves two inequalities that meet in the middle:
+\begin{itemize}
+\item[(P)] \emph{payment}, one frequency at a time: $\Re\beta_l-a_l\le\sum_{\chi\in X_l}\lambda_{l,\chi}|\beta_{l,\chi}|$, where $\beta_{l,\chi}$ is the
+coefficient that feature $l$'s own atoms put at $\chi$ (the sign-flipped coefficient when $\chi=\chi_{l,T}$);
+\item[(A)] \emph{detection}, all frequencies together: $\sum_\delta\mu_\delta D_\delta(w_\delta)+U+G\ge\sum_{l\in L'}K_l(\mu)\sum_{\chi\in X_l}\lambda_{l,\chi}|\beta_{l,\chi}|$.
+\end{itemize}
+By the paper's Lemma 6, (P) is a statement about one finite family of atoms $(\beta_i,\xi_i)$, the same in every network, so it is
+decided on single-feature networks.  Features interact only in (A).  There is also an $L^2$ pair:
+(P$_2$) $\Re\beta_l-a_l\le k^*\sigma_l$ with $\sigma_l^2=\frac12\sum_T|\beta_{l,T}|^2$, and (A$_2$), Bhatia--Davis plus Parseval as in the proof of
+Theorem~\ref{thm:loc}.  The results above are instances:
+\begin{center}
+\begin{tabular}{p{0.18\textwidth}p{0.37\textwidth}p{0.37\textwidth}}
+\toprule
+result & (P) & (A)\\
+\midrule
+Prop.~\ref{prop:nocheap} & vacuous ($L'=\emptyset$) & vacuous\\
+Thm.~\ref{thm:q1n2} & Theorem A; $X=\{\chi_{1,T}\}$, $\lambda=\frac12$ & both-edge averaging; own partner allowed\\
+Thm.~\ref{thm:riesz} & Theorem A; $X_l=\{\chi_{l,T_l}\}$, $\lambda=\frac12$ & Riesz product, under (D) and (I)\\
+$(\mathrm H_n)$ & collision-free families, $\lambda=\frac12$; false for $n\ge3$ in part of the range & Riesz product\\
+Thm.~\ref{thm:loc} & (P$_2$) & (A$_2$) in class $\mathcal C$; loses $\sqrt{|L'|}$\\
+Prop.~\ref{prop:joint} & $\max$ of (P) and (P$_2$) & single feature\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{lemma}[the two defects of a Riesz test]\label{lem:defects}
+Let $X=\bigcup_{l\in L'}X_l$ with $X_l\subseteq\{\chi_{l,T}:T\ne\emptyset\}$, let $\varepsilon_\chi\in(0,1]$, and suppose no signed sum
+$\sum_\chi\sigma_\chi\chi$ with $\sigma\in\{0,\pm1\}^X$, $|\operatorname{spt}\sigma|\ge2$, vanishes.  Put
+$w=\prod_{\chi\in X}\big(1-\varepsilon_\chi\cos(2\pi\langle\chi,x\rangle/p+\psi_\chi)\big)$ with $\psi_\chi=\arg\hat g_\delta(\chi)$.  Then
+\[D_\delta(w)\ \ge\ \sum_{l\in L'}\sum_{\chi_{l,T}\in X_l}\varepsilon_{\chi_{l,T}}\Big(|\beta_{l,T}|\sqrt{\kappa_l(\delta)/2}-|Z_{l,T}(\delta)|\Big)\;-\sum_{|\operatorname{spt}\sigma|\ge2}\ \prod_{\sigma_\chi\ne0}\frac{\varepsilon_\chi}2\ \Big|\hat g_\delta\Big(\sum_\chi\sigma_\chi\chi\Big)\Big|,\]
+where $Z_{l,T}(\delta)$ is everything in $\hat g_\delta(\chi_{l,T})$ except the contribution of feature $l$'s own sign-flipped mode.
+\end{lemma}
+\begin{proof}
+$w\ge0$.  Expanding the product gives $\hat w(0)=1$ (no signed sum vanishes), coefficients $-\frac{\varepsilon_\chi}2e^{\pm i\psi_\chi}$ at
+$\pm\chi$, and coefficients of modulus $\prod_{\sigma_\chi\ne0}\frac{\varepsilon_\chi}2$ at the other signed sums.  So
+$\mathbb E[wg_\delta]\le\mathbb Eg_\delta-\sum_\chi\varepsilon_\chi|\hat g_\delta(\chi)|+\sum_{|\operatorname{spt}\sigma|\ge2}\prod\frac{\varepsilon_\chi}2|\hat g_\delta(\sum\sigma_\chi\chi)|$.  Finally
+$g_\delta=\sum_j\Re(\Phi_jc_j(\delta))$ puts $\frac12\phi_l(\chi_{l,T})c_l(\delta)$ at $\chi_{l,T}$ from feature $l$'s sign-flipped mode, of modulus
+$\frac12|\beta_{l,T}|\sqrt{2\kappa_l(\delta)}$, and the triangle inequality gives the rest.
+\end{proof}
+Without either defect the lemma gives (A) with $\lambda=\varepsilon/\sqrt{2\kappa_l}\ge\frac12$ at $\varepsilon=1$; this is
+Theorem~\ref{thm:riesz}.  So (A) can fail in only two ways:
+\begin{itemize}
+\item[(R)] \emph{relations}: a signed sum of $\ge2$ chosen characters vanishes, or lands where $\hat g_\delta\ne0$;
+\item[(C)] \emph{compensation}: a mode other than feature $l$'s own sign-flipped mode sits at $\chi_{l,T}$.
+\end{itemize}
+(O1) is (R) and (O2) is (C).  The next two lemmas say where (C) can come from and what it costs.
+
+\begin{lemma}[compensation channels; any $n$]\label{lem:channels}
+Let $\phi_j(\chi)=2p^{-\nu}\sum_i\hat w_i(j)\prod_t\hat u_{it}(\chi_t-j)$ be the coefficient of $\Phi_j$ at $\chi$.  Every contribution to
+$\hat g_\delta(\chi_{l,T})$ other than $\phi_l(\chi_{l,T})$ comes from a neuron with an output frequency $j$ that has, in every slot $t\in T$,
+input content at a frequency $q\notin\{\pm j\}$, and on-frequency content $\pm j$ in the slots off $T$.  Either
+\begin{itemize}
+\item[(i)] $j=l$ and $q=\pm3l$: the \emph{own partner}, through $\phi_l(-\chi_{l,T})$; or
+\item[(ii)] $j\ne l$ and $q=\pm(2l-j)$ or $q=\pm(2l+j)$: a \emph{foreign mode}.
+\end{itemize}
+In particular nothing compensates in class $\mathcal C$.
+\end{lemma}
+\begin{proof}
+$\hat g_\delta(\chi)=\frac12\sum_j\big(\phi_j(\chi)c_j(\delta)+\overline{\phi_j(-\chi)c_j(\delta)}\big)$.  A term of $\phi_j(\pm\chi_{l,T})$ needs
+$\hat u_{it}(\pm2l-j)\ne0$ for $t\in T$ and $\hat u_{it}(-j)\ne0$ for $t\notin T$.  Since $l,j\in F$ and $p$ is odd, $\pm2l-j\equiv\pm j$ only for
+$l=j$ with the sign $+$, which is the own mode.  For $j=l$ the other sign gives $-3l$.  Real inputs have $|\hat u(q)|=|\hat u(-q)|$.
+\end{proof}
+
+\begin{lemma}[paid compensation is quadratic]\label{lem:lorentz}
+Let $\omega$ be a neuron, $j$ one of its output frequencies, and $C$ the coefficient of its frequency-$j$ field at a character reached
+through an input frequency $q\notin\{0,\pm j\}$ on the slots of $T\neq\emptyset$ and $\pm j$ off $T$.  If $q$ is not an output frequency of
+$\omega$ ($\hat w(q)=0$), then
+\[\sum_{k\ne j}|\beta_k(\omega)|^r+\big(|\beta_j(\omega)|^2+|C|^2\big)^{r/2}\ \le\ C_b\|\omega\|_2^b .\]
+For a single-output neuron this reads $|\beta_j(\omega)|^2+|C|^2\le e(\omega)^2$, $e(\omega)=B_p\|\omega\|_2^\nu$, the clean amplitude its
+norm buys.  If neurons $i$ of this kind carry modes $C_i$ at a common character, with total $M=\sum_iC_i$, then
+$\sum_i|\beta_j(\omega_i)|\le\sqrt{(\sum_ie(\omega_i))^2-|M|^2}$.  The parasitic orbits above attain these bounds.
+\end{lemma}
+\begin{proof}
+Let $m_k=|\hat w(k)|^2+\sum_t|\hat u_t(k)|^2$ for $k\in F$ and $\tau=\sum_{t\in T}|\hat u_t(q)|^2\le m_q$.  With real inputs,
+$|\beta_j(\omega)|=2p^{-\nu}|\hat w(j)|\prod_t|\hat u_t(j)|$ and $|C|=2p^{-\nu}|\hat w(j)|\prod_{t\in T}|\hat u_t(q)|\prod_{t\notin T}|\hat u_t(j)|$, so
+\[|\beta_j(\omega)|^2+|C|^2\le(2p^{-\nu})^2|\hat w(j)|^2\prod_{t\notin T}|\hat u_t(j)|^2\prod_{t\in T}\big(|\hat u_t(j)|^2+|\hat u_t(q)|^2\big)\le(2p^{-\nu})^2\Big(\frac{m_j+\tau}{\nu}\Big)^{\nu}\]
+by AM--GM.  Now run the paper's proof of the single-neuron budget (Appendix C) with $m_j$ replaced by $m_j+\tau$ and $m_q$ by $m_q-\tau$; the
+total $\sum_km_k\le\frac p2\|\omega\|_2^2$ is unchanged, and $\beta_q(\omega)=0$ because $\hat w(q)=0$.  For one output frequency,
+$|\hat w(j)|^2\le\frac p2\|w\|^2$ and AM--GM over the $\nu$ norms give $e(\omega)$ directly.  The last claim is Acz\'el's inequality
+$\sum_i\sqrt{e_i^2-|C_i|^2}\le\sqrt{(\sum_ie_i)^2-|\sum_iC_i|^2}$ for $e_i\ge|C_i|$ (reverse Minkowski for timelike vectors).  The parasitic
+orbit has clean amplitude $a_j/\sqrt{1+\rho^2}$ and mode $\rho a_j/\sqrt{1+\rho^2}$, which gives equality.
+\end{proof}
+So a compensating mode of size $M$ that rides on a feature's block costs that block at least $E-\sqrt{E^2-M^2}\ge M^2/(2E)$ of clean
+amplitude.  In (MI) this cost is collected by $U$, because $Q_j$ counts clean amplitudes while the norm is spent.
+
+More generally, the mode is a product of $\nu$ factors: $\hat w(j)$, the inputs $\hat u_t(q)$ on $T$, and the inputs $\hat u_t(j)$ off $T$.  A factor
+is \emph{paid} if the same neuron uses that mass for a clean amplitude: the $j$-factors if $j$ is a clean frequency of the neuron, the
+$q$-factors if $q$ is.  Every unpaid factor is norm that buys no clean amplitude, so it is charged to $U$.  If exactly one factor is unpaid,
+the cost is quadratic in the mode.  Examples are riding (the $q$-inputs; Lemma~\ref{lem:lorentz}) and a stray output $\hat w(j)$ on a neuron whose inputs
+carry a clean frequency $q$ with $T=[n]$, which is the cross-feature compensation of Section~6.  If several factors are unpaid, the cost is a
+lower power, down to $|C|^{r}$ for a dedicated neuron.  Compensation is free of norm only in two cases:
+\begin{itemize}
+\item[(F1)] the \emph{own partner} ($q=\pm3l$ in feature $l$'s own neurons).  Both-edge averaging (Theorem~\ref{thm:q1n2}) leaves the factor
+$|\cos(\pi l\delta/p)|$ of the sign-flipped coefficient in direction $\pm\delta$, whatever the partner;
+\item[(F2)] a \emph{shared neuron}, in which both $j$ and $q$ are clean frequencies, so that every factor is paid.  At $b=2$ the budget does not
+charge for several frequencies in one neuron.  If such a clean amplitude does not survive in the network's $\beta_q$ (or $\beta_j$), that
+feature is bought above price and pays in (MI).  So free shared compensation at $\chi_{l,T}$ needs two features $j\ne q$ of one neuron with
+$2l\equiv\pm j\pm q\pmod p$.  For $j=l$ this means that $\pm3l$ is also a feature.  For $b>2$ shared neurons pay strictly (superadditivity of
+$t^{b/2}$ is strict).
+\end{itemize}
+For $j\ne l$, condition (F2) is a relation $2\cdot(2l)\mp2j\mp2q=0$ with coefficients in $\{0,\pm1,\pm2\}$ among doubled frequencies, which
+is the kind of relation (D) excludes.  For $j=l$ it is the relation $3\cdot(2l)=\pm2q$.
+
+\paragraph{Cost-free compensation defeats Theorem A.}  Lemma~\ref{lem:lorentz} is not optional.  Take one cheap feature $l$ of a programme
+maximiser ($n=2$, $b=2$), let the network place its partner and riding modes from the other features of the support \emph{for free}, and let the
+prover choose $\mu$ on $B$.  The value of this game is
+$V(\lambda)=\min_{b,z,z'}\max_{\pm\delta\in B}\big[\frac12(|\hat g_\delta(\chi)|+|\hat g_{-\delta}(\chi)|)-\lambda\kappa_l(\delta)\big]$ per unit of $|\beta_{l,T}|$, with
+gain constant $\lambda$ (Lemma~\ref{lem:defects}, minimax over $\mu$).  We computed it for $p\le31$.  With $\lambda=\frac12$ (Theorem A) it is $0$ at $p=5,7$ and
+negative for some feature at every prime from $11$ to $31$ ($-0.28$ at $p=17$, $l=8$, where $8\delta^\star\approx p/2$ and $\kappa_l\approx2$).  With the
+sharp $\lambda=c_1=1-3^{1-s}$ it is positive for every feature at $p=5,7,13$ and still negative for some feature at $p=11,17,19,23,29,31$.  So exact
+hiding is impossible (Proposition~\ref{prop:hide}), yet near-hiding for free would already beat Theorem A.  Any proof of (O2) has to use the cost of the
+compensating modes.  The costs are quadratic.  The gain is at most linear in $|\beta_{l,T}|$, and numerically it is also quadratic in the
+interference everywhere.  A local search over up to six atoms ($n=2$, $b=2$) gives $|A|-3^{1-s}Q^s\le0.275\,\sum_T|\beta_T|^2/|A|$.  The extremiser
+has all $|\beta_T|\approx0.45|A|$; it is not the IF block and not a single atom, for which the ratio is $c_1/3=0.141$.  With partner and riding only, the residual
+of the free game is linear and positive (Proposition~\ref{prop:hide}), so it wins at small interference.  With stray outputs it can vanish
+(Proposition~\ref{prop:dich} below), and then quadratic gain meets quadratic cost: the decision is a comparison of constants at every size.  Files: \texttt{mechanism\_scripts/freehide.py}.
+
+\paragraph{The single-cheap-feature compensation game, solved.}  Take one cheap feature $l$ of a programme vertex, its interference resolved by
+the set $T$, and every channel of Lemma~\ref{lem:channels}: partner, riding, stray outputs, and dedicated neurons with their siblings.  The channels
+pay their Lorentz costs, and the prover picks $\mu$ on $B$.  The value is a \emph{protection curve} $\Pi_T(R)$: the least detected slack plus cost
+that the network can leave when its sign-flipped mode has size $R$.  By Sion's theorem $\Pi_T$ has a dual SOCP form.  It is convex, and $\Pi_T(R)/R$
+is non-decreasing with limit $h_T$ at $0$.  So a gain bound linear in $R$ (Theorem A's $\frac12$, or $c_1$) wins for the prover iff it is $\le\min_Th_T$.
+\begin{proposition}[free first-order hiding: a Chebotarev dichotomy]\label{prop:dich}
+Let the channels at $\chi_{l,T}$ supply a set $M_T$ of distinct output frequencies $\ne0,l$, each with a free coefficient.  Then $h_T=0$ (exact
+first-order hiding from every binding direction) if and only if $|M_T|\ge|B|$.  With partner and riding only, $|M_T|=2|S|-1<|B|$ at every vertex, so
+$h_T>0$.  In the dense case ($S=F$, $B=\mathbb Z_p^\times$; e.g.\ $p=5,7$ at $b=2$) $h_T=\frac12$ exactly.
+\end{proposition}
+\begin{proof}[Proof sketch]
+$h_T=0$ iff $c_l|_B$ lies in the span of the $c_m|_B$, $m\in M_T$, i.e.\ iff the exponentials $\rho^{-k\delta}$, $k\in M_T\cup\{0,l\}$, satisfy a relation on
+$B\cup\{0\}$ with non-zero coefficient at $l$.  By Chebotarev's theorem every square minor of the Fourier matrix of $\mathbb Z_p$ is non-zero.  So any
+$|B|+1$ of these exponentials are independent on $B\cup\{0\}$, and the relations needed exist iff $|M_T|+2\ge|B|+2$.  In the dense case, extend
+the dual vector $u$ to $\mathbb Z_p$.  Its transform is then supported on $\{l\}$, so $|u_\delta|$ is constant, and $\sum_{\delta\ne0}\kappa_l(\delta)=p$ gives
+$h_T\le\frac12$, with equality.
+\end{proof}
+So Proposition~\ref{prop:hide} is exact.  Stray outputs at $T=[n]$ add the frequencies $2l\pm q$ ($q\in S$), and then $|M_{[n]}|\ge|B|$ at every sparse
+support computed ($p=11,\dots,41$ at $b=2$).  Hence every gain bound that is linear near $R=0$ loses, at every sparse prime.  The gain is in
+fact quadratic near the IF block.  For three atoms within $\varepsilon$ of the block,
+$|A|-3^{1-s}Q^s=\frac{1-r}{8+r}\,|\beta_1+\beta_2+\overline{\beta_{12}}|^2/a+O(\varepsilon^3)$ (proved by second-order expansion; the slot phases cancel in that
+combination).  The constants are $0.346$ in terms of $\max_T|\beta_T|^2$ and $0.115$ in terms of $\sum_T|\beta_T|^2$ at $b=2$; the global supremum $0.275$
+is reached at moderate interference, on an explicit two-atom branch $G_2(\rho)=3\rho-\rho^3/c^2-1$, $c=\frac12(\frac32)^{s-1}$.
+
+\emph{Numerical verdict} ($n=2$, every support feature of every prime $5\le p\le41$, $b=2$ and $2.5$).  The prover wins in every case, using the sharp
+$T$-resolved gain (local search) as the network's payoff.  The minimal ratio of protection to gain is
+\begin{itemize}
+\item $1.015$ with partner and riding;
+\item $1.05$ with stray outputs and joint Lorentz accounts;
+\item $1.69$ with the quadratic test of Theorem~\ref{thm:quad}.
+\end{itemize}
+The worst case is $p=17$, $l=5$, a two-neuron cheap feature with $|\beta_T|\approx0.5$--$0.8\,a_l$.  At $b=2.5$ the minimal ratio is $\ge2.35$.  Dedicated
+compensators never help once their siblings are counted, and moving the allocation off $y^\star$ lowers the ratio by at most $7\%$ (under $1\%$ with
+the quadratic test).  Two variants lower the ratio below $1$.  Making the own partner free gives $0.94$ with single-character tests, still $1.66$ with
+the quadratic test.  Making every shared (F2) neuron free at any size gives $0.70$, and $1.32$ with the quadratic test.  F2 relations
+$2l\equiv\pm j\pm k$ occur for $30$ of the $38$ features at $p\le41$, so at these sizes they are the rule.  What would make this a proof:
+\begin{itemize}
+\item a $T$-resolved sharp payment inequality on atom systems (single-feature and $p$-free; anything within $1.6\times$ of the computed bonus suffices
+for $p\le41$ with the quadratic test);
+\item a $p$-uniform lower bound on the protection curves, i.e.\ a robust uncertainty principle on $\mathbb Z_p$.  The slopes $h_T$ vary irregularly with
+the arithmetic of $(p,l)$, from $0.095$ to $0.67$.
+\end{itemize}
+Files: \texttt{mechanism\_scripts/compensation/}.
+
+\paragraph{A spectral form of the cost lemma.}  The paper proves $\sum_l|\beta_l|^r\ge\nu^{1-r}|\beta|^r$ for interference-free atoms by comparing
+$\det(I+tH)$, $H=\sum_l\beta_lm_lm_l^*$ ($m_l$ the chain vectors), with $\prod_l(1+t\nu|\beta_l|)$.  The comparison does not need
+interference-freeness.  Since $|\det(I+tH)|=\prod_k|1+t\lambda_k|$ and $\int_0^\infty\log|1+te^{i\phi}|\,t^{-1-r}dt=\cos(r\phi)\,\frac{\pi}{r\sin\pi r}$ for
+$|\phi|\le\pi$ (rotate the contour), the same integration gives, for \emph{any} atoms, any $n$ and $0<r<1$,
+\[\nu^r\sum_l|\beta_l|^r\ \ge\ \sum_{k=1}^{\nu}|\lambda_k|^r\cos(r\arg\lambda_k),\qquad\lambda_k\text{ the eigenvalues of }H .\]
+$H$ has constant diagonal $\beta=\sum_l\beta_l$, so $\sum_k\lambda_k=\nu\beta$, and its strictly lower entries are the sign-flipped coefficients
+$\beta_T$ of the intervals $T$.  The bound is an equality both for a single atom ($\lambda=(\nu\beta,0,\dots,0)$) and for the IF block
+($\lambda=(\beta,\dots,\beta)$), the two extremes of the sharp single-feature constant.  So at $n=2$ the sharp payment
+$|\beta|\le3^{1-s}Q^s+(1-3^{1-s})\max_T|\beta_T|$ would follow from the eigenvalue inequality $\sum_k\Re\lambda_k^{\,r}\ge3\big(|\beta|-(1-3^{1-s})\max_T|\beta_T|\big)^r$
+over $3\times3$ matrices with diagonal $\beta$, lower entries $\beta_T$ and upper entries bounded by $\sum_l|\beta_l|$.  The upper bound is needed:
+with free upper entries the spectrum can be anything with trace $3\beta$.  To second order the bound reads
+$|\beta|-\nu^{1-s}Q^s\lesssim(1-r)\,|\sum_T\beta_T\,U_T|/(\nu|\beta|)$, with $U_T$ the upper entries.  The bonus is thus driven by products of
+lower (sign-flipped) and upper entries, and both vanish at the IF block.
+
+\paragraph{Quadratic tests: $L^2$ payment with factorised detection.}  A linear Riesz factor detects one character at a time, so it
+needs the pointwise payment (P), which is false at $n=4$.  Parseval (A$_2$) sees every character but loses $\sqrt{|L'|}$.  A product
+of \emph{quadratic} factors, one per cheap feature, does both.  It detects the whole $L^2$ mass of each feature's interference, and it
+factorises across features under a dissociation hypothesis of order three.  Put $f(\gamma)=\frac12\big(\sqrt{\gamma^2+4}-\gamma\big)$.  Then $f(0)=1$, $f$ is decreasing, and
+$f(\gamma)+f(-\gamma)\ge2$.
+
+\begin{theorem}[quadratic Riesz products; class $\mathcal C$, every $n$]\label{thm:quad}
+Let $p\ge5$, $\theta\in\mathcal C$, $\delta\ne0$ and $L'\subseteq F$.  For $l\in L'$ let
+$W_l=\Phi_l-\overline{\beta_l}=\sum_{T\ne\emptyset}a_{l,T}\rho^{2ls_T}$, $\sigma_l^2=\frac12\sum_T|\beta_{l,T}|^2$,
+\[\tau_l=\sum_{(T,T')}a_{l,T}\,a_{l,T'}\,\overline{a_{l,T\cup T'}}\ \ \text{(ordered pairs of disjoint non-empty sets)},\qquad
+\gamma_l(\delta)=\frac{3\,\Re\big(\tau_l\,c_l(\delta)\big)}{4\,\sigma_l^3\,|c_l(\delta)|}.\]
+Suppose
+\begin{itemize}
+\item[(D$_3$)] the only solution of $\sum_{l\in L'}\varepsilon_l\,l\equiv0\pmod p$ with integers $|\varepsilon_l|\le3$, and $|\varepsilon_l|=3$ for at most one $l$,
+is $\varepsilon=0$;
+\item[(I$_2$)] no $k\in F\setminus L'$ with $\Phi_k\not\equiv0$ is congruent to some $\sum_{l\in L'}\varepsilon_l\,l$ with integers $|\varepsilon_l|\le2$.
+\end{itemize}
+Then
+\[h(\theta)\ \le\ \sum_{k\in F}\Re\big(\overline{\beta_k}\,c_k(\delta)\big)\;-\;\sum_{l\in L'}\sigma_l\,|c_l(\delta)|\,f\big(\gamma_l(\delta)\big)\]
+(terms with $\sigma_l=0$ are omitted).
+\end{theorem}
+\begin{proof}
+Write $c_l=c_l(\delta)$ and $X_l=\Re(W_lc_l)$, so that $g(\cdot,\delta)=\sum_k\Re(\overline{\beta_k}c_k)+\sum_kX_k$.  The monomials of $W_l$ are
+$\rho^{\langle\chi,x\rangle}$ with $\chi=2l\mathbf 1_T$, and $\mathbb E\rho^{\langle\chi,x\rangle}=0$ unless $\chi=0$.  For $p\ge5$ the vectors
+$2l(\mathbf 1_T+\mathbf 1_{T'})$ and $2l(\mathbf 1_T+\mathbf 1_{T'}+\mathbf 1_{T''})$ are non-zero (entries in $2l\{0,1,2,3\}$, not all $0$), so
+$\mathbb EW_l^2=\mathbb EW_l^3=0$.  The vector $2l(\mathbf 1_T+\mathbf 1_{T'}-\mathbf 1_{T''})$ vanishes iff $T\cap T'=\emptyset$ and $T''=T\cup T'$, so $\mathbb E[W_l^2\overline{W_l}]=\tau_l$.  Hence $\mathbb EX_l=0$,
+$V_l:=\mathbb EX_l^2=\frac12|c_l|^2\mathbb E|W_l|^2=\sigma_l^2|c_l|^2$ and $\mathbb EX_l^3=\frac34|c_l|^2\Re(c_l\tau_l)=\gamma_lV_l^{3/2}$.  For $t\in\mathbb R$
+the density $w_l=(X_l-t)^2/(V_l+t^2)$ has $\mathbb E[w_lX_l]=(\mathbb EX_l^3-2tV_l)/(V_l+t^2)$.  At $t=\frac12\big(\gamma_l+\sqrt{\gamma_l^2+4}\big)\sqrt{V_l}$
+this equals $-\sqrt{V_l}\,f(\gamma_l)$, which is its minimum.
+
+Let $w=\prod_{l\in L'}w_l\ge0$ and expand $w\,g(\cdot,\delta)$ into monomials.  In slot $t$, a monomial of $w_l$ has exponent $2l\,v_l$ with
+$|v_l|\le2$, and a monomial of $X_k$ has exponent $2k\,v$ with $|v|\le1$.  A monomial has non-zero mean only if every slot exponent
+vanishes.  For the monomials of $w$ alone, (D$_3$) forces all $v_l=0$, so $\mathbb Ew=\prod_l\mathbb Ew_l=1$.  With a monomial of $X_k$,
+$k\notin L'$, a vanishing exponent with $v\ne0$ would contradict (I$_2$), so $\mathbb E[wX_k]=0$.  With a monomial of $X_k$, $k\in L'$, the
+exponent is $\sum_{l\ne k}2l\,v_l+2k(v_k+v)$ with $|v_k+v|\le3$.  Then (D$_3$) forces $v_l=0$ for $l\ne k$, so
+$\mathbb E[wX_k]=\mathbb E[w_kX_k]$.  Therefore $h\le\mathbb E[w\,g(\cdot,\delta)]=\sum_k\Re(\overline{\beta_k}c_k)-\sum_{l\in L'}\sqrt{V_l}\,f(\gamma_l)$.
+\end{proof}
+
+\begin{corollary}[class $\mathcal C$: any number of dissociated cheap features]\label{cor:quad}
+Let $p\ge5$ and $2\le b\le\nu$.  Define
+\[k^\sharp(n,s):=\sup\frac{\Re A-\nu^{1-s}Q^s}{\sigma\,f(\gamma_{\max})},\qquad \gamma_{\max}=\frac{3|\tau|}{4\sigma^3},\]
+over atom systems with $\sigma>0$, with $A,Q,\beta_T$ as in Theorem~14 of the companion note, $\sigma^2=\frac12\sum_T|\beta_T|^2$ and
+$\tau=\sum_{(T,T')}\beta_T\beta_{T'}\overline{\beta_{T\cup T'}}$.  If $k^\sharp(n,s)<1$, then no network of $\mathcal C$ whose cheap set $L'$ satisfies (D$_3$) and
+(I$_2$) beats the interference-free value, and equality forces $L'=\emptyset$.  For $n=2$ and $2\le b\le3$,
+\[k^\sharp(2,s)\ \le\ \frac1{\sqrt7-1}\ =\ 0.608 .\]
+So at $n=2$, among networks of $\mathcal C$ with (D$_3$)- and (I$_2$)-dissociated cheap features (any number of them), every maximiser is
+interference-free and uses $K^*(s,p)$ features.
+\end{corollary}
+\begin{proof}
+Let $\delta^\star$ minimise $\sum_la_l\kappa_l(\delta)$.  Average Theorem~\ref{thm:quad} at $\pm\delta^\star$.  Then $\frac12\sum_\pm\Re(\overline{\beta_k}c_k(\pm\delta^\star))=\Re\beta_k\,\kappa_k(\delta^\star)$
+and $|c_l(-\delta)|=|c_l(\delta)|$.  Since $|\Re(\tau_lc)/|c||\le|\tau_l|$, $\gamma_l(\pm\delta^\star)\le\gamma_{\max,l}$ and $f(\gamma_l(\pm\delta^\star))\ge f(\gamma_{\max,l})$.  For
+$l\notin L'$, $\Re\beta_l\le a_l$.  For $l\in L'$, by definition $\Re\beta_l-a_l\le k^\sharp\sigma_lf(\gamma_{\max,l})$, and $\tau_l$ has the modulus of the $\tau$ of $l$'s
+atoms.  Hence
+\[h\ \le\ \sum_la_l\kappa_l(\delta^\star)+\sum_{l\in L'}\sigma_l\,f(\gamma_{\max,l})\big(k^\sharp\kappa_l(\delta^\star)-|c_l(\delta^\star)|\big),\]
+and $\kappa\le\sqrt{2\kappa}=|c|$ because $\kappa\le2$.  Each bracket is negative, and $\sigma_l>0$ for $l\in L'$ (the paper's Lemma 7).  Conclude as in
+Theorem~\ref{thm:loc}.  For $n=2$: $|\tau|=2|\beta_1\beta_2\beta_{12}|\le2(2\sigma^2/3)^{3/2}$ by AM--GM, so $\gamma_{\max}\le\sqrt{2/3}$ and
+$f(\gamma_{\max})\ge(\sqrt{14}-\sqrt2)/(2\sqrt3)=0.672$.  Part I's Theorem A gives $\Re A-3^{1-s}Q^s\le\sigma/\sqrt6$.  The ratio is
+$\sqrt2/(\sqrt{14}-\sqrt2)=1/(\sqrt7-1)$.
+\end{proof}
+Three remarks place this in the architecture.
+\begin{itemize}
+\item[(a)] \emph{A uniform, proved surplus at $n=2$.}  Per feature and direction, detection exceeds payment by at least
+$\sigma_lf\,|c_l|\big(1-k^\sharp\kappa_l/|c_l|\big)\ge(1-0.608)\,\sigma_lf\,|c_l|$, i.e.\ by $39\%$ of the detection, whatever $\kappa_l$.  The linear Riesz test has a surplus that
+vanishes as $\kappa_l\to2$ with Theorem A's constant, and is $18\%$ with the sharp one (Theorem~\ref{thm:c1sharp}).  The quadratic test gives a uniform surplus from
+Theorem A alone.  Local search gives $k^\sharp(2,\frac32)\ge0.514$, so the true surplus is at most about $49\%$.
+\item[(b)] \emph{No $\sqrt{|L'|}$ loss, for every $n$.}  The test is the $L^2$ route of Theorem~\ref{thm:loc} with the Cauchy--Schwarz step replaced by a
+product, so it detects $\sum_l\sigma_l|c_l|f$, linearly in the features.  The price is order-three dissociation (D$_3$), and a single-feature
+constant $k^\sharp(n,s)<1$ in place of $c_1\le\frac12$.  The constant $k^\sharp$ is defined on atoms and does not depend on $p$.  The crude bound
+$k^\sharp\le k^*/f(\gamma_{\max}(n))$ uses $\gamma_{\max}(n)=\sqrt{2/3},\ \sqrt2,\ 1.96,\ 2.49$ for $n=2,\dots,5$ (cubic-form maximum on the sphere, computed).  With
+$k^*(3,2)\approx0.54$ this crude bound is already about $1.04$ at $n=3$, so for $n\ge3$ the joint supremum $k^\sharp$ is what has to be computed.
+\item[(c)] \emph{General networks.}  For an arbitrary network take $X_l$ to be the part of $g(\cdot,\delta)$ on feature $l$'s characters $\pm\chi_{l,T}$: own modes,
+partner and foreign modes together.  The same computation gives detection $\sqrt{V_l}f(\gamma_l)$ with $V_l=2\sum_T|\hat g_\delta(\chi_{l,T})|^2$, and
+$\gamma_l\le\gamma_{\max}(n)$ for every coefficient vector.  Two defects appear.  Compensation lowers $V_l$, as in Lemma~\ref{lem:defects} but now in $L^2$ over $T$.
+Modes of $g$ at the pair sums $\pm\chi_{l,T}\pm\chi_{l,T'}$ and at order-three relations among the cheap frequencies are of type (R).  So (O1) and (O2)
+keep their form, and they now have to fit inside the surplus of (a).
+\item[(d)] \emph{Hermitian squares.}  The proof never uses the special form $(X_l-t)^2$.  Any factor $w_l=|P_l|^2/\mathbb E|P_l|^2$ with $P_l$ in the span
+of $1$ and the characters $\pm\chi_{l,T}$ has its monomials at differences of two such characters, so it factorises under the same
+(D$_3$), (I$_2$).  The best such factor detects $-\lambda_{\min}(A_l(\delta))$, where $A_l(\delta)$ is the Hermitian matrix
+$\big(\hat X_l(v-u)\big)_{u,v}$ indexed by $\{0\}\cup\{\pm\chi_{l,T}\}$, of size $2^{n+1}-1$.  It contains the quadratic factor ($P=X_l-t$) and
+the linear Riesz factor ($1-\cos=\frac12|1-e^{i(\cdot)}|^2$), so it dominates both.  After averaging $\pm\delta$ (so $\kappa_l=2\cos^2\alpha$,
+$|c_l|=2\cos\alpha$ with $\alpha=|\arg c_l(\delta)|$), Corollary~\ref{cor:quad} holds with $k^\sharp$ replaced by the direction-resolved constant
+\[k^\flat(n,s)=\sup_{\text{atoms},\ 0\le\alpha<\pi/2}\frac{(\Re A-\nu^{1-s}Q^s)\cos\alpha}{\frac12\big(D(\alpha)+D(-\alpha)\big)},\]
+with $D(\pm\alpha)$ the best Hermitian-square detection for $|c|=1$ and $\arg c=\pm\alpha$.  Local search at $b=2$ gives $k^\flat\ge0.423$ at $n=2$ (this is $c_1(2,\frac32)=1-3^{-1/2}$, attained by a single neuron) $k^\flat\ge0.535$ at $n=3$, $0.559$ at $n=4$ and $0.570$ at $n=5$ (two or three atoms, partly cancelled; at $n=4$ two slots form an interference-free block and the interference sits on $T\subseteq\{3,4\}$).
+The quadratic factor alone, direction-resolved, gives $0.514,\ 0.762,\ 1.006$ for $n=2,3,4$.
+\end{itemize}
+
+\paragraph{The relations case at $n=2$: what is proved.}  The \emph{relations case} is class $\mathcal C$ at $n=2$ with every feature's interference
+on $T=\{1,2\}$.  This is the case in which the network can force additive relations among cheap features.  Then
+$\Phi_l=\overline{\beta_l}+W_l\rho^{2l(x_1+x_2)}$.  Put $w=2(x_1+x_2)$, $v_l=|W_l|=|\beta_{l,12}|$, $\varphi(w)=\sum_lv_l\cos(2\pi lw/p+\arg W_l)$ and
+$D_\delta(w)=\varphi(w)-\varphi(w-\delta)$, so that $g(x,\delta)=\mathbb Eg(\cdot,\delta)+D_\delta(w)$.
+
+\begin{lemma}[oscillation]\label{lem:osc}
+In the relations case, $h\le\sum_l\kappa_l(\delta)\Re\beta_l-\frac12\operatorname{osc}_wD_\delta(w)$ for every $\delta\ne0$, where $\operatorname{osc}=\max-\min$.
+\end{lemma}
+\begin{proof}
+Use separate minimisers for $\pm\delta$, and note $D_{-\delta}(w)=\varphi(w)-\varphi(w+\delta)=-D_\delta(w+\delta)$, so $\min D_{-\delta}=-\max D_\delta$.
+\end{proof}
+The quantity is two-sided, and $\mathbb E_wD_\delta^2=\sum_lv_l^2\kappa_l(\delta)$ exactly: the frequencies $l\in F$ are distinct and $l\not\equiv-l'$, so no relation enters.
+Since $\operatorname{osc}D\ge2\sqrt{\mathbb ED^2}$ (Bhatia--Davis), the proof of Theorem~\ref{thm:loc} with one set $T$ instead of $2^n-1$ gives:
+
+\begin{corollary}[Parseval closure]\label{cor:parseval}
+Let $c$ be a valid single-$T$ payment constant ($\Re\beta_l\le a_l+c\,v_l$; Theorem A gives $c=1/(2\sqrt3)$).  In the relations case,
+if $c^2\sum_{l\in L'}\kappa_l(\delta^\star)<1$ then $\gamma(\theta)<\nu^{1-s}B_p\Gamma_s$ unless $L'=\emptyset$.  Since $\sum_{l\in F}\kappa_l(\delta)=p/2$:
+\begin{itemize}
+\item[(a)] the relations case is closed for every prime $p\le23$, every cheap set, every $b\in[2,3]$ and any width;
+\item[(b)] at every prime it is closed whenever the cheap set carries $\sum_{L'}\kappa_l(\delta^\star)<12$, in particular whenever $|L'|\le6$;
+\item[(c)] with all sets $T$ allowed, Theorem~\ref{thm:loc} (threshold $4\ge p/2$) closes all of class $\mathcal C$ at $n=2$ for $p\in\{5,7\}$: every maximiser within
+$\mathcal C$ is interference-free and uses $K^*(s,p)$ features.
+\end{itemize}
+\end{corollary}
+
+\begin{theorem}[sharp single-$T$ payment, P$_{12}$]\label{prop:p12}
+Let $\beta_i\in\mathbb C$ and $\xi_i,\eta_i\in\mathbb T$ with $B=\sum_i\beta_i\xi_i=0$ and $C=\sum_i\beta_i\eta_i=0$.  Put $A=\sum_i\beta_i$, $D=\sum_i\beta_i\xi_i\eta_i$, $1\le s\le\frac32$,
+$r=1/s$, $\theta=3^{1-s}$ and $c_{12}=1-(\frac23)^{s-1}$.  Then
+$|A|-c_{12}|D|\le\theta(\sum_i|\beta_i|^{r})^s$, with equality for two aligned atoms.
+\end{theorem}
+\begin{proof}
+Write $\beta_i=\rho_ip_i$ ($\rho_i>0$, $p_i\in\mathbb T$) and $L=\sum\rho_i$.  \emph{Twist} the chain vectors by the atom's own phase:
+$u_i=(1,x_i,y_i)$ with $x_i=p_i\xi_i$, $y_i=p_i^2\xi_i\eta_i$, and $H=\sum_i\rho_iu_iu_i^*\succeq0$.  Its diagonal is $L$, and its entries below the diagonal
+are $\sum\rho_ix_i=B=0$, $\sum\rho_iy_i\bar x_i=C=0$ and $D':=\sum\rho_iy_i$.  So $H=\begin{psmallmatrix}L&0&\bar D'\\0&L&0\\D'&0&L\end{psmallmatrix}$.  Put $\delta=|D'|/L$, $\omega=D'/|D'|$
+and $X_i=\Re(\bar\omega y_i)$.
+
+\emph{Cost.}  Leverage scores are at most one: $\rho_iw_i\le1$ with $w_i=u_i^*H^{+}u_i=(3-\delta^2-2\delta X_i)/(L(1-\delta^2))$.  So $\rho_i^r\ge\rho_iw_i^{1-r}$.  The map
+$X\mapsto w^{1-r}$ is concave on $[-1,1]$, and $\sum\rho_iX_i=L\delta$.  Comparing with the chord gives
+$Q\ge L^r\Phi(\delta)$, $\Phi(\delta)=\frac12[(1+\delta)^r(3+\delta)^{1-r}+(1-\delta)^r(3-\delta)^{1-r}]$; the case $\delta=1$ is a limit.
+
+\emph{Gain.}  We have $D=\sum\rho_i\bar p_iy_i$.  With $P_i=\bar\alpha p_i$ ($\alpha=A/|A|$) and $Y_i=\bar\omega y_i$, Cauchy--Schwarz gives, for every $C'\ge0$,
+\[|A|-C'|D|\le\sum_i\rho_i\Re\big(\bar P_i(1-C'Y_i)\big)\le\sum_i\rho_i|1-C'Y_i|\le L\sqrt{1+C'^2-2C'\delta}.\]
+
+\emph{One variable.}  It remains to show $3^{1-s}\Phi(\delta)^s\ge\sqrt{1+C'^2-2C'\delta}$ for $C'=\min(\delta,c_{12})$.
+\begin{itemize}
+\item For $\delta\le c_{12}$ this is $\varphi:=3^{r-1}\Phi\ge(1-\delta^2)^{r/2}$.  It follows from
+$\varphi=(1-\delta^2)^{r/2}(1-\frac{\delta^2}9)^{\frac{1-r}2}\cosh(r\operatorname{artanh}\delta+(1-r)\operatorname{artanh}\frac\delta3)$.
+\item For $\delta\ge c_{12}$, Jensen gives $\varphi\ge e^{(1-r)\kappa(\delta)}$ with $\kappa=\frac{1+\delta}2\log\frac{3+\delta}{3(1+\delta)}+\frac{1-\delta}2\log\frac{3-\delta}{3(1-\delta)}$.  Here $e^\kappa$ is concave
+($\kappa''+\kappa'^2\le-\frac5{16}$) and $\kappa(1)=\log\frac23$.  Then $x=(\frac23)^{s-1}$ enters as $x^{2\kappa/\log(2/3)}$, which is concave in $x$, so the inequality reduces to its
+endpoints in $x$.  These are elementary.
+\end{itemize}
+Chaining the three steps: $|A|-c_{12}|D|\le|A|-C'|D|\le L\sqrt{1+C'^2-2C'\delta}\le\theta(L^r\Phi)^s\le\theta Q^s$.  Full details, and checks of every step on $2\cdot10^5$ random
+configurations, are in \texttt{mechanism\_scripts/payment/}.
+\end{proof}
+
+\begin{theorem}[sharp pointwise payment at $n=2$; computer-assisted]\label{thm:c1sharp}
+For all atoms $\beta_i\in\mathbb C$, $\xi_i,\eta_i\in\mathbb T$ (no constraint) and $1\le s\le\frac32$:
+\[|A|\ \le\ 3^{1-s}Q^s+\big(1-3^{1-s}\big)\max(|B|,|C|,|D|),\]
+with equality for a single atom.  So $c_1(2,s)=1-3^{1-s}$ ($0.4226$ at $b=2$).
+\end{theorem}
+\begin{proof}[Proof outline]
+Use the same twisted matrix $H=L\hat H$.  Now $\hat H$ is a correlation matrix with entries $B/L$, $C/L$, $D'/L$ below the diagonal and eigenvalues
+$\nu_k\ge0$, $\sum\nu_k=3$.
+\begin{itemize}
+\item The paper's determinant comparison applies to $H$ (real non-negative weights), so $\theta Q^s\ge L(\frac13\sum\nu_k^r)^s$.  Jensen with weights $\nu_k/3$
+turns this into $\ge L\theta^{\lambda}$, $\lambda=\sum\nu_k\log\nu_k/(3\log3)$.
+\item The spectrum solves $\mu^3-P\mu-q=0$ with $P=2b^2+y^2$, $b=\sqrt{(|B|^2+|C|^2)/2}/L$, $y=|D'|/L$ and $q\ge\max(-2b^2y,P-1)$.  By divided differences, $\lambda$ increases
+in $P$ and decreases in $q$, which gives $\lambda\le\tilde\lambda(b,y)$, increasing in both.
+\item The Cauchy--Schwarz step above (which does not use $B=C=0$) gives $|A|-c_1M\le L[\sqrt{1+C'^2-2C'y}-c_1\lambda'b]$ for admissible $(\lambda',C')$.
+\item Both sides are concave in $x=3^{1-s}$, which removes $s$.  What remains is one inequality in $(b,y)\in[0,1]^2$.  Near the two equality corners
+(IF block, single atom) it is proved analytically.  Elsewhere it is certified by interval arithmetic: every box passes with minimal margin
+$2.47\cdot10^{-4}$, and we re-ran the certificate.
+\end{itemize}
+\end{proof}
+Consequences.  With $c_{12}=0.1835$ ($b=2$) instead of $1/(2\sqrt3)=0.289$, the threshold of Corollary~\ref{cor:parseval} rises to $\ge29.7$.  So the relations
+case is \textbf{closed for every prime $p\le59$, for all networks}, and at every prime whenever the cheap set carries $\sum\kappa_l<29.7$, in particular whenever
+$|L'|\le14$.  Theorem~\ref{thm:c1sharp} turns the conditional statements made above with the sharp constant into theorems.  The linear Riesz test
+now has a proved uniform surplus of $(\varepsilon-2c_1)\frac{\kappa_l}2|\beta_{l,T}|$ in every direction, $18\%$ of the payment at $b=2$.  And with partner and riding
+compensation at no cost, a single cheap feature is excluded at $p=5,7,13$ (the free-hiding values $V(c_1)>0$).  The same chain also gives a global
+quadratic bound, bonus $\le K\sum_T|\beta_T|^2/|A|$ with $K\approx0.282$ at $b=2$ (numerical maximisation of a proved bound; the true supremum is about $0.275$).
+
+\paragraph{A buffer near the interference-free networks, at every prime.}  The sharp constants above are attained at a single atom or at two aligned
+atoms, i.e.\ far from the IF blocks.  Near an IF block a feature's discount is \emph{quadratic} in its interference, while the slack that the interference
+forces is \emph{linear} (Lemma~\ref{lem:osc}, Bhatia--Davis).  So small departures from the predicted network lose by a whole order, and no sharp
+constant and no arithmetic are needed there.
+\begin{proposition}[quadratic payments, $n=2$]\label{prop:quadpay}
+Let $1\le s\le\frac32$, $r=1/s$, $\theta=3^{1-s}$, let $\beta_i\in\mathbb C$, $\xi_i,\eta_i\in\mathbb T$ be atoms with $A,B,C,D,Q$ as in Theorem~\ref{thm:c1sharp}, and $L=\sum_i|\beta_i|$.
+\begin{itemize}
+\item[(i)] $|A|-\theta Q^s\le K_2\,(|B|^2+|C|^2+|D|^2)/L$ with $K_2=2(s-1)/(7-4s)$ ($=1$ at $s=\frac32$).
+\item[(ii)] If $B=C=0$, then $|A|-\theta Q^s\le K_q\,|D|^2/L$ with $K_q=5/(5+4r)$ ($\le0.652$; computer-assisted).
+\end{itemize}
+Adversarial search (600 starts, up to $8$ atoms) gives the suprema $0.2805$ in (i) and \emph{exactly} $c_{12}=1-(\frac23)^{s-1}$ in (ii), at $s=1.1,1.25,\frac32$, attained by two aligned atoms.
+So (ii) presumably holds with $c_{12}$ in place of $K_q$: $|A|-\theta Q^s\le c_{12}|D|\cdot|D|/L$, a common strengthening of P$_{12}$ and of (ii).
+\end{proposition}
+\begin{proof}
+(i) Take the twisted matrix $H=\sum_i\rho_iu_iu_i^*$ of Theorem~\ref{prop:p12} and $\hat H=H/L$.  It has unit diagonal, entries $B/L$, $C/L$, $D'/L$ below the diagonal, and eigenvalues
+$\nu_k\ge0$ with $\sum\nu_k=3$.  The spectral cost lemma with real weights gives $\theta Q^s\ge L(\frac13\sum_k\nu_k^r)^s$.  Jensen with weights $\nu_k/3$, then
+$e^{-x}\ge1-x$ and $\nu\log\nu\le(\nu-1)+(\nu-1)^2$, give
+\[\theta Q^s\ \ge\ L\exp\Big(-(s-1)\sum_k\tfrac{\nu_k}3\log\nu_k\Big)\ \ge\ L-\tfrac{s-1}3L\sum_k(\nu_k-1)^2\ =\ L-\tfrac{2(s-1)}{3L}\big(|B|^2+|C|^2+|D'|^2\big).\]
+Put $\alpha=A/|A|$ and $P_i=\bar\alpha p_i$.  Then $L-|A|=\frac12\sum_i\rho_i|1-P_i|^2$, and $D'=\alpha^2\sum\rho_iP_i^2\xi_i\eta_i$, $D=\alpha\sum\rho_iP_i\xi_i\eta_i$ give
+$|D'|\le|D|+\sum_i\rho_i|P_i-1|\le|D|+\sqrt{2L(L-|A|)}$.  With $\eta=4(s-1)/(7-4s)$, $|D'|^2\le(1+\eta)|D|^2+(1+\frac1\eta)2L(L-|A|)$, and
+$\frac{4(s-1)}3(1+\frac1\eta)=1$, so the terms in $L-|A|$ cancel:
+$|A|-\theta Q^s\le\frac{2(s-1)}{3L}(|B|^2+|C|^2+(1+\eta)|D|^2)\le K_2(|B|^2+|C|^2+|D|^2)/L$, because $1+\eta=3/(7-4s)$.
+
+(ii) The proof of Theorem~\ref{prop:p12} gives $Q\ge L^r\Phi(\delta)$ and $|A|-C'|D|\le L\sqrt{1+C'^2-2C'\delta}$ for every $C'\ge0$, with $\delta=|D'|/L$.  Take $C'=\delta$ and $\varphi=3^{r-1}\Phi$.  Then
+\[|A|-\theta Q^s\ \le\ \delta|D|-L\,g(\delta),\qquad g(\delta)=\varphi(\delta)^s-\sqrt{1-\delta^2}.\]
+The coefficient of $\delta^2$ in $g$ at $0$ is $\kappa_0=\frac12-\frac29(1-r)=\frac{5+4r}{18}$.  We certify $g(\delta)\ge\kappa_1\delta^2$ on $[0,1]$ with $\kappa_1=0.9\kappa_0$, for all $s\in[1,\frac32]$.
+Then $|A|-\theta Q^s\le\max_\delta(\delta|D|-\kappa_1L\delta^2)=|D|^2/(4\kappa_1L)=K_qD^2/L$.  The certificate uses interval arithmetic in three ranges:
+\begin{itemize}
+\item $\delta\le0.21$: Bernoulli's $\varphi^s\ge1-s(1-\varphi)$, the identity $1-\sqrt{1-\delta^2}=\delta^2/(1+\sqrt{1-\delta^2})$, and $1-\varphi(\delta)=-3^{r-1}f''(\xi)\delta^2/2$ for some $|\xi|\le\delta$, where $f(x)=(1+x)^r(3+x)^{1-r}$;
+\item $0.21\le\delta\le0.5$: evaluation at the centres of $200$ $s$-boxes, plus a mean-value bound in $s$;
+\item $\delta\ge0.5$: direct evaluation on $10^3\times200$ boxes.
+\end{itemize}
+All $237{,}400$ boxes pass.  The smallest certified margins are $1.4\cdot10^{-4}$ for $g/\delta^2-\kappa_1$ on $\delta\le0.21$ and $5.3\cdot10^{-4}$ for $g-\kappa_1\delta^2$ beyond (\texttt{mechanism\_scripts/nearif/}).
+\end{proof}
+
+\begin{theorem}[near-IF rigidity at $n=2$; every prime, any number of cheap features]\label{thm:nearif}
+Let $n=2$, $2\le b\le3$, $p$ any odd prime and $\theta$ any network of any width.  Let $\delta^\star$ minimise $\sum_la_l\kappa_l(\delta)$, let $L'$ be the cheap set, and let
+$L_l=\sum_i|\beta_{il}|$ be the atom mass of feature $l$.
+\begin{itemize}
+\item[(a)] \emph{Relations case.}  Put $v_l=|\beta_{l,12}|$ and $t_l=v_l/L_l\in[0,1]$.  If
+\[\sum_{l\in L'}\min(c_{12},K_qt_l)^2\,\kappa_l(\delta^\star)\ <\ 1,\]
+then $\gamma(\theta)\le\nu^{1-s}B_p\Gamma_s(p)$, and equality forces $\theta$ to be interference-free.  In particular this holds whenever
+$\big(\sum_lv_l^2\kappa_l(\delta^\star)\big)^{1/2}<\min_{l\in L'}L_l/K_q$.
+\item[(b)] \emph{Class $\mathcal C$.}  Put $E_l=\sum_{T\ne\emptyset}|\beta_{l,T}|^2$.  If $\big(\sum_lE_l\kappa_l(\delta^\star)\big)^{1/2}<\min_{l\in L'}L_l/(\sqrt3K_2)$, the same conclusion holds.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+(a) Lemma~\ref{lem:osc} at $\delta^\star$ and Bhatia--Davis give $h\le\sum_l\Re\beta_l\kappa_l(\delta^\star)-X$ with $X^2=\mathbb ED_{\delta^\star}^2=\sum_lv_l^2\kappa_l(\delta^\star)$.  For $l\in L'$,
+Theorem~\ref{prop:p12} and Proposition~\ref{prop:quadpay}(ii) give $\Re\beta_l-a_l\le\min(c_{12}v_l,K_qv_l^2/L_l)=\min(c_{12},K_qt_l)\,v_l$.  By Cauchy--Schwarz,
+\[h\ \le\ \sum_la_l\kappa_l(\delta^\star)+X\Big(\big(\textstyle\sum_{l\in L'}\min(c_{12},K_qt_l)^2\kappa_l(\delta^\star)\big)^{1/2}-1\Big),\]
+and we conclude as in Theorem~\ref{thm:loc}: $X=0$ means no interference.  For the special case, $\min(c_{12},K_qt_l)v_l\le K_qv_l^2/L_l$, so the bonus is at most $K_qX^2/\min_{L'}L_l<X$.
+(b) The proof of Theorem~\ref{thm:loc} gives $h\le\sum_la_l\kappa_l(\delta^\star)+\sum_{l\in L'}(\Re\beta_l-a_l)\kappa_l(\delta^\star)-\bar m$ with $\sum_lE_l\kappa_l(\delta^\star)\le3\bar m^2$.
+Proposition~\ref{prop:quadpay}(i) bounds the bonus by $K_2\sum_{L'}E_l\kappa_l/L_l\le K_2X^2/\min_{L'}L_l$, where now $X^2=\sum_lE_l\kappa_l(\delta^\star)$, and $\bar m\ge X/\sqrt3$.
+\end{proof}
+The conditions do not depend on $p$, on the width or on $|L'|$.  Corollary~\ref{cor:parseval} with $c=c_{12}$ is implied by (a), since $\min(c_{12},K_qt_l)\le c_{12}$.  What is left of the
+relations case is therefore networks with $\sum_{L'}\min(c_{12},K_qt_l)^2\kappa_l\ge1$.  This needs $\sum_{L'}\kappa_l\ge1/c_{12}^2=29.7$, i.e.\ some thirty cheap
+features, most of them with interference comparable to their atom mass.  If (ii) holds with $c_{12}$, the condition becomes $\sum_{L'}t_l^2\kappa_l\ge29.7$.  In terms of the network, the
+only way left to beat the prediction is to rebuild dozens of circuits at once from fewer neurons than the IF block uses, with interference phases
+arranged so that the profile $\varphi$ is flat.  Any network near the predicted one loses, at every prime.
+
+\emph{A route for what is left (heuristic).}  Flatness at that level needs additive structure.  A real Sidon constant below $c_{12}$ needs at least
+fifteen frequencies (Parseval), and in practice many more with many short relations: Rudin--Shapiro-type polynomials have sup norm about $\sqrt2$ times
+the $\ell^2$ norm.  By the Laplace identity below, relation-rich sets cover poorly, so such a block is
+nearly blind on a large Bohr-type set of offsets.  The margin is a minimum over $\delta$.  So the binding offsets either move into that blind set, where the block contributes
+neither coverage nor discount (its weights $\kappa_l(\delta)$ are small there), or the rest of the support must over-cover it.  Over-covering a set of
+$p/N$ offsets beats $\Gamma_s(p)$ by a factor of about $1+(s-1)\ln N/\ln p$ at most.  That caps the block's share of the budget at
+$f\lesssim\frac{s-1}s\ln N/\ln p$.  With the concave cost, a block that thin gains $O(f^s)$ and costs $\Omega(f)$.  Each step has a precise form: an inverse theorem
+for flat polynomials via the tilt, a covering bound for Bohr sets, and the dilution estimate.  Together they would close the relations case at
+every prime.  None of them is proved here.
+
+\emph{The one-sided constant is the wrong object.}  For the full set $F$ the one-sided constant $\min_{b,\theta}(-\min_w\sum b_l\cos(2\pi lw/p+\theta_l))/\sum b_l$ is
+$1/(p-1)$, attained at zero phases.  There $\sum_{l\in F}\cos(2\pi lw/p)$ is a spike, so perfect coverage gives a \emph{small} one-sided constant.  On the
+programme supports it is $0.25,0.17,0.60,0.34,0.48,0.52,0.35,0.46,0.44$ for $p=5,\dots,31$, below $\frac12$ at most primes and below $0.18$ at $p=7$, where the
+relations case is nevertheless closed.  So (O1) as first stated, with a one-sided constant and a common evaluation point, is false.  The correct object is
+the oscillation of the first difference (Lemma~\ref{lem:osc}), and a spike $\varphi$ has $\operatorname{osc}D_\delta\approx2\max\varphi$.
+
+\emph{Coverage controls relations through a Laplace transform.}  For $S\subseteq\mathbb Z_p$ and $x\in\mathbb R^S_{\ge0}$,
+\[\sum_{k\in\mathbb Z^S:\ \sum_lk_ll\equiv0}\ \prod_lI_{|k_l|}(x_l)\ =\ \frac1p\sum_{\delta\in\mathbb Z_p}e^{\sum_lx_l\cos(2\pi l\delta/p)}\ =\ e^{\sum_lx_l}\,\frac1p\sum_\delta e^{-\sum_lx_l\kappa_l(\delta)},\]
+by $e^{x\cos\vartheta}=\sum_kI_k(x)e^{ik\vartheta}$ and orthogonality.  The total Bessel weight of all additive relations is the Laplace transform of the
+coverage profile.  Testing $P(w)=\sum_lb_l\cos(2\pi lw/p+\psi_l)$ with $e^{\lambda P}$ gives, uniformly in the phases,
+$\max P,\,-\min P\ge\frac1\lambda\log\big(2\prod_lI_0(\lambda b_l)-Z\big)$, with $Z$ the left side above at $x=\lambda b$.  In particular, write $E=\sum_l(x_l-\log I_0(x_l))$.  If
+$E\le\ln\frac p2$ and $\min_{\delta\ne0}\sum_lx_l\kappa_l(\delta)\ge E+\ln2$, then $\max P,-\min P\ge\frac1\lambda\sum_l\log I_0(\lambda b_l)$.  This is the precise sense in which
+coverage implies a Sidon-type bound: through an exponential tilt, not a Riesz product.  A linear Riesz product cannot be controlled by minimum
+coverage at all.  At the programme scale $K\approx1.5\ln p$ the tilt certifies $0.40$ of $\sum_lb_l$.  That is enough with P$_{12}$ (Theorem~\ref{prop:p12}; needed $0.367$) but not with
+Theorem A (needed $0.577$); with the computed supports it also needs the averaged rather than the minimum coverage.
+
+\emph{Product tests are the wrong tool here.}  In the relations case the quadratic factor of Theorem~\ref{thm:quad} is exactly
+$1-\sqrt2\varepsilon\cos u+\frac\varepsilon2\cos2u$.  It has off-zero weight $1.91\varepsilon$ against $\varepsilon$ for the linear factor, and with worst-case phases
+its relation leakage exceeds its surplus on most programme supports for $p\le97$.  Parseval needs no relation accounting.  Beyond Corollary~\ref{cor:parseval}
+only cheap sets spread over most of $F$ remain.  For those, a phase-free sufficient condition obtained by water-filling the Parseval bound has
+supremum ratio $0.80$--$0.84$ to the IF value for $p=29,\dots,61$ (local search; maximisers spread over $11$--$16$ frequencies).  So spread cheap sets
+lose to the coverage loss of a spread allocation, by at least $15\%$.  Crude scaling puts the failure of every $L^2$ argument at $\ln p\gtrsim11$, where an
+extreme-value bound such as the tilt is needed.  Files: \texttt{mechanism\_scripts/relations2/}.
+
+\emph{Only efficient allocations matter, and then the relations case is a flat-polynomial question.}  Let $\sigma_\delta(S)$ be the infimum, over
+$b\ge0$ supported on $S$ and all phases, of $\frac12\operatorname{osc}_w\big(\sum_lb_l\cos(2\pi lw/p+\psi_l)\big)/\sum_lb_ls_l(\delta)$, with $s_l(\delta)=|\sin(\pi l\delta/p)|$.  Let
+$e(a)=\min_\delta(Ka)_\delta/(\Gamma_s\|a\|_{1/s}^{\,s})\le1$ be the efficiency of the allocation.
+\begin{proposition}[efficiency--Sidon reduction; every $p$]\label{prop:effsidon}
+In the relations case, the allocation $a$ cannot beat the IF value with any interference $v\le\tau a$ ($\tau=3^{s-1}$) and any phases if
+$\sigma_{\delta_0}(\operatorname{spt}a)\ge c-(1/e(a)-1)/\tau$ at a minimiser $\delta_0$ of $(Ka)_\delta$.  Here $c$ is the single-$T$ payment constant.  In particular every allocation with
+$e(a)\le1/(1+c\tau)$ is closed, with no arithmetic input: $e\le\frac23$ under Theorem A, $e\le0.759$ with P$_{12}$ ($b=2$).
+\end{proposition}
+\begin{proof}
+At $\delta_0$, Lemma~\ref{lem:osc} and $\sum_lb_ls_l=\sum_lv_l\kappa_l$ (with $b_l=2v_ls_l$) give
+$h\le(Ka)_{\delta_0}+(c-\sigma)(Kv)_{\delta_0}\le(Ka)_{\delta_0}\big(1+(c-\sigma)^+\tau\big)\le(Ka)_{\delta_0}/e(a)=\Gamma_s\|a\|$.
+\end{proof}
+So the relations case asks for a flat-polynomial bound only on the supports of near-optimal allocations; Parseval gives $\sigma_\delta\ge(\sum_S\kappa_l(\delta))^{-1/2}$.
+The tilt can be improved to a tilted mean.  If $M(\lambda)=\mathbb E_we^{\lambda P}$ is the relation sum, then $M'/M$ is a tilted mean of $P$, so it is at most
+$\max P$.  Every relation term is increasing in $\lambda$, so $\max P,\,-\min P\ge(2\Pi'-Z')/Z$, with $\Pi=\prod_lI_0(\lambda b_l)$ and $Z$ the Laplace transform above.  The relation
+excess has a probabilistic form: $Z/\Pi-1=\Pr(\kappa\in\mathrm{Rel}\setminus0)/\Pr(\kappa=0)$ for independent Skellam variables, which is $e^E/p$ plus the excess
+over independent phases.
+
+Two limits.  First, \emph{any} argument that bounds relation terms by their moduli (tilts, positive-definite product tests) certifies at most about
+$(\ln p/K)\sum_lb_l$ once $K\gg\ln p$, because $Z\ge e^{\lambda\sum b}/p$.  Under Theorem A's constant, closing the relations case therefore needs phase
+cancellation, i.e.\ a genuine flat-polynomial bound for sets of size $O(\log p)$.  Second, the exact moments $\sum_\delta\kappa_l(\delta)$ and
+$\sum_\delta\kappa_l\kappa_k$ are the same for every support, and the progression $\{1,\dots,K\}$ has averaged exponential coverage far above
+$e^{-E}$.  So a relation-mass hypothesis (RM: the excess over independent phases is at most $e^E/p$) has to come from near-optimality, not from moments.
+Numerically:
+\begin{itemize}
+\item at the programme vertices for all $33$ primes up to $1009$, $\sigma\ge0.367>c_*$ (Parseval alone), so cheap sets inside the support are closed;
+\item (RM) holds on programme supports for $23\le p\le10007$, with excess ratio $\le0.97$; random sets of the same size reach $1.38$;
+\item under Theorem A the water-filling bound holds up to $p=10007$, and is marginal at $p=30011$ ($1.02$--$1.03$, within the uncertainty of $\Gamma_s$), so the
+$L^2$ edge is near $p\approx10^4$--$3\cdot10^4$;
+\item with P$_{12}$ every case tested closes, and in a large-deviation model ($K=\kappa\ln p$, $p\to\infty$) P$_{12}$ with the tilt and (RM) closes every $\kappa$
+with margin at least $1.10$, while Theorem A with the tilt fails for $4\lesssim\kappa\lesssim17$;
+\item an adversarial search over amplitudes and phases finds $\sigma\approx0.66$--$0.69$ on near-optimal supports where $0.25$ is needed.  So the inequality has a lot of room, and the
+proofs are what is lossy.
+\end{itemize}
+Since P$_{12}$ is now proved (Theorem~\ref{prop:p12}), the relations case at every prime reduces to the relation-mass hypothesis (RM) for efficient allocations.
+Files: \texttt{mechanism\_scripts/relations3/}.
+
+\paragraph{Local optimality cannot decide the count.}  At a local maximiser, Fritz John and Euler give a probability $q$ on the active set with
+$\sum q\nabla g=\lambda\nabla\|\theta\|_{2,b}^b$.  Every neuron is then balanced and earns its cost share: $T_q(\omega_i)=(h/P)\|\omega_i\|^b$ for the
+multilinear form $T_q(\omega)=\mathbb E_q[g_\omega]$.  Writing $t_i$ for $T_q$ at neuron $i$ with unit factors and $a=1/(s-1)$, this gives the exact
+factorisation
+\[\gamma(\theta)=\nu^{-\nu/2}\Big(\sum_it_i^{-a}\Big)^{-1/a}.\]
+For a single feature the gain over IF splits into a \emph{width factor} $(\nu/m)^{s-1}$ and a \emph{critical-value factor}.  At IF optima the identity
+is the dual form $\Gamma_s=(\sum_{j\in S}K_j(\mu^\star)^{-a})^{-1/a}$ of the programme.  Three consequences:
+\begin{itemize}
+\item[(i)] Every certificate $q$ independent of $\theta$ only recovers the dense value: $\inf_q\sup_\theta\mathbb E_qg_\theta/\|\theta\|^\nu=B_p\Gamma_1(p)$ for every $b$.
+A sharp dual must depend on $\theta$.
+\item[(ii)] If some KKT measure is uniform in $x$, every neuron is frequency-diagonal, and a global maximiser then has exactly $|\operatorname{spt}y^\star|$
+features.  But uniformity of $q$ is equivalent to interference-freeness, so this is circular.
+\item[(iii)] Local maxima violate the count at $p\ge5$.  A polished network at $p=5$, $n=6$, $b=2$ (six neurons, $\nu=7$) is a local maximiser with
+$\gamma=0.265\,\gamma_{\rm IF}$.  It passes a numerical second-order check: the reduced Hessian has eigenvalues in $[-0.20,-0.012]$ on the critical
+cone.  Its feature $1$ is cheap ($|\beta_1|/a_1=1.099$), and it carries a spurious feature $2$ with $|\beta_2|/|\beta_1|=1.3\times10^{-4}$, although
+$K^*=1$.  We recomputed the margin and amplitudes independently.
+\end{itemize}
+So first- and second-order conditions do not exclude cheap or spurious features.  Any proof of the count must use the \emph{global} input
+$\gamma(\theta^\star)\ge\nu^{1-s}B_p\Gamma_s$, which is exactly how the master inequality uses it.  Through the factorisation that input becomes a contest
+between the width gain and the critical-value loss.  These are $p$-dependent rates, which is the same wall seen from the dual side.  The KKT measures of
+the $p=3$ counterexample and of the $p=5$ local maximiser both concentrate on the cone-edge directions and are far from uniform; they show no
+qualitative difference.  Files: \texttt{mechanism\_scripts/kkt/}.
+
+\paragraph{How the four gaps mesh.}
+\begin{enumerate}
+\item \emph{One combinatorial hypothesis removes both (R) and the free part of (C).}  If the doubled support $2S=\{2l:l\in S\}$ has no
+relation $\sum_lc_l\,2l\equiv0$ with $c_l\in\{0,\pm1,\pm2\}$ (one-dimensional dissociation), then every assignment of sets $T_l$ satisfies (D),
+because a relation in $\mathbb Z_p^n$ is a relation in each coordinate.  For the same reason no signed sum lands on a feature's own
+on-frequency mode.  If moreover no feature is $\pm3$ times another, (F2) cannot occur.  What is left is \emph{paid} (off-frequency) content, at the chosen characters or at their
+signed sums (Lemma~\ref{lem:lorentz}), plus the own partner (F1).  For a single cheap feature this is a finite game for each $(p,s)$.  The network picks the size $R$ of
+a cheap feature's sign-flipped mode, its partner $b$ and foreign modes $z_j,z'_j$ from the other features.  It gains at most
+$\frac12RK_l(\mu)$ by Theorem A and pays $K_j(\mu)\big(a_j-\sqrt{a_j^2-|z_j|^2-|z_j'|^2}\big)$ per riding feature.  The prover picks $\mu$, and
+detects $\sum_\delta\mu_\delta\big|\tfrac12(a\,c_l(\delta)+b\,\overline{c_l(\delta)})+\tfrac12\sum_{j\ne l}(z_jc_j(\delta)+z_j'\overline{c_j(\delta)})\big|$.  By
+Proposition~\ref{prop:hide}, exact hiding needs $|B|+1$ coefficients, while riding supplies at most $2|S|\le|B|$.
+\item \emph{Large $p$ forces (R).}  One-dimensional dissociated sets in $\mathbb Z_p$ have at most $\log_3p\approx0.91\ln p$ elements, fewer
+than $K^*\approx1.3$--$1.5\ln p$.  So at large $p$ relations exist, and (O1) cannot be avoided.  The relations it must survive are long.
+With weights $\varepsilon$, the Riesz coefficients have total mass $\sum_\sigma\prod(\varepsilon/2)=(1+\varepsilon)^K$, so if the signed sums of a
+$K$-set equidistribute, the weight landing on a given character is about $(1+\varepsilon)^K/p$.  At $\varepsilon=1$ this is
+$2^K/p$: $p^{-0.03}$ at $K=1.4\ln p$ and $p^{+0.04}$ at $K=1.5\ln p$.  The plain Riesz product is thus borderline exactly at the programme's
+scale, and $\varepsilon<e^{\ln p/K}-1$ ($\approx0.95$ at $K=1.5\ln p$) restores decay at the price of extraction.  This is why (O1) is a
+question of constants.  The three-term relations of (F2) are rare by comparison: a random set of that size has about $K^3/p$.
+\item \emph{(O3), (O4) enter only through the constant in (P).}  At $n=2$ the surplus of detection over payment per feature and direction is
+$|\beta_{l,T}|\big(\varepsilon\sqrt{\kappa_l/2}-\lambda\kappa_l\big)$.  With the proved $\lambda=\frac12$ and $\varepsilon=1$, its ratio to the payment
+is $\sqrt{2/\kappa_l}-1$, which tends to $0$ as $\kappa_l\to2$; in the worst direction the surplus is $O(p^{-2})$.  With the sharp
+single-feature constant $c_1(2,s)=1-3^{1-s}$ (Theorem~\ref{thm:c1sharp}), concavity in $\kappa$ gives a surplus of at least
+$(\varepsilon-2c_1)\frac{\kappa_l}2|\beta_{l,T}|$ in every direction: $18\%$ of the payment at $b=2$, $\varepsilon=1$.  This surplus is the common currency: relations are absorbed by lowering
+$\varepsilon$ (or by Fej\'er kernels), unpaid compensation by the residual of the game above, and both have to fit inside it.  With linear tests a
+uniform surplus needs the sharp pointwise constant at $n=2$, a single-feature statement of type (P).  Quadratic tests give one from Theorem A
+alone: at least $39\%$ of the detection, in class $\mathcal C$ under (D$_3$) (Corollary~\ref{cor:quad} and remark (a)).
+\item \emph{For $n\ge4$ the factorisation must change, and the degree of the test is the exchange rate between (O1) and (O3).}  Pointwise
+(P) is false at $n=4$, $b=2$ ($c_1^{\rm cf}\ge1.127$), so the payment must be of $L^2$ type.  Parseval (A$_2$) loses $\sqrt{|L'|}$.  Quadratic
+products (Theorem~\ref{thm:quad}) do not, at the price of order-three dissociation.  They need $k^\sharp(n,s)<1$, or the smaller
+direction-resolved Hermitian-square constant $k^\flat(n,s)<1$ (remark (d)).  Local search at $b=2$: $k^\sharp\ge0.514,\ 0.848,\ 1.196,\ 1.488$ for $n=2,\dots,5$ (proved $\le0.608$ at $n=2$), and $k^\flat\ge0.423,\ 0.535,\ 0.559,\ 0.570$ for $n=2,\dots,5$.  These are lower bounds from local search; nothing is proved for $n\ge3$, but the Hermitian-square constant stays far below $1$ where the quadratic one does not.  The quadratic factor alone fails from
+$n=4$ on, and cannot be rescued at large $n$: $k^\sharp\ge k^*$, and $k^*(n,\nu/2)$ increases numerically ($0.35$ at $n=2$ to $1.04$ at $n=9$).  As the degree $d$ of the per-feature factor grows, its
+detection increases to $-\min_xX_l$, and the per-feature condition becomes
+\[(\mathrm S_p)\qquad\tfrac12\textstyle\sum_\pm\min_x\Re\big(e^{\pm i\alpha}\Phi(x)\big)\ \le\ \nu^{1-s}Q^s\cos\alpha\quad\text{for every single-feature atom system and }\alpha=\tfrac\pi2-\tfrac{\pi k}p,\ 1\le k\le\tfrac{p-1}2 .\]
+At the one direction $\alpha=\frac\pi2-\frac\pi p$ it implies (Q1), because $\cos\alpha\,\min_x\mathrm{cm}(\Phi)=\min_\pm\min_x\Re(e^{\pm i\alpha}\Phi)$ is at most the average over $\pm$.  So in a product
+architecture, (O3) and (O4) ask for (S$_p$) with room, certified at some finite degree.  A degree-$d$ product factorises only under
+order-$(d+1)$ dissociation, whose capacity
+is smaller: at most $\log_{d+2}p$ elements (the sums $\sum_l\varepsilon_ll$ with $0\le\varepsilon_l\le d+1$ must be distinct), against $\log_3p$ for $d=1$.  So the two kinds of open problem pull in opposite directions.  (O3) and (O4) improve with the degree of the
+per-feature test; (O1) gets harder with it.  For $n=2,3$ at $b=2$ the quadratic level is enough on the (O3) side.
+\item \emph{How the claim itself could fail.}  Neither relations (O1) nor compensating modes (O2) create features.  A clean amplitude at $q$ needs
+frequency $q$ in every input slot and in the output, and riding modes, stray outputs and partners never have that (Lemma~\ref{lem:channels}).  If
+cheap features did occur at a maximiser through (O1) or (O2), the count could change only through a shift of the support of the clean
+allocation away from every programme maximiser.  A failure of (O4) is more direct: a cheap single feature at $p=5$ with
+multi-frequency inputs could carry a spurious feature (paragraph ``spurious features need all-slot content'').
+\end{enumerate}
+
+\subsection*{Status of the feature-count theorem}
+\emph{Claim.}  For every odd prime $p$, every $n$ and $b\in[2,\nu]$, every global maximiser of the $L_{2,b}$-margin uses
+$|\operatorname{spt}y^\star|$ features for some maximiser $y^\star$ of $\Gamma_s(p)$.  (Several maximisers with different support sizes
+can coexist at isolated values of $s$, so the claim cannot be sharpened to a single $K^*$ there.)
+
+\emph{Proved.}  (i) $p=3$ (one frequency).  (ii) Every maximiser that buys no feature below its interference-free price
+(Proposition~\ref{prop:nocheap}), for all $n,p,b$.  (iii) The dense range of Theorem~\ref{thm:dense}.  (iv) $n=2$: no single feature
+can be bought below the interference-free price, at any prime and for arbitrary inputs (Theorem~\ref{thm:q1n2}).  Cheap features in a
+multi-feature maximiser force an additive relation among their doubled frequencies, or a mode landing exactly on a
+sign-flipped character (Theorem~\ref{thm:riesz}).  Exact hiding from a programme vertex is impossible with the features' own outputs
+(Proposition~\ref{prop:hide}).  In class $\mathcal C$, few cheap features or small $\sum\kappa$ suffice (Theorem~\ref{thm:loc}).
+(v) For each $n$, single-frequency single features cannot beat the interference-free value at large $p$ (Corollary~\ref{cor:largep}).
+(vi) Class $\mathcal C$, $n=2$, $b\in[2,3]$, every $p\ge5$: any number of cheap features whose frequencies satisfy the order-three dissociation (D$_3$) and
+isolation (I$_2$) cannot beat the interference-free value, with a surplus of at least $39\%$ in every direction (Corollary~\ref{cor:quad}).  For every $n$
+the same holds as soon as the atom constant $k^\flat(n,s)$ is below $1$.
+(vii) Class $\mathcal C$, $n=2$, $b\in[2,3]$, $p\in\{5,7\}$: every maximiser within $\mathcal C$ is interference-free and uses $K^*(s,p)$ features, with no
+condition on the cheap set (Corollary~\ref{cor:parseval}(c)).  In the relations case (all interference on $T=\{1,2\}$) the same holds for every $p\le59$, and at every
+prime when the cheap set carries $\sum\kappa_l<29.7$ (Corollary~\ref{cor:parseval}, Theorem~\ref{prop:p12}).
+(viii) $n=2$, single-feature payment, sharp and $p$-free: P$_{12}$ (Theorem~\ref{prop:p12}) and $c_1(2,s)=1-3^{1-s}$ (Theorem~\ref{thm:c1sharp}, computer-assisted).
+(ix) $n=2$, every prime, any number of cheap features: near-IF rigidity (Theorem~\ref{thm:nearif}).  In the relations case and in class $\mathcal C$, no network whose
+interference energy is below a fixed fraction of its smallest cheap atom mass beats the interference-free value.  The fraction does not depend on $p$.  It rests on quadratic
+payments (Proposition~\ref{prop:quadpay}; (ii) computer-assisted).  In the relations case, what is left needs $\sum_{L'}\min(c_{12},K_qt_l)^2\kappa_l\ge1$:
+dozens of cheap features with macroscopic interference.
+
+\emph{Numerical evidence on cheap features at $p\ge5$} (local searches; files in
+\texttt{mechanism\_scripts/cheap/}).
+\begin{itemize}
+\item \emph{Single features, arbitrary inputs} (slot-symmetric, seeds: IF, IF plus a frequency-$3l$ component, random).
+The best efficiency is exactly the IF value at $p=5$ for $n=2,3,4,5,8,9,10,11,12$ and at $p=7$ for $n=2,3,4$.  No width below $\nu$ is
+feasible, even where the shared-sign bound $\nu-\lfloor\nu/5\rfloor$ would allow it ($n\ge9$).  This suggests that at $p\ge5$ every positive-margin
+single-feature network needs $\nu$ neurons, as interference-free ones do.  This includes $p=5$, $n=8,9$, where $k^*(n,\nu/2)\ge0.994,1.042$ exceeds $k_5$ and Theorem 14 of the companion note gives nothing.
+\item \emph{Parasitic orbits and global searches} ($n=2$, $b=2$).  With a feature forced cheap the best values are:
+\begin{itemize}
+\item $p=13$: $0.90$ ($K^*=3$);
+\item $p=17$: $0.78$;
+\item $p=19$: $0.97$.
+\end{itemize}
+Given free extra neurons, the optimiser \emph{repairs} the cheap feature back to price ratio $1.000$.  Global searches from IF
+with extra neurons stay at price ratios $0.9999$--$1.000$ at $(7,2)$, $(11,2)$, $(7,3)$ and $(5,3)$.
+\item \emph{Spurious features in sub-optimal networks.}  These appear mainly at the doubled frequency $2l$ of a cheap feature,
+with relative amplitudes $10^{-3}$--$3\times10^{-2}$, and vanish when the feature is repaired.  This is the ``multiples'' condition of the Fej\'er
+remark at work.
+\item \emph{Falsification at large $p$} (relations model, $n=2$, exact oscillation over $\mathbb Z_p$, all allocations, cheap sizes up to the cap, optimised phases;
+\texttt{mechanism\_scripts/falsify/}).  At $b=2$ no configuration with a cheap feature reaches the IF value for any $p$ from $31$ to $1009$.  Let $c^*$ be the smallest
+payment constant at which some configuration found would win.  It is $0.58,0.65,0.68,0.74,0.75,0.76$ at $p=31,61,151,307,503,1009$: rising, and $3$--$4\times$ the proved
+$c_{12}=0.1835$.  The best realisable cheap networks fall from $0.57$ to $0.46$ of IF over the same range, and the exact margins over $\mathbb Z_p^2$ match the model.
+\begin{itemize}
+\item \emph{Seeds.}  Relation-rich seeds (arithmetic progressions with chirp phases, Bohr sets, multiplicative cosets, Legendre-symbol phases) do worse than
+random or programme-based supports.
+\item \emph{Parseval.}  The perfect-flatness floor falls like $0.86/\sqrt{\ln p}$, so a purely $L^2$ (Parseval) proof works with Theorem A's constant only up to
+$p\approx7\cdot10^3$.  With $c_{12}$ it works up to $p\approx3\cdot10^9$ (extrapolated).  Beyond that, flatness arguments are needed, and they have a factor of about $4$ of room.
+\item \emph{Near $b=3$.}  The closest approach is there: full-$F$ Legendre-phase pairs reach $0.88$--$0.91$ of IF at $s=1.05$--$1.1$.  In that range Theorem A's constant
+would actually fail ($c^*<0.289$), but the sharp $c_{12}(s)\to0$ has $c^*/c_{12}\ge2.9$ at every $(s,p)$ tested.  So Theorem~\ref{prop:p12} is needed there, and suffices.
+\item \emph{$p=5$, $n=8,10,12$.}  Inputs shared within groups of slots (frequency-2 content, non-symmetric noise, constant components) all return to IF.  Sign-vector
+starts reach at most $0.13$ of IF.
+\end{itemize}
+\end{itemize}
+
+\emph{Open, stated as self-contained problems.}
+\begin{enumerate}
+\item[(O1)] \emph{Relations: the oscillation form.}  (Corrected; the one-sided form first stated here is false.)  For all allocations $a\ge0$,
+interference sizes $0\le v\le3^{s-1}a$ and phases, $\min_{\delta\ne0}\big[\sum_l\kappa_l(\delta)(a_l+c\,v_l)-\frac12\operatorname{osc}_wD_\delta\big]\le\Gamma_s(p)\,(\sum_la_l^{1/s})^s$,
+with $c=1-(\frac23)^{s-1}$ (P$_{12}$, Theorem~\ref{prop:p12}).  This is the relations case at $n=2$.  It is proved for every $p\le59$ and, at every prime, for cheap sets with $\sum_{L'}\kappa_l<29.7$
+(Corollary~\ref{cor:parseval}, Theorem~\ref{prop:p12}).  It remains open for cheap sets spread over most of $F$ at $p\ge61$.  By Proposition~\ref{prop:effsidon} only allocations with efficiency above $\frac23$ matter, and for those it is a
+flat-polynomial bound on near-optimal supports.  Moduli-only arguments provably cannot reach it under Theorem A's constant.  With P$_{12}$ (now proved) it
+follows from a relation-mass hypothesis (RM) for efficient allocations, verified numerically up to $p=10007$.  Mixed sets $T$ add the factor of
+Theorem~\ref{thm:loc}, and the multi-$T$ product tests of Theorem~\ref{thm:quad} need order-three dissociation.
+\item[(O2)] \emph{Compensation costs.}  Show that modes placed on a cheap feature's sign-flipped characters by other outputs never cost less
+than the bonus they protect.  By Lemmas~\ref{lem:channels} and~\ref{lem:lorentz}, every such mode is either paid quadratically through $U$
+(riding, stray outputs, dedicated neurons), or is the own partner, or needs a shared neuron and a relation $2l\equiv\pm j\pm k$ in the support.
+Exact first-order hiding is possible iff the channels supply $|B|$ output frequencies (Proposition~\ref{prop:dich}), and stray outputs supply them at
+every sparse prime.  So linear gain bounds cannot close (O2), and the gain's quadratic behaviour near the IF block must be used.  For one cheap
+feature the game is won numerically at every $p\le41$ (ratio $\ge1.05$, $\ge1.69$ with the quadratic test).  What remains: a $T$-resolved sharp payment
+inequality (single-feature, $p$-free), a robust uncertainty principle on $\mathbb Z_p$, and several cheap features at once.
+\item[(O3)] \emph{Single features for $n\ge3$.}  Rigorous bounds on $k^*(n,s)$ (circularity route) or on the joint constant
+$J(n,s,p)$ of Proposition~\ref{prop:joint}.  The pointwise route alone cannot work at $n=4$, $b=2$, where $c_1\ge1.13$ (certified).  For the
+multi-feature product architecture the relevant single-feature quantity is the atom constant $k^\flat(n,s)<1$ (Corollary~\ref{cor:quad}, remark (d)),
+and in the limit of high-degree tests the inequality (S$_p$) of Section~\ref{sec:arch}, item 4.
+A partial rigorous fact towards the width conjecture: in class $\mathcal C$ a single feature of width $N\le n$ has
+$\min_x\mathrm{cm}(\Phi)\le2^n\sin(\frac\pi{2p})\sum_i|\beta_i|$.  (Write $\Phi=\sum_i\overline{\beta_i}\prod_t(1+\overline{\xi_{it}}z_t)$ with $z_t\in\mu_p$, assign each atom a slot of its own,
+and choose $z_t$ there as the root of unity nearest $-\xi_{it}$.  That factor is at most $2\sin(\pi/2p)$ and every other factor is at most $2$.)  So width below $\nu$
+loses to the IF value once $2^n\sin(\pi/2p)<\nu^{1-s}$, i.e.\ for $p\gtrsim\pi2^{n-1}\nu^{s-1}$.  This says nothing at $p=5$.
+\item[(O4)] \emph{$p=5$, large $n$.}  $k^*(n,\nu/2)>k_5$ from $n=8$ on, and $J(n,\nu/2,5)$ rises ($0.57,0.71,0.81,0.82$ for $n=3$--$6$).  The
+strongest known mechanism (shared-sign) decays at $p=5$ ($\times0.93$ per unit $n$ up to $n=18$), and direct searches at $n=8$ find nothing
+above interference-free.  If a mechanism with multi-frequency inputs did win at some $(5,n)$, it could create a spurious feature and
+break the claim.  So (O4) decides whether the claim is true for all $n$.
+\end{enumerate}
+The route here proves the claim by excluding cheap features, which at $p\ge5$ amounts to the paper's Conjecture 20 there.  A proof
+that tolerates cheap features would have to establish decoupling (equal effective prices for all features) instead.  Either way
+(O1)--(O4), or statements of the same strength, are needed.
+
+\begin{center}
+\begin{tabular}{p{0.5\textwidth}p{0.44\textwidth}}
+\toprule
+Statement & Status\\
+\midrule
+$\gamma^*_b=\nu^{1-s}B_p\Gamma_s(p)$ for all $p,n,b$ (Conjecture 20) & \textbf{false}: $p=3$, $b=2$, $n\ge11$; excess
+$2.21\times$ certified at $n=18$, growing\\
+$\nu^{1-s}B_p\Gamma_s\le\pi_{n,b}(p)B_p\Gamma_s\le\gamma^*_b\le B_p\Gamma_s$ & proved (companion note)\\
+$\gamma^*_b=\pi_{n,b}(3)\,B_3\Gamma_s(3)$ at $p=3$ & proved (one frequency)\\
+width $\ge\nu-\lfloor\nu/p\rfloor$ for shared-sign networks & proved (Theorem~\ref{thm:width})\\
+single-frequency networks cannot beat IF when $k_p\ge k^*(n,s)$ & proved (companion note); $k^*$ numerical\\
+$\gamma^*_b=\pi_{n,b}(p)B_p\Gamma_s(p)$ (Conjecture 20$'$, decoupling) & open; genuine obstacle exhibited (Section 6)\\
+$\pi_{n,b}(p)=\nu^{1-s}$ for $p\ge5$ & open; every mechanism tested loses, by a factor growing in $n$\\
+\midrule
+feature count of every global optimiser $=K^*(s,p)$, $p=3$ & proved (Prop.~\ref{prop:count}(a))\\
+feature count $=K^*(s,p)$, all $p$, dense range of Thm.~\ref{thm:dense} & proved (Thm.~\ref{thm:dense}; extends $[b_0,\nu]$ in all cases computed)\\
+feature count $=K^*(s,p)$, all $p$, given decoupling & proved (Prop.~\ref{prop:dec}); price irrelevant\\
+feature count $=\Theta(\log p)=\Theta(K^*)$, all $p$, unconditional & proved (Thm.~\ref{thm:theta} with paper's Cor.~12)\\
+single-frequency networks, $n=2$, all $p\ge5$, $b\in[2,3]$: no gain over IF & proved (Cor.~\ref{cor:n2})\\
+$|\beta_j|\le\nu^{1-s}Q_j^s+K_{\nu,s}\ell_j$ (Lemma 7 with interference), every $n$ & proved (Lemma~\ref{lem:robust})\\
+single-frequency networks, every $n,b$, all $p\ge p_0(n,b)$: no gain over IF & proved (Cor.~\ref{cor:largep})\\
+count $=K^*$ in class $\mathcal C$, $n=2$, all $p$, $b\in[2,3]$, $\le2$ features below IF price & proved (Thm.~\ref{thm:loc})\\
+count $=K^*$ in class $\mathcal C$, $n=2$, $p\in\{5,7\}$, $b\in[2,3]$, no condition & proved (Cor.~\ref{cor:parseval})\\
+relations case ($T=\{1,2\}$), $n=2$: every $p\le59$; any $p$ if $\sum_{L'}\kappa<29.7$ & proved (Cor.~\ref{cor:parseval}, Thm.~\ref{prop:p12})\\
+sharp $n=2$ payments: P$_{12}$, and $c_1(2,s)=1-3^{1-s}$ & proved (Thm.~\ref{prop:p12}; Thm.~\ref{thm:c1sharp}, computer-assisted)\\
+count $=K^*$ for every maximiser with no feature bought below IF price, all $n,p,b$ & proved (Prop.~\ref{prop:nocheap})\\
+count $=K^*$ in class $\mathcal C$, $n=2$, all $p\ge5$, $b\in[2,3]$, any number of cheap features under (D$_3$), (I$_2$) & proved (Cor.~\ref{cor:quad})\\
+$n=2$, any network: cheap features force additive relations or spectral coincidences & proved (Thm.~\ref{thm:riesz})\\
+$\pi_{2,b}(p)=3^{1-s}$ for every prime $p$ (single features, arbitrary inputs): (Q1) at $n=2$ & proved (Thm.~\ref{thm:q1n2})\\
+feature count $=K^*(s,p)$, $p\ge5$, $b<b_0$ & open; reduced to relations among cheap features and off-frequency compensation (Sec.~\ref{sec:robust})\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Answer to ``prove that the unrestricted optimum matches the prediction''.}  In the interference-free form this
+cannot be done: the statement is false at $p=3$, and increasingly so as $n$ grows.  In the price--programme form it holds at
+$p=3$ by definition, and there the object to compute is $\pi_{n,b}(3)$.  We have shown that, in the class that contains every
+counterexample, this reduces to choosing $\nu-\lfloor\nu/3\rfloor$ real slopes, with the weights given by an LP.  For
+$p\ge5$ the full statement would follow from two claims:
+\begin{enumerate}
+\item[(Q1)] $\pi_{n,b}(p)=\nu^{1-s}$, i.e.\ a single feature cannot be bought below the IF price.  Theorem~\ref{thm:width}
+limits the width saving of the $p=3$ mechanism to $\lfloor\nu/p\rfloor$ neurons, and to none for $p>\nu$.  The circularity
+theorem of the companion note handles single-frequency inputs when $k_p\ge k^*$.  A proof needs a cost-weighted (robust)
+form of the width theorem for arbitrary sign patterns.
+\item[(Q2)] Decoupling.  It has to control compensation by interference-only fields, which demonstrably raises a feature's
+margin.
+\end{enumerate}
+Both hold in all our experiments at $p=5,7$, by margins of $4\times$ or more that grow with $n$.
+
+\paragraph{Files.}  \texttt{certify\_1d.py} (rigorous certificate for the 1-D family, any $p$), \texttt{oned\_certified/}
+(parameters of the networks in Table~\ref{tab:p3}), \texttt{mechanism\_scripts/} (the field model, the LP, the slope search
+and continuation, the joint two-frequency LP, the release test).
+\end{document}

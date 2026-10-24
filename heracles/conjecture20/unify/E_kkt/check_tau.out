@@ -1,0 +1,18 @@
+28 stored local maximisers
+lm_p5_n2_b2.0_k0.npz: res 1e-09; tau 1.0312e-01 in [7.9057e-02, 2.9963e-01]; max t/tau 0.7667; law err 4.0e-10; w_min/floor 1.701
+lm_p5_n2_b2.0_k2.npz: res 9e-09; tau 1.1346e-01 in [7.9057e-02, 3.0293e-01]; max t/tau 0.6968; law err 5.0e-09; w_min/floor 2.060
+lm_p5_n2_b2.0_k3.npz: res 8e-09; tau 1.6159e-01 in [7.9057e-02, 3.0614e-01]; max t/tau 0.4892; law err 4.6e-09; w_min/floor 4.178
+lm_p5_n2_b2.0_k5.npz: res 6e-09; tau 1.4383e-01 in [7.9057e-02, 3.0508e-01]; max t/tau 0.5497; law err 3.5e-09; w_min/floor 3.310
+lm_p5_n3_b2.0_k0.npz: res 9e-09; tau 6.5349e-02 in [2.5000e-02, 2.0705e-01]; max t/tau 0.3826; law err 2.4e-09; w_min/floor 2.614
+lm_p5_n3_b2.0_k3.npz: res 2e-08; tau 6.0741e-02 in [2.5000e-02, 1.9557e-01]; max t/tau 0.4116; law err 4.6e-09; w_min/floor 2.430
+lm_p5_n3_b2.0_k4.npz: res 7e-09; tau 5.8423e-02 in [2.5000e-02, 1.9471e-01]; max t/tau 0.4279; law err 3.3e-09; w_min/floor 2.337
+lm_p5_n3_b2.6_k0.npz: res 4e-08; tau 1.0969e-01 in [3.6180e-02, 2.8783e-01]; max t/tau 0.1260; law err 3.7e-09; w_min/floor 46.860
+lm_p5_n3_b2.6_k1.npz: res 4e-08; tau 1.1448e-01 in [3.6180e-02, 2.7913e-01]; max t/tau 0.1207; law err 2.2e-08; w_min/floor 50.734
+lm_p5_n3_b2.6_k2.npz: res 2e-08; tau 6.8669e-02 in [2.5000e-02, 2.0721e-01]; max t/tau 0.3641; law err 2.8e-09; w_min/floor 6.531
+lm_p5_n3_b2.6_k3.npz: res 3e-08; tau 6.4809e-02 in [2.5000e-02, 2.0054e-01]; max t/tau 0.3857; law err 8.0e-09; w_min/floor 5.865
+lm_p5_n3_b2.6_k5.npz: res 1e-08; tau 5.7244e-02 in [2.5000e-02, 1.9593e-01]; max t/tau 0.4367; law err 6.0e-09; w_min/floor 4.658
+lm_p7_n2_b2.0_k2.npz: res 6e-08; tau 8.1880e-02 in [6.1310e-02, 2.5454e-01]; max t/tau 0.4848; law err 6.5e-08; w_min/floor 4.254
+lm_p7_n2_b2.0_k3.npz: res 5e-08; tau 7.8820e-02 in [6.1310e-02, 2.4140e-01]; max t/tau 0.5037; law err 5.6e-08; w_min/floor 3.942
+lm_p7_n2_b2.0_k5.npz: res 5e-08; tau 8.8327e-02 in [6.1310e-02, 2.4370e-01]; max t/tau 0.4494; law err 5.2e-08; w_min/floor 4.951
+lm_p7_n2_b2.0_k7.npz: res 5e-08; tau 7.9339e-02 in [6.1310e-02, 2.3539e-01]; max t/tau 0.5004; law err 5.3e-08; w_min/floor 3.994
+worst (all must be <= 0 up to rounding, law error ~ KKT accuracy): {'low': -0.222, 'up': -0.472, 'crit': -0.233, 'law': 6.49e-08, 'floor': -0.412}

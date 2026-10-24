@@ -1,0 +1,13 @@
+R7a clause test ('if' direction): max|beta_T(theta)| = 3.45e-16, |table(split) - core| = 8.88e-16
+   split binding offsets [1, 4], theta binding offsets [2, 3]; max|g_R(.,d)| by d: 1:0.000, 2:1.090, 3:1.090, 4:0.000
+   h(theta) = 0.474867   h(split) = 0.518237
+R7a clause test ('only if' with theta-binding offsets): max|beta_T(theta)| = 3.73e-16, |table(split) - core| = 7.77e-16
+   split binding offsets [1, 4], theta binding offsets [1, 4]; max|g_R(.,d)| by d: 1:0.000, 2:0.839, 3:0.839, 4:0.000
+   h(theta) = 0.518237   h(split) = 0.518237
+R9c ascent at (5,2,b=3): (gamma/gamma*, P_live/P) = [(np.float64(-0.0012), 0.4472), (np.float64(-0.0031), 0.4537), (np.float64(-0.0049), 0.4916), (np.float64(0.0015), 0.2939), (np.float64(-0.0133), 0.2882), (np.float64(0.0711), 0.4977)]
+PASS R7 min g_theta(.,d) - min(g_split + g_R^V)(.,d)  (<=0)   [+1.4211e-14]
+PASS R7a IF (beta_T = 0) mixed networks: h(theta) - h(split) (<=0)   [-2.3700e+00]
+PASS R7a 'equality IF g_R=0 on split-binding offsets' is FALSE: counterexample found   [-4.3370e-02]
+FAIL R7a 'equality ONLY IF g_R=0 on theta-binding offsets' is FALSE: counterexample found   [+0.0000e+00]
+PASS R8 adversarial max h / (B_p min_d sum (P_j^live)^s kappa_j(d))  (<=1)   [+1.0000e+00]
+PASS R9c b=nu: gamma/(B_p Gamma_1) - P_live/P (<=0)   [-2.9240e-01]

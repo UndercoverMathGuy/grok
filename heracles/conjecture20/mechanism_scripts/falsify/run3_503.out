@@ -1,0 +1,15 @@
+full-legendre  |S|= 251 c*(grad)=1.3616 (supp 251, cheap 251)  pair/sharp=0.3482 (0.3884 at c=0.289)  cap/sharp=0.3631 (0.4200 at c=0.289)  [11s]
+full-rand      |S|= 251 c*(grad)=1.3734 (supp 251, cheap 251)  pair/sharp=0.3436 (0.3838 at c=0.289)  cap/sharp=0.3568 (0.4137 at c=0.289)  [117s]
+rand4L         |S|=  25 c*(grad)=0.8049 (supp 25, cheap 25)  pair/sharp=0.3675 (0.4563 at c=0.289)  cap/sharp=0.2041 (0.3302 at c=0.289)  [150s]
+rand8L         |S|=  50 c*(grad)=0.7638 (supp 50, cheap 50)  pair/sharp=0.4633 (0.5369 at c=0.289)  cap/sharp=0.4122 (0.5162 at c=0.289)  [197s]
+rand16L        |S|= 100 c*(grad)=0.9518 (supp 100, cheap 100)  pair/sharp=0.4236 (0.4788 at c=0.289)  cap/sharp=0.4170 (0.4951 at c=0.289)  [264s]
+ystar+2L       |S|=  21 c*(grad)=0.8432 (supp 19, cheap 19)  pair/sharp=0.3104 (0.4015 at c=0.289)  cap/sharp=0.1039 (0.2152 at c=0.289)  [321s]
+ystar+6L       |S|=  46 c*(grad)=0.7486 (supp 24, cheap 24)  pair/sharp=0.4453 (0.5338 at c=0.289)  cap/sharp=0.3835 (0.4949 at c=0.289)  [399s]
+AP8L-chirp     |S|=  50 c*(grad)=2.6381 (supp 50, cheap 50)  pair/sharp=0.1534 (0.1797 at c=0.289)  cap/sharp=0.1326 (0.1698 at c=0.289)  [450s]
+polish ystar+6L: 0.7486 -> 0.7486  [463s]
+polish rand8L: 0.7638 -> 0.7529  [594s]
+polish rand4L: 0.8049 -> 0.7999  [608s]
+== p=503 Gamma=0.202636
+  cstar        0.7486 from ystar+6L: {'ratio': np.float64(0.1078), 'cov': np.float64(0.9116), 'bonus': np.float64(0.2897), 'pen': np.float64(1.0935), 'covmin': np.float64(0.7793), 'delta': 21, 'supp': 24, 'cheap': 24}  ratio@0.289=0.2739
+  forced_cap   0.4312 from rand16L: {'ratio': np.float64(0.4312), 'cov': np.float64(0.4637), 'bonus': np.float64(0.1474), 'pen': np.float64(0.1799), 'covmin': np.float64(0.459), 'delta': 169, 'supp': 100, 'cheap': 100}  ratio@0.289=0.5149
+  forced_pair  0.4682 from rand8L: {'ratio': np.float64(0.4682), 'cov': np.float64(0.5952), 'bonus': np.float64(0.1338), 'pen': np.float64(0.2608), 'covmin': np.float64(0.5802), 'delta': 118, 'supp': 50, 'cheap': 50}  ratio@0.289=0.5430

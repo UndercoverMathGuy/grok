@@ -1,0 +1,13 @@
+hunt_a2.py 31 2.0 F 5 631 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 31 2.0 AP7 5 631 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 29 2.0 REL 5 629 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 31 2.0 REL 5 631 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 31 2.5 sub10 3 531 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 29 2.5 sub14 3 529 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 43 2.5 sub14 3 543 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 37 2.5 sub18 3 537 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 37 2.0 F 3 837 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 41 2.0 F 3 841 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 43 2.0 F 3 843 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 17 2.5 REL 6 717 cheapc,single,removed,punct,cheapc,mixed,ghost,extra
+hunt_a2.py 19 2.5 REL 6 719 cheapc,single,removed,punct,cheapc,mixed,ghost,extra

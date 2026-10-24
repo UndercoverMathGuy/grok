@@ -1,0 +1,8 @@
+D5 random max(lhs-rhs) = 2.220e-16 ; adversarial (150 Nelder-Mead runs) max = 3.678e-09 ; majorisation failures = 0
+D6 random: 4500 cases, 15 with c>0; E Phi = conj(A) err 2.7e-15
+   (a) max (sum|b_T|^2 - tau (ReA-c)^2)/|A|^2 = -6.474e-01 ; (b) max rel = -1.049e-04 ; (c) max c/(nu^{1-s}Q^s)-1 = -6.083e-01
+D6(c) adversarial p=5 n=2 s=1.50: max c/(nu^{1-s}Q^s) = 0.851283 (must be <= 1)
+D6(c) adversarial p=5 n=3 s=1.85: max c/(nu^{1-s}Q^s) = 0.613730 (must be <= 1)
+D6(c) adversarial p=7 n=2 s=1.50: max c/(nu^{1-s}Q^s) = 0.992526 (must be <= 1)
+D6(c) adversarial p=7 n=3 s=2.00: max c/(nu^{1-s}Q^s) = 0.379698 (must be <= 1)
+D6(c) adversarial p=5 n=2 s=1.20: max c/(nu^{1-s}Q^s) = 0.954880 (must be <= 1)

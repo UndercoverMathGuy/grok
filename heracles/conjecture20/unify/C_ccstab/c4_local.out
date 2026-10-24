@@ -1,0 +1,42 @@
+step checks (all positive-margin class-C networks, aligned / misaligned / single-set):
+  min [a_l - a_l^-]/sum|A|                 (>=0) = -7.771561172376096e-16
+  max |E F^2 - sum kappa E|/(sum|A|)^2          = 7.494005416219805e-16
+  min [m*osc - E F^2]/(sum|A|)^2           (>=0) = 3.2869204384208844e-31
+  min [sum kappa|A| - det - h]/sum|A|      (>=0) = -1.3044015420545555e-15
+  L1 => L and L2 => L on every network            : True True
+  min [(1-X) - gamma/gamma_IF] over X>=0     (>=0) = -6.661338147750939e-16
+  min [dint*N - min_d sum kappa E/O_d]/sum|A| (>=0) = 2.822823224249083e-17
+networks: 621; (L) holds for 587; max gamma/gamma_IF where (L) holds: 1.000000; where it fails: 0.688178
+  (3, 2, 2.0)   aligned    n=15  (L)=15 (L1)=15 (L2)=14  max ratio=0.98238  max ratio|L=0.98238
+  (3, 2, 2.0)   misaligned n=16  (L)=14 (L1)= 0 (L2)=13  max ratio=0.98761  max ratio|L=0.98761
+  (3, 2, 2.0)   singleset  n=16  (L)=16 (L1)=16 (L2)=16  max ratio=0.94122  max ratio|L=0.94122
+  (3, 3, 2.0)   aligned    n=12  (L)=12 (L1)=12 (L2)= 9  max ratio=0.97517  max ratio|L=0.97517
+  (3, 3, 2.0)   misaligned n=13  (L)=11 (L1)= 0 (L2)=10  max ratio=0.96135  max ratio|L=0.96135
+  (3, 3, 2.0)   singleset  n=16  (L)=16 (L1)=16 (L2)=16  max ratio=0.84572  max ratio|L=0.84572
+  (5, 2, 2.0)   aligned    n=16  (L)=16 (L1)=15 (L2)=12  max ratio=0.98312  max ratio|L=0.98312
+  (5, 2, 2.0)   misaligned n=17  (L)=12 (L1)= 0 (L2)=12  max ratio=0.98155  max ratio|L=0.98155
+  (5, 2, 2.0)   singleset  n=16  (L)=16 (L1)=16 (L2)=16  max ratio=0.94119  max ratio|L=0.94119
+  (7, 2, 2.0)   aligned    n=16  (L)=12 (L1)=12 (L2)=12  max ratio=0.98515  max ratio|L=0.98515
+  (7, 2, 2.0)   misaligned n=16  (L)=11 (L1)= 0 (L2)=11  max ratio=0.97886  max ratio|L=0.97886
+  (7, 2, 2.0)   singleset  n=17  (L)=16 (L1)=16 (L2)=12  max ratio=0.94317  max ratio|L=0.94317
+  (11, 2, 2.0)  aligned    n=14  (L)=14 (L1)=14 (L2)=13  max ratio=0.97519  max ratio|L=0.97519
+  (11, 2, 2.0)  misaligned n=14  (L)=13 (L1)= 0 (L2)=12  max ratio=0.97494  max ratio|L=0.97494
+  (11, 2, 2.0)  singleset  n=16  (L)=16 (L1)=16 (L2)=16  max ratio=0.93786  max ratio|L=0.93786
+  (5, 3, 2.0)   aligned    n=12  (L)=12 (L1)=12 (L2)=12  max ratio=0.95835  max ratio|L=0.95835
+  (5, 3, 2.0)   misaligned n=12  (L)=10 (L1)= 0 (L2)= 9  max ratio=0.95514  max ratio|L=0.95514
+  (5, 3, 2.0)   singleset  n=16  (L)=16 (L1)=16 (L2)=16  max ratio=0.84064  max ratio|L=0.84064
+  (7, 3, 2.0)   aligned    n=13  (L)=12 (L1)=12 (L2)=10  max ratio=0.96257  max ratio|L=0.96257
+  (7, 3, 2.0)   misaligned n=13  (L)= 9 (L1)= 0 (L2)= 8  max ratio=0.95718  max ratio|L=0.95718
+  (7, 3, 2.0)   singleset  n=16  (L)=16 (L1)=16 (L2)=12  max ratio=0.84535  max ratio|L=0.84535
+  (5, 4, 2.0)   aligned    n=10  (L)=10 (L1)=10 (L2)= 9  max ratio=0.93338  max ratio|L=0.93338
+  (5, 4, 2.0)   misaligned n= 8  (L)= 8 (L1)= 0 (L2)= 8  max ratio=0.91299  max ratio|L=0.91299
+  (5, 4, 2.0)   singleset  n=16  (L)=16 (L1)=16 (L2)=16  max ratio=0.71685  max ratio|L=0.71685
+  (7, 2, 2.5)   aligned    n=17  (L)=17 (L1)=17 (L2)=15  max ratio=0.98425  max ratio|L=0.98425
+  (7, 2, 2.5)   misaligned n=16  (L)=16 (L1)= 0 (L2)=12  max ratio=0.98236  max ratio|L=0.98236
+  (7, 2, 2.5)   singleset  n=16  (L)=16 (L1)=16 (L2)=16  max ratio=0.97598  max ratio|L=0.97598
+  (5, 3, 3.0)   aligned    n=14  (L)=14 (L1)=14 (L2)=12  max ratio=0.96819  max ratio|L=0.96819
+  (5, 3, 3.0)   misaligned n=12  (L)=12 (L1)= 0 (L2)=12  max ratio=0.97019  max ratio|L=0.97019
+  (5, 3, 3.0)   singleset  n=16  (L)=16 (L1)=16 (L2)=16  max ratio=0.96041  max ratio|L=0.96041
+  (11, 2, 2.4)  aligned    n=17  (L)=16 (L1)=16 (L2)=12  max ratio=0.98401  max ratio|L=0.98401
+  (11, 2, 2.4)  misaligned n=16  (L)=12 (L1)= 0 (L2)=12  max ratio=0.98438  max ratio|L=0.98438
+  (11, 2, 2.4)  singleset  n=19  (L)=17 (L1)=16 (L2)=16  max ratio=0.97092  max ratio|L=0.97092

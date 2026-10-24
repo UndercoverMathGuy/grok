@@ -1,0 +1,13 @@
+  mod = np.exp(z[:NT*K]).reshape(NT, K); ang = z[NT*K:].reshape(NT, K)
+  a = ph[t] + ang[t] + sgn*carg; args.append(a); Zv += (np.cos(a)*(mod[t]*cabs)).sum(1)
+  return umr_sum(a, axis, dtype, out, keepdims, initial, where)
+  cabs, carg, kap = parts(d); E = (mod**2*kap).sum()
+  r = A*Ap/E; dA = [Ap/E, A/E]
+  r = A*Ap/E; dA = [Ap/E, A/E]
+  m = v.min(); w = np.exp(-tau*(v - m)); return m - np.log(w.mean())/tau, w/w.sum()
+p=11 n=2 d=1 [prod]: min = 1.0877   (prod 1.0877, mean^2 1.0877)
+p=11 n=2 d=2 [prod]: min = 1.0023   (prod 1.0023, mean^2 1.0826)
+p=11 n=2 d=3 [prod]: min = 1.3807   (prod 1.3807, mean^2 1.3816)
+p=11 n=2 d=4 [prod]: min = 1.3018   (prod 1.3018, mean^2 1.3042)
+p=11 n=2 d=5 [prod]: min = 1.0003   (prod 1.0003, mean^2 1.0086)
+p=11 n=2 [prod] overall min 1.0003

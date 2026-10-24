@@ -1,0 +1,330 @@
+% E_reduce: complete proofs. Task REDUCE (Brief E). Numerical sanity checks: check_*.py -> check_*.out in this directory.
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.2cm]{geometry}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\begin{document}
+\title{Temperature continuation: the reduction $(E)\Rightarrow$ value and lower count, and what the upper count needs}
+\author{E\_reduce}\date{}\maketitle
+
+Throughout, $p$ is an odd prime, $n\ge2$, $\nu=n+1$, $F=\{1,\dots,(p-1)/2\}$, $s=\nu/b\in[1,\nu/2]$ and every
+statement holds for every such $(p,n,b)$; nothing is sent to a limit and no case is split by $(p,n)$.
+Notation not defined here is that of \texttt{unify/BRIEF.md}.
+
+\section{Setting}
+\textbf{Networks and cost.} For a network $\theta=(\omega_i)$ put $a_i=\|\omega_i\|^\nu$, $P_\sigma(\theta)=\sum_ia_i^{1/\sigma}
+=\sum_i\|\omega_i\|^{\nu/\sigma}$, cost shares $w_i(\theta,\sigma)=a_i^{1/\sigma}/P_\sigma$ and $H(\theta,\sigma)=-\sum_iw_i\log w_i$.
+
+\textbf{Feature weights.} For $\lambda\in\Lambda:=(0,\infty)^F$ let $G_l(x,\delta)=\Re(\Phi_l(x)(1-\rho^{-l\delta}))$ be the
+frequency-$l$ part of the gap, $g_\lambda=\sum_l\lambda_lG_l$, $h_\lambda=\min_{x,\delta}g_\lambda$ and
+$\gamma_\lambda(\theta;\sigma)=h_\lambda(\theta)/P_\sigma(\theta)^\sigma$. Equivalently $h_\lambda(\theta)$ is the margin of the
+network with outputs $w\mapsto\Lambda w$, $\Lambda=P_0+\sum_l\lambda_lP_l$. $\lambda=\mathbf 1$ is the original problem.
+
+\textbf{Classes and values.} $N_S=\{\theta:\beta_j(\theta)=0\ \forall j\notin S\}$ ($\emptyset\ne S\subseteq F$);
+$W^\lambda_S(\sigma)=\sup_{N_S}\gamma_\lambda(\cdot;\sigma)$. $\pi(\sigma)=\pi_{n,\nu/\sigma}(p)$ is the price
+(companion note): the sup over single-feature networks (outputs in $\mathrm{span}\{\mathbf1,\cos\frac{2\pi\cdot}p,\sin\frac{2\pi\cdot}p\}$)
+of $e(\theta;\sigma)=c(\theta)/(B_pP_\sigma(\theta)^\sigma)$, $c(\theta)=\min_x\mathrm{cm}(\Phi_1(x))$.
+$m_\lambda(y)=\min_{\delta\ne0}\sum_l\lambda_ly_l\kappa_l(\delta)$,
+$\Gamma^{\lambda,(S)}_\sigma=\max\{m_\lambda(y):y\ge0,\ \mathrm{spt}\,y\subseteq S,\ \sum y_l^{1/\sigma}\le1\}
+=\max_{A\ne0,\mathrm{spt}A\subseteq S}m_\lambda(A)/\|A\|_{1/\sigma}$, $\|A\|_{1/\sigma}=(\sum_lA_l^{1/\sigma})^\sigma$;
+$M^{\lambda,(S)}(\sigma)$ is its set of maximisers and $z(y)_l=y_l^{1/\sigma}$ their budget shares ($\sum_lz_l=1$).
+$D^\lambda_S(\sigma)=\pi(\sigma)B_p\Gamma^{\lambda,(S)}_\sigma$. We drop $\lambda$ when $\lambda=\mathbf1$.
+
+\textbf{Observables.} Besides $H$, the \emph{output-frequency usage}
+\[E_l(\theta,\sigma)=\sum_iw_i(\theta,\sigma)\,\|P_lw_i\|^2/\|\omega_i\|^2\qquad(l\in F).\]
+$H^{(1)}_{\min}(\sigma)$, $H^{(1)}_{\max}(\sigma)$ are the least and largest cost-share entropies of optimal single features,
+$\Delta^{(1)}(\sigma)=H^{(1)}_{\max}-H^{(1)}_{\min}$, and
+$H^{\rm dec,\lambda}_S(\sigma)=H^{(1)}_{\min}(\sigma)+\min_{y\in M^{\lambda,(S)}(\sigma)}H(z(y))$.
+
+\textbf{Hypotheses.} $(E^\lambda_S)$ at $\sigma$: every maximiser of $\gamma_\lambda(\cdot;\sigma)$ on $N_S$ has
+$H\ge H^{\rm dec,\lambda}_S(\sigma)$. $(FE)$ at $\sigma$ for a maximiser $\theta$:
+$H(\theta,\sigma)\ge H(\nu E(\theta,\sigma))+H^{(1)}_{\min}(\sigma)$.
+
+\section{Basic lemmas}
+\begin{lemma}[compactness, width, balance]\label{l:basic}
+(a) For every $\theta$ and $\sigma$ there is $\theta'$ with the same table, width $\le D:=p^\nu$, $P_\sigma(\theta')\le P_\sigma(\theta)$,
+whose neurons are factorwise rescalings of neurons of $\theta$. Hence $N_S$ and the single-feature class are preserved.
+(b) Rescaling the factors of a neuron to equal norms, and deleting output DC $P_0w_i$, leave every $g_\lambda$ and every
+$\beta_j$ unchanged and do not increase $P_\sigma$, strictly decreasing it unless the neuron is already balanced and
+output-DC-free. Hence every maximiser (of any $\gamma_\lambda$ on any $N_S$, or of $e$) is balanced and output-DC-free, and
+then $\sum_l\nu E_l=1$.
+(c) $W^\lambda_S(\sigma)=\max_{K_D\cap N_S}\gamma_\lambda(\cdot;\sigma)$ with $K_D=\{\text{width}\le D,\ \sum\|\omega_i\|^2=1\}$
+compact; $W^\lambda_S$, $\pi$ and $\Gamma^{\lambda,(S)}$ are continuous and positive in $(\sigma,\lambda)\in[1,\nu/2]\times\Lambda$.
+\end{lemma}
+\begin{proof}
+(a) GLOBAL R2 (refereed): with $\mu_i=\|T_i\|_F=\prod_t\|u_{it}\|\|w_i\|$, AM--GM gives $\|\omega_i\|^b\ge\nu^{b/2}\mu_i^{1/\sigma}$
+with equality iff balanced; $\sum\mu_i^{1/\sigma}$ is concave and non-decreasing along the recession cone of the pointed
+polyhedron $\{\mu\ge0:\sum\mu_i\hat T_i=T\}$, so it is minimised at a vertex, which has $\le p^\nu$ non-zero entries;
+balance those neurons. The table is unchanged, so $N_S$ (a condition on the table) is preserved; the single-feature
+class is preserved because the new neurons are rescaled old ones.
+(b) Factor rescalings with product $1$ keep the rank-one term; $P_0w$ adds to $f(x)[\cdot]$ a constant in $c$, which
+cancels in every gap and does not enter any $\beta_j$ ($j\ne0$). AM--GM and orthogonality of $P_0$ give the cost
+statements. For a balanced output-DC-free neuron $\sum_l\|P_lw\|^2=\|w\|^2=\|\omega\|^2/\nu$, so $\sum_l\nu E_l=\sum_iw_i=1$.
+(c) $\gamma_\lambda$ is scale invariant ($b\sigma=\nu$). By (a) the sup over $h_\lambda>0$ is a sup over $K_D\cap N_S$;
+$K_D\cap N_S$ is compact ($\beta_j$ is continuous); on $K_D$, $P_\sigma\ge D^{1-b/2}>0$ (power mean, $b\ge2$), so
+$\gamma_\lambda$ is jointly continuous and its max is continuous. Positivity: Lemma \ref{l:bounds}(b) and $\pi\ge\nu^{1-\sigma}$,
+$\Gamma^{\lambda,(S)}\ge\lambda_j\kappa_{\min}>0$ for $j\in S$. The same argument (width $\le D$, single-feature class) gives
+continuity of $\pi$, and $\Gamma^{\lambda,(S)}_\sigma=\max_{z\in\Delta_S}m_\lambda(z^\sigma)$ is a max of a jointly continuous function.
+\end{proof}
+
+\begin{lemma}[two bounds]\label{l:bounds}
+(a) For $\theta\in N_S$ and every $\sigma$: $h_\lambda(\theta)\le B_p\Gamma^{\lambda,(S)}_\sigma P_\sigma(\theta)^\sigma$.
+(b) Let $\theta_1$ be single-feature with $c(\theta_1)>0$, $A\ge0$, $A\ne0$, $\mathrm{spt}A\subseteq S$, and let
+$\Theta=\Theta(\theta_1,A)$ be the union over $l\in\mathrm{spt}A$ of the relabelled copies $u\mapsto u(l\,\cdot)$,
+$w\mapsto w(l\,\cdot)$ scaled by $A_l^{1/\nu}$ in every factor. Then $\Theta\in N_S$, for every $\sigma$ and $\lambda$
+\[\gamma_\lambda(\Theta;\sigma)\ \ge\ \psi(\sigma):=\frac{c(\theta_1)\,m_\lambda(A)}{\big(\sum_{l,i}(A_la_i)^{1/\sigma}\big)^\sigma}
+=e(\theta_1;\sigma)\,B_p\,\frac{m_\lambda(A)}{\|A\|_{1/\sigma}}\ \le\ D^\lambda_S(\sigma),\]
+with equality in the last step at $\sigma=s$ if $\theta_1$ is optimal at $s$ and $A\in M^{\lambda,(S)}(s)$; and
+$H(\Theta,\sigma)=H(z)+H(\theta_1,\sigma)$, $z_l=A_l^{1/\sigma}/\sum A^{1/\sigma}$. In particular $W^\lambda_S\ge D^\lambda_S$.
+(c) $W^\lambda_S(1)=D^\lambda_S(1)$.
+\end{lemma}
+\begin{proof}
+(a) $\E_x\Phi_l=\overline{\beta_l}$, so the average of $\E_xg_\lambda(\cdot,\delta)$ and $\E_xg_\lambda(\cdot,-\delta)$ is
+$\sum_l\lambda_l\Re\beta_l\,\kappa_l(\delta)$ (paper Lemma 2, weighted). For $\theta\in N_S$ only $l\in S$ occur. With
+$Q_l=\sum_i|\beta_{il}|^{1/\sigma}$, $\Re\beta_l\le|\beta_l|\le Q_l^\sigma=:A_l$, so
+$h_\lambda\le m_\lambda(A)\le\Gamma^{\lambda,(S)}_\sigma(\sum_lQ_l)^\sigma\le\Gamma^{\lambda,(S)}_\sigma(C_bP_\sigma)^\sigma
+=B_p\Gamma^{\lambda,(S)}_\sigma P_\sigma^\sigma$ by the single-neuron budget.
+(b) Copy $l$ has outputs in $\mathrm{span}\{\mathbf1,\cos_l,\sin_l\}$, so it contributes only to $\beta_l$ and $G_l$, and by the
+cone lemma $G_l^{(\rm copy)}(x,\delta)=A_lg_{\theta_1}(lx,l\delta)\ge A_lc(\theta_1)\kappa_l(\delta)$. Gaps add over the union,
+so $h_\lambda(\Theta)\ge c(\theta_1)m_\lambda(A)$. Relabelling permutes coordinates, so neuron $i$ of copy $l$ has
+$\|\omega\|^\nu=A_la_i$; this gives the cost, the factorisation
+$(\sum_{l,i}(A_la_i)^{1/\sigma})^\sigma=\|A\|_{1/\sigma}P_\sigma(\theta_1)^\sigma$, and the shares $z_lw_i(\theta_1)$, whence the entropy.
+Finally $e(\theta_1;\sigma)\le\pi(\sigma)$ and $m_\lambda(A)/\|A\|_{1/\sigma}\le\Gamma^{\lambda,(S)}_\sigma$.
+(c) $\nu^{1-\sigma}\le\pi\le1$ gives $\pi(1)=1$; combine (a) and (b).
+\end{proof}
+
+\begin{lemma}[Danskin, elementary form]\label{l:danskin}
+Let $X$ be compact metric, $U\subseteq\R^m$ open (or convex, with $\eta$ pointing into $U$), $f:X\times U\to\R$ continuous with $\nabla_\xi f$ continuous on $X\times U$,
+$v(\xi)=\max_Xf(\cdot,\xi)$, $X^*(\xi)$ the argmax. Then $v'(\xi;\eta)=\max_{x\in X^*(\xi)}\langle\nabla_\xi f(x,\xi),\eta\rangle$
+for every $\eta$.
+\end{lemma}
+\begin{proof}
+$\ge$: for $x^*\in X^*(\xi)$, $v(\xi+t\eta)-v(\xi)\ge f(x^*,\xi+t\eta)-f(x^*,\xi)$. $\le$: take $t_k\downarrow0$ realising the
+$\limsup$, $x_k\in X^*(\xi+t_k\eta)$, a subsequence $x_k\to\bar x$; $\bar x\in X^*(\xi)$ by continuity of $f$ and $v$.
+By the mean value theorem $v(\xi+t_k\eta)-v(\xi)\le f(x_k,\xi+t_k\eta)-f(x_k,\xi)=t_k\langle\nabla f(x_k,\xi+\tau_k\eta),\eta\rangle$,
+and uniform continuity gives the limit $\langle\nabla f(\bar x,\xi),\eta\rangle$.
+\end{proof}
+\noindent\emph{Applications.} (i) $f=\log\gamma_\lambda(\theta;\sigma)=\log h_\lambda(\theta)-\sigma\log\sum_ia_i^{1/\sigma}$ on
+$X=K_D\cap N_S\cap\{h_\lambda\ge\eta\}$, which contains every maximiser for $\sigma$ in a compact interval (Lemma \ref{l:basic}c).
+$\partial_\sigma f=-H(\theta,\sigma)$ (temperature identity: with $Z=\sum a_i^{1/\sigma}$, $\frac{d}{d\sigma}\sigma\log Z=
+\log Z-\frac1\sigma\sum w_i\log a_i=-\sum w_i\log w_i$); $H$ is jointly continuous for $\theta\ne0$.
+So $\log W^\lambda_S$ has one-sided derivatives $-H^*_{S,\min}$ (right) and $-H^*_{S,\max}$ (left), extremes over all
+maximisers of any width (enlarging $D$ does not change $v$). (ii) The same for $\pi$ (single-feature class, width $\le D$):
+$(\log\pi)'_\pm=-H^{(1)}_{\min/\max}$. Hence $\Delta^{(1)}(\sigma)>0$ exactly where $\log\pi$ has a kink, a countable set.
+
+\begin{lemma}[monotonicity with an a.e.\ hypothesis]\label{l:dini}
+Let $L$ be continuous on $[a,c]$, and $\varphi:[a,c)\to(-\infty,C]$ with $D^+L\le\varphi$ on $[a,c)$ and $\varphi\le0$
+outside a Lebesgue-null set $\mathcal N$. Then $L$ is non-increasing.
+\end{lemma}
+\begin{proof}
+Step 1 (Dini): if $M$ is continuous and $D^+M\le0$ on $[a,c)$ then $M$ is non-increasing. For $a\le a'<c'\le c$, $\eta>0$,
+$M_\eta(t)=M(t)-M(a')-\eta(t-a')$, let $t^*=\sup\{t\le c':M_\eta\le0\text{ on }[a',t]\}$; $M_\eta(t^*)\le0$; if $t^*<c'$ then
+$D^+M_\eta(t^*)\le-\eta<0$ gives $M_\eta<0$ on $(t^*,t^*+h_0)$, a contradiction. So $M(c')\le M(a')+\eta(c'-a')$.
+Step 2: given $\varepsilon>0$ choose an open $U\supseteq\mathcal N$ with $|U|<\varepsilon/C$ (outer regularity),
+$G=C\mathbf 1_U$, $I(t)=\int_a^tG$. If $t\in U$ then $I'_+(t)=C$; otherwise $D_+I(t)\ge0$. So $D_+I\ge G\ge\varphi$
+everywhere ($\varphi\le0$ off $U$, $\varphi\le C$ on $U$), and $M=L-I$ has $D^+M\le D^+L-D_+I\le\varphi-G\le0$.
+By Step 1, $L(c')-L(a')\le I(c')-I(a')\le\varepsilon$; let $\varepsilon\to0$.
+\end{proof}
+\noindent The bound $\varphi\le C$ is essential (the Cantor function has derivative $0$ a.e.\ and $D^+=+\infty$ on its support).
+
+\section{Part 1: the reduction}
+\begin{theorem}[reduction and equivalence]\label{t:A}
+Fix $\lambda\in\Lambda$ and $S$. The following are equivalent:
+(i) $(E^\lambda_S)$ holds at almost every $\sigma\in[1,\nu/2]$;
+(ii) $W^\lambda_S\equiv D^\lambda_S$ on $[1,\nu/2]$;
+(iii) $H^*_{S,\min}(\sigma)=H^{\rm dec,\lambda}_S(\sigma)$ for every $\sigma\in[1,\nu/2)$;
+(iv) $(E^\lambda_S)$ holds at every $\sigma\in[1,\nu/2)$.
+\end{theorem}
+\begin{proof}
+(i)$\Rightarrow$(ii). $L=\log W^\lambda_S-\log D^\lambda_S$ is continuous (Lemma \ref{l:basic}c), $L\ge0$ and $L(1)=0$
+(Lemma \ref{l:bounds}). Upper Dini of $\log W$: by Lemma \ref{l:danskin} (or its $\le$ half),
+$D^+\log W^\lambda_S(\sigma)\le-H(\bar\theta,\sigma)$ for some maximiser $\bar\theta$ of width $\le D$.
+Lower Dini of $\log D$: for any optimal single feature $\theta_1$ at $\sigma$ and $y\in M^{\lambda,(S)}(\sigma)$,
+$\psi$ of Lemma \ref{l:bounds}(b) (with $A=y$) is $\le D^\lambda_S$ and touches it at $\sigma$, and
+$\log\psi$ is smooth with derivative $-H(\Theta)=-(H(\theta_1,\sigma)+H(z(y)))$ (Gibbs form); so
+$D_+\log D^\lambda_S(\sigma)\ge-H^{\rm dec,\lambda}_S(\sigma)$. Hence $D^+L\le\varphi:=H^{\rm dec,\lambda}_S-H(\bar\theta,\cdot)$, and
+$\varphi\le C:=\log(D|S|)$ (a width-reduced optimal single feature has $H\le\log D$; $H(z)\le\log|S|$; $H\ge0$), and
+$\varphi\le0$ wherever $(E^\lambda_S)$ holds. Lemma \ref{l:dini} gives $L\le L(1)=0$, so $L\equiv0$.
+(ii)$\Rightarrow$(iii). By Lemma \ref{l:danskin}, $\log W^\lambda_S$ has right derivative $-H^*_{S,\min}$.
+$\log D^\lambda_S=\log\pi+\log B_p+\log\Gamma^{\lambda,(S)}$; $\log\pi$ has right derivative $-H^{(1)}_{\min}$, and
+$\log\Gamma^{\lambda,(S)}_\sigma=\max_{A\in\Delta_S,m_\lambda(A)\ge\eta}[\log m_\lambda(A)-\sigma\log\sum A_l^{1/\sigma}]$ is a Gibbs envelope
+with right derivative $-\min_{M}H(z(y))$. Equal functions have equal right derivatives.
+(iii)$\Rightarrow$(iv)$\Rightarrow$(i) are immediate.
+\end{proof}
+\begin{corollary}\label{c:A}
+(a) $(E_F)$ a.e.\ $\iff\gamma^*=\pi B_p\Gamma_s$ for all $b\in[2,\nu]$ (Conjecture 20$'$), because $N_F$ is everything.
+(b) If $W_{S^*}(s)=D_{S^*}(s)$ for the feature set $S^*$ of a global maximiser $\theta^*$ (in particular under $(E_S)$ a.e.\
+for all $S$), then $\Gamma^{(S^*)}_s=\Gamma_s$: $S^*$ contains the support of a programme maximiser. This holds at every
+$s\in[1,\nu/2]$, \emph{including $b=2$}. Proof: $\gamma^*=\gamma(\theta^*)\le W_{S^*}=\pi B_p\Gamma^{(S^*)}_s\le\pi B_p\Gamma_s\le\gamma^*$
+(price--programme theorem).
+(c) At $b=2$ only the value transfers by continuity: (iv) is asserted on $[1,\nu/2)$, and $(E)$ at $\sigma=\nu/2$ itself may fail
+(Theorem \ref{t:D}).
+\end{corollary}
+
+\section{Part 2: first-order rigidity and the upper half}
+\textbf{Tax picture.} For $\mu\in\Lambda$ let $\|\omega\|_\mu^2=\sum_t\|u_t\|^2+\|P_0w\|^2+\sum_l\mu_l\|P_lw\|^2$ and
+$\tau_\mu\theta$ the network with outputs $(P_0+\sum_l\sqrt{\mu_l}P_l)w$. Then $\tau_\mu$ is a bijection preserving every $N_S$,
+$\|\tau_\mu\omega\|=\|\omega\|_\mu$ and $h(\theta)=h_\lambda(\tau_\mu\theta)$ with $\lambda=\mu^{-1/2}$. So
+$W^{\mu^{-1/2}}_S(\sigma)=\max_{K_D\cap N_S}f(\theta;\sigma,\mu)$, $f=\log h(\theta)-\sigma\log\sum_i\|\omega_i\|_\mu^{\nu/\sigma}$,
+where only the cost moves. At $\mu=\mathbf 1$: $\partial_\sigma f=-H$, $\partial_{\mu_l}f=-\frac\nu2E_l$ (differentiate
+$\|\omega_i\|_\mu^b$: $\frac b2\|\omega_i\|^{b-2}\|P_lw_i\|^2$, times $-\sigma/P$).
+\emph{Decoupled family.} $\mathcal D=\{((\theta^{(l)})_{l\in S},A)\}$, $\theta^{(l)}$ single-feature of width $\le D$,
+$\sum\|\omega\|^2=1$, relabelled to $l$, $A\in\Delta_S$, and
+$\Psi=\log N-\sigma\log\sum_{l,i}(A_l\|\omega^{(l)}_i\|_\mu^\nu)^{1/\sigma}$, $N=\min_\delta\sum_lA_lc(\theta^{(l)})\kappa_l(\delta)$.
+Then $\max_{\mathcal D}\Psi=\log D^{\mu^{-1/2}}_S(\sigma)$: $\le$ because $c(\theta^{(l)})=\mu_l^{-1/2}c(\tau_{\mu_l}\theta^{(l)})\le
+\mu_l^{-1/2}\pi B_pB_l^\sigma$ with $B_l=\sum_i\|\omega_i^{(l)}\|_\mu^{\nu/\sigma}$ and then the homogeneous programme with amplitudes
+$A_lB_l^\sigma$; $\ge$ by optimal choices. At $\mu=\mathbf1$ the maximisers are: $\theta^{(l)}$ optimal single features for
+$A_l>0$ (any copy below price lowers every $\delta$-term since $\kappa_l(\delta)>0$), $A_lB_l^\sigma\propto y\in M^{(S)}$;
+they are balanced and DC-free, so their gradient is
+$\big(-H(z(y))-\sum_lz_lh_l,\ -z(y)/2\big)$ with $h_l\in\mathcal H_1:=\{H(\theta_1,\sigma):\theta_1\text{ optimal}\}\subseteq[H^{(1)}_{\min},H^{(1)}_{\max}]$.
+
+\begin{theorem}[first-order rigidity]\label{t:B}
+Let $s_0\in(1,\nu/2]$ and suppose $W^\lambda_S(\sigma)=D^\lambda_S(\sigma)$ for all $\sigma\in(s_0-\varepsilon,s_0]$ and
+$|\lambda-\mathbf1|<\varepsilon$. Then every maximiser $\theta^*$ of $\gamma(\cdot;s_0)$ on $N_S$ admits a finitely supported
+probability $(c_k)$ on $M^{(S)}(s_0)$ and $\bar h\in[H^{(1)}_{\min}(s_0),H^{(1)}_{\max}(s_0)]$ with
+\[\nu E(\theta^*,s_0)=\sum_kc_k\,z(y_k),\qquad H(\theta^*,s_0)\le\sum_kc_kH(z(y_k))+\bar h ,\]
+with equality in the second relation if $s_0<\nu/2$ and the hypothesis also holds on $[s_0,s_0+\varepsilon)$.
+\end{theorem}
+\begin{proof}
+Let $v_W=\log W$, $v_D=\log D$ as functions of $\xi=(\sigma,\mu)$ near $\xi_0=(s_0,\mathbf1)$; $v_W=v_D$ on $\{\sigma\le s_0\}$.
+For every $\eta$ in $\Pi=\{\eta_\sigma\le0\}$, $\xi_0+t\eta$ stays in that set, so $v_W'(\xi_0;\eta)=v_D'(\xi_0;\eta)$. By
+Lemma \ref{l:danskin} the support functions of the compact sets $G_W$ (gradients at maximisers, any width) and $G_D$ (above)
+agree on $\Pi$. With $C=\Pi^\circ=\{(t,0):t\ge0\}$, $\sigma_{K+C}=\sigma_K$ on $\Pi$ and $+\infty$ off $\Pi$, so
+$\mathrm{conv}\,G_W+C=\mathrm{conv}\,G_D+C$. Write $g(\theta^*)=(-H(\theta^*),-\frac\nu2E(\theta^*))$ as a convex combination
+of points of $G_D$ plus $(t,0)$, $t\ge0$; the $E$-coordinates give the first identity, the $H$-coordinate the inequality
+with $\bar h=\sum_kc_k\sum_lz_{k,l}h_{k,l}$. Two-sided: $C=\{0\}$.
+\end{proof}
+
+\begin{corollary}[feature sets are unions of optimal supports]\label{c:union}
+Let $s\in[1,\nu/2]$ and suppose only $W^\lambda_S(s)=D^\lambda_S(s)$ for all $S$ and all $\lambda$ near $\mathbf1$ (same $s$).
+Then every global maximiser $\theta^*$ at $s$, with feature set $S^*$, satisfies
+$\nu E(\theta^*)\in\mathrm{conv}\{z(y):y\in M(s),\ \mathrm{spt}\,y\subseteq S^*\}$ and
+\[S^*=\bigcup\{\mathrm{spt}\,y:\ y\in M(s),\ \mathrm{spt}\,y\subseteq S^*\}.\]
+In particular (C) holds at $\theta^*$ whenever $S^*$ contains only one optimal support; (C) can fail only through a maximiser whose
+feature set is a union of two or more distinct optimal supports.
+\end{corollary}
+\begin{proof}
+The $\mu$-part of the proof of Theorem \ref{t:B} needs only $\mu$-directions at fixed $s$; apply it in $N_{S^*}$, where $\theta^*$ is a
+maximiser and (Corollary \ref{c:A}(b)) the maximisers of $\Gamma^{(S^*)}_s$ are the programme maximisers supported in $S^*$. Then
+$S^*\subseteq\mathrm{spt}\,\nu E(\theta^*)\subseteq\bigcup_k\mathrm{spt}\,y_k\subseteq S^*$ (a feature $j$ needs some $\hat w_i(j)\ne0$).
+\end{proof}
+
+\begin{proposition}[the dilation obstruction]\label{p:orbit}
+The multiplicative group $\mathbb Z_p^\times/\{\pm1\}$ acts regularly on $F$ and fixes $\Gamma_s$. If some programme maximiser
+$y$ has $\mathrm{spt}\,y\ne F$, then its orbit gives $\ge2$ maximisers with distinct supports, all with the same $H(z)$, and the
+orbit average $\bar z$ has full support $F$. The point $(H(z)+H^{(1)}_{\min},\bar z)$ satisfies every conclusion of Theorems
+\ref{t:A}, \ref{t:B} and of all first-order (envelope) identities. Hence value identities, for all $S$, $\lambda$ and $\sigma$, and
+their one-sided derivatives, cannot exclude a maximiser using all $|F|$ frequencies whenever the upper half of (C) has content.
+\end{proposition}
+\begin{proof}
+$j\mapsto\pm kj$ permutes $F$ transitively; the union of the supports over the orbit is invariant, hence $F$; dilation permutes
+coordinates of $z$. The point lies in $\mathrm{conv}\,G_D$ (take $h_l\equiv H^{(1)}_{\min}$ and equal weights on the orbit).
+\end{proof}
+
+\begin{theorem}[generic feature weights]\label{t:G}
+Fix $s\in[1,\nu/2]$ and an open $\Lambda_0\subseteq\Lambda$ with $W^\lambda_S(s)=D^\lambda_S(s)$ for all $\lambda\in\Lambda_0$ and all $S$.
+(a) For $\lambda\in\Lambda_0$ every maximiser $\theta^*$ of the $\lambda$-problem has $\nu E(\theta^*)\in\mathrm{conv}\{z(y):y\in M^\lambda(s)\}$.
+(b) $M^\lambda(s)$ is a singleton for Lebesgue-a.e.\ $\lambda$.
+(c) Hence for a.e.\ $\lambda\in\Lambda_0$ every global maximiser of the $\lambda$-weighted margin has $\nu E=z(y^\lambda)$ and
+feature set exactly $\mathrm{spt}\,y^\lambda$: (C) holds for generic feature weights, with no further hypothesis.
+\end{theorem}
+\begin{proof}
+(a) The $\mu$-part of the proof of Theorem \ref{t:B}, at fixed $s$, in the tax variables around $\mu_0=\lambda^{-2}$: all
+$\mu$-directions are available ($\Lambda_0$ open), so the $\mu$-components of $\mathrm{conv}\,G_W$ and $\mathrm{conv}\,G_D$ coincide.
+Under $\tau_{\mu_0}$, $E^{\mu_0}_l(\theta)=E_l(\tau_{\mu_0}\theta)/\mu_{0,l}$ on both sides (a linear bijection), and the
+decoupled maximisers have $E_l=z_l(y)/\nu$, $y\in M^\lambda(s)$.
+(b) With $t=\log\lambda$ and $B_l=\lambda_lA_l$: $\log\Gamma^\lambda_s=\max_{B}[\log m(B)-s\log\sum_lB_l^{1/s}e^{-t_l/s}]$.
+Each bracket has $t$-Hessian $-\frac1s(\mathrm{diag}\,q-qq^T)\succeq-\frac1sI$, $q_l=z_l$; so $v(t)+\frac1{2s}|t|^2$ is a max of convex
+functions, hence convex and differentiable a.e. The $t$-gradient of the bracket is $q=z(y)$ (budget shares of the
+maximiser $y=A/\|A\|_{1/s}$). At a point of differentiability, Lemma \ref{l:danskin} makes $\eta\mapsto\max_{y}\langle z(y),\eta\rangle$
+linear, so all maximisers have the same $z$, and $z$ determines $y$ ($y_l=z_l^s$).
+(c) By (a),(b) $\nu E(\theta^*)=z(y^\lambda)$, so $S^*\subseteq\mathrm{spt}\,y^\lambda$ (a feature $j$ needs $\hat w_i(j)\ne0$, hence $E_j>0$);
+Corollary \ref{c:A}(b) for the $\lambda$-problem gives a maximiser supported in $S^*$, which must be $y^\lambda$.
+\end{proof}
+
+\begin{corollary}[$\lambda$-stability criterion]\label{c:stab}
+Under the hypothesis of Corollary \ref{c:union} on an open $\Lambda_0\ni\mathbf1$ at $s$: a global maximiser $\bar\theta$ that is a
+limit of maximisers $\theta_k$ of $\lambda_k$-problems, $\lambda_k\to\mathbf1$, with $M^{\lambda_k}(s)$ singletons, satisfies (C) with
+$\nu E(\bar\theta)=z(\bar y)$. A maximiser with $\nu E$ a non-trivial combination (a straddler) is never such a limit.
+\end{corollary}
+\begin{proof}
+Theorem \ref{t:G}(a): $\nu E(\theta_k)=z(y^{\lambda_k})$; pass to limits ($E$ is continuous on $K_D$, the programme argmax has closed
+graph), $\nu E(\bar\theta)=z(\bar y)$, $\bar y\in M(s)$; Corollary \ref{c:union} in $N_{\bar S}$ gives $\bar S=\mathrm{spt}\,\bar y$.
+\end{proof}
+
+\begin{lemma}[removal inequality]\label{l:removal}
+For any network and $b\ge2$, deleting the frequency-$j$ output of every neuron gives $\theta^{-j}$ with
+$P(\theta^{-j})\le(1-E_j)P(\theta)$. If $\theta^*$ is a global maximiser, $h(\theta^{-j})\le h(\theta^*)(1-E_j(\theta^*))^s$.
+\end{lemma}
+\begin{proof}
+$P(\theta^{-j})/P=\sum_iw_i(1-\varepsilon_{ij})^{b/2}\le\sum_iw_i(1-\varepsilon_{ij})$, $\varepsilon_{ij}=\|P_jw_i\|^2/\|\omega_i\|^2$; then
+$h(\theta^{-j})\le\gamma^*P(\theta^{-j})^s$. As $E_j\to0$ this is the subsidy derivative of Theorem \ref{t:B}; it is consistent with
+every straddling configuration, since a straddler uses each $j$ in its union with $E_j>0$.
+\end{proof}
+
+\begin{theorem}[upper half from (FE)]\label{t:C}
+Let $s_0\in(1,\nu/2]$, $\theta^*$ a global maximiser with feature set $S^*$, and assume the hypothesis of Theorem \ref{t:B} for
+$S=S^*$ and $(FE)$ for $\theta^*$. Then $\mathrm{JS}:=H(\sum c_kz_k)-\sum c_kH(z_k)\le\bar h-H^{(1)}_{\min}\le\Delta^{(1)}(s_0)$. Consequently:
+(a) if $\Delta^{(1)}(s_0)=0$ (all optimal single features share one entropy; true outside the countable kink set of $\log\pi$),
+then $\nu E(\theta^*)=z(y)$ for one programme maximiser $y$ and $S^*=\mathrm{spt}\,y$: (C) holds at $\theta^*$, with output-energy
+shares equal to the programme's budget shares;
+(b) if $s_0<\nu/2$ and $H(\theta^*)=H^*_{\min}(s_0)$, the same holds without $\Delta^{(1)}=0$.
+\end{theorem}
+\begin{proof}
+$\theta^*\in N_{S^*}$ is a maximiser there. Theorem \ref{t:B} in $N_{S^*}$ gives $\nu E=\sum c_kz_k$ with $\mathrm{spt}\,z_k\subseteq S^*$,
+$y_k$ maximisers of $\Gamma^{(S^*)}$, which are programme maximisers by Corollary \ref{c:A}(b), and $H(\theta^*)\le\sum c_kH(z_k)+\bar h$.
+$(FE)$: $H(\theta^*)\ge H(\sum c_kz_k)+H^{(1)}_{\min}$. Subtract. $\mathrm{JS}=0$ forces equal $z_k$ (strict concavity of entropy), so
+$\nu E=z(y)$, and $S^*\subseteq\mathrm{spt}\,\nu E=\mathrm{spt}\,y\subseteq S^*$. (b): $H(\theta^*)$ minimal over $\mathrm{conv}\,G_W=\mathrm{conv}\,G_D$
+forces the representation onto the face $\{h_l=H^{(1)}_{\min}\}$, so $\bar h=H^{(1)}_{\min}$.
+\end{proof}
+
+\begin{remark}[(FE) is exactly the missing non-straddling]
+If $s_0<\nu/2$ and $M(s_0)$ is a singleton, (FE) follows from the two-sided Theorem \ref{t:B}
+($H(\theta^*)=H(z)+\bar h\ge H(z)+H^{(1)}_{\min}$); by Proposition \ref{p:orbit} this happens only when $\mathrm{spt}\,y=F$, i.e.\ when the
+upper half is vacuous. By Corollary \ref{c:union}, (FE) is used only to exclude feature sets that are unions of $\ge2$ optimal supports. For class-$\mathcal C$ maximisers, chain rule: $H(\theta)=H(\nu E)+\sum_l\nu E_l\,H(\theta^{[l]})$
+($\theta^{[l]}$: frequency-$l$ neurons), so (FE) reads $\sum_l\nu E_lH(\theta^{[l]})\ge H^{(1)}_{\min}$: the feature sub-networks of a
+maximiser are on average at least as spread as the most concentrated optimal single feature (a coupled entropic width bound).
+Shared neurons subtract $H(l\mid i)$. At $p=3$, $\nu E=1$ and (FE) is vacuous.
+\end{remark}
+
+\section{Part 3: the endpoint $b=2$}
+\begin{theorem}\label{t:D}
+Assume $(E^\lambda_S)$ a.e.\ for all $S$ and $\lambda$ near $\mathbf 1$. At $s=\nu/2$:
+(a) $W^\lambda_S(\nu/2)=D^\lambda_S(\nu/2)$ (continuity), so $\gamma^*=\pi B_p\Gamma_{\nu/2}$ and the lower half of (C) hold at $b=2$.
+(b) Theorem \ref{t:B} holds at $s_0=\nu/2$ in its one-sided form, and Theorem \ref{t:C}(a) gives (C) for every maximiser satisfying
+(FE) when $\Delta^{(1)}(\nu/2)=0$.
+(c) At $b=2$ a DC-free network and its split have the same features, $P(\theta_{\rm split})=P(\theta)$,
+$E(\theta)=E(\theta_{\rm split})$ and $H(\theta)\le H(\theta_{\rm split})$ (strict if some neuron has two live pieces).
+So if a maximiser $\theta_g$ is a free gluing of a maximiser $\theta_{\rm split}$ (R17), then $H(\theta_g)<H(\theta_{\rm split})$:
+(E) at $\sigma=\nu/2$ and (FE) for $\theta_g$ can fail. (C) for $\theta_g$ nevertheless follows from (FE) for the class-$\mathcal C$
+maximiser $\theta_{\rm split}$.
+(d) Every maximiser at $b=2$ that is a limit of maximisers $\theta_k$ at $s_k\uparrow\nu/2$ with $\nu E(\theta_k)=z(y_k)$
+satisfies (C).
+\end{theorem}
+\begin{proof}
+(a) Theorem \ref{t:A}(ii) holds on the closed interval; Corollary \ref{c:A}(b). (b) as stated. (c) SPLIT R1(a),(c); with no DC,
+$\|\omega_i\|^2=\sum_k\|\omega_i^{(k)}\|^2$, so piece shares refine neuron shares (chain rule) and
+$E_l=\sum_i\|P_lw_i\|^2/P$ for both networks. (d) $\theta_k\to\bar\theta$, $y_k\to\bar y\in M(\nu/2)$ (closed graph), so
+$\nu E(\bar\theta)=z(\bar y)$ and $\bar S\subseteq\mathrm{spt}\,\bar y$; Theorem \ref{t:B} in $N_{\bar S}$ gives
+$\mathrm{spt}\,\nu E(\bar\theta)\subseteq\bar S$, so $\bar S=\mathrm{spt}\,\bar y$.
+\end{proof}
+
+\section{The target theorem}
+\begin{theorem}[T]
+Let $p$ be an odd prime and $n\ge2$. Assume
+\begin{itemize}
+\item[(H1)] for every $S\subseteq F$ and every feature weight $\lambda$ in a neighbourhood of $\mathbf1$: $(E^\lambda_S)$ at a.e.\ $\sigma\in[1,\nu/2]$;
+\item[(H2)$_b$] (FE) at $s=\nu/b$ for every global maximiser;
+\item[(H3)$_b$] all optimal single features at $s=\nu/b$ have one cost-share entropy ($\Delta^{(1)}(s)=0$; automatic outside the
+countable kink set of $\log\pi$, and everywhere when $\pi$ is differentiable).
+\end{itemize}
+Then for every $b\in[2,\nu]$ (using (H2)$_b$, (H3)$_b$ only for the last clause at that $b$; (H1) alone also gives: every
+global maximiser's feature set is a union of optimal supports): $\gamma^*_b=\pi_{n,b}(p)B_p\Gamma_s(p)$; every global maximiser's features contain an optimal
+support; for a.e.\ feature weight the weighted count is exact (H1 alone); and every global maximiser $\theta^*$ uses exactly the features
+$\mathrm{spt}\,y$ of a programme maximiser $y$, with $\nu E(\theta^*)=z(y)$.
+At $p=3$ (H1), (H2) are vacuous and the conclusions trivial.
+\end{theorem}
+\end{document}

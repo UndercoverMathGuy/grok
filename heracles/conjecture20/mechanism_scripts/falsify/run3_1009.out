@@ -1,0 +1,15 @@
+full-legendre  |S|= 504 c*(grad)=1.8290 (supp 504, cheap 504)  pair/sharp=0.2827 (0.3145 at c=0.289)  cap/sharp=0.2978 (0.3427 at c=0.289)  [17s]
+full-rand      |S|= 504 c*(grad)=1.8376 (supp 504, cheap 504)  pair/sharp=0.2801 (0.3118 at c=0.289)  cap/sharp=0.2943 (0.3391 at c=0.289)  [148s]
+rand4L         |S|=  28 c*(grad)=0.8098 (supp 28, cheap 28)  pair/sharp=0.3514 (0.4414 at c=0.289)  cap/sharp=0.1805 (0.3077 at c=0.289)  [194s]
+rand8L         |S|=  55 c*(grad)=0.7727 (supp 55, cheap 55)  pair/sharp=0.4535 (0.5275 at c=0.289)  cap/sharp=0.3927 (0.4976 at c=0.289)  [252s]
+rand16L        |S|= 111 c*(grad)=0.9196 (supp 111, cheap 111)  pair/sharp=0.4308 (0.4887 at c=0.289)  cap/sharp=0.4218 (0.5034 at c=0.289)  [300s]
+ystar+2L       |S|=  25 c*(grad)=0.8092 (supp 23, cheap 23)  pair/sharp=0.3117 (0.4061 at c=0.289)  cap/sharp=0.1207 (0.2381 at c=0.289)  [362s]
+ystar+6L       |S|=  53 c*(grad)=0.7849 (supp 28, cheap 28)  pair/sharp=0.4631 (0.5521 at c=0.289)  cap/sharp=0.3896 (0.5089 at c=0.289)  [451s]
+AP8L-chirp     |S|=  55 c*(grad)=3.4783 (supp 55, cheap 55)  pair/sharp=0.1059 (0.1266 at c=0.289)  cap/sharp=0.0832 (0.1124 at c=0.289)  [537s]
+polish rand8L: 0.7727 -> 0.7585  [633s]
+polish ystar+6L: 0.7849 -> 0.7761  [640s]
+polish ystar+2L: 0.8092 -> 0.8092  [655s]
+== p=1009 Gamma=0.180979
+  cstar        0.7585 from rand8L: {'ratio': np.float64(0.334), 'cov': np.float64(0.6766), 'bonus': np.float64(0.215), 'pen': np.float64(0.5576), 'covmin': np.float64(0.6087), 'delta': 57, 'supp': 55, 'cheap': 55}  ratio@0.289=0.4572
+  forced_cap   0.4301 from rand16L: {'ratio': np.float64(0.4301), 'cov': np.float64(0.476), 'bonus': np.float64(0.1513), 'pen': np.float64(0.1971), 'covmin': np.float64(0.4659), 'delta': 368, 'supp': 111, 'cheap': 111}  ratio@0.289=0.5150
+  forced_pair  0.4636 from ystar+6L: {'ratio': np.float64(0.4636), 'cov': np.float64(0.7057), 'bonus': np.float64(0.1586), 'pen': np.float64(0.4007), 'covmin': np.float64(0.6847), 'delta': 222, 'supp': 41, 'cheap': 41}  ratio@0.289=0.5518

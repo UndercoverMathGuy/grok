@@ -1,0 +1,13 @@
+p=7 n=2 b=2.0 l=3 m=3: directional price / IF = 1.00000   |beta_1|/a_1 = 1.0000
+p=7 n=2 b=2.0 l=3 m=4: directional price / IF = 1.00000   |beta_1|/a_1 = 1.0000
+p=7 n=2 b=2.0 l=3 m=6: directional price / IF = 1.00000   |beta_1|/a_1 = 1.0000
+p=7 n=2 b=2.0 l=2 m=3: directional price / IF = 1.00000   |beta_1|/a_1 = 1.0000
+p=7 n=2 b=2.0 l=2 m=4: directional price / IF = 1.00000   |beta_1|/a_1 = 1.0000
+p=7 n=2 b=2.0 l=2 m=6: directional price / IF = 1.00000   |beta_1|/a_1 = 1.0000
+p=7 n=2 b=2.0 l=1 m=3: directional price / IF = 1.00000   |beta_1|/a_1 = 1.0000
+p=7 n=2 b=2.0 l=1 m=4: directional price / IF = 1.00000   |beta_1|/a_1 = 1.0000
+p=7 n=2 b=2.0 l=1 m=6: directional price / IF = 1.00000   |beta_1|/a_1 = 1.0000
+
+real	0m8.870s
+user	0m8.728s
+sys	0m0.072s

@@ -1,0 +1,6 @@
+n=2: s=1.25: single atom 1.152, n-atom single-T 1.0265 | s=1.50: single atom 1.238, n-atom single-T 1.0536 | s=1.50: single atom 1.238, n-atom single-T 1.0536
+n=3: s=1.25: single atom 1.261, n-atom single-T 1.0026 | s=1.50: single atom 1.347, n-atom single-T 1.0130 | s=2.00: single atom 1.500, n-atom single-T 1.0396
+n=4: s=1.25: single atom 1.399, n-atom single-T 0.9897 | s=1.50: single atom 1.476, n-atom single-T 0.9914 | s=2.50: single atom 1.759, n-atom single-T 1.0251
+n=5: s=1.25: single atom 1.579, n-atom single-T 0.9817 | s=1.50: single atom 1.634, n-atom single-T 0.9780 | s=3.00: single atom 2.031, n-atom single-T 1.0147
+n=7: s=1.25: single atom 2.078, n-atom single-T 0.9722 | s=1.50: single atom 2.054, n-atom single-T 0.9623 | s=4.00: single atom 2.633, n-atom single-T 1.0026
+n=10: s=1.25: single atom 3.288, n-atom single-T 0.9648 | s=1.50: single atom 2.995, n-atom single-T 0.9501 | s=5.50: single atom 3.681, n-atom single-T 0.9951

@@ -1,0 +1,5 @@
+trial 0: k2=3 x2=0.957 P2/A2=1.052  full: nopaid 0.0000 pat 0.5901   phase-blind: nopaid 0.8854 pat 1.3705
+trial 1: k2=3 x2=0.886 P2/A2=1.050  full: nopaid 0.0000 pat 0.6292   phase-blind: nopaid 0.9000 pat 1.3290
+trial 2: k2=3 x2=0.832 P2/A2=1.007  full: nopaid 0.0000 pat 0.7451   phase-blind: nopaid 0.9170 pat 1.3078
+trial 3: k2=2 x2=1.062 P2/A2=0.877  full: nopaid 0.0000 pat 0.6816   phase-blind: nopaid 0.8302 pat 1.3796
+trial 4: k2=2 x2=0.722 P2/A2=0.814  full: nopaid 0.0000 pat 0.7553   phase-blind: nopaid 0.9586 pat 1.2761

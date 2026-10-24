@@ -1,0 +1,7 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+# b2 p=5 n=2 b=2.5: D = nu^(1-s) B_p kappa_min
+{"profile": "w2", "gain": 1.0844717711976986, "own_only": -0.6702404144399783, "with_foreign": 0.24251048865115113, "lift": 0.9127509030911294, "kinds": ["dc", "dc", "chan2T[0, 1]", "rand", "dc", "chan2T[0]", "chan2T[0, 1]"], "foreign_out_energy": 0.3190589996114774, "rel_beta": 3.291057615521868e-17}
+{"profile": "c0.3", "gain": 1.0190330402510344, "own_only": -0.13516195130914005, "with_foreign": 0.4721077253637777, "lift": 0.6072696766729178, "kinds": ["chan2T[1]", "chan2T[0]", "chan2T[0]", "rand"], "foreign_out_energy": 0.27360418534581554, "rel_beta": 1.1241796217986476e-17}
+{"profile": "c0.6", "gain": 1.004268905153794, "own_only": 0.37976214462014707, "with_foreign": 0.6580736577652804, "lift": 0.2783115131451333, "kinds": ["rand", "rand", "part[0]"], "foreign_out_energy": 0.1638218899563233, "rel_beta": 1.3710558213616605e-17}
+{"profile": "c0.85", "gain": 1.0004721914028762, "own_only": 0.7865532230153829, "with_foreign": 0.8681499042626002, "lift": 0.0815966812472173, "kinds": ["chan2T[1]", "dc", "part[0]", "chan2T[0, 1]", "dc"], "foreign_out_energy": 0.09504200068096316, "rel_beta": 8.206122192122997e-18}
+# done 108s

@@ -1,0 +1,7 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+5 2 common field factor 1.0000000000000002
+7 2 common field factor 0.9999999999999996
+5 3 common field factor 1.0000000000000004
+11 2 common field factor 1.0000000000000002
+7 3 common field factor 0.9999999999999996
+max rel errors: {'field': np.float64(5.39836293845075e-15), 'h': np.float64(2.2459496390345398e-15), 'gam': np.float64(2.524656959630726e-15)}

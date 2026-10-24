@@ -1,0 +1,5 @@
+n=2 s=1.25 aligned   R/|A|~1e-01 : max gain/R = 6.8363e-03
+n=2 s=1.25 aligned   R/|A|~1e-02 : max gain/R = 6.6827e-04
+n=2 s=1.25 aligned   R/|A|~1e-03 : max gain/R = 6.6686e-05
+n=2 s=1.25 misaligned R/|A|~1e-01 : max gain/R = 7.0104e-03
+(partial: run stopped after 4 settings; see gain_rays.out for the ray test)

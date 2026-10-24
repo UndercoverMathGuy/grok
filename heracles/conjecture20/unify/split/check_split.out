@@ -1,0 +1,22 @@
+equality (a) b=2 no DC:   cost - cost_split = 0.0
+strict   (d) b=3 no DC:   cost - cost_split = 45.71984064690531
+equality (b) one freq b=3: cost - cost_split = 3.552713678800501e-15
+strict   (c) DC, b=2:      cost - cost_split = 15.405413995613834
+
+cost_split_minus_cost (must be <= 0)                                        0.000e+00
+|slack_b2 - DC energy|                                                      3.464e-14
+|beta - beta_split|                                                         4.506e-16
+|betaT - betaT_split|                                                       6.692e-16
+|atoms - atoms_split|                                                       3.974e-16
+max |R_hat| on clean+sign-flipped modes                                     4.349e-13
+max |E_x g_R(x,d)|                                                          8.313e-16
+|cost(sigma theta)-cost(theta)|                                             1.705e-13
+|own data(sigma theta)-own data|                                            9.105e-16
+|Sigma-avg table - (split + DC block)|                                      2.762e-15
+E_sigma h(sigma theta) - h(split) (must be <= 0)                            0.000e+00
+min over cases of h(split) - E_sigma h (>=0)                                0.000e+00
+|Sigma'(with DC flips)-avg table - split table| (up to output-DC blocks)    1.288e-14
+|per-neuron Sigma-avg - split(neuron)+DC|                                   1.821e-15
+|phi_l(chi) formula - from table|                                           3.342e-16
+|phi_l(0) - conj(beta_l)|                                                   1.119e-16
+|phi_l(2l 1_T) - conj(beta_{l,T})|                                          1.688e-16

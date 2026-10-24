@@ -1,0 +1,11 @@
+(7,2) two-feature IF networks (features {1,2}):
+  s=1.000 (b=3.0000): best IF ratio 0.78907 at A2/A1=1.80194; |B,C,D|max=4.8e-15, |beta_3|=1.5e-46; simple bound at that point 0.78907;  ok=True
+  s=1.100 (b=2.7273): best IF ratio 0.82484 at A2/A1=1.80194; |B,C,D|max=3.8e-15, |beta_3|=1.2e-46; simple bound at that point 0.82484;  ok=True
+  s=1.175 (b=2.5532): best IF ratio 0.85238 at A2/A1=1.80194; |B,C,D|max=4.4e-15, |beta_3|=1.5e-46; simple bound at that point 0.85238;  ok=True
+  s=1.182 (b=2.5381): best IF ratio 0.85499 at A2/A1=1.80194; |B,C,D|max=4.2e-15, |beta_3|=1.4e-46; simple bound at that point 0.85499;  ok=True
+  s=1.200 (b=2.5000): best IF ratio 0.86171 at A2/A1=1.80194; |B,C,D|max=4.9e-15, |beta_3|=1.4e-46; simple bound at that point 0.86171;  ok=True
+  s=1.500 (b=2.0000): best IF ratio 0.98006 at A2/A1=1.80194; |B,C,D|max=3.8e-15, |beta_3|=1.7e-46; simple bound at that point 0.98006;  ok=True
+(5,2) single-feature IF block:
+  s=1.0: gamma/gamma_IF = 0.55279   kappa_a/Gamma_s = 0.55279
+  s=1.25: gamma/gamma_IF = 0.65738   kappa_a/Gamma_s = 0.65738
+  s=1.5: gamma/gamma_IF = 0.78176   kappa_a/Gamma_s = 0.78176

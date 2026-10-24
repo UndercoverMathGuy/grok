@@ -1,0 +1,16 @@
+(A) cost identity  s log sum a^{1/s} = log sum a + (s-1) H_{1/s}(a/sum a)   [50-digit]
+   max |error| = 3.67e-40
+(B,C) free energy F = log g(s) + (s-1)H(w_s) = log g(1) + KL(w_s||w_1);  Gibbs: log g(s) = min_pi[...]
+   max |F - (log g1 + KL)| = 1.7763568394002505e-15 ;  min over random pi of [Gibbs value - log g(s)] = 0.010916294502647084 (>=0);  |at pi=w_s| = 1.7763568394002505e-15
+(D) dust: add M cancelling pairs (T,-T) of nu-mass eps each; table unchanged
+   M=             0  total dust nu-mass=0.0e+00  log gamma=-5.857819  H=2.1972  F=-4.7592
+   M=            10  total dust nu-mass=5.9e-01  log gamma=-5.931004  H=2.4267  F=-4.7177
+   M=          1000  total dust nu-mass=5.9e-02  log gamma=-5.931004  H=2.6460  F=-4.6080
+   M=       1000000  total dust nu-mass=1.9e-03  log gamma=-5.931004  H=2.9749  F=-4.4435
+   M=    1000000000  total dust nu-mass=5.9e-05  log gamma=-5.931004  H=3.3039  F=-4.2791
+   M= 1000000000000  total dust nu-mass=1.9e-06  log gamma=-5.931004  H=3.6328  F=-4.1146
+(E) decoupled IF network = product: p_Theta = yhat (x) uniform_nu, Renyi additive; programme in Renyi form
+   p=7 n=2 s=1.30  H_r(net)-H_r(prod)=-8.9e-16  log gamma - [log(B M(yhat)) - (s-1)H_r]=-1.8e-15  log Gamma_s - [log M - (s-1)H_r(yhat)]=3.6e-16
+   p=11 n=2 s=1.45  H_r(net)-H_r(prod)=0.0e+00  log gamma - [log(B M(yhat)) - (s-1)H_r]=-1.8e-15  log Gamma_s - [log M - (s-1)H_r(yhat)]=0.0e+00
+   p=11 n=3 s=1.80  H_r(net)-H_r(prod)=4.4e-16  log gamma - [log(B M(yhat)) - (s-1)H_r]=-5.3e-15  log Gamma_s - [log M - (s-1)H_r(yhat)]=0.0e+00
+   p=13 n=2 s=1.50  H_r(net)-H_r(prod)=4.4e-16  log gamma - [log(B M(yhat)) - (s-1)H_r]=-3.6e-15  log Gamma_s - [log M - (s-1)H_r(yhat)]=-2.2e-16

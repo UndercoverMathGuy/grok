@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{lemma}{Lemma}\newtheorem{proposition}[lemma]{Proposition}
+\renewcommand{\Re}{\operatorname{Re}}
+\begin{document}
+\section*{Relations in the Riesz argument: what can and cannot be proved}
+Notation as in \texttt{mechanism\_note.tex}, Section 9.  $G$ a finite abelian group, $\chi_1,\dots,\chi_K\in\widehat G$.
+For $\varepsilon\in(0,1]$ and $\lambda\in\widehat G$ put
+$N_\varepsilon(\lambda)=\sum_{\sigma\in\{0,\pm1\}^K:\ \sum\sigma_k\chi_k=\lambda}(\varepsilon/2)^{|\mathrm{spt}\,\sigma|}$,
+$W_0=N_\varepsilon(0)-1$, $W_k=N_\varepsilon(\chi_k)-\varepsilon/2$, and $\Sigma=\{\sum\sigma_k\chi_k\}$.
+
+\begin{lemma}[quantitative Riesz product]\label{qr}
+Let $Y=\sum_ka_k\cos(\chi_k+\phi_k)+Z$ with $a_k\ge0$ and $\widehat Z=0$ on $\Sigma$.  If $W_0<1$ then
+\[\min_GY\ \le\ -\frac{\sum_ka_k(\varepsilon/2-W_k)}{1+W_0}\quad\text{whenever the numerator is }\ge0 .\]
+With unique representations ($W_0=W_k=0$, $\varepsilon=1$) this is the constant $\tfrac12$ of Theorem 25.
+\end{lemma}
+\begin{proof}
+$\nu=\prod_k(1-\varepsilon\cos(\chi_k+\phi_k))\ge0$ expands as $\sum_\sigma c_\sigma\chi^\sigma$ with $|c_\sigma|=(\varepsilon/2)^{|\mathrm{spt}\sigma|}$, so
+$|\mathbb E\nu-1|\le W_0$ and $\mathbb E\nu>0$.  $\mathbb E[\nu\,a_k\cos(\chi_k+\phi_k)]=a_k\Re\big(e^{i\phi_k}\hat\nu(-\chi_k)\big)$; the term
+$\sigma=-e_k$ contributes $-\frac\varepsilon2a_k$ and the others at most $a_kW_k$ (use $\sigma\mapsto-\sigma$).  $\mathbb E[\nu Z]=0$.
+Finally $\min Y\le\mathbb E[\nu Y]/\mathbb E\nu$.
+\end{proof}
+
+\begin{proposition}[coverage does not bound the one-sided constant]\label{cov}
+Let $S=F=\{1,\dots,\frac{p-1}2\}$ (the support of the unique maximiser of $\Gamma_1$, i.e.\ best possible coverage) and
+$\varphi(w)=\sum_{l\in F}\cos\big(2\pi(l^2+lw)/p\big)$.  For every $\delta\ne0$, $D_\delta(w)=\varphi(w)-\varphi(w-\delta)$ satisfies
+\[-\min_wD_\delta(w)\ \le\ 2\sqrt p\,(1+\ln p)\ ,\qquad\text{while}\qquad \sum_{l\in F}\kappa_l(\delta)=\tfrac p2 .\]
+So the multi-direction one-sided constant of $F$ is at most $4(1+\ln p)/\sqrt p\to0$.
+\end{proposition}
+\begin{proof}
+$|\sum_{l=1}^Ne^{2\pi i(l^2+lw)/p}|\le\sqrt p(1+\ln p)$ by completion: write the sum as
+$\frac1p\sum_h\big(\sum_{l\le N}e(-hl/p)\big)G(w+h)$ with $|G(\cdot)|=\sqrt p$ (complete quadratic Gauss sum, $p$ odd) and
+$\frac1p\sum_h|\sum_{l\le N}e(hl/p)|\le1+\ln p$.  Then $|\varphi|\le\sqrt p(1+\ln p)$, and
+$\sum_{l\in F}(1-\cos(2\pi l\delta/p))=F+\frac12=\frac p2$.
+\end{proof}
+So no lemma of the form ``good coverage $\Rightarrow$ bounded one-sided constant'' holds without a bound on $|S|$ relative
+to $p$.  (In the dense regime this is harmless: the bonus constant $1-3^{1-s}$ is $O(s-1)=O(1/p)$ there.)
+
+\begin{proposition}[the one-dimensional relaxation is exact for a realisable family]\label{exact}
+Let $n=2$ and let every feature $l$ be carried by two aligned neurons with $\xi_{2t}=-\xi_{1t}$.  Then
+$\beta_{l,\{1\}}=\beta_{l,\{2\}}=0$, $|\beta_{l,\{1,2\}}|=|\beta_l|=(3/2)^{s-1}a_l$, and $g(x,\delta)$ depends on $x$ only through
+$u=x_1+x_2$: $g=\mathbb E g(\cdot,\delta)+\varphi(2u)-\varphi(2u-\delta)$ with $\varphi(w)=\sum_l|\beta_l|\cos(2\pi lw/p+\theta_l)$ and $\theta_l$ free
+(translations).  Since $|\beta_l|=(3/2)^{s-1}a_l$, at any $\delta^\star\in\arg\min\sum a_l\kappa_l$ the margin is at most
+$(3/2)^{s-1}\psi(a)+\min_uD_{\delta^\star}(u)$.  So the family cannot beat the IF value as long as, for every phase choice,
+some binding $\delta^\star$ has $-\min D_{\delta^\star}\ge(1-(2/3)^{s-1})\sum_l|\beta_l|\kappa_l(\delta^\star)$ ($=0.1835\times$ at $b=2$); and for
+this family the constraint is exactly the one-dimensional problem, with no relaxation.
+\end{proposition}
+\begin{proof}
+$\beta_{l,T}=\sum_i\beta_i\prod_{t\in T}\xi_{it}$ with $\beta_1=\beta_2$; the singletons cancel and $T=\{1,2\}$ doubles.  The field is
+$\overline{\beta_l}+a_{l,12}\rho^{2l(x_1+x_2)}$, and the gap expansion of Lemma 22 gives the formula.  $Q_l=2|\beta_l/2|^r$.
+\end{proof}
+
+\begin{lemma}[$L^2$ bound when the cheap interference sits on one set $T$]\label{l2}
+In class $\mathcal C$, $n=2$: if every cheap feature carries interference only on a common $T$, the IF bound holds whenever
+$\sum_{l\in L'}\kappa_l(\delta^\star)\le12$ (against $\le4$ in Theorem 23).
+\end{lemma}
+\begin{proof}
+Theorem A with $R_l=|\beta_{l,T}|$ gives $|\beta_l|-a_l\le|\beta_{l,T}|/(2\sqrt3)$; Bhatia--Davis on the single profile gives
+$\sum_l|\beta_{l,T}|^2\kappa_l(\delta^\star)\le\bar m^2$; Cauchy--Schwarz as in Theorem 23.
+\end{proof}
+\end{document}

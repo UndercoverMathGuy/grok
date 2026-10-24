@@ -1,0 +1,24 @@
+s=1.05 p=211 (p%4=3) Gamma=0.79617 [rlp; rlp 0.79617 prog2 0.78714 prog3 0.79492] K*=105/105 value_F/Gamma=1.0000  full-F Legendre pair network ratio=0.8800  [(3/2)^(s-1)(1-2/sqrt p)=0.8800]
+s=1.05 p=307 (p%4=3) Gamma=0.78446 [prog3; rlp 0.78016 prog2 0.77987 prog3 0.78446] K*=63/153 value_F/Gamma=0.9945  full-F Legendre pair network ratio=0.8990  [(3/2)^(s-1)(1-2/sqrt p)=0.9040]
+s=1.05 p=401 (p%4=1) Gamma=0.77586 [prog2; rlp 0.76919 prog2 0.77586 prog3 0.77153] K*=122/200 value_F/Gamma=0.9914  full-F Legendre pair network ratio=0.9107  [(3/2)^(s-1)(1-2/sqrt p)=0.9186]
+/home/user/grok/heracles/conjecture20/mechanism_scripts/prog3.py:14: RuntimeWarning: invalid value encountered in power
+  y=res.x; wn=(y+1e-10)**(r-1)
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-grok/512ae18c-6d12-5fa4-88c0-000434907593/scratchpad/ideaC/dense2.py", line 17, in <module>
+    G3, y3, _ = solve3(p, s, starts=int(sys.argv[3]) if len(sys.argv) > 3 else 2, seed=p)
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/grok/heracles/conjecture20/mechanism_scripts/prog3.py", line 38, in solve
+    Qm,ym=restricted(K,r,M,rng,tries=6)
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/user/grok/heracles/conjecture20/mechanism_scripts/prog3.py", line 12, in restricted
+    res=linprog(w,A_ub=-KS,b_ub=-np.ones(K.shape[0]),bounds=(0,None),method='highs')
+  File "/usr/local/lib/python3.13/dist-packages/scipy/optimize/_linprog.py", line 649, in linprog
+    lp, solver_options = _parse_linprog(lp, options, meth)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/scipy/optimize/_linprog_util.py", line 1026, in _parse_linprog
+    lp = _clean_inputs(lp._replace(A_ub=A_ub, A_eq=A_eq))
+  File "/usr/local/lib/python3.13/dist-packages/scipy/optimize/_linprog_util.py", line 306, in _clean_inputs
+    raise ValueError(
+        "Invalid input for linprog: c must not contain values "
+        "inf, nan, or None")
+ValueError: Invalid input for linprog: c must not contain values inf, nan, or None

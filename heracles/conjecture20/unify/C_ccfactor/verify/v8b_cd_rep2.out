@@ -1,0 +1,6 @@
+=== (a) skipped
+=== (b) CD search at (5,2,2), S={1,2}
+  rep 0: max CD ratio found = 0.9999262497
+  rep 1: max CD ratio found = 0.9999289098
+  rep 2: max CD ratio found = 0.9999995961
+  best CD ratio at (5,2,2) S={1,2}: 1.000000

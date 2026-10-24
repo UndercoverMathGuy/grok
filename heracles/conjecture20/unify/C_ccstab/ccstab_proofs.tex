@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}[theorem]{Proposition}\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb{E}}
+\title{CC-STAB: RD as a stability statement for the solved convex problem}
+\date{}
+\begin{document}\maketitle
+Notation as in \texttt{unify/BRIEF.md}, \texttt{C\_cc/IDENTITY.md}. $a_i=\|\omega_i\|^\nu$, $m=a/\sum a$,
+$N:=B_p\Gamma_1\sum_i a_i$, $\Gamma_1=p/(p-1)$, $c_l(\delta)=1-\rho^{-l\delta}$, $\kappa_l=\tfrac12|c_l|^2$.
+The slack field is $\sigma(x,\delta)=g(x,\delta)-h\ge 0$ on $\mathbb Z_p^n\times\mathbb Z_p^*$; $\bar\sigma(\delta)=\E_x\sigma(x,\delta)$,
+$\bar\sigma^{\rm sym}(\delta)=\tfrac12(\bar\sigma(\delta)+\bar\sigma(-\delta))$. $E_l:=\E_x|\Phi_l-\E\Phi_l|^2$.
+All statements hold for every odd prime $p$, every $n\ge2$, every $b\in[2,\nu]$ ($s=\nu/b$), every $S\subseteq F$.
+
+\section{The deficits are moments of the slack field}
+\begin{proposition}[S1]\label{S1} For every product network with any margin $h$:
+$d_{\rm int}N=\min_\delta\bar\sigma^{\rm sym}(\delta)$, $d_{\rm prog}N=\E_\delta\bar\sigma-\min_\delta\bar\sigma^{\rm sym}$; hence
+\[1-\frac{\gamma(\theta;1)}{B_p\Gamma_1}=\E_m\sigma_{\rm neur}+\frac{\E_{x,\delta}\,\sigma(x,\delta)}{N}.\]
+Moreover $\sum_{l\in F}E_l=\frac{2}{p^2}\E_x\big[p\sum_\delta\tau^2-(\sum_\delta\tau)^2\big]$, $\tau=\sigma-\bar\sigma$.
+\end{proposition}
+\begin{proof} $\E_{x,\delta}g=\Gamma_1\sum_l\mathrm{Re}\,\beta_l$ (uniform dual) and $g=h+\sigma$, so $\Gamma_1\sum\mathrm{Re}\beta_l=h+\E\sigma$.
+Pairing $\pm\delta$: $\sum_l\mathrm{Re}\beta_l\kappa_l(\delta)=\tfrac12\E_x(g(\cdot,\delta)+g(\cdot,-\delta))=h+\bar\sigma^{\rm sym}(\delta)$.
+Insert in the definitions of $d_{\rm prog},d_{\rm int}$. Parseval: the slack identity of the Note,
+$\Phi_j(x)=\frac2p(h-\sum_\delta\sigma(x,\delta)\rho^{j\delta})$, gives $f_j(x)=-\frac2p\sum_\delta\tau(x,\delta)\rho^{j\delta}$; for real $\tau$ on
+$\mathbb Z_p^*$, $\sum_{j=1}^{p-1}|\hat\tau(j)|^2=p\sum\tau^2-(\sum\tau)^2$, and $j,-j$ give conjugates.\end{proof}
+
+\begin{corollary}[S2, joint detection, every network]\label{S2}
+$\sum_{l\in F}E_l\le 2(1-\tfrac1p)\,\sigma_{\max}\,N\,(d_{\rm prog}+d_{\rm int})$, $\sigma_{\max}=\max_{x,\delta}\sigma$.
+In class C, $\sigma_{\max}\le 2^{n+2}N/\Gamma_1$, so $d_{\rm prog}+d_{\rm int}\ge \Gamma_1\sum_lE_l/(2^{n+3}N^2)$.
+\end{corollary}
+\begin{proof} $\E_x\tau^2\le\E_x\sigma^2$ and $\sigma^2\le\sigma_{\max}\sigma$; drop $-(\sum\tau)^2$. In class C each neuron's field is a Riesz product
+$\bar\beta_{il}\prod_t(1+\bar\xi_{it}\zeta^{x_t})$, so $|\Phi_l|\le 2^n\sum_{i}|\beta_{il}|$, $|g|\le 2^{n+1}B_p\sum a$, $\sigma\le 2\max|g|$.\end{proof}
+
+\begin{proposition}[S2$'$, uniform-offset variance, every network] With $f_l=\Phi_l-\E\Phi_l$ and $F_\delta=g(\cdot,\delta)-\E_xg(\cdot,\delta)$:
+$\E_{\delta}\E_xF_\delta^2=\frac{\Gamma_1}{2}\big[\sum_lE_l+2\E_x(\mathrm{Re}\sum_lf_l)^2\big]\ge\frac{\Gamma_1}2\sum_lE_l$.
+At a single offset the cross-feature terms do not vanish off class C (compensation).\end{proposition}
+\begin{proof} $F_\delta=\mathrm{Re}\sum_lf_lc_l(\delta)$; $\E_\delta c_l\bar c_{l'}=\Gamma_1(1+[l=l'])$, $\E_\delta c_lc_{l'}=\Gamma_1$ for $l,l'\in F$.\end{proof}
+
+\begin{remark}[far regime, trivial] Since $H_{1/s}\ge0$, every $\theta\in N_S$ with $\gamma(\theta;1)\le D_S(s)$ satisfies RD at $s$.\end{remark}
+
+\section{Local regime}
+\begin{lemma}[mean-zero]\label{mz} If $\E F=0$ on a finite set, $m=-\min F$, then $m\cdot\mathrm{osc}F\ge \E F^2$.\end{lemma}
+\begin{proof} $\E F_+^2\le\max F\cdot\E F_+=\max F\cdot\E F_-\le \max F\cdot m$ and $\E F_-^2\le m^2$.\end{proof}
+
+\begin{lemma}[class-C variance]\label{var} If every neuron has all $\nu$ factors in one frequency plane $j(i)\in F$, then
+$f_l=\Phi_l-\E\Phi_l=\sum_{T\neq\emptyset}\overline{\beta_{l,T}}\,\rho^{2l\langle 1_T,x\rangle}$, $E_l=\sum_{T\ne\emptyset}|\beta_{l,T}|^2$, and for
+$F_\delta=g(\cdot,\delta)-\E_xg(\cdot,\delta)$: $\E_xF_\delta^2=\sum_l\kappa_l(\delta)E_l$.\end{lemma}
+\begin{proof} $u_t(x)\rho^{lx}=\tfrac12(\bar U_t+U_t\rho^{2lx})$ gives the Riesz form; the coefficient of $\rho^{2l\langle1_T,x\rangle}$ is
+$\overline{\beta_{l,T}}$ by $\hat u_t(\pm l)=\tfrac p2U_t^{(\pm)}$. The characters $2l1_T$ ($l\in F$, $T\neq\emptyset$) are nonzero, distinct, and
+$2l1_T\ne-2l'1_{T'}$ (that needs $l+l'\equiv0$ on $T\cap T'$ and $2l\equiv0$ off it). Hence $\E f_l\bar f_{l'}=\delta_{ll'}E_l$, $\E f_lf_{l'}=0$, and
+$\E(\mathrm{Re}\sum f_lc_l)^2=\sum\tfrac12|c_l|^2E_l$.\end{proof}
+
+\begin{theorem}[L, local regime; class C, any phases]\label{L}
+Let $\theta\in N_S$ be class C. Put $A_l=\beta_l$, $L_l=\sum_i|\beta_{il}|$, $Q_l=\sum_i|\beta_{il}|^r$, $a_l=\nu^{1-s}Q_l^s$,
+$V'_l=\frac{2}{\nu L_l^2}\sum_{I}\big(|\beta_{l,I}|+\sqrt{2L_l(L_l-|A_l|)}\big)^2$ (sum over the $n(n+1)/2$ intervals), $a_l^-=L_l\max\{(1+V_l')^{-(s-1)},\nu^{1-s}\}$.
+Let $\delta_0\in\arg\min_\delta\sum_{l\in S}a_l\kappa_l(\delta)$, $O=\max(\mathrm{osc}_xg(\cdot,\delta_0),\mathrm{osc}_xg(\cdot,-\delta_0))$ and
+\[X=\frac{\sum_{l}\kappa_l(\delta_0)E_l/O-\sum_{l\in S}\kappa_l(\delta_0)(|A_l|-a_l^-)}{\sum_{l\in S}\kappa_l(\delta_0)a_l}.\]
+If $X\ge0$ then $\gamma(\theta;s)\le(1-X)\,\gamma_{IF}^{(S)}(s)\le(1-X)D_S(s)$.\end{theorem}
+\begin{proof} Margin: $h\le\tfrac12(\min_xg(\cdot,\delta_0)+\min_xg(\cdot,-\delta_0))=\sum_l\mathrm{Re}\beta_l\kappa_l(\delta_0)-\tfrac12(m_{\delta_0}+m_{-\delta_0})$
+and Lemmas \ref{mz}, \ref{var} give $m_{\pm\delta_0}\ge\sum_l\kappa_lE_l/O$. Payment: E\_width W6(c) gives $a_l\ge L_l(1+V_l)^{-(s-1)}$ with
+$V_l\le V_l'$ (twist error $\le\sqrt{2L(L-|A|)}$), and $Q_l\ge L_l^r$ gives $a_l\ge\nu^{1-s}L_l$; so $a_l\ge a_l^-$. Hence
+$h\le\sum_{S}\kappa_l(\delta_0)a_l(1-X)$. Finally $\sum_S\kappa_l(\delta_0)a_l=\min_\delta\sum_Sa_l\kappa_l\le\Gamma_s^{(S)}(\sum a_l^r)^s=
+\nu^{1-s}\Gamma^{(S)}_s(\sum_lQ_l)^s\le\nu^{1-s}\Gamma^{(S)}_sB_pP_b^s$ (class-C budget), and $\pi\ge\nu^{1-s}$.\end{proof}
+
+\begin{corollary}[L1, aligned]\label{L1} If the atoms of each feature share a phase, $X\ge0$ whenever
+$O\le\frac{\nu}{2(s-1)}\bar A$, $\bar A=\sum_l\kappa_l(\delta_0)E_l\big/\sum_l\kappa_l(\delta_0)E_l/|A_l|$. In words: a network whose slack has no spike
+at the binding offset taller than $\nu/(2(s-1))\ (\ge(n+1)/(n-1))$ times the interference-weighted harmonic mean clean amplitude does not beat $\gamma_{IF}^{(S)}$.\end{corollary}
+\begin{proof} $L=|A|$, $V'=2E^I/(\nu|A|^2)$, Bernoulli: $|A|-a^-\le(2(s-1)/\nu)E_l/|A_l|$.\end{proof}
+\begin{corollary}[L2, any phases] $X\ge0$ whenever $\sum_S\kappa_l(\delta_0)\big[\frac{4(s-1)}{\nu L_l}E^I_l+(4n(s-1)-1)_+(L_l-|A_l|)\big]\le\sum_l\kappa_l(\delta_0)E_l/O$.\end{corollary}
+\begin{proof} $(s-1)L V'\le\frac{4(s-1)}{\nu L}E^I+4n(s-1)(L-|A|)$ since $\#I=n\nu/2$; Bernoulli.\end{proof}
+
+\begin{proposition}[O, true orders]\label{O} (i) $\sigma_i B_pa_i=G_{\rm amgm}+G_{\rm dc}+G_{\rm mix}+G_{\rm h\ddot ol}+G_{\rm phase}$, each $\ge0$
+(AM--GM, DC, $\ell_\nu$ vs $\ell_2$, H\"older, phase gaps of the budget chain); they vanish exactly on aligned balanced DC-free single-frequency neurons.
+(ii) Class C: $d_{\rm int}N\ge\min_\delta\sum_l\kappa_l(\delta)E_l/O_\delta\ge\kappa_{\min}\sqrt{\sum E_l}\big/\big(4\sqrt{(2^n-1)K'}\big)$, $K'$ = number of features with
+$E_l>0$, $\kappa_{\min}=1-\cos(2\pi/p)$: first order in the interference amplitude. (iii) Aligned: the concentration a feature can buy,
+$\log(|A_l|/a_l)\le(s-1)\log(1+2E^I_l/(\nu|A_l|^2))$, is second order. Hence at IF networks the RD-IF slack is first order (Theorem \ref{L}: $X\ge
+\sum\kappa E/O-O(E)$).\end{proposition}
+\begin{proof} (i) is the budget chain $\sum_j|\beta_{ij}|=c\prod\|v_t\|\sum_j\prod_tA_t(j)\le c\prod\|v_t\|\prod\|A_t\|_\nu\le c\prod\|v_t\|\prod\|A_t\|_2\le c\prod\|v_t\|\le B_pa_i$,
+$c=2(2p)^{-\nu/2}$, written as a telescoping sum. (ii) $\bar\sigma^{\rm sym}(\delta)\ge\tfrac12(m_\delta+m_{-\delta})$; Lemmas \ref{mz}, \ref{var};
+$O_\delta\le 2\sum_l|c_l|\max|f_l|\le4\sum_l\sum_T|\beta_{l,T}|$ and Cauchy--Schwarz. (iii) W6(c).\end{proof}
+
+\section{Where is the exchange inequality hardest?}
+Let $S_\theta(s)=\log D_S(s)-\log\gamma(\theta;s)=\log D_S(s)-\log\gamma(\theta;1)+(s-1)H_{1/s}(m_\theta)$.
+\begin{proposition}[H1, programme envelope] $\log\Gamma^{(S)}_s=\max_{v\in\mathcal V_S}\varphi_v(s)$ over the finite, $s$-free vertex set of
+$\{v\ge0,\ \mathrm{spt}\,v\subseteq S,\ Kv\ge1\}$, with $\varphi_v(s)=-\log\sum v-(s-1)H_{1/s}(\hat v)$ concave and $\varphi_v'(s)=-H(\mathrm{esc}_{1/s}\hat v)$.
+So the programme part of $H^{\rm dec}_S$ is non-decreasing along each branch and drops at every transition.\end{proposition}
+\begin{proof} $\sum v^{1/s}$ is concave in $v$ and tends to $\infty$ along recession directions, so its minimum over the polyhedron is at a vertex;
+$\Gamma=\max_v(\sum v^{1/s})^{-s}$. The derivative is the temperature identity (W1) for $\hat v$; escort entropy increases with $s$; an upper envelope of
+crossing curves has upward derivative jumps.\end{proof}
+\begin{proposition}[H2, slack transport] For $1\le s\le s_1\le\nu/2$, every $s_1$-optimal pair $(\theta_1,y^*)$ (optimal single feature, programme maximiser)
+with pair entropy $H^{\rm pair}(\sigma)=H(\theta_1,\sigma)+H(\mathrm{esc}_{1/\sigma}\hat y^*)$, and every $\theta\in N_S$:
+\[S_\theta(s)\ \ge\ S_\theta(s_1)+\int_s^{s_1}\big[H^{\rm pair}(\sigma)-H(\theta,\sigma)\big]d\sigma .\]
+In particular RD at $s_1$ implies RD at $s$ for every $\theta$ with $\int_s^{s_1}H(\theta,\cdot)\le\int_s^{s_1}H^{\rm pair}$.\end{proposition}
+\begin{proof} $\gamma^{\rm dec}(\sigma):=e(\theta_1;\sigma)B_pG_\sigma(y^*)\le\pi(\sigma)B_p\Gamma_\sigma=D_S(\sigma)$ with equality at $s_1$, and
+$(\log\gamma^{\rm dec})'=-H^{\rm pair}$ (W1 for $\theta_1$, D1(iv) for $y^*$). Also $\log\gamma(\theta;s)-\log\gamma(\theta;s_1)=\int_s^{s_1}H(\theta,\cdot)$.\end{proof}
+\begin{remark}[no single exponent] For every $s_0$, an $s_0$-optimal decoupled network has $S(s_0)=0$; whenever it is not optimal at $\nu/2$ it has
+$S(\nu/2)>0$. So no argument using only the pair $(\gamma(\theta;1),m_\theta)$ deduces RD at $s_0$ from RD at $\nu/2$ (perturb $\gamma(\cdot;1)$ by $e^{\epsilon}$).
+Numerically ($n=2$): first-branch decoupled maximisers have $S(\nu/2)=0.085,0.118,0.177$ at $p=11,13,17$.\end{remark}
+\begin{proposition}[P, profile form] RD$_S$ $\iff$ $\log\gamma(\theta;1)\le U_S(m_\theta):=\inf_{s\in[1,\nu/2]}[\log D_S(s)+(s-1)H_{1/s}(m_\theta)]$ for all $\theta\in N_S$.
+The hardest exponent of $\theta$ is the minimiser in $U_S(m_\theta)$.\end{proposition}
+
+\section{Refutation: decoupled networks do not minimise the deficit at fixed R\'enyi concentration}
+At $(p,n,b)=(5,2,2)$, $s=3/2$: the certified SPLIT violator $\theta_v$ has $H_{2/3}(m)=1.53770$ and $\gamma(\theta_v;1)/B_p=0.86993$.
+Decoupled networks of $D_F$ are KM2 two-block unions (n=2, Note Thm q1n2 + KM2), with $H_{2/3}=\log3+H_{2/3}(\hat y)$ and $\gamma_1/B_p=M(\hat y)$;
+at $H_{2/3}\le1.53770$ the best is $M=0.81848$. So $1-D(\theta_v)<1-D(\Theta)$ for every decoupled $\Theta$ at the same or lower R\'enyi concentration.
+Only the $s$-tilted functional (Proposition P) can have decoupled extremals; that is RD itself.
+\end{document}

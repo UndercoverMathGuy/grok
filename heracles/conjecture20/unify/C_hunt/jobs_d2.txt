@@ -1,0 +1,15 @@
+detl2.py 5 2 300 11
+detl2.py 7 2 300 11
+detl2.py 11 2 300 11
+detl2.py 13 2 300 11
+detl2.py 17 2 200 11
+detl2.py 19 2 200 11
+detl2.py 23 2 150 11
+detl2.py 29 2 100 11
+detl2.py 31 2 100 11
+detl2.py 37 2 60 11
+detl2.py 43 2 40 11
+detl2.py 5 3 150 12
+detl2.py 7 3 100 12
+detl2.py 11 3 30 12
+detl2.py 5 4 60 13

@@ -1,0 +1,16 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+n=6 b=2 R=1.0000: c_sub >= 0.3988 (m=6)   explicit family A(1+z1..zn): 0.3198
+n=6 b=2 R=0.9010: c_sub >= 0.4946 (m=5)   explicit family A(1+z1..zn): 0.5978
+n=6 b=2 R=0.9590: c_sub >= 0.4330 (m=4)   explicit family A(1+z1..zn): 0.4111
+n=8 b=2 R=1.0000: c_sub >= 0.4110 (m=8)   explicit family A(1+z1..zn): 0.3378
+n=8 b=2 R=0.9010: c_sub >= 0.8392 (m=8)   explicit family A(1+z1..zn): 0.7779
+n=8 b=2 R=0.9590: c_sub >= 0.5390 (m=8)   explicit family A(1+z1..zn): 0.4722
+n=10 b=2 R=1.0000: c_sub >= 0.3726 (m=8)   explicit family A(1+z1..zn): 0.3488
+n=10 b=2 R=0.9010: c_sub >= 0.9431 (m=10)   explicit family A(1+z1..zn): 0.9892
+n=10 b=2 R=0.9590: c_sub >= 0.5211 (m=10)   explicit family A(1+z1..zn): 0.5301
+n=12 b=2 R=1.0000: c_sub >= 0.3138 (m=9)   explicit family A(1+z1..zn): 0.3561
+n=12 b=2 R=0.9010: c_sub >= 0.4088 (m=9)   explicit family A(1+z1..zn): 1.2442
+n=12 b=2 R=0.9590: c_sub >= 0.3494 (m=9)   explicit family A(1+z1..zn): 0.5885
+n=14 b=2 R=1.0000: c_sub >= 0.2113 (m=11)   explicit family A(1+z1..zn): 0.3614
+n=14 b=2 R=0.9010: c_sub >= 0.3574 (m=11)   explicit family A(1+z1..zn): 1.5553
+n=14 b=2 R=0.9590: c_sub >= 0.2948 (m=11)   explicit family A(1+z1..zn): 0.6494

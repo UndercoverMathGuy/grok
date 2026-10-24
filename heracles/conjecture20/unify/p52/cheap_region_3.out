@@ -1,0 +1,2 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+CHEAP: m=(1.032,1.172,1.171) phi=0.145 P_lb=0.6765 tw=0.7813

@@ -1,0 +1,4 @@
+(1) Taylor identity phi(s1) = phi(s0) + (H_Theta - H_theta)(s0)(s1-s0) + int int (Var_Theta - Var_theta)/tau : max error 1.8e-15
+(2) p=7,n=3, s=1.5 (left): gamma(3 feats)/gamma(2 feats) = 1.020351;  H = 2.4849 vs 2.0605;  E_w log t = -4.4308 vs -4.6631;  KKT res 9e-14,1e-13; identity 0e+00,-4e-15
+(2) p=7,n=3, s=1.5475377 (at s_c): gamma(3 feats)/gamma(2 feats) = 1.000000;  H = 2.4849 vs 2.0617;  E_w log t = -4.4308 vs -4.6626;  KKT res 9e-15,2e-14; identity -5e-15,-6e-15
+(2) p=7,n=3, s=1.6 (right): gamma(3 feats)/gamma(2 feats) = 0.978070;  H = 2.4849 vs 2.0628;  E_w log t = -4.4308 vs -4.6619;  KKT res 4e-14,1e-13; identity -4e-15,-5e-15

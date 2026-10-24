@@ -1,0 +1,325 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\title{Interference and the price of a feature:\\ what replaces Conjecture 20}
+\author{}
+\date{16 October 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Conjecture 20 says that the unrestricted maximum $L_{2,b}$-margin of product networks equals the
+interference-free (IF) value $\nu^{1-s}B_p\Gamma_s(p)$.  It is false: at $p=3$, $b=2$ certified networks beat it for
+every $n=11,\dots,18$ (by a factor $2.21$ at $n=18$; see \texttt{mechanism\_note.pdf}), and for $n=12$ on
+$b\in[2,2.13]$.  This note places the counterexamples inside the paper's framework.
+(i) We write every margin condition in terms of one complex \emph{feature field} $\Phi_l:\mathbb Z_p^n\to\mathbb C$ per
+frequency, and show that a single feature has margin $\ge c$ exactly when its field stays in the cone
+$c+\{|\arg z|\le\pi/p\}$.
+(ii) We define the \emph{price of a feature} $\pi_{n,b}(p)\in[\nu^{1-s},1]$, the best normalised margin of a single
+feature with interference allowed, and prove the \emph{price--programme theorem}
+$\gamma^*_b\ge\pi_{n,b}(p)B_p\Gamma_s(p)$, realised by networks whose amplitudes follow a maximiser $y^\star$
+of the programme (so they use exactly $K^*(s,p)$ features).  Theorem~8 of the paper is the case
+$\pi=\nu^{1-s}$; at $p=3$ the inequality is an equality.  Hence the counterexamples change the \emph{price of a feature},
+not the spectral allocation.
+(iii) We identify what the counterexamples exploit and prove it is unavailable to single-frequency networks at
+$p\ge5$: there the feature field is \emph{circular} ($\E(\Phi-\E\Phi)^2=0$) and the cone has half-angle $\pi/p<\pi/4$,
+which forces a margin loss $\ge k_p\sigma$ proportional to the interference $\sigma$.  At $p=3$ the field need not be
+circular because $2\equiv-1\pmod 3$, and the certified $n=11$ network uses exactly this freedom: interference
+$258$ times the feature's energy, with imaginary fluctuations carrying $1.78$ times the energy of the real ones, parked
+on the $60^\circ$ cone edges.  Whether the loss always outweighs the saving at $p\ge5$ reduces to one constant
+$k^*(n,s)$ (estimated numerically).
+(iv) We list what in the paper is untouched, and give the corrected statement of Appendix~D.
+\end{abstract}
+
+\section{Setting}
+$p$ is an odd prime, $\rho=e^{2\pi i/p}$, $F=\{1,\dots,(p-1)/2\}$, $\nu=n+1$, $2\le b\le\nu$, $s=\nu/b$, $r=1/s$,
+$\kappa_l(\delta)=1-\cos(2\pi l\delta/p)$ and $\kappa_{\min}(p)=1-\cos(2\pi/p)=\min_{\delta\neq0}\kappa_l(\delta)$.
+A product network is $f(x)[c]=\sum_i w_i(c)\prod_{t=1}^n u_{it}(x_t)$, its margin is
+$h=\min_x\min_{c\ne y(x)}(f(x)[y(x)]-f(x)[c])$, $y(x)=\sum_t x_t$, and $\gamma=h/\|\theta\|^\nu_{2,b}$; $\gamma^*_b$ is the
+supremum over all widths.  $B_p=2(2p\nu)^{-\nu/2}$ and $C_b^{\nu/b}=B_p$ is the single-neuron budget
+(paper, Appendix~C): $\sum_{j}|\beta_{ij}|^{r}\le C_b\|\omega_i\|^b$.  $\beta_l$, $\beta_{l,T}$ are the paper's clean and
+sign-flipped coefficients (Section~4), and $\beta_{l,T}=\sum_i\beta_{il}\xi_{il}^{T}$ with $|\xi_{ilt}|=1$
+(paper, Lemma~6).  The interference-free (IF) value is $\gamma^*_{b,\mathrm{IF}}=\nu^{1-s}B_p\Gamma_s(p)$ (Theorem~8).
+
+\section{Feature fields and the cone}
+\begin{definition}
+For a network $\theta$ and $l\in F$ let
+$\Phi_l(x):=\frac2p\,\rho^{l\,y(x)}\sum_{c}f(x)[c]\rho^{-lc}$.
+\end{definition}
+
+\begin{lemma}[decomposition]\label{lem:dec}
+$f(x)[c]=\bar f(x)+\sum_{l\in F}\Re\big(\Phi_l(x)\rho^{l(c-y(x))}\big)$, hence for every $x$ and $\delta\ne0$
+\[
+g(x,\delta):=f(x)[y(x)]-f(x)[y(x)-\delta]=\sum_{l\in F}\Re\big(\Phi_l(x)(1-\rho^{-l\delta})\big).
+\]
+Moreover $\E_x\Phi_l=\overline{\beta_l}$, and for a product network
+$\Phi_l(x)=\frac2p\sum_i\hat w_i(l)\prod_t u_{it}(x_t)\rho^{lx_t}$.
+\end{lemma}
+\begin{proof}
+Fourier inversion of the real function $c\mapsto f(x)[c]$ gives
+$f(x)[c]=\bar f(x)+\sum_{l\in F}\frac2p\Re(\hat f_x(l)\rho^{lc})$ with $\hat f_x(l)=\sum_cf(x)[c]\rho^{-lc}$, and
+$\frac2p\hat f_x(l)\rho^{lc}=\Phi_l(x)\rho^{l(c-y)}$.  For the mean,
+\[\beta_l=2p^{-\nu}\sum_{x,c}f(x)[c]\rho^{-l\sum_tx_t+lc}=2p^{-\nu}\sum_x\overline{\rho^{ly(x)}\hat f_x(l)}=\overline{\E_x\Phi_l},\]
+using $\rho^{l\sum_t x_t}=\rho^{ly(x)}$.  The last formula is $\rho^{ly(x)}=\prod_t\rho^{lx_t}$.
+\end{proof}
+
+\begin{lemma}[cone]\label{lem:cone}
+Let $z\in\mathbb C$, $c\in\mathbb R$, $l\in F$, and $K_p=\{w:|\Im w|\le\tan(\pi/p)\Re w\}$.  Then
+$\Re(z(1-\rho^{-l\delta}))\ge c\,\kappa_l(\delta)$ for all $\delta\ne0$ if and only if $z\in c+K_p$, i.e.\
+$\mathrm{cm}(z):=\Re z-\cot(\pi/p)|\Im z|\ \ge c$.  If $\mathrm{cm}(z)\ge0$ then
+$\min_{\delta\ne0}\Re(z(1-\rho^{-l\delta}))=\kappa_{\min}(p)\,\mathrm{cm}(z)$.
+\end{lemma}
+\begin{proof}
+Write $z=a+ib$ and $\vartheta=2\pi l\delta/p$; as $\delta$ runs over $\mathbb Z_p\setminus\{0\}$, $\vartheta/2$ runs over
+$\{\pi k/p:1\le k\le p-1\}$.  Since $1-e^{-i\vartheta}=2\sin(\vartheta/2)\,(\sin(\vartheta/2)+i\cos(\vartheta/2))$,
+\[\Re(z(1-e^{-i\vartheta}))=2\sin(\vartheta/2)\big(a\sin(\vartheta/2)-b\cos(\vartheta/2)\big),\qquad
+\kappa=2\sin^2(\vartheta/2),\]
+and $\sin(\vartheta/2)>0$, so the inequality reads $a-c\ge b\cot(\vartheta/2)$.  This is affine in
+$\cot(\vartheta/2)\in[-\cot(\pi/p),\cot(\pi/p)]$, whose extreme values occur at $k=1,p-1$; so it holds for all $k$ iff
+$a-c\ge|b|\cot(\pi/p)$.  For the last claim take $c=\mathrm{cm}(z)$: every gap is $\ge c\kappa_l(\delta)\ge c\kappa_{\min}$,
+and the extreme $k\in\{1,p-1\}$ with $b\cot(\vartheta/2)=|b|\cot(\pi/p)$ has $\kappa=\kappa_{\min}$ and equality.
+\end{proof}
+
+For a single feature the margin is therefore governed by the cone $c+K_p$ of half-angle $\pi/p$: $60^\circ$ at $p=3$,
+$36^\circ$ at $p=5$, $25.7^\circ$ at $p=7$.
+
+\section{The price of a feature and the price--programme theorem}
+\begin{definition}
+A network is \emph{single-feature} if every output vector $w_i$ lies in
+$\mathrm{span}\{\mathbf 1,\cos(2\pi\cdot/p),\sin(2\pi\cdot/p)\}$; then only $\Phi_1$ is non-zero.  The \emph{price of a
+feature} is
+\[
+\pi_{n,b}(p):=\sup\Big\{\frac{\min_x\mathrm{cm}(\Phi_1(x))}{B_p\,\|\theta\|_{2,b}^{\nu}}:\ \theta\text{ single-feature,
+any width}\Big\}.
+\]
+\end{definition}
+By Lemma~\ref{lem:cone}, the largest normalised margin of a single-feature network is
+$\kappa_{\min}(p)\,B_p\,\pi_{n,b}(p)$.
+
+\begin{proposition}\label{prop:range}
+$\nu^{1-s}\le\pi_{n,b}(p)\le1$.
+\end{proposition}
+\begin{proof}
+Lower bound: the paper's block (Proposition~9) at $j=1$ has $\Phi_1\equiv A>0$ and attains Theorem~8 with $y=e_1$, i.e.\
+normalised margin $\nu^{1-s}B_p\kappa_{\min}$.  Upper bound: $\mathrm{cm}(\Phi_1(x))\le\Re\Phi_1(x)$, so
+$\min_x\mathrm{cm}\le\Re\E\Phi_1=\Re\overline{\beta_1}\le\sum_i|\beta_{i1}|\le(\sum_i|\beta_{i1}|^r)^{1/r}
+\le(C_b\|\theta\|^b_{2,b})^{s}=B_p\|\theta\|_{2,b}^\nu$, using $r\le1$.
+\end{proof}
+
+\begin{theorem}[price--programme]\label{thm:pp}
+For every odd prime $p$, $n\ge1$, $2\le b\le\nu$ and every $y\in\mathbb R^F_{\ge0}$ with $\sum_ly_l^{1/s}\le1$,
+\[
+\gamma^*_b\ \ge\ \pi_{n,b}(p)\,B_p\,\min_{\delta\ne0}\sum_{l}y_l\kappa_l(\delta),\qquad\text{in particular}\qquad
+\gamma^*_b\ \ge\ \pi_{n,b}(p)\,B_p\,\Gamma_s(p).
+\]
+The networks realising the bound are frequency-relabelled copies of one single-feature network, one copy per
+$l\in\operatorname{spt}(y)$, scaled by $y_l$; at $y=y^\star$ they use exactly $K^*(s,p)$ features with amplitudes
+proportional to $y^\star$.
+\end{theorem}
+\begin{proof}
+Let $\theta$ be single-feature with $c:=\min_x\mathrm{cm}(\Phi_1(x))>0$ and $P:=\|\theta\|^b_{2,b}$.  For $l\in F$ define
+$\theta^{(l)}$ by $u^{(l)}_{it}(a)=u_{it}(la)$, $w^{(l)}_i(c')=w_i(lc')$.  Since $a\mapsto la$ permutes $\mathbb Z_p$,
+$\|\theta^{(l)}\|_{2,b}=\|\theta\|_{2,b}$, and $f^{(l)}(x)[c']=f(lx)[lc']$ with $y(lx)=l\,y(x)$, so
+$g^{(l)}(x,\delta)=g(lx,l\delta)\ge c\,\kappa_1(l\delta)=c\,\kappa_l(\delta)$ by Lemma~\ref{lem:cone}.
+Scaling every weight of $\theta^{(l)}$ by $y_l^{1/\nu}$ multiplies its table by $y_l$ and its $\|\cdot\|^b_{2,b}$ by
+$y_l^{r}$.  The union $\Theta$ of the scaled copies has $g_\Theta(x,\delta)=\sum_ly_lg^{(l)}(x,\delta)\ge
+c\sum_ly_l\kappa_l(\delta)$ and $\|\Theta\|^b_{2,b}=P\sum_ly_l^r\le P$, so
+$\gamma(\Theta)\ge c\min_\delta\sum_ly_l\kappa_l(\delta)/P^{s}$.  Taking the supremum over $\theta$ gives the claim.
+\end{proof}
+
+\begin{corollary}[$p=3$]\label{cor:p3}
+$F=\{1\}$, so every network is single-feature and $\gamma^*_b(3)=\tfrac32\,B_3\,\pi_{n,b}(3)$.  The certified
+networks give $\pi_{n,2}(3)\,\nu^{s-1}\ge1.0630$, $1.1933$, $1.1836$, $1.4568$, $1.6170$, $1.5954$, $2.0110$, $2.2119$ for
+$n=11,\dots,18$ (one-dimensional networks of \texttt{mechanism\_note.pdf}; the first notes had $1.0543$, $1.1091$,
+$1.4293$ for $n=11,13,14$), and $\pi_{12,b}(3)>13^{1-13/b}$ for $b\in[2,2.13]$,
+$\pi_{11,b}(3)>12^{1-12/b}$ for $b\in[2,2.02]$.
+\end{corollary}
+
+\begin{corollary}[failure is a statement about the price]\label{cor:transfer}
+Conjecture~20 holds at $(p,n,b)$ only if $\pi_{n,b}(p)=\nu^{1-s}$.  Whenever a single feature can be bought below the
+interference-free price ($\pi_{n,b}(p)>\nu^{1-s}$), the unrestricted optimum exceeds $\gamma^*_{b,\mathrm{IF}}$ by at least the
+factor $\pi_{n,b}(p)/\nu^{1-s}$ \emph{with the same spectral allocation $y^\star$ and the same number $K^*(s,p)$ of
+features}.
+\end{corollary}
+
+\begin{remark}[what the counterexamples do not touch]
+At $p=3$ there is a single feature, so the counterexamples change only the constant in front of $B_3\Gamma_s(3)$.
+Theorem~4 (universal bound, i.e.\ $\pi\le1$), Theorem~8 (exact IF value and IF structure), Theorem~10 (order
+$p^{-\nu/2}(\ln p)^{1-s}$ of the unrestricted optimum), Theorem~11 (programme maximisers use $\Theta(\log p)$ features) and
+Corollary~12 (unrestricted near-maximisers need $\Omega(\log p)$ features) are statements that the counterexamples do not
+contradict.  The smallest known counterexample has $\nu=12$; the paper's experiments use $\nu\le5$ and $p\ge11$.
+\end{remark}
+
+\section{Why $p=3$: circular feature fields}
+\begin{definition}
+A network is \emph{single-frequency} (at frequency $1$) if every $u_{it}$ and every $w_i$ lies in
+$\mathrm{span}\{\mathbf 1,\cos(2\pi\cdot/p),\sin(2\pi\cdot/p)\}$: constant components are allowed.  At $p=3$ every
+network is single-frequency.  Relabelling $a\mapsto la$ (as in the proof of Theorem~\ref{thm:pp}) transfers everything
+below to a network using any single frequency $l$.
+\end{definition}
+
+\begin{lemma}[support]\label{lem:supp}
+For a single-frequency network, $\Phi_1(x)=\sum_{e\in\{0,1,2\}^n}a_e\rho^{e\cdot x}$ with $a_0=\overline{\beta_1}$ and
+$a_{2\cdot\mathbf 1_T}=\overline{\beta_{1,T}}$ for every $T\subseteq[n]$; the coefficients with some $e_t=1$ come from
+constant input components.
+\end{lemma}
+\begin{proof}
+$u(a)\rho^{a}=p^{-1}\big(\hat u(-1)+\hat u(0)\rho^{a}+\hat u(1)\rho^{2a}\big)$; expand the product in
+Lemma~\ref{lem:dec}.  The term taking $\hat u_{it}(1)$ for $t\in T$ and $\hat u_{it}(-1)$ otherwise equals
+$\frac2pp^{-n}\sum_i\hat w_i(1)\prod_{t\in T}\hat u_{it}(1)\prod_{t\notin T}\hat u_{it}(-1)
+=\overline{2p^{-\nu}\hat f_\theta(k;-1)}=\overline{\beta_{1,T}}$ with $k_t=-1$ on $T$ and $+1$ off $T$.
+\end{proof}
+
+\begin{lemma}[circularity]\label{lem:circ}
+If $p\ge5$, every single-frequency network satisfies $\E_x(\Phi_1-\E\Phi_1)^2=0$.  At $p=3$ this fails in general.
+\end{lemma}
+\begin{proof}
+$\E_x\rho^{(e+e')\cdot x}=1$ iff $e_t+e'_t\equiv0\pmod p$ for all $t$, and $0$ otherwise.  For
+$e,e'\in\{0,1,2\}^n$ we have $e_t+e'_t\in\{0,\dots,4\}$, which for $p\ge5$ is $\equiv0$ only if $e_t=e'_t=0$.  So
+$\E(\Phi_1-a_0)^2=\sum_{e,e'\ne0}a_ea_{e'}\E\rho^{(e+e')\cdot x}=0$.  At $p=3$, $1+2\equiv0$: the constant-input
+characters and the sign-flipped characters are complex conjugates ($\omega^{2x}=\overline{\omega^{x}}$), and the
+pseudo-variance is unconstrained.
+\end{proof}
+
+\begin{lemma}[circular cone bound]\label{lem:cc}
+Let $Z$ be a complex random variable on a finite probability space with $\E Z=A$, $\E(Z-A)^2=0$ and
+$Z\in c+K_\alpha$ almost surely, where $K_\alpha=\{|\Im w|\le\tan\alpha\,\Re w\}$ and $0<\alpha<\pi/4$.  Then
+\[\Re A-c\ \ge\ \sqrt{\cot^2\alpha-1}\;\sigma,\qquad \sigma^2:=\tfrac12\E|Z-A|^2 .\]
+Without circularity, for any $Z$ with $Z\in c+K_\alpha$,
+$(1-t^2)\E|Z-A|^2\le 2t^2(\Re A-c)^2+(1+t^2)\Re\E(Z-A)^2$, $t=\tan\alpha$.
+\end{lemma}
+\begin{proof}
+Put $X=\Re Z-c\ge0$, $Y=\Im Z$, so $|Y|\le tX$.  Let $E=\E|Z-A|^2$ and $P=\Re\E(Z-A)^2$; then
+$\mathrm{Var}X=(E+P)/2$ and $\mathrm{Var}Y=(E-P)/2$.  Hence
+$(E-P)/2\le\E Y^2\le t^2\E X^2=t^2\big((\Re A-c)^2+(E+P)/2\big)$, which is the second claim; with $P=0$ and
+$E=2\sigma^2$ it gives $\sigma^2(1-t^2)\le t^2(\Re A-c)^2$, the first.
+\end{proof}
+
+\begin{theorem}[no $p=3$ mechanism for $p\ge5$]\label{thm:circ}
+Let $p\ge5$ and $\theta$ be single-frequency.  With $k_p:=\sqrt{\cot^2(\pi/p)-1}$ and
+$\sigma^2:=\frac12\E|\Phi_1-\E\Phi_1|^2\ \ge\ \frac12\sum_{\emptyset\ne T\subseteq[n]}|\beta_{1,T}|^2$,
+\[
+h(\theta)\ \le\ \kappa_{\min}(p)\,\big(\Re\overline{\beta_1}-k_p\,\sigma\big),
+\qquad
+\gamma(\theta)\ \le\ \kappa_{\min}(p)\,B_p\,\Lambda_{n,s}(k_p),
+\]
+where $\Lambda_{n,s}(k):=\sup\big\{(\Re A-k\sqrt{E/2})/(\sum_i|\beta_i|^{r})^{s}\big\}$ over finitely many atoms
+$\beta_i\in\mathbb C$, $\xi_i\in\mathbb T^n$, with $A=\sum_i\beta_i$, $E=\sum_{\emptyset\ne T}|\sum_i\beta_i\xi_i^T|^2$.
+$\Lambda_{n,s}$ is non-increasing, $\Lambda_{n,s}(k)\ge\nu^{1-s}$, and $\Lambda_{n,s}(k)=\nu^{1-s}$ for all
+$k\ge k^*(n,s):=\sup(\Re A-\nu^{1-s}(\sum|\beta_i|^r)^s)/\sqrt{E/2}$.  Consequently, if $k_p\ge k^*(n,s)$, no
+single-frequency network at $(p,n,b)$ beats the IF value of a single feature.
+\end{theorem}
+\begin{proof}
+By Lemma~\ref{lem:cone} (with $h>0$, else nothing to prove), $h=\kappa_{\min}\min_x\mathrm{cm}(\Phi_1(x))$, and
+$\Phi_1\in c+K_{\pi/p}$ with $c=\min_x\mathrm{cm}$.  Lemma~\ref{lem:circ} and Lemma~\ref{lem:cc} with $\alpha=\pi/p<\pi/4$
+give $c\le\Re\E\Phi_1-k_p\sigma$, and Parseval with Lemma~\ref{lem:supp} gives
+$2\sigma^2=\sum_{e\ne0}|a_e|^2\ge\sum_{T\ne\emptyset}|\beta_{1,T}|^2$.  For the second bound, divide by
+$\|\theta\|^\nu_{2,b}\ge(C_b^{-1}\sum_i|\beta_{i1}|^r)^s=B_p^{-1}(\sum_i|\beta_{i1}|^r)^s$ and use
+$\beta_{1,T}=\sum_i\beta_{i1}\xi_{i}^{T}$ (paper, Lemma~6) and $\Re\overline{\beta_1}=\Re\sum_i\beta_{i1}$.
+The IF block gives $\Lambda\ge\nu^{1-s}$.  Atoms with $E=0$ satisfy $\Re A\le\nu^{1-s}(\sum|\beta_i|^r)^s$ by the paper's
+Lemma~7, and for atoms with $E>0$ the inequality $(\Re A-k\sqrt{E/2})\le\nu^{1-s}(\sum|\beta_i|^r)^s$ for all
+$k\ge k^*$ is the definition of $k^*$.
+\end{proof}
+
+\begin{proposition}[matrix reduction]\label{prop:mat}
+$k^*(n,s)\le\sqrt2\,\kappa_M(\nu,s)$, where
+\[\kappa_M(\nu,s):=\sup\Big\{\frac{1-\nu^{-s}\|H\|_{S_{r}}}{\|\mathrm{strictlower}(H)\|_F}:\ H\in\mathbb C^{\nu\times\nu},\ H_{jj}=1\Big\}\]
+and $\|H\|_{S_r}=(\sum_k\sigma_k(H)^r)^{1/r}$.
+\end{proposition}
+\begin{proof}
+Rotate the atoms so that $A>0$ (this does not change $E$ or the cost, and $\Re A\le|A|$).  Let
+$m_i=(1,\xi_{i1},\xi_{i1}\xi_{i2},\dots,\xi_{i1}\cdots\xi_{in})$ and $H=\sum_i\beta_im_im_i^*$.  Its diagonal is $A$,
+and its strictly lower entries are the interval sums $\sum_i\beta_i\xi_i^{(k,j]}$, distinct non-empty patterns, so
+$\|\mathrm{strictlower}H\|_F^2\le E$.  As $\|\beta_im_im_i^*\|_{S_r}=\nu|\beta_i|$ and
+$\|X+Y\|_{S_r}^r\le\|X\|_{S_r}^r+\|Y\|_{S_r}^r$ for $0<r\le1$ (McCarthy, Rotfel'd),
+$\sum_i|\beta_i|^r\ge\nu^{-r}\|H\|_{S_r}^r$, i.e.\ $\nu^{1-s}(\sum|\beta_i|^r)^s\ge\nu^{-s}\|H\|_{S_r}$.  Hence
+$A-\nu^{1-s}(\sum|\beta_i|^r)^s\le A(1-\nu^{-s}\|H/A\|_{S_r})\le\kappa_M\|\mathrm{strictlower}H\|_F\le\sqrt2\kappa_M\sqrt{E/2}$.
+\end{proof}
+
+\section{Anatomy of the counterexample}
+For the certified $p=3$, $n=11$ network (normalised so that $\mathrm{cm}$ is the ratio to the IF value), the field
+$\Phi=\Phi_1$ satisfies:
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+clean amplitude $A=\E\Phi$ & $2.3960+0.0138i$ \\
+cone margin $c=\min\mathrm{cm}(\Phi)$ & $1.05440=0.440\,\Re A$ \\
+interference energy $\E|\Phi-A|^2$ & $258.4\,|A|^2$ \\
+pseudo-variance $\E(\Phi-A)^2$ & $(-72.2+10.0i)\,|A|^2$ \\
+$\mathrm{Var}\,\Im\Phi/\mathrm{Var}\,\Re\Phi$ & $1.776$ \\
+$\max_x|\Phi(x)|$ & $4491\,|A|$ \\
+count classes with $|\arg(\Phi-c)|>59.9^\circ$ & $21$ of $78$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The network gives up $56\%$ of its clean amplitude and carries interference two orders of magnitude larger than the
+feature, but the interference is aligned with the two edges of the $60^\circ$ cone: on those inputs the correct logit
+ties (up to the margin) with one neighbouring class and the third class is pushed far down.  This is possible only
+because the fluctuation is \emph{non-circular} ($\mathrm{Var}\,\Im>\mathrm{Var}\,\Re$, allowed since $\tan60^\circ>1$),
+and that is possible only because $2\equiv-1\pmod3$ (Lemma~\ref{lem:circ}).  In exchange it uses $8$ neurons instead of
+$\nu=12$, and $(12/8)^{s-1}$-type savings in the concave $\ell_r$ cost outweigh the lost amplitude.
+
+\section{Numerical evidence beyond $p=3$}
+\input{interference_numerics}
+
+\section{Corrected statement of Appendix D}
+\begin{theorem}[replaces Conjecture 20]
+For all odd primes $p$, $n\ge1$ and $2\le b\le\nu$,
+\[
+\nu^{1-s}B_p\Gamma_s(p)\ \le\ \pi_{n,b}(p)\,B_p\,\Gamma_s(p)\ \le\ \gamma^*_b\ \le\ B_p\Gamma_s(p),
+\]
+with equality in the middle at $p=3$.  The first inequality is strict at $p=3$, $b=2$, $n\in\{11,13,14\}$ and on the
+$b$-intervals of Corollary~\ref{cor:p3}; it is an equality for $b_0\le b\le\nu$ (previous notes, Part~II) and at
+$p=3$, $n=2$ for all $b$ (Part~I).
+\end{theorem}
+
+\begin{conjecture}[price--programme equality]\label{conj:pp}
+$\gamma^*_b=\pi_{n,b}(p)\,B_p\,\Gamma_s(p)$: interference changes the price of a feature but not the programme.
+\end{conjecture}
+
+\begin{question}[is $p=3$ the only exception?]\label{q:p5}
+Is $\pi_{n,b}(p)=\nu^{1-s}$ for every $p\ge5$?  Theorem~\ref{thm:circ} gives a positive answer for single-frequency
+networks whenever $k_p\ge k^*(n,s)$.  Open are (a) single-frequency networks with $k_p<k^*(n,s)$ (numerically
+$p=5$, $n\ge9$), and (b) networks whose neurons carry the partner frequencies $2l$, $3l$ of a feature $l$: these are the
+only way to make a feature field non-circular at $p\ge5$, and by the second part of Lemma~\ref{lem:cc} a large
+interference needs a large positive pseudo-variance.
+\end{question}
+
+\begin{remark}[update]
+The companion \texttt{mechanism\_note.pdf} identifies the $p=3$ mechanism exactly (shared sign pattern, field
+$e^{i\pi\tau/p}\sum_iV_ie^{\lambda_i\tau}$), proves that such networks need at least $\nu-\lfloor\nu/p\rfloor$ neurons (so
+none are saved when $p>\nu$), finds the mechanism losing to IF at $p=5,7$ by a factor growing in $n$, and exhibits genuine
+cross-feature compensation at $p=5$ (an obstacle to any feature-by-feature proof of Conjecture~\ref{conj:pp}).
+\end{remark}
+
+\paragraph{Suggested wording for the paper.}  Section~4 (``How many features''): ``Whether a network carrying
+interference can beat the class value is an open conjecture'' $\to$ ``Interference can beat the class value: at $p=3$
+and $\nu\ge12$ a single feature can be bought below the interference-free price (Appendix~D).  This changes the price of
+a feature, not the allocation: the best networks built from cheaper features still follow the programme
+(Theorem~D.2).''  Limitations: ``The exact optimum is proved for interference-free networks; for all networks we prove
+$\pi_{n,b}(p)B_p\Gamma_s(p)\le\gamma^*_b\le B_p\Gamma_s(p)$, where $\pi_{n,b}(p)$, the price of a feature, equals the
+interference-free price $\nu^{1-s}$ near $b=\nu$ and exceeds it at $p=3$, $\nu\ge12$, $b=2$.''
+
+\section{Open problems}
+\begin{enumerate}
+\item Conjecture~\ref{conj:pp}.  The obstacle is cross-feature compensation: a feature field may leave its own cone
+where another feature has slack, and at $b=2$ one neuron can feed several features at no budget cost.
+\item Question~\ref{q:p5}, in particular single-frequency networks at $p=5$ with $n\ge9$, where the numerical value of
+$k^*(n,s)$ exceeds $k_5=0.946$, and partner-frequency networks at every $p\ge5$.
+\item The growth of $\pi_{n,2}(3)\nu^{s-1}$ in $n$: certified $1.06$ at $n=11$ up to $2.21$ at $n=18$, about $10\%$ per
+unit of $n$ (\texttt{mechanism\_note.pdf}, which also proves that the shared-sign networks behind these values need at
+least $\nu-\lfloor\nu/p\rfloor$ neurons).
+\end{enumerate}
+\end{document}

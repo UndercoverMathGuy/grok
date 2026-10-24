@@ -1,0 +1,8 @@
+p=  401 K= 12 (K/lnp=2.00) mincov=0.595 g=0.815  c_flat=0.9606 lam=3.214  ratio-bound sharp=-0.282 thmA=-0.134
+p=  401 K= 12 (K/lnp=2.00) mincov=0.594 g=0.814  c_flat=0.9581 lam=3.436  ratio-bound sharp=-0.278 thmA=-0.130
+p=  401 K= 24 (K/lnp=4.00) mincov=0.715 g=0.692  c_flat=0.6026 lam=2.797  ratio-bound sharp=0.190 thmA=0.316
+p=  401 K= 24 (K/lnp=4.00) mincov=0.707 g=0.685  c_flat=0.5900 lam=2.790  ratio-bound sharp=0.203 thmA=0.327
+p=  401 K= 48 (K/lnp=8.01) mincov=0.814 g=0.557  c_flat=0.3498 lam=2.324  ratio-bound sharp=0.397 thmA=0.498
+p=  401 K= 48 (K/lnp=8.01) mincov=0.810 g=0.555  c_flat=0.3540 lam=2.345  ratio-bound sharp=0.391 thmA=0.492
+p=  401 K= 96 (K/lnp=16.02) mincov=0.887 g=0.430  c_flat=0.2077 lam=1.986  ratio-bound sharp=0.412 thmA=0.490
+p=  401 K= 96 (K/lnp=16.02) mincov=0.888 g=0.430  c_flat=0.2072 lam=1.980  ratio-bound sharp=0.412 thmA=0.491

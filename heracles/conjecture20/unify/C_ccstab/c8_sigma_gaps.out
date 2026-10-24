@@ -1,0 +1,2 @@
+max |sum of gaps - sigma_i B_p a_i| / (B_p a_i) = 9.896483776720586e-16
+min gap / (B_p a_i)  (>= 0)                    = 0

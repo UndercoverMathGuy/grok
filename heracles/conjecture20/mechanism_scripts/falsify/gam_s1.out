@@ -1,0 +1,25 @@
+101 0.278932 7 [11, 12, 24, 27, 32, 34, 41] 89s
+151 0.257397 7 [3, 7, 25, 33, 34, 49, 54] 178s
+211 0.235897 7 [6, 17, 24, 51, 55, 67, 70] 163s
+307 0.219303 9 [1, 9, 14, 24, 41, 44, 110, 115, 122] 242s
+/home/user/grok/heracles/conjecture20/mechanism_scripts/prog3.py:14: RuntimeWarning: invalid value encountered in power
+  y=res.x; wn=(y+1e-10)**(r-1)
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-grok/512ae18c-6d12-5fa4-88c0-000434907593/scratchpad/ideaC/gam.py", line 10, in <module>
+    G,y,cov=solve(p,s,starts=starts,seed=p+1000*int(os.environ.get('SEED','0')))
+            ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/grok/heracles/conjecture20/mechanism_scripts/prog3.py", line 38, in solve
+    Qm,ym=restricted(K,r,M,rng,tries=6)
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/user/grok/heracles/conjecture20/mechanism_scripts/prog3.py", line 12, in restricted
+    res=linprog(w,A_ub=-KS,b_ub=-np.ones(K.shape[0]),bounds=(0,None),method='highs')
+  File "/usr/local/lib/python3.13/dist-packages/scipy/optimize/_linprog.py", line 649, in linprog
+    lp, solver_options = _parse_linprog(lp, options, meth)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/scipy/optimize/_linprog_util.py", line 1026, in _parse_linprog
+    lp = _clean_inputs(lp._replace(A_ub=A_ub, A_eq=A_eq))
+  File "/usr/local/lib/python3.13/dist-packages/scipy/optimize/_linprog_util.py", line 306, in _clean_inputs
+    raise ValueError(
+        "Invalid input for linprog: c must not contain values "
+        "inf, nan, or None")
+ValueError: Invalid input for linprog: c must not contain values inf, nan, or None

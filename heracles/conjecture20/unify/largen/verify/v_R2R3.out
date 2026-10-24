@@ -1,0 +1,32 @@
+=== Part 1a: R2(a)/(b) moments, networks built from weights ===
+ p=3 n=3 C   predicted zero up to k=2:  3e-17 3e-16 2e-01
+ p=3 n=3 DC  predicted zero up to k=1:  4e-17 4e-01
+ p=5 n=2 C   predicted zero up to k=4:  2e-17 1e-16 8e-17 2e-16 5e-02
+ p=5 n=2 DC  predicted zero up to k=2:  1e-17 3e-16 1e-01
+ p=5 n=3 C   predicted zero up to k=4:  4e-17 2e-16 1e-16 1e-16 5e-03
+ p=5 n=3 DC  predicted zero up to k=2:  3e-17 1e-16 4e-02
+ p=7 n=2 C   predicted zero up to k=6:  9e-17 2e-16 3e-16 5e-16 5e-16 3e-16 2e-02
+ p=7 n=2 DC  predicted zero up to k=3:  8e-17 2e-16 3e-16 5e-02
+ p=7 n=3 C   predicted zero up to k=6:  3e-17 7e-17 1e-16 1e-16 3e-17 2e-16 6e-03
+ p=7 n=3 DC  predicted zero up to k=3:  3e-17 2e-16 1e-16 4e-03
+ p=11 n=2 C   predicted zero up to k=10:  5e-17 9e-17 9e-17 1e-16 1e-16 2e-16 3e-16 5e-16 8e-16 8e-16 7e-05
+ p=11 n=2 DC  predicted zero up to k=5:  5e-17 2e-17 2e-17 4e-17 2e-16 2e-04
+=== Part 1b: support of Phi in z-exponents (class C must be multi-affine: e in {0,1}^n) ===
+ p=5 n=2: max |b_e| with some e_t>=2: 5.0e-16   (on {0,1}^n: 1.32e+00)
+ p=7 n=2: max |b_e| with some e_t>=2: 4.8e-16   (on {0,1}^n: 3.04e-01)
+ p=3 n=3: max |b_e| with some e_t>=2: 2.9e-16   (on {0,1}^n: 3.32e-01)
+=== Part 1c: R3 on random class-C networks (all networks, c = min cm) and R2(c) ===
+ 280 random class-C nets: max R3 ratio = 0.7004, vs sharp Rogosinski bound (4/p)|A-c|cos(p/2 arg) = 0.7186; max R2(c) ratio = 0.9293  (all must be <= 1)
+=== Part 1d: R2(c) on random single-frequency networks WITH DC ===
+ max R2(c) ratio with DC = 0.9679 (must be <= 1)
+=== Part 2: adversarial maximisation of the R3 ratio over atom systems ===
+ p=3 n=1 m=2 S=[0] k=1: max ratio found = 0.37500  (claim: <= 1)
+ p=3 n=2 m=3 S=[0, 1] k=1: max ratio found = 0.74868  (claim: <= 1)
+ p=3 n=2 m=3 S=[0, 1] k=2: max ratio found = 0.18750  (claim: <= 1)
+ p=5 n=1 m=3 S=[0] k=1: max ratio found = 0.65524  (claim: <= 1)
+ p=5 n=2 m=3 S=[0, 1] k=1: max ratio found = 0.77239  (claim: <= 1)
+ p=5 n=2 m=3 S=[0, 1] k=2: max ratio found = 0.52925  (claim: <= 1)
+ p=5 n=2 m=4 S=[0] k=1: max ratio found = 0.62756  (claim: <= 1)
+ p=7 n=2 m=3 S=[0, 1] k=2: max ratio found = 0.64826  (claim: <= 1)
+ p=5 n=3 m=4 S=[0, 1, 2] k=3: max ratio found = 0.41498  (claim: <= 1)
+ p=5 n=3 m=4 S=[0, 1, 2] k=2: max ratio found = 0.56930  (claim: <= 1)

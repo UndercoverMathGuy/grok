@@ -1,0 +1,21 @@
+s=1.8552 m>=0.0: sup ratio 7.2829 at a=0.818 m=0.005
+s=1.8552 m>=0.05: sup ratio 1.2652 at a=0.848 m=0.052
+s=1.8552 m>=0.1: sup ratio 0.9789 at a=0.882 m=0.102
+s=1.8552 m>=0.15: sup ratio 0.8816 at a=0.916 m=0.152
+s=1.8552 m>=0.2: sup ratio 0.8250 at a=0.956 m=0.489
+s=1.8552 m>=0.25: sup ratio 0.8250 at a=0.956 m=0.489
+  small-m bad points (ratio>0.9): a range (np.float64(0.778), np.float64(0.8480000000000001))
+s=1.9 m>=0.0: sup ratio 9.2863 at a=0.818 m=0.005
+s=1.9 m>=0.05: sup ratio 1.4564 at a=0.848 m=0.052
+s=1.9 m>=0.1: sup ratio 1.0768 at a=0.882 m=0.102
+s=1.9 m>=0.15: sup ratio 0.9474 at a=0.916 m=0.152
+s=1.9 m>=0.2: sup ratio 0.8728 at a=0.948 m=0.202
+s=1.9 m>=0.25: sup ratio 0.8596 at a=0.956 m=0.489
+  small-m bad points (ratio>0.9): a range (np.float64(0.764), np.float64(0.8500000000000001))
+s=2.0 m>=0.0: sup ratio 13.6659 at a=0.818 m=0.005
+s=2.0 m>=0.05: sup ratio 1.8744 at a=0.848 m=0.052
+s=2.0 m>=0.1: sup ratio 1.2909 at a=0.882 m=0.102
+s=2.0 m>=0.15: sup ratio 1.0913 at a=0.916 m=0.152
+s=2.0 m>=0.2: sup ratio 0.9812 at a=0.948 m=0.202
+s=2.0 m>=0.25: sup ratio 0.9330 at a=0.956 m=0.489
+  small-m bad points (ratio>0.9): a range (np.float64(0.734), np.float64(0.8540000000000001))

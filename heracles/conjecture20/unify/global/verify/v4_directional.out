@@ -1,0 +1,14 @@
+random single features (n=2; p in 5,7,11,13; b in [2,3]); max normalised violation (must be <= 0):
+   ThmA     : -6.845e-04   (1200 nets)
+   ThmA_half: -8.454e-04   (1200 nets)
+   cone     :  1.117e-13   (1200 nets)
+   i        : -5.121e-03   (1200 nets)
+   ii       : -4.303e-01   (232 nets)
+   iii_arb  : -8.401e-03   (1200 nets)
+   iii_sf   : -1.435e+00   (232 nets)
+adversarial (Powell) maxima of normalised violation (must be <= 0):
+   p=5 m=2 b=2.0: (i) -1.151e-14   (ii, single-freq) -1.431e-01   ThmA -3.728e-02
+   p=5 m=3 b=2.5: (i) -1.013e-10   (ii, single-freq) -9.759e-02   ThmA -3.846e-04
+   p=7 m=2 b=2.0: (i)  1.110e-15   (ii, single-freq) -2.230e-01   ThmA -3.728e-02
+   p=7 m=3 b=3.0: (i) -1.345e-32   (ii, single-freq) -1.915e-01   ThmA -1.485e-04
+   p=11 m=2 b=2.2: (i) -1.195e-13   (ii, single-freq) -2.443e-01   ThmA -6.646e-02

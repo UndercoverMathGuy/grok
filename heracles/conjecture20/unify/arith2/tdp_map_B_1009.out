@@ -1,0 +1,12 @@
+p=1009 N=20 rep=0: |spt a|=15 e=0.9526 min kappa-mass on binding set=8.55  E0/m at best d=0.0000  Phi*/Gamma=0.9526
+p=1009 N=20 rep=1: |spt a|=14 e=0.9769 min kappa-mass on binding set=8.34  E0/m at best d=0.0000  Phi*/Gamma=0.9769
+p=1009 N=30 rep=0: |spt a|=13 e=0.9381 min kappa-mass on binding set=6.45  E0/m at best d=0.0000  Phi*/Gamma=0.9381
+p=1009 N=30 rep=1: |spt a|=14 e=0.9433 min kappa-mass on binding set=7.64  E0/m at best d=0.0000  Phi*/Gamma=0.9433
+p=1009 N=45 rep=0: |spt a|=14 e=0.9559 min kappa-mass on binding set=7.16  E0/m at best d=0.0000  Phi*/Gamma=0.9559
+p=1009 N=45 rep=1: |spt a|=13 e=0.9496 min kappa-mass on binding set=6.55  E0/m at best d=0.0000  Phi*/Gamma=0.9496
+p=1009 N=60 rep=0: |spt a|=15 e=0.9281 min kappa-mass on binding set=8.62  E0/m at best d=0.0000  Phi*/Gamma=0.9281
+p=1009 N=60 rep=1: |spt a|=15 e=0.9268 min kappa-mass on binding set=8.42  E0/m at best d=0.0000  Phi*/Gamma=0.9268
+p=1009 N=90 rep=0: |spt a|=18 e=0.9395 min kappa-mass on binding set=11.67  E0/m at best d=0.0000  Phi*/Gamma=0.9395
+p=1009 N=90 rep=1: |spt a|=19 e=0.9435 min kappa-mass on binding set=12.30  E0/m at best d=0.0000  Phi*/Gamma=0.9435
+p=1009 N=150 rep=0: |spt a|=15 e=0.9537 min kappa-mass on binding set=8.15  E0/m at best d=0.0000  Phi*/Gamma=0.9537
+p=1009 N=150 rep=1: |spt a|=20 e=0.9220 min kappa-mass on binding set=13.66  E0/m at best d=0.0000  Phi*/Gamma=0.9220

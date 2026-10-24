@@ -1,0 +1,4 @@
+s=1.2 rho=0.0200 Gstar=0.000069 G/rho=0.0034 G/rho^2=0.1713 byN=[-inf, np.float64(-0.94003), np.float64(7e-05), np.float64(7e-05), np.float64(7e-05)] t=207
+s=1.2 rho=0.0500 Gstar=0.000434 G/rho=0.0087 G/rho^2=0.1736 byN=[-inf, np.float64(-0.85043), np.float64(0.00043), np.float64(0.00043), np.float64(0.00043)] t=287
+s=1.2 rho=0.1000 Gstar=0.001780 G/rho=0.0178 G/rho^2=0.1780 byN=[-inf, np.float64(-0.7034), np.float64(0.00178), np.float64(0.00178), np.float64(0.00178)] t=365
+s=1.2 rho=0.1500 Gstar=0.004117 G/rho=0.0274 G/rho^2=0.1830 byN=[-inf, np.float64(-0.56148), np.float64(0.00412), np.float64(0.00412), np.float64(0.00412)] t=477

@@ -1,0 +1,7 @@
+min slack of each step over 20000 random atom systems (all must be >= -1e-9):
+   (a) -1.404e-10
+   (b) -1.332e-15
+   (c) -8.882e-16
+   (d) -1.188e-07
+   (e) -1.776e-15
+monotonicity violations (Lambda decreasing in q, increasing in P): 0

@@ -1,0 +1,66 @@
+p=5: 3 vertices
+  s=1.05: Gamma=1.2074204 K*=[2] delta_min=0.42772 eps_tol=0.747395 worst S=(1,)
+  s=1.2: Gamma=1.0881882 K*=[2] delta_min=0.365015 eps_tol=0.574841 worst S=(1,)
+  s=1.35: Gamma=0.98073012 K*=[2] delta_min=0.29544 eps_tol=0.419326 worst S=(1,)
+  s=1.5: Gamma=0.88388348 K*=[2] delta_min=0.218242 eps_tol=0.279168 worst S=(1,)
+  s=1.7: Gamma=0.76946526 K*=[2] delta_min=0.101996 eps_tol=0.113581 worst S=(1,)
+  s=1.85: Gamma=0.69348092 K*=[2] delta_min=0.00360199 eps_tol=0.00361502 worst S=(1,)
+  s=1.86: Gamma=0.69098301 K*=[1] delta_min=+inf eps_tol=+inf worst S=None
+  s=2.0: Gamma=0.69098301 K*=[1] delta_min=+inf eps_tol=+inf worst S=None
+  s=2.3: Gamma=0.69098301 K*=[1] delta_min=+inf eps_tol=+inf worst S=None
+  s=2.5: Gamma=0.69098301 K*=[1] delta_min=+inf eps_tol=+inf worst S=None
+p=7: 7 vertices
+  s=1.05: Gamma=1.1043093 K*=[3] delta_min=0.193171 eps_tol=0.23942 worst S=(1, 3)
+  s=1.2: Gamma=0.93653182 K*=[3] delta_min=0.13829 eps_tol=0.160484 worst S=(1, 3)
+  s=1.35: Gamma=0.79424475 K*=[3] delta_min=0.080669 eps_tol=0.0877475 worst S=(1, 2)
+  s=1.5: Gamma=0.67357531 K*=[3] delta_min=0.0199446 eps_tol=0.0203505 worst S=(2, 3)
+  s=1.7: Gamma=0.57661025 K*=[2] delta_min=0.347028 eps_tol=0.53146 worst S=(1,)
+  s=1.85: Gamma=0.520731 K*=[2] delta_min=0.276958 eps_tol=0.383046 worst S=(1,)
+  s=1.86: Gamma=0.51719838 K*=[2] delta_min=0.27202 eps_tol=0.373664 worst S=(1,)
+  s=2.0: Gamma=0.47012486 K*=[2] delta_min=0.199127 eps_tol=0.248638 worst S=(1,)
+  s=2.3: Gamma=0.38293085 K*=[2] delta_min=0.0167671 eps_tol=0.0170531 worst S=(1,)
+  s=2.5: Gamma=0.3765102 K*=[1] delta_min=+inf eps_tol=+inf worst S=None
+p=11: 31 vertices
+  s=1.05: Gamma=1.0149489 K*=[5] delta_min=0.0914293 eps_tol=0.10063 worst S=(1, 2, 3, 4)
+  s=1.2: Gamma=0.79725763 K*=[5] delta_min=0.0475996 eps_tol=0.0499785 worst S=(1, 2, 3, 4)
+  s=1.35: Gamma=0.62777675 K*=[3] delta_min=0.0546511 eps_tol=0.0578105 worst S=(1, 3)
+  s=1.5: Gamma=0.53572593 K*=[2] delta_min=0.285536 eps_tol=0.399651 worst S=(2, 4)
+  s=1.7: Gamma=0.46717467 K*=[2] delta_min=0.273461 eps_tol=0.376388 worst S=(2, 4)
+  s=1.85: Gamma=0.42148016 K*=[2] delta_min=0.265867 eps_tol=0.362151 worst S=(2, 4)
+  s=1.86: Gamma=0.41859536 K*=[2] delta_min=0.265398 eps_tol=0.361282 worst S=(2, 4)
+  s=2.0: Gamma=0.38019599 K*=[2] delta_min=0.259265 eps_tol=0.350011 worst S=(2, 4)
+  s=2.3: Gamma=0.3092562 K*=[2] delta_min=0.248368 eps_tol=0.330438 worst S=(2, 4)
+  s=2.5: Gamma=0.26942838 K*=[2] delta_min=0.242419 eps_tol=0.319991 worst S=(2, 4)
+p=13: 87 vertices
+  s=1.05: Gamma=0.99050015 K*=[6] delta_min=0.0717209 eps_tol=0.0772622 worst S=(1, 2, 3, 4, 5)
+  s=1.2: Gamma=0.75706271 K*=[6] delta_min=0.0299388 eps_tol=0.0308628 worst S=(1, 2, 3, 4, 6)
+  s=1.35: Gamma=0.5952765 K*=[4] delta_min=0.0150337 eps_tol=0.0152631 worst S=(1, 2, 5)
+  s=1.5: Gamma=0.49777207 K*=[3] delta_min=0.0685508 eps_tol=0.0735958 worst S=(4, 6)
+  s=1.7: Gamma=0.40363026 K*=[2] delta_min=0.0845806 eps_tol=0.0923955 worst S=(1, 2, 4)
+  s=1.85: Gamma=0.36377196 K*=[2] delta_min=0.0919152 eps_tol=0.101219 worst S=(2, 6)
+  s=1.86: Gamma=0.3612592 K*=[2] delta_min=0.0918389 eps_tol=0.101126 worst S=(2, 6)
+  s=2.0: Gamma=0.32784964 K*=[2] delta_min=0.0908488 eps_tol=0.0999271 worst S=(2, 6)
+  s=2.3: Gamma=0.26629666 K*=[2] delta_min=0.0891281 eps_tol=0.0978492 worst S=(2, 6)
+  s=2.5: Gamma=0.23182471 K*=[2] delta_min=0.0882079 eps_tol=0.0967412 worst S=(2, 6)
+p=5: transition K* [2] -> [1] at s_c = 1.8552059610743
+p=7: transition K* [3] -> [2] at s_c = 1.54753765648836
+p=7: transition K* [2] -> [1] at s_c = 2.32468129582589
+p=11: transition K* [5] -> [3] at s_c = 1.34539229892891
+p=11: transition K* [3] -> [2] at s_c = 1.48952159248395
+p=13: transition K* [6] -> [4] at s_c = 1.28501939862765
+p=13: transition K* [4] -> [3] at s_c = 1.40673265123114
+p=13: transition K* [3] -> [2] at s_c = 1.67762622728857
+p=5,n=2 dense threshold s_dense = 1.33083882681   (REPORT/Note quote 1.331 / 1.3309)
+   s=1.330837827: 3^(s-1) * kappa_min / Gamma_s = 0.999998208242  (<1 needed for dense)
+   s=1.3309: 3^(s-1) * kappa_min / Gamma_s = 1.00010961366  (<1 needed for dense)
+   s=1.331: 3^(s-1) * kappa_min / Gamma_s = 1.0002888253  (<1 needed for dense)
+(5,2) s=1.3308388: Gamma_s/kappa_min = 1.438302503
+(5,2) s=1.4: Gamma_s/kappa_min = 1.370978514
+(5,2) s=1.5: Gamma_s/kappa_min = 1.279168184
+(7,2) b=2 s=1.5: Gamma/Gamma^(12)=1.02035 Gamma/Gamma^(13)=1.02035 Gamma/Gamma^(23)=1.02035  dense needs 3^(s-1) < min ratio: 3^(s-1)=1.73205
+(7,2) b=2.2 s=1.36364: Gamma/Gamma^(12)=1.08141 Gamma/Gamma^(13)=1.08141 Gamma/Gamma^(23)=1.08141  dense needs 3^(s-1) < min ratio: 3^(s-1)=1.49107
+(7,2) b=2.5 s=1.2: Gamma/Gamma^(12)=1.16048 Gamma/Gamma^(13)=1.16048 Gamma/Gamma^(23)=1.16048  dense needs 3^(s-1) < min ratio: 3^(s-1)=1.24573
+(7,2) b=2.6 s=1.15385: Gamma/Gamma^(12)=1.18406 Gamma/Gamma^(13)=1.18406 Gamma/Gamma^(23)=1.18406  dense needs 3^(s-1) < min ratio: 3^(s-1)=1.18414
+(7,2) b=2.8 s=1.07143: Gamma/Gamma^(12)=1.22772 Gamma/Gamma^(13)=1.22772 Gamma/Gamma^(23)=1.22772  dense needs 3^(s-1) < min ratio: 3^(s-1)=1.08163
+p=5: uniform vertex strictly optimal on [1,1.5] (monotone interval bound, 3000 cells): True, min ratio 1.2791682
+p=7: uniform vertex strictly optimal on [1,1.5] (monotone interval bound, 3000 cells): True, min ratio 1.0202359

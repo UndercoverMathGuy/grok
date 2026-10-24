@@ -1,0 +1,26 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+/home/user/grok/heracles/conjecture20/unify/gibbs/joint_l2.py:19: RuntimeWarning: overflow encountered in square
+  cabs, carg, kap = parts(d); E = (mod**2*kap).sum()
+/home/user/grok/heracles/conjecture20/unify/gibbs/joint_l2.py:34: RuntimeWarning: overflow encountered in scalar multiply
+  r = A*Ap/E; dA = [Ap/E, A/E]
+/home/user/grok/heracles/conjecture20/unify/gibbs/joint_l2.py:34: RuntimeWarning: invalid value encountered in scalar divide
+  r = A*Ap/E; dA = [Ap/E, A/E]
+/home/user/grok/heracles/conjecture20/unify/gibbs/joint_l2.py:18: RuntimeWarning: overflow encountered in exp
+  mod = np.exp(z[:NT*K]).reshape(NT, K); ang = z[NT*K:].reshape(NT, K)
+/home/user/grok/.venv/lib/python3.12/site-packages/numpy/_core/_methods.py:49: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims, initial, where)
+/home/user/grok/heracles/conjecture20/unify/gibbs/joint_l2.py:24: RuntimeWarning: invalid value encountered in add
+  a = ph[t] + ang[t] + sgn*carg; args.append(a); Zv += (np.cos(a)*(mod[t]*cabs)).sum(1)
+p=17 n=2 d=1 [prod]: min = 1.1350   (prod 1.1350, mean^2 1.1487)
+/home/user/grok/heracles/conjecture20/unify/gibbs/joint_l2.py:16: RuntimeWarning: invalid value encountered in subtract
+  m = v.min(); w = np.exp(-tau*(v - m)); return m - np.log(w.mean())/tau, w/w.sum()
+p=17 n=2 d=2 [prod]: min = 1.2753   (prod 1.2753, mean^2 1.3689)
+p=17 n=2 d=3 [prod]: min = 1.3800   (prod 1.3800, mean^2 1.3849)
+p=17 n=2 d=4 [prod]: min = 1.0028   (prod 1.0028, mean^2 1.3920)
+p=17 n=2 d=5 [prod]: min = 1.4272   (prod 1.4272, mean^2 1.4274)
+p=17 n=2 d=6 [prod]: min = 1.3864   (prod 1.3864, mean^2 1.3875)
+/home/user/grok/heracles/conjecture20/unify/gibbs/joint_l2.py:37: RuntimeWarning: overflow encountered in multiply
+  gm = dA[0]*grads[0][0] + dA[1]*grads[1][0] - r*(2*mod*kap)/E
+p=17 n=2 d=7 [prod]: min = 1.4030   (prod 1.4030, mean^2 1.4031)
+p=17 n=2 d=8 [prod]: min = 1.2580   (prod 1.2580, mean^2 1.2580)
+p=17 n=2 [prod] overall min 1.0028

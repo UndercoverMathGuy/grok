@@ -1,0 +1,15 @@
+full-legendre  |S|=  30 c*(grad)=0.6493 (supp 30, cheap 30)  pair/sharp=0.5420 (0.6186 at c=0.289)  cap/sharp=0.5201 (0.6285 at c=0.289)  [4s]
+full-rand      |S|=  30 c*(grad)=0.6837 (supp 30, cheap 30)  pair/sharp=0.5197 (0.5963 at c=0.289)  cap/sharp=0.4888 (0.5972 at c=0.289)  [11s]
+rand4L         |S|=  16 c*(grad)=0.7665 (supp 16, cheap 16)  pair/sharp=0.4177 (0.5038 at c=0.289)  cap/sharp=0.3075 (0.4292 at c=0.289)  [16s]
+rand8L         |S|=  30 c*(grad)=0.6824 (supp 30, cheap 30)  pair/sharp=0.5223 (0.5989 at c=0.289)  cap/sharp=0.4815 (0.5899 at c=0.289)  [23s]
+rand16L        |S|=  30 c*(grad)=0.6771 (supp 30, cheap 30)  pair/sharp=0.5136 (0.5902 at c=0.289)  cap/sharp=0.4775 (0.5858 at c=0.289)  [31s]
+ystar+2L       |S|=  13 c*(grad)=0.7316 (supp 13, cheap 13)  pair/sharp=0.4111 (0.5038 at c=0.289)  cap/sharp=0.2571 (0.3889 at c=0.289)  [38s]
+ystar+6L       |S|=  30 c*(grad)=0.6806 (supp 30, cheap 30)  pair/sharp=0.5212 (0.5972 at c=0.289)  cap/sharp=0.4928 (0.5998 at c=0.289)  [48s]
+AP8L-chirp     |S|=  29 c*(grad)=0.7102 (supp 29, cheap 29)  pair/sharp=0.4984 (0.5738 at c=0.289)  cap/sharp=0.4631 (0.5698 at c=0.289)  [56s]
+polish full-legendre: 0.6493 -> 0.6493  [173s]
+polish rand16L: 0.6771 -> 0.6771  [182s]
+polish ystar+6L: 0.6806 -> 0.6806  [192s]
+== p=61 Gamma=0.312028
+  cstar        0.6493 from full-legendre: {'ratio': np.float64(0.5201), 'cov': np.float64(0.5949), 'bonus': np.float64(0.1891), 'pen': np.float64(0.2638), 'covmin': np.float64(0.5949), 'delta': 23, 'supp': 30, 'cheap': 30}  ratio@0.289=0.6285
+  forced_cap   0.5201 from full-legendre: {'ratio': np.float64(0.5201), 'cov': np.float64(0.5949), 'bonus': np.float64(0.1891), 'pen': np.float64(0.2638), 'covmin': np.float64(0.5949), 'delta': 1, 'supp': 30, 'cheap': 30}  ratio@0.289=0.6285
+  forced_pair  0.5420 from full-legendre: {'ratio': np.float64(0.542), 'cov': np.float64(0.5949), 'bonus': np.float64(0.1337), 'pen': np.float64(0.1866), 'covmin': np.float64(0.5949), 'delta': 1, 'supp': 30, 'cheap': 30}  ratio@0.289=0.6186

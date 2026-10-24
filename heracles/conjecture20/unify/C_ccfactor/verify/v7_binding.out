@@ -1,0 +1,30 @@
+p= 5 s=1.05: K*=2 support=[np.int64(1), np.int64(2)] binding(1..F)=[np.int64(1), np.int64(2)] antipodal-at-every-binding=True indiv=True joint=False
+p= 5 s=1.50: K*=2 support=[np.int64(1), np.int64(2)] binding(1..F)=[np.int64(1), np.int64(2)] antipodal-at-every-binding=True indiv=True joint=False
+p= 5 s=2.00: K*=1 support=[np.int64(1)] binding(1..F)=[np.int64(1)] antipodal-at-every-binding=False indiv=None joint=None
+p= 5 s=3.00: K*=1 support=[np.int64(1)] binding(1..F)=[np.int64(1)] antipodal-at-every-binding=False indiv=None joint=None
+p= 5 s=4.00: K*=1 support=[np.int64(1)] binding(1..F)=[np.int64(1)] antipodal-at-every-binding=False indiv=None joint=None
+p= 7 s=1.05: K*=3 support=[np.int64(1), np.int64(2), np.int64(3)] binding(1..F)=[np.int64(1), np.int64(2), np.int64(3)] antipodal-at-every-binding=True indiv=True joint=False
+p= 7 s=1.50: K*=3 support=[np.int64(1), np.int64(2), np.int64(3)] binding(1..F)=[np.int64(1), np.int64(2), np.int64(3)] antipodal-at-every-binding=True indiv=True joint=False
+p= 7 s=2.00: K*=2 support=[np.int64(1), np.int64(3)] binding(1..F)=[np.int64(1), np.int64(2)] antipodal-at-every-binding=True indiv=True joint=False
+p= 7 s=3.00: K*=1 support=[np.int64(1)] binding(1..F)=[np.int64(1)] antipodal-at-every-binding=False indiv=None joint=None
+p= 7 s=4.00: K*=1 support=[np.int64(1)] binding(1..F)=[np.int64(1)] antipodal-at-every-binding=False indiv=None joint=None
+p=11 s=1.05: K*=5 support=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5)] binding(1..F)=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5)] antipodal-at-every-binding=True indiv=True joint=False
+p=11 s=1.50: K*=2 support=[np.int64(1), np.int64(4)] binding(1..F)=[np.int64(1), np.int64(3)] antipodal-at-every-binding=True indiv=True joint=True
+p=11 s=2.00: K*=2 support=[np.int64(1), np.int64(4)] binding(1..F)=[np.int64(1), np.int64(3)] antipodal-at-every-binding=True indiv=True joint=True
+p=11 s=3.00: K*=2 support=[np.int64(1), np.int64(4)] binding(1..F)=[np.int64(1), np.int64(3)] antipodal-at-every-binding=True indiv=True joint=True
+p=11 s=4.00: K*=1 support=[np.int64(1)] binding(1..F)=[np.int64(1)] antipodal-at-every-binding=False indiv=None joint=None
+p=13 s=1.05: K*=6 support=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)] binding(1..F)=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)] antipodal-at-every-binding=True indiv=True joint=False
+p=13 s=1.50: K*=3 support=[np.int64(1), np.int64(2), np.int64(5)] binding(1..F)=[np.int64(1), np.int64(2), np.int64(5)] antipodal-at-every-binding=True indiv=True joint=False
+p=13 s=2.00: K*=2 support=[np.int64(4), np.int64(6)] binding(1..F)=[np.int64(4), np.int64(6)] antipodal-at-every-binding=False indiv=True joint=True
+p=13 s=3.00: K*=2 support=[np.int64(4), np.int64(6)] binding(1..F)=[np.int64(4), np.int64(6)] antipodal-at-every-binding=False indiv=True joint=True
+p=13 s=4.00: K*=1 support=[np.int64(1)] binding(1..F)=[np.int64(1)] antipodal-at-every-binding=False indiv=None joint=None
+p=17 s=1.05: K*=8 support=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8)] binding(1..F)=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8)] antipodal-at-every-binding=True indiv=True joint=False
+p=17 s=1.50: K*=3 support=[np.int64(2), np.int64(3), np.int64(8)] binding(1..F)=[np.int64(1), np.int64(6), np.int64(8)] antipodal-at-every-binding=True indiv=True joint=True
+p=17 s=2.00: K*=3 support=[np.int64(2), np.int64(3), np.int64(8)] binding(1..F)=[np.int64(1), np.int64(6), np.int64(8)] antipodal-at-every-binding=True indiv=True joint=True
+p=17 s=3.00: K*=2 support=[np.int64(1), np.int64(4)] binding(1..F)=[np.int64(1), np.int64(4)] antipodal-at-every-binding=False indiv=True joint=True
+p=17 s=4.00: K*=1 support=[np.int64(1)] binding(1..F)=[np.int64(1)] antipodal-at-every-binding=False indiv=None joint=None
+p=19 s=1.05: K*=9 support=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9)] binding(1..F)=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8), np.int64(9)] antipodal-at-every-binding=True indiv=True joint=False
+p=19 s=1.50: K*=3 support=[np.int64(1), np.int64(3), np.int64(7)] binding(1..F)=[np.int64(1), np.int64(3), np.int64(5)] antipodal-at-every-binding=True indiv=True joint=True
+p=19 s=2.00: K*=3 support=[np.int64(1), np.int64(3), np.int64(7)] binding(1..F)=[np.int64(1), np.int64(3), np.int64(5)] antipodal-at-every-binding=True indiv=True joint=True
+p=19 s=3.00: K*=2 support=[np.int64(1), np.int64(5)] binding(1..F)=[np.int64(1), np.int64(4)] antipodal-at-every-binding=False indiv=True joint=True
+p=19 s=4.00: K*=2 support=[np.int64(1), np.int64(5)] binding(1..F)=[np.int64(1), np.int64(4)] antipodal-at-every-binding=False indiv=True joint=True

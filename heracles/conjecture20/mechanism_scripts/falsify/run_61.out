@@ -1,0 +1,36 @@
+ystar          |S|=  5  c*=1.0798  cap/sh=-0.7191  cap/A=-0.4672  pair/sh=-0.1345  pair/A=-0.0038  free/sh=0.9989(cheap 0)  free/A=0.9985(cheap 5)  [5s]
+ystar          |S|=  5  c*=1.0798  cap/sh=-0.7030  cap/A=-0.5619  pair/sh=-0.1345  pair/A=-0.0038  free/sh=0.9989(cheap 0)  free/A=0.9985(cheap 5)  [9s]
+ystar+4        |S|=  9  c*=0.8947  cap/sh=-0.0151  cap/A=0.0589  pair/sh=0.1230  pair/A=0.2135  free/sh=0.8975(cheap 0)  free/A=0.9998(cheap 0)  [12s]
+ystar+12       |S|= 17  c*=0.7312  cap/sh=0.3372  cap/A=0.4613  pair/sh=0.4306  pair/A=0.5188  free/sh=0.9490(cheap 0)  free/A=0.9490(cheap 0)  [16s]
+full-legendre  |S|= 30  c*=0.6493  cap/sh=0.5201  cap/A=0.6285  pair/sh=0.5420  pair/A=0.6186  free/sh=0.5946(cheap 30)  free/A=0.6285(cheap 30)  [17s]
+full-rand      |S|= 30  c*=0.6800  cap/sh=0.4894  cap/A=0.5977  pair/sh=0.5203  pair/A=0.5969  free/sh=0.5943(cheap 30)  free/A=0.6019(cheap 30)  [23s]
+rand1.5L       |S|=  6  c*=1.2659  cap/sh=-0.4727  cap/A=-0.3307  pair/sh=-0.0698  pair/A=0.0342  free/sh=0.7182(cheap 6)  free/A=0.7180(cheap 6)  [25s]
+rand1.5L       |S|=  6  c*=1.1426  cap/sh=-0.4239  cap/A=-0.2953  pair/sh=-0.0529  pair/A=0.0721  free/sh=0.7253(cheap 6)  free/A=0.7250(cheap 6)  [28s]
+rand2.5L       |S|= 10  c*=0.8705  cap/sh=0.0232  cap/A=0.1857  pair/sh=0.2716  pair/A=0.3737  free/sh=0.7510(cheap 10)  free/A=0.7509(cheap 10)  [32s]
+rand2.5L       |S|= 10  c*=0.8423  cap/sh=0.0905  cap/A=0.2467  pair/sh=0.2720  pair/A=0.4131  free/sh=0.7556(cheap 10)  free/A=0.7554(cheap 10)  [35s]
+rand4L         |S|= 16  c*=0.8085  cap/sh=0.2710  cap/A=0.4107  pair/sh=0.3923  pair/A=0.4883  free/sh=0.6241(cheap 16)  free/A=0.6240(cheap 15)  [39s]
+rand4L         |S|= 16  c*=0.8017  cap/sh=0.2735  cap/A=0.4034  pair/sh=0.3942  pair/A=0.4798  free/sh=0.5942(cheap 16)  free/A=0.5942(cheap 16)  [44s]
+rand6L         |S|= 25  c*=0.7390  cap/sh=0.4264  cap/A=0.5322  pair/sh=0.4795  pair/A=0.5607  free/sh=0.5855(cheap 25)  free/A=0.5902(cheap 25)  [49s]
+rand6L         |S|= 25  c*=0.7701  cap/sh=0.4010  cap/A=0.5164  pair/sh=0.4640  pair/A=0.5390  free/sh=0.5405(cheap 25)  free/A=0.5565(cheap 25)  [55s]
+AP4L-chirp     |S|= 16  c*=1.0840  cap/sh=0.2732  cap/A=0.3745  pair/sh=0.3830  pair/A=0.4694  free/sh=0.4653(cheap 16)  free/A=0.4652(cheap 16)  [60s]
+AP4L-chirp     |S|= 16  c*=1.3160  cap/sh=0.2239  cap/A=0.3551  pair/sh=0.3681  pair/A=0.4626  free/sh=0.4023(cheap 16)  free/A=0.4022(cheap 16)  [65s]
+Bohr2          |S|= 19  c*=0.7851  cap/sh=0.3541  cap/A=0.4634  pair/sh=0.4327  pair/A=0.5243  free/sh=0.5913(cheap 19)  free/A=0.5914(cheap 19)  [70s]
+Bohr2          |S|= 19  c*=0.8023  cap/sh=0.3444  cap/A=0.4612  pair/sh=0.4359  pair/A=0.5176  free/sh=0.5680(cheap 19)  free/A=0.5680(cheap 19)  [74s]
+Bohr3          |S|= 16  c*=0.8046  cap/sh=0.2776  cap/A=0.4008  pair/sh=0.3927  pair/A=0.4816  free/sh=0.6327(cheap 16)  free/A=0.6327(cheap 16)  [78s]
+Bohr3          |S|= 14  c*=0.9105  cap/sh=0.2042  cap/A=0.3538  pair/sh=0.3624  pair/A=0.4342  free/sh=0.5674(cheap 14)  free/A=0.5673(cheap 14)  [83s]
+coset4         |S|=  2  c*=4.4655  cap/sh=-2.4034  cap/A=-2.1504  pair/sh=-1.3055  pair/A=-1.1367  free/sh=0.3561(cheap 0)  free/A=0.3559(cheap 0)  [83s]
+coset4         |S|=  2  c*=4.4655  cap/sh=-2.4034  cap/A=-2.1504  pair/sh=-1.3055  pair/A=-1.1367  free/sh=0.3561(cheap 0)  free/A=0.3559(cheap 0)  [84s]
+coset5         |S|=  5  c*=1.1297  cap/sh=-0.8959  cap/A=-0.5019  pair/sh=-0.1386  pair/A=-0.0171  free/sh=0.9430(cheap 0)  free/A=0.9427(cheap 5)  [84s]
+coset5         |S|=  5  c*=1.1281  cap/sh=-0.6781  cap/A=-0.4135  pair/sh=-0.1157  pair/A=0.0115  free/sh=0.9430(cheap 0)  free/A=0.9427(cheap 5)  [85s]
+coset6         |S|=  3  c*=3.2205  cap/sh=-1.4759  cap/A=-1.2416  pair/sh=-0.6669  pair/A=-0.6182  free/sh=0.3777(cheap 0)  free/A=0.3775(cheap 0)  [86s]
+coset6         |S|=  3  c*=3.2205  cap/sh=-1.4759  cap/A=-1.2416  pair/sh=-0.6669  pair/A=-0.6182  free/sh=0.3777(cheap 0)  free/A=0.3775(cheap 0)  [86s]
+coset10        |S|=  5  c*=1.1281  cap/sh=-0.6730  cap/A=-0.4416  pair/sh=-0.1157  pair/A=0.0115  free/sh=0.9430(cheap 0)  free/A=0.9427(cheap 5)  [87s]
+coset10        |S|=  5  c*=1.1281  cap/sh=-0.6730  cap/A=-0.4416  pair/sh=-0.1157  pair/A=0.0115  free/sh=0.9430(cheap 0)  free/A=0.9427(cheap 5)  [89s]
+== p=61 Gamma=0.312028  SUMMARY
+  cstar            0.6493  from full-legendre  {'ratio': np.float64(0.5201), 'cov': np.float64(0.5949), 'bonus': np.float64(0.1891), 'pen': np.float64(0.2638), 'covmin': np.float64(0.5949), 'delta': 7, 'supp': 30, 'cheap': 30}
+  forced_cap_A     0.6285  from full-legendre  {'ratio': np.float64(0.6285), 'cov': np.float64(0.5949), 'bonus': np.float64(0.2974), 'pen': np.float64(0.2638), 'covmin': np.float64(0.5949), 'delta': 5, 'supp': 30, 'cheap': 30}
+  forced_cap_sh    0.5201  from full-legendre  {'ratio': np.float64(0.5201), 'cov': np.float64(0.5949), 'bonus': np.float64(0.1891), 'pen': np.float64(0.2638), 'covmin': np.float64(0.5949), 'delta': 1, 'supp': 30, 'cheap': 30}
+  forced_pair_A    0.6186  from full-legendre  {'ratio': np.float64(0.6186), 'cov': np.float64(0.5949), 'bonus': np.float64(0.2103), 'pen': np.float64(0.1866), 'covmin': np.float64(0.5949), 'delta': 1, 'supp': 30, 'cheap': 30}
+  forced_pair_sh   0.5420  from full-legendre  {'ratio': np.float64(0.542), 'cov': np.float64(0.5949), 'bonus': np.float64(0.1337), 'pen': np.float64(0.1866), 'covmin': np.float64(0.5949), 'delta': 1, 'supp': 30, 'cheap': 30}
+  free_A           0.9998  from ystar+4        {'ratio': np.float64(0.9998), 'cov': np.float64(0.9998), 'bonus': np.float64(0.0), 'pen': np.float64(0.0), 'covmin': np.float64(0.9998), 'delta': 20, 'supp': 5, 'cheap': 0}
+  free_sh          0.9989  from ystar          {'ratio': np.float64(0.9989), 'cov': np.float64(0.9998), 'bonus': np.float64(0.0002), 'pen': np.float64(0.0011), 'covmin': np.float64(0.9998), 'delta': 20, 'supp': 5, 'cheap': 0}

@@ -1,0 +1,9 @@
+51 (network, s) pairs; min cone-L2 slack = 5.561e-03 (>= 0); max gamma/gIF - bound = 1.055e-15 (<= 0); max gamma/gIF - 1 = -2.227e-01 (<= 0)
+aligned class-C single features, (p,n,b,m)=(5,2,2.0,4): best gamma/gamma_IF found = 0.999999 (theorem: <= 1)
+aligned class-C single features, (p,n,b,m)=(5,3,2.0,5): best gamma/gamma_IF found = 0.999998 (theorem: <= 1)
+aligned class-C single features, (p,n,b,m)=(7,3,2.0,5): best gamma/gamma_IF found = 0.999998 (theorem: <= 1)
+aligned class-C single features, (p,n,b,m)=(5,4,2.0,6): best gamma/gamma_IF found = 0.999994 (theorem: <= 1)
+aligned class-C single features, (p,n,b,m)=(7,2,2.5,3): best gamma/gamma_IF found = 1.000000 (theorem: <= 1)
+k_p = sec(2pi/p)-1: {5: np.float64(2.23607), 7: np.float64(0.60388), 11: np.float64(0.1887), 13: np.float64(0.12936)}  sqrt5 = 2.23607
+elementary lemma: -log(1-u) - sqrt5 u^2 at the interior local min u2=0.662460: 0.104766 (> 0)
+   min over [0,1) on a grid of -log(1-u) - sqrt5 u^2 (excluding u=0 neighbourhood u<1e-3): 0.001003

@@ -1,0 +1,22 @@
+(p,n,b)=(5,2,2): theta_0 = IF block union, gamma/gamma_IF=1.000000, dprog_0=0.0000
+   general         slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 1.00..1.00 | Renyi drop 2.00..2.00 | RD-IF slack 1.00..1.01
+   classC-aligned  slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 1.00..1.00 | Renyi drop 1.99..2.00 | RD-IF slack 1.00..1.01
+/home/user/grok/heracles/conjecture20/unify/C_ccstab/c6_orders.py:50: RuntimeWarning: All-NaN axis encountered
+  (kind, *['%.2f..%.2f' % (np.nanmin(sl[k]), np.nanmax(sl[k])) for k in ['Em', 'dint', 'dprog', 'dH', 'S']]))
+   phase-only      slopes: Em_sig nan..nan | dint 1.00..1.00 | dprog-change nan..nan | Renyi drop nan..nan | RD-IF slack 1.00..1.00
+   mass-only       slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 0.99..1.01 | Renyi drop 2.00..2.00 | RD-IF slack 1.00..1.00
+(p,n,b)=(7,2,2): theta_0 = IF block union, gamma/gamma_IF=1.000000, dprog_0=0.0000
+   general         slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 1.00..1.00 | Renyi drop 2.00..2.00 | RD-IF slack 1.00..1.01
+   classC-aligned  slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 1.00..1.00 | Renyi drop 2.00..2.00 | RD-IF slack 1.00..1.01
+   phase-only      slopes: Em_sig nan..nan | dint 1.00..1.00 | dprog-change nan..nan | Renyi drop nan..nan | RD-IF slack 1.00..1.00
+   mass-only       slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 0.99..1.01 | Renyi drop 2.00..2.00 | RD-IF slack 1.00..1.00
+(p,n,b)=(11,2,2): theta_0 = IF block union, gamma/gamma_IF=1.000000, dprog_0=0.3162
+   general         slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 0.61..0.99 | Renyi drop 0.96..1.01 | RD-IF slack 1.01..1.01
+   classC-aligned  slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 0.99..1.00 | Renyi drop 0.94..1.00 | RD-IF slack 1.00..1.01
+   phase-only      slopes: Em_sig nan..nan | dint 1.00..1.00 | dprog-change nan..nan | Renyi drop nan..nan | RD-IF slack 1.00..1.01
+   mass-only       slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 0.98..1.00 | Renyi drop 0.90..1.04 | RD-IF slack 1.00..1.01
+(p,n,b)=(5,3,2): theta_0 = IF block union, gamma/gamma_IF=1.000000, dprog_0=0.4472
+   general         slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 2.00..2.00 | Renyi drop 1.99..2.00 | RD-IF slack 1.01..1.02
+   classC-aligned  slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 2.00..2.00 | Renyi drop 1.99..2.00 | RD-IF slack 1.01..1.02
+   phase-only      slopes: Em_sig nan..nan | dint 1.00..1.00 | dprog-change nan..nan | Renyi drop nan..nan | RD-IF slack 1.01..1.02
+   mass-only       slopes: Em_sig 2.00..2.00 | dint 1.00..1.00 | dprog-change 2.00..2.00 | Renyi drop 2.00..2.01 | RD-IF slack 1.00..1.02

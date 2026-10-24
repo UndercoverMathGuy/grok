@@ -1,0 +1,5 @@
+p=30011, cover of 120 frequencies: optimised worst-case coverage 0.06576
+  + flat block (antipodal progression)  : worst case 0.9846 x before, block gets 0.050 of the budget
+  + random block                        : worst case 1.0881 x before, block gets 0.400 of the budget
+
+[exited with code 0]

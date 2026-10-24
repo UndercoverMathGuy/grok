@@ -1,0 +1,2 @@
+intermediate bound h <= sum L kappa - sigma psibar: max violation -1.67e-03 (<= 0)
+1500 networks meet the unified closure hypothesis (768 with nonzero skew): max h / sum at kappa(d*) = 0.99570 (<= 1)

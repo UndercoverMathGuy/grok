@@ -1,0 +1,3 @@
+p=7 n=2: |profile - yhat| 3.9e-16 ; |p_Theta - yhat x p1| 8.3e-17 ; Renyi additivity errs (0.4,1,2) 2.2e-16 2.2e-16 0.0e+00
+p=11 n=2: |profile - yhat| 1.7e-16 ; |p_Theta - yhat x p1| 1.4e-17 ; Renyi additivity errs (0.4,1,2) 2.2e-16 4.4e-16 0.0e+00
+p=7 n=3: |profile - yhat| 2.8e-16 ; |p_Theta - yhat x p1| 2.8e-17 ; Renyi additivity errs (0.4,1,2) 0.0e+00 2.2e-16 8.9e-16

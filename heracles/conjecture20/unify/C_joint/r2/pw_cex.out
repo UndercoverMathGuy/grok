@@ -1,0 +1,5 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+(p,n,s)=(17,2,1.5): field err 2.6e-14, atom err 5.6e-16 | PW_C: min_x sum psi = 7.0334999217 > nu^(r-1) sum Q = 6.9886437179  ratio 1.006418 | margin h = -17.0000  gamma/gamma_IF = -2.0524 (Gamma_s exact 0.448341)
+(p,n,s)=(19,2,1.5): field err 2.3e-14, atom err 6.7e-16 | PW_C: min_x sum psi = 7.9533113137 > nu^(r-1) sum Q = 7.8622241826  ratio 1.011585 | margin h = -19.0000  gamma/gamma_IF = -1.9492 (Gamma_s exact 0.442149)
+(p,n,s)=(19,3,2.0): field err 3.8e-14, atom err 6.7e-16 | PW_C: min_x sum psi = 7.8556438482 > nu^(r-1) sum Q = 7.7942286341  ratio 1.007880 | margin h = -19.0000  gamma/gamma_IF = -1.2225 (Gamma_s exact 0.255824)
+(p,n,s)=(23,2,1.5): field err 4.8e-14, atom err 1.0e-15 | PW_C: min_x sum psi = 9.7932685753 > nu^(r-1) sum Q = 9.6093851121  ratio 1.019136 | margin h = -23.0000  gamma/gamma_IF = -1.9162 (Gamma_s exact 0.402933)

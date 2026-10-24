@@ -1,0 +1,18 @@
+/usr/local/lib/python3.13/dist-packages/cma/s.py:17: UserWarning: Could not import matplotlib.pyplot, therefore ``cma.plot()`` etc. is not available
+  _warnings.warn('Could not import matplotlib.pyplot, therefore'
+p=29 Gamma(S)=0.38992 uniform-F ratio=0.742  sup ratio=0.9396  #dirs with gain>0 at argmax=14  support size=4
+p=31 Gamma(S)=0.37009 uniform-F ratio=0.764  sup ratio=0.9968  #dirs with gain>0 at argmax=15  support size=4
+p=37 Gamma(S)=0.35279 uniform-F ratio=0.753  sup ratio=0.9682  #dirs with gain>0 at argmax=18  support size=5
+p=41 Gamma(S)=0.34028 uniform-F ratio=0.753  sup ratio=0.9935  #dirs with gain>0 at argmax=20  support size=6
+p=43 Gamma(S)=0.34314 uniform-F ratio=0.733  sup ratio=0.9579  #dirs with gain>0 at argmax=21  support size=4
+p=47 Gamma(S)=0.32988 uniform-F ratio=0.738  sup ratio=0.9658  #dirs with gain>0 at argmax=23  support size=6
+p=53 Gamma(S)=0.32456 uniform-F ratio=0.717  sup ratio=0.9367  #dirs with gain>0 at argmax=26  support size=7
+p=59 Gamma(S)=0.31305 uniform-F ratio=0.713  sup ratio=0.9551  #dirs with gain>0 at argmax=29  support size=7
+p=61 Gamma(S)=0.31203 uniform-F ratio=0.706  sup ratio=0.9691  #dirs with gain>0 at argmax=30  support size=6
+p=67 Gamma(S)=0.30225 uniform-F ratio=0.702  sup ratio=0.9797  #dirs with gain>0 at argmax=33  support size=8
+p=71 Gamma(S)=0.29893 uniform-F ratio=0.694  sup ratio=0.9419  #dirs with gain>0 at argmax=35  support size=7
+p=73 Gamma(S)=0.29958 uniform-F ratio=0.684  sup ratio=0.9347  #dirs with gain>0 at argmax=36  support size=8
+p=79 Gamma(S)=0.30053 uniform-F ratio=0.661  sup ratio=0.9185  #dirs with gain>0 at argmax=39  support size=8
+p=83 Gamma(S)=0.28792 uniform-F ratio=0.676  sup ratio=0.9370  #dirs with gain>0 at argmax=41  support size=10
+p=89 Gamma(S)=0.28242 uniform-F ratio=0.670  sup ratio=0.9689  #dirs with gain>0 at argmax=44  support size=6
+p=97 Gamma(S)=0.27820 uniform-F ratio=0.656  sup ratio=0.9743  #dirs with gain>0 at argmax=48  support size=7

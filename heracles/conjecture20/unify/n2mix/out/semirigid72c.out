@@ -1,0 +1,4 @@
+s=1.3 ledger=fam NG=9: grid sup 1.07152 at (tau,x1,x2)=(np.float64(0.562), np.float64(1.0), np.float64(1.0))  [213s]
+s=1.5 ledger=blk NG=9: grid sup 1.46667 at (tau,x1,x2)=(np.float64(0.562), np.float64(1.0), np.float64(1.0))  [222s]
+s=1.3 ledger=blk NG=9: grid sup 1.07152 at (tau,x1,x2)=(np.float64(0.562), np.float64(1.0), np.float64(1.0))  [223s]
+s=1.4 ledger=blk NG=9: grid sup 1.25412 at (tau,x1,x2)=(np.float64(0.562), np.float64(1.0), np.float64(1.0))  [225s]

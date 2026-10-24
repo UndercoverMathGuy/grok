@@ -1,0 +1,10 @@
+p=11 S=[np.int64(1), np.int64(3)] cheap l=1: best margin/IF = 0.4111  q=[0.129 0.871] |mu|=[0.0772] |nu|=[0.0601]
+p=11 S=[np.int64(1), np.int64(3)] cheap l=3: best margin/IF = 0.4700  q=[0.777 0.223] |mu|=[0.0621] |nu|=[0.096]
+p=13 S=[np.int64(2), np.int64(3), np.int64(6)] cheap l=2: best margin/IF = 0.6063  q=[0.    0.236 0.764] |mu|=[0. 0.] |nu|=[0. 0.]
+p=13 S=[np.int64(2), np.int64(3), np.int64(6)] cheap l=3: best margin/IF = 0.8428  q=[0.42 0.   0.58] |mu|=[0. 0.] |nu|=[0. 0.]
+p=13 S=[np.int64(2), np.int64(3), np.int64(6)] cheap l=6: best margin/IF = 0.9314  q=[0.5 0.5 0. ] |mu|=[0. 0.] |nu|=[0. 0.]
+p=17 S=[np.int64(3), np.int64(4), np.int64(5)] cheap l=3: best margin/IF = 0.7241  q=[0.    0.317 0.683] |mu|=[0. 0.] |nu|=[0. 0.]
+p=17 S=[np.int64(3), np.int64(4), np.int64(5)] cheap l=4: best margin/IF = 0.7691  q=[0.5 0.  0.5] |mu|=[0. 0.] |nu|=[0. 0.]
+p=17 S=[np.int64(3), np.int64(4), np.int64(5)] cheap l=5: best margin/IF = 0.7396  q=[0.38 0.62 0.  ] |mu|=[0. 0.] |nu|=[0. 0.]
+
+[exited with code 0]

@@ -1,0 +1,12 @@
+(p,n,b)=(3,2,2.0) width 3 gamma=2.268046e-02 KKT LP resid 1.0e-08; balance err 2.4e-09; T_q(omega)=h w err 1.4e-09; singular resid 2.3e-08; law err 1.4e-09; identity 6.8e-11
+    tau=4.082483e-01  max t/tau=0.5000  tau(x-unif)=2.041241e-01 vs formula 2.041241e-01 (rel 2.2e-16); low<=tau: True; tau<=up: True; m <= (tau/nu^{nu/2}gamma)^a: 3 <= 12.00
+(p,n,b)=(3,2,2.6) width 3 gamma=3.317487e-02 KKT LP resid 2.8e-09; balance err 2.7e-11; T_q(omega)=h w err 1.6e-09; singular resid 4.4e-09; law err 1.6e-09; identity -4.9e-10
+    tau=4.082483e-01  max t/tau=0.5000  tau(x-unif)=2.041241e-01 vs formula 2.041241e-01 (rel 2.2e-16); low<=tau: True; tau<=up: True; m <= (tau/nu^{nu/2}gamma)^a: 3 <= 271.53
+(p,n,b)=(3,3,2.0) width 4 gamma=1.302083e-03 KKT LP resid 3.3e-08; balance err 2.7e-08; T_q(omega)=h w err 2.5e-08; singular resid 6.5e-08; law err 2.5e-08; identity 6.5e-09
+    tau=1.459511e-01  max t/tau=0.5710  tau(x-unif)=8.333333e-02 vs formula 8.333333e-02 (rel 4.4e-16); low<=tau: True; tau<=up: True; m <= (tau/nu^{nu/2}gamma)^a: 4 <= 7.01
+(p,n,b)=(5,2,2.3) width 6 gamma=8.819206e-03 KKT LP resid 6.0e-08; balance err 1.8e-09; T_q(omega)=h w err 3.3e-08; singular resid 1.4e-07; law err 3.3e-08; identity -4.0e-14
+    tau=1.097788e-01  max t/tau=0.7201  tau(x-unif)=7.905694e-02 vs formula 7.905694e-02 (rel -2.2e-16); low<=tau: True; tau<=up: True; m <= (tau/nu^{nu/2}gamma)^a: 6 <= 17.65
+(p,n,b)=(5,2,2.0) width 6 gamma=6.211300e-03 KKT LP resid 1.8e-06; balance err 7.3e-07; T_q(omega)=h w err 8.7e-07; singular resid 4.5e-06; law err 8.7e-07; identity -1.2e-13
+    tau=1.063083e-01  max t/tau=0.7437  tau(x-unif)=7.905695e-02 vs formula 7.905695e-02 (rel 0.0e+00); low<=tau: True; tau<=up: True; m <= (tau/nu^{nu/2}gamma)^a: 6 <= 10.85
+(p,n,b)=(7,2,2.5) width 6 gamma=4.760092e-03 KKT LP resid 2.6e-07; balance err 1.7e-07; T_q(omega)=h w err 1.1e-07; singular resid 4.0e-07; law err 1.1e-07; identity -4.7e-13
+    tau=8.216303e-02  max t/tau=0.4551  tau(x-unif)=6.233402e-02 vs formula 6.233402e-02 (rel 0.0e+00); low<=tau: True; tau<=up: True; m <= (tau/nu^{nu/2}gamma)^a: 6 <= 404.48

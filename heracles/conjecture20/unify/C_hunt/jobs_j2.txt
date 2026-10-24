@@ -1,0 +1,9 @@
+jtest.py 5 2 3 106 cplx
+jtest.py 7 2 3 106 cplx
+jtest.py 11 2 3 106 cplx
+jtest.py 13 2 3 106 cplx
+jtest.py 17 2 3 106 cplx
+jtest.py 19 2 3 106 cplx
+jtest.py 23 2 3 106 cplx
+jtest.py 5 3 2 107 cplx
+jtest.py 7 3 2 107 cplx

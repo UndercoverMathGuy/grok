@@ -1,0 +1,13 @@
+r/Gamma(1-r) decreasing on [2/3,1) (interval grid check): True
+p=5: alpha_p <= 0.158262   Xi_p <= 1.24916   gain bound Xi_p^s (s<=3/2) <= 1.39614
+p=7: alpha_p <= 0.0878303   Xi_p <= 1.16854   gain bound Xi_p^s (s<=3/2) <= 1.26318
+p=11: alpha_p <= 0.0403765   Xi_p <= 1.11422   gain bound Xi_p^s (s<=3/2) <= 1.17613
+p=13: alpha_p <= 0.0303758   Xi_p <= 1.10277   gain bound Xi_p^s (s<=3/2) <= 1.15805
+p=23: alpha_p <= 0.0115693   Xi_p <= 1.08124   gain bound Xi_p^s (s<=3/2) <= 1.12431
+p=31: alpha_p <= 0.00700173   Xi_p <= 1.07601   gain bound Xi_p^s (s<=3/2) <= 1.11616
+p=61: alpha_p <= 0.00225117   Xi_p <= 1.07058   gain bound Xi_p^s (s<=3/2) <= 1.10771
+p=67: alpha_p <= 0.00192415   Xi_p <= 1.0702   gain bound Xi_p^s (s<=3/2) <= 1.10713
+p=101: alpha_p <= 0.00096888   Xi_p <= 1.06911   gain bound Xi_p^s (s<=3/2) <= 1.10543
+p=211: alpha_p <= 0.000283199   Xi_p <= 1.06832   gain bound Xi_p^s (s<=3/2) <= 1.10422
+p=1009: alpha_p <= 2.0833e-5   Xi_p <= 1.06802   gain bound Xi_p^s (s<=3/2) <= 1.10375
+p=10007: alpha_p <= 4.54891e-7   Xi_p <= 1.068   gain bound Xi_p^s (s<=3/2) <= 1.10372

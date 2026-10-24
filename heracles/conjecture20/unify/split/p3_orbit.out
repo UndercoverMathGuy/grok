@@ -1,0 +1,61 @@
+== exact_certificate n=11: n=11, width 8
+   h(theta) = 2.731227e+00, P = 557.214137, gamma/gamma_IF = 1.054399
+   DC energy fraction (b=2 split slack / P) = 0.1410
+   h(split) = -2.844718e+02  (sign -), P_split = 478.633505, gamma(split)/gamma_IF = -273.401348
+   Sigma-orbit gamma/gamma_IF by k=|S|: +1.05, -6.25e+03, -3.59e+03, -3.64e+03, -2.52e+03, -1.7e+03, -1.09e+03, -742, -472, -322, -214, -211
+   E_sigma h(sigma theta)/(gamma_IF P^s) = -1628   <=  h(split)/(gamma_IF P^s) = -109.8   [check: True]
+   per-neuron flips (60 samples): gamma/gamma_IF min -8.56e+03, median -4.38e+03, max -2.62e+03;  fraction > 0: 0.000
+== exact_certificate n=13: n=13, width 10
+   h(theta) = 4.150480e+00, P = 832.504144, gamma/gamma_IF = 1.109163
+   DC energy fraction (b=2 split slack / P) = 0.1444
+   h(split) = -7.463014e+02  (sign -), P_split = 712.323069, gamma(split)/gamma_IF = -593.987272
+   Sigma-orbit gamma/gamma_IF by k=|S|: +1.11, -2.59e+04, -1.59e+04, -1.41e+04, -1.02e+04, -6.91e+03, -4.39e+03, -3e+03, -1.89e+03, -1.3e+03, -909, -590, -418, -307
+   E_sigma h(sigma theta)/(gamma_IF P^s) = -4653   <=  h(split)/(gamma_IF P^s) = -199.4   [check: True]
+== oned_certified p3_n11: n=11, width 8
+   h(theta) = 1.178748e-04, P = 104.217114, gamma/gamma_IF = 1.063082
+   DC energy fraction (b=2 split slack / P) = 0.1397
+   h(split) = -1.055780e-02  (sign -), P_split = 89.652802, gamma(split)/gamma_IF = -234.947245
+   Sigma-orbit gamma/gamma_IF by k=|S|: +1.06, -5.27e+03, -3e+03, -3.08e+03, -2.14e+03, -1.44e+03, -928, -629, -400, -273, -179, -179
+   E_sigma h(sigma theta)/(gamma_IF P^s) = -1379   <=  h(split)/(gamma_IF P^s) = -95.22   [check: True]
+== oned_certified p3_n12: n=12, width 9
+   h(theta) = 5.882311e-05, P = 125.490057, gamma/gamma_IF = 1.193355
+   DC energy fraction (b=2 split slack / P) = 0.1414
+   h(split) = -6.944063e-03  (sign -), P_split = 107.741334, gamma(split)/gamma_IF = -379.586264
+   Sigma-orbit gamma/gamma_IF by k=|S|: +1.19, -1.17e+04, -6.83e+03, -6.7e+03, -4.69e+03, -3.18e+03, -2.03e+03, -1.38e+03, -876, -599, -403, -269, -263
+   E_sigma h(sigma theta)/(gamma_IF P^s) = -2557   <=  h(split)/(gamma_IF P^s) = -140.9   [check: True]
+== oned_certified p3_n13: n=13, width 10
+   h(theta) = 2.823645e-05, P = 150.720444, gamma/gamma_IF = 1.183605
+   DC energy fraction (b=2 split slack / P) = 0.1430
+   h(split) = -4.477675e-03  (sign -), P_split = 129.160896, gamma(split)/gamma_IF = -553.015378
+   Sigma-orbit gamma/gamma_IF by k=|S|: +1.18, -2.37e+04, -1.43e+04, -1.31e+04, -9.36e+03, -6.36e+03, -4.05e+03, -2.76e+03, -1.74e+03, -1.2e+03, -826, -532, -381, -286
+   E_sigma h(sigma theta)/(gamma_IF P^s) = -4287   <=  h(split)/(gamma_IF P^s) = -187.7   [check: True]
+== oned_certified p3_n14: n=14, width 10
+   h(theta) = 7.719464e-06, P = 160.864747, gamma/gamma_IF = 1.456872
+   DC energy fraction (b=2 split slack / P) = 0.1432
+   h(split) = -3.175276e-03  (sign -), P_split = 137.832706, gamma(split)/gamma_IF = -1909.545624
+   Sigma-orbit gamma/gamma_IF by k=|S|: +1.46, -1.1e+05, -6.44e+04, -6.26e+04, -4.34e+04, -2.95e+04, -1.87e+04, -1.28e+04, -8.07e+03, -5.76e+03, -3.86e+03, -2.56e+03, -1.72e+03, -1.14e+03, -771
+   E_sigma h(sigma theta)/(gamma_IF P^s) = -1.67e+04   <=  h(split)/(gamma_IF P^s) = -599.3   [check: True]
+== oned_certified p3_n15: n=15, width 11
+   h(theta) = 4.139868e-06, P = 189.351696, gamma/gamma_IF = 1.617042
+   DC energy fraction (b=2 split slack / P) = 0.1442
+   h(split) = -2.271938e-03  (sign -), P_split = 162.047533, gamma(split)/gamma_IF = -3084.221779
+   Sigma-orbit gamma/gamma_IF by k=|S|: +1.62, -2.47e+05, -1.47e+05, -1.38e+05, -9.63e+04, -6.57e+04, -4.16e+04, -2.85e+04, -1.79e+04, -1.29e+04, -8.78e+03, -5.76e+03, -3.9e+03, -2.57e+03, -1.74e+03, -1.12e+03
+   E_sigma h(sigma theta)/(gamma_IF P^s) = -3.108e+04   <=  h(split)/(gamma_IF P^s) = -887.4   [check: True]
+== oned_certified p3_n16: n=16, width 12
+   h(theta) = 1.663251e-06, P = 215.974269, gamma/gamma_IF = 1.595467
+   DC energy fraction (b=2 split slack / P) = 0.1456
+   h(split) = -1.346158e-03  (sign -), P_split = 184.520457, gamma(split)/gamma_IF = -4921.130353
+   Sigma-orbit gamma/gamma_IF by k=|S|: +1.6, -5.57e+05, -3.39e+05, -3.03e+05, -2.13e+05, -1.46e+05, -9.21e+04, -6.31e+04, -3.96e+04, -2.85e+04, -1.99e+04, -1.32e+04, -8.79e+03, -5.83e+03, -3.89e+03, -2.59e+03, -3.1e+03
+   E_sigma h(sigma theta)/(gamma_IF P^s) = -5.76e+04   <=  h(split)/(gamma_IF P^s) = -1291   [check: True]
+== oned_certified p3_n17: n=17, width 12
+   h(theta) = 4.633739e-07, P = 228.406732, gamma/gamma_IF = 2.011056
+   DC energy fraction (b=2 split slack / P) = 0.1457
+   h(split) = -9.421532e-04  (sign -), P_split = 195.118635, gamma(split)/gamma_IF = -16877.393302
+   Sigma-orbit gamma/gamma_IF by k=|S|: +2.01, -2.58e+06, -1.54e+06, -1.43e+06, -9.86e+05, -6.74e+05, -4.26e+05, -2.92e+05, -1.83e+05, -1.37e+05, -9.23e+04, -6.11e+04, -4.08e+04, -2.71e+04, -1.8e+04, -1.2e+04, -7.91e+03, -7.2e+03
+   E_sigma h(sigma theta)/(gamma_IF P^s) = -2.24e+05   <=  h(split)/(gamma_IF P^s) = -4089   [check: True]
+== oned_certified p3_n18: n=18, width 13
+   h(theta) = 2.461263e-07, P = 262.342854, gamma/gamma_IF = 2.211978
+   DC energy fraction (b=2 split slack / P) = 0.1465
+   h(split) = -6.235684e-04  (sign -), P_split = 223.918098, gamma(split)/gamma_IF = -25229.994745
+   Sigma-orbit gamma/gamma_IF by k=|S|: +2.21, -5.36e+06, -3.25e+06, -2.92e+06, -2.03e+06, -1.39e+06, -8.77e+05, -6.02e+05, -3.78e+05, -2.79e+05, -1.93e+05, -1.28e+05, -8.49e+04, -5.66e+04, -3.74e+04, -2.5e+04, -1.64e+04, -1.1e+04, -1.03e+04
+   E_sigma h(sigma theta)/(gamma_IF P^s) = -3.865e+05   <=  h(split)/(gamma_IF P^s) = -5604   [check: True]

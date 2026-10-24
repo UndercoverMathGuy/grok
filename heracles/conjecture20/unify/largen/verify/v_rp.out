@@ -1,0 +1,5 @@
+p=5 closed form r_5 = sqrt(3/8) = 0.612372
+p=3: radial sup minimised over 401 angles in [0,pi/p]: r_p ~ 0.000000 at phi=0.0000
+p=5: radial sup minimised over 401 angles in [0,pi/p]: r_p ~ 0.612373 at phi=0.5215
+p=7: radial sup minimised over 401 angles in [0,pi/p]: r_p ~ 0.801332 at phi=0.4207
+p=11: radial sup minimised over 401 angles in [0,pi/p]: r_p ~ 0.918950 at phi=0.2792

@@ -1,0 +1,8 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+  start 0: 0.99305   best 0.99305  d=(-0.002; [-0.312  0.364 -0.03  -0.465  0.493  0.384])  (40s)
+  start 1: 0.99614   best 0.99614  d=(-0.0; [ 0.03   0.651 -0.482  0.029 -0.063 -0.492])  (168s)
+  start 2: 0.99338   best 0.99614  d=(-0.0; [-0.293 -0.368 -0.207  0.48   0.656 -0.061])  (236s)
+  start 3: 0.99686   best 0.99686  d=(-0.0; [-0.42   0.28   0.502  0.036 -0.569  0.347])  (274s)
+  start 4: 0.97628   best 0.99686  d=(-0.0; [ 0.171 -0.555 -0.434  0.053 -0.268  0.349])  (323s)
+  start 5: 0.98880   best 0.99686  d=(0.0; [-0.368 -0.092  0.473 -0.243 -0.585  0.174])  (361s)
+s=1.5: sup ratio (L2 relaxation, P_lb) >= 0.99686

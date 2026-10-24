@@ -1,0 +1,2 @@
+n=11: gamma/gIF = 1.054398844; cheapness |beta|/(nu^(1-s)Q^s) = 6.008692 (must be > 1); R7(b): gamma/bound = 0.33986174 (<= 1); universal B_p Gamma bound ratio 4.23739e-6; max input DC ratio 0.8198 (not class C); max_T|beta_T|/|beta| = 0.4495
+n=13: gamma/gIF = 1.109163144; cheapness |beta|/(nu^(1-s)Q^s) = 6.1857746 (must be > 1); R7(b): gamma/bound = 0.41865384 (<= 1); universal B_p Gamma bound ratio 1.47308e-7; max input DC ratio 0.8417 (not class C); max_T|beta_T|/|beta| = 0.1902

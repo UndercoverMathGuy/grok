@@ -1,0 +1,5 @@
+(1) class-C piece bound: max |g|/(2^(n+1) B_p sum||w||^nu) = 0.8831092051 (<=1 required; sum<=P^s also checked)
+(2) h(theta) <= h(theta\A) + g_A(x_R,d_R): violations 0
+(3) psi(p=11,n=2,b=2) = 3.3633e-03, share floor psi/(1+psi) = 3.3520e-03
+(4) IF network gamma/gamma_IF = 1.0000000000
+(4) min over subsets A of g_A(x_R,d_R) / (gamma_IF (P^s-(P-P_A)^s)) = 1.119360 (>=1 consistent with IF optimality)

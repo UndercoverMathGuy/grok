@@ -1,0 +1,16 @@
+7980 systems checked; worst relative excesses (must be <= ~1e-12):
+  A: 6.661e-16
+  A2: 8.882e-16
+  B: 4.441e-16
+  SH: 0.000e+00
+  C1: -3.723e-15
+  C2: 7.772e-15
+IF block n=1: max|lambda_k - A|/|A| = 2.7e-16; twisted spectrum spread = 5.3e-16
+IF block n=2: max|lambda_k - A|/|A| = 1.1e-15; twisted spectrum spread = 1.1e-15
+IF block n=3: max|lambda_k - A|/|A| = 7.8e-16; twisted spectrum spread = 1.4e-15
+IF block n=4: max|lambda_k - A|/|A| = 1.2e-15; twisted spectrum spread = 2.1e-15
+IF block n=5: max|lambda_k - A|/|A| = 2.2e-15; twisted spectrum spread = 4.2e-15
+IF block n=6: max|lambda_k - A|/|A| = 1.4e-15; twisted spectrum spread = 8.6e-15
+IF block n=7: max|lambda_k - A|/|A| = 1.8e-15; twisted spectrum spread = 1.1e-14
+spectrally-IF non-IF example (n=2): max|lambda-A|/|A| = 7.00e-03; interval interference/|A| = [1.665 1.308 0.538]
+   its Q/(nu^(1-r)|A|^r) = 2.827804 (>= 1 required by spectral Lemma 7)

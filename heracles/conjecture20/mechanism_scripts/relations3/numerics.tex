@@ -1,0 +1,37 @@
+All at $s=\frac32$ ($b=2$).  Supports: \texttt{supports.json} ($p\le1009$: best of \texttt{relations2/supports\_s1.5.json}, the sibling
+\texttt{ideaC} runs, exhaustive search for $p\le29$); $p\ge2003$: local search plus reweighted LP (\texttt{largep.py}, \texttt{refine.py}),
+giving near-optimal allocations for several support sizes $K$ per prime.  Efficiencies use the best $\Gamma$ found, which can only overstate $e$
+and the $L^2$ ratio; so passes are conservative, failures are not.
+
+\paragraph{N1. Programme maximisers, $5\le p\le1009$} (\texttt{cert.py}, \texttt{cert\_prog.out}, \texttt{relratio.out}).
+\begin{center}\small\begin{tabular}{lcccccccccccc}\toprule
+$p$ & 29 & 61 & 101 & 151 & 211 & 307 & 401 & 503 & 601 & 701 & 809 & 1009\\
+$K^*$ & 4 & 5 & 7 & 6 & 8 & 9 & 8 & 9 & 12 & 10 & 11 & 11\\
+$\sum_S\kappa(\delta_0)$ & 3.03 & 3.26 & 4.28 & 3.37 & 4.62 & 5.29 & 4.50 & 4.98 & 7.43 & 5.53 & 5.91 & 5.84\\
+$\sigma_P$ & 0.57 & 0.55 & 0.48 & 0.55 & 0.47 & 0.43 & 0.47 & 0.45 & 0.37 & 0.42 & 0.41 & 0.41\\
+tilt$/\sum bs$ & 0.42 & 0.56 & 0.50 & 0.60 & 0.44 & 0.41 & 0.53 & 0.49 & 0.40 & 0.44 & 0.44 & 0.49\\
+$\max R$ & 0.48 & 0.50 & 0.79 & 0.51 & 0.78 & 0.81 & 0.72 & 0.84 & 0.94 & 0.86 & 0.94 & 0.83\\\bottomrule
+\end{tabular}\end{center}
+At every one of the 33 primes, $\sigma_{\delta_0}\ge\sigma_P\ge0.367>c_*$, so Theorem~\ref{es} closes the vertex under Theorem A.
+The tilted mean at the vertex direction ($b\propto ys$) is comparable to Parseval ($0.30$--$0.60$ for $p\ge23$); its infimum over $b$ is attained near the
+Parseval-extremal direction $b\propto s$, so at these sizes it adds $\le0.01$.  Relation mass: $R=\rho(x)/(e^{E(x)}/p)$ at the binding directions and scales
+$x_{\max}\in\{\frac12,1,2\}$ is $\le0.97$ for every support ($23\le p\le10007$), median $0.07$--$0.61$; random $K$-sets with the same profile have median
+$0.12$--$0.87$ and 90\% quantile up to $1.38$.  So $\varepsilon<0$: programme supports carry fewer weighted relations than independent frequencies.
+
+\paragraph{N2. Spread near-optimal allocations} (\texttt{certlarge.py}, \texttt{cert\_large\_*.out}).  Columns: efficiency $e$, water-filling ratio
+$\mathrm{C}_{L2}$ (Theorem A / P$_{12}$; $\le1$ closes), Parseval index and $\sigma_P$, requirement $c-(1/e-1)/\tau$ of Theorem~\ref{es}, and
+$\Gamma_{\rm crit}=\min_\delta[(Ka)_\delta+\tau g_\delta(a)]/\|a\|$ (the $L^2$ route closes $a$ iff $\Gamma_s(p)\ge\Gamma_{\rm crit}$).  Best $\Gamma$ found: $0.16425$, $0.14784$,
+$0.13999$, $0.12544$ for $p=2003,5003,10007,30011$ (the last two after swap refinement, which raised them by $2.4\%$ and $2.1\%$; the
+heuristic still undershoots, so passes are safe and failures are within the uncertainty).  The tilt adds little at these sizes: box-aware tilt
+(\texttt{boxtilt.py}) vs water-filling at $p=30011$: $0.973$ vs $0.988$ ($K=23$), $1.006$ vs $1.021$ ($K=26$), $1.032$ vs $1.032$ ($K=30$).  Under P$_{12}$ the tilt alone closes $p=30011$, $K=30$.
+(The CMA estimates of $\inf_b$ of the tilt certificate in \texttt{cert\_large\_*.out}, column sigT, are upper estimates and are contradicted by the
+box searches; they are not used.)
+\input{n2table.tex}
+
+\paragraph{N3. True room} (\texttt{truesig.py}; adversarial search over $(b,\psi)$, calibrated: it finds $0.18$ for the progression $\{1,\dots,26\}$, close
+to the Parseval floor $0.14$).  For the spread allocation $p=5003$, $K=22$: $\sigma\le0.69$; for $p=10007$, $K=26$: $\sigma\le0.66$; needed $0.25$--$0.26$, Parseval
+gives $0.27$, $0.245$.
+
+\paragraph{N4. Large-deviation model} (\texttt{asym*.py}): $p\to\infty$, $K=\kappa\ln p$, binding-direction law of $\kappa_l(\delta_0)$ = arcsine law tilted to the LD
+minimum over $p$ directions, uniform weights, relation excess $\le0$.  The programme optimum of the model is at $\kappa^\ast\approx3.2$, $\gamma^\ast\approx0.46$.
+\input{n4table.tex}

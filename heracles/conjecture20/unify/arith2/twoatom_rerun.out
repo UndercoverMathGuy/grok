@@ -1,0 +1,7 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+/home/user/grok/heracles/conjecture20/unify/arith/twoatom_check.py:26: RuntimeWarning: invalid value encountered in scalar power
+  lb = ((L+m)/2)**r + ((L-m)/2)**r
+max_i |beta_i| - (L+|B|)/2   (must be <= 0): 2.842170943040401e-14
+((L+m)/2)^r+((L-m)/2)^r - Q, m=min_T|beta_T|  (must be <= 0): 3.6486014209913264e-10
+max(|A|,|D|)/(2^{1-s}Q^s) - 1 on B=0 systems (must be <= 0): -4.238745354712137e-09
+two aligned atoms: |A|= 1.0  |D|= 1.0  2^{1-s}Q^s= 1.0000000000000002  bonus/(c12*|D|)= 1.0

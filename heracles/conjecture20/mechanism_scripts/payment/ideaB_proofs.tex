@@ -1,0 +1,157 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\T}{\mathbb T}
+\begin{document}
+\section*{P$_{12}$ for complex phases: a proof}
+\emph{Files: \texttt{scratchpad/ideaB/}.  Numerical sanity checks of every step: \texttt{check\_chain.py} (P$_{12}$), \texttt{check\_chain\_t2.py} (Target 2).}
+
+
+\paragraph{Setting.} $1\le s\le\frac32$, $r=1/s\in[\frac23,1]$, $\theta=3^{1-s}$, $c=c_{12}(s)=1-(\frac23)^{s-1}$.
+Atoms $\beta_i\in\mathbb C\setminus\{0\}$, $\xi_i,\eta_i\in\T$ ($i=1,\dots,m$), $A=\sum\beta_i$, $B=\sum\beta_i\xi_i$,
+$C=\sum\beta_i\eta_i$, $D=\sum\beta_i\xi_i\eta_i$, $Q=\sum|\beta_i|^r$.
+
+\begin{theorem}[P$_{12}$]\label{thm}
+If $B=C=0$ then $|A|-c\,|D|\le\theta Q^s$.  Equality holds for the aligned pair $(\xi,\eta)=(1,1),(-1,-1)$, $\beta_1=\beta_2$.
+\end{theorem}
+
+\paragraph{Notation for the proof.} Write $\beta_i=\rho_ip_i$ with $\rho_i>0$, $p_i\in\T$; $L=\sum_i\rho_i$ ($\ge|A|$). Put
+\[x_i=p_i\xi_i,\qquad y_i=p_i^2\xi_i\eta_i,\qquad D'=\sum_i\rho_iy_i,\qquad \delta'=|D'|/L\in[0,1].\]
+Then $B=\sum\rho_ix_i$, $C=\sum\rho_i\bar x_iy_i$, $A=\sum\rho_ip_i$, $D=\sum_i\rho_i\bar p_iy_i$.  Finally
+\[\Phi(\delta)=\tfrac12\big[(1+\delta)^r(3+\delta)^{1-r}+(1-\delta)^r(3-\delta)^{1-r}\big],\qquad
+\varphi(\delta)=3^{r-1}\Phi(\delta),\qquad\text{so }\theta\Phi(\delta)^s=\varphi(\delta)^s .\]
+
+\begin{lemma}[twisted leverage bound]\label{lev}
+If $B=C=0$ then $Q\ge L^r\,\Phi(\delta')$.
+\end{lemma}
+\begin{proof}
+Let $u_i=(1,x_i,y_i)\in\T^3$ and $H=\sum_i\rho_iu_iu_i^*$.  Its diagonal is $L$; its entries below the diagonal are
+$\sum\rho_ix_i=B=0$, $\sum\rho_iy_i\bar x_i=C=0$ and $\sum\rho_iy_i=D'$.  So
+$H=\begin{pmatrix}L&0&\bar D'\\0&L&0\\D'&0&L\end{pmatrix}\succeq0$.
+For each $i$, $H\succeq\rho_iu_iu_i^*$ and $u_i\in\operatorname{ran}H$, hence $\rho_i w_i\le1$ with $w_i=u_i^*H^+u_i$
+(leverage).  Since $r\le1$, $\rho_i^r=\rho_i\rho_i^{r-1}\ge\rho_i w_i^{1-r}$.
+
+If $\delta'<1$, $H$ is invertible and, with $\omega=D'/|D'|$ (any $\omega\in\T$ if $D'=0$) and $X_i=\Re(\bar\omega y_i)\in[-1,1]$,
+\[w_i=\frac1L+\frac{2L-2\Re(\bar D'y_i)}{L^2-|D'|^2}=\frac{3-\delta'^2-2\delta'X_i}{L(1-\delta'^2)},\qquad
+\sum_i\rho_iX_i=\Re(\bar\omega D')=L\delta'.\]
+The function $g(X)=\big((3-\delta'^2-2\delta'X)/(1-\delta'^2)\big)^{1-r}$ is concave on $[-1,1]$, so
+$g(X)\ge\frac{1+X}2g(1)+\frac{1-X}2g(-1)$, with $g(1)=(\frac{3+\delta'}{1+\delta'})^{1-r}$, $g(-1)=(\frac{3-\delta'}{1-\delta'})^{1-r}$.  Hence
+\[Q\ge L^{r}\sum_i\tfrac{\rho_i}{L}g(X_i)\ge L^r\Big[\tfrac{1+\delta'}2g(1)+\tfrac{1-\delta'}2g(-1)\Big]=L^r\Phi(\delta').\]
+If $\delta'=1$ then $y_i=\omega$ for all $i$, $\operatorname{ran}H=\operatorname{span}\{(1,0,\omega),(0,1,0)\}$ with eigenvalues $2L,L$,
+so $w_i=\frac{2}{2L}+\frac1L=\frac2L$ and $Q\ge L^r2^{1-r}=L^r\Phi(1)$.
+\end{proof}
+
+\begin{lemma}[Jensen]\label{jen}
+For every $C\ge0$: $\ |A|-C|D|\le L\sqrt{1+C^2-2C\delta'}$.
+\end{lemma}
+\begin{proof}
+Let $\alpha=A/|A|$ (or $1$), $\omega$ as above, $P_i=\bar\alpha p_i$, $Y_i=\bar\omega y_i$.  Then $\sum\rho_iP_i=|A|$, $\sum\rho_iY_i=L\delta'$, and
+$D=\bar\alpha\omega\sum\rho_i\bar P_iY_i$, so $|D|\ge\Re\sum\rho_i\bar P_iY_i$.  Therefore
+\[|A|-C|D|\le\sum_i\rho_i\Re\big(\bar P_i(1-CY_i)\big)\le\sum_i\rho_i|1-CY_i|\le L\Big(\tfrac1L\sum_i\rho_i|1-CY_i|^2\Big)^{1/2}
+=L\sqrt{1+C^2-2C\delta'}.\qedhere\]
+\end{proof}
+
+\begin{lemma}[one variable]\label{one}
+For $1\le s\le\frac32$, $0\le\delta\le1$ and $C=\min(\delta,c)$: $\ \varphi(\delta)^s\ge\sqrt{1+C^2-2C\delta}$.
+\end{lemma}
+\begin{proof}
+For $s=1$ both sides equal $1$; let $s>1$.  Write $\varphi(\delta)=\frac12(1+\delta)^r(1+\frac\delta3)^{1-r}+\frac12(1-\delta)^r(1-\frac\delta3)^{1-r}$.
+
+\emph{(a) $\delta\le c$.}  Here the claim is $\varphi\ge(1-\delta^2)^{r/2}$.  With $\frac12(e^u+e^v)=e^{(u+v)/2}\cosh\frac{u-v}2$,
+\[\varphi(\delta)=(1-\delta^2)^{r/2}\,(1-\tfrac{\delta^2}9)^{\frac{1-r}2}\cosh Y,\qquad Y=r\operatorname{artanh}\delta+(1-r)\operatorname{artanh}\tfrac\delta3\ \ge\tfrac{1+2r}3\delta\ge\tfrac79\delta .\]
+Using $\cosh Y\ge1+Y^2/2$ and $(1-x)^a\ge1-ax/(1-x)$ ($a=\frac{1-r}2\le\frac16$, $x=\delta^2/9\le\frac19$):
+$(1-\frac{\delta^2}9)^{\frac{1-r}2}\cosh Y\ge(1-\frac{\delta^2}{48})(1+\frac{49}{162}\delta^2)\ge1$.  (This holds for all $\delta\in[0,1]$.)
+
+\emph{(b) $c\le\delta\le1$.}  Here the claim is $\varphi^{2s}\ge1+c^2-2c\delta=(1-c)^2+2c(1-\delta)$.
+Put $\pi_\pm=\frac{1\pm\delta}2$, $a_+=\frac{3+\delta}{3(1+\delta)}$, $a_-=\frac{3-\delta}{3(1-\delta)}$; then $\varphi=\pi_+a_+^{1-r}+\pi_-a_-^{1-r}$, and Jensen
+($\exp$ convex) gives $\varphi\ge e^{(1-r)\kappa(\delta)}$, where
+\[\kappa(\delta)=\pi_+\log a_++\pi_-\log a_-=-\sum_{k\ge1}a_k\delta^{2k},\qquad a_k=\frac{1-(4k+1)9^{-k}}{2k(2k-1)}\in\Big(0,\frac1{2k(2k-1)}\Big),\ a_1=\tfrac29\]
+(expand $\pi_+\log(1+\frac\delta3)+\pi_-\log(1-\frac\delta3)$ and $\pi_+\log(1+\delta)+\pi_-\log(1-\delta)$).  Facts:
+\begin{itemize}
+\item[(K1)] $\kappa\le0$, $|\kappa(\delta)|\le\frac29\delta^2+\frac{\delta^4}{12(1-\delta^2)}$, $\kappa(1)=\log\frac23$.
+\item[(K2)] $e^{\kappa}$ is concave on $[0,1]$: $\kappa'=-\operatorname{artanh}\delta+\operatorname{artanh}\frac\delta3+\frac{2\delta}{9-\delta^2}\in[-\operatorname{artanh}\delta,0]$ and
+$\kappa''=-\frac1{1-\delta^2}+\frac{45-\delta^2}{(9-\delta^2)^2}\le-\cosh^2y+\frac{11}{16}$ with $y=\operatorname{artanh}\delta$, so
+$\kappa''+\kappa'^2\le y^2+\frac{11}{16}-(1+y^2+\frac{y^4}4)\le-\frac5{16}$.
+\item[(K3)] Hence $\frac23\le e^\kappa\le1$, i.e.\ $\lambda:=\kappa/\log\frac23\in[0,1]$.
+\end{itemize}
+With $t=s-1$ and $x=(\frac23)^t=1-c\in[x_0,1)$, $x_0=\sqrt{2/3}$: $\varphi^{2s}\ge e^{2t\kappa}=x^{2\lambda}$.  So it suffices that
+$F(\xi):=\xi^{2\lambda}-\xi^2-2(1-\xi)(1-\delta)\ge0$ at $\xi=x$.  Now $F(1)=0$ and $F$ is concave on $[x_0,1]$:
+$F''=2\lambda(2\lambda-1)\xi^{2\lambda-2}-2\le\max\big(-2,\ 2\lambda(2\lambda-1)(\tfrac32)^{1-\lambda}-2\big)\le0$, because
+$\lambda\mapsto2\lambda(2\lambda-1)(\frac32)^{1-\lambda}$ increases on $[\frac12,1]$ to $2$.  The constraint $c\le\delta$ is $x\ge1-\delta$, so $x\in[\xi_L,1]$
+with $\xi_L=\max(x_0,1-\delta)$, and it suffices that $F(\xi_L)\ge0$:
+\begin{itemize}
+\item $\delta\ge1-x_0$ ($\xi_L=x_0$): $F(x_0)=e^{\kappa(\delta)}-\frac23-2(1-x_0)(1-\delta)$.  This is concave in $\delta$ (K2) minus linear, $=0$ at
+$\delta=1$, and at $\delta=1-x_0=0.18350\ldots$ it is $\ge e^{-0.0075808}-(2x_0-\frac23)=0.99244-0.96633>0$ by (K1).
+\item $\delta<1-x_0$ ($\xi_L=1-\delta$): $F(1-\delta)=(1-\delta)^{2\lambda}-(1-\delta^2)\ge-2\lambda|\log(1-\delta)|+\delta^2$.  By (K1)
+$\lambda\le0.556\,\delta^2$ and $|\log(1-\delta)|\le1.235\,\delta$ for $\delta\le0.19$, so $F\ge\delta^2(1-1.38\,\delta)>0$.\qedhere
+\end{itemize}
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm}]
+Let $C=\min(\delta',c)\le c$.  By Lemmas~\ref{jen}, \ref{one}, \ref{lev},
+\[|A|-c|D|\le|A|-C|D|\le L\sqrt{1+C^2-2C\delta'}\le L\varphi(\delta')^s=\theta\big(L^r\Phi(\delta')\big)^s\le\theta Q^s.\]
+For the pair, $L=1=|A|=|D|$, $Q^s=2^{s-1}$ and $|A|-c|D|=(\frac23)^{s-1}=\theta Q^s$.
+\end{proof}
+
+\begin{remark}[what the proof gives beyond P$_{12}$]
+(i) For all $C\ge0$ (with $B=C_{\rm sum}=0$): $|A|-C|D|\le L\sqrt{1+C^2-2C\delta'}$ and $\theta Q^s\ge L\varphi(\delta')^s$; the two meet only at the
+IF block ($\delta'=0$, $L=|A|$) and at the pair ($\delta'=1$).  (ii) Near the IF block this gives bonus $\le(\frac{2(1-r)}9+o(1))|D|^2/L$
+(sharp local constant $\frac{1-r}{8+r}$).  (iii) For $\beta_i>0$ Lemma~\ref{lev} alone (with $p_i=1$) plus the one-variable inequality is the
+whole proof; it is a R\'enyi-entropy statement for a probability measure on $\T^2$ with $\mathbb E\xi=\mathbb E\eta=0$.
+\end{remark}
+
+\section*{TARGET 2: the sharp pointwise constant $c_1=1-3^{1-s}$}
+\begin{theorem}\label{thm2}
+For all atoms (no constraint) and $1\le s\le\frac32$: $\ |A|\le\theta Q^s+(1-\theta)\max(|B|,|C|,|D|)$.  Equality for one atom.
+\end{theorem}
+Keep the notation $\rho_i,p_i,L,x_i,y_i,D'$, and put $c_1=1-\theta$, $M=\max(|B|,|C|,|D|)$, $b=\sqrt{(|B|^2+|C|^2)/2}/L$, $y=|D'|/L$.
+Again $u_i=(1,x_i,y_i)$, $H=\sum\rho_iu_iu_i^*=L\hat H$; now $\hat H$ is a correlation matrix with
+$\hat H_{10}=B/L$, $\hat H_{21}=C/L$, $\hat H_{20}=D'/L$; eigenvalues $\nu_1,\nu_2,\nu_3\ge0$, $\sum\nu_k=3$.
+
+\emph{Step A (cost lemma for $H$).}  The paper's Sylvester/Hadamard step gives $\det(I+tH)\le\prod_i(1+3t\rho_i)$; integrating $\log$ against
+$t^{-1-r}dt$ gives $\sum_k(L\nu_k)^r\le3^rQ$, i.e.\ $\theta Q^s\ge L\,\big(\frac13\sum_k\nu_k^r\big)^s$.
+
+\emph{Step B (Jensen, weights $\nu_k/3$).}  $\frac13\sum\nu_k^r=\sum_k\frac{\nu_k}3\nu_k^{r-1}\ge\exp\big((r-1)\sum_k\frac{\nu_k}3\log\nu_k\big)$, so
+$\big(\frac13\sum\nu_k^r\big)^s\ge\theta^{\lambda}$ with $\lambda=\frac1{3\log3}\sum_k\nu_k\log\nu_k\in[0,1]$.
+
+\emph{Step C (spectral reduction).}  $\nu_k=1+\mu_k$ with $\mu^3-P\mu-q=0$, $P=2b^2+y^2$, $q=2\Re(\hat H_{10}\hat H_{21}\overline{\hat H_{20}})\ge-2b^2y$,
+and $q\ge P-1$ (because $\nu_{\min}\ge0$).  Let $\Lambda(P,q)=\frac1{3\log3}\sum h(\mu_k)$, $h(\mu)=(1+\mu)\log(1+\mu)$.  For a monic cubic,
+$\sum_kg(\mu_k)/p'(\mu_k)$ is the divided difference $g[\mu_1,\mu_2,\mu_3]=g''(\xi)/2$; hence
+$\partial_q\Lambda\propto h'''(\xi)/2<0$ and $\partial_P\Lambda\propto(\mu h')''(\xi)/2=\frac12\big(\frac1{1+\xi}+\frac1{(1+\xi)^2}\big)>0$.  Therefore
+\[\lambda=\Lambda(P,q)\le\tilde\lambda(b,y):=\Lambda\big(2b^2+y^2,\ \max(-2b^2y,\,2b^2+y^2-1)\big),\]
+and $\tilde\lambda$ is increasing in $b$ and in $y$ (on the branch $q=-2b^2y$ by the two signs; on the branch $q=P-1$ the spectrum is
+$\{0,\frac{3\pm\sqrt{4P-3}}2\}$, which spreads as $P$ grows).
+
+\emph{Step D (upper bound for the left side).}  For $\lambda'\in[0,1]$, $0\le\kappa\le1-\lambda'$ and $C=c_1\kappa$: since $c_1M\ge c_1\lambda'Lb+C|D|$,
+Lemma~\ref{jen} (which does not use $B=C=0$) gives $|A|-c_1M\le L\big[\sqrt{1+C^2-2Cy}-c_1\lambda'b\big]$.
+
+\emph{Step E (removing $s$).}  Put $x=\theta\in[x_0,1]$, $x_0=3^{-1/2}$.  For fixed $(b,y,\lambda',\kappa)$,
+$G(x)=x^{\tilde\lambda}-\sqrt{1+(1-x)^2\kappa^2-2(1-x)\kappa y}+(1-x)\lambda'b$ is concave on $[x_0,1]$ ($x^{\tilde\lambda}$ concave, the square root is the norm of an
+affine function of $x$) and $G(1)=0$.  So $G(x_0)\ge0$ implies $G(\theta)\ge0$ for every $s\in[1,\frac32]$.
+
+\emph{Step F (one $s$-free inequality on $[0,1]^2$).}  For every $(b,y)\in[0,1]^2$ there are admissible $(\lambda',\kappa)$ with $G(x_0)\ge0$, i.e.
+\[(\mathrm S)\qquad x_0^{\tilde\lambda(b,y)}\ \ge\ \sqrt{1+c_0^2\kappa^2-2c_0\kappa y}-c_0\lambda'b,\qquad c_0=1-x_0 .\]
+\begin{itemize}
+\item[(F0)] $[0,\frac{c_0}2]\times[0,c_0]$: $t\log t\le(t-1)+(t-1)^2$ for $t\ge0$ gives $\sum\nu\log\nu\le2P$, so $x_0^{\tilde\lambda}\ge e^{-P/3}\ge1-\frac P3$.
+If $c_0b\ge y^2/2$ take $(\lambda',\kappa)=(1,0)$ and use $\frac P3\le\frac{2b^2}3+\frac{2c_0b}3\le c_0b$; otherwise take $(0,y/c_0)$, right side $\sqrt{1-y^2}\le1-\frac{y^2}2$,
+and $b<\frac{y^2}{2c_0}\le\frac y2$ gives $\frac P3\le\frac{y^2}2$.
+\item[(F1)] $[0.99,1]\times[0.985,1]$: here $q=P-1$, the spectrum is $\{0,3-\varepsilon,\varepsilon\}$ with $\varepsilon(3-\varepsilon)=\eta=3-P\in[2e_1+e_2,\,0.0696]$
+($e_1=1-b$, $e_2=1-y$), so $\varepsilon\le0.02338$.  Then $x_0^{\tilde\lambda}\ge x_0+\frac{x_0}6\varepsilon\big[\log\frac3\varepsilon+1-\frac{\varepsilon}{6-2\varepsilon}\big]\ge x_0+0.5630\,\varepsilon$, while
+$(1,0)$ or $(0,1)$ gives right side $\le x_0+c_0\min(e_1,e_2/x_0)\le x_0+\frac{c_0\eta}{2+x_0}\le x_0+0.4920\,\varepsilon$.
+\item[(F2)] The rest of $[0,1]^2$: certified by interval arithmetic (\texttt{t2\_certify.py}, mpmath \texttt{iv}, 30 digits).  By the monotonicity of
+$\tilde\lambda$ and of the right side, a box $[b_0,b_1]\times[y_0,y_1]$ is certified by $x_0^{\tilde\lambda(b_1,y_1)}\ge\text{RHS}(b_0,y_0)$; roots of the cubic by the
+trigonometric formula in interval arithmetic.  Result: 1479 boxes, no failure, minimal certified margin $2.47\cdot10^{-4}$.
+\end{itemize}
+\emph{Conclusion.}  $\theta Q^s\ge L\theta^{\lambda}\ge L\theta^{\tilde\lambda(b,y)}\ge L\big[\sqrt{1+C^2-2Cy}-c_1\lambda'b\big]\ge|A|-c_1M$. \qed
+
+\begin{remark}[a global quadratic bonus bound from the same chain]
+Steps A and C with the exact spectrum, and Lemma~\ref{jen}, give for all atoms
+$|A|-\theta Q^s\le L\big[\min_{C\ge0}(C\,d+\sqrt{1+C^2-2Cy})-S(b,y)\big]$, $d=|D|/L$, $S=$ the worst-phase value of $(\frac13\sum\nu_k^r)^s$.
+Maximising the bracket divided by $2b^2+d^2$ (grid and local search, not certified) gives
+$\ |A|-\theta Q^s\le K\,(|B|^2+|C|^2+|D|^2)/|A|$ with $K=0.282$ at $s=\frac32$ (maximiser $b\approx0.425$, $y\approx0.64$, $d\approx0.45$),
+against the numerically sharp $0.275$.
+\end{remark}
+\end{document}

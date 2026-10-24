@@ -1,0 +1,9 @@
+/home/user/grok/heracles/conjecture20/unify/gibbs/check_fibre.py:38: RuntimeWarning: invalid value encountered in scalar divide
+  worst_pt = min(worst_pt, A*Ap/E)
+p=5 n=2: min over 3000 trials of (AA' - certificate) = 0.000e+00  (>=0 required);  min AA'/E = 1.054
+p=7 n=2: min over 3000 trials of (AA' - certificate) = 0.000e+00  (>=0 required);  min AA'/E = 1.572
+p=11 n=2: min over 2000 trials of (AA' - certificate) = 1.000e-01  (>=0 required);  min AA'/E = 1.951
+p=13 n=2: min over 1500 trials of (AA' - certificate) = 3.059e+00  (>=0 required);  min AA'/E = 2.045
+p=5 n=3: min over 1500 trials of (AA' - certificate) = 2.725e+00  (>=0 required);  min AA'/E = 1.902
+p=7 n=3: min over 800 trials of (AA' - certificate) = 5.274e+00  (>=0 required);  min AA'/E = 3.008
+p=5 n=4: min over 300 trials of (AA' - certificate) = 5.004e+01  (>=0 required);  min AA'/E = 4.325

@@ -1,0 +1,4 @@
+E1 done: {'E1 gamma/gIF - bound (must be <= 0)': np.float64(-1.718887316236407)}
+E2 s=1.25: best gamma/gIF = -0.00633 (features |A|=(0.301,0.0231,4.8e-17), x=(0.991,1.052))  bound there 0.55479
+E2 s=1.5: best gamma/gIF = -0.00590 (features |A|=(0.0512,0.0553,1.8e-17), x=(0.795,0.629))  bound there 1.14851
+E3 max decrease of B(s) along s-grid (must be <= ~0): -7.170e-03

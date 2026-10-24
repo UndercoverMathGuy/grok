@@ -1,0 +1,40 @@
+p=5 s=1.050: K*=[2] optimal supports [(1, 2)]  delta_min=0.4277 (best non-containing S=(2,))  tolerated eps=0.7474
+p=5 s=1.200: K*=[2] optimal supports [(1, 2)]  delta_min=0.3650 (best non-containing S=(2,))  tolerated eps=0.5748
+p=5 s=1.350: K*=[2] optimal supports [(1, 2)]  delta_min=0.2954 (best non-containing S=(2,))  tolerated eps=0.4193
+p=5 s=1.500: K*=[2] optimal supports [(1, 2)]  delta_min=0.2182 (best non-containing S=(2,))  tolerated eps=0.2792
+p=5 s=1.700: K*=[2] optimal supports [(1, 2)]  delta_min=0.1020 (best non-containing S=(2,))  tolerated eps=0.1136
+p=5 s=1.850: K*=[2] optimal supports [(1, 2)]  delta_min=0.0036 (best non-containing S=(2,))  tolerated eps=0.0036
+p=5 s=1.860: K*=[1] optimal supports [(1,), (2,)]  delta_min=inf (best non-containing S=None)  tolerated eps=inf
+p=5 s=2.000: K*=[1] optimal supports [(1,), (2,)]  delta_min=inf (best non-containing S=None)  tolerated eps=inf
+p=5 s=2.300: K*=[1] optimal supports [(1,), (2,)]  delta_min=inf (best non-containing S=None)  tolerated eps=inf
+p=5 s=2.500: K*=[1] optimal supports [(1,), (2,)]  delta_min=inf (best non-containing S=None)  tolerated eps=inf
+p=7 s=1.050: K*=[3] optimal supports [(1, 2, 3)]  delta_min=0.1932 (best non-containing S=(1, 2))  tolerated eps=0.2394
+p=7 s=1.200: K*=[3] optimal supports [(1, 2, 3)]  delta_min=0.1383 (best non-containing S=(2, 3))  tolerated eps=0.1605
+p=7 s=1.350: K*=[3] optimal supports [(1, 2, 3)]  delta_min=0.0807 (best non-containing S=(2, 3))  tolerated eps=0.0877
+p=7 s=1.500: K*=[3] optimal supports [(1, 2, 3)]  delta_min=0.0199 (best non-containing S=(1, 2))  tolerated eps=0.0204
+p=7 s=1.700: K*=[2] optimal supports [(1, 2), (1, 3), (2, 3)]  delta_min=0.3470 (best non-containing S=(2,))  tolerated eps=0.5315
+p=7 s=1.850: K*=[2] optimal supports [(1, 2), (1, 3), (2, 3)]  delta_min=0.2770 (best non-containing S=(2,))  tolerated eps=0.3830
+p=7 s=1.860: K*=[2] optimal supports [(1, 2), (1, 3), (2, 3)]  delta_min=0.2720 (best non-containing S=(2,))  tolerated eps=0.3737
+p=7 s=2.000: K*=[2] optimal supports [(1, 2), (1, 3), (2, 3)]  delta_min=0.1991 (best non-containing S=(2,))  tolerated eps=0.2486
+p=7 s=2.300: K*=[2] optimal supports [(1, 2), (1, 3), (2, 3)]  delta_min=0.0168 (best non-containing S=(2,))  tolerated eps=0.0171
+p=7 s=2.500: K*=[1] optimal supports [(1,), (2,), (3,)]  delta_min=inf (best non-containing S=None)  tolerated eps=inf
+p=11 s=1.050: K*=[5] optimal supports [(1, 2, 3, 4, 5)]  delta_min=0.0914 (best non-containing S=(1, 2, 3, 4))  tolerated eps=0.1006
+p=11 s=1.200: K*=[5] optimal supports [(1, 2, 3, 4, 5)]  delta_min=0.0476 (best non-containing S=(1, 2, 3, 5))  tolerated eps=0.0500
+p=11 s=1.350: K*=[3] optimal supports [(1, 2, 4), (1, 2, 5), (1, 3, 5)]  delta_min=0.0547 (best non-containing S=(2, 5))  tolerated eps=0.0578
+p=11 s=1.500: K*=[2] optimal supports [(1, 3), (1, 4), (2, 3)]  delta_min=0.2855 (best non-containing S=(1, 2))  tolerated eps=0.3997
+p=11 s=1.700: K*=[2] optimal supports [(1, 3), (1, 4), (2, 3)]  delta_min=0.2735 (best non-containing S=(1, 2))  tolerated eps=0.3764
+p=11 s=1.850: K*=[2] optimal supports [(1, 3), (1, 4), (2, 3)]  delta_min=0.2659 (best non-containing S=(1, 2))  tolerated eps=0.3622
+p=11 s=1.860: K*=[2] optimal supports [(1, 3), (1, 4), (2, 3)]  delta_min=0.2654 (best non-containing S=(1, 2))  tolerated eps=0.3613
+p=11 s=2.000: K*=[2] optimal supports [(1, 3), (1, 4), (2, 3)]  delta_min=0.2593 (best non-containing S=(1, 2))  tolerated eps=0.3500
+p=11 s=2.300: K*=[2] optimal supports [(1, 3), (1, 4), (2, 3)]  delta_min=0.2484 (best non-containing S=(1, 2))  tolerated eps=0.3304
+p=11 s=2.500: K*=[2] optimal supports [(1, 3), (1, 4), (2, 3)]  delta_min=0.2424 (best non-containing S=(1, 2))  tolerated eps=0.3200
+p=13 s=1.050: K*=[6] optimal supports [(1, 2, 3, 4, 5, 6)]  delta_min=0.0717 (best non-containing S=(1, 2, 3, 4, 5))  tolerated eps=0.0773
+p=13 s=1.200: K*=[6] optimal supports [(1, 2, 3, 4, 5, 6)]  delta_min=0.0299 (best non-containing S=(1, 2, 3, 4, 6))  tolerated eps=0.0309
+p=13 s=1.350: K*=[4] optimal supports [(1, 2, 3, 6), (1, 2, 4, 5), (1, 2, 4, 6)]  delta_min=0.0150 (best non-containing S=(1, 2, 5))  tolerated eps=0.0153
+p=13 s=1.500: K*=[3] optimal supports [(1, 2, 5), (1, 3, 5), (1, 4, 6)]  delta_min=0.0686 (best non-containing S=(4, 6))  tolerated eps=0.0736
+p=13 s=1.700: K*=[2] optimal supports [(1, 5), (2, 3), (4, 6)]  delta_min=0.0846 (best non-containing S=(1, 2, 4))  tolerated eps=0.0924
+p=13 s=1.850: K*=[2] optimal supports [(1, 5), (2, 3), (4, 6)]  delta_min=0.0919 (best non-containing S=(2, 6))  tolerated eps=0.1012
+p=13 s=1.860: K*=[2] optimal supports [(1, 5), (2, 3), (4, 6)]  delta_min=0.0918 (best non-containing S=(2, 6))  tolerated eps=0.1011
+p=13 s=2.000: K*=[2] optimal supports [(1, 5), (2, 3), (4, 6)]  delta_min=0.0908 (best non-containing S=(2, 6))  tolerated eps=0.0999
+p=13 s=2.300: K*=[2] optimal supports [(1, 5), (2, 3), (4, 6)]  delta_min=0.0891 (best non-containing S=(2, 6))  tolerated eps=0.0978
+p=13 s=2.500: K*=[2] optimal supports [(1, 5), (2, 3), (4, 6)]  delta_min=0.0882 (best non-containing S=(2, 6))  tolerated eps=0.0967

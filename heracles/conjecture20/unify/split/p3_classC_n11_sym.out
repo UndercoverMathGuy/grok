@@ -1,0 +1,6 @@
+Installed 30 packages in 174ms
+p=3 class C (sym) n=11 N=12: best gamma/gamma_IF = 1.000000   (40s)
+p=3 class C (sym) n=11 N=14: best gamma/gamma_IF = 0.930078   (79s)
+p=3 class C (sym) n=11 N=16: best gamma/gamma_IF = 0.498349   (125s)
+p=3 class C (sym) n=11 N=20: best gamma/gamma_IF = 0.233108   (161s)
+p=3 class C (sym) n=11: overall best 1.000000

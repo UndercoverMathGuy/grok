@@ -1,0 +1,7 @@
+p=61 IF network on y*: gamma/gamma_IF = 1.000000
+  all-pair (full-legendre)         model ratio (osc/2) = 0.5420 | network exact: eps=0 0.5420, eps optimised 0.5420  [30 features, 30 pairs]
+  y* with feature 2 as pair        model ratio (osc/2) = 0.4059 | network exact: eps=0 0.4054, eps optimised 0.4059  [5 features, 1 pairs]
+  y* with feature 6 as pair        model ratio (osc/2) = 0.3543 | network exact: eps=0 0.3538, eps optimised 0.3543  [5 features, 1 pairs]
+  y* with feature 7 as pair        model ratio (osc/2) = 0.5382 | network exact: eps=0 0.5380, eps optimised 0.5382  [5 features, 1 pairs]
+  y* with feature 21 as pair       model ratio (osc/2) = 0.5086 | network exact: eps=0 0.5082, eps optimised 0.5086  [5 features, 1 pairs]
+  y* with feature 24 as pair       model ratio (osc/2) = 0.5081 | network exact: eps=0 0.5078, eps optimised 0.5081  [5 features, 1 pairs]

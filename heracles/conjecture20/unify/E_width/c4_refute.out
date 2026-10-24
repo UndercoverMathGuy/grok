@@ -1,0 +1,21 @@
+(+) form, uniform IF network on all of F (interference-free, so any detection term is 0):
+  p=11 s=1.2: H(theta)=2.7081 H^dec=2.7081  log gamma - RHS = -0.00000  (holds)
+  p=11 s=1.35: H(theta)=2.7081 H^dec=2.1824  log gamma - RHS = +0.18157  (VIOLATED)
+  p=11 s=1.45: H(theta)=2.7081 H^dec=2.1843  log gamma - RHS = +0.18078  (VIOLATED)
+  p=11 s=1.49: H(theta)=2.7081 H^dec=1.7820  log gamma - RHS = +0.37777  (VIOLATED)
+  p=13 s=1.2: H(theta)=2.8904 H^dec=2.8904  log gamma - RHS = -0.00000  (holds)
+  p=13 s=1.35: H(theta)=2.8904 H^dec=2.4556  log gamma - RHS = +0.12383  (VIOLATED)
+  p=13 s=1.45: H(theta)=2.8904 H^dec=2.1904  log gamma - RHS = +0.23173  (VIOLATED)
+  p=13 s=1.49: H(theta)=2.8904 H^dec=2.1908  log gamma - RHS = +0.23156  (VIOLATED)
+(-) form, single-feature IF block at (5,2):
+  s=1.3: H(theta)=1.0986 < H^dec=1.7918; gamma/D_S = 0.6806; log gamma - RHS = -0.17690 (holds)
+  s=1.42: H(theta)=1.0986 < H^dec=1.7918; gamma/D_S = 0.7396; log gamma - RHS = -0.01054 (holds)
+  s=1.43: H(theta)=1.0986 < H^dec=1.7918; gamma/D_S = 0.7447; log gamma - RHS = +0.00332 (VIOLATED)
+  s=1.45: H(theta)=1.0986 < H^dec=1.7918; gamma/D_S = 0.7551; log gamma - RHS = +0.03105 (VIOLATED)
+  s=1.49: H(theta)=1.0986 < H^dec=1.7918; gamma/D_S = 0.7764; log gamma - RHS = +0.08650 (VIOLATED)
+  threshold s = log2(5/kappa_min)/2 = 1.42760
+programme temperature identity at p = 11, 13 (across transitions):
+  p=11 s=1.3: log Gamma_s - log Gamma_1 = -0.482831;  -int H(z*) = -0.482831
+  p=11 s=1.5: log Gamma_s - log Gamma_1 = -0.719443;  -int H(z*) = -0.719438
+  p=13 s=1.3: log Gamma_s - log Gamma_1 = -0.530977;  -int H(z*) = -0.530968
+  p=13 s=1.5: log Gamma_s - log Gamma_1 = -0.777656;  -int H(z*) = -0.777638

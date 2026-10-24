@@ -1,0 +1,21 @@
+(1) general minimiser family
+  nu=2: max |C - family| over 50 random (phi, sign flips) = 5.1e-16; cost == bound: yes
+  nu=3: max |C - family| over 50 random (phi, sign flips) = 2.2e-15; cost == bound: yes
+  nu=4: max |C - family| over 50 random (phi, sign flips) = 3.7e-15; cost == bound: yes
+  nu=5: max |C - family| over 50 random (phi, sign flips) = 4.7e-15; cost == bound: yes
+  nu=6: max |C - family| over 50 random (phi, sign flips) = 1.3e-14; cost == bound: yes
+(2) character expansion of in-plane rank-one terms
+  max reconstruction error = 6.7e-15
+(3) search for cheaper exact decompositions (cost/bound; must be >= 1 up to penalty slack ~1e-4)
+  nu=3 r=0.667: min cost/bound by (N,amb) = 1.00000, 1.00001, 1.00002, 1.00002
+  nu=3 r=0.600: min cost/bound by (N,amb) = 1.00000, 1.00002, 1.00005, 1.00014
+  nu=3 r=0.850: min cost/bound by (N,amb) = 1.00000, 1.00000, 1.00000, 1.00000
+  nu=3 r=1.000: min cost/bound by (N,amb) = 1.00000, 1.00000, 1.00000, 1.00000
+  nu=4 r=0.500: min cost/bound by (N,amb) = 1.00000, 1.00015, 1.00011, 1.00043
+  nu=4 r=0.600: min cost/bound by (N,amb) = 1.00000, 1.00001, 1.00002, 1.00037
+  nu=4 r=0.850: min cost/bound by (N,amb) = 1.00000, 1.00000, 1.00000, 1.00000
+  nu=4 r=1.000: min cost/bound by (N,amb) = 1.00000, 1.00000, 1.00000, 1.00000
+(4) rank checks
+  hyperdeterminant of C_3 = -4.0 (negative => real rank 3, complex rank 2)
+  nu=3: best squared residual with nu-1 = 2 real terms = 1.0000e+00 (bounded away from 0 => no exact 2-term decomposition found)
+  nu=4: best squared residual with nu-1 = 3 real terms = 1.0000e+00 (bounded away from 0 => no exact 3-term decomposition found)

@@ -1,0 +1,26 @@
+== KM3 identity: equally spaced block ==
+nu=2: ||C - block||_max = 6.1e-17; ||C||_F^2 = 2 = 2^(nu-1)=2; sampled spectral norm 1.000000; nuclear lower bound F^2/sigma = 2 = block cost 2
+nu=3: ||C - block||_max = 4.8e-16; ||C||_F^2 = 4 = 2^(nu-1)=4; sampled spectral norm 1.000000; nuclear lower bound F^2/sigma = 4 = block cost 4
+nu=4: ||C - block||_max = 3.3e-16; ||C||_F^2 = 8 = 2^(nu-1)=8; sampled spectral norm 1.000000; nuclear lower bound F^2/sigma = 8 = block cost 8
+nu=5: ||C - block||_max = 7.1e-16; ||C||_F^2 = 16 = 2^(nu-1)=16; sampled spectral norm 1.000000; nuclear lower bound F^2/sigma = 16 = block cost 16
+nu=6: ||C - block||_max = 6.4e-15; ||C||_F^2 = 32 = 2^(nu-1)=32; sampled spectral norm 1.000000; nuclear lower bound F^2/sigma = 32 = block cost 32
+== KM3 lower bound: random exact decompositions with N > nu terms ==
+nu=3 r=0.667: 40 exact decompositions, min cost/bound = 1.061606 (must be >= 1)
+nu=3 r=0.750: 40 exact decompositions, min cost/bound = 1.007539 (must be >= 1)
+nu=3 r=1.000: 40 exact decompositions, min cost/bound = 1.001343 (must be >= 1)
+nu=4 r=0.500: 40 exact decompositions, min cost/bound = 1.041456 (must be >= 1)
+nu=4 r=0.750: 40 exact decompositions, min cost/bound = 1.162085 (must be >= 1)
+nu=4 r=1.000: 40 exact decompositions, min cost/bound = 1.030902 (must be >= 1)
+== KM1 pinching: sum_k prod_t ||P_k v_t||^r <= prod_t ||v_t||^r iff r*nu >= 2 ==
+nu=2 b=1.5: max pinched/original = 1.3848; equal-split example = 1.1892
+nu=2 b=2.0: max pinched/original = 1.0000; equal-split example = 1.0000
+nu=2 b=2.5: max pinched/original = 1.0000; equal-split example = 0.8409
+nu=2 b=2: max pinched/original = 1.0000; equal-split example = 1.0000
+nu=3 b=1.5: max pinched/original = 1.3388; equal-split example = 1.1892
+nu=3 b=2.0: max pinched/original = 1.0000; equal-split example = 1.0000
+nu=3 b=2.5: max pinched/original = 1.0000; equal-split example = 0.8409
+nu=3 b=3: max pinched/original = 1.0000; equal-split example = 0.7071
+nu=4 b=1.5: max pinched/original = 1.2197; equal-split example = 1.1892
+nu=4 b=2.0: max pinched/original = 1.0000; equal-split example = 1.0000
+nu=4 b=2.5: max pinched/original = 1.0000; equal-split example = 0.8409
+nu=4 b=4: max pinched/original = 1.0000; equal-split example = 0.5000

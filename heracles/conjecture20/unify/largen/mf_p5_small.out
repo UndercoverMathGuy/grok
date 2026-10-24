@@ -1,0 +1,29 @@
+p=5 n=3 b=2.0 K*-programme Gamma=0.6910  (6s)
+   ratio=+0.99997  seed=if    m= 4  eta_j/IFprice: 1:1.00e+00 2:8.69e-22  spurious/main=8.69e-22
+   ratio=+0.99997  seed=oned  m= 4  eta_j/IFprice: 1:1.00e+00 2:8.38e-22  spurious/main=8.38e-22
+   ratio=+0.99997  seed=oned  m= 4  eta_j/IFprice: 1:1.00e+00 2:8.29e-22  spurious/main=8.29e-22
+   ratio=+0.99997  seed=if    m= 6  eta_j/IFprice: 1:1.00e+00 2:6.87e-20  spurious/main=6.87e-20
+   ratio=+0.99997  seed=rand  m= 6  eta_j/IFprice: 1:3.76e-12 2:1.00e+00  spurious/main=3.76e-12
+   ratio=-0.00005  seed=rand  m= 3  eta_j/IFprice: 1:7.85e-02 2:4.37e-01  spurious/main=1.80e-01
+/home/user/grok/heracles/conjecture20/unify/largen/mfnet.py:74: RuntimeWarning: overflow encountered in exp
+  lc = (b / 2) * (math.log(nu) + (2 / nu) * l); P = onp.exp(lc).sum()
+/home/user/grok/heracles/conjecture20/unify/largen/mfnet.py:77: RuntimeWarning: overflow encountered in exp
+  beta = onp.sum(onp.exp(l) * 2 * p ** (-nu) * onp.conj(wh[:, j]) * uh[:, j] ** n)
+/home/user/grok/heracles/conjecture20/unify/largen/mfnet.py:77: RuntimeWarning: invalid value encountered in multiply
+  beta = onp.sum(onp.exp(l) * 2 * p ** (-nu) * onp.conj(wh[:, j]) * uh[:, j] ** n)
+/root/.cache/uv/archive-v0/1B1qBRLuJaJsBesC/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:83: RuntimeWarning: invalid value encountered in reduce
+  return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+p=5 n=4 b=2.0 K*-programme Gamma=0.6910  (19s)
+   ratio=+0.99997  seed=if    m= 5  eta_j/IFprice: 1:1.00e+00 2:1.29e-26  spurious/main=1.29e-26
+   ratio=+0.99996  seed=if    m= 7  eta_j/IFprice: 1:1.00e+00 2:6.34e-22  spurious/main=6.34e-22
+   ratio=+0.27880  seed=oned  m= 5  eta_j/IFprice: 1:6.18e-01 2:6.15e-03  spurious/main=9.95e-03
+   ratio=+0.27878  seed=oned  m= 4  eta_j/IFprice: 1:6.19e-01 2:6.19e-03  spurious/main=1.00e-02
+   ratio=-0.00011  seed=rand  m= 4  eta_j/IFprice: 1:2.46e-02 2:3.14e-01  spurious/main=7.83e-02
+   ratio=-0.26234  seed=rand  m= 7  eta_j/IFprice: 1:nan 2:nan  spurious/main=nan
+p=5 n=5 b=2.0 K*-programme Gamma=0.6910  (32s)
+   ratio=+0.99995  seed=if    m= 6  eta_j/IFprice: 1:1.00e+00 2:7.54e-32  spurious/main=7.54e-32
+   ratio=+0.99995  seed=oned  m= 6  eta_j/IFprice: 1:1.00e+00 2:7.09e-32  spurious/main=7.09e-32
+   ratio=+0.99994  seed=if    m= 8  eta_j/IFprice: 1:1.00e+00 2:9.77e-23  spurious/main=9.77e-23
+   ratio=-0.00013  seed=oned  m= 5  eta_j/IFprice: 1:4.26e-01 2:3.92e-03  spurious/main=9.22e-03
+   ratio=-0.00014  seed=rand  m= 5  eta_j/IFprice: 1:9.19e-02 2:5.95e-03  spurious/main=6.48e-02
+   ratio=-0.00015  seed=rand  m= 8  eta_j/IFprice: 1:4.39e-01 2:4.47e-03  spurious/main=1.02e-02

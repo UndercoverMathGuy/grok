@@ -1,0 +1,444 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\title{(O2) compensation costs at $n=2$:\\ the single-cheap-feature game, two regimes, and what is left}
+\author{fork O2}
+\date{17 October 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We set up and solve numerically the single-cheap-feature compensation game of (O2) at $n=2$, for the programme maximisers
+at $b=2$ ($s=\frac32$) and $b=2.5$ ($s=1.2$), all primes $5\le p\le41$, every feature of the support, with all quadratic
+compensation channels of the note (own partner, riding, stray outputs), Lorentz costs, the sharp single-feature bonus
+(computed), single-character Riesz tests and the quadratic ($L^2$-over-$T$) test.  Findings.
+(1) \emph{Linear gain models fail.}  Under any gain bound that is linear in $|\beta_{l,T}|$ near $0$ (Theorem A's $\frac12R$ or the
+conjectured sharp $c_1R$) the network wins, for some feature at every sparse prime.  We prove a dichotomy that explains this exactly:
+at a character $\chi_{l,T}$ the compensation can hide the sign-flipped mode to first order \emph{for free} if and only if the channels
+supply at least $|B|$ distinct compensating vectors (Chebotarev).  Partner and riding supply $2|S|-1<|B|$; stray outputs (only at
+$T=[n]$) supply up to $2|S|$ more, and then hiding is exact.  In the dense case ($S=F$) the free-hiding slope is exactly $\frac12$:
+Theorem A is exactly tight against compensation.
+(2) \emph{The bonus is quadratic near the IF block}, with an explicit constant: for three atoms near the IF block,
+$\Re\beta-a=\frac{1-r}{8+r}\,|\beta_1+\beta_2+\overline{\beta_{12}}|^2/a+O(\varepsilon^3)$ (proved), i.e.\ $0.346\,R^2/a$ for $R=\max_T|\beta_T|$ and
+$0.0385\,R^2/a$ if all interference sits on $T=\{1,2\}$ (at $b=2$).  The interior maximum of bonus$/R$ is reached on an explicit
+two-atom branch, $G_2(\rho)=3\rho-\rho^3/c^2-1$.
+(3) \emph{With the sharp (computed) bonus the prover wins in every case computed, but at $b=2$ only narrowly with single-character tests.}  The
+relevant quantity is the safety ratio $\sigma(p,l)$ (protection over bonus, minimised over the network's interference profile; $\sigma\ge1$ iff $V\ge0$).
+At $b=2$: the task's game (partner + riding) has $\min\sigma=1.015$ ($p=17$, $l=5$); with stray outputs and single-character Riesz tests
+$\min\sigma=1.051$ with the true joint Lorentz account ($0.959$ if costs are charged per test); with the quadratic test $\min\sigma=1.69$.  At $b=2.5$ all
+ratios are $\ge2.35$ (Riesz) and $\ge4.1$ (quadratic).  The critical configurations are two-neuron cheap features (an explicit two-atom bonus branch)
+at $|\beta_{l,T}|\approx0.5$--$0.8\,a_l$.  Dedicated compensators (with sibling accounting) never help.  Allocation moves \emph{do} help the network at first
+order (the prover's best $\mu$ is not $\mu^\star$; forcing $\mu=\mu^\star$ loses, down to $0.655$), but the coverage gap they open bounds the effect: the best
+moves found (local search on the tightest features) lower $\sigma$ by $\le27\%$ (Riesz, separate), $5$--$7\%$ (joint), $<1\%$ (quadratic test), and never below $1$ in the joint or quadratic game in the cases searched.
+(4) The remaining gap for (O2) at $n=2$ is precisely: a rigorous form of the sharp bonus function $G^*$ (a $3$-variable
+inequality on atom systems; only its linear envelope, Theorem A, is proved), and a $p$-uniform lower bound for the protection
+curves $\Pi_T$, which are explicit SOCP values attached to the support and binding set of each programme vertex.
+\end{abstract}
+
+\tableofcontents
+
+\section{The game}\label{sec:game}
+\paragraph{Allocation and units.}  $n=2$, $\nu=3$, $s=3/b\in[1,\frac32]$, $r=1/s$.  We fix a programme maximiser $y^\star$
+($\sum_jy_j^{\star r}=1$, support $S$, binding half-set $B_+=\{\delta\in F:\sum_jy^\star_j\kappa_j(\delta)=\Gamma_s\}$, $B=B_+\cup(-B_+)$),
+and work in units where $\sum_lQ_l=1$.  Then the interference-free (IF) amplitudes are $a_j=3^{1-s}y_j^\star$ and the IF margin is
+$3^{1-s}\Gamma_s=\sum_ja_jK_j(\mu)$ for every probability $\mu$ on $B$, $K_j(\mu)=\sum_\delta\mu_\delta\kappa_j(\delta)$.
+Programme data were recomputed with the repository solvers \texttt{prog2}/\texttt{prog3} (best of both, plus exhaustive vertex enumeration
+\texttt{progx} for supports $\le4$ at $p\le23$); the KKT measure $\mu^\star$ on $B$ was obtained by an LP and has zero residual in every case.
+At $b=2$ the supports are sparse for $p\ge11$ ($|S|=2$--$5$, $|B_+|=|S|$); at $b=2.5$ the support is all of $F$ for $p\le17$.
+
+\paragraph{Characters, coefficients, channels.}  Fix a cheap feature $l\in S$ and $T\in\{\{1\},\{2\},\{1,2\}\}$, $\chi_T=2l\mathbf 1_T$.
+With the convention $\Phi_{-m}=\overline{\Phi_m}$, $c_m(\delta)=1-\rho^{-m\delta}$ (so $c_{-m}=\overline{c_m}$), the coefficient of $x\mapsto g(x,\delta)$ at
+$\chi_T$ is $\hat g_\delta(\chi_T)=\frac12\sum_{m\in\mathbb Z_p^\times}\phi_m(\chi_T)\,c_m(\delta)$.  The own sign-flipped mode is $m=l$, of modulus
+$R_T=|\beta_{l,T}|$.  By the channel lemma of the note (Lemma \emph{channels}) and the paid/unpaid classification (Section \emph{Architecture}), the
+quadratically paid compensating modes are:
+\begin{center}\small
+\begin{tabular}{llll}
+\toprule
+channel & vector $m$ & payer (Lorentz cost on its clean amplitude) & characters\\
+\midrule
+own partner & $-l$ & $l$ (input $3l$ on $T$) & all $T$\\
+riding & $\pm j$, $j\in S\setminus\{l\}$ & $j$ (input $2l\mp j$ on $T$) & all $T$\\
+stray output & $2l\pm q$, $q\in S$, $\ne l$ & $q$ (output $m$ on feature-$q$ neurons) & $T=[n]$ only\\
+shared (F2) & $\pm j$ with $2l\equiv\pm j\pm q$, $j\ne q\in S$ & free & all $T$\\
+dedicated & any $m$ & all factors unpaid: concave cost & all $T$\\
+\bottomrule
+\end{tabular}
+\end{center}
+A payer $q$ carrying modes $z_{m}$ (all characters together) keeps at most $\sqrt{a_q^2-\sum|z_m|^2}$ of clean amplitude (Lemma \emph{lorentz} of the
+note and Acz\'el), which enters (MI) weighted by $K_q(\mu)$.  Siblings of riding and stray modes are assumed cancelled for free (this favours the
+network; for stray outputs on an IF block they are genuinely absent).  The own partner is charged like riding (as specified); the variant
+``partner free'' is reported separately.
+
+\paragraph{Gain.}  By the paper's Lemma 6 the bonus $\Re\beta_l-a_l$ is a function of one atom system.  The \emph{sharp bonus}
+\[G^*(\rho_1,\rho_2,\rho_{12})=\sup\{\,|A|-a:\ a=3^{1-s}Q^s=1,\ |\beta_T|\le\rho_T\,\}\]
+(atoms $\beta_i\in\mathbb C$, $\xi_i\in\mathbb T^2$) is computed by SLSQP with analytic gradients, widths $N\le4$ (spot checks with $N\le6$),
+IF-block and random starts, and continuation; it is a \emph{lower} bound for the true supremum.  By slot symmetry we use $\rho_1=\rho_2=\rho_s$.
+Linear models: Theorem A, $G\le\frac12\max_TR_T$ (proved); conjectured sharp $c_1=1-3^{1-s}$.
+
+\paragraph{Tests.}  (i) Single-character Riesz tests at each $\chi_T$: $h\le\mathbb Eg_\delta-|\hat g_\delta(\chi_T)|$.  (ii) The quadratic test of the
+note (Theorem \emph{quad}, remark (c)): detection $\sqrt2\,f\,\|(\hat g_\delta(\chi_T))_T\|_2$ with $f=f(\gamma_{\max})=0.672$ in general and $f=1$ when the
+interference sits on one $T$.  For (ii) we ignore pair-sum and $2\chi$ modes (type (R)), i.e.\ we assume the relevant dissociation.
+
+\paragraph{Protection and safety ratio.}  For a test $T$ and $\mu\ge0$ symmetric on $B$ put
+\[\mathrm{Prot}_T(R,\mu)=\min_{\text{modes}}\Big[\sum_\delta\mu_\delta|\hat g_\delta(\chi_T)|+\sum_{q\in S}K_q(\mu)\Big(a_q-\sqrt{a_q^2-\textstyle\sum_{m\to q}|z_m|^2}\Big)\Big],\qquad
+\Pi_T(R)=\max_{K_l(\mu)=1}\mathrm{Prot}_T(R,\mu).\]
+Costs of different tests are charged separately (a relaxation in favour of the network).  The network beats IF with cheap feature $l$ only if
+some profile $(\rho_s,\rho_{12})$ has $a_l\,G^*(\rho_s,\rho_{12})>\max\big(\Pi_{\{1\}}(\rho_sa_l),\Pi_{[2]}(\rho_{12}a_l)\big)$.  We report
+\[\sigma(p,l)=\min_{(\rho_s,\rho_{12})\ne0}\frac{\max\big(\Pi_{\{1\}}(\rho_sa_l),\,\Pi_{[2]}(\rho_{12}a_l)\big)}{a_l\,G^*(\rho_s,\rho_{12})},\]
+so $\sigma\ge1$ is exactly the statement $V\ge0$ of the task (the task's $V=\max_\mu\min_{R,\dots}[\cdots]$ is $\le0$ always, $=0$ at $R\to0$;
+the informative number is the ratio).  The minimum is over the grid $\rho\in\{0,.02,.05,.1,.15,.2,.3,.4,\dots,1.7,3^{s-1}\}^2$.
+
+\section{Structure of the game (proved)}\label{sec:struct}
+Throughout this section the allocation, $l$, $T$ and the channel family $M_T\subseteq\mathbb Z_p^\times\setminus\{l\}$ (with payers) are fixed.
+Write $Y_m(u)=\frac12\sum_{\delta\in B}u_\delta\overline{c_m(\delta)}$ for $u\in\mathbb C^B$.
+
+\begin{lemma}[dual form, convexity, slope]\label{lem:dual}
+\begin{multline*}\Pi_T(R)=\max\Big\{R\,\Re Y_l(u)-\sum_{q}a_q\Big(\big\|\big(K_q(\mu),(Y_m(u))_{m\to q}\big)\big\|_2-K_q(\mu)\Big):\\ |u_\delta|\le\mu_\delta,\ \mu\text{ symmetric},\ K_l(\mu)=1,\ Y_m(u)=0\ (m\text{ free})\Big\}.\end{multline*}
+Consequently $\Pi_T$ is convex on $[0,\infty)$ with $\Pi_T(0)=0$, $\Pi_T(R)/R$ is non-decreasing, and
+\[\lim_{R\downarrow0}\Pi_T(R)/R=h_T:=\max\{\Re Y_l(u):\ |u_\delta|\le\mu_\delta,\ K_l(\mu)=1,\ Y_m(u)=0\ \forall m\in M_T\}.\]
+\end{lemma}
+\begin{proof}
+$\mu_\delta|w|=\max_{|u_\delta|\le\mu_\delta}\Re(\bar u_\delta w)$, and for $f(z)=a-\sqrt{a^2-\|z\|^2}$ ($\|z\|\le a$) the conjugate of $Kf$ is
+$K f^*(y/K)=a(\sqrt{K^2+\|y\|^2}-K)$.  The objective of $\mathrm{Prot}_T$ is convex in the modes and linear in $(\mu,u)$, the $(\mu,u)$-set is compact
+($\kappa_l>0$ on $B$ bounds $\mu$), so Sion's theorem exchanges min and max; the own mode contributes $\Re\sum\bar u_\delta\frac R2c_l(\delta)=R\Re Y_l(u)$.
+$\Pi_T$ is a maximum of affine functions of $R$ with value $\le0$ at $R=0$ and $\ge0$ (take $u=0$), so it is convex with $\Pi_T(0)=0$, hence
+$\Pi_T(R)/R$ is non-decreasing.  As $R\to0$, $\Pi_T(R)/R=\max[\Re Y_l-\text{cost}/R]$; the costs are $\ge0$ and vanish exactly when all $Y_m=0$, so by
+compactness the limit is $h_T$.
+\end{proof}
+
+\begin{corollary}[linear gain models]\label{cor:lin}
+If the bonus is bounded by $g\max_TR_T$ (e.g.\ $g=\frac12$, Theorem A, or $g=c_1$), then in the relaxed game the prover wins against every profile iff
+$g\le\min_Th_T$.  If $g>\min_Th_T$ the network wins with arbitrarily small $R$ on the minimising $T$.
+\end{corollary}
+\begin{proof}
+$\Pi_T(R)\ge h_TR$ by Lemma~\ref{lem:dual}; conversely $\Pi_T(R)=h_TR+o(R)$.
+\end{proof}
+
+\begin{proposition}[free hiding: a Chebotarev dichotomy]\label{prop:dich}
+Let $M_T$ consist of distinct residues $\ne0,l$ (each with a free complex coefficient).  Then $h_T=0$ (exact first-order hiding) if and only if
+$|M_T|\ge|B|$.  In particular:
+\begin{itemize}
+\item[(a)] with partner and riding only, $|M_T|=2|S|-1<2|S|\le|B|$ at every vertex, so $h_T>0$ for every $T$ (this is the quantitative content of
+Proposition \emph{hide});
+\item[(b)] at $T=[n]=\{1,2\}$ the stray outputs add the residues $2l\pm q$ ($q\in S$).  Whenever $|M_{[2]}|\ge|B|$, which holds for every sparse
+support computed ($p=11,\dots,41$ at $b=2$; $p\ge19$ at $b=2.5$), $h_{[2]}=0$: the sign-flipped mode at $\chi_{l,[2]}$ can be hidden from every binding
+direction at quadratic cost.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+$h_T=0$ iff $c_l|_B\in\operatorname{span}\{c_m|_B:m\in M_T\}$ (the dual SOCP has a feasible $u$ with $\Re Y_l(u)>0$ iff some $u$ annihilates the span but not
+$c_l$; scale it into $|u|\le\mu$).  Writing $e_k(\delta)=\rho^{-k\delta}$, $c_l=\sum_mz_mc_m$ on $B$ means $\sum_{k\in K}w_ke_k=0$ on $B$ with
+$K=M_T\cup\{0,l\}$, $w_l=1$, $w_m=-z_m$, $w_0=\sum z_m-1$, i.e.\ a relation with $\sum_kw_k=0$, i.e.\ a relation among the $e_k$ on $B\cup\{0\}$ with
+$w_l\neq0$.  By Chebotarev's theorem every square minor of the Fourier matrix of $\mathbb Z_p$ is non-zero, so any $\min(|K|,|B|+1)$ of the $e_k$ are
+independent on $B\cup\{0\}$.  If $|K|\le|B|+1$ there is no non-trivial relation at all.  If $|K|\ge|B|+2$ the relations on $B\cup\{0\}$ form a space of dimension
+$|K|-|B|-1$, and those with $w_l=0$ (relations among $K\setminus\{l\}$) a space of dimension $|K|-|B|-2$; so a relation with $w_l=1$ exists.  $|K|\ge|B|+2$ iff
+$|M_T|\ge|B|$.  For (a), every vertex has $|B_+|\ge|S|$.
+\end{proof}
+
+\begin{proposition}[dense case: Theorem A is exactly tight against compensation]\label{prop:dense}
+If $S=F$ and $B=\mathbb Z_p^\times$ (e.g.\ $p=5,7$ at $b=2$, $p\le17$ at $b=2.5$), then $h_T=\frac12$ for every $T$ and every channel family containing
+partner and riding.
+\end{proposition}
+\begin{proof}
+Then $M_T\supseteq\mathbb Z_p^\times\setminus\{l\}$.  Put $U(k)=\sum_{\delta\ne0}u_\delta\rho^{k\delta}$; the constraints read $U(m)=U(0)$ for $m\ne0,l$.  Extend
+$u$ to $\mathbb Z_p$ by $u_0=-U(0)$; its transform $\hat u(k)=u_0+U(k)$ vanishes off $\{l\}$, so $u_\delta=\frac1p\hat u(l)\rho^{-l\delta}$ has constant modulus
+$|\hat u(l)|/p$.  Then $\Re Y_l=-\frac12\Re\hat u(l)$, and $K_l(\mu)\ge\frac{|\hat u(l)|}p\sum_{\delta\ne0}\kappa_l(\delta)=|\hat u(l)|$ since
+$\sum_{\delta\ne0}\kappa_l(\delta)=p$.  So $h_T\le\frac12$, with equality for $\hat u(l)=-1$, $\mu_\delta=1/p$.
+\end{proof}
+So with the proved gain constant $\frac12$ the dense game has value exactly $0$ (approached as $R\to0$), and with any constant $<\frac12$ (e.g.\
+$c_1$) the prover wins with ratio $\frac1{2c_1}=1.183$ at $b=2$; with costs $\Pi_T(R)/R$ rises above $\frac12$ for $R>0$ (e.g.\ $\Pi/R=0.512$ at $R=0.1a_l$, $0.61$ at $R=a_l$, $p=5$, $b=2$).
+
+\begin{proposition}[second-order bonus at the IF block, $n=2$]\label{prop:local}
+Let three atoms $\beta_i=\frac13(1+x_i)e^{iy_i}$, $\xi_i=(\omega^ie^{i\theta_i},\omega^ie^{i\phi_i})$ ($\omega=e^{2\pi i/3}$, $i\in\mathbb Z_3$) be within $\varepsilon$
+of the IF block, and $a=3^{1-s}Q^s$.  Then, with $\Sigma_\beta:=\beta_1+\beta_2+\overline{\beta_{12}}$,
+\[|A|-a=\tfrac12\big[(1-r)\operatorname{Var}(x)-\operatorname{Var}(y)\big]+O(\varepsilon^3)\ \le\ \frac{1-r}{8+r}\,|\Sigma_\beta|^2+O(\varepsilon^3),\]
+and the constant is attained.  Hence near the IF block (whenever the bonus is $\ge0$, so that $\varepsilon\lesssim\max_T|\beta_T|$)
+\[\text{bonus}\le\frac{9(1-r)}{8+r}\,\frac{R^2}a\ \ (R=\max_T|\beta_T|),\qquad\text{bonus}\le\frac{1-r}{8+r}\frac{|\beta_{12}|^2}a\ \ \text{if }\beta_1=\beta_2=0,\qquad
+\frac{\text{bonus}\cdot a}{\sum_T|\beta_T|^2}\le\frac{3(1-r)}{8+r},\]
+up to $O(R^3)$: constants $0.346,\ 0.0385,\ 0.115$ at $b=2$ and $0.170,\ 0.0189,\ 0.0566$ at $b=2.5$.
+\end{proposition}
+\begin{proof}
+$|A|=1+\bar x-\frac12\operatorname{Var}y+O(\varepsilon^3)$ and $a=3^{1-s}\big(3^{-r}\sum(1+x_i)^r\big)^s=1+\bar x-\frac12(1-r)\operatorname{Var}x+O(\varepsilon^3)$ (use
+$s(s-1)r^2=1-r$).  For real $z$ on $\mathbb Z_3$, $\operatorname{Var}z=2|\hat z|^2$ with $\hat z=\frac13\sum z_i\omega^i$.  Linearising,
+$\beta_1=\hat x+i\hat y+i\hat\theta$, $\beta_2=\hat x+i\hat y+i\hat\phi$, $\overline{\beta_{12}}=\hat x-i\hat y-i\hat\theta-i\hat\phi$ up to $O(\varepsilon^2)$, so
+$\Sigma_\beta=3\hat x+i\hat y+O(\varepsilon^2)$: the slot phases cancel.  Hence the bonus is $\frac{1-r}9|\Sigma_\beta-w|^2-|w|^2+O(\varepsilon^3)$ with $w=i\hat y$, whose
+maximum over $w$ is $\frac{c}{1-c}|\Sigma_\beta|^2$, $c=\frac{1-r}9$, i.e.\ $\frac{1-r}{8+r}|\Sigma_\beta|^2$.  It is attained, because $\hat\theta,\hat\phi$ then place
+$\beta_1,\beta_2$ freely.  If the bonus is $\ge0$ then $|\hat y|\lesssim|\hat x|\lesssim|\Sigma_\beta|$, and $\hat\theta,\hat\phi$ are controlled by $\beta_1,\beta_2$, so
+$\varepsilon\lesssim\max_T|\beta_T|$.  The three displayed constants follow from $|\Sigma_\beta|\le3R$, $|\Sigma_\beta|=|\beta_{12}|$, $|\Sigma_\beta|^2\le3\sum|\beta_T|^2$.
+\end{proof}
+Numerically (Monte Carlo over $2000$ perturbations of size $10^{-3}$) the sup of bonus$\cdot a/|\Sigma_\beta|^2$ is $0.038467$ vs.\ $\frac{1-r}{8+r}=0.038462$
+($b=2$) and $0.018837$ vs.\ $0.018868$ ($b=2.5$); the global searches give $G^*_{\rm sym}(\rho)/\rho^2\to0.346$ and $G^*(0,\rho)/\rho^2\to0.0385$.
+This confirms the main thread's question: \emph{near IF the bonus is quadratic}, with $\sup\text{bonus}\cdot|A|/\sum_T|\beta_T|^2\to\frac{3(1-r)}{8+r}$.
+Proposition~\ref{prop:local} is local (three atoms, $\varepsilon$ small); away from the IF block the bonus is larger relative to $R^2$:
+
+\begin{proposition}[the two-atom branch]\label{prop:two}
+Two atoms $c\,e^{\pm i\varphi/2}$ with $c=\frac12(\frac32)^{s-1}$ (so $a=1$), $\xi_1=(1,1)$, $\xi_2=e^{i\varphi}(e^{iu},e^{iu})$ with $u=\pi-2\arcsin(\rho/2c)$ and
+$\varphi/2=3\arcsin(\rho/2c)-\frac\pi2$ have $|\beta_1|=|\beta_2|=|\beta_{12}|=\rho$ and bonus
+\[G_2(\rho)=3\rho-\rho^3/c^2-1\quad(\rho\le c),\qquad G_2(\rho)=2c-1=(\tfrac32)^{s-1}-1\quad(\rho\ge c).\]
+$G_2(\rho)/\rho$ is maximal at $\rho_*=(c^2/2)^{1/3}$: $\rho_*=0.572$, $G_2/\rho=0.379$ at $b=2$.  For $\rho\in[0.47,0.61]$ ($b=2$) this branch is the computed
+$G^*_{\rm sym}$; it is the configuration that makes the original game tightest (Section~\ref{sec:num}).
+\end{proposition}
+\begin{proof}
+$|\beta_T|=2c|\cos(\cdot)|$ with arguments $u/2$, $u/2$, $u+\varphi/2$; with $\sin(\varepsilon/2)=x:=\rho/2c$, $u=\pi-\varepsilon$ and $u+\varphi/2=\pi-\arccos x$ one gets
+$\varphi/2=2\arcsin x-\arccos x=3\arcsin x-\frac\pi2$ and $A=2c\cos(\varphi/2)=2c\sin(3\arcsin x)=2c(3x-4x^3)=3\rho-\rho^3/c^2$.
+\end{proof}
+
+\section{Numerical solution of the game}\label{sec:num}
+\subsection{Programme data}
+\begin{center}\small
+\begin{tabular}{rllll}
+\toprule
+$p$ & $\Gamma_{3/2}(p)$ & $S$ & $B_+$ & KKT weights $\lambda=2\mu^\star$ on $B_+$\\
+\midrule
+5 & 0.88388 & $\{1,2\}$ & $\{1,2\}$ & 0.500, 0.500\\
+7 & 0.67358 & $\{1,2,3\}$ & $\{1,2,3\}$ & 0.333, 0.333, 0.333\\
+11 & 0.53573 & $\{2,5\}$ & $\{2,5\}$ & 0.440, 0.560\\
+13 & 0.49777 & $\{1,3,5\}$ & $\{1,3,5\}$ & 0.391, 0.348, 0.261\\
+17 & 0.44834 & $\{3,4,5\}$ & $\{4,5,6\}$ & 0.493, 0.113, 0.393\\
+19 & 0.44215 & $\{6,8,9\}$ & $\{2,6,9\}$ & 0.256, 0.124, 0.619\\
+23 & 0.40293 & $\{4,5,6,8\}$ & $\{4,5,9,11\}$ & 0.213, 0.056, 0.353, 0.378\\
+29 & 0.38992 & $\{1,4,10,12\}$ & $\{3,6,7,14\}$ & 0.350, 0.150, 0.350, 0.150\\
+31 & 0.37009 & $\{4,6,7,15\}$ & $\{8,9,10,15\}$ & 0.203, 0.274, 0.459, 0.064\\
+37 & 0.35279 & $\{1,3,7,11,16\}$ & $\{2,5,7,10,11\}$ & 0.255, 0.097, 0.169, 0.304, 0.174\\
+41 & 0.34028 & $\{1,3,9,13,17\}$ & $\{3,5,10,13,14\}$ & 0.317, 0.187, 0.145, 0.166, 0.184\\
+\bottomrule
+\end{tabular}
+\end{center}
+At $b=2.5$ ($s=1.2$) the maximiser is $S=F$ with equal shares for $p\le17$ (dense case), and sparse from $p=19$ on
+($|S|=6,8,9,10,10,12$ for $p=19,23,29,31,37,41$; data in \texttt{prog12.out}).
+
+\subsection{Linear gain models fail}\label{sec:linfail}
+Table~\ref{tab:main} lists the free-hiding slopes.  By Corollary~\ref{cor:lin} the game with gain $g\max_TR_T$ is won by the network
+iff $g>\min_Th_T$.
+\begin{itemize}
+\item With partner and riding only (the task as posed, all $T$ alike): at $b=2$, $h_1<\frac12$ for $29$ of the $33$ sparse features, minimum
+$h_1=0.095$ ($p=41$, $l=13$), and $h_1<c_1=0.4226$ for $20$ of them.  At $b=2.5$: $h_1<\frac12$ for all $55$ sparse features, $\min h_1=0.124$ ($p=29$, $l=2$),
+and $h_1<c_1=0.197$ for $10$ of them.  Dense cases: $h_1=\frac12$ exactly (Proposition~\ref{prop:dense}), so $G=\frac12R$ is exactly critical and $G=c_1R$ is beaten by the
+factor $1/(2c_1)=1.18$ ($b=2$), $2.54$ ($b=2.5$).
+\item With stray outputs at $T=\{1,2\}$: $h_{[2]}=0$ for \emph{every} sparse feature ($33/38$ at $b=2$, $55/79$ at $b=2.5$), exactly as Proposition~\ref{prop:dich}
+predicts.  So under any gain bound that is linear near $R=0$ the network wins at every sparse prime.  The protection at $T=[2]$ is then purely quadratic:
+$\Pi_{[2]}(R)\approx\kappa_2R^2/a_l$ with $\min\kappa_2=0.82$ ($p=13$, $l=3$, $b=2$) and $1.60$ ($b=2.5$).
+\end{itemize}
+\emph{Consequence for (O2): no proof can use a payment inequality that is linear in $|\beta_{l,T}|$ at small interference; the quadratic behaviour of
+the bonus near the IF block (Proposition~\ref{prop:local}) is necessary, not a convenience.}  Against $\kappa_2\ge0.82$ the local bonus constant on $T=[2]$
+alone is $\frac{1-r}{8+r}=0.0385$, a factor $\ge21$ of room at small $R$.
+
+\subsection{The sharp bonus}
+$G^*_{\rm sym}(\rho)=G^*(\rho,\rho,\rho)$ ($b=2$): $G^*/\rho^2=0.350,\,0.366,\,0.392,\,0.427$ at $\rho=0.02,0.1,0.2,0.3$ (local constant $0.346$), maximum of
+$G^*/\rho^2$ equal to $0.687$ at $\rho\approx0.53$ (two-atom branch), $G^*/\rho$ maximal in the interior ($0.379$ at $\rho_*=0.572$, Proposition~\ref{prop:two}), then
+$0.331$ at $\rho=1$, rising to $c_1=0.4226$ at $\rho=\sqrt3$ (one atom).  On $T=[2]$ alone: $G^*(0,\rho)/\rho^2=0.039\to0.05$ for $\rho\le0.3$ and
+$G^*(0,\rho)\le(\frac32)^{1/2}-1=0.2247$ for all $\rho$ (attained from $\rho=1.2247$, two aligned neurons).  Spot checks with up to six atoms and $60$ starts
+reproduce the two-atom values.  The \emph{critical configurations of the whole game are two-atom}: two equal atoms $c\,e^{\pm i\varphi/2}$ with
+\[G_2(\rho_s,\rho_{12})=(\tfrac32)^{s-1}\cos\big(\max(0,\arccos\tfrac{\rho_{12}}{2c}-2\arcsin\tfrac{\rho_s}{2c})\big)-1,\qquad2c=(\tfrac32)^{s-1},\]
+which matches the computed $G^*$ to $10^{-4}$ at the critical points ($G^*(0.545,0.6)=0.21335$, $\varphi/2=0.136$).  In network terms: the cheap feature is
+realised by two neurons, slightly de-phased, and its three sign-flipped coefficients are all of order $0.5$--$0.7\,a_l$.
+
+\subsection{Verdicts with the sharp bonus}
+Table~\ref{tab:main} ($b=2$) lists for every feature: the original game of the task (partner + riding, prover's character at $\arg\max_T$, gain
+$G^*_{\rm sym}$, fine $\rho$-grid), the $T$-resolved game with stray outputs and single-character Riesz tests (costs charged per test = relaxation in favour of the
+network; and with the true joint Lorentz account for the tightest cases), the quadratic test ($L^2$ over $T$, joint costs), and the single-$T$ subgame
+($\rho_s=0$, quadratic test with $f=1$ and Riesz).
+\begin{center}\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{longtable}{rr|rr|rr|r|rr|r|rr}
+\caption{$b=2$.  $h_1,h_{12}$: free-hiding slopes; ``lin'': $h_1/\frac12$, $h_1/c_1$ ($<1$: network wins with linear gain);
+$\sigma_{\rm orig}$: task's game; $\sigma_{\rm R}$: $T$-resolved Riesz, separate costs; $\sigma_{\rm R}^{\rm joint}$: joint Lorentz account (tight cases);
+$\sigma_{L^2}$: quadratic test; last two: single-$T$ subgame (quadratic, Riesz).  $\sigma\ge1$ $\Leftrightarrow$ $V\ge0$.}\label{tab:main}\\
+\toprule
+$p$ & $l$ & $h_1$ & $h_{12}$ & lin$_{1/2}$ & lin$_{c_1}$ & $\sigma_{\rm orig}$ & $\sigma_{\rm R}$ & $\sigma_{\rm R}^{\rm joint}$ & $\sigma_{L^2}$ & $\sigma^{[2]}_{\rm q}$ & $\sigma^{[2]}_{\rm R}$\\
+\midrule
+\endfirsthead
+\toprule
+$p$ & $l$ & $h_1$ & $h_{12}$ & lin$_{1/2}$ & lin$_{c_1}$ & $\sigma_{\rm orig}$ & $\sigma_{\rm R}$ & $\sigma_{\rm R}^{\rm joint}$ & $\sigma_{L^2}$ & $\sigma^{[2]}_{\rm q}$ & $\sigma^{[2]}_{\rm R}$\\
+\midrule
+\endhead
+5 & 1 & 0.500 & 0.500 & 1.00 & 1.18 & 1.483 & 1.513 & -- & 2.66 & 4.84 & 3.61\\
+5 & 2 & 0.500 & 0.500 & 1.00 & 1.18 & 1.483 & 1.513 & -- & 2.66 & 4.84 & 3.61\\
+7 & 1 & 0.500 & 0.500 & 1.00 & 1.18 & 1.483 & 1.513 & -- & 2.66 & 4.84 & 3.61\\
+7 & 2 & 0.500 & 0.500 & 1.00 & 1.18 & 1.483 & 1.513 & -- & 2.66 & 4.84 & 3.61\\
+7 & 3 & 0.500 & 0.500 & 1.00 & 1.18 & 1.483 & 1.513 & -- & 2.66 & 4.84 & 3.61\\
+11 & 2 & 0.255 & 0.000 & 0.51 & 0.60 & 1.085 & 1.111 & 1.262 & 1.99 & 3.36 & 2.60\\
+11 & 5 & 0.428 & 0.000 & 0.86 & 1.01 & 1.807 & 1.759 & -- & 3.17 & 5.19 & 3.92\\
+13 & 1 & 0.425 & 0.000 & 0.85 & 1.01 & 1.535 & 1.577 & -- & 2.77 & 4.71 & 3.56\\
+13 & 3 & 0.444 & 0.000 & 0.89 & 1.05 & 1.444 & 1.375 & -- & 2.42 & 3.90 & 3.06\\
+13 & 5 & 0.468 & 0.000 & 0.94 & 1.11 & 1.489 & 1.417 & -- & 2.47 & 3.83 & 2.96\\
+17 & 3 & 0.375 & 0.000 & 0.75 & 0.89 & 1.927 & 1.809 & -- & 3.26 & 5.19 & 3.91\\
+17 & 4 & 0.393 & 0.000 & 0.79 & 0.93 & 1.751 & 1.661 & -- & 2.82 & 4.44 & 3.34\\
+17 & 5 & 0.234 & 0.000 & 0.47 & 0.55 & 1.015 & 0.959 & 1.051 & 1.70 & 2.76 & 2.09\\
+19 & 6 & 0.235 & 0.000 & 0.47 & 0.56 & 1.816 & 1.607 & -- & 2.99 & 4.39 & 3.44\\
+19 & 8 & 0.176 & 0.000 & 0.35 & 0.42 & 1.183 & 1.000 & 1.219 & 1.83 & 2.51 & 2.05\\
+19 & 9 & 0.612 & 0.000 & 1.22 & 1.45 & 1.897 & 1.829 & -- & 3.07 & 5.20 & 3.86\\
+23 & 4 & 0.448 & 0.000 & 0.90 & 1.06 & 1.361 & 1.185 & -- & 2.04 & 2.96 & 2.36\\
+23 & 5 & 0.312 & 0.000 & 0.62 & 0.74 & 1.565 & 1.361 & -- & 2.51 & 3.71 & 2.90\\
+23 & 6 & 0.622 & 0.000 & 1.24 & 1.47 & 1.754 & 1.754 & -- & 2.86 & 4.97 & 3.64\\
+23 & 8 & 0.330 & 0.000 & 0.66 & 0.78 & 1.367 & 1.281 & -- & 2.37 & 3.62 & 2.95\\
+29 & 1 & 0.412 & 0.000 & 0.82 & 0.98 & 1.362 & 1.215 & -- & 2.28 & 3.39 & 2.71\\
+29 & 4 & 0.478 & 0.000 & 0.96 & 1.13 & 1.622 & 1.542 & -- & 2.71 & 4.41 & 3.31\\
+29 & 10 & 0.478 & 0.000 & 0.96 & 1.13 & 1.622 & 1.542 & -- & 2.71 & 4.41 & 3.31\\
+29 & 12 & 0.412 & 0.000 & 0.82 & 0.98 & 1.362 & 1.215 & -- & 2.28 & 3.39 & 2.71\\
+31 & 4 & 0.665 & 0.000 & 1.33 & 1.57 & 2.065 & 1.969 & -- & 3.27 & 5.26 & 3.91\\
+31 & 6 & 0.373 & 0.000 & 0.75 & 0.88 & 1.451 & 1.366 & -- & 2.41 & 3.81 & 2.94\\
+31 & 7 & 0.553 & 0.000 & 1.11 & 1.31 & 1.795 & 1.715 & -- & 2.84 & 4.73 & 3.53\\
+31 & 15 & 0.452 & 0.000 & 0.90 & 1.07 & 1.530 & 1.463 & -- & 2.54 & 4.26 & 3.22\\
+37 & 1 & 0.357 & 0.000 & 0.71 & 0.84 & 1.761 & 1.621 & -- & 2.83 & 4.36 & 3.33\\
+37 & 3 & 0.397 & 0.000 & 0.79 & 0.94 & 1.418 & 1.452 & -- & 2.46 & 4.23 & 3.16\\
+37 & 7 & 0.431 & 0.000 & 0.86 & 1.02 & 1.359 & 1.388 & -- & 2.38 & 4.20 & 3.13\\
+37 & 11 & 0.325 & 0.000 & 0.65 & 0.77 & 1.362 & 1.348 & -- & 2.35 & 3.94 & 3.00\\
+37 & 16 & 0.368 & 0.000 & 0.74 & 0.87 & 1.771 & 1.769 & -- & 3.00 & 5.03 & 3.74\\
+41 & 1 & 0.219 & 0.000 & 0.44 & 0.52 & 1.431 & 1.355 & -- & 2.42 & 3.96 & 3.04\\
+41 & 3 & 0.161 & 0.000 & 0.32 & 0.38 & 1.711 & 1.628 & -- & 2.82 & 4.59 & 3.44\\
+41 & 9 & 0.364 & 0.000 & 0.73 & 0.86 & 1.795 & 1.698 & -- & 3.11 & 5.04 & 3.87\\
+41 & 13 & 0.095 & 0.000 & 0.19 & 0.22 & 1.203 & 1.085 & 1.316 & 2.03 & 2.98 & 2.37\\
+41 & 17 & 0.338 & 0.000 & 0.68 & 0.80 & 1.538 & 1.317 & -- & 2.52 & 3.60 & 2.89\\
+\bottomrule
+\end{longtable}
+\end{center}
+Grid caveat: $\sigma_{\rm R}$, $\sigma_{L^2}$ are minima over a grid of step $0.1$ in the critical region ($0.05$--$0.1$ for $L^2$); local refinement with fresh $G^*$
+moves them by at most $3\%$ ($p=17$, $l=5$: $\sigma_{\rm R}^{\rm joint}$ $1.078\to1.051$ at $(\rho_s,\rho_{12})=(0.545,0.6)$; $\sigma_{L^2}$ $1.696\to1.690$ at $(0.45,0.8)$).
+$\sigma_{\rm orig}$ is on a $120$-point $\rho$-grid with $G=\max(G^*_{\rm sym},G_2)$.
+
+\paragraph{Summary at $b=2$.}
+\begin{itemize}
+\item Task's game (partner + riding, sharp bonus): $\sigma_{\rm orig}\ge1.0146$; tightest $p=17$, $l=5$ (and its relabelled copies) at $\rho=0.565$, then $p=11$, $l=2$ ($1.084$),
+$p=19$, $l=8$ ($1.183$), $p=41$, $l=13$ ($1.203$).  So $V\ge0$ in every case, but by $1.5\%$ at $p=17$.
+\item With stray outputs and single-character Riesz tests with \emph{separate} costs the relaxed network wins: $\sigma_{\rm R}=0.959$ ($p=17$, $l=5$, profile $(0.5,0.6)$),
+$1.000$ ($p=19$, $l=8$).  Charging the payers once for all their modes (the true Lorentz account) restores the prover: $\sigma_{\rm R}^{\rm joint}=1.051$ ($17,5$),
+$1.219$ ($19,8$), $1.262$ ($11,2$), $1.316$ ($41,13$).
+\item The quadratic test is much stronger: $\sigma_{L^2}\ge1.69$ for every feature ($p=17$, $l=5$), $\ge1.83$ for all others but one.  The single-$T$ subgame
+(the coordinator's ``two aligned neurons'' case) has $\sigma\ge2.51$ (quadratic, $f=1$) and $\ge2.05$ (Riesz).
+\end{itemize}
+
+\paragraph{Summary at $b=2.5$.}  All margins are large: $\sigma_{\rm orig}\ge2.42$ ($p=23$, $l=4$), $\sigma_{\rm R}\ge2.35$ ($p=41$, $l=19$), $\sigma_{L^2}\ge4.14$,
+single-$T$ $\ge4.55$.  Linear gains still fail ($\min h_1/\frac12=0.25$, $\min h_1/c_1=0.63$; $h_{12}=0$ for all sparse features).
+Full table: \texttt{tab12.tex}, \texttt{all12.txt}.
+
+\subsection{Variants}
+\begin{center}\small
+\begin{tabular}{lccc}
+\toprule
+variant ($b=2$) & $\min\sigma_{\rm R}$ (separate) & $\min\sigma_{L^2}$ & worst feature\\
+\midrule
+base (partner charged) & $0.959$ & $1.690$ & $p=17$, $l=5$\\
+own partner free (note's (F1)) & $0.940$ & $1.661$ & $p=11$, $l=2$ / $17,5$\\
+shared neurons (F2) free, any size & $0.696$ & $1.320$ & $p=11$, $l=2$ / $17,5$\\
+\bottomrule
+\end{tabular}
+\end{center}
+(F2) relations $2l\equiv\pm j\pm q$ ($j\ne q\in S$) exist for $30$ of the $38$ features at $p\le41$: at these sizes they are not rare.  Treating them as free
+compensating vectors of unlimited size is a gross over-estimate (a shared neuron's cross mode is tied to its clean amplitudes and has its own siblings), and
+even then the quadratic test keeps $\sigma_{L^2}\ge1.32$.
+
+\subsection{Dedicated compensators (with siblings)}
+Dedicated compensators (all factors unpaid) were modelled in two ways: (a) one neuron per frequency, cost $D(q)=3^{1-s}\Gamma_s(1-(1-q)^s)$ with
+$q=\|C\|^{r}$, siblings left uncancelled and detected by their own single-character tests; (b) a sibling-free block, $q=(3^{s-1}\|C\|)^r$ (IF-block
+efficiency).  Two searches at the critical profiles of the three tightest features ($p=17,19,11$), with joint costs and the gain set to $0.98$ of the
+threshold: (i) CCP (tangent majorisation of the concave cost) from random starts of sizes $0.005$--$0.4\,a_l$, all frequencies $k\in F$, both test characters:
+it always returns to $C=0$; (ii) a pooled budget $\sum\|C_k\|\le c$ charged $D((fc)^r)$ (a lower bound on the true concave cost): the value increases
+monotonically in $c\in[10^{-4},10^{-1}]a_l$ (e.g.\ $p=17$: $0.0056\to0.0084\ (c=10^{-4})\to0.061\ (10^{-2})\to0.25\ (10^{-1})$ in model (b); model (a) similar),
+and beyond $0.1a_l$ the cost alone exceeds the largest possible bonus.  \emph{Dedicated compensators never help}: the concave cost $|C|^r$ is steepest
+exactly where the bonus is small.
+
+\subsection{Allocation moves (task 2)}\label{sec:alloc}
+Let the network move its allocation $y$ on the budget sphere; the prover then uses \emph{all} directions $\delta$, with the exact coverage account
+$\mathrm{cov}_y(\mu)=3^{1-s}(\Gamma_s\sum\mu-\sum_jy_jK_j(\mu))$ (this is the coverage gap $G(\theta)$ of the note minus what $\mu$ spends off the minimising
+directions).  Results ($b=2$):
+\begin{center}\small
+\begin{tabular}{lcccc}
+\toprule
+ & $p=17$, $l=5$ & $p=19$, $l=8$ & $p=11$, $l=2$ & $p=41$, $l=13$\\
+\midrule
+Riesz, separate: $\mu$ on $B$ at $y^\star$ & $0.959$ & $1.000$ & $1.111$ & $1.085$\\
+Riesz, separate: all $\delta$ at $y^\star$ & $1.133$ & $1.366$ & $1.474$ & $1.622$\\
+Riesz, separate: $\mu=\mu^\star$ forced & $0.766$ & $0.655$ & $1.051$ & $0.740$\\
+Riesz, separate: min over $y$ (NM, 80 evals) & $0.999$ & $1.120$ & $1.462$ & $1.182$\\
+Riesz, joint, at critical profile: $y^\star$ / min over $y$ & $1.151$ / $1.095$ & $1.447$ / $1.341$ & & \\
+quadratic test: $y^\star$ / 4 moved $y$ & $2.004$ / $\ge1.995$ & & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+So: (i) the heuristic ``the prover may use $\mu^\star$'' is \emph{not} sufficient: forcing $\mu=\mu^\star$ loses ($0.655$ at $p=19$).  (ii) Allocation moves
+\emph{do} help the network at first order (the value is a maximum of affine functions of $dy$ whose active $\mu$ is not $\mu^\star$, so it decreases linearly in
+some directions), by up to $27\%$ in $\sigma_{\rm R}$ and $5$--$7\%$ in $\sigma^{\rm joint}_{\rm R}$; (iii) the decrease is bounded because moving $y$ opens the coverage gap,
+which the prover collects with point masses; no allocation was found that brings $\sigma^{\rm joint}_{\rm R}$ or $\sigma_{L^2}$ below $1.09$ resp.\ $1.99$.  At $b=2.5$
+($p=41$, $l=19$ and $p=23$, $l=4$) local search found nothing below the value at $y^\star$ ($2.43$, $2.42$).
+At small scales allocation moves are harmless (Section~\ref{sec:struct} gives the argument): if $R^2\lesssim|dy|$ the prover's point mass at the worst direction
+collects a coverage gap $\gtrsim|dy|$ against a bonus $O(R^2)$; otherwise the $\mu^\star$-test margin, which is linear ($|T|=1$) or quadratic with constant
+$\kappa_2(\mu^\star)$ ($T=[2]$) in $R$, dominates the $O(|dy|^2)$ curvature of $\sum_jy_jK_j(\mu^\star)$.  Numerically the $\mu^\star$-forced small-$R$ constants are
+$\min h_1(\mu^\star)=0.077>0$ and $\min\kappa_2(\mu^\star)=0.298$, i.e.\ $7.7$ times the local bonus constant $0.0385$ on $T=[2]$ ($b=2$, all $38$ features).
+
+\section{Theory: what can and cannot be proved, and the exact gap}\label{sec:gap}
+\paragraph{$V\ge0$ with a linear gain is false.}  With $G=\frac12R$ or $G=c_1R$ the statement ``$V\ge0$ for all $p$'' fails already in the
+model with partner and riding only (Corollary~\ref{cor:lin}: $h_1<c_1$ for $20$ sparse features at $b=2$), and it fails for \emph{every} sparse
+feature once stray outputs are admitted (Proposition~\ref{prop:dich}(b): $h_{[2]}=0$).  The obstruction is exact and elementary: near-hiding of the
+sign-flipped mode at quadratic cost.  It is decided by a count (Chebotarev): free first-order hiding at $\chi_{l,T}$ is possible iff the channels give
+$\ge|B|$ distinct compensating output frequencies.  This also corrects the reading of Proposition \emph{hide}: exact hiding with the features' own
+outputs is impossible only for partner + riding ($2|S|-1<|B|$); stray outputs on $T=[n]$ add up to $2|S|$ more and make it possible.  The dense case is
+the extreme opposite: there the slope is exactly $\frac12$, so Theorem A's constant is \emph{exactly} the threshold.
+
+\paragraph{The quadratic bonus is necessary and (near IF) proved.}  Proposition~\ref{prop:local} gives the exact local constant.  The suggested
+combination $G\le\min(\frac12R,\,CR^2/a)$ with the best global $C$ ($C=0.687$ at $b=2$, attained on the two-atom branch at $\rho\approx0.53$) is \emph{not}
+enough: against it the protection ratio drops to $0.81$ (partner + riding, $p=17$, $l=5$; $0.93$ with $c_1$ in place of $\frac12$) and to $0.57$ once stray
+outputs are allowed ($p=19$, $l=8$).  What works numerically is the \emph{$T$-resolved} sharp bonus $G^*(\rho_s,\rho_{12})$, whose decisive features are
+(i) the small constant $\frac{1-r}{8+r}$ when the interference sits on $T=[2]$, where hiding is exact, and (ii) the explicit two-atom branch $G_2$ in the
+critical region.
+
+\paragraph{Where the game is decided.}  Two regimes, as anticipated:
+\begin{itemize}
+\item[(S)] \emph{Small $R$.}  On $|T|=1$ the protection is linear ($h_1\ge0.095$) against a quadratic bonus; on $T=[2]$ both are quadratic, with protection
+constant $\kappa_2\ge0.82$ against bonus constant $0.0385$ ($b=2$).  Cross terms between the two are cubic.  This regime is safe by a factor $\ge20$, uniformly in
+the cases computed, and robust under allocation moves ($\mu^\star$-forced constants $0.077$, $0.298$).
+\item[(L)] \emph{Moderate $R$, two-atom configurations} ($\rho_s\approx0.5$, $\rho_{12}\approx0.6$--$0.8$, bonus $\approx0.21\,a_l$).  Here the Lorentz
+costs and the residual are of the same order as the bonus.  This is where all the tight cases sit: $\sigma_{\rm orig}=1.015$, $\sigma^{\rm joint}_{\rm R}=1.051$,
+$\sigma_{L^2}=1.69$ at $p=17$, $l=5$; the separate-cost relaxation (0.959) and the forced-$\mu^\star$ test (0.655 at $p=19$) lose here.
+\item[(X)] \emph{Large $R$} ($\rho\to\sqrt3$, one atom): compensation becomes expensive ($|z|\to a_j$) and every ratio is comfortable.
+\end{itemize}
+
+\paragraph{A sufficient, checkable form of (O2) for one cheap feature at $n=2$.}  Combining Lemma~\ref{lem:dual} with the quadratic test, the
+following two inequalities imply that a single cheap feature (with any partner, riding and stray compensation, dedicated compensators and allocation moves
+included as in Section~\ref{sec:num}) never beats IF at the programme vertex $(S,B)$:
+\begin{itemize}
+\item[(P$^\sharp$)] \emph{payment}: for every atom system, $|A|-a\le a\,G^\sharp\big(\max(|\beta_1|,|\beta_2|)/a,\ |\beta_{12}|/a\big)$, for an explicit
+$G^\sharp$ that is $\ge G^*$ (e.g.\ $G^\sharp=\max(G_2,\ \frac{1-r}{8+r}(2\rho_s+\rho_{12})^2+\text{cubic})$ near $0$, $c_1\max\rho$ for large $\rho$);
+\item[(A$^\sharp$)] \emph{protection}: $\Pi^{L^2}(\rho_s,\rho_s,\rho_{12})\ge a_l\,G^\sharp(\rho_s,\rho_{12})$ on $[0,3^{s-1}]^2$, where $\Pi^{L^2}$ is the SOCP value of
+Section~\ref{sec:game} (quadratic test, joint Lorentz costs).
+\end{itemize}
+(A$^\sharp$) holds numerically with factor $\ge1.69$ ($b=2$) and $\ge4.1$ ($b=2.5$) for every feature at $p\le41$, with the computed $G^*$ in place of $G^\sharp$.
+(P$^\sharp$) is a single-feature inequality on atoms (the paper's Lemma 6 makes it network-independent); only its linear envelope (Theorem A) and its
+local quadratic form (Proposition~\ref{prop:local}) are proved.
+
+\paragraph{The precise remaining gap for (O2).}
+\begin{enumerate}
+\item \emph{(P$^\sharp$), a $T$-resolved sharp payment at $n=2$.}  Needed: a proof that the bonus is at most (a) $\frac{1-r}{8+r}|\beta_1+\beta_2+\overline{\beta_{12}}|^2/a$
+plus higher order \emph{globally on a neighbourhood of size independent of $p$}, and (b) at most the two-atom value $G_2$ in the critical region
+$\rho\in[0.4,0.8]$, with (c) the known linear cap.  The numerics say there is room ($\ge69\%$ with the quadratic test), so a non-sharp version with
+explicit constants suffices; for instance any $G^\sharp\le1.6\,G^*$ would do for all $p\le41$ at $b=2$.  The spectral form of the cost lemma (main thread)
+and the chain-matrix second-order expansion are the natural tools; the two-atom branch is the extremal family to beat.
+\item \emph{(A$^\sharp$) uniformly in $p$.}  The protection curves are explicit SOCP values attached to $(S,B,\mu)$ but their constants vary irregularly with the
+arithmetic of the support ($h_1\in[0.095,0.67]$, $\kappa_2\in[0.8,40]$ at $b=2$).  A proof for all $p$ needs a \emph{robust} uncertainty principle on $\mathbb Z_p$:
+a lower bound for the weighted $L^1(\mu)$ distance from $c_l|_B$ to the span of $\le|B|-1$ characters (for $|T|=1$), and for the Lorentz-weighted quadratic form
+when the span is everything (for $T=[2]$).  The dichotomy (Proposition~\ref{prop:dich}) is the exact, non-quantitative version.
+\item \emph{Several cheap features.}  The game here has one cheap feature whose compensation is paid by IF-priced payers.  With several cheap features the
+payers' own bonuses and the (F2)/(O1) relations interact; the quadratic test handles the relations only under (D$_3$)-type dissociation.
+\end{enumerate}
+What is \emph{numerical} in this note: all $\sigma$ values, the sharp bonus $G^*$ (local search; a lower bound for the true supremum, so every
+$\sigma$ is an upper estimate of the true ratio, up to grid resolution $\le3\%$), the dedicated and allocation searches (local).  What is \emph{proved}:
+Lemma~\ref{lem:dual}, Corollary~\ref{cor:lin}, Propositions~\ref{prop:dich}, \ref{prop:dense}, \ref{prop:local} (local) and \ref{prop:two}.
+
+\section*{Files (scratchpad \texttt{forkO2/})}
+\texttt{progdata.py} (programme, binding set, KKT measure; \texttt{prog15.out}, \texttt{prog12.out}),
+\texttt{game2.py} (dual SOCP, channel families, free-hiding slope), \texttt{gameL2.py} (quadratic test),
+\texttt{fb.py}, \texttt{runb.py}, \texttt{grid2d.py} (sharp bonus $G^*$; \texttt{grid\_s*.json}, \texttt{G\_*\_s*.json}),
+\texttt{check2nd.py} (Proposition~\ref{prop:local}), \texttt{curves2.py}, \texttt{curvesL2.py} (protection curves),
+\texttt{sigma\_all.py}, \texttt{sigma\_orig.py}, \texttt{refine\_orig.py}, \texttt{jointsig.py}, \texttt{refine\_joint.py}, \texttt{refineL2.py} (verdicts;
+\texttt{all15.txt}, \texttt{all12.txt}, \texttt{refine15.txt}, \texttt{refine12.txt}),
+\texttt{ded.py}, \texttt{dedpool.py}, \texttt{dedjoint.py} (dedicated compensators), \texttt{alloc.py}, \texttt{allocsearch.py}, \texttt{allocjopt.py},
+\texttt{allocL2y.py}, \texttt{musig.py}, \texttt{musmall.py} (allocation moves).
+\end{document}

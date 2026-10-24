@@ -1,0 +1,9 @@
+p=5 n=2: consistent families tested=257, max relative excess of pair-min over the bound=-5.997e-02 (must be <= 0), shift identity error=3.6e-15; inconsistent tested=43, max excess=-4.406e-01
+p=7 n=2: consistent families tested=258, max relative excess of pair-min over the bound=-2.903e-02 (must be <= 0), shift identity error=2.1e-14; inconsistent tested=42, max excess=-2.387e-01
+p=11 n=2: consistent families tested=259, max relative excess of pair-min over the bound=-1.282e-02 (must be <= 0), shift identity error=5.2e-14; inconsistent tested=41, max excess=-4.996e-01
+p=13 n=2: consistent families tested=253, max relative excess of pair-min over the bound=-1.564e-02 (must be <= 0), shift identity error=4.4e-14; inconsistent tested=47, max excess=-6.018e-01
+p=5 n=3: consistent families tested=147, max relative excess of pair-min over the bound=-5.057e-02 (must be <= 0), shift identity error=5.6e-15; inconsistent tested=153, max excess=-8.710e-01
+p=7 n=3: consistent families tested=131, max relative excess of pair-min over the bound=-1.040e-01 (must be <= 0), shift identity error=3.7e-14; inconsistent tested=169, max excess=-6.676e-01
+p=7 n=2 inconsistent (all three characters): min over designs of detection/L2 found = 1.2631 (< 1 means flat-bottom below the L2 aggregate is possible)
+p=11 n=2 inconsistent (all three characters): min over designs of detection/L2 found = 1.3142 (< 1 means flat-bottom below the L2 aggregate is possible)
+p=13 n=2 inconsistent (all three characters): min over designs of detection/L2 found = 1.5897 (< 1 means flat-bottom below the L2 aggregate is possible)

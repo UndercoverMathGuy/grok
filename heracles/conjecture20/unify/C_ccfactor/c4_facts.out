@@ -1,0 +1,50 @@
+=== (1) p = 3 winners (one frequency: CD_prop with pi IS the definition of pi; CD_IF must fail; JCM vacuous)
+  n=11: gamma/gamma_IF = 1.054399 = CD_IF ratio (>1: CD_IF fails); pi >= 4.2374e-06 = 1.0544 nu^(1-s); acute offsets at p=3: cos(2pi/3) = -0.50 < 0 -> JCM/acute statements vacuous
+  n=13: gamma/gamma_IF = 1.109163 = CD_IF ratio (>1: CD_IF fails); pi >= 1.4731e-07 = 1.1092 nu^(1-s); acute offsets at p=3: cos(2pi/3) = -0.50 < 0 -> JCM/acute statements vacuous
+  p3_n11.json: gamma/gamma_IF = 1.063085 (CD_IF fails, single feature)
+  p3_n12.json: gamma/gamma_IF = 1.193354 (CD_IF fails, single feature)
+  p3_n13.json: gamma/gamma_IF = 1.183652 (CD_IF fails, single feature)
+  p3_n14.json: gamma/gamma_IF = 1.456927 (CD_IF fails, single feature)
+=== (2) SPLIT R10 mixed violators (b=2, pi = 3^{1-s} proved for all networks at n=2)
+  viol_p5_n2_b2[0]: gamma/(pi B Gamma) = 0.79021; CD_prop = 1.03000; CD_split = 1.03320; split network: CD = 0.49318; CD with optimal neuron reallocation = 0.79021 (P_1 share range [0. 1.])
+  viol_p5_n2_b2[1]: gamma/(pi B Gamma) = 0.78534; CD_prop = 1.02960; CD_split = 1.03305; split network: CD = 0.52464; CD with optimal neuron reallocation = 0.78534 (P_1 share range [0. 1.])
+  viol_p5_n2_b2[2]: gamma/(pi B Gamma) = 0.77616; CD_prop = 1.02702; CD_split = 1.03105; split network: CD = 0.56682; CD with optimal neuron reallocation = 0.77616 (P_1 share range [0. 1.])
+  viol_p5_n2_b2[3]: gamma/(pi B Gamma) = 0.99966; CD_prop = 0.99998; CD_split = 0.99998; split network: CD = 0.99998; CD with optimal neuron reallocation = 0.99966 (P_1 share range [0. 1.])
+  viol_p7_n2_b2[0]: gamma/(pi B Gamma) = 0.71971; CD_prop = 1.06622; CD_split = 1.06804; split network: CD = 0.22761
+  viol_p7_n2_b2[1]: gamma/(pi B Gamma) = 0.86288; CD_prop = 1.04360; CD_split = 1.04363; split network: CD = 0.75263
+  viol_p7_n2_b2[2]: gamma/(pi B Gamma) = 0.85617; CD_prop = 1.04273; CD_split = 1.04298; split network: CD = 0.47941
+  viol_p7_n2_b2[3]: gamma/(pi B Gamma) = 0.97549; CD_prop = 0.99986; CD_split = 0.99986; split network: CD = 0.99845
+  viol_p11_n2_b2[0]: gamma/(pi B Gamma) = 0.67403; CD_prop = 1.10485; CD_split = 1.10542; split network: CD = 0.01015
+  viol_p11_n2_b2[1]: gamma/(pi B Gamma) = 0.66389; CD_prop = 1.10609; CD_split = 1.10757; split network: CD = 0.02747
+  viol_p11_n2_b2[2]: gamma/(pi B Gamma) = 0.67771; CD_prop = 1.10240; CD_split = 1.10418; split network: CD = 0.28610
+  viol_p11_n2_b2[3]: gamma/(pi B Gamma) = 0.47235; CD_prop = 1.09848; CD_split = 1.09936; split network: CD = 0.24124
+=== (3) E_width X1/X2: IF networks break pointwise-in-s entropy forms but satisfy CD with EQUALITY at any allocation
+  (p,s)=(11,1.35) uniform IF: CD = 1.000000000000; RD = 0.997581
+  (p,s)=(11,1.45) uniform IF: CD = 1.000000000000; RD = 0.946591
+  (p,s)=(11,1.49) uniform IF: CD = 1.000000000000; RD = 0.926802
+  (p,s)=(13,1.45) uniform IF: CD = 1.000000000000; RD = 0.920131
+  (p,s)=(5,1.45) single IF block: CD = 1.000000000000; RD = 0.755128
+=== (4) (5,6) width-6 single feature (LARGEN R10b): directional prices with nu^{1-s}
+  features (clean coefficients) at frequencies [1]; |beta| = [0.00359038 0.        ]
+  direction 1: min(m(l),m(-l))/(nu^(1-s) B P^s kappa) = 0.17723; average = 0.17723
+  direction 2: min(m(l),m(-l))/(nu^(1-s) B P^s kappa) = 0.17723; average = 0.17723
+=== (5) Legendre flat field (arith2): fraction of the variance kept by the pair cone moment at delta=1
+  p=61: sum_l kappa_l cos(phi_l) V_l / sum_l kappa_l V_l = -0.0167  (<= 0: the JCM bound is vacuous)
+  p=101: sum_l kappa_l cos(phi_l) V_l / sum_l kappa_l V_l = -0.0100  (<= 0: the JCM bound is vacuous)
+  p=401: sum_l kappa_l cos(phi_l) V_l / sum_l kappa_l V_l = -0.0025  (<= 0: the JCM bound is vacuous)
+  p=1009: sum_l kappa_l cos(phi_l) V_l / sum_l kappa_l V_l = -0.0010  (<= 0: the JCM bound is vacuous)
+=== (6) E_kkt local maxima at (5,2,2) and (7,2,2) (mixed, non-IF ones included): CD_prop
+  lm_p5_n2_b2.0_k0.npz     gamma/(pi B Gamma) = 1.00000  CD_prop = 1.00000  CD_realloc = 1.00000
+  lm_p5_n2_b2.0_k1.npz     gamma/(pi B Gamma) = 0.83705  CD_prop = 0.99799  CD_realloc = 0.83705
+  lm_p5_n2_b2.0_k2.npz     gamma/(pi B Gamma) = 1.00000  CD_prop = 1.00000  CD_realloc = 1.00000
+  lm_p5_n2_b2.0_k3.npz     gamma/(pi B Gamma) = 1.00000  CD_prop = 1.00000  CD_realloc = 1.00000
+  lm_p5_n2_b2.0_k4.npz     gamma/(pi B Gamma) = 0.83476  CD_prop = 1.01464  CD_realloc = 0.83476
+  lm_p5_n2_b2.0_k5.npz     gamma/(pi B Gamma) = 1.00000  CD_prop = 1.00000  CD_realloc = 1.00000
+  lm_p7_n2_b2.0_k0.npz     gamma/(pi B Gamma) = 0.87427  CD_prop = 0.87427
+  lm_p7_n2_b2.0_k1.npz     gamma/(pi B Gamma) = 0.75244  CD_prop = 0.92481
+  lm_p7_n2_b2.0_k2.npz     gamma/(pi B Gamma) = 0.98006  CD_prop = 1.00000
+  lm_p7_n2_b2.0_k3.npz     gamma/(pi B Gamma) = 0.98006  CD_prop = 1.00000
+  lm_p7_n2_b2.0_k4.npz     gamma/(pi B Gamma) = 0.84183  CD_prop = 0.98062
+  lm_p7_n2_b2.0_k5.npz     gamma/(pi B Gamma) = 0.98006  CD_prop = 1.00000
+  lm_p7_n2_b2.0_k6.npz     gamma/(pi B Gamma) = 0.56043  CD_prop = 1.00978
+  lm_p7_n2_b2.0_k7.npz     gamma/(pi B Gamma) = 0.98006  CD_prop = 1.00000

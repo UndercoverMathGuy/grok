@@ -1,0 +1,8 @@
+s=1.5: 30 random samples: max 0.8745, mean 0.6690
+local max from best sample (k1=2,k2=1): 1.0033
+  continued round 0: 1.03558
+  continued round 1: 1.04125
+  continued round 2: 1.04332
+best config: |beta| atoms f1 [0.6291 1.7925] f2 [2.0454]
+  A1 (2.4125+0.0779j) |B,C,D|1 [1.4874 1.4775 1.6506] P1/|A1| 0.7858
+  A2 (2.0443-0.0668j) |B,C,D|2 [2.0454 2.0454 2.0454] P2/|A2| 0.5774 tau 0.4587

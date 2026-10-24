@@ -1,0 +1,9 @@
+p=101 s=1.5 K*=10 Gamma=0.25708  L2 ratio=0.7846  true-depth ratio (flattest phases found)=0.1139
+p=199 s=1.5 K*=13 Gamma=0.22069  L2 ratio=0.7904  true-depth ratio (flattest phases found)=0.0737
+p=401 s=1.5 K*=16 Gamma=0.19368  L2 ratio=0.8371  true-depth ratio (flattest phases found)=0.1167
+p=809 s=1.5 K*=19 Gamma=0.17354  L2 ratio=0.8553
+p=1601 s=1.5 K*=23 Gamma=0.15675  L2 ratio=0.8952
+p=401 s=1.25 K*=27 Gamma=0.38036  L2 ratio=0.8561  true-depth ratio (flattest phases found)=0.3885
+p=1601 s=1.25 K*=39 Gamma=0.33540  L2 ratio=0.8973
+
+[exited with code 0]

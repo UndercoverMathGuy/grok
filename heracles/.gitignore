@@ -2,3 +2,5 @@ runs/
 runs_*/
 *.tgz
 *.log
+*.aux
+conjecture20/mechanism_note.out

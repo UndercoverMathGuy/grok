@@ -1,0 +1,18 @@
+(1) entropic Lemma 7:  sum (|b_l|/L)^2 <= 1/nu + (2/nu^2) sum_I (|b_I|/L + sqrt(2(1-alpha)))^2
+   max(lhs - rhs) general = 4.44e-16 ; aligned (no phase term) = 2.22e-16 ; KM2 block |lhs - 1/nu| = 5.6e-17
+(2) static gain bound: gamma/gamma_IF <= [nu K_r(yhat)/K_r(p)]^{s-1} * M(yhat)/(||yhat||_r Gamma_s)
+   66 positive-margin networks: max lhs/rhs = 0.677911 (must be <= 1)
+   p=3 files: ['p3_n11.json', 'p3_n12.json']
+(3) s = 1 (b = nu) maximisers: entropy of nu-cost shares >= log nu + log F
+   p=5 n=2  gamma/(B_p Gamma_1)=1.000000  H(p)=2.0238  log(nu F)=1.7918  width=8
+   p=5 n=2  gamma/(B_p Gamma_1)=1.000000  H(p)=1.9927  log(nu F)=1.7918  width=8
+   p=5 n=2  gamma/(B_p Gamma_1)=1.000000  H(p)=1.9512  log(nu F)=1.7918  width=8
+   p=5 n=2  gamma/(B_p Gamma_1)=1.000000  H(p)=1.8045  log(nu F)=1.7918  width=8
+   p=7 n=2  gamma/(B_p Gamma_1)=1.000000  H(p)=2.2052  log(nu F)=2.1972  width=10
+   p=7 n=2  gamma/(B_p Gamma_1)=0.848371  H(p)=2.2174  log(nu F)=2.1972  width=10
+   p=7 n=2  gamma/(B_p Gamma_1)=0.848371  H(p)=2.2174  log(nu F)=2.1972  width=10
+   p=7 n=2  gamma/(B_p Gamma_1)=1.000000  H(p)=2.2241  log(nu F)=2.1972  width=10
+   p=5 n=3  gamma/(B_p Gamma_1)=0.999996  H(p)=2.0795  log(nu F)=2.0794  width=10
+   p=5 n=3  gamma/(B_p Gamma_1)=1.000000  H(p)=2.0794  log(nu F)=2.0794  width=10
+   p=5 n=3  gamma/(B_p Gamma_1)=1.000000  H(p)=2.1142  log(nu F)=2.0794  width=10
+   p=5 n=3  gamma/(B_p Gamma_1)=1.000000  H(p)=2.1624  log(nu F)=2.0794  width=10

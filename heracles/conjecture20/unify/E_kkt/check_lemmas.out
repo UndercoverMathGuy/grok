@@ -1,0 +1,20 @@
+== K2(a): the x-uniform measure p^{-n} mu* is a KKT measure of every decoupled IF network (any support S)
+  (p,n,b,S)=(5,2,2.3,[1, 2]): programme-dual residual 3.6e-14; KKT stationarity residual 3.63e-14; q on active set: True
+  (p,n,b,S)=(7,2,2.0,[1, 2, 3]): programme-dual residual 9.3e-14; KKT stationarity residual 9.30e-14; q on active set: True
+  (p,n,b,S)=(7,2,2.0,[1, 2]): programme-dual residual 2.4e-14; KKT stationarity residual 2.28e-14; q on active set: True
+  (p,n,b,S)=(7,3,2.5,[1, 3]): programme-dual residual 3.3e-14; KKT stationarity residual 3.13e-14; q on active set: True
+  (p,n,b,S)=(11,2,2.2,[1, 2, 4]): programme-dual residual 4.1e-14; KKT stationarity residual 4.19e-14; q on active set: True
+  (p,n,b,S)=(5,3,2.0,[1]): programme-dual residual 0.0e+00; KKT stationarity residual 2.84e-15; q on active set: True
+== K2(b): Lemma 2 averaged (E_{unif x mu} g = sum_l Re(conj(beta_l) K~_l(mu)) >= h) on random networks
+  max |E_{unif x mu} g - formula| = 7.3e-16;  max (h - E_{unif x mu} g) = -2.935e-01 (must be <= 0)
+== K3: IF networks: gamma <= nu^{1-s} B_p Gamma^{(S)}; equality structure and entropy log nu + H(z)
+  random IF unions (200): max gamma/(nu^(1-s) B_p Gamma^(S)) - 1 = -1.55e-15 (must be <= 0)
+  (7,2,2.4,S=[1, 2]): equality gamma/(nu^(1-s)B_p Gamma^S) = 1.0000000000, H = 1.76476975, log nu + H(z) = 1.76476975
+  (7,3,2.5,S=[1, 2, 3]): equality gamma/(nu^(1-s)B_p Gamma^S) = 1.0000000000, H = 2.06279237, log nu + H(z) = 2.06279237
+  (11,2,2.6,S=[1, 2, 3, 4, 5]): equality gamma/(nu^(1-s)B_p Gamma^S) = 1.0000000000, H = 2.70805020, log nu + H(z) = 2.70805020
+== K5: cheapness of an aligned budget-tight feature = exp((s-1)(log nu - H_s(w)))  (Renyi-s entropy of cost shares)
+  max relative error of the identity over 200 random aligned features: 6.7e-16
+== K5b: Renyi form of the universal bound: gamma <= B_p min_delta sum_l (sum_i v_il^s) kappa_l(delta),  v_il = |beta_il|^r/(C_b P)
+  max gamma/bound - 1 over random positive-margin networks: -1.138e-03 (must be <= 0)
+== K6: class C:  hat g_delta(2 l 1_T) = (1/2) conj(beta_{l,T}) c_l(delta)  (so x-uniform KKT measure => IF)
+  max |hat g - prediction| / max|g| over 60 random class-C networks: 2.2e-16

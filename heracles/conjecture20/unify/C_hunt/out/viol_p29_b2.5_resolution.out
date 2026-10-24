@@ -1,0 +1,7 @@
+S [2, 3, 4, 5, 8, 10, 11, 12] stored ratio 1.0001330479212898
+reweighted-LP Gamma^S 0.619784687174031 support [2, 3, 4, 5, 8, 10, 11, 12]
+exact vertex Gamma^S 0.6198672810456173 support [2, 3, 4, 5, 8, 10, 11, 12] 5s
+full-F reweighted LP (200 restarts) 0.6232974504448846 [1, 2, 5, 6, 7, 10, 11, 14]
+gains {2: np.float64(1.0), 3: np.float64(1.0), 4: np.float64(1.0), 5: np.float64(1.0), 8: np.float64(1.0), 10: np.float64(0.999994), 11: np.float64(1.0), 12: np.float64(1.0)}
+ratio vs exact Gamma^S: 0.9999997857487972
+VIOL_a_p29_b2.5_Sstar_s12_10.npz: p=29 n=2 b=2.5 |S|=8 float ratio=0.999999785749 mp ratio=0.999999785748796 model=0.999999785749 stored=1.0001330479212898

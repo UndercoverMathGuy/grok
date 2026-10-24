@@ -1,0 +1,8 @@
+p=3 n=11: gamma/gamma_IF=1.063085; m=8; H=2.07944 (log m=2.07944, log nu=2.48491); nu*E_1=1.000000; output-DC fraction 3.9e-33; H(nuE)=0 so (FE) reads H >= H^(1)_min: vacuous for an optimal single feature
+p=3 n=12: gamma/gamma_IF=1.193354; m=9; H=2.19720 (log m=2.19722, log nu=2.56495); nu*E_1=1.000000; output-DC fraction 1.5e-32; H(nuE)=0 so (FE) reads H >= H^(1)_min: vacuous for an optimal single feature
+p=3 n=13: gamma/gamma_IF=1.183652; m=10; H=2.30252 (log m=2.30259, log nu=2.63906); nu*E_1=1.000000; output-DC fraction 2.2e-32; H(nuE)=0 so (FE) reads H >= H^(1)_min: vacuous for an optimal single feature
+p=3 n=14: gamma/gamma_IF=1.456927; m=10; H=2.30256 (log m=2.30259, log nu=2.70805); nu*E_1=1.000000; output-DC fraction 2.9e-33; H(nuE)=0 so (FE) reads H >= H^(1)_min: vacuous for an optimal single feature
+p=3 n=15: gamma/gamma_IF=1.617043; m=11; H=2.39785 (log m=2.39790, log nu=2.77259); nu*E_1=1.000000; output-DC fraction 1.1e-32; H(nuE)=0 so (FE) reads H >= H^(1)_min: vacuous for an optimal single feature
+p=3 n=16: gamma/gamma_IF=1.595918; m=12; H=2.48482 (log m=2.48491, log nu=2.83321); nu*E_1=1.000000; output-DC fraction 1.9e-32; H(nuE)=0 so (FE) reads H >= H^(1)_min: vacuous for an optimal single feature
+p=3 n=17: gamma/gamma_IF=2.011274; m=12; H=2.48487 (log m=2.48491, log nu=2.89037); nu*E_1=1.000000; output-DC fraction 6.3e-33; H(nuE)=0 so (FE) reads H >= H^(1)_min: vacuous for an optimal single feature
+p=3 n=18: gamma/gamma_IF=2.211978; m=13; H=2.56491 (log m=2.56495, log nu=2.94444); nu*E_1=1.000000; output-DC fraction 1.4e-32; H(nuE)=0 so (FE) reads H >= H^(1)_min: vacuous for an optimal single feature

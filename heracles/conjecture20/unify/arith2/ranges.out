@@ -1,0 +1,15 @@
+b=2.00 s=1.5000 c12=0.18350  1/c^2=    29.70  closed for all primes p < 2/c^2 =      59.39, largest prime 59
+b=2.10 s=1.4286 c12=0.15951  1/c^2=    39.30  closed for all primes p < 2/c^2 =      78.61, largest prime 73
+b=2.25 s=1.3333 c12=0.12642  1/c^2=    62.57  closed for all primes p < 2/c^2 =     125.14, largest prime 113
+b=2.40 s=1.2500 c12=0.09640  1/c^2=   107.61  closed for all primes p < 2/c^2 =     215.23, largest prime 211
+b=2.50 s=1.2000 c12=0.07789  1/c^2=   164.82  closed for all primes p < 2/c^2 =     329.64, largest prime 317
+b=2.75 s=1.0909 c12=0.03619  1/c^2=   763.55  closed for all primes p < 2/c^2 =    1527.10, largest prime 1523
+b=2.90 s=1.0345 c12=0.01388  1/c^2=  5187.45  closed for all primes p < 2/c^2 =   10374.90, largest prime 10369
+
+p=61: closed for all b in (2.0098, 3];  e_thr(p, b=2) = 0.9970  (p->inf limit (2/3)^(1/2) = 0.8165)
+p=67: closed for all b in (2.0439, 3];  e_thr(p, b=2) = 0.9870  (p->inf limit (2/3)^(1/2) = 0.8165)
+p=101: closed for all b in (2.1833, 3];  e_thr(p, b=2) = 0.9502  (p->inf limit (2/3)^(1/2) = 0.8165)
+p=211: closed for all b in (2.3950, 3];  e_thr(p, b=2) = 0.9046  (p->inf limit (2/3)^(1/2) = 0.8165)
+p=1009: closed for all b in (2.6971, 3];  e_thr(p, b=2) = 0.8545  (p->inf limit (2/3)^(1/2) = 0.8165)
+p=10007: closed for all b in (2.8982, 3];  e_thr(p, b=2) = 0.8282  (p->inf limit (2/3)^(1/2) = 0.8165)
+p=1000003: closed for all b in (2.9896, 3];  e_thr(p, b=2) = 0.8177  (p->inf limit (2/3)^(1/2) = 0.8165)

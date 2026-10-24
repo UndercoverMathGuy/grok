@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}[theorem]{Proposition}\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\title{Compression theorems for the single-set core RT$_n$}
+\date{}
+\begin{document}\maketitle
+
+\paragraph{Setting} (as in \texttt{legendre\_theorem.tex}).
+\begin{itemize}
+\item $p$ odd prime, $F=\{1,\dots,(p-1)/2\}$, $\kappa_l(\delta)=1-\cos(2\pi l\delta/p)$.
+\item $s\in[1,(n+1)/2]$, $r=1/s$, $\lambda=(n/(n+1))^{1-r}$.
+\item $\alpha,\beta\ge0$ on $S\subseteq F$, phases $\phi_l$, $\theta_l(w)=2\pi lw/p+\phi_l$, and
+$U(w)=\sum_l\beta_l\cos\theta_l(w)$.
+\item $D_\delta=\max_w|U(w)-U(w-\delta)|$ and $L=\min_\delta[\sum_l(\alpha_l+\beta_l)\kappa_l(\delta)-D_\delta]$.
+\item The budget is $B=\sum\alpha^r+\lambda\sum\beta^r$, and RT$_n$ is the inequality $L\le\Gamma^{(S)}_sB^s$.
+\end{itemize}
+
+\paragraph{Compression principle.}
+Since $\Gamma^{(S)}_s\ge M(y)/(\sum y^r)^s$ for every $y\ge0$ on $S$, RT$_n$ holds as soon as some $y$ satisfies
+\[ M(y)\,B^s\ \ge\ L\,\Big(\sum_l y_l^r\Big)^s .\tag{C}\]
+The allocation $y$ certifies the network, and no knowledge of $\Gamma_s$ is needed.
+
+\begin{lemma}[signed field-row identity]\label{lem:id}
+For every $w_0$ and every $\delta$,
+\[\sum_l\beta_l\cos\theta_l(w_0)\,\kappa_l(\delta)=U(w_0)-\tfrac12\big[U(w_0+\delta)+U(w_0-\delta)\big]\in[-D_\delta,D_\delta].\]
+\end{lemma}
+\begin{proof}
+Use $\cos(\theta+x)+\cos(\theta-x)=2\cos\theta\cos x$. The two differences $U(w_0)-U(w_0\pm\delta)$ each have absolute
+value at most $D_\delta=D_{-\delta}$.
+\end{proof}
+
+\begin{theorem}[real phases]\label{thm:real}
+Suppose $U$ is even about some point $w_0$, i.e.\ $U(w_0+w)=U(w_0-w)$, equivalently
+$\varepsilon_l:=\cos\theta_l(w_0)\in\{\pm1\}$ for every $l$. Then RT$_n$ holds, for every odd prime $p$, every $n\ge2$,
+every $s\in[1,(n+1)/2]$ and every $\alpha,\beta\ge0$.
+\end{theorem}
+\begin{proof}
+Let $y^\pm=\alpha+\beta(1\pm\varepsilon)$.
+
+\emph{Coverage.} By Lemma~\ref{lem:id},
+\[\textstyle\sum_l y^\pm_l\kappa_l(\delta)=\sum_l(\alpha_l+\beta_l)\kappa_l(\delta)\pm\big(U(w_0)-\tfrac12[U(w_0+\delta)+U(w_0-\delta)]\big)\ge\sum_l(\alpha_l+\beta_l)\kappa_l(\delta)-D_\delta\ge L.\]
+So $M(y^\pm)\ge L$.
+
+\emph{Cost.} The vector $\beta(1\pm\varepsilon)$ equals $2\beta$ on one half $H_\pm=\{l:\varepsilon_l=\pm1\}$ and $0$ on the
+other. By subadditivity of $t\mapsto t^r$,
+$\sum(y^\pm)^r\le\sum\alpha^r+2^r\sum_{H_\pm}\beta^r$. For the cheaper half,
+$\sum(y)^r\le\sum\alpha^r+2^{r-1}\sum\beta^r$. Finally $2^{r-1}\le\lambda$, because this is equivalent to
+$\tfrac12\le n/(n+1)$.
+
+Hence (C) holds.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:real} contains the Legendre family at $p\equiv1\pmod4$, where $\hat\chi$ is real and $w_0=0$. It is
+fully general: no arithmetic, no constants, every $p,n,s$.
+\end{remark}
+
+\begin{proposition}[general phases: the even-part compression]\label{prop:even}
+For any $w_0$ put $\rho_l=|\cos\theta_l(w_0)|\in[0,1]$. Let $y$ be the cheaper of
+$\alpha+\beta(\rho\pm\cos\theta(w_0))$. Then
+\[ M(y)\ \ge\ \min_\delta\Big[\sum_l(\alpha_l+\beta_l\rho_l)\kappa_l(\delta)-D_\delta\Big]
+\ \ge\ L-\max_\delta\sum_l\beta_l(1-\rho_l)\kappa_l(\delta),\qquad
+\sum_l y_l^r\le\sum\alpha^r+2^{r-1}\sum_l\beta_l^r\rho_l^r .\]
+Consequently RT$_n$ holds whenever
+\[\min_\delta\Big[\sum_l(\alpha_l+\beta_l\rho_l)\kappa_l(\delta)-D_\delta\Big]\cdot B^s\ \ge\ L\Big(\sum\alpha^r+2^{r-1}\sum\beta^r\rho^r\Big)^s .\tag{E}\]
+\end{proposition}
+\begin{proof}
+As for Theorem~\ref{thm:real}: $\beta(\rho\pm\cos\theta)$ is $2\beta\rho$ on one half and $0$ on the other, and
+Lemma~\ref{lem:id} bounds the signed part.
+\end{proof}
+
+\begin{proposition}[linear compression]\label{prop:lin}
+$y=\alpha+\lambda^s\beta$ has $\sum y^r\le B$. So RT$_n$ holds whenever $M(\alpha+\lambda^s\beta)\ge L$. This holds, e.g.,
+if $D_{\delta'}\ge(1-\lambda^s)\sum_l\beta_l\kappa_l(\delta')$ at an offset $\delta'$ attaining $M(\alpha+\lambda^s\beta)$.
+\end{proposition}
+
+\paragraph{The dichotomy.}
+\begin{itemize}
+\item Deep interference is handled by Proposition~\ref{prop:lin}.
+\item Flat interference is handled by Proposition~\ref{prop:even} at a good $w_0$.
+\end{itemize}
+In the model case $\rho_l\equiv\rho$, (E) holds when $D/\sum\beta\kappa\le(G-1)/(G/\rho-1)$, where
+$G=(2n/(n+1))^{s-1}$. With $\rho=2/\pi$ this is $\approx0.50(s-1)$ at $n=2$. Proposition~\ref{prop:lin} needs
+$D/\sum\beta\kappa\ge c_n\approx0.405(s-1)$. The two windows overlap.
+Numerically (\texttt{dichotomy.py}, \texttt{general\_pp.py}), every configuration tested is certified by one of them.
+
+\begin{conjecture}[compression theorem]
+For every configuration, either Proposition~\ref{prop:lin} applies, or (E) holds at some $w_0$, or (E) holds with the
+remainder $\beta(1-\rho)$ replaced by a positive-type profile, as for the Legendre networks at $p\equiv3\pmod4$
+(\texttt{legendre\_theorem.tex}). In each case RT$_n$ follows.
+\end{conjecture}
+
+\paragraph{What remains.} The only obstruction is the $\delta$-dependence of the remainder
+$\sum_l\beta_l(1-|\cos\theta_l(w_0)|)\kappa_l(\delta)$.
+\begin{itemize}
+\item On average over $w_0$ it equals $(1-2/\pi)\sum\beta\kappa(\delta)$ at every $\delta$ simultaneously.
+\item A single $w_0$ must keep it below that average, up to $O(D)$, at the binding offsets.
+\item Real phases make it $0$ (Theorem~\ref{thm:real}). Legendre at $p\equiv3\pmod4$ makes it of positive type.
+\end{itemize}
+\end{document}

@@ -1,0 +1,8 @@
+balanced families: max |d_{-d}(x) + d_d(x + (d/2)u)|
+  p=7 n=2 T-family=[(0,), (1,)] u=(1, 1): identity error 1.6e-14; max[(1/2)osc - max(depth_d, depth_-d)] = 0.00e+00 (<=0 expected)
+  p=7 n=2 T-family=[(0, 1)] u=(1, 0): identity error 2.1e-14; max[(1/2)osc - max(depth_d, depth_-d)] = 0.00e+00 (<=0 expected)
+  p=11 n=3 T-family=[(0, 1), (1, 2), (0, 2)] u=(6, 6, 6): identity error 1.3e-13; max[(1/2)osc - max(depth_d, depth_-d)] = 0.00e+00 (<=0 expected)
+  p=7 n=3 T-family=[(0,), (1,), (2,)] u=(1, 1, 1): identity error 2.0e-14; max[(1/2)osc - max(depth_d, depth_-d)] = 0.00e+00 (<=0 expected)
+  p=11 n=2 T-family=[(0,), (0, 1)] u=(1, 0): identity error 7.1e-14; max[(1/2)osc - max(depth_d, depth_-d)] = 0.00e+00 (<=0 expected)
+unbalanced family {1},{2},{1,2} at n=2 (relation 1_1 + 1_2 - 1_12 = 0, coefficient sum 1):
+  max over 200 random networks of [(1/2)osc d_d - max(depth_d, depth_-d)]/((1/2)osc) = 0.1758 at (p,d)=(11, 3) (>0 means the oscillation bound fails)

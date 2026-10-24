@@ -1,0 +1,55 @@
+== (1) free energy: three formulas, tangent intercept, integral identity ==
+max discrepancy among F formulas (intercept via FD, integral via trapezoid/10): 3.21e-09
+== (2) replication ==
+(p,n,s,k)=(5,2,1.300,2): dlog gamma - (1-s)log k = 1.11e-16, dH - log k = -1.11e-16, dF = 0.00e+00
+(p,n,s,k)=(5,2,1.300,3): dlog gamma - (1-s)log k = 1.67e-16, dH - log k = 0.00e+00, dF = 0.00e+00
+   uneven replication t=0.5: dF = 0.000000, predicted (s-1)(H-H_s) = -0.000000, dH = 0.6931, dlog gamma = -0.2079
+   uneven replication t=0.2: dF = 0.012702, predicted (s-1)(H-H_s) = 0.012702, dH = 0.5004, dlog gamma = -0.1374
+   uneven replication t=0.05: dF = 0.014398, predicted (s-1)(H-H_s) = 0.014398, dH = 0.1985, dlog gamma = -0.0452
+(p,n,s,k)=(5,2,1.500,2): dlog gamma - (1-s)log k = -2.78e-16, dH - log k = -3.33e-16, dF = 0.00e+00
+(p,n,s,k)=(5,2,1.500,3): dlog gamma - (1-s)log k = 3.33e-16, dH - log k = 2.22e-16, dF = 8.88e-16
+   uneven replication t=0.5: dF = 0.000000, predicted (s-1)(H-H_s) = 0.000000, dH = 0.6931, dlog gamma = -0.3466
+   uneven replication t=0.2: dF = 0.033269, predicted (s-1)(H-H_s) = 0.033269, dH = 0.5004, dlog gamma = -0.2169
+   uneven replication t=0.05: dF = 0.034320, predicted (s-1)(H-H_s) = 0.034320, dH = 0.1985, dlog gamma = -0.0649
+(p,n,s,k)=(7,2,1.300,2): dlog gamma - (1-s)log k = -8.60e-16, dH - log k = -7.77e-16, dF = -8.88e-16
+(p,n,s,k)=(7,2,1.300,3): dlog gamma - (1-s)log k = 0.00e+00, dH - log k = -2.22e-16, dF = 0.00e+00
+   uneven replication t=0.5: dF = -0.000000, predicted (s-1)(H-H_s) = -0.000000, dH = 0.6931, dlog gamma = -0.2079
+   uneven replication t=0.2: dF = 0.012702, predicted (s-1)(H-H_s) = 0.012702, dH = 0.5004, dlog gamma = -0.1374
+   uneven replication t=0.05: dF = 0.014398, predicted (s-1)(H-H_s) = 0.014398, dH = 0.1985, dlog gamma = -0.0452
+(p,n,s,k)=(7,2,1.500,2): dlog gamma - (1-s)log k = -2.78e-16, dH - log k = 5.55e-16, dF = 8.88e-16
+(p,n,s,k)=(7,2,1.500,3): dlog gamma - (1-s)log k = -5.55e-16, dH - log k = 2.22e-16, dF = 0.00e+00
+   uneven replication t=0.5: dF = 0.000000, predicted (s-1)(H-H_s) = 0.000000, dH = 0.6931, dlog gamma = -0.3466
+   uneven replication t=0.2: dF = 0.033269, predicted (s-1)(H-H_s) = 0.033269, dH = 0.5004, dlog gamma = -0.2169
+   uneven replication t=0.05: dF = 0.034320, predicted (s-1)(H-H_s) = 0.034320, dH = 0.1985, dlog gamma = -0.0649
+(p,n,s,k)=(5,3,1.300,2): dlog gamma - (1-s)log k = 1.11e-16, dH - log k = -3.33e-16, dF = 0.00e+00
+(p,n,s,k)=(5,3,1.300,3): dlog gamma - (1-s)log k = -1.11e-16, dH - log k = 2.22e-16, dF = -8.88e-16
+   uneven replication t=0.5: dF = 0.000000, predicted (s-1)(H-H_s) = -0.000000, dH = 0.6931, dlog gamma = -0.2079
+   uneven replication t=0.2: dF = 0.012702, predicted (s-1)(H-H_s) = 0.012702, dH = 0.5004, dlog gamma = -0.1374
+   uneven replication t=0.05: dF = 0.014398, predicted (s-1)(H-H_s) = 0.014398, dH = 0.1985, dlog gamma = -0.0452
+(p,n,s,k)=(5,3,2.000,2): dlog gamma - (1-s)log k = -2.22e-16, dH - log k = -3.33e-16, dF = -8.88e-16
+(p,n,s,k)=(5,3,2.000,3): dlog gamma - (1-s)log k = -2.22e-16, dH - log k = -2.22e-16, dF = 0.00e+00
+   uneven replication t=0.5: dF = -0.000000, predicted (s-1)(H-H_s) = 0.000000, dH = 0.6931, dlog gamma = -0.6931
+   uneven replication t=0.2: dF = 0.114740, predicted (s-1)(H-H_s) = 0.114740, dH = 0.5004, dlog gamma = -0.3857
+   uneven replication t=0.05: dF = 0.098695, predicted (s-1)(H-H_s) = 0.098695, dH = 0.1985, dlog gamma = -0.0998
+== (3) merging two positively parallel neurons ==
+merging always lowers cost (asserted). In-network sign of F(merged)-F(pair): positive 66, negative 126
+isolated pair: F(pair)-F(merged) = (s-1)(H(t)-H_s(t)) to 1.55e-15
+== (4) frequency split: cost, entropy chain rule with escort reweighting ==
+split cost = sum_i c_i lambda_i and H(split) = H(what) + sum what_i H(pi_i): max err 8.88e-16; b=2 no-DC dH>=0 asserted
+  b=2.0: H(theta)=0.3046, H(split)=0.4509  (small neuron spread over 5 freqs, big neuron pure)
+  b=2.5: H(theta)=0.2079, H(split)=0.2141  (small neuron spread over 5 freqs, big neuron pure)
+  b=3.0: H(theta)=0.1370, H(split)=0.0959  (small neuron spread over 5 freqs, big neuron pure)
+  b=2 with DC (equal norms, neuron 1 is 90% DC): H(theta)=0.6931, H(split)=0.3046
+== (5) dilation-orbit union ==
+H(union) = H(theta)+H(z) to 8.88e-16; h(union) >= min_delta sum z^s m(j delta) and dF >= (s-1)(H(z)-H_s(z)) + log(min escort-avg profile/h) >= 0 asserted; min slack 0.00e+00
+== (6) block split = block-sign-group average; cost non-increasing; own data kept ==
+p=7 n=2 blocks=[[0, 1], [2], [3]]: |avg table - block split table| = 8.9e-16, own-data change = 3.2e-16, max cost(block split)-cost = -0.000 (<=0)
+p=7 n=2 blocks=[[0], [1, 2], [3]]: |avg table - block split table| = 1.3e-15, own-data change = 1.6e-16, max cost(block split)-cost = 0.000 (<=0)
+p=5 n=3 blocks=[[0, 2], [1]]: |avg table - block split table| = 2.7e-15, own-data change = 2.8e-16, max cost(block split)-cost = 0.000 (<=0)
+p=11 n=2 blocks=[[0, 1, 3], [2, 4], [5]]: |avg table - block split table| = 1.3e-15, own-data change = 4.0e-16, max cost(block split)-cost = 0.000 (<=0)
+== (7) F is unbounded above: cancelling pairs ==
+N=    1 cancelling pairs (5% cost): gamma/gamma0 = 0.9340, H = 2.317 (H0=2.197), F-F0 = -0.020
+N=   10 cancelling pairs (5% cost): gamma/gamma0 = 0.9340, H = 2.425 (H0=2.197), F-F0 = 0.023
+N=  100 cancelling pairs (5% cost): gamma/gamma0 = 0.9340, H = 2.534 (H0=2.197), F-F0 = 0.066
+N= 1000 cancelling pairs (5% cost): gamma/gamma0 = 0.9340, H = 2.644 (H0=2.197), F-F0 = 0.110
+N=10000 cancelling pairs (5% cost): gamma/gamma0 = 0.9340, H = 2.753 (H0=2.197), F-F0 = 0.154

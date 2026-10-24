@@ -1,0 +1,5 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+n=2 nu=3: solutions 300, non-root-of-unity solutions 0, max deviation from nu-th roots 8.88e-16
+n=3 nu=4: solutions 300, non-root-of-unity solutions 0, max deviation from nu-th roots 1.55e-15
+n=4 nu=5: solutions 300, non-root-of-unity solutions 0, max deviation from nu-th roots 1.33e-15
+n=5 nu=6: solutions 142, non-root-of-unity solutions 0, max deviation from nu-th roots 1.78e-15

@@ -1,0 +1,9 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=3 n=11 winner, delta=1: min gap 2.7312e+00 (h=2.7312e+00) mean 6.1857e+00 depth 3.4545e+00 sigma 7.4056e+01 depth/sigma 0.047 skew +269.095 lemma ok True
+p=3 n=11 winner, delta=2: min gap 2.7397e+00 (h=2.7312e+00) mean 6.2270e+00 depth 3.4873e+00 sigma 7.7012e+01 depth/sigma 0.045 skew +278.220 lemma ok True
+p=3 n=13 winner, delta=1: min gap 4.1505e+00 (h=4.1505e+00) mean 7.6737e+00 depth 3.5232e+00 sigma 1.3455e+02 depth/sigma 0.026 skew +875.129 lemma ok True
+p=3 n=13 winner, delta=2: min gap 4.2996e+00 (h=4.1505e+00) mean 7.7517e+00 depth 3.4521e+00 sigma 1.4527e+02 depth/sigma 0.024 skew +913.116 lemma ok True
+(5,2,2) mixed violator, delta=1: min gap 2.5890e+08 (h=2.5890e+08) depth/sigma 1.182 skew +1.465 lemma ok True
+(5,2,2) mixed violator, delta=2: min gap 3.1927e+08 (h=2.5890e+08) depth/sigma 1.297 skew +0.959 lemma ok True
+(5,2,2) mixed violator, delta=3: min gap 2.9418e+08 (h=2.5890e+08) depth/sigma 1.536 skew +0.750 lemma ok True
+(5,2,2) mixed violator, delta=4: min gap 2.5894e+08 (h=2.5890e+08) depth/sigma 0.745 skew +3.007 lemma ok True

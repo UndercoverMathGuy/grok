@@ -1,0 +1,6 @@
+s=1.5 q=8: rho_q <= 0.9187 (threshold (2/3)^(s-1) = 0.8165); |spt b'|=4 maxfreq=8; fine-grid min(lhs-rhs)=-2.522e-06 (Lipschitz slack 3.1e-04); x^2-coef=2.137e+01
+s=1.5 q=16: rho_q <= 0.8198 (threshold (2/3)^(s-1) = 0.8165); |spt b'|=5 maxfreq=16; fine-grid min(lhs-rhs)=-1.129e-04 (Lipschitz slack 1.3e-03); x^2-coef=3.010e+02
+s=1.5 q=24: rho_q <= 0.7283 (threshold (2/3)^(s-1) = 0.8165); |spt b'|=6 maxfreq=49; fine-grid min(lhs-rhs)=-1.367e-04 (Lipschitz slack 2.6e-03); x^2-coef=7.587e+01
+s=1.5 q=32: rho_q <= 0.6974 (threshold (2/3)^(s-1) = 0.8165); |spt b'|=7 maxfreq=49; fine-grid min(lhs-rhs)=-3.389e-04 (Lipschitz slack 4.6e-03); x^2-coef=4.753e+02
+s=1.5 q=48: rho_q <= 0.6448 (threshold (2/3)^(s-1) = 0.8165); |spt b'|=6 maxfreq=70; fine-grid min(lhs-rhs)=-7.540e-04 (Lipschitz slack 1.1e-02); x^2-coef=1.776e+03
+s=1.5 q=64: rho_q <= 0.7139 (threshold (2/3)^(s-1) = 0.8165); |spt b'|=15 maxfreq=270; fine-grid min(lhs-rhs)=-9.045e-02 (Lipschitz slack 4.9e-02); x^2-coef=8.518e+05

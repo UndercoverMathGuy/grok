@@ -1,0 +1,6 @@
+p=3 certificate n=11 (b=2): gamma/gamma_IF = 1.054399;  -Delta_conv + (s-1)(log nu - H_1/s) = -1.9750 + 2.0280 = 0.0530  vs log ratio 0.0530;  m = 8, nu = 12, H_1/s = 2.0793
+p=3 certificate n=13 (b=2): gamma/gamma_IF = 1.109163;  -Delta_conv + (s-1)(log nu - H_1/s) = -1.9158 + 2.0194 = 0.1036  vs log ratio 0.1036;  m = 10, nu = 14, H_1/s = 2.3025
+p=5 n=6 width-6 network (b=2): gamma/gamma_IF = 0.177234;  -Delta_conv + (s-1)(log nu - H_1/s) = -2.1244 + 0.3941 = -1.7303  vs log ratio -1.7303;  m = 6, nu = 7, H_1/s = 1.7883
+   stored numerical_ratio = 0.177234
+IF block p=5 n=6: gamma/gamma_IF = 1.000000;  -Delta_conv + (s-1)(log nu - H_1/s) = -0.0000 + -0.0000 = -0.0000  vs log ratio -0.0000;  m = 7, nu = 7, H_1/s = 1.9459
+IF block p=3 n=11: gamma/gamma_IF = 1.000000;  -Delta_conv + (s-1)(log nu - H_1/s) = -0.0000 + 0.0000 = -0.0000  vs log ratio -0.0000;  m = 12, nu = 12, H_1/s = 2.4849

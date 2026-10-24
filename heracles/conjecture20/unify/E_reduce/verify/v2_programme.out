@@ -1,0 +1,26 @@
+(1) s = 1 (b = nu): programme maximisers
+  p= 5 Gamma_1=1.2500000000 (p/(p-1)=1.2500000000), #max=1, max|y-1/F|=1.1e-16
+  p= 7 Gamma_1=1.1666666667 (p/(p-1)=1.1666666667), #max=1, max|y-1/F|=5.6e-17
+  p=11 Gamma_1=1.1000000000 (p/(p-1)=1.1000000000), #max=1, max|y-1/F|=5.6e-17
+  p=13 Gamma_1=1.0833333333 (p/(p-1)=1.0833333333), #max=1, max|y-1/F|=1.7e-16
+(2) dilation invariance / orbits
+  p= 5 s=1.90 Gamma=0.690983 #max=2 supports=[(np.int64(2),), (np.int64(1),)] union=[np.int64(1), np.int64(2)] H(z) range=[-0.000000,-0.000000] dilates optimal=True spt zbar=2/2
+  p= 7 s=1.80 Gamma=0.538748 #max=3 supports=[(np.int64(1), np.int64(2)), (np.int64(1), np.int64(3)), (np.int64(2), np.int64(3))] union=[np.int64(1), np.int64(2), np.int64(3)] H(z) range=[0.679946,0.679946] dilates optimal=True spt zbar=3/3
+  p=11 s=1.50 Gamma=0.535726 #max=5 supports=[(np.int64(1), np.int64(3)), (np.int64(1), np.int64(4)), (np.int64(2), np.int64(5)), (np.int64(2), np.int64(3)), (np.int64(4), np.int64(5))] union=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5)] H(z) range=[0.683468,0.683468] dilates optimal=True spt zbar=5/5
+  p=13 s=1.50 Gamma=0.497772 #max=6 supports=[(np.int64(1), np.int64(2), np.int64(5)), (np.int64(1), np.int64(3), np.int64(5)), (np.int64(1), np.int64(4), np.int64(6)), (np.int64(4), np.int64(5), np.int64(6)), (np.int64(2), np.int64(3), np.int64(4)), (np.int64(2), np.int64(3), np.int64(6))] union=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)] H(z) range=[1.092272,1.092272] dilates optimal=True spt zbar=6/6
+  p=11 s=1.20 Gamma=0.797258 #max=1 supports=[(np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5))] union=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5)] H(z) range=[1.609438,1.609438] dilates optimal=True spt zbar=5/5
+  p=13 s=1.30 Gamma=0.637033 #max=6 supports=[(np.int64(1), np.int64(2), np.int64(3), np.int64(6)), (np.int64(1), np.int64(2), np.int64(4), np.int64(6)), (np.int64(1), np.int64(3), np.int64(5), np.int64(6)), (np.int64(1), np.int64(2), np.int64(4), np.int64(5)), (np.int64(2), np.int64(3), np.int64(4), np.int64(5)), (np.int64(3), np.int64(4), np.int64(5), np.int64(6))] union=[np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)] H(z) range=[1.354795,1.354795] dilates optimal=True spt zbar=6/6
+(3) Theorem G(b): v(t) + |t|^2/(2s) convex; check second differences along random lines near t=0
+  p=11 s=1.50: min second difference of v+|t|^2/(2s) = 0.4101 (>= 0 up to O(h)); #maximisers at 40 random lam: max 1
+  p=13 s=1.50: min second difference of v+|t|^2/(2s) = 0.4621 (>= 0 up to O(h)); #maximisers at 40 random lam: max 1
+  p= 7 s=1.80: min second difference of v+|t|^2/(2s) = 0.3496 (>= 0 up to O(h)); #maximisers at 40 random lam: max 1
+  p= 5 s=1.90: min second difference of v+|t|^2/(2s) = 0.5263 (>= 0 up to O(h)); #maximisers at 40 random lam: max 1
+(4) D-side Danskin in t at lam = 1: one-sided derivative of log Gamma^{e^t} vs max_y <z(y), eta>
+  p=11 s=1.50 eta#0: FD -0.900960   Danskin -0.900960
+  p=11 s=1.50 eta#1: FD 0.728145   Danskin 0.728145
+  p=11 s=1.50 eta#2: FD 1.204577   Danskin 1.204577
+  p=11 s=1.50 eta#3: FD 0.273495   Danskin 0.273495
+  p= 7 s=1.80 eta#0: FD 0.912788   Danskin 0.912788
+  p= 7 s=1.80 eta#1: FD -0.757738   Danskin -0.757738
+  p= 7 s=1.80 eta#2: FD 0.746400   Danskin 0.746400
+  p= 7 s=1.80 eta#3: FD 0.183068   Danskin 0.183068

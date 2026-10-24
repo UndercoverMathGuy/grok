@@ -1,0 +1,4 @@
+Region A (P <= 1/25): bracket1 >= 0.207075 (>0), bracket2 >= 0.021404 (>0), kA <= 0.001378
+Region B (P >= 2.71): (x0/6)(1+ln(3/sigma_B)-sigma_B/3) >= 0.420298  >  Gbar'_max <= 0.393200: True;  Gbar(0) - x0 in [-2.9582283945787942702939821198104484e-31, 2.9582283945787942702939821198104484e-31]
+Region C boxes: {'ok': 210, 'A': 3, 'B': 5, 'out': 23, 'split': 59, 'fail': 0};  min certified margin 3.127e-04;  time 1s
+CERTIFIED

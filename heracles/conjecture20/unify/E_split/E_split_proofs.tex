@@ -1,0 +1,179 @@
+% E_split: the split route to (E_S).  Proofs of the PROVED claims E1-E9 of the structured report.
+% Checks: check_calculus.py, check_entropic_l7.py, nonaligned_example.py, check_convex_end.py, check_kkt_unequal.py,
+%         check_monotone.py, check_mode_budget.py  (outputs *.out / *.log alongside).
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\begin{document}
+\section*{Notation}
+$p$ odd prime, $n\ge2$, $\nu=n+1$, $b\in[2,\nu]$, $s=\nu/b\in[1,\nu/2]$, $r=1/s$. A network $\theta$ has non-zero neurons
+$\omega_i$; $c_i=\|\omega_i\|^b$ (cost), $a_i=\|\omega_i\|^\nu=c_i^s$, $Z=\sum_ic_i$, $w_i=c_i/Z$, $H=-\sum w_i\log w_i$,
+$H_q(w)=\frac1{1-q}\log\sum w_i^q$ (R\'enyi), $\mathrm{esc}_q(w)_i=w_i^q/\sum_kw_k^q$.
+For $h=h(\theta)>0$: $\gamma(\theta;s)=h/Z^s$ and $F(\theta;s)=\log\gamma+(s-1)H$.
+$N_S$, $W_S$, $D_S=\pi B_p\Gamma^{(S)}_s$, $H^{\rm dec}_S$ as in BRIEF\_E; $L_S=\log W_S-\log D_S\ge0$.
+$H^*_S(s)$ is the least entropy of a maximiser of $\gamma(\cdot;s)$ on $N_S$.
+By Danskin (GLOBAL R2 and its restricted and programme versions), $(\log W_S)'_+=-H^*_S$, $(\log D_S)'_+=-H^{\rm dec}_S$
+at every $s\in[1,\nu/2)$, both functions are locally Lipschitz, and $L_S'{}_+=H^{\rm dec}_S-H^*_S$.
+
+\section{E1. Free-energy calculus}
+\begin{proposition}\label{p:calc}
+(a) $F=\log h-\log Z-(s-1)\sum_iw_i\log c_i=\log h-\log Z-\mathbb E_w\log\|\omega_i\|^{\nu-b}$.
+(b) With $\phi(\sigma)=\log\gamma(\theta;\sigma)$: $F(\theta;s)=\phi(s)+(1-s)\phi'(s)$ is the value at $\sigma=1$ of the tangent to $\phi$ at $s$;
+$\partial_sF=(s-1)\mathrm{Var}_w(\log w)/s\ge0$ and $F(\theta;s)=\log\gamma(\theta;1)+\int_1^s\frac{\sigma-1}\sigma\mathrm{Var}\,d\sigma\ge\log\gamma(\theta;1)$.
+(c) Replication. Replace every neuron by $k$ copies with cost fractions $t_1,\dots,t_k$ ($\sum t_m=1$). Then $Z$ is unchanged,
+$h\mapsto e^{-(s-1)H_s(t)}h$, $H\mapsto H+H(t)$, $F\mapsto F+(s-1)(H(t)-H_s(t))\ge F$, with equality iff $t$ is uniform (exact $(s-1)$ per nat).
+The exchange rate $(s-1)H_s(t)/H(t)$ tends to $0$ as $t\to(1,0)$: entropy can be raised at arbitrarily small relative loss of $\gamma$.
+(d) Merging. If $\omega_2=\lambda\omega_1$ ($\lambda>0$), replacing both by $(1+\lambda^\nu)^{1/\nu}\omega_1$ keeps the table and lowers the cost
+strictly for $s>1$. Hence no maximiser (global, or on $N_S$) contains two neurons with proportional tables. For an isolated pair,
+$F(\text{pair})-F(\text{merged})=(s-1)(H(t)-H_s(t))\ge0$, $t$ = cost fractions; inside a network the sign of $\Delta F$ is not fixed.
+(e) $\Sigma$-orbits. Every $\sigma\in\Sigma$ (global or per neuron) preserves every $c_i$; so $w,H,Z$ are constant on the orbit and
+$F(\sigma\theta)-F(\theta)=\log(h(\sigma\theta)/h(\theta))$.
+(f) Frequency split. Let $e_{ik}$ be the energy of neuron $i$ in plane $k\in\{0\}\cup F$ (summed over all $\nu$ factors), $E_i=\sum_ke_{ik}$,
+$\rho_{ik}=e_{ik}/E_i$, $\lambda_i=\sum_{k\in F}\rho_{ik}^{b/2}\le(1-\rho_{i0})^{b/2}\le1$, $\pi_{ik}=\rho_{ik}^{b/2}/\lambda_i$,
+$\hat w_i=w_i\lambda_i/\sum_jw_j\lambda_j$. Then $Z_{\rm split}=Z\sum_iw_i\lambda_i$ and
+\[H(\theta_{\rm split})=H(\hat w)+\sum_i\hat w_iH(\pi_i).\]
+At $b=2$ without DC, $\hat w=w$, $\pi_i=\rho_i$ and $H(\theta_{\rm split})=H(\theta)+\sum_iw_iH(\rho_i)\ge H(\theta)$.
+For $b>2$, or with DC, $H$ can decrease (explicit examples in check\_calculus.out). The same holds for every block split
+(any partition of $\{0\}\cup F$ into blocks), which is the average over the block sign group, keeps every $\beta_j,\beta_{j,T}$ and does not raise the cost.
+(g) Dilation union. For $\theta$ of cost $P$, $J\subseteq\mathbb Z_p^*$ and a probability $z$ on $J$, let $\Theta$ be the union of the relabelled copies
+$\theta\circ j$ scaled to cost $z_jP$. Then $H(\Theta)=H(\theta)+H(z)$, $h(\Theta)\ge\min_\delta\sum_jz_j^sm(j\delta)$ with $m(\delta)=\min_xg_\theta(x,\delta)$, and
+\[F(\Theta)-F(\theta)\ge(s-1)\big(H(z)-H_s(z)\big)+\log\min_\delta\sum_j\mathrm{esc}_s(z)_j\,\tfrac{m(j\delta)}{h(\theta)}\ \ge0 .\]
+(h) $F$ is unbounded above on $N_S$ for every $s>1$.
+\end{proposition}
+\begin{proof}
+(a) $H=\log Z-\sum w_i\log c_i$, and $(s-1)\log c_i=\log\|\omega_i\|^{b(s-1)}=\log\|\omega_i\|^{\nu-b}$.
+(b) $\phi'=-H$, $\phi''=-\mathrm{Var}/s$ (GLOBAL R1); $\frac{d}{ds}[\phi+(1-s)\phi']=(1-s)\phi''$; concavity gives the inequality.
+(c) A copy with cost $t_mc_i$ is $t_m^{1/b}\omega_i$, whose table is $t_m^{\nu/b}=t_m^s$ times $T_i$; $\sum_mt_m^s=e^{(1-s)H_s(t)}$.
+Shares become $w_it_m$, so $H\mapsto H+H(t)$. $H_s\le H$ with equality iff uniform. Near $t=(1-\tau,\tau)$, $H_s(t)\sim s\tau/(s-1)$ while $H(t)\sim\tau\log(1/\tau)$.
+(d) $(1+x)^{1/s}<1+x^{1/s}$ for $x>0$, $s>1$, with $x=\lambda^\nu$. A pair is the uneven replication of the merged neuron, so (c) applies.
+(e) Each $\sigma$ is orthogonal on every factor of every neuron. (f) Pieces have $\|\omega_i^{(k)}\|^2=e_{ik}$, so $c_{ik}=c_i\rho_{ik}^{b/2}$;
+the shares $c_{ik}/Z_{\rm split}=\hat w_i\pi_{ik}$ and the chain rule give the formula. Block split: SPLIT R2(5) with block planes
+$P_B=\sum_{k\in B}P_k$; a mode with block labels $(B_1..B_n;B_0)$ gets the sign $\prod_ts_{B_t,t}s_{B_0,t}$, trivial iff all labels agree;
+$\beta_{j,T}$ has all labels in the block of $j$; superadditivity of $t^{b/2}$ gives the cost.
+(g) Copy $j$ neuron $i$ has share $z_jw_i$; gaps of a union add and the copy has $g(jx,j\delta)$ scaled by $z_j^s$;
+$\log\sum z_j^s=-(s-1)H_s(z)$; $m\ge h$.
+(h) Add $N$ pairs $(v,\pm w)$ (tables cancel) of total cost $\epsilon Z$: $\gamma$ is multiplied by $(1+\epsilon)^{-s}$ and
+$H\ge\frac{\epsilon}{1+\epsilon}\log(2N)-O(1)\to\infty$.
+\end{proof}
+
+\section{E2. Entropic Lemma 7}
+\begin{theorem}\label{t:el7}
+Let $w_1,\dots,w_m>0$, $\sum w_l=1$, $|\xi_{lt}|=1$, with $\sum_lw_l\prod_{t\in T}\xi_{lt}=0$ for every non-empty $T\subseteq[n]$
+(an aligned interference-free feature). Put $\psi(r)=\log\sum_lw_l^r$. Then $H(\mathrm{esc}_r(w))=\psi(r)-r\psi'(r)\ge\log\nu$ for every $r\in(0,1]$.
+Conversely, $H(\mathrm{esc}_r(w))\ge\log\nu$ on $(0,1]$ implies $\psi(r)\ge(1-r)\log\nu$, i.e.\ Paper Lemma 7 for this configuration.
+\end{theorem}
+\begin{proof}
+Lemma 7 gives $\psi(r)\ge(1-r)\log\nu$ on $(0,1)$; $\psi(1)=0$, so $\psi'(1)\le-\log\nu$. $\psi$ is convex, so $\psi'(r)\le\psi'(1)$ and
+$\psi(r)-r\psi'(r)\ge(1-r)\log\nu+r\log\nu$. Conversely $\frac{d}{dr}\frac{\psi(r)}r=-\frac{H(\mathrm{esc}_r)}{r^2}\le-\frac{\log\nu}{r^2}$; integrate over $[r,1]$.
+\end{proof}
+\begin{remark}At temperature $s=1/r$, a budget-tight neuron has cost $\propto|\beta_i|^r$, so its cost shares are $\mathrm{esc}_r$ of the atom moduli.
+Alignment is necessary: nonaligned\_example.out gives three atoms at $n=2$, interference-free, with $H=0.9486<\log3$.\end{remark}
+
+\section{E3. Convex-end rigidity}
+\begin{theorem}\label{t:s1}
+At $s=1$ ($b=\nu$), for every $S\subseteq F$: a network $\theta\in N_S$ maximises $\gamma(\cdot;1)$ iff (i) every neuron has all $\nu$ factors in one
+plane $j(i)\in S$, no DC, equal factor norms; (ii) all atoms $\beta_{i,j(i)}$ are positive reals; (iii) $\beta_{j,T}=0$ for all $j\in S$, $T\ne\emptyset$;
+(iv) $y_j=\sum_i|\beta_{ij}|/(B_p\sum_ia_i)$ maximises $\Gamma^{(S)}_1$. Every maximiser satisfies $H(\theta;1)\ge\log\nu+\min H(z^*(1))=H^{\rm dec}_S(1)$,
+with equality for the decoupled block networks. Hence $H^*_S(1)=H^{\rm dec}_S(1)$, $L_S'{}_+(1)=0$ and $\lim_{s\downarrow1}L_S(s)/(s-1)=0$.
+\end{theorem}
+\begin{proof}
+For every $\delta$: $h\le A(\delta):=\sum_{j\in S}\mathrm{Re}\beta_j\kappa_j(\delta)\le B(\delta):=\sum_{j\in S}(\sum_i|\beta_{ij}|)\kappa_j(\delta)$
+(Paper Lemma 2 after symmetrising $\pm\delta$; with $\beta_j$ real below, $A(\delta)=\mathbb E_xg(\cdot,\delta)$), and $\min_\delta B\le(\sum_{j\in S}\sum_i|\beta_{ij}|)\Gamma^{(S)}_1\le(\sum_{j\in F}\sum_i|\beta_{ij}|)\Gamma^{(S)}_1\le B_p(\sum a_i)\Gamma^{(S)}_1$ by the budget
+$\sum_j|\beta_{ij}|\le B_pa_i$. Budget: with $A_t(j)=|\hat v_t(j)|/\sqrt{(p/2)}\|v_t\|$,
+$\sum_j\prod_tA_t(j)\le\prod_t\|A_t\|_\nu\le\prod_t\|A_t\|_2\le1$ and AM--GM; equality forces no DC, $\|A_t\|_\nu=\|A_t\|_2$ (one non-zero entry, as $\nu\ge3$),
+the same index in all factors, and equal norms: (i). If $h=B_p\sum a_i\Gamma_1^{(S)}$ then at $\delta^*\in\arg\min B$, $A(\delta^*)=B(\delta^*)$; all $\kappa_j(\delta^*)>0$,
+so $\mathrm{Re}\beta_j=\sum_i|\beta_{ij}|$ for all $j\in S$, and equality in the middle steps makes all atoms off $S$ vanish and every neuron budget-tight: (ii); $y$ is a maximiser: (iv); and $h=\mathbb E_xg(\cdot,\delta^*)\le g(x,\delta^*)$ forces
+$g(\cdot,\delta^*)$ constant. In a network of type (i) the Fourier coefficient of $g(\cdot,\delta)$ at $2l\mathbf 1_T$ is
+$\frac12\overline{\beta_{l,T}}c_l(\delta)$ ($2l\mathbf1_T=\pm2j\mathbf1_{T'}$ forces $j=l,T'=T$ for odd $p$), and $c_l(\delta)\ne0$: (iii). The converse is the IF computation.
+Entropy: $w_i=a_i/\sum a=|\beta_i|/\sum|\beta|$, so $H=H(y)+\sum_jy_jH(w^{(j)})$, each $w^{(j)}$ an aligned IF configuration;
+Theorem \ref{t:el7} at $r=1$ gives $H(w^{(j)})\ge\log\nu$. Optimal single features at $s=1$ are the case $S=\{1\}$ (cone margin $=B_p\sum a$ forces
+$\mathrm{cm}(\Phi)\equiv\mathrm{Re}\Phi\equiv\mathrm{Re}\beta$), so their least entropy is $\log\nu$ (the block), and $z^*(1)=y^*(1)$.
+Danskin at the endpoint gives $L'_+(1)=H^{\rm dec}(1)-H^*(1)=0$; with $L(1)=0$, $L(s)/(s-1)\to0$.
+\end{proof}
+
+\section{E4. Equivalences and the monotone quantity}
+\begin{theorem}\label{t:eq}
+For every $p,n,S$ the following are equivalent.
+(i) $(E_S)$: for a.e.\ $s$, every maximiser on $N_S$ has $H\ge H^{\rm dec}_S(s)$. (ii) The same for every $s\in[1,\nu/2)$.
+(iii) $(EW_S)$. (iv) $(J_S)$: for a.e.\ $s$, every maximiser on $N_S$ has $F(\theta;s)\ge F^{\rm dec}_S(s):=\log D_S(s)+(s-1)H^{\rm dec}_S(s)$.
+(v) $M_S(s):=L_S(s)/(s-1)$ is non-increasing on $(1,\nu/2]$. (vi) $W_S\equiv D_S$ on $[1,\nu/2]$.
+Moreover $M_S'{}_+=-J_S/(s-1)^2$ with $J_S=\min_{\theta\ \max}F(\theta;s)-F^{\rm dec}_S(s)$.
+\end{theorem}
+\begin{proof}
+$J_S=L_S-(s-1)L_S'{}_+$ and the derivative formula are calculus. (vi)$\Rightarrow$(ii): $L\equiv0$ gives $H^*=H^{\rm dec}$ everywhere.
+(ii)$\Rightarrow$(i) trivial. (i)$\Rightarrow$(iv): $F(\theta)=\log W_S+(s-1)H(\theta)$ and $W_S\ge D_S$. (iv)$\Rightarrow$(v): $M_S$ is locally Lipschitz,
+hence absolutely continuous, with $M'\le0$ a.e. (v)$\Rightarrow$(vi): $M_S\ge0$, non-increasing, and $M_S(1^+)=0$ (Theorem \ref{t:s1}).
+(vi)$\Rightarrow$(iii): $\gamma\le W_S=D_S$. (iii)$\Rightarrow$(vi): where $L>0$ every maximiser beats $D_S$, so by (iii) has $H\ge H^{\rm dec}$, so $L'_+\le0$ on $\{L>0\}$;
+Dini monotonicity (GLOBAL R3) gives $L\equiv0$.
+\end{proof}
+\begin{corollary}\label{c:content}
+$(E_S)$ implies: (a) $\Gamma^{\mathcal P,(S)}_s=\pi\Gamma^{(S)}_s$ (direction-uniform price on $S$; GLOBAL R8 restricted to $S$);
+(b) for $S=\{l\}$: $W_{\{l\}}\equiv\pi B_p\kappa_{\min}$, i.e.\ zero-mean output fields at frequencies $\ne l$ never raise a single feature's margin;
+(c) at $n=2$, $(E_F)$ gives $\gamma^*=\gamma_{IF}$ for all $p$ and $b\in[2,3]$ (Note: $\pi=3^{1-s}$), hence the class-$\mathcal C$ IF value at every $p$.
+\end{corollary}
+
+\section{E5. Bifurcation and local-to-global}
+\begin{theorem}\label{t:bif}
+If $W_S\not\equiv D_S$, let $L_S(s_2)>0$ and $s_0=\max\{s\le s_2:L_S(s)=0\}$. For $s_k\downarrow s_0$ and maximisers $\theta_k$ at $s_k$ (width $\le D$,
+$\sum\|\omega\|^2=1$): $H(\theta_k;s_0)<H^{\rm dec}_S(s_0)+o(1)$, $\gamma(\theta_k;s_0)\to W_S(s_0)$, and every limit point $\theta_0$ is a maximiser at $s_0$ with
+$H(\theta_0;s_0)\le H^{\rm dec}_S(s_0)$. If $s_0=1$, $\theta_0$ is class $\mathcal C$, interference-free and aligned, with $H(\theta_0;1)=H^{\rm dec}_S(1)$: every feature's atom distribution has entropy exactly $\log\nu$ and the allocation is a least-entropy maximiser of $\Gamma^{(S)}_1$ (Theorem \ref{t:s1}).
+Consequently $(E_S)\iff(\mathrm{Loc}_S)$: at every $s_0$ with $L_S(s_0)=0$ and every maximiser $\theta_0$ there with $H(\theta_0;s_0)\le H^{\rm dec}_S(s_0)$,
+some neighbourhood $U\ni\theta_0$ and $\epsilon>0$ satisfy $\gamma(\theta;s)\le D_S(s)$ for $\theta\in U\cap N_S$, $s\in(s_0,s_0+\epsilon)$.
+\end{theorem}
+\begin{proof}
+$\phi_k=\log\gamma(\theta_k;\cdot)$ is concave: $\phi_k(s_k)\le\phi_k(s_0)-H(\theta_k;s_0)(s_k-s_0)$, $\phi_k(s_0)\le\log D_S(s_0)$ and
+$\phi_k(s_k)=\log W_S(s_k)>\log D_S(s_k)=\log D_S(s_0)-H^{\rm dec}(s_0)(s_k-s_0)+o(s_k-s_0)$. The same concavity gives
+$\phi_k(s_0)\ge\log W_S(s_k)\to\log W_S(s_0)$. Compactness of the normalised width-$\le D$ class, closedness of $N_S$, joint continuity of $\gamma$
+on $\{h>0\}$ and continuity of $H(\cdot;s_0)$ give the limit statement. $(\mathrm{Loc})$ fails at $\theta_0$ along $\theta_k$; conversely $(E_S)$ gives $\gamma\le W_S=D_S$.
+\end{proof}
+
+\section{E6. Cost shares are margin shares}
+\begin{proposition}\label{p:kkt}
+Let $\theta^*$ maximise $\gamma(\cdot;s)$ under all rescalings $\omega_i\mapsto\lambda_i\omega_i$ (e.g.\ a global maximiser), and let $A$ be the argmin set of
+$g$. There is a probability $q$ on $A$ with $\mathbb E_q[g_i]=h\,w_i$ for every neuron $i$ ($g_i$ = gap of neuron $i$ alone). Hence
+$H(\theta^*;s)$ is the entropy of the binding-margin shares $(\mathbb E_qg_i/h)_i$. Also every neuron has $w_i\ge(\nu^{\nu/2}\gamma^*/2)^{1/(s-1)}$.
+\end{proposition}
+\begin{proof}
+$\log\gamma(\lambda)=\log\min_{a\in A'}\sum_i\lambda_i^\nu g_i(a)-s\log\sum_i\lambda_i^bc_i$. Its directional derivative at $\lambda=1$ along $v$ is
+$\min_{a\in A}\sum_iv_i\nu(g_i(a)/h-w_i)$ (using $sb=\nu$), which must be $\le0$ for all $v$; by separation $0\in\mathrm{conv}\{(g_i(a)/h-w_i)_i:a\in A\}$.
+For the floor: $hw_i=\mathbb E_qg_i\le\max|g_i|\le2\nu^{-\nu/2}a_i=2\nu^{-\nu/2}(Zw_i)^s$.
+\end{proof}
+
+\section{E7. Mode budgets}
+For one neuron let $e=B_p\|\omega\|^\nu$, $\beta_j$ its atoms, and $N=\sum_{j\in F}\sum_{k\notin\{\pm j\}^n}|2p^{-\nu}\hat w(j)\prod_t\hat u_t(k_t)|^2$ its non-own mode mass.
+\begin{theorem}\label{t:mb}
+(i) $\sum_{j\in F}|\beta_j|^2+2^{-n}N\le e^2$ for every neuron (all $p,n$).
+(ii) For $b\in[2,\nu]$: $\sum_j|\beta_j|^r+\frac{b-2}{2\nu}e^{r-2}2^{-n}N\le e^r$. At $b=2$ no positive constant is possible:
+a neuron whose $\nu$ factors share one frequency distribution $a$ on $F$ (no DC) has $\sum_j|\beta_j|^{2/\nu}=e^{2/\nu}$ and $2^{-n}N=e^2(1-\sum_ja_j^\nu)$.
+(iii) Network forms: single own feature $l$ (all $b$), with $N^{(l)}_i$ the mass of all modes of neuron $i$ except the own modes of feature $l$ (atoms at $j\neq l$ included) and $R_l=\sum_i\sqrt{N^{(l)}_i}$: $B_pP^s\ge\sqrt{Q_l^{2s}+2^{-n}R_l^2}$; several features ($b>2$):
+$\sum_jQ_j\le B_p^rP\,[1-\frac{b-2}{2\nu}2^{-n}(R/(B_pP^s))^2]$; here $R=\sum_i\sqrt{N_i}$ bounds the $\ell^2$ norm of all non-own field coefficients.
+\end{theorem}
+\begin{proof}
+Let $a_t(k)$ be the plane-$k$ energy fraction of factor $t$ ($t=0$ the output), $\hat E=2(2p)^{-\nu/2}\prod_t\|v_t\|\le e$. Then $|\beta_j|=\hat E\prod_ta_t(j)^{1/2}$,
+total mode mass $=2^n\hat E^2(1-a_0(0))$, own mass $=2^n\hat E^2x$ with $x=\sum_j\prod_ta_t(j)$, so $2^{-n}N=\hat E^2(1-a_0(0)-x)$: (i).
+Put $g_j=\prod_ta_t(j)^{1/\nu}$, $q=b/2$, $M=\max g_j$; $\sum g_j\le1$ (AM--GM). $\sum_j|\beta_j|^r=\hat E^r\sum g_j^q\le\hat E^rM^{q-1}$ and $x\ge M^\nu$.
+$\eta(u)=1-u^{q-1}-\frac{q-1}\nu(1-u^\nu)$ has $\eta(1)=0$, $\eta'\le0$ on $[0,1]$, so $1-M^{q-1}\ge\frac{q-1}\nu(1-x)\ge\frac{q-1}\nu2^{-n}N/\hat E^2$; use $\hat E\le e$, $r<2$.
+(iii) As in (i), $|\beta_{il}|^2+2^{-n}N^{(l)}_i\le e_i^2$; Minkowski in $\ell^{2/r}$ on $(|\beta_{il}|^r,\rho_i^r)$, $\rho_i^2=2^{-n}N^{(l)}_i$, then $(\sum\rho_i^r)^s\ge\sum\rho_i$ (p52 R3 generalised);
+for several features, Cauchy--Schwarz $(\sum\sqrt{N_i})^2\le\sum e_i^{r-2}N_i\sum e_i^{2-r}$ and $\sum e_i^{2-r}\le(\sum e_i^r)^{(2-r)/r}$.
+\end{proof}
+
+\section{E8. The split route as a decomposition}
+Class $\mathcal C$: every neuron has all factors in one plane $k\in F$. $\pi^{\mathcal C}\le\pi$, $W^{\mathcal C}_S\ge D^{\mathcal C}_S:=\pi^{\mathcal C}B_p\Gamma^{(S)}_s$.
+\begin{proposition}\label{p:dec}
+(a) $(E_S)\wedge(\pi=\pi^{\mathcal C})\iff(W_S=W^{\mathcal C}_S)\wedge(W^{\mathcal C}_S\equiv D^{\mathcal C}_S)$.
+(b) $(E^{\mathcal C}_S)\wedge(\pi^{\mathcal C}W_S\le\pi W^{\mathcal C}_S)\Rightarrow(E_S)\Rightarrow(\pi^{\mathcal C}W_S\le\pi W^{\mathcal C}_S)$.
+(c) On $\mathcal C$ the split is the identity, $\Sigma$ fixes every table, and the superadditivity slack vanishes.
+\end{proposition}
+\begin{proof}
+(a) $\Leftarrow$: $W_S=D^{\mathcal C}_S\le D_S\le W_S$. $\Rightarrow$: $W_S=D_S=D^{\mathcal C}_S\le W^{\mathcal C}_S\le W_S$.
+(b) $W_S\le\frac\pi{\pi^{\mathcal C}}W^{\mathcal C}_S=D_S$; conversely $W_S=D_S\le\frac\pi{\pi^{\mathcal C}}W^{\mathcal C}_S$.
+(c) A plane-$k$ neuron's table is multiplied by $\prod_ts_{k,t}\cdot\prod_ts_{k,t}=1$.
+\end{proof}
+
+\section{E9 (conditional). Exact entropy of maximisers}
+If $W_S\equiv D_S$, then at every $s$ where $\log D_S$ is differentiable (a.e.) every maximiser on $N_S$ has $H=H^{\rm dec}_S(s)$, and at a.e.\ $s$
+(Alexandrov; $\log W_S$ is semiconvex) every maximiser has $\mathrm{Var}_w(\log w)\ge s\,\frac{d}{ds}H^{\rm dec}_S(s)$.
+Proof: Danskin from both sides; second-order contact of the concave curve $\log\gamma(\theta^*;\cdot)$ from below with $\log W_S$.
+\end{document}

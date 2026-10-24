@@ -1,0 +1,11 @@
+p=5 n=2 b=2.0 s=1.500: Gamma_s=0.883883 y*=[0.3536 0.3536] K*=2
+IF network check: gamma/gamma_IF = 1.0
+m= 6 sd=0 gamma=+0.8311 split=+0.2515 live-cost=+0.8363 dc=0.004 dead=0.000 shared=6 feats=[1, 2] cheap=[2] Delta=-0.1689 (4s)
+m= 6 sd=1 gamma=+1.0000 split=+1.0000 live-cost=+1.0000 dc=0.000 dead=0.000 shared=6 feats=[1, 2] cheap=[] Delta=-0.0000 (5s)
+m= 6 sd=2 gamma=+0.2657 split=+0.1226 live-cost=+0.2753 dc=0.023 dead=0.000 shared=6 feats=[1, 2] cheap=[] Delta=-0.7343 (6s)
+m= 6 sd=3 gamma=+0.4117 split=+0.2156 live-cost=+0.4208 dc=0.014 dead=0.000 shared=6 feats=[1, 2] cheap=[] Delta=-0.5883 (6s)
+m= 9 sd=0 gamma=+0.3818 split=+0.2598 live-cost=+0.3991 dc=0.029 dead=0.000 shared=9 feats=[1, 2] cheap=[] Delta=-0.6182 (6s)
+m= 9 sd=1 gamma=+0.4416 split=+0.1208 live-cost=+0.4489 dc=0.011 dead=0.000 shared=9 feats=[1, 2] cheap=[] Delta=-0.5584 (7s)
+m= 9 sd=2 gamma=+1.0000 split=+1.0000 live-cost=+1.0000 dc=0.000 dead=0.000 shared=9 feats=[1, 2] cheap=[] Delta=-0.0000 (8s)
+m= 9 sd=3 gamma=+1.0000 split=+1.0000 live-cost=+1.0000 dc=0.000 dead=0.000 shared=9 feats=[1, 2] cheap=[] Delta=-0.0000 (9s)
+SUMMARY p=5 n=2 b=2.0 init=ifnoise: best gamma/gamma_IF=1.00000; max Delta=-0.00000; runs with gamma>1: 0; runs with gamma > gamma_split + 1e-6 and gamma>0.9: 0

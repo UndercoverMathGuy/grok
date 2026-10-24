@@ -1,0 +1,5 @@
+start 0: gamma/gIF IF-start 0.67894 -> optimised 0.87986
+start 1: gamma/gIF IF-start 0.61969 -> optimised 0.87812
+start 2: gamma/gIF IF-start 0.67655 -> optimised 0.87879
+start 3: gamma/gIF IF-start 0.60358 -> optimised 0.88018
+s=1.25: best optimised two-feature gamma/gIF = 0.88018; own data |A|=(7.104,12.8), x=(0.000,0.000), beta_3=6.7e-22; certified-type bound at this data = 0.88059

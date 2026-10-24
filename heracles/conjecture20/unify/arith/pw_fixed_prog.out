@@ -1,0 +1,8 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+programme p=101 K=7 t=0.825: R = 0.78118
+programme p=211 K=8 t=0.825: R = 0.75504
+programme p=401 K=8 t=0.825: R = 0.72078
+programme p=1009 K=11 t=0.825: R = 0.74976
+programme p=10007 K=18 t=0.825: R = 0.75949
+programme p=10007 K=18 t=0.825: R = 0.76212
+programme p=10007 K=17 t=0.825: R = 0.74791

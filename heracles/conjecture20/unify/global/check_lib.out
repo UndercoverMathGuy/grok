@@ -1,0 +1,30 @@
+== programme: reweighted LP vs exhaustive
+p=5 s=1.2: LP 1.088188 exhaustive 1.088188 K*=[2] supp=[(1, 2)] y=[0.4353 0.4353]
+p=5 s=1.5: LP 0.883883 exhaustive 0.883883 K*=[2] supp=[(1, 2)] y=[0.3536 0.3536]
+p=5 s=2.0: LP 0.690983 exhaustive 0.690983 K*=[1] supp=[(2,)] y=[1.]
+p=5 s=2.5: LP 0.690983 exhaustive 0.690983 K*=[1] supp=[(2,)] y=[1.]
+p=7 s=1.2: LP 0.936532 exhaustive 0.936532 K*=[3] supp=[(1, 2, 3)] y=[0.2676 0.2676 0.2676]
+p=7 s=1.5: LP 0.673575 exhaustive 0.673575 K*=[3] supp=[(1, 2, 3)] y=[0.1925 0.1925 0.1925]
+p=7 s=2.0: LP 0.470125 exhaustive 0.470125 K*=[2] supp=[(1, 2)] y=[0.1823 0.3284]
+p=7 s=2.5: LP 0.376510 exhaustive 0.376510 K*=[1] supp=[(2,)] y=[1.]
+p=11 s=1.2: LP 0.797258 exhaustive 0.797258 K*=[5] supp=[(1, 2, 3, 4, 5)] y=[0.145 0.145 0.145 0.145 0.145]
+p=11 s=1.5: LP 0.535726 exhaustive 0.535726 K*=[2] supp=[(1, 3)] y=[0.2825 0.4297]
+p=11 s=2.0: LP 0.380196 exhaustive 0.380196 K*=[2] supp=[(2, 5)] y=[0.2005 0.305 ]
+p=11 s=2.5: LP 0.269428 exhaustive 0.269428 K*=[2] supp=[(1, 4)] y=[0.2161 0.1421]
+p=13 s=1.2: LP 0.757063 exhaustive 0.757063 K*=[6] supp=[(1, 2, 3, 4, 5, 6)] y=[0.1165 0.1165 0.1165 0.1165 0.1165 0.1165]
+p=13 s=1.5: LP 0.497772 exhaustive 0.497772 K*=[3] supp=[(1, 2, 5)] y=[0.1917 0.1544 0.234 ]
+p=13 s=2.0: LP 0.288074 exhaustive 0.327850 K*=[2] supp=[(1, 5)] y=[0.25 0.25]
+p=13 s=2.5: LP 0.166558 exhaustive 0.231825 K*=[2] supp=[(4, 6)] y=[0.1768 0.1768]
+== IF network attains gamma_IF
+p=5 n=2 b=2.0: gamma/gamma_IF = 1.0000000000  width 6  max|beta_jT| 2.22e-16  |beta|=[0.35355 0.35355] y*=[0.35355 0.35355]
+p=7 n=2 b=2.0: gamma/gamma_IF = 1.0000000000  width 9  max|beta_jT| 9.27e-17  |beta|=[0.19245 0.19245 0.19245] y*=[0.19245 0.19245 0.19245]
+p=7 n=3 b=2.0: gamma/gamma_IF = 1.0000000000  width 8  max|beta_jT| 1.30e-16  |beta|=[0.18226 0.32842 0.     ] y*=[0.18226 0.32842 0.     ]
+p=11 n=2 b=2.5: gamma/gamma_IF = 1.0000000000  width 15  max|beta_jT| 8.70e-17  |beta|=[0.14496 0.14496 0.14496 0.14496 0.14496] y*=[0.14496 0.14496 0.14496 0.14496 0.14496]
+p=5 n=3 b=3.0: gamma/gamma_IF = 1.0000000000  width 8  max|beta_jT| 2.08e-16  |beta|=[0.39685 0.39685] y*=[0.39685 0.39685]
+== gradient check of softgamma
+p=5 n=2: fd -1.44069873e-03 analytic -1.44069872e-03
+p=5 n=3: fd 8.05561451e-05 analytic 8.05561369e-05
+== atoms, Lemma 6 and split
+p=5 n=2: |sum atoms - clean| 5.6e-17  Lemma6 dev 2.1e-16  split coeff dev 1.9e-16  cost 66.6514 split 56.9042
+p=7 n=2: |sum atoms - clean| 5.6e-17  Lemma6 dev 6.9e-17  split coeff dev 2.5e-16  cost 132.9292 split 96.5745
+p=5 n=3: |sum atoms - clean| 5.7e-17  Lemma6 dev 8.1e-17  split coeff dev 1.3e-16  cost 53.9028 split 46.0672

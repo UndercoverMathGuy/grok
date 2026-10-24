@@ -1,0 +1,15 @@
+full-legendre  |S|=  75 c*(grad)=0.8633 (supp 75, cheap 75)  pair/sharp=0.4631 (0.5212 at c=0.289)  cap/sharp=0.4678 (0.5501 at c=0.289)  [4s]
+full-rand      |S|=  75 c*(grad)=0.8837 (supp 75, cheap 75)  pair/sharp=0.4511 (0.5093 at c=0.289)  cap/sharp=0.4515 (0.5338 at c=0.289)  [22s]
+rand4L         |S|=  20 c*(grad)=0.7742 (supp 20, cheap 20)  pair/sharp=0.4008 (0.4854 at c=0.289)  cap/sharp=0.2732 (0.3926 at c=0.289)  [32s]
+rand8L         |S|=  40 c*(grad)=0.8185 (supp 40, cheap 40)  pair/sharp=0.4482 (0.5166 at c=0.289)  cap/sharp=0.4128 (0.5095 at c=0.289)  [54s]
+rand16L        |S|=  75 c*(grad)=0.8839 (supp 75, cheap 75)  pair/sharp=0.4511 (0.5093 at c=0.289)  cap/sharp=0.4496 (0.5318 at c=0.289)  [76s]
+ystar+2L       |S|=  17 c*(grad)=0.8626 (supp 12, cheap 12)  pair/sharp=0.2942 (0.3777 at c=0.289)  cap/sharp=0.1549 (0.2503 at c=0.289)  [94s]
+ystar+6L       |S|=  37 c*(grad)=0.6614 (supp 24, cheap 24)  pair/sharp=0.5017 (0.5890 at c=0.289)  cap/sharp=0.4457 (0.5556 at c=0.289)  [122s]
+AP8L-chirp     |S|=  30 c*(grad)=3.1650 (supp 30, cheap 30)  pair/sharp=0.1078 (0.1308 at c=0.289)  cap/sharp=0.0779 (0.1104 at c=0.289)  [143s]
+polish ystar+6L: 0.6614 -> 0.6614  [148s]
+polish rand4L: 0.7742 -> 0.7608  [153s]
+polish rand8L: 0.8185 -> 0.7770  [187s]
+== p=151 Gamma=0.257397
+  cstar        0.6614 from ystar+6L: {'ratio': np.float64(0.3909), 'cov': np.float64(0.7369), 'bonus': np.float64(0.2342), 'pen': np.float64(0.5802), 'covmin': np.float64(0.7162), 'delta': 10, 'supp': 24, 'cheap': 24}  ratio@0.289=0.5252
+  forced_cap   0.4678 from full-legendre: {'ratio': np.float64(0.4678), 'cov': np.float64(0.4516), 'bonus': np.float64(0.1435), 'pen': np.float64(0.1273), 'covmin': np.float64(0.4516), 'delta': 59, 'supp': 75, 'cheap': 75}  ratio@0.289=0.5501
+  forced_pair  0.5022 from ystar+6L: {'ratio': np.float64(0.5022), 'cov': np.float64(0.6751), 'bonus': np.float64(0.1517), 'pen': np.float64(0.3246), 'covmin': np.float64(0.6751), 'delta': 35, 'supp': 28, 'cheap': 28}  ratio@0.289=0.5892

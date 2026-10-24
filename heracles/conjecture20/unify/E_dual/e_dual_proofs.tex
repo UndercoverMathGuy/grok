@@ -1,0 +1,193 @@
+% E_dual: the duality route to (E_S).  Proofs of the PROVED claims D1-D10 of the E_dual report.
+% Checks: check_identities.py, check_entropic.py, check_p3_gain.py, check_kkt.py, check_aligned.py, certify_E.py,
+%         pinned_profile.py, floor_tolerance.py, frontier.py (.out files alongside).
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{proposition}{Proposition}[section]\newtheorem{lemma}[proposition]{Lemma}\newtheorem{corollary}[proposition]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[proposition]{Remark}
+\newcommand{\KL}{\mathrm{KL}}\newcommand{\cm}{\mathrm{cm}}
+\begin{document}
+\section*{Setting}
+Notation as in \texttt{unify/BRIEF.md} and \texttt{BRIEF\_E.md}: $p$ odd prime, $n\ge2$, $\nu=n+1$, $b\in[2,\nu]$, $s=\nu/b$, $r=1/s$.
+For a network $\theta$ with $h(\theta)>0$ put $a_i=\|\omega_i\|^\nu$, the \emph{$\nu$-cost shares} $p_i=a_i/\sum_ka_k$ (independent of $s$),
+the cost shares $w_i(s)=a_i^{1/s}/\sum_ka_k^{1/s}$, $\gamma(\theta;s)=h/(\sum_ia_i^{1/s})^s$, $\gamma_1(\theta)=\gamma(\theta;1)=h/\sum_ia_i$.
+Rényi entropy $H_\alpha(q)=(1-\alpha)^{-1}\log\sum q_i^\alpha$ ($H_1$ = Shannon $H$), Hill number $K_\alpha=e^{H_\alpha}$;
+$\alpha\mapsto H_\alpha$ is non-increasing. $\hat y_\theta=|\beta(\theta)|/\sum_j|\beta_j(\theta)|\in\Delta_F$ is the clean-amplitude profile and
+$M(\hat y)=\min_{\delta\ne0}\sum_j\hat y_j\kappa_j(\delta)$.
+
+\section{Exact identities}
+\begin{proposition}[D1, Rényi--Legendre form]\label{p:renyi}
+For every $\theta$ with $h>0$ and every $s>0$:
+(i) $\log\gamma(\theta;s)=\log\gamma_1(\theta)-(s-1)H_{1/s}(p)$, i.e.\ $(\sum a_i^{1/s})^s=(\sum a_i)\,K_{1/s}(p)^{s-1}$;
+(ii) $\log\gamma(\theta;s)=\min_{\pi\in\Delta}\big[\log\gamma_1(\theta)+\KL(\pi\|p)-(s-1)H(\pi)\big]$, uniquely attained at $\pi=w(s)$;
+(iii) $F(\theta;s):=\log\gamma(\theta;s)+(s-1)H(w(s))=\log\gamma_1(\theta)+\KL(w(s)\|p)=\log\gamma_1(\theta)+\psi^*(H(w(s)))$, where
+$\psi(\beta)=\beta H_{1/(1+\beta)}(p)$ is convex with $\psi'(\beta)=H(w(1+\beta))$ and $\psi^*$ is its convex conjugate.
+(iv) The programme has the same form: $\Gamma_s=\max_{\hat y\in\Delta_F}M(\hat y)K_{1/s}(\hat y)^{1-s}$.
+\end{proposition}
+\begin{proof}
+(i) $\sum a_i^{1/s}=(\sum a)^{1/s}\sum p_i^{1/s}$ and $s\log\sum p_i^{1/s}=(s-1)H_{1/s}(p)$.
+(ii) Gibbs: $\log\sum_ie^{x_i}=\max_\pi[\sum\pi_ix_i+H(\pi)]$ with unique maximiser $\pi\propto e^{x}$. With $x_i=\frac1s\log p_i$ and
+$\sum\pi_i\log p_i=-H(\pi)-\KL(\pi\|p)$: $s\log\sum p^{1/s}=\max_\pi[(s-1)H(\pi)-\KL(\pi\|p)]$, maximiser $w(s)$. Insert in (i).
+(iii) Evaluate (ii) at $\pi=w(s)$. $\psi(\beta)=(1+\beta)\log\sum p_i^{1/(1+\beta)}$ has $\psi'(\beta)=H(w(1+\beta))$ (GLOBAL R1), non-decreasing,
+so $\psi$ is convex, and at $\eta=\psi'(s-1)$, $\psi^*(\eta)=(s-1)\eta-\psi(s-1)=(s-1)H(w)-(s-1)H_{1/s}(p)=\KL(w\|p)$ by (ii).
+(iv) $M$ is $1$-homogeneous, so $\Gamma_s=\max_{\hat y}M(\hat y)/(\sum\hat y_j^{r})^s$ and $(\sum\hat y^r)^s=K_r(\hat y)^{s-1}$ by (i).
+\end{proof}
+
+\begin{proposition}[D1(v), decoupled networks are products]\label{p:prod}
+Let $\theta_1$ be a single feature, $y\in\mathbb R^F_{\ge0}\setminus0$, and $\Theta$ the union of the relabelled copies of $\theta_1$ with every
+weight of copy $j$ multiplied by $y_j^{1/\nu}$ (Companion Thm.~pp). Then $p_\Theta=\hat y\otimes p_{\theta_1}$, so
+$H_\alpha(p_\Theta)=H_\alpha(\hat y)+H_\alpha(p_{\theta_1})$ for every order $\alpha$, the clean profile of $\Theta$ is $\hat y$, and
+\[\log D_S(s)=\log B_p+\sup_{\theta_1}\big[\log e(\theta_1;1)-(s-1)H_{1/s}(p_{\theta_1})\big]+\max_{\hat y\in\Delta_S}\big[\log M(\hat y)-(s-1)H_{1/s}(\hat y)\big],\]
+where $e(\theta_1;1)=\min_x\cm(\Phi_1)/(B_p\sum_ia_i)$ is the cone efficiency at $s=1$; i.e.\ $\pi(s)=\sup_{\theta_1}e(\theta_1;1)K_{1/s}(p_{\theta_1})^{1-s}$.
+\end{proposition}
+\begin{proof}
+Relabelling permutes coordinates, so neuron $(j,i)$ has $a_{(j,i)}=y_ja_i$; hence $p_{(j,i)}=\hat y_jp_i$, and
+$\sum_{j,i}(\hat y_jp_i)^\alpha=\sum\hat y^\alpha\sum p^\alpha$. $|\beta_j(\Theta)|=y_j|\beta_1(\theta_1)|$. The value formula is
+$D_S=\pi B_p\Gamma^{(S)}_s$ with Prop.~\ref{p:renyi}(i),(iv) applied to $\theta_1$ and to $\hat y$.
+\end{proof}
+
+\begin{proposition}[D2, the free energy has no finite supremum]\label{p:dust}
+For every $s>1$ and every $\theta$ with $h>0$, $\sup\{F(\theta';s):\theta'\text{ has the same table as }\theta\}=+\infty$. Moreover for every
+$\eta$ and $\varepsilon>0$ there is $\theta'$ with the same table, $H(\theta',s)\ge\eta$ and $\gamma(\theta';s)\ge(1-\varepsilon)\gamma(\theta;s)$.
+\end{proposition}
+\begin{proof}
+Append $M$ pairs of neurons $(u_1,\dots,u_n,w)$, $(-u_1,u_2,\dots,u_n,w)$ (tables $T,-T$) with $a^{1/s}=c/(2M)$ each. The table is unchanged,
+$\log\gamma=\log h-s\log(Z_0+c)$ with $Z_0=\sum a_i^{1/s}$, and $H\ge\frac{c}{Z_0+c}\log\frac{2M(Z_0+c)}{c}\to\infty$ as $M\to\infty$.
+Choose $c$ with $(1+c/Z_0)^{-s}\ge1-\varepsilon$.
+\end{proof}
+So entropy floors are free and only entropy \emph{caps} constrain: the relevant restricted problem is $U(s,\eta)=\sup\{\gamma(\theta;s):H(\theta,s)\le\eta\}$.
+
+\section{Duality}
+\begin{proposition}[D3]\label{p:dual}
+(a) (Rényi frontier.) For $S\subseteq F$, $r\in(0,1]$, $\eta\ge0$ let $\Phi_{S,r}(\eta)=\sup\{\log\gamma_1(\theta):\theta\in N_S,\ H_r(p_\theta)\le\eta\}$. Then
+$\log W_S(s)=\sup_{\eta\ge0}\big[\Phi_{S,1/s}(\eta)-(s-1)\eta\big]$: the fixed-entropy problem at temperature $s$ is the $s=1$ problem under an entropy cap.
+(b) (Linear duality is blind to $s$ and to the cap.) For every probability $q$ on $\mathbb Z_p^n\times\mathbb Z_p^*$, every $r\in(0,1]$ and $\eta\ge0$,
+\[\sup\Big\{\langle E_qg,f\rangle:\ f=\sum_i\mu_i\hat T_i,\ \mu\in\Delta,\ H_r(\mu)\le\eta,\ \hat T_i\ \text{unit rank one}\Big\}=\|E_qg\|_\sigma ,\]
+the spectral norm (supremum over unit rank-one tensors). Hence every bound obtained as $h(f)\le\langle E_qg,f\rangle\le(\text{dual norm})\times(\text{cost})$
+gives at best $\nu^{-\nu/2}\inf_q\|E_qg\|_\sigma=B_p\Gamma_1(p)=W_F(1)$, for every $s$; while $W(s)\le B_p\Gamma_s<B_p\Gamma_1$ for $p\ge5$, $s>1$.
+(c) (KKT dual tensor.) At every local maximiser of $\gamma(\cdot;s)$ (normalised to unit $b$-cost) there is a probability $q^*$ on the active
+constraints with $t_i:=E_{q^*}g(\hat u_{i1},\dots,\hat u_{in},\hat w_i)=h\,\nu^{\nu/2}a_i^{r-1}$ (unit factors). Consequently
+$F(\theta;s)=\sum_iw_i\log t_i-\tfrac\nu2\log\nu\le\log\|E_{q^*}g\|_\sigma-\tfrac\nu2\log\nu$, $\KL(w(s)\|p)\le\log\big(\nu^{-\nu/2}\|E_{q^*}g\|_\sigma/\gamma_1(\theta)\big)$,
+and for $s>1$ all neurons attain the spectral norm of their own dual tensor only if all have equal size.
+\end{proposition}
+\begin{proof}
+(a) If $H_{1/s}(p_\theta)\le\eta$ then $\log\gamma(\theta;s)=\log\gamma_1-(s-1)H_{1/s}\ge\log\gamma_1-(s-1)\eta$, and if $H_{1/s}(p_\theta)=\eta$ it is
+$\le\Phi(\eta)-(s-1)\eta$; take suprema (Prop.~\ref{p:renyi}(i)).
+(b) The set contains all unit rank-ones ($\mu$ a point mass, $H_r=0$) and lies in the nuclear unit ball; a linear functional has the same supremum
+on a set and on its closed convex hull, and the convex hull of the unit rank-ones is the nuclear ball. Balancing gives $\|\theta\|^\nu\ge\nu^{\nu/2}\sum\|T_i\|_F$,
+so $\gamma(\theta;s)\le\gamma_1(\theta)\le h(f)/(\nu^{\nu/2}N_1(f))\le\nu^{-\nu/2}\|E_qg\|_\sigma$ for all $q$. With $q$ uniform, $E_qg=\frac p{p-1}\sum_j\Re\beta_j$
+and the single-neuron budget at $r=1$ gives $\|E_qg\|_\sigma\le\frac p{p-1}B_p\nu^{\nu/2}$; IF networks attain $B_p\Gamma_1$. For $p\ge5$, $s>1$:
+$\Gamma_s=M(\hat y^*)K_r(\hat y^*)^{1-s}<\Gamma_1$, since either $K_r>1$ or $\hat y^*$ is a point mass with $M=\kappa_{\min}<\Gamma_1=p/(p-1)$.
+(c) Write $\max t$ s.t.\ $g(x,\delta)\ge t$, $\sum\|\omega_i\|^b\le1$. MFCQ holds at every feasible point with $h>0$ (direction $(-\theta,\ \Delta t=-\nu h-1)$), so
+KKT multipliers exist: $\sum q=1$ on active constraints and $\nabla_{\omega_i}E_{q}g=\lambda b\|\omega_i\|^{b-2}\omega_i$. Pairing with each factor of neuron $i$
+gives equal factor norms $\|\omega_i\|/\sqrt\nu$ and $E_qg(\omega_i)=\lambda b\|\omega_i\|^b/\nu$; summing, $h=\lambda b/\nu$. Multilinearity gives
+$E_qg(\omega_i)=(\|\omega_i\|/\sqrt\nu)^\nu t_i$, hence $t_i=h\nu^{\nu/2}\|\omega_i\|^{b-\nu}=h\nu^{\nu/2}a_i^{r-1}$. With unit cost $w_i=a_i^r$, so
+$\sum w_i\log t_i=\log h+\tfrac\nu2\log\nu+(s-1)H(w)$ (BRIEF\_E \S2). $t_i\le\|E_{q^*}g\|_\sigma$; combine with Prop.~\ref{p:renyi}(iii). $a\mapsto a^{r-1}$ is injective for $r<1$.
+\end{proof}
+
+\section{Logical status and the endpoint $s=1$}
+\begin{proposition}[D4]\label{p:logic}
+For every $S\subseteq F$: $(EW_S)$ for all $s\in[1,\nu/2]$ $\iff$ $(E_S)$ for a.e.\ $s$ $\iff$ $W_S\equiv D_S$ on $[1,\nu/2]$, and then every maximiser in $N_S$
+has $H=H^{\rm dec}_S(s)$ at a.e.\ $s$.
+\end{proposition}
+\begin{proof}
+$W_S\equiv D_S\Rightarrow(EW_S)$: $\gamma\le W_S=D_S$ for every $\theta$. $(EW_S)\,\forall s\Rightarrow W_S\equiv D_S$: on $\{L_S>0\}$ every maximiser has
+$H\ge H^{\rm dec}_S$ (else $W_S=\gamma\le D_S$), so $D^+L_S\le0$ there; $L_S(1)=0$ and continuity give $L_S\equiv0$ (BRIEF\_E \S1).
+$(E_S)$ a.e.\ $\Rightarrow W_S\equiv D_S$ is BRIEF\_E \S1 (Vitali--Carathéodory, GLOBAL VERIFY R4). Conversely, $\log W_S$ is locally Lipschitz (slopes are entropies of
+width-bounded networks, GLOBAL R2), hence differentiable a.e.; where it is, all maximisers have $H=-(\log W_S)'$, and every decoupled network built from an
+optimal single feature and a maximiser of $\Gamma^{(S)}_s$ attains $D_S=W_S$, so it is a maximiser and has the same entropy.
+\end{proof}
+
+\begin{proposition}[D4$'$, $(E_F)$ at $s=1$]\label{p:s1}
+Every maximiser $\theta$ of $\gamma(\cdot;1)$ (any width, arbitrary inputs) is interference-free, frequency-pure without DC, balanced, has $\beta_j=2h/p$ for all
+$j\in F$, real positive atoms, and $H(p_\theta)\ge\log\nu+\log F=H^{\rm dec}_F(1)$, with equality iff every frequency is carried by exactly $\nu$ neurons of equal cost.
+Consequently $D^+(\log W_F-\log D_F)(1)=0$.
+\end{proposition}
+\begin{proof}
+$h\le E_{x,\delta\ {\rm unif}}\,g=\frac p{p-1}\sum_j\Re\beta_j\le\frac p{p-1}\sum_{i,j}|\beta_{ij}|\le\frac p{p-1}B_p\sum_ia_i$ and $W(1)=B_p\Gamma_1=\frac p{p-1}B_p$,
+so all are equalities. (1) $g\equiv h$: for fixed $x$, $\varphi_x(c')=f(x)[y-c']-\bar f(x)$ has mean $0$ and $\varphi_x(0)-\varphi_x(\delta)=h$, so
+$\varphi_x=h(\mathbf 1_0-\frac1p)$ for every $x$ and $\Phi_l\equiv2h/p$: IF with $\beta_l=2h/p$. (2) $\sum_j|\beta_j|=\sum_{ij}|\beta_{ij}|$: all atoms of
+frequency $j$ have the phase of $\beta_j$, i.e.\ are real positive. (3) Equality in the $r=1$ single-neuron budget (Hölder with $\nu$ factors, $\|\cdot\|_\nu\le\|\cdot\|_2$
+strict unless one frequency per factor since $\nu\ge3$, Parseval without DC, AM--GM) forces single-frequency, DC-free, balanced neurons with
+$|\beta_{ij}|=B_pa_i$. (4) By Prop.~\ref{p:l7} (aligned, IF) the atom shares of each frequency have collision $\le1/\nu$, so $H(p\,|\,j)\ge H_2\ge\log\nu$;
+the frequency shares are $|\beta_j|/\sum|\beta|=1/F$; the chain rule gives $H(p)\ge\log F+\log\nu$, with equality iff each conditional is uniform on $\nu$ atoms.
+$H^{\rm dec}_F(1)$: $\Gamma_1$ has the unique maximiser $\hat y=\mathbf1/F$ (GLOBAL VERIFY R7: $C^2=\frac p4I-\frac12J$); an optimal single feature at $s=1$ has
+$\min\cm(\Phi_1)=\Re\beta_1=B_p\sum a$, which forces $\Phi_1\equiv\beta_1$ (cm is concave, $\cm\le\Re$), so it is IF and aligned and has $H\ge\log\nu$, with equality for the
+paper's block. Finally $D^+\log W_F(1)=-(\log\nu+\log F)$ (Danskin at the endpoint) and $\log\gamma(\Theta_{\rm IF};s)\le\log\gamma_{\rm IF}(s)\le\log D_F(s)$ with equality at
+$s=1$ give $D_+\log D_F(1)\ge-(\log\nu+\log F)$.
+\end{proof}
+
+\section{Entropy from interference (Forster/Srebro--Shraibman analogue)}
+\begin{proposition}[D5, entropic Lemma 7]\label{p:l7}
+Let $\beta_l\in\mathbb C\setminus0$, $|\xi_{lt}|=1$ ($l\le N$, $t\le n$), $L=\sum|\beta_l|$, $A=\sum\beta_l$, $\beta_T=\sum_l\beta_l\prod_{t\in T}\bar\xi_{lt}$, and for $0\le k<k'\le n$ let
+$I=\{k+1,\dots,k'\}$ (the $\binom\nu2$ intervals). Then
+\[\sum_l\Big(\frac{|\beta_l|}L\Big)^2\le\frac1\nu+\frac2{\nu^2}\sum_I\Big(\frac{|\beta_I|}L+\sqrt{2(1-|A|/L)}\Big)^2 .\]
+If all $\beta_l$ have the phase of $A$ ("aligned"), the last term is $\frac2{\nu^2}\sum_I|\beta_I|^2/L^2$. Moreover $(|\beta_l|/L)_l$ is majorised by the spectrum of
+$M/(\nu L)$, $M=\sum_l|\beta_l|m_lm_l^*$, $m_l=(1,\bar\xi_{l1},\bar\xi_{l1}\bar\xi_{l2},\dots)\in\mathbb C^\nu$, so every Schur-concave entropy of the atom shares
+dominates that of the spectrum. Aligned and IF $\Rightarrow$ $H_\alpha(|\beta|/L)\ge\log\nu$ for all $\alpha\le2$, equality iff exactly $\nu$ equal atoms with pairwise
+orthogonal chain vectors; and $\sum|\beta_l|^r\ge\nu^{1-r}|A|^r$ (Paper Lemma 7 for aligned atoms).
+\end{proposition}
+\begin{proof}
+$M\succeq0$ and $\|M\|_F^2=\sum_{l,l'}|\beta_l||\beta_{l'}||\langle m_l,m_{l'}\rangle|^2\ge\nu^2\sum_l|\beta_l|^2$ (drop $l\ne l'$; $\|m_l\|^2=\nu$).
+$M_{kk}=L$ and, for $k'>k$, $M_{k'k}=\sum_l|\beta_l|\prod_{t\in I}\bar\xi_{lt}=:\tilde\beta_I$. With $\phi=\arg A$ and $\psi_l=\arg\beta_l-\phi$,
+$|\tilde\beta_I-e^{-i\phi}\beta_I|\le\sum_l|\beta_l||1-e^{i\psi_l}|\le\sqrt L\,(\sum|\beta_l|\,2(1-\cos\psi_l))^{1/2}=\sqrt{2L(L-|A|)}$. So
+$\|M\|_F^2\le\nu L^2+2\sum_I(|\beta_I|+\sqrt{2L(L-|A|)})^2$; divide by $\nu^2L^2$. Majorisation: $G=V^*V$, $V=[\sqrt{|\beta_l|}m_l]$, has diagonal
+$(\nu|\beta_l|)$ and the nonzero spectrum of $M=VV^*$ (Schur). Equality case: collision $=1/\nu$ forces all $\langle m_l,m_{l'}\rangle=0$, so $N\le\nu$, and then
+Cauchy--Schwarz forces $N=\nu$ equal atoms. Lemma 7: $\sum|\beta|^r=L^rK_r^{1-r}\ge L^rK_2^{1-r}\ge L^r\nu^{1-r}$ ($r\le2$) and $L=|A|$.
+\end{proof}
+
+\begin{proposition}[D6, aligned single features --- a special case, reported and not pursued]\label{p:al}
+Let $p\ge5$ and $\theta$ be a class-$\mathcal C$ single-frequency single feature (frequency $1$, no DC) with aligned atoms and cone level
+$c=\min_x\cm(\Phi_1(x))$; $\tau_p=(1-\cos\frac{2\pi}p)/\cos\frac{2\pi}p$. Then (a) $\sum_{T\ne\emptyset}|\beta_T|^2\le\tau_p(\Re A-c)^2$;
+(b) $|A|-\nu^{1-s}Q^s\le\frac{2(s-1)}{\nu|A|}\sum_I|\beta_I|^2$ (the cheapness gain of aligned atoms is second order); (c) if $2(s-1)\tau_p\le\nu$ then $c\le\nu^{1-s}Q^s$.
+\end{proposition}
+\begin{proof}
+$\Phi_1(x)=\sum_T\bar\beta_Tz^T$, $z_t=\rho^{2x_t}$ ranging over $\mu_p^n$; the monomials $z^T$, $T\subseteq[n]$, are orthonormal and $E(\Phi-E\Phi)^2=0$ (exponents in
+$\{0,1,2\}$). $\Phi(x)-c\in K_p$ gives $\Re(\Phi-c)^2\ge\cos\frac{2\pi}p|\Phi-c|^2$, so $E|\Phi-c|^2\le(X^2-Y^2)/\cos\frac{2\pi}p$ with $X+iY=E\Phi-c$, and
+$E|\Phi-c|^2=X^2+Y^2+\sum_{T\ne\emptyset}|\beta_T|^2$; this is (a). (b): Prop.~\ref{p:l7} (aligned) gives $K_2\ge\nu/(1+2R_I^2/(\nu L^2))$,
+$R_I^2=\sum_I|\beta_I|^2$; $\nu^{1-s}Q^s=(K_r/\nu)^{s-1}L$ (Prop.~\ref{p:renyi}(i) for the atoms; LARGEN R12) $\ge L(1+2R_I^2/(\nu L^2))^{1-s}\ge L-2(s-1)R_I^2/(\nu L)$, and $L=|A|$.
+(c): if $c\le0$ trivial; else by (a),(b) $\nu^{1-s}Q^s\ge|A|-\frac{2(s-1)\tau_p}{\nu}\frac{(|A|-c)^2}{|A|}\ge c$ since $0\le|A|-c\le|A|$.
+\end{proof}
+
+\begin{remark}[what the alignment hypothesis costs]
+Numerically (gain\_rays.out, gain\_order.out) the gain $|A|-\nu^{1-s}Q^s$ is of second order in $R=(\sum_{T\ne\emptyset}|\beta_T|^2)^{1/2}$ near the KM2 block for
+\emph{all} phases ($\max g/R\propto\varepsilon$ along random rays, $n=2,3$). The alignment hypothesis of Prop.~\ref{p:al} is therefore an artefact of the
+Frobenius/Schur--Horn method, whose phase term $\sqrt{2(1-|A|/L)}$ is of first order in the phase spread while the true effect is of second order.
+Only the determinantal (Lemma~7) mechanism sees phases exactly. Far from IF the gain is linear in $R$ (a single atom has $g/R=(1-\nu^{1-s})/\sqrt{2^n-1}$).
+\end{remark}
+
+\begin{proposition}[D7, static entropic gain bound; all networks]\label{p:gain}
+For every $\theta$ with $h>0$: $\gamma(\theta;s)\le B_pM(\hat y_\theta)K_{1/s}(p_\theta)^{1-s}$. Hence, with $\nu_\pi(s)=\pi(s)^{-1/(s-1)}\in[1,\nu]$,
+\[\frac{\gamma(\theta;s)}{\pi B_p\Gamma_s}\le\Big(\frac{\nu_\pi K_{1/s}(\hat y_\theta)}{K_{1/s}(p_\theta)}\Big)^{s-1}\frac{M(\hat y_\theta)K_{1/s}(\hat y_\theta)^{1-s}}{\Gamma_s},\]
+the last factor being $\le1$; with $\nu$ in place of $\nu_\pi$ the left side is $\gamma/\gamma_{\rm IF}$. A network can beat $D_F$ (resp.\ $\gamma_{\rm IF}$) only if
+$K_{1/s}(p_\theta)<\nu_\pi K_{1/s}(\hat y_\theta)$ (resp.\ $<\nu K_{1/s}(\hat y_\theta)$).
+\end{proposition}
+\begin{proof}
+Paper Lemma 2 gives $h\le\sum_j|\beta_j|\kappa_j(\delta)$ for all $\delta$, so $h\le M(\hat y)\sum_j|\beta_j|\le M(\hat y)B_p\sum a_i$ (single-neuron budget at $r=1$).
+Thus $\gamma_1\le B_pM(\hat y)$; apply Prop.~\ref{p:renyi}(i),(iv).
+\end{proof}
+
+\section{Profile classes and the upper half}
+For closed $C\subseteq\Delta_F$ let $\mathcal A_C=\{\theta:h>0,\ \hat y_\theta\in C\}$ (table-defined: invariant under width reduction and scaling, $s$-free),
+$W_C=\sup_{\mathcal A_C}\gamma$, $\Gamma^C_s=\max_{\hat y\in C}M(\hat y)K_{1/s}(\hat y)^{1-s}$, $D_C=\pi B_p\Gamma^C_s$. Feature classes are $C=\Delta_S$.
+\begin{proposition}[D10]\label{p:uh}
+(a) $D_C\le W_C$ for every $s$, and $W_C(1)=B_p\Gamma^C_1=D_C(1)$.
+(b) Fix $s$ at which all programme maximisers have $K^*$ features; let $\mathcal K$ be the set of optimal supports and assume the lower half (every global maximiser's
+feature set contains a member of $\mathcal K$). Then every global maximiser has its feature set in $\mathcal K$ iff $W_{C(S,\varepsilon)}(s)<W(s)$ for all
+$\varepsilon\in(0,1]$ and all $S\supsetneq K\in\mathcal K$, where $C(S,\varepsilon)=\{\hat y:\hat y_k\ge\varepsilon\ \forall k\in S\}$. For such $S$,
+$\tau(S,\varepsilon):=\Gamma_s/\Gamma^{C(S,\varepsilon)}_s-1>0$, and it suffices that $W_{C(S,\varepsilon)}\le(1+\tau)D_{C(S,\varepsilon)}$ with $\tau<\tau(S,\varepsilon)$.
+\end{proposition}
+\begin{proof}
+(a) Decoupled networks with allocation $y\propto\hat y\in C$ lie in $\mathcal A_C$ (Prop.~\ref{p:prod}) and have $\gamma\ge\pi B_pM(\hat y)K_r(\hat y)^{1-s}$
+(Companion Thm.~pp, $\pi$ attained, GLOBAL R2). At $s=1$, $\gamma_1\le B_pM(\hat y_\theta)\le B_p\Gamma^C_1$ (proof of Prop.~\ref{p:gain}), attained by IF networks; $\pi(1)=1$.
+(b) If a maximiser has feature set $S'\notin\mathcal K$, then $S'\supsetneq K$ and $\theta\in\mathcal A_{C(S',\varepsilon)}$ with $\varepsilon=\min_{S'}\hat y_k>0$, so $W_C\ge W$.
+Conversely, if $W_{C(S,\varepsilon)}(s)=W(s)$, the supremum is attained (the class is closed and table-defined; GLOBAL R2 compactness, $h$ bounded below on near-maximisers)
+by a maximiser whose feature set contains $S$, has more than $K^*$ elements, and so is not in $\mathcal K$. $\tau>0$: the closed set $C(S,\varepsilon)$ contains no
+programme maximiser (its support would contain $S$). Sufficiency: $W_C\le(1+\tau)\pi B_p\Gamma^C_s<\pi B_p\Gamma_s\le W$ (price--programme theorem).
+\end{proof}
+\begin{remark}
+The identity $W_C=D_C$ is \emph{false} for some closed $C$ away from the optimal profiles: at $(p,n,b)=(5,2,2)$ the certified SPLIT violator has profile
+$\hat y=(0.811429,0.188571)$ and $\gamma=0.790214\,\gamma_{\rm IF}>D_{\{\hat y\}}=0.777321\,\gamma_{\rm IF}$ (certify\_E.out). So the upper half can only be reached through the
+slack form of (b), with exactness needed only as $\varepsilon\to0$, where numerically $\tau(S,\varepsilon)\approx c\,\varepsilon^{1/s}$ (floor\_tolerance.out).
+\end{remark}
+\end{document}

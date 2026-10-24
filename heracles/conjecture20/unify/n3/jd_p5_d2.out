@@ -1,0 +1,9 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+p=5 d=2 restrict=all sets=7 best AA'/E = 0.666668  (p-1)/(p+1)=0.666667  slicing k/(2+k)=0.250000
+  T= 1  Var share=0.0000  f= [-0.  0.  0.  0. -0.]
+  T= 2  Var share=0.3333  f= [-0.8165 -0.      0.8165 -0.4082  0.4082]
+  T= 3  Var share=0.0000  f= [-0. -0.  0.  0. -0.]
+  T= 12  Var share=0.0000  f= [ 0. -0.  0.  0. -0.]
+  T= 13  Var share=0.3333  f= [-0.4082  0.4082 -0.8165  0.      0.8165]
+  T= 23  Var share=0.0000  f= [-0.  0.  0. -0.  0.]
+  T= 123  Var share=0.3333  f= [ 0.4082 -0.4082  0.8165  0.     -0.8165]

@@ -1,0 +1,8 @@
+(1) mean-gap identity max rel err   = 2.79e-16
+(2) Lemma 2 max (h - min_d sum Re beta kappa) = -3.54e-03  (must be <= 0)
+(3) r=1 budget max ratio            = 1.000000 (must be <= 1)
+    atoms sum to clean coefficients: max err 1.0e-15
+(4) D7 max gamma/bound over 2967 (network,s) with h>0 (989 nets) = 0.956157 (must be <= 1)
+(5) D1(i) max err 2.14e-50 ; Gibbs equality at w_s err 2.14e-50 ; min over random pi of [max - value] = 0.0 (>=0)
+(6) p=3 n=11: gamma/gIF=1.054399  gamma/D7bound=0.138761  K_r=7.9990  h/(1.5 Re beta_1)=0.440069  budget max=0.5202
+(6) p=3 n=13: gamma/gIF=1.109163  gamma/D7bound=0.147224  K_r=9.9990  h/(1.5 Re beta_1)=0.538137  budget max=0.4617

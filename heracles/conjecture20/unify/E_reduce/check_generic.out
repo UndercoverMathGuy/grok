@@ -1,0 +1,7 @@
+p=11 s=1.5: #maximisers at lambda=1: 5;  at 200 random lambda near 1: max 1, mean 1.000
+p=13 s=1.5: #maximisers at lambda=1: 6;  at 200 random lambda near 1: max 1, mean 1.000
+p=7 s=1.8: #maximisers at lambda=1: 3;  at 200 random lambda near 1: max 1, mean 1.000
+p=5 s=1.9: #maximisers at lambda=1: 2;  at 200 random lambda near 1: max 1, mean 1.000
+p=11 s=1.2: #maximisers at lambda=1: 1;  at 200 random lambda near 1: max 1, mean 1.000
+p=11 n=2 b=2.0 lam=[1.026 1.    1.024 0.96  0.99 ]: unique y^lam support (1, 3); best gamma/D=0.999998; |nuE - z(y^lam)|_inf=9.2e-07; features=(1, 3)
+p=7 n=3 b=2.0 lam=[1.02  1.006 0.968]: unique y^lam support (1, 2); best gamma/D=0.999999; |nuE - z(y^lam)|_inf=4.8e-07; features=(1, 2)

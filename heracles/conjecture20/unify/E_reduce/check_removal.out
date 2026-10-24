@@ -1,0 +1,8 @@
+p=5 n=2 b=2.5 IF (gamma/gamma_IF=1.000000): max[P^-j/P-(1-E_j)]=-3.21e-02 (<=0), max[h^-j/h-(1-E_j)^s]=-5.27e-01 (<=0 at maximisers)
+p=5 n=2 b=2.5 found (gamma/gamma_IF=1.000000): max[P^-j/P-(1-E_j)]=-3.21e-02 (<=0), max[h^-j/h-(1-E_j)^s]=-5.27e-01 (<=0 at maximisers)
+p=7 n=2 b=2.2 IF (gamma/gamma_IF=1.000000): max[P^-j/P-(1-E_j)]=-8.83e-03 (<=0), max[h^-j/h-(1-E_j)^s]=-3.95e-01 (<=0 at maximisers)
+p=7 n=2 b=2.2 found (gamma/gamma_IF=0.924716): max[P^-j/P-(1-E_j)]=+0.00e+00 (<=0), max[h^-j/h-(1-E_j)^s]=-5.07e-09 (<=0 at maximisers)
+p=7 n=2 b=3.0 IF (gamma/gamma_IF=1.000000): max[P^-j/P-(1-E_j)]=-4.08e-02 (<=0), max[h^-j/h-(1-E_j)^s]=-4.32e-01 (<=0 at maximisers)
+p=7 n=2 b=3.0 found (gamma/gamma_IF=0.848367): max[P^-j/P-(1-E_j)]=-2.44e-02 (<=0), max[h^-j/h-(1-E_j)^s]=-4.82e-01 (<=0 at maximisers)
+p=11 n=2 b=2.0 IF (gamma/gamma_IF=1.000000): max[P^-j/P-(1-E_j)]=+1.11e-16 (<=0), max[h^-j/h-(1-E_j)^s]=+4.44e-16 (<=0 at maximisers)
+p=11 n=2 b=2.0 found (gamma/gamma_IF=0.999998): max[P^-j/P-(1-E_j)]=+0.00e+00 (<=0), max[h^-j/h-(1-E_j)^s]=+1.20e-09 (<=0 at maximisers)

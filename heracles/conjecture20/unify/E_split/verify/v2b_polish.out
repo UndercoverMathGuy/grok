@@ -1,0 +1,5 @@
+max residual (40 digits): 1.1479e-41
+moduli: ['0.4914483236', '0.1025290611', '0.4060226153']  min modulus > 0: True
+H = 0.948612286702  log 3 = 1.09861228867  H < log 3: True
+|beta| = 0.12490934
+shift from printed point: 5.3426121859878606e-09

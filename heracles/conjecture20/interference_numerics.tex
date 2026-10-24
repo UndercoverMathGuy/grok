@@ -1,0 +1,44 @@
+All numbers in this section come from local optimisation (L-BFGS with an annealed soft-min of the margins) and are
+\emph{evidence}, not certificates; scripts are in the supplementary folder.
+
+\paragraph{1. The robust constant $k^*(n,s)$.}  Lower bounds on the supremum in Theorem~\ref{thm:circ}, at $b=2$
+($s=\nu/2$), from optimising over atoms (general chains for $n\le7$, slot-symmetric chains above):
+\begin{center}
+\begin{tabular}{lccccccc}
+\toprule
+$n$ & 2 & 3 & 5 & 7 & 9 & 11 & 13\\
+$k^*(n,\nu/2)\ \ge$ & 0.345 & 0.543 & 0.764 & 0.928 & 1.055 & 1.073 & 1.099\\
+\bottomrule
+\end{tabular}
+\qquad
+\begin{tabular}{lcccc}
+\toprule
+$p$ & 5 & 7 & 11 & 13\\
+$k_p$ & 0.946 & 1.820 & 3.256 & 3.932\\
+\bottomrule
+\end{tabular}
+\end{center}
+The growth flattens.  If these lower bounds are close to the supremum, Theorem~\ref{thm:circ} excludes beating the IF value
+with single-frequency networks for $p\ge7$ and all $n\le13$, and for $p=5$ and $n\le7$.  For the matrix constant of
+Proposition~\ref{prop:mat} we found $\kappa_M(3,1.5)\approx0.289$, $\kappa_M(4,2)\approx0.476$, $\kappa_M(6,3)\approx0.694$.
+
+\paragraph{2. The $L^2$ bound is far from tight pointwise.}  At $p=5$, $n=9$ the best atom configuration for
+$(\Re A-k_5\sigma)/\nu^{1-s}C^s$ reaches $1.186$ ($m=7$ atoms, $E=0.79|A|^2$).  Realised as a single-frequency network,
+its cone efficiency is $-31$, and local optimisation from it (constant input components allowed) never reaches a positive
+margin.  The pointwise cone constraint is much stronger than its second moment.
+
+\paragraph{3. IF behaves as a local maximum.}  Starting from the IF block plus noise, with the cone widened to any
+half-angle between $36^\circ$ and $89^\circ$, local optimisation in the full single-feature class (arbitrary input
+vectors) returns to the IF value ($0.9999$) at $p=3$ and $p=5$, $n=11$.  The $p=3$ counterexamples live in a different
+basin, reached only through a structured family of $\approx0.7\nu$ neurons.
+
+\paragraph{4. Narrowing the cone kills the counterexample.}  The certified $p=3$, $n=11$ network evaluated with a
+half-angle of $59^\circ$ instead of $60^\circ$ has cone efficiency $-218$ (and $-2438$ at $50^\circ$), because its
+interference sits on the cone edges.
+
+\paragraph{5. Fewer than $\nu$ neurons.}  \input{interference_minwidth}
+
+\paragraph{6. Cross-feature compensation.}  Conjecture~\ref{conj:pp} can only fail through features that use each
+other's slack.  We started from the IF network with the programme allocation $y^\star$ (several features), added noise,
+optionally deleted neurons, and optimised the true margin over all $p^n$ inputs (general, not slot-symmetric networks):
+\input{interference_xfeat}

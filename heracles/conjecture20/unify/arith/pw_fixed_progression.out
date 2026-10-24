@@ -1,0 +1,6 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+progression p=1009 N=5 t=0.825: R = 0.87211
+progression p=1009 N=10 t=0.825: R = 0.94468
+progression p=1009 N=20 t=0.825: R = 0.98084
+progression p=1009 N=40 t=0.825: R = 1.00709
+progression p=1009 N=80 t=0.825: R = 1.02406

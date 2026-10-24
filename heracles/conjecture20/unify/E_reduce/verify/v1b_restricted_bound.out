@@ -1,0 +1,11 @@
+S=[1] lam=[1.138 1.328] b=2.00: best h_lam/(B_p Gamma^{lam,(S)} P^s) = 0.408153
+S=[2] lam=[0.733 0.721] b=2.40: best h_lam/(B_p Gamma^{lam,(S)} P^s) = 0.638252
+S=[1, 2] lam=[0.779 1.386] b=3.00: best h_lam/(B_p Gamma^{lam,(S)} P^s) = 0.768995
+S=[1] lam=[0.718 0.829] b=2.00: best h_lam/(B_p Gamma^{lam,(S)} P^s) = 0.407808
+S=[2] lam=[0.781 1.266] b=2.70: best h_lam/(B_p Gamma^{lam,(S)} P^s) = 0.818398
+S=[1, 2] lam=[1.052 1.308] b=2.00: best h_lam/(B_p Gamma^{lam,(S)} P^s) = 0.357182
+S=[1] lam=[0.908 1.085] b=2.40: best h_lam/(B_p Gamma^{lam,(S)} P^s) = 0.638535
+S=[2] lam=[0.885 1.056] b=3.00: best h_lam/(B_p Gamma^{lam,(S)} P^s) = 0.999699
+S=[1, 2] lam=[1.372 1.221] b=2.00: best h_lam/(B_p Gamma^{lam,(S)} P^s) = 0.338429
+S=[1] lam=[0.737 1.331] b=2.70: best h_lam/(B_p Gamma^{lam,(S)} P^s) = 0.819154
+max ratio 0.999699 (must be <= 1)

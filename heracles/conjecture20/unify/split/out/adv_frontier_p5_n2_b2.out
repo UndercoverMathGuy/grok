@@ -1,0 +1,5 @@
+c = 0.800: best R_Q = 1.03333 with gamma/gamma_IF = 0.8032496022962211
+c = 0.850: best R_Q = 0.99999 with gamma/gamma_IF = 0.9999738212054456
+c = 0.900: best R_Q = 0.99998 with gamma/gamma_IF = 0.9999730668534885
+c = 0.950: best R_Q = 0.99997 with gamma/gamma_IF = 0.9999643347182505
+c = 0.990: best R_Q = 0.99999 with gamma/gamma_IF = 0.9999771375063341

@@ -1,0 +1,13 @@
+rep 0: gamma/(pi B kappa_min) = 0.999911   ghost share of squared norm = 1.841e-06
+rep 1: gamma/(pi B kappa_min) = 0.999931   ghost share of squared norm = 8.912e-06
+rep 2: gamma/(pi B kappa_min) = -0.000000   ghost share of squared norm = 1.000e+00
+rep 3: gamma/(pi B kappa_min) = -0.000000   ghost share of squared norm = 1.000e+00
+rep 4: gamma/(pi B kappa_min) = 0.999998   ghost share of squared norm = 6.334e-07
+rep 5: gamma/(pi B kappa_min) = 0.999961   ghost share of squared norm = 5.004e-07
+rep 6: gamma/(pi B kappa_min) = 0.999965   ghost share of squared norm = 1.546e-08
+rep 7: gamma/(pi B kappa_min) = -0.000000   ghost share of squared norm = 1.000e+00
+rep 8: gamma/(pi B kappa_min) = 0.999996   ghost share of squared norm = 2.620e-07
+rep 9: gamma/(pi B kappa_min) = -0.000000   ghost share of squared norm = 1.000e+00
+rep 10: gamma/(pi B kappa_min) = 0.999994   ghost share of squared norm = 9.263e-07
+rep 11: gamma/(pi B kappa_min) = 0.999968   ghost share of squared norm = 2.701e-11
+SUMMARY p=5 w1=4 wg=3: best gamma/(pi B_p kappa_min) over clean-support {1} class-C ghost networks = 0.999998

@@ -1,0 +1,2 @@
+(1) Cantor: c(1)-c(0) = 1.000000; max difference quotient at 0 over h=3^-k: [2.25, 11.391, 57.665, 291.929] (grows like (3/2)^k: D^+ = +inf)
+(2) measure(U) = 3.33e-03 <= eps/C = 3.33e-03;  max_{a<c} L(c)-L(a) = 9.75e-04 <= eps = 0.01

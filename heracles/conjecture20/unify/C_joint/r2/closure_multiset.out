@@ -1,0 +1,2 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+networks meeting both hypotheses: 41; max h / sum at kappa(d*) = 0.94435 (<= 1); max violation of h <= sum Re A kappa - sigma (skew<=0): -3.07e-02 (<= 0); small-interference but skewed: 259
